@@ -1,4 +1,5 @@
 import Sidebar from "./components/navigation/Sidebar";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
@@ -6,7 +7,12 @@ function App() {
       <div className="sidebar-container">
         <Sidebar />
       </div>
-      <div></div>
+      <BrowserRouter>
+        <Routes>
+          {/* TODO: Insert routes */}
+          {/* TODO: Insert routes */}
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
