@@ -1,6 +1,7 @@
 body {
     margin: 0;
     background-color:#FAFAFA;
+    font-family: montserrat, serif;
 }
 
 .app-container {
@@ -9,7 +10,32 @@ body {
 
 .sidebar-container {
     height: 100vh;
-    width: 281px;
+    width: 282px;
     background-color: #FFF;
     border-right: solid 1.5px #DEDEDE;
+    display: flex;
+}
+
+
+/**************************
+     SIDEBAR NAVIGATION
+  *************************/
+
+.profile-name-badge {
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    width: 240px;
+    height: 75px;
+    background-color: #C0C3C5;
+    margin-left: 16px;
+    margin-top: 25px;
+    font-weight: 500;
+    font-size: 14px;
+    color: #353535;
+    border-radius: 12px;
+}
+
+.profile-name-badge img {
+    margin: 0 10px 0 20px;
 }
