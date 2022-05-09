@@ -8,6 +8,12 @@ body {
     display: flex;
 }
 
+
+
+/**************************
+     SIDEBAR NAVIGATION
+  *************************/
+
 .sidebar-container {
     height: 100vh;
     width: 282px;
@@ -16,10 +22,6 @@ body {
     display: flex;
 }
 
-
-/**************************
-     SIDEBAR NAVIGATION
-  *************************/
 
 .profile-name-badge {
     display: flex;
@@ -38,4 +40,8 @@ body {
 
 .profile-name-badge img {
     margin: 0 10px 0 20px;
+}
+
+.sidebar-company-logo {
+    margin: 5px 0 0 5px;
 }
