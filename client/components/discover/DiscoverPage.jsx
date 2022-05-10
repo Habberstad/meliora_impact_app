@@ -2,11 +2,12 @@ import "../../global-styles.css";
 import { npos } from "../../data/npos";
 import { useState } from "react";
 
-function NpoCard({ npo: { name, description } }) {
+function NpoCard({ npo: { name, description, category } }) {
   return (
     <div>
-      <h3>{name}</h3>
-      <p>{description}</p>
+      <h3>Name: {name}</h3>
+      <p>Category: {category}</p>
+      <p>Description: {description}</p>
     </div>
   );
 }
