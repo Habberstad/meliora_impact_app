@@ -1,3 +1,3 @@
-const Article = () => <div>Article </div>;
+const Article = () => <div>Article balla </div>;
 
 export default Article;
