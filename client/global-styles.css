@@ -163,3 +163,19 @@ body {
 /**************************
 
   *************************/
+
+/**************************
+    Login Page
+  *************************/
+.login-left-card {
+    position: absolute;
+    width: 464px;
+    height: calc(100% - 34px);
+    margin-left: 25px;
+    margin-top: 17px;
+    margin-bottom: 17px;
+
+    background: #FFFFFF;
+    box-shadow: 0 0 50px rgba(145, 158, 171, 0.2);
+    border-radius: 16px;
+}
