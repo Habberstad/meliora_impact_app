@@ -71,6 +71,14 @@ body {
     font-size: 14px;
 }
 
+.nav-item-selected {
+    background-color:#EFD3FF;
+    color: #A400FF;
+    cursor: pointer;
+    font-weight: 600;
+    border-right: solid 3px #a400ff;
+}
+
 .nav-item:hover {
     background-color:#EFD3FF;
     color: #A400FF;
