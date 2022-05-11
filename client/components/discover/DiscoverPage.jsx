@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom";
+
 const DiscoverPage = () => {
-  return <div>Discover Page</div>;
+  return <div>TEST ARTICLES</div>;
 };
 
 export default DiscoverPage;
