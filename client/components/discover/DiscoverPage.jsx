@@ -1,37 +1,12 @@
 import "../../global-styles.css";
 import { npos } from "../../data/npos";
 import { useState } from "react";
-import { Button, ButtonGroup, Card, CardActionArea, CardContent, CardMedia, Grid, Typography } from "@mui/material";
-import waterImg from "../discover/water.png";
 import * as PropTypes from "prop-types";
+import { ListNpo } from "./ListNpo";
+import { KeywordFilter } from "./KeywordFilter";
+import { CategoryFilter } from "./CategoryFilter";
 
 
-function KeywordFilter(props) {
-  return (
-    <div>
-      <label>Search: </label>
-      <input type={"text"} onChange={props.onChange} />
-    </div>
-  );
-}
-
-
-function CategoryFilter(props) {
-  return <>
-    <label>Filter by category: </label>
-    <ButtonGroup value={"4"} variant="contained" aria-label="outlined primary button group"
-                 onClick={props.onClick}>
-      <Button value={""} variant="contained">All</Button>
-      <Button value={"water"} variant="contained">Water</Button>
-      <Button value={"education"} variant="contained">Education</Button>
-      <Button value={"ocean"} variant="contained">Ocean</Button>
-      <Button value={"health"} variant="contained">Health</Button>
-    </ButtonGroup>
-  </>;
-}
-
-// hva gjør denne?
-CategoryFilter.propTypes = { onClick: PropTypes.any };
 const DiscoverPage = () => {
   const [categoryFilter, setCategoryFilter] = useState("");
   const [searchString, setSearchString] = useState("");
@@ -39,75 +14,6 @@ const DiscoverPage = () => {
 
   function onclickHandler(event) {
     setCategoryFilter(event.target.value);
-  }
-
-  function FilterNpoByCategory() {
-    if (categoryFilter === "") {
-      return data;
-    } else {
-      return data.filter(npo => npo.category === categoryFilter);
-    }
-  }
-
-
-  function ListNpo() {
-    let testList = FilterNpoByCategory();
-
-    if (searchString !== "") {
-      testList = testList.filter((npo) =>
-        npo.name.toLowerCase().includes(searchString.toLowerCase())
-        || npo.description.toLowerCase().includes(searchString.toLowerCase())
-        || npo.category.toLowerCase().includes(searchString.toLowerCase())
-      );
-    }
-
-    const numberOfMatches = testList.length;
-    if (numberOfMatches === 0) {
-      return <div>No match</div>;
-    }
-
-    return (
-      <div>
-        <div>(Search result: {numberOfMatches})</div>
-
-        <Grid container spacing={2}>
-
-          {testList.map((npo) => (
-            <NpoCard key={npo.id} npo={npo} />
-          ))}
-        </Grid>
-      </div>
-    );
-  }
-
-  function NpoCard({ npo: { name, description, category } }) {
-    return (
-      <Grid item xs={3}>
-        <Card>
-          <CardContent>
-            <CardActionArea>
-              <CardMedia
-                component="img"
-                image={waterImg}
-                alt="background-img"
-              />
-              <Typography variant="h5" component="div">
-                {name}
-              </Typography>
-              <Typography variant={"string"}>
-                Description: {description}
-              </Typography>
-              <br />
-              <br />
-              <Typography variant={"string"}>
-                (Category: {category})
-              </Typography>
-            </CardActionArea>
-          </CardContent>
-
-        </Card>
-      </Grid>
-    );
   }
 
   function handleSearchInput(event) {
@@ -130,7 +36,7 @@ const DiscoverPage = () => {
       <KeywordFilter searchString={searchString} onChange={handleSearchInput} />
       <br />
       <br />
-      <ListNpo />
+      <ListNpo data={data} category={categoryFilter} searchWord={searchString} />
     </div>
   );
 };
