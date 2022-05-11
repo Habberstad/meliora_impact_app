@@ -61,13 +61,22 @@ const DiscoverPage = () => {
       );
     }
 
+    const numberOfMatches = testList.length;
+    if (numberOfMatches === 0) {
+      return <div>No match</div>;
+    }
 
     return (
-      <Grid container spacing={2}>
-        {testList.map((npo) => (
-          <NpoCard key={npo.id} npo={npo} />
-        ))}
-      </Grid>
+      <div>
+        <div>(Search result: {numberOfMatches})</div>
+
+        <Grid container spacing={2}>
+
+          {testList.map((npo) => (
+            <NpoCard key={npo.id} npo={npo} />
+          ))}
+        </Grid>
+      </div>
     );
   }
 
