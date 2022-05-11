@@ -50,14 +50,21 @@ const ArticlesPage = () => {
 
       <Grid item xs={5}>
         <img width={"100%"} height={"100%"} src={logo}/>
+        <a>11. December 2021</a>
+        <a>We’ve started our work in Burkina Faso. With your help we can provide clean water to several villages</a>
       </Grid>
 
       <Grid item xs={3}>
         <img width={"100%"} src={logo2}/>
+        <a>11. December 2021</a>
+        <a>A village in Peru has now access to clean water.
+          We thank our amazing voulenteers</a>
       </Grid>
 
       <Grid item xs={3}>
         <img width={"100%"} src={logo2}/>
+        <a>11. December 2021</a>
+        <a>We’re happy to say that our voluenteers have arrived in Peru. Exciting times!</a>
       </Grid>
 
 
