@@ -7,9 +7,10 @@ import ArticlesIcon from "../../media/articles_icon.png";
 import DiscoverIcon from "../../media/discover_icon.png";
 import WrappedIcon from "../../media/wrapped_icon.png";
 import TemplatesIcon from "../../media/templates_icon.png";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
-  const [isSelected, setIsSelected] = useState(true);
+  const [isSelected, setIsSelected] = useState(null);
 
   const handleSelectedItem = () => {};
 
@@ -23,30 +24,48 @@ const Sidebar = () => {
         <div>Test Persson</div> {/* TODO: Replace with username */}
       </div>
       <div className="nav-item-container">
-        <div className="nav-item">
-          <img className="icon-style" src={DashboardIcon} alt="dashboard" />
-          <div>Dashboard</div>
-        </div>
-        <div className="nav-item">
-          <img className="icon-style" src={MyNonProfitsIcon} alt="dashboard" />
-          <div>My Non-Profits</div>
-        </div>
-        <div className="nav-item">
-          <img className="icon-style" src={ArticlesIcon} alt="dashboard" />
-          <div>Articles</div>
-        </div>
-        <div className="nav-item">
-          <img className="icon-style" src={DiscoverIcon} alt="dashboard" />
-          <div>Discover Non-Profits</div>
-        </div>
-        <div className="nav-item">
-          <img className="icon-style" src={WrappedIcon} alt="dashboard" />
-          <div>Meliora Wrapped</div>
-        </div>
-        <div className="nav-item">
-          <img className="icon-style" src={TemplatesIcon} alt="dashboard" />
-          <div>Social Media Templates</div>
-        </div>
+        <Link to={"/"} style={{ textDecoration: "none" }}>
+          <div className="nav-item">
+            <img className="icon-style" src={DashboardIcon} alt="dashboard" />
+            <div>Dashboard</div>
+          </div>
+        </Link>
+
+        <Link to={"my-non-profits"} style={{ textDecoration: "none" }}>
+          <div className="nav-item">
+            <img
+              className="icon-style"
+              src={MyNonProfitsIcon}
+              alt="dashboard"
+            />
+            <div>My Non-Profits</div>
+          </div>
+        </Link>
+
+        <Link to={"/articles"} style={{ textDecoration: "none" }}>
+          <div className="nav-item">
+            <img className="icon-style" src={ArticlesIcon} alt="dashboard" />
+            <a>Articles</a>
+          </div>
+        </Link>
+        <Link to={"/discover"} style={{ textDecoration: "none" }}>
+          <div className="nav-item">
+            <img className="icon-style" src={DiscoverIcon} alt="dashboard" />
+            <div>Discover Non-Profits</div>
+          </div>
+        </Link>
+        <Link to={"/wrapped"} style={{ textDecoration: "none" }}>
+          <div className="nav-item">
+            <img className="icon-style" src={WrappedIcon} alt="dashboard" />
+            <div>Meliora Wrapped</div>
+          </div>
+        </Link>
+        <Link to={"/templates"} style={{ textDecoration: "none" }}>
+          <div className="nav-item">
+            <img className="icon-style" src={TemplatesIcon} alt="dashboard" />
+            <div>Social Media Templates</div>
+          </div>
+        </Link>
       </div>
     </div>
   );
