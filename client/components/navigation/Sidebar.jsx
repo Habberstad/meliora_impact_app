@@ -9,7 +9,7 @@ import WrappedIcon from "../../media/wrapped_icon.png";
 import TemplatesIcon from "../../media/templates_icon.png";
 
 const Sidebar = () => {
-  const [isSelected, setIsSelected] = useState(null);
+  const [isSelected, setIsSelected] = useState(true);
 
   const handleSelectedItem = () => {};
 
