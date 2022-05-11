@@ -1,22 +1,14 @@
 import "../../global-styles.css";
 import { npos } from "../../data/npos";
 import { useState } from "react";
+import { Button, ButtonGroup, Card, CardActionArea, CardContent, CardMedia, Grid, Typography } from "@mui/material";
+import waterImg from "../discover/water.png";
 
-function NpoCard({ npo: { name, description, category } }) {
-  return (
-    <div>
-      <h3>Name: {name}</h3>
-      <p>Category: {category}</p>
-      <p>Description: {description}</p>
-    </div>
-  );
-}
 
 function KeywordFilter(props) {
   return (
     <div>
       <label>Search: </label>
-      <div>test: {props.searchString}</div>
       <input type={"text"} onChange={props.onChange} />
     </div>
   );
@@ -25,14 +17,13 @@ function KeywordFilter(props) {
 const DiscoverPage = () => {
   const [categoryFilter, setCategoryFilter] = useState("");
   const [searchString, setSearchString] = useState("");
-  const data = npos;
+  const [data, setData] = useState(npos);
 
-  function onclickHandler(category) {
-    setCategoryFilter(category);
+  function onclickHandler(event) {
+    setCategoryFilter(event.target.value);
   }
 
-  function listNpoByCategory() {
-
+  function FilterNpoByCategory() {
     if (categoryFilter === "") {
       return data;
     } else {
@@ -42,19 +33,53 @@ const DiscoverPage = () => {
 
 
   function ListNpo() {
-    let testList = listNpoByCategory();
+    let testList = FilterNpoByCategory();
 
-    if (searchString !== ""){
-      testList = testList.filter((npo) => npo.name.toLowerCase().includes(searchString.toLowerCase()));
+    if (searchString !== "") {
+      testList = testList.filter((npo) =>
+        npo.name.toLowerCase().includes(searchString.toLowerCase())
+        || npo.description.toLowerCase().includes(searchString.toLowerCase())
+        || npo.category.toLowerCase().includes(searchString.toLowerCase())
+      );
     }
 
 
     return (
-      <div className={"npo-list-container"}>
+      <Grid container spacing={2}>
         {testList.map((npo) => (
           <NpoCard key={npo.id} npo={npo} />
         ))}
-      </div>
+      </Grid>
+    );
+  }
+
+  function NpoCard({ npo: { name, description, category } }) {
+    return (
+      <Grid item xs={3}>
+        <Card>
+          <CardContent>
+            <CardActionArea>
+              <CardMedia
+                component="img"
+                image={waterImg}
+                alt="background-img"
+              />
+              <Typography variant="h5" component="div">
+                {name}
+              </Typography>
+              <Typography variant={"string"}>
+                Description: {description}
+              </Typography>
+              <br />
+              <br />
+              <Typography variant={"string"}>
+                (Category: {category})
+              </Typography>
+            </CardActionArea>
+          </CardContent>
+
+        </Card>
+      </Grid>
     );
   }
 
@@ -72,16 +97,20 @@ const DiscoverPage = () => {
           omnium sea at.</p>
       </div>
 
-      <h3>filter on: {categoryFilter}</h3>
-
-      <div className={"filter-bar"}>
-        <button onClick={() => onclickHandler("")}>All</button>
-        <button onClick={() => onclickHandler("water")}>Water</button>
-        <button onClick={() => onclickHandler("education")}>Education</button>
-        <button onClick={() => onclickHandler("ocean")}>Ocean</button>
-        <button onClick={() => onclickHandler("health")}>Health</button>
-      </div>
+      <label>Filter by category: </label>
+      <ButtonGroup value={"4"} variant="contained" aria-label="outlined primary button group"
+                   onClick={onclickHandler.bind(this)}>
+        <Button value={""} variant="contained">All</Button>
+        <Button value={"water"} variant="contained">Water</Button>
+        <Button value={"education"} variant="contained">Education</Button>
+        <Button value={"ocean"} variant="contained">Ocean</Button>
+        <Button value={"health"} variant="contained">Health</Button>
+      </ButtonGroup>
+      <br />
+      <br />
       <KeywordFilter searchString={searchString} onChange={handleSearchInput} />
+      <br />
+      <br />
       <ListNpo />
     </div>
   );
