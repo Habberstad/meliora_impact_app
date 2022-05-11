@@ -3,6 +3,7 @@ import { npos } from "../../data/npos";
 import { useState } from "react";
 import { Button, ButtonGroup, Card, CardActionArea, CardContent, CardMedia, Grid, Typography } from "@mui/material";
 import waterImg from "../discover/water.png";
+import * as PropTypes from "prop-types";
 
 
 function KeywordFilter(props) {
@@ -14,6 +15,23 @@ function KeywordFilter(props) {
   );
 }
 
+
+function CategoryFilter(props) {
+  return <>
+    <label>Filter by category: </label>
+    <ButtonGroup value={"4"} variant="contained" aria-label="outlined primary button group"
+                 onClick={props.onClick}>
+      <Button value={""} variant="contained">All</Button>
+      <Button value={"water"} variant="contained">Water</Button>
+      <Button value={"education"} variant="contained">Education</Button>
+      <Button value={"ocean"} variant="contained">Ocean</Button>
+      <Button value={"health"} variant="contained">Health</Button>
+    </ButtonGroup>
+  </>;
+}
+
+// hva gjør denne?
+CategoryFilter.propTypes = { onClick: PropTypes.any };
 const DiscoverPage = () => {
   const [categoryFilter, setCategoryFilter] = useState("");
   const [searchString, setSearchString] = useState("");
@@ -97,15 +115,7 @@ const DiscoverPage = () => {
           omnium sea at.</p>
       </div>
 
-      <label>Filter by category: </label>
-      <ButtonGroup value={"4"} variant="contained" aria-label="outlined primary button group"
-                   onClick={onclickHandler.bind(this)}>
-        <Button value={""} variant="contained">All</Button>
-        <Button value={"water"} variant="contained">Water</Button>
-        <Button value={"education"} variant="contained">Education</Button>
-        <Button value={"ocean"} variant="contained">Ocean</Button>
-        <Button value={"health"} variant="contained">Health</Button>
-      </ButtonGroup>
+      <CategoryFilter onClick={onclickHandler.bind(this)} />
       <br />
       <br />
       <KeywordFilter searchString={searchString} onChange={handleSearchInput} />
