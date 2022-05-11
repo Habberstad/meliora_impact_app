@@ -12,6 +12,16 @@ function NpoCard({ npo: { name, description, category } }) {
   );
 }
 
+function KeywordFilter(props) {
+  return (
+    <div>
+      <label>Search: </label>
+      <div>test: {props.searchString}</div>
+      <input type={"text"} onChange={props.onChange} />
+    </div>
+  );
+}
+
 const DiscoverPage = () => {
   const [categoryFilter, setCategoryFilter] = useState("");
   const [searchString, setSearchString] = useState("");
@@ -30,27 +40,26 @@ const DiscoverPage = () => {
     }
   }
 
-  function filterNpoByKeyword(list) {
-    if(searchString === ""){
-      return list
-    }
-    return list.contains(searchString)
-  }
 
   function ListNpo() {
-    const testList = listNpoByCategory();
+    let testList = listNpoByCategory();
+
+    if (searchString !== ""){
+      testList = testList.filter((npo) => npo.name.toLowerCase().includes(searchString.toLowerCase()));
+    }
+
 
     return (
       <div className={"npo-list-container"}>
         {testList.map((npo) => (
           <NpoCard key={npo.id} npo={npo} />
-        ))};
+        ))}
       </div>
     );
   }
 
   function handleSearchInput(event) {
-    setSearchString(event.target.value)
+    setSearchString(event.target.value);
   }
 
   return (
@@ -72,11 +81,7 @@ const DiscoverPage = () => {
         <button onClick={() => onclickHandler("ocean")}>Ocean</button>
         <button onClick={() => onclickHandler("health")}>Health</button>
       </div>
-      <div>
-        <label>Search: </label>
-        <div>test: {searchString}</div>
-        <input type={"text"} onChange={handleSearchInput} />
-      </div>
+      <KeywordFilter searchString={searchString} onChange={handleSearchInput} />
       <ListNpo />
     </div>
   );
