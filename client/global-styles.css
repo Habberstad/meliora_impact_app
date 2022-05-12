@@ -107,7 +107,7 @@ body {
     display: flex;
     flex-direction: column;
 
-    width: 464px;
+    width: 600px;
     height: calc(100% - 34px);
     margin-left: 25px;
     margin-top: 17px;
@@ -144,7 +144,13 @@ body {
 }
 .login-content {
     border: 2px solid red;
-
     height: 500px;
     width: 50%;
+}
+.login-form {
+    width: 100%;
+}
+
+.form-button .MuiButton-root {
+    background-color: black;
 }
