@@ -1,15 +1,28 @@
 import { Button, ButtonGroup } from "@mui/material";
+import MyNonProfitsIcon from "../../media/my_npo_icon.png";
 
 export function CategoryFilter(props) {
   return <div>
     <label>Filter by category: </label>
-    <ButtonGroup value={"4"} variant="contained" aria-label="outlined primary button group"
+    <ButtonGroup variant="contained" aria-label="outlined primary button group"
                  onClick={props.onClick}>
-      <Button value={""} variant="contained">All</Button>
-      <Button value={"water"} variant="contained">Water</Button>
-      <Button value={"education"} variant="contained">Education</Button>
-      <Button value={"ocean"} variant="contained">Ocean</Button>
-      <Button value={"health"} variant="contained">Health</Button>
+      <Button color="inherit" value={""} variant="contained">
+        All
+      </Button>
+      <Button color="inherit" value={"water"} variant="contained">
+        <img
+          src={MyNonProfitsIcon}
+          alt="icon-img"
+        />
+        Water
+      </Button>
+      <Button color="inherit" value={"knowledge"} variant="contained">
+        <img
+          src={MyNonProfitsIcon}
+          alt="icon-img"
+        />
+        Knowledge
+      </Button>
     </ButtonGroup>
   </div>;
 }
