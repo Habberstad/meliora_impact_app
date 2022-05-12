@@ -20,6 +20,9 @@ body {
     background-color: #FFF;
     border-right: solid 1.5px #DEDEDE;
     display: flex;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
 }
 
 
