@@ -11,9 +11,8 @@ const DiscoverPage = () => {
   const [searchString, setSearchString] = useState("");
   const [data, setData] = useState(npos);
 
-  function onclickHandler(event) {
-    console.log(event.target.value);
-    setCategoryFilter(event.target.value);
+  function categorySelectHandler(selectedCategory) {
+    setCategoryFilter(selectedCategory);
   }
 
   function handleSearchInput(event) {
@@ -23,8 +22,9 @@ const DiscoverPage = () => {
   return (
     <div className={"discover-page-container"}>
 
+
       <Top />
-      <CategoryFilter onClick={onclickHandler.bind(this)} />
+      <CategoryFilter onClick={categorySelectHandler} />
       <br /><br />
       <KeywordFilter searchString={searchString} onChange={handleSearchInput} />
       <br /><br />
