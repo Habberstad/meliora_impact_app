@@ -1,7 +1,7 @@
 import "../../global-styles.css";
 import { npos } from "../../data/npos";
 import { useState } from "react";
-import { ListNpo } from "./ListNpo";
+import { ListNpo, NpoCard } from "./ListNpo";
 import { KeywordFilter } from "./KeywordFilter";
 import { CategoryFilter } from "./CategoryFilter";
 
@@ -10,8 +10,10 @@ const DiscoverPage = () => {
   const [categoryFilter, setCategoryFilter] = useState("");
   const [searchString, setSearchString] = useState("");
   const [data, setData] = useState(npos);
+  const user1 = {name: "john", preferences:"water"}
 
   function onclickHandler(event) {
+    console.log(event.target.value)
     setCategoryFilter(event.target.value);
   }
 
@@ -27,6 +29,7 @@ const DiscoverPage = () => {
         <p><strong>Lorem</strong> ipsum dolor sit amet, sed ea solum movet scriptorem, eos dolore evertitur ei, ferri
           omnium sea at.</p>
       </div>
+
       <br /><br />
       <CategoryFilter onClick={onclickHandler.bind(this)} />
       <br /><br />
