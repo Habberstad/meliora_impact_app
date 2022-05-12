@@ -21,6 +21,36 @@ function filterBySearchWord(list, searchWord) {
   }
 }
 
+
+export function NpoCard({ npo: { name, description, category } }) {
+  return (
+
+    <Card className={"npoCardStyle"} sx={{ borderRadius: "25px" }} >
+      <CardContent>
+        <CardActionArea>
+          <CardMedia
+            component="img"
+            image={waterImg}
+            alt="background-img"
+          />
+          <Typography variant="h5" component="div">
+            {name}
+          </Typography>
+          <Typography variant={"string"}>
+            {description}
+          </Typography>
+          <br />
+          <br />
+          <Typography variant={"string"}>
+            (Category: {category})
+          </Typography>
+        </CardActionArea>
+      </CardContent>
+    </Card>
+
+  );
+}
+
 export function ListNpo(props) {
   let filteredList = FilterNpoByCategory(props.data, props.category);
   filteredList = filterBySearchWord(filteredList, props.searchWord);
@@ -43,7 +73,7 @@ export function ListNpo(props) {
         >
 
         {filteredList.map((npo) => (
-            <Grid key={npo.id} item xs={3} lg={2} xl={1}>
+            <Grid key={npo.id} item>
               <NpoCard  npo={npo} />
             </Grid>
           ))}
@@ -53,38 +83,3 @@ export function ListNpo(props) {
   }
 }
 
-var npoCardStyle = {
-  display: 'block',
-  width: '300px',
-  height: '400px'
-}
-
-export function NpoCard({ npo: { name, description, category } }) {
-  return (
-
-    <Card style={npoCardStyle}>
-      <CardContent>
-        <CardActionArea>
-          <CardMedia
-            component="img"
-            image={waterImg}
-            alt="background-img"
-          />
-          <Typography variant="h5" component="div">
-            {name}
-          </Typography>
-          <Typography variant={"string"}>
-            {description}
-          </Typography>
-          <br />
-          <br />
-          <Typography variant={"string"}>
-            (Category: {category})
-          </Typography>
-        </CardActionArea>
-      </CardContent>
-
-    </Card>
-
-  );
-}

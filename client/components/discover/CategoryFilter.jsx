@@ -1,28 +1,33 @@
-import { Button, ButtonGroup } from "@mui/material";
+import { Button, ButtonGroup, Grid, Typography } from "@mui/material";
 import MyNonProfitsIcon from "../../media/my_npo_icon.png";
+import { Grid3x3 } from "@mui/icons-material";
 
 export function CategoryFilter(props) {
   return <div>
-    <label>Filter by category: </label>
-    <ButtonGroup variant="contained" aria-label="outlined primary button group"
-                 onClick={props.onClick}>
-      <Button color="inherit" value={""} variant="contained">
-        All
-      </Button>
-      <Button color="inherit" value={"water"} variant="contained">
-        <img
-          src={MyNonProfitsIcon}
-          alt="icon-img"
-        />
-        Water
-      </Button>
-      <Button color="inherit" value={"knowledge"} variant="contained">
-        <img
-          src={MyNonProfitsIcon}
-          alt="icon-img"
-        />
-        Knowledge
-      </Button>
-    </ButtonGroup>
+      <Grid container spacing={2} justify="center"   >
+        <Grid item>
+          <Button color="inherit" value={""} variant="contained">
+            All
+          </Button>
+        </Grid>
+        <Grid item>
+          <Button color="inherit" value={"water"} variant="contained">
+            <img
+              src={MyNonProfitsIcon}
+              alt="icon-img"
+            />
+            Water
+          </Button>
+        </Grid>
+        <Grid item>
+          <Button color="inherit" value={"knowledge"} variant="contained">
+            <img
+              src={MyNonProfitsIcon}
+              alt="icon-img"
+            />
+            Knowledge
+          </Button>
+        </Grid>
+      </Grid>
   </div>;
 }

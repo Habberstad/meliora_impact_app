@@ -179,3 +179,25 @@ body {
     box-shadow: 0 0 50px rgba(145, 158, 171, 0.2);
     border-radius: 16px;
 }
+
+
+
+/**************************
+    Discover Page
+  *************************/
+.discover-page-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px;
+}
+
+.npoCardStyle  {
+    display: block;
+    width: 450px;
+    height: 500px;
+}
+
+/**************************
+
+  *************************/
