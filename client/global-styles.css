@@ -90,12 +90,32 @@ body {
 /************************
          Articles
 *************************/
+
+.containerContent{
+    display: flex;
+    flex-direction: column;
+    background: red;
+}
+
+.contentText{
+    position: absolute;
+    max-width: 100px;
+    color: white;
+    background: pink;
+    overflow-wrap: break-word;
+    top: 40%;
+}
+
+#bilde{
+    width: 100%;
+}
 #filter_articles{
 
 }
 
 #articles-container{
-
+    max-height: 100vh;
+    max-width: 100vw;
 }
 
 #articles-recommendation-container{

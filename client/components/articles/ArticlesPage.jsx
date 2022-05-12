@@ -1,13 +1,14 @@
-import Grid from "@mui/material/Grid";
-
+import { articles } from "../../data/articles";
 import logo from '../../media/article-header.png';
 import logo2 from '../../media/article-header.png';
+import { Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } from "@mui/material";
+import { useState } from "react";
+
 const ArticlesPage = () => {
+  const [articleList, setArticleList] = useState(articles);
+
   return (
   <div>
-
-
-
     <h1>Meliora Articlels</h1>
 
     <Grid container direction="row" spacing={1} justifyContent="center">
@@ -19,30 +20,54 @@ const ArticlesPage = () => {
 
     <div id={"articles-container"}>
 
-    <div id={"test"}>
-      <img src={logo}/>
-      <a>11. December 2021</a>
-      <a>We’ve started our work in Burkina Faso. With your help we can provide clean water to several villages</a>
-    </div>
+      <Grid
+        container
+        direction={"row"}
+        spacing={2}
+        justifyContent={"space-evenly"}
+        alignContent={"center"}
+        marginLeft={"10px"}
+        marginRight={"10px"}
+      >
 
-    <div id={"test"}>
-      <img src={logo2}/>
-      <a>11. December 2021</a>
-      <a>We’ve started our work in Burkina Faso. With your help we can provide clean water to several villages</a>
-    </div>
+        <Grid item container xs={6}>
+          <div className={"containerContent"}>
+            <img src={articleList[0].image} height={"100%"} id={"bilde"} alt={"das"}/>
+            <div className={"contentText"}>{articleList[0].content1}</div>
+            <div className={"contentText"}>{articleList[0].publishingDate}</div>
+            <div className={"contentText"}>{articleList[0].npoName}</div>
+          </div>
+        </Grid>
 
-      <div id={"test"}>
-      <img src={logo2}/>
-        <a>11. December 2021</a>
-      <a>A village in Peru has now access to clean </a>
-    </div>
+        <Grid item container xs={6} spacing={2}>
+            <Grid item xs={12}>
+              <div className={"containerContent"}>
+                <img src={articleList[1].image} id={"bilde"} alt={"das"}/>
+                <div className={"cardContentText"}>{articleList[1].content1}</div>
+                <div className={"cardContentText"}>{articleList[1].publishingDate}</div>
+                <div className={"cardContentText"}>{articleList[1].npoName}</div>
+              </div>
+            </Grid>
 
-      <div id={"test"}>
-      <img src={logo2}/>
-        <a>11. December 2021</a>
-      <a>We’re happy to say that our voluenteers have arrived in Peru. Exciting times!</a>
-    </div>
+            <Grid item xs={6}>
+              <div className={"containerContent"}>
+                <img src={articleList[2].image} id={"bilde"} alt={"das"}/>
+                <div className={"cardContentText"}>{articleList[2].content1}</div>
+                <div className={"cardContentText"}>{articleList[2].publishingDate}</div>
+                <div className={"cardContentText"}>{articleList[2].npoName}</div>
+              </div>
+            </Grid>
 
+            <Grid item xs={6}>
+              <div className={"containerContent"}>
+                <img src={articleList[3].image} id={"bilde"} alt={"das"}/>
+                <div className={"cardContentText"}>{articleList[3].content1}</div>
+                <div className={"cardContentText"}>{articleList[3].publishingDate}</div>
+                <div className={"cardContentText"}>{articleList[3].npoName}</div>
+              </div>
+            </Grid>
+        </Grid>
+      </Grid>
 
     </div>
     <h1>Articles You Should Check Out</h1>
@@ -63,7 +88,6 @@ const ArticlesPage = () => {
 
       <Grid item xs={3}>
         <img width={"100%"} src={logo2}/>
-        <a>11. December 2021</a>
         <a>We’re happy to say that our voluenteers have arrived in Peru. Exciting times!</a>
       </Grid>
 
