@@ -1,13 +1,12 @@
 body {
     margin: 0;
-    background-color:#FAFAFA;
+    background-color: #FAFAFA;
     font-family: montserrat, serif;
 }
 
 .app-container {
     display: flex;
 }
-
 
 
 /**************************
@@ -25,7 +24,7 @@ body {
 
 .profile-name-badge {
     display: flex;
-    justify-content:flex-start;
+    justify-content: flex-start;
     align-items: center;
     width: 240px;
     height: 75px;
@@ -64,7 +63,7 @@ body {
     display: flex;
     background-color: #fff;
     width: 280px;
-    height:50px;
+    height: 50px;
     align-items: center;
     font-weight: 500;
     color: #637381;
@@ -72,7 +71,7 @@ body {
 }
 
 .nav-item-selected {
-    background-color:#EFD3FF;
+    background-color: #EFD3FF;
     color: #A400FF;
     cursor: pointer;
     font-weight: 600;
@@ -80,7 +79,7 @@ body {
 }
 
 .nav-item:hover {
-    background-color:#EFD3FF;
+    background-color: #EFD3FF;
     color: #A400FF;
     cursor: pointer;
     font-weight: 600;
@@ -181,21 +180,44 @@ body {
 }
 
 
-
 /**************************
     Discover Page
   *************************/
-.discover-page-container{
+.discover-page-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 100px;
 }
 
-.npoCardStyle  {
+.npoCardStyle {
     display: block;
     width: 450px;
-    height: 500px;
+    height: 550px;
+}
+
+.npoCard-text-container {
+    padding: 20px;
+    margin: 10px;
+}
+
+.npoHr {
+    border-top: 3px solid #A400FF;
+}
+
+.npoCardIcon{
+
+    background-color: #DEEAEE;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    padding: 5px;
+}
+
+.npo-space{
+    margin-left: 10px;
 }
 
 /**************************

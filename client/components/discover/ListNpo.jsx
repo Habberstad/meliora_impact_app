@@ -1,5 +1,8 @@
-import { Card, CardActionArea, CardContent, CardMedia, Grid, Typography } from "@mui/material";
+import { Box, Card, CardActionArea, CardContent, CardMedia, Grid, Typography } from "@mui/material";
 import waterImg from "./water.png";
+import SchoolIcon from "@mui/icons-material/School";
+import OpacityIcon from "@mui/icons-material/Opacity";
+import FilterAltOffIcon from "@mui/icons-material/FilterAltOff";
 
 function FilterNpoByCategory(list, category) {
   if (category === "") {
@@ -25,27 +28,46 @@ function filterBySearchWord(list, searchWord) {
 export function NpoCard({ npo: { name, description, category } }) {
   return (
 
-    <Card className={"npoCardStyle"} sx={{ borderRadius: "25px" }} >
-      <CardContent>
-        <CardActionArea>
-          <CardMedia
-            component="img"
-            image={waterImg}
-            alt="background-img"
-          />
-          <Typography variant="h5" component="div">
-            {name}
-          </Typography>
+    <Card className={"npoCardStyle"} sx={{ borderRadius: "25px" }}>
+
+      <CardActionArea>
+
+        <CardMedia
+          component="img"
+          image={waterImg}
+          alt="background-img"
+        />
+        <div className={"npoCard-text-container"}>
+          <Grid container>
+
+            <Grid item md={6}>
+              <Typography variant="h5" component="div">
+                {name}
+              </Typography>
+            </Grid>
+            <Grid item md={6}>
+              <Typography variant={"string"}>
+                <div className={"npoCardIcon"}>
+                  <SchoolIcon/>
+                  <span className={"npo-space"}></span>
+                  {category}
+                </div>
+
+              </Typography>
+            </Grid>
+
+          </Grid>
+
+          <br />
+          <hr className={"npoHr"} />
+          <br />
           <Typography variant={"string"}>
             {description}
           </Typography>
-          <br />
-          <br />
-          <Typography variant={"string"}>
-            (Category: {category})
-          </Typography>
-        </CardActionArea>
-      </CardContent>
+        </div>
+
+      </CardActionArea>
+
     </Card>
 
   );
@@ -72,9 +94,9 @@ export function ListNpo(props) {
           alignItems="center"
         >
 
-        {filteredList.map((npo) => (
+          {filteredList.map((npo) => (
             <Grid key={npo.id} item>
-              <NpoCard  npo={npo} />
+              <NpoCard npo={npo} />
             </Grid>
           ))}
         </Grid>
