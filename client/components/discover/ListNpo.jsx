@@ -32,10 +32,19 @@ export function ListNpo(props) {
     return (
       <div>
         <div>(Search result: {numberOfMatches})</div>
-        <Grid container spacing={2}>
-          {filteredList.map((npo) => (
-            <Grid item xs={3}>
-              <NpoCard key={npo.id} npo={npo} />
+
+        <Grid
+          container
+          columns={3}
+          direction="row"
+          spacing={2}
+          justifyContent="flex-start"
+          alignItems="center"
+        >
+
+        {filteredList.map((npo) => (
+            <Grid key={npo.id} item xs={3} lg={2} xl={1}>
+              <NpoCard  npo={npo} />
             </Grid>
           ))}
         </Grid>
@@ -44,10 +53,16 @@ export function ListNpo(props) {
   }
 }
 
-function NpoCard({ npo: { name, description, category } }) {
+var npoCardStyle = {
+  display: 'block',
+  width: '300px',
+  height: '400px'
+}
+
+export function NpoCard({ npo: { name, description, category } }) {
   return (
 
-    <Card>
+    <Card style={npoCardStyle}>
       <CardContent>
         <CardActionArea>
           <CardMedia
