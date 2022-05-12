@@ -1,7 +1,6 @@
 import "../../global-styles.css";
 import { npos } from "../../data/npos";
 import { useState } from "react";
-import * as PropTypes from "prop-types";
 import { ListNpo } from "./ListNpo";
 import { KeywordFilter } from "./KeywordFilter";
 import { CategoryFilter } from "./CategoryFilter";
@@ -25,17 +24,14 @@ const DiscoverPage = () => {
       <div>
         <h3>Discover</h3>
         <p>Explore other projects</p>
-        <br />
         <p><strong>Lorem</strong> ipsum dolor sit amet, sed ea solum movet scriptorem, eos dolore evertitur ei, ferri
           omnium sea at.</p>
       </div>
-
+      <br /><br />
       <CategoryFilter onClick={onclickHandler.bind(this)} />
-      <br />
-      <br />
+      <br /><br />
       <KeywordFilter searchString={searchString} onChange={handleSearchInput} />
-      <br />
-      <br />
+      <br /><br />
       <ListNpo data={data} category={categoryFilter} searchWord={searchString} />
     </div>
   );
