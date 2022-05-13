@@ -13,12 +13,12 @@ import fetchJSON from "../../helpers/fetchJSON";
 import { useLoader } from "../../helpers/UseLoader";
 
 const Sidebar = () => {
-  const { loading, data, error } = useLoader(async () => {
-    return await fetchJSON("/api/login");
-  });
+  //const { loading, data, error } = useLoader(async () => {
+  //  return await fetchJSON("/api/login");
+  //});
 
-  if (loading) return <div>Please wait...</div>;
-  if (error) return <div>Error! {error.toString()}</div>;
+  //if (loading) return <div>Please wait...</div>;
+  //if (error) return <div>Error! {error.toString()}</div>;
 
   return (
     <div className="sidebar-container">
@@ -28,7 +28,7 @@ const Sidebar = () => {
         </div>
         <div className="profile-name-badge">
           <img src={ProfileIcon} alt="profile-icon" />
-          <div>{data.name}</div> {/* TODO: Replace with username */}
+          <div>Test Persson</div> {/* TODO: Replace with username */}
         </div>
         <div className="nav-item-container">
           <Link to={"/"} style={{ textDecoration: "none" }}>
