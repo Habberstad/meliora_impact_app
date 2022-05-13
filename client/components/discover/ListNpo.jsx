@@ -1,4 +1,14 @@
-import { Box, Card, CardActionArea, CardContent, CardMedia, Grid, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Card,
+  CardActionArea,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Grid,
+  Typography
+} from "@mui/material";
 import waterImg from "./water.png";
 import SchoolIcon from "@mui/icons-material/School";
 import OpacityIcon from "@mui/icons-material/Opacity";
@@ -29,44 +39,36 @@ export function NpoCard({ npo: { name, description, category } }) {
   return (
 
     <Card className={"npoCardStyle"} sx={{ borderRadius: "25px" }}>
-
-      <CardActionArea>
-
+      <div className={"card-image-wrapper"}>
         <CardMedia
           component="img"
           image={waterImg}
           alt="background-img"
+          className={"card-image"}
         />
-        <div className={"npoCard-text-container"}>
-          <Grid container>
+        <Typography variant={"string"}>
+          <div className={"npoCardIcon card-image-icon"}>
+            {category}
+            <span className={"npo-space"}></span>
+            <SchoolIcon />
 
-            <Grid item md={6}>
-              <Typography variant="h5" component="div">
-                {name}
-              </Typography>
-            </Grid>
-            <Grid item md={6}>
-              <Typography variant={"string"}>
-                <div className={"npoCardIcon"}>
-                  <SchoolIcon/>
-                  <span className={"npo-space"}></span>
-                  {category}
-                </div>
+          </div>
+        </Typography>
+      </div>
 
-              </Typography>
-            </Grid>
-
-          </Grid>
-
-          <br />
-          <hr className={"npoHr"} />
-          <br />
-          <Typography variant={"string"}>
-            {description}
-          </Typography>
-        </div>
-
-      </CardActionArea>
+      <div className={"npoCard-text-container"}>
+        <Typography variant="h5" component="div">
+          {name}
+        </Typography>
+        <hr className={"npoHr"} />
+        <br />
+        <Typography variant={"string"}>
+          {description}
+        </Typography>
+      </div>
+      <CardActions className={"card-button-container"}>
+        <Button className={"card-button"} variant="contained">Les mer</Button>
+      </CardActions>
 
     </Card>
 
@@ -90,12 +92,11 @@ export function ListNpo(props) {
           columns={3}
           direction="row"
           spacing={2}
-          justifyContent="flex-start"
-          alignItems="center"
+          className={"card-container"}
         >
 
           {filteredList.map((npo) => (
-            <Grid key={npo.id} item>
+            <Grid key={npo.id} item className={"card-item"}>
               <NpoCard npo={npo} />
             </Grid>
           ))}

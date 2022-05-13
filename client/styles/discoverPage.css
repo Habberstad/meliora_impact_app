@@ -9,7 +9,8 @@
 .npoCardStyle {
     display: block;
     width: 450px;
-    height: 550px;
+    height: 650px;
+    position: relative;
 }
 
 .npoCard-text-container {
@@ -22,18 +23,18 @@
     border-top: 3px solid #A400FF;
 }
 
-.npoCardIcon{
+.npoCardIcon {
 
     background-color: #DEEAEE;
     border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 120px;
+    width: 140px;
     padding: 5px;
 }
 
-.npo-space{
+.npo-space {
     margin-left: 10px;
 }
 
@@ -43,6 +44,49 @@
 
 }
 
-.discover-top{
+.discover-top {
     margin: 50px;
+}
+
+.card-image-wrapper {
+    position: relative;
+}
+
+.card-image {
+    width: 100%;
+    height: auto;
+}
+
+.card-image-icon {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    font-size: 18px;
+}
+
+.card-button-container{
+    position: absolute;
+    bottom: 0;
+    margin-left:-50px;
+    left:50%;
+
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.card-button{
+    display: flex;
+    justify-content: center;
+    vertical-align: bottom;
+    position: absolute;
+    bottom: 10px;
+
+}
+
+.card-button.MuiButton-root{
+    background-color: #a400ff;
+    border-radius: 15px;
 }
