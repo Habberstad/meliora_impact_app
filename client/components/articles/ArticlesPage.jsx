@@ -4,7 +4,6 @@ import logo2 from "../../media/article_header.png";
 import { Grid } from "@mui/material";
 import { useState } from "react";
 import "../../styles/articlesPage.css";
-import { flexbox } from "@mui/system";
 
 const ArticlesPage = () => {
   const [articleList, setArticleList] = useState(articles);
@@ -21,16 +20,14 @@ const ArticlesPage = () => {
       </Grid>
 
       <div id={"articles-container"}>
-        <Grid
-          container
-          direction={"row"}
-          spacing={2}
-          justifyContent={"space-evenly"}
-          alignContent={"center"}
-          marginLeft={"10px"}
-          marginRight={"10px"}
-        >
-          <Grid item container xs={6}>
+        <Grid container direction={"row"}>
+          <Grid
+            item
+            container
+            xs={6}
+            alignContent={"center"}
+            justifyContent={"center"}
+          >
             <div className={"containerContentBig"}>
               <div className={"npoTextBig"}>{articleList[0].npoName}</div>
               <img src={articleList[0].image} id={"bilde"} alt={"das"} />
@@ -41,42 +38,48 @@ const ArticlesPage = () => {
             </div>
           </Grid>
 
-          <Grid item container xs={6} spacing={2}>
-            <Grid item xs={12}>
-              <div className={"containerContent"}>
-                <img src={articleList[1].image} id={"bilde"} alt={"das"} />
+          <Grid
+            item
+            container
+            xs={6}
+            alignContent={"center"}
+            justifyContent={"center"}
+            spacing={2}
+          >
+            <Grid
+              item
+              xs={10}
+              alignContent={"center"}
+              justifyContent={"center"}
+            >
+              <div className={"containerContentMedium"}>
+                <div className={"npoTextMedium"}>{articleList[1].npoName}</div>
+                <img src={articleList[1].image} alt={"das"} />
+                <div className={"dateTextMedium"}>{articleList[1].date}</div>
                 <div className={"contentTextMedium"}>
                   {articleList[1].description}
                 </div>
-                <div className={"cardContentText"}>{articleList[1].date}</div>
-                <div className={"cardContentText"}>
-                  {articleList[1].npoName}
-                </div>
               </div>
             </Grid>
 
-            <Grid item xs={6}>
-              <div className={"containerContent"}>
-                <img src={articleList[2].image} id={"bilde"} alt={"das"} />
+            <Grid item xs={5} alignContent={"center"} justifyContent={"center"}>
+              <div className={"containerContentSmall"}>
+                <div className={"npoTextSmall"}>{articleList[2].npoName}</div>
+                <img src={articleList[2].image} alt={"das"} />
+                <div className={"dateTextSmall"}>{articleList[2].date}</div>
                 <div className={"contentTextSmall"}>
                   {articleList[2].description}
                 </div>
-                <div className={"cardContentText"}>{articleList[2].date}</div>
-                <div className={"cardContentText"}>
-                  {articleList[2].npoName}
-                </div>
               </div>
             </Grid>
 
-            <Grid item xs={6}>
-              <div className={"containerContent"}>
+            <Grid item xs={5}>
+              <div className={"containerContentSmall"}>
+                <div className={"npoTextSmall"}>{articleList[3].npoName}</div>
                 <img src={articleList[3].image} id={"bilde"} alt={"das"} />
+                <div className={"dateTextSmall"}>{articleList[3].date}</div>
                 <div className={"contentTextSmall"}>
                   {articleList[3].description}
-                </div>
-                <div className={"cardContentText"}>{articleList[3].date}</div>
-                <div className={"cardContentText"}>
-                  {articleList[3].npoName}
                 </div>
               </div>
             </Grid>
@@ -104,7 +107,12 @@ const ArticlesPage = () => {
         </Grid>
 
         <Grid item xs={3}>
-          <img width={"100%"} height={"100%"} src={articleList[2].image} />
+          <img
+            width={"100%"}
+            height={"100%"}
+            src={articleList[2].image}
+            alt={"das"}
+          />
           <div>{articleList[2].date}</div>
           <div>{articleList[2].description}</div>
         </Grid>

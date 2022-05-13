@@ -20,19 +20,18 @@
     color: white;
     background: hsla(0, 0%, 0%, 0.6);
     overflow-wrap: break-word;
-    font-size: large;
+    font-size: 20px;
     position: absolute;
-    bottom: 35px;
+    top: 75%;
 }
 
 .dateTextBig {
-    max-width: 350px;
     color: black;
     background: white;
     overflow-wrap: break-word;
-    font-size: large;
+    font-size: 20px;
     position: absolute;
-    bottom: 110px;
+    top: 68%;
 }
 
 .npoTextBig {
@@ -40,30 +39,100 @@
     color: white;
     position: absolute;
     right: 0;
-    font-size: large;
+    font-size: 20px;
 }
 
 /****
     medium
 ****/
 
+.containerContentMedium{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 464px;
+    height: 250px;
+}
+
+.containerContentMedium img{
+    object-fit: cover;
+    width: 464px;
+    height: 250px;
+    border-radius: 5%;
+}
 .contentTextMedium{
     position: absolute;
-    max-width: 350px;
+    top: 65%;
+    font-size: 20px;
+    max-width: 400px;
     color: white;
     background: hsla(0, 0%, 0%, 0.6);
     overflow-wrap: break-word;
-    top: 40%;
+}
+
+.dateTextMedium {
+    max-width: 200px;
+    top: 50%;
+    font-size: 20px;
+    color: black;
+    background: white;
+    overflow-wrap: break-word;
+    position: absolute;
+}
+
+.npoTextMedium {
+    background: black;
+    color: white;
+    position: absolute;
+    right: 0;
+    font-size: 20px;
+}
+
+/********
+    small
+********/
+
+.containerContentSmall{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 220px;
+    height: 234px;
+}
+
+.containerContentSmall img{
+    object-fit: cover;
+    width: 220px;
+    height: 234px;
+    border-radius: 5%;
 }
 
 .contentTextSmall{
     position: absolute;
-    max-width: 350px;
+    max-width: 210px;
     color: white;
     background: hsla(0, 0%, 0%, 0.6);
     overflow-wrap: break-word;
+    top: 75%;
+    font-size: 14px;
+}
+
+.dateTextSmall {
+    max-width: 200px;
+    color: black;
     top: 65%;
-    font-size: small;
+    background: white;
+    overflow-wrap: break-word;
+    font-size: 14px;
+    position: absolute;
+}
+
+.npoTextSmall {
+    background: black;
+    color: white;
+    position: absolute;
+    right: 0;
+    font-size: 14px;
 }
 
 #filter_articles{
