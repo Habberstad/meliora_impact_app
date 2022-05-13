@@ -9,11 +9,16 @@ import WrappedIcon from "../../media/wrapped_icon.png";
 import TemplatesIcon from "../../media/templates_icon.png";
 import HandImage from "../../media/sidebar_hand_icon.png";
 import { Link } from "react-router-dom";
+import fetchJSON from "../../helpers/fetchJSON";
+import { useLoader } from "../../helpers/UseLoader";
 
 const Sidebar = () => {
-  const [isSelected, setIsSelected] = useState(null);
+  const { loading, data, error } = useLoader(async () => {
+    return await fetchJSON("/api/login");
+  });
 
-  const handleSelectedItem = () => {};
+  if (loading) return <div>Please wait...</div>;
+  if (error) return <div>Error! {error.toString()}</div>;
 
   return (
     <div className="sidebar-container">
@@ -23,7 +28,7 @@ const Sidebar = () => {
         </div>
         <div className="profile-name-badge">
           <img src={ProfileIcon} alt="profile-icon" />
-          <div>Test Persson</div> {/* TODO: Replace with username */}
+          <div>{data.name}</div> {/* TODO: Replace with username */}
         </div>
         <div className="nav-item-container">
           <Link to={"/"} style={{ textDecoration: "none" }}>
