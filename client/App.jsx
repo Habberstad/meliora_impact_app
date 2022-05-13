@@ -54,36 +54,29 @@ function App() {
     }
   }, []);
 
-  if (!isLogin) return <LoginPage />;
+  return (
+    <div className="app-container">
+      <CookiesProvider>
+        <div className="sidebar-container">
+          <Sidebar />
+        </div>
+        <Outlet />
 
-  if (isLogin)
-    return (
-      <div className="app-container">
-        <CookiesProvider>
-          <div className="sidebar-container">
-            <Sidebar />
-          </div>
-          <Outlet />
-
-          <Routes>
-            <Route exact path="/" element={<h1>Home</h1>} />
-            <Route exact path="/articles" element={<ArticlesPage />} />
-            <Route exact path="/articles/article" element={<Article />} />
-            <Route exact path="/discover" element={<DiscoverPage />} />
-            <Route
-              exact
-              path="/my-non-profits"
-              element={<MyNonProfitsPage />}
-            />
-            <Route exact path="/wrapped" element={<MyNonProfitsPage />} />
-            <Route exact path="/templates" element={<MyNonProfitsPage />} />
-            <Route exact path="/login" element={<LoginPage />} />
-            <Route exact path="/login-google" element={<LoginOpenIDStep />} />
-            <Route path={"/login/callback"} element={<LoginCallback />} />
-          </Routes>
-        </CookiesProvider>
-      </div>
-    );
+        <Routes>
+          <Route exact path="/" element={<h1>Home</h1>} />
+          <Route exact path="/articles" element={<ArticlesPage />} />
+          <Route exact path="/articles/article" element={<Article />} />
+          <Route exact path="/discover" element={<DiscoverPage />} />
+          <Route exact path="/my-non-profits" element={<MyNonProfitsPage />} />
+          <Route exact path="/wrapped" element={<MyNonProfitsPage />} />
+          <Route exact path="/templates" element={<MyNonProfitsPage />} />
+          <Route exact path="/login" element={<LoginPage />} />
+          <Route exact path="/login-google" element={<LoginOpenIDStep />} />
+          <Route path={"/login/callback"} element={<LoginCallback />} />
+        </Routes>
+      </CookiesProvider>
+    </div>
+  );
 }
 
 export default App;
