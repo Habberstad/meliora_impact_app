@@ -90,8 +90,9 @@
 
 .article-middle-section-img {
     object-fit: cover;
-    width: 850px;
+    width: 45vw;
     height: 450px;
+
 }
 
 .bottom-section {
@@ -103,18 +104,20 @@
 }
 
 .bottom-section-fish1 {
-    width: 300px;
+    width: 16vw;
     object-fit: cover;
+    height: 200px;
 }
 
 .bottom-section-fish2 {
-    width: 500px;
+    width: 24vw;
+    height: 333px;
     object-fit: cover;
     padding: 0 20px 0 20px;
-    height: auto;
 }
 
 .bottom-section-fish3 {
     object-fit: cover;
-    width: 300px;
+    width: 16vw;
+    height: 200px;
 }
