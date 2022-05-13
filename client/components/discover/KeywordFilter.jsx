@@ -2,7 +2,7 @@ import { InputAdornment, TextField } from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
 
 export function KeywordFilter(props) {
-  const placeholderText = "Søk etter organisjoner eller prosjekter"
+  const placeholderText = "Search for projects"
 
   return (
     <div className={"npo-search-field"}>
