@@ -13,7 +13,7 @@ import fetchJSON from "../../helpers/fetchJSON";
 import { useLoader } from "../../helpers/UseLoader";
 import "../../styles/sidebar-styles.css";
 
-const Sidebar = ({ user }) => {
+const Sidebar = () => {
   //const { loading, data, error } = useLoader(async () => {
   //  return await fetchJSON("/api/login");
   //});
@@ -29,7 +29,7 @@ const Sidebar = ({ user }) => {
         </div>
         <div className="profile-name-badge">
           <img src={ProfileIcon} alt="profile-icon" />
-          <div> {user.name}</div> {/* TODO: Replace with username */}
+          <div> Mathias Brenna </div> {/* TODO: Replace with username */}
         </div>
         <div className="nav-item-container">
           <Link to={"/"} style={{ textDecoration: "none" }}>
