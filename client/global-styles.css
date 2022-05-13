@@ -20,6 +20,11 @@ body {
     background-color: #FFF;
     border-right: solid 1.5px #DEDEDE;
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
 }
 
 
@@ -85,6 +90,10 @@ body {
     cursor: pointer;
     font-weight: 600;
     border-right: solid 3px #a400ff;
+}
+
+.sidebar-image-container {
+
 }
 
 /**************************
