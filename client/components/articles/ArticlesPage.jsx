@@ -33,9 +33,9 @@ const ArticlesPage = () => {
         <Grid item container xs={6}>
           <div className={"containerContent"}>
             <img src={articleList[0].image} height={"100%"} id={"bilde"} alt={"das"}/>
-            <div className={"contentText"}>{articleList[0].content1}</div>
-            <div className={"contentText"}>{articleList[0].publishingDate}</div>
-            <div className={"contentText"}>{articleList[0].npoName}</div>
+            <div className={"contentTextBig"}>{articleList[0].content1}</div>
+            <div className={"contentTText"}>{articleList[0].publishingDate}</div>
+            <div className={"contentTText"}>{articleList[0].npoName}</div>
           </div>
         </Grid>
 
@@ -43,7 +43,7 @@ const ArticlesPage = () => {
             <Grid item xs={12}>
               <div className={"containerContent"}>
                 <img src={articleList[1].image} id={"bilde"} alt={"das"}/>
-                <div className={"cardContentText"}>{articleList[1].content1}</div>
+                <div className={"contentTextMedium"}>{articleList[1].content1}</div>
                 <div className={"cardContentText"}>{articleList[1].publishingDate}</div>
                 <div className={"cardContentText"}>{articleList[1].npoName}</div>
               </div>
@@ -52,7 +52,7 @@ const ArticlesPage = () => {
             <Grid item xs={6}>
               <div className={"containerContent"}>
                 <img src={articleList[2].image} id={"bilde"} alt={"das"}/>
-                <div className={"cardContentText"}>{articleList[2].content1}</div>
+                <div className={"contentTextSmall"}>{articleList[2].content1}</div>
                 <div className={"cardContentText"}>{articleList[2].publishingDate}</div>
                 <div className={"cardContentText"}>{articleList[2].npoName}</div>
               </div>
@@ -61,7 +61,7 @@ const ArticlesPage = () => {
             <Grid item xs={6}>
               <div className={"containerContent"}>
                 <img src={articleList[3].image} id={"bilde"} alt={"das"}/>
-                <div className={"cardContentText"}>{articleList[3].content1}</div>
+                <div className={"contentTextSmall"}>{articleList[3].content1}</div>
                 <div className={"cardContentText"}>{articleList[3].publishingDate}</div>
                 <div className={"cardContentText"}>{articleList[3].npoName}</div>
               </div>

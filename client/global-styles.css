@@ -94,17 +94,38 @@ body {
 .containerContent{
     display: flex;
     flex-direction: column;
-    background: red;
 }
 
-.contentText{
+.contentTextBig{
     position: absolute;
-    max-width: 100px;
+    max-width: 350px;
     color: white;
-    background: pink;
+    background: hsla(0, 0%, 0%, 0.6);
+    overflow-wrap: break-word;
+    top: 59%;
+    font-size: large;
+}
+
+.contentTextMedium{
+    position: absolute;
+    max-width: 350px;
+    color: white;
+    background: hsla(0, 0%, 0%, 0.6);
     overflow-wrap: break-word;
     top: 40%;
 }
+
+.contentTextSmall{
+    position: absolute;
+    max-width: 350px;
+    color: white;
+    background: hsla(0, 0%, 0%, 0.6);
+    overflow-wrap: break-word;
+    top: 65%;
+    font-size: small;
+}
+
+
 
 #bilde{
     width: 100%;
