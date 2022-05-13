@@ -35,13 +35,13 @@ const Article = () => {
 
         <div className="article-wrapper">
           <Grid className="top-section" container spacing={0}>
-            <Grid item lg={12} xl={5.5}>
+            <Grid item sm={12} md={12} lg={4} xl={5.5}>
               <div className="top-section-item-1">
                 How Leve Havet is saving the planet by saving the corals.
               </div>
               <div className="date-box">April 2018</div>
             </Grid>
-            <Grid item lg={12} xl={3.5}>
+            <Grid item  lg={4} xl={3.5}>
               <div className="top-section-item-2">
                 <p>
                   <span style={{ fontWeight: "bold" }}>Lorem</span> ipsum dolor
@@ -57,7 +57,7 @@ const Article = () => {
                 </p>
               </div>
             </Grid>
-            <Grid item lg={12} xl={3}>
+            <Grid item  lg={4} xl={3}>
               <div className="top-section-item-2">
                 <p>
                   Lorem ipsum dolor sit amet, sed ea solum movet scriptorem, eos
@@ -74,7 +74,7 @@ const Article = () => {
           </Grid>
 
           <Grid className="middle-section" container spacing={0}>
-            <Grid item xl={3.5}>
+            <Grid item lg={3.5} xl={3.5}>
               <div className="middle-section-item-1">
                 <h2>Lorem Ipsum</h2>
                 <p>
@@ -100,7 +100,7 @@ const Article = () => {
               </div>
             </Grid>
 
-            <Grid container xl={8.5}>
+            <Grid container lg={8.5} xl={8.5}>
               <Grid item>
                 <img
                   src={CoralImg}
@@ -108,12 +108,12 @@ const Article = () => {
                   className="article-middle-section-img"
                 />
               </Grid>
-              <Grid item xl={2}>
+              <Grid item sm={1} md={1} lg={1} xl={2}>
                 <div className="middle-section-item-2">
                   <p></p>
                 </div>
               </Grid>
-              <Grid item xl={5}>
+              <Grid item sm={5.5} md={5.5} lg={5.5} xl={5}>
                 <div className="middle-section-item-2">
                   <p>
                     <span style={{ fontWeight: "bold" }}>Lorem</span> ipsum
@@ -125,7 +125,7 @@ const Article = () => {
                   </p>
                 </div>
               </Grid>
-              <Grid item xl={5}>
+              <Grid item sm={5.5} md={5.5} lg={5.5} xl={5}>
                 <div className="middle-section-item-3">
                   <p>
                     Lorem ipsum dolor sit amet, sed ea solum movet scriptorem,
@@ -140,21 +140,21 @@ const Article = () => {
           </Grid>
 
           <Grid className="bottom-section" container spacing={0}>
-            <Grid item xl={3.5}>
+            <Grid item lg={3.5} xl={3.5}>
               <img
                 src={FishImg1}
                 alt="bottom_section_fish1"
                 className="bottom-section-fish1"
               />
             </Grid>
-            <Grid item xl={5}>
+            <Grid item lg={5} xl={5}>
               <img
                 src={FishImg2}
                 alt="bottom_section_fish2"
                 className="bottom-section-fish2"
               />
             </Grid>
-            <Grid item xl={3.5}>
+            <Grid item lg={3.5} xl={3.5}>
               <img
                 src={FishImg3}
                 alt="bottom_section_fish3"
