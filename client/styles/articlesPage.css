@@ -2,20 +2,50 @@
          Articles
 *************************/
 
-.containerContent{
+.containerContentBig{
     display: flex;
     flex-direction: column;
+    position: relative;
+}
+
+.containerContentBig img{
+    object-fit: cover;
+    width: 508px;
+    height: 500px;
+    border-radius: 5%;
 }
 
 .contentTextBig{
-    position: absolute;
     max-width: 350px;
     color: white;
     background: hsla(0, 0%, 0%, 0.6);
     overflow-wrap: break-word;
-    top: 59%;
+    font-size: large;
+    position: absolute;
+    bottom: 35px;
+}
+
+.dateTextBig {
+    max-width: 350px;
+    color: black;
+    background: white;
+    overflow-wrap: break-word;
+    font-size: large;
+    position: absolute;
+    bottom: 110px;
+}
+
+.npoTextBig {
+    background: black;
+    color: white;
+    position: absolute;
+    right: 0;
     font-size: large;
 }
+
+/****
+    medium
+****/
 
 .contentTextMedium{
     position: absolute;
@@ -36,11 +66,6 @@
     font-size: small;
 }
 
-
-
-#bilde{
-    width: 100%;
-}
 #filter_articles{
 
 }

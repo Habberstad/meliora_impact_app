@@ -4,6 +4,7 @@ import logo2 from "../../media/article_header.png";
 import { Grid } from "@mui/material";
 import { useState } from "react";
 import "../../styles/articlesPage.css";
+import { flexbox } from "@mui/system";
 
 const ArticlesPage = () => {
   const [articleList, setArticleList] = useState(articles);
@@ -30,18 +31,13 @@ const ArticlesPage = () => {
           marginRight={"10px"}
         >
           <Grid item container xs={6}>
-            <div className={"containerContent"}>
-              <img
-                src={articleList[0].image}
-                height={"100%"}
-                id={"bilde"}
-                alt={"das"}
-              />
+            <div className={"containerContentBig"}>
+              <div className={"npoTextBig"}>{articleList[0].npoName}</div>
+              <img src={articleList[0].image} id={"bilde"} alt={"das"} />
+              <div className={"dateTextBig"}>{articleList[0].date}</div>
               <div className={"contentTextBig"}>
                 {articleList[0].description}
               </div>
-              <div className={"contentTText"}>{articleList[0].date}</div>
-              <div className={"contentTText"}>{articleList[0].author}</div>
             </div>
           </Grid>
 
@@ -50,11 +46,9 @@ const ArticlesPage = () => {
               <div className={"containerContent"}>
                 <img src={articleList[1].image} id={"bilde"} alt={"das"} />
                 <div className={"contentTextMedium"}>
-                  {articleList[1].content1}
+                  {articleList[1].description}
                 </div>
-                <div className={"cardContentText"}>
-                  {articleList[1].publishingDate}
-                </div>
+                <div className={"cardContentText"}>{articleList[1].date}</div>
                 <div className={"cardContentText"}>
                   {articleList[1].npoName}
                 </div>
@@ -65,11 +59,9 @@ const ArticlesPage = () => {
               <div className={"containerContent"}>
                 <img src={articleList[2].image} id={"bilde"} alt={"das"} />
                 <div className={"contentTextSmall"}>
-                  {articleList[2].content1}
+                  {articleList[2].description}
                 </div>
-                <div className={"cardContentText"}>
-                  {articleList[2].publishingDate}
-                </div>
+                <div className={"cardContentText"}>{articleList[2].date}</div>
                 <div className={"cardContentText"}>
                   {articleList[2].npoName}
                 </div>
@@ -80,11 +72,9 @@ const ArticlesPage = () => {
               <div className={"containerContent"}>
                 <img src={articleList[3].image} id={"bilde"} alt={"das"} />
                 <div className={"contentTextSmall"}>
-                  {articleList[3].content1}
+                  {articleList[3].description}
                 </div>
-                <div className={"cardContentText"}>
-                  {articleList[3].publishingDate}
-                </div>
+                <div className={"cardContentText"}>{articleList[3].date}</div>
                 <div className={"cardContentText"}>
                   {articleList[3].npoName}
                 </div>
@@ -102,29 +92,21 @@ const ArticlesPage = () => {
         spacing={0.5}
       >
         <Grid item xs={5}>
-          <img width={"100%"} height={"100%"} src={logo} />
-          <a>11. December 2021</a>
-          <a>
-            We’ve started our work in Burkina Faso. With your help we can
-            provide clean water to several villages
-          </a>
+          <img width={"100%"} height={"100%"} src={articleList[0].image} />
+          <div>{articleList[0].date}</div>
+          <div>{articleList[0].description}</div>
         </Grid>
 
         <Grid item xs={3}>
-          <img width={"100%"} src={logo2} />
-          <a>11. December 2021</a>
-          <a>
-            A village in Peru has now access to clean water. We thank our
-            amazing voulenteers
-          </a>
+          <img width={"100%"} height={"100%"} src={articleList[2].image} />
+          <div>{articleList[2].date}</div>
+          <div>{articleList[2].description}</div>
         </Grid>
 
         <Grid item xs={3}>
-          <img width={"100%"} src={logo2} />
-          <a>
-            We’re happy to say that our voluenteers have arrived in Peru.
-            Exciting times!
-          </a>
+          <img width={"100%"} height={"100%"} src={articleList[2].image} />
+          <div>{articleList[2].date}</div>
+          <div>{articleList[2].description}</div>
         </Grid>
       </Grid>
     </div>
