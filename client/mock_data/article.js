@@ -17,38 +17,35 @@ export const mock_article = {
   description:
     "We’ve started our work in Burkina Faso. With your help we can provide clean water to several villages",
   published: "21 December 2021",
-  paragraph_1:
-    "Lorem ipsum dolor sit amet, sed ea solum movet scriptorem, " +
-    "eos dolore evertitur ei, ferri omnium sea at. Harum accusam " +
-    "suscipiantur in pri, constituto appellantur consequuntur ei " +
-    "his. Pro at mollis aliquid civibus. Dicam ornatus ex duo, duo te aeque bonorum. ",
+  paragraph_1_1:
+    "Lorem ipsum dolor sit amet, sed ea solum movet scriptorem, eos dolore evertitur ei, ferri omnium sea at." +
+    " Harum accusam suscipiantur in pri, constituto appellantur consequuntur ei his. ",
+  paragraph_1_2:  "Pro at mollis aliquid civibus. Dicam ornatus ex duo, duo te aeque bonorum." +
+    " Harum accusam suscipiantur in pri, constituto appellantur consequuntur ei his. " +
+    "Harum accusam suscipiantur in pri, constituto appellantur consequuntur ei his.",
   paragraph_2:
-    "Lorem ipsum dolor sit amet, sed ea solum movet scriptorem, " +
-    "eos dolore evertitur ei, ferri omnium sea at. Harum accusam " +
-    "suscipiantur in pri, constituto appellantur consequuntur ei " +
-    "his. Pro at mollis aliquid civibus. Dicam ornatus ex duo, duo te" +
-    " aeque bonorum.  Harum accusam suscipiantur in pri, constituto appellantur consequuntur ei his.\n" +
-    "\n" +
+    "Lorem ipsum dolor sit amet, sed ea solum movet scriptorem, eos dolore evertitur ei, ferri omnium sea at." +
+    " Harum accusam suscipiantur in pri, constituto appellantur consequuntur ei his." +
+    " Pro at mollis aliquid civibus. Dicam ornatus ex duo, duo te aeque bonorum. " +
+    "Harum accusam suscipiantur in pri, constituto appellantur consequuntur ei his. " +
     "Harum accusam suscipiantur in pri, constituto appellantur consequuntur ei his.",
   paragraph_3_header: "This is a small header",
-  paragraph_3:
-    "Lorem ipsum dolor sit amet, sed ea solum movet scriptorem, eos dolore evertitur ei, ferri omnium sea at. Harum accusam suscipiantur in pri, constituto appellantur consequuntur ei his. Pro at mollis aliquid civibus. Dicam ornatus ex duo, duo te aeque bonorum. Harum accusam suscipiantur in pri, constituto appellantur consequuntur ei his. Harum accusam suscipiantur in pri, constituto appellantur consequuntur ei his.\n" +
-    "\n" +
-    "Lorem ipsum dolor sit amet, sed ea solum movet scriptorem, eos dolore evertitur ei, ferri omnium sea at. Harum accusam suscipiantur in pri, constituto appellantur consequuntur ei his. Pro at mollis aliquid civibus. Dicam ornatus ex duo, duo te aeque bonorum. Harum accusam suscipiantur in pri, constituto appellantur consequuntur ei his. Harum accusam suscipiantur in pri, constituto appellantur consequuntur ei his.",
+  paragraph_3_1:
+    "Lorem ipsum dolor sit amet, sed ea solum movet scriptorem, eos dolore evertitur ei, ferri omnium sea at. " +
+    "arum accusam suscipiantur in pri, constituto appellantur consequuntur ei his. Pro at mollis aliquid civibus. " +
+    "Dicam ornatus ex duo, duo te aeque bonorum. Harum accusam suscipiantur in pri, constituto appellantur consequuntur ei his. " +
+    "Harum accusam suscipiantur in pri, constituto appellantur consequuntur ei his.",
+  paragraph_3_2:
+    "Lorem ipsum dolor sit amet, sed ea solum movet scriptorem, eos dolore evertitur ei, ferri omnium sea at. " +
+    "Harum accusam suscipiantur in pri, constituto appellantur consequuntur ei his. Pro at mollis aliquid civibus. " +
+    "Dicam ornatus ex duo, duo te aeque bonorum. Harum accusam suscipiantur in pri, constituto appellantur consequuntur ei his. " +
+    "Harum accusam suscipiantur in pri, constituto appellantur consequuntur ei his.",
   paragraph_4:
     "Lorem ipsum dolor sit amet, sed ea solum movet scriptorem, " +
     "eos dolore evertitur ei, ferri omnium sea at. Harum accusam " +
-    "suscipiantur in pri, constituto appellantur consequuntur ei " +
-    "his. Pro at mollis aliquid civibus. Dicam ornatus ex duo, duo te" +
-    " aeque bonorum.  Harum accusam suscipiantur in pri, constituto appellantur consequuntur ei his.\n" +
-    "\n" +
-    "Harum accusam suscipiantur in pri, constituto appellantur consequuntur ei his.",
+    "suscipiantur in pri, constituto appellantur consequuntur ei his",
   paragraph_5:
-    "Lorem ipsum dolor sit amet, sed ea solum movet scriptorem, " +
-    "eos dolore evertitur ei, ferri omnium sea at. Harum accusam " +
-    "suscipiantur in pri, constituto appellantur consequuntur ei " +
-    "his. Pro at mollis aliquid civibus. Dicam ornatus ex duo, duo te" +
-    " aeque bonorum.  Harum accusam suscipiantur in pri, constituto appellantur consequuntur ei his.\n" +
-    "\n" +
-    "Harum accusam suscipiantur in pri, constituto appellantur consequuntur ei his.",
+  "Lorem ipsum dolor sit amet, sed ea solum movet scriptorem, eos dolore evertitur ei, ferri omnium sea at." +
+  " Harum accusam suscipiantur in pri, constituto appellantur consequuntur ei his." +
+  " Pro at mollis aliquid civibus. Dicam ornatus ex duo, duo te aeque bonorum.",
 };
