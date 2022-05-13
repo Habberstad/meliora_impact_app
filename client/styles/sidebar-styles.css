@@ -1,18 +1,6 @@
-body {
-    margin: 0;
-    background-color:#FAFAFA;
-    font-family: montserrat, serif;
-}
-
-.app-container {
-    display: flex;
-}
-
-
-
 /**************************
      SIDEBAR NAVIGATION
-  *************************/
+*************************/
 
 .sidebar-container {
     height: 100vh;
@@ -92,18 +80,6 @@ body {
     border-right: solid 3px #a400ff;
 }
 
-
-
-
 .sidebar-image-container {
 
 }
-
-
-
-
-
-
-
-
-

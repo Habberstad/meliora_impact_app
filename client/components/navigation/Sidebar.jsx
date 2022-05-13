@@ -11,6 +11,7 @@ import HandImage from "../../media/sidebar_hand_icon.png";
 import { Link } from "react-router-dom";
 import fetchJSON from "../../helpers/fetchJSON";
 import { useLoader } from "../../helpers/UseLoader";
+import "../../styles/sidebar-styles.css";
 
 const Sidebar = () => {
   //const { loading, data, error } = useLoader(async () => {
