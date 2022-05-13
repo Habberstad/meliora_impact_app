@@ -21,7 +21,7 @@ export const LoginPage = () => {
         <div className={"login-content"}>
           <div>
             <div>
-              <h2>login</h2>
+              <h2>Login</h2>
               <p>Log in with:</p>
             </div>
             <div>
