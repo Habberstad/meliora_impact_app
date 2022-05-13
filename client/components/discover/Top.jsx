@@ -3,7 +3,7 @@ import sideImg from "./side-img.png";
 
 export function Top(props) {
   return (
-    <Box sx={{ width: "100%" }} >
+    <Box sx={{ width: "100%" }} className={"discover-top"}>
     <Grid container spacing={12}>
       <Grid item md={6}>
         <Typography variant="h2" align="left" color="textPrimary" gutterBottom>

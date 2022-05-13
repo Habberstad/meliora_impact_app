@@ -187,7 +187,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 200px;
+    padding: 100px;
 }
 
 .npoCardStyle {
@@ -223,6 +223,10 @@ body {
 .npo-search-field .MuiOutlinedInput-root {
     width: 340px;
     border-radius: 25px;
+}
+
+.discover-top{
+    margin: 100px;
 }
 
 /**************************
