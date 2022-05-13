@@ -15,6 +15,8 @@ import { LoginPage } from "./components/login/LoginPage";
 import { LoginOpenIDStep } from "./components/login/LoginOpenIDStep";
 import { CookiesProvider, useCookies } from "react-cookie";
 import React from "react";
+import { useLoader } from "./helpers/UseLoader";
+import fetchJSON from "./helpers/fetchJSON";
 
 async function fetchPostToken(access_token) {
   await fetch("/api/login", {
@@ -47,6 +49,13 @@ function LoginCallback() {
 function App() {
   const [tokenCookie, setTokenCookie] = useCookies(["access_token"]);
 
+  const { loading, data, error } = useLoader(async () => {
+    return await fetchJSON("/api/login");
+  });
+
+  if (loading) return <div>Please wait...</div>;
+  if (error) return <div>Error! {error.toString()}</div>;
+
   if (!tokenCookie.access_token)
     return (
       <div>
@@ -63,7 +72,7 @@ function App() {
       <div className="app-container">
         <CookiesProvider>
           <div className="sidebar-container">
-            <Sidebar />
+            <Sidebar user={data} />
           </div>
           <Outlet />
 
