@@ -256,7 +256,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid blue;
     width: 100%
 
 }
@@ -269,6 +268,6 @@ body {
     width: 100%;
 }
 
-.form-button .MuiButton-root {
-    background-color: black;
+.form-button {
+    background-color: #a400ff;
 }
