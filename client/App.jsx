@@ -49,12 +49,12 @@ function LoginCallback() {
 function App() {
   const [tokenCookie, setTokenCookie] = useCookies(["access_token"]);
 
-  const { loading, data, error } = useLoader(async () => {
-    return await fetchJSON("/api/login");
-  });
+  //const { loading, data, error } = useLoader(async () => {
+  //  return await fetchJSON("/api/login");
+  //});
 
-  if (loading) return <div>Please wait...</div>;
-  if (error) return <div>Error! {error.toString()}</div>;
+  //if (loading) return <div>Please wait...</div>;
+  //if (error) return <div>Error! {error.toString()}</div>;
 
   if (!tokenCookie.access_token)
     return (
@@ -72,7 +72,7 @@ function App() {
       <div className="app-container">
         <CookiesProvider>
           <div className="sidebar-container">
-            <Sidebar user={data} />
+            <Sidebar />
           </div>
           <Outlet />
 
