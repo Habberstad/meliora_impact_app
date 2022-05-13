@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { useState } from "react";
 import { mock_article } from "../../mock_data/article";
+import "../../styles/article-styles.css";
 
 const Article = () => {
   const [article, setArticle] = useState({ mock_article });
