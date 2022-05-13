@@ -151,6 +151,6 @@ body {
     width: 100%;
 }
 
-.form-button .MuiButton-root {
-    background-color: black;
+.form-button {
+    background-color: #a400ff;
 }
