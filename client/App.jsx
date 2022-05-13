@@ -13,7 +13,7 @@ import DiscoverPage from "./components/discover/DiscoverPage";
 import MyNonProfitsPage from "./components/my-non-profits/MyNonProfitsPage";
 import { LoginPage } from "./components/login/LoginPage";
 import { LoginOpenIDStep } from "./components/login/LoginOpenIDStep";
-import { CookiesProvider } from "react-cookie";
+import { CookiesProvider, useCookies } from "react-cookie";
 import React from "react";
 
 async function fetchPostToken(access_token) {
@@ -36,47 +36,53 @@ function LoginCallback() {
     await fetchPostToken(access_token);
 
     setTimeout(function () {
-      navigate("/articles");
+      window.location.reload();
+      navigate("/");
     }, 1000);
   });
 
-  return <h1>Please ...</h1>;
+  return <h1>Please wait...</h1>;
 }
 
 function App() {
-  const [isLogin, setIsLogin] = useState(false);
+  const [tokenCookie, setTokenCookie] = useCookies(["access_token"]);
 
-  useEffect(() => {
-    if (window.location.href.toString().includes("/login")) {
-      setIsLogin(true);
-    } else {
-      setIsLogin(false);
-    }
-  }, []);
-
-  return (
-    <div className="app-container">
-      <CookiesProvider>
-        <div className="sidebar-container">
-          <Sidebar />
-        </div>
-        <Outlet />
-
+  if (!tokenCookie.access_token)
+    return (
+      <div>
+        <LoginPage />
         <Routes>
-          <Route exact path="/" element={<h1>Home</h1>} />
-          <Route exact path="/articles" element={<ArticlesPage />} />
-          <Route exact path="/articles/article" element={<Article />} />
-          <Route exact path="/discover" element={<DiscoverPage />} />
-          <Route exact path="/my-non-profits" element={<MyNonProfitsPage />} />
-          <Route exact path="/wrapped" element={<MyNonProfitsPage />} />
-          <Route exact path="/templates" element={<MyNonProfitsPage />} />
           <Route exact path="/login" element={<LoginPage />} />
           <Route exact path="/login-google" element={<LoginOpenIDStep />} />
           <Route path={"/login/callback"} element={<LoginCallback />} />
         </Routes>
-      </CookiesProvider>
-    </div>
-  );
+      </div>
+    );
+  else
+    return (
+      <div className="app-container">
+        <CookiesProvider>
+          <div className="sidebar-container">
+            <Sidebar />
+          </div>
+          <Outlet />
+
+          <Routes>
+            <Route exact path="/" element={<h1>Home</h1>} />
+            <Route exact path="/articles" element={<ArticlesPage />} />
+            <Route exact path="/articles/article" element={<Article />} />
+            <Route exact path="/discover" element={<DiscoverPage />} />
+            <Route
+              exact
+              path="/my-non-profits"
+              element={<MyNonProfitsPage />}
+            />
+            <Route exact path="/wrapped" element={<MyNonProfitsPage />} />
+            <Route exact path="/templates" element={<MyNonProfitsPage />} />
+          </Routes>
+        </CookiesProvider>
+      </div>
+    );
 }
 
 export default App;
