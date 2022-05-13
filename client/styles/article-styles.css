@@ -103,20 +103,20 @@
     justify-content: space-between;
 }
 
-.bottom-section-fish1 {
+.bottom-section-img1 {
     width: 16vw;
     object-fit: cover;
     height: 200px;
 }
 
-.bottom-section-fish2 {
+.bottom-section-img2 {
     width: 24vw;
     height: 333px;
     object-fit: cover;
     padding: 0 20px 0 20px;
 }
 
-.bottom-section-fish3 {
+.bottom-section-img3 {
     object-fit: cover;
     width: 16vw;
     height: 200px;
