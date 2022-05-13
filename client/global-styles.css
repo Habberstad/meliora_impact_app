@@ -224,60 +224,7 @@ body {
 
 
 
-/**************************
-    Discover Page
-  *************************/
-.discover-page-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 100px;
-}
 
-.npoCardStyle {
-    display: block;
-    width: 450px;
-    height: 550px;
-}
-
-.npoCard-text-container {
-    padding: 20px;
-    margin: 10px;
-
-}
-
-.npoHr {
-    border-top: 3px solid #A400FF;
-}
-
-.npoCardIcon{
-
-    background-color: #DEEAEE;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 120px;
-    padding: 5px;
-}
-
-.npo-space{
-    margin-left: 10px;
-}
-
-.npo-search-field .MuiOutlinedInput-root {
-    width: 340px;
-    border-radius: 25px;
-
-}
-
-.discover-top{
-    margin: 50px;
-}
-
-/**************************
-
-  *************************/
 
 
 

@@ -4,6 +4,7 @@ import { ListNpo } from "./ListNpo";
 import { KeywordFilter } from "./KeywordFilter";
 import { CategoryFilter } from "./CategoryFilter";
 import { Top } from "./Top";
+import "../../styles/discoverPage.css";
 
 
 const DiscoverPage = () => {
