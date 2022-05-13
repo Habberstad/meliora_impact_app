@@ -20,9 +20,6 @@ body {
     background-color: #FFF;
     border-right: solid 1.5px #DEDEDE;
     display: flex;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
 }
 
 
@@ -72,8 +69,6 @@ body {
     font-weight: 500;
     color: #637381;
     font-size: 14px;
-    border-right: solid 3px #fff;
-
 }
 
 .nav-item-selected {
@@ -88,18 +83,8 @@ body {
     background-color:#EFD3FF;
     color: #A400FF;
     cursor: pointer;
+    font-weight: 600;
     border-right: solid 3px #a400ff;
-}
-
-.sidebar-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.sidebar-image-container{
-    margin-bottom: -33px;
 }
 
 /**************************
@@ -110,7 +95,7 @@ body {
     width: 100vw;
 }
 
-.article-header-img {
+.article-header {
     object-fit: cover;
     width: 100%;
     height: 529px;
@@ -120,10 +105,41 @@ body {
     position: absolute;
     margin-top: 400px;
     margin-left: 10%;
-    padding: 0 10px 0 10px;
+    padding: 0 10px 0px 10px;
     font-size: 50px;
     background-color: white;
     font-weight: 800;
+}
+
+.article-wrapper {
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10%;
+}
+
+.top-section {
+    margin-top: 100px;
+    background-color: red;
+}
+
+
+.item-1 {
+    font-size: 40px;
+    width: 320.23px;
+    height: 238.84px;
+    left: 339px;
+    top: 649.43px;
+    font-weight: bold;
+}
+
+.item-2 {
+    height: 296.73748779296875px;
+    max-width: 280px;
+    left: 1050.6875px;
+    top: 643px;
 }
 
 .date-box {
@@ -143,91 +159,6 @@ body {
     max-width: 80px;
 }
 
-.article-wrapper {
-    max-width: 1200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-left: 10%;
-}
-
-.top-section {
-    margin-top: 100px;
-
-}
-
-.top-section-item-1 {
-    font-size: 40px;
-    width: 320px;
-    height: 240px;
-    left: 340px;
-    top: 650px;
-    font-weight: bold;
-}
-
-.top-section-item-2 {
-    height: 300px;
-    max-width: 280px;
-    left: 1050px;
-    top: 643px;
-}
-
-.middle-section {
-    margin-top: 50px;
-}
-
-.middle-section-item-1 {
-    width: 280px;
-
-}
-
-.middle-section-item-2 {
-    margin-top: 40px;
-    width: 240px;
-    border-left: solid 1px;
-    border-color: #c4c4c4;
-    padding-left: 20px;
-}
-
-.middle-section-item-3 {
-    margin-top: 40px;
-    width: 240px;
-}
-
-.article-middle-section-img {
-    object-fit: cover;
-    width: 850px;
-    height: 450px;
-}
-
-.bottom-section {
-    margin-top: 50px;
-    display: flex;
-    align-items: center;
-}
-
-.bottom-section-fish1 {
-    width: 300px;
-    object-fit: cover;
-    padding-right: 50px;
-}
-
-.bottom-section-fish2 {
-    width: 500px;
-    object-fit: cover;
-}
-
-.bottom-section-fish3 {
-    object-fit: cover;
-    width: 300px;
-    padding-left: 50px;
-
-
-}
-
-
-
 
 /**************************
 
@@ -236,18 +167,9 @@ body {
 /**************************
     Login Page
   *************************/
-.login-page-container {
-    display: flex;
-    flex-direction: row;
-    height: 100vh;
-    width: 100%
-}
-
 .login-left-card {
-    display: flex;
-    flex-direction: column;
-
-    width: 600px;
+    position: absolute;
+    width: 464px;
     height: calc(100% - 34px);
     margin-left: 25px;
     margin-top: 17px;
@@ -257,6 +179,62 @@ body {
     box-shadow: 0 0 50px rgba(145, 158, 171, 0.2);
     border-radius: 16px;
 }
+
+
+/**************************
+    Discover Page
+  *************************/
+.discover-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px;
+}
+
+.npoCardStyle {
+    display: block;
+    width: 450px;
+    height: 550px;
+}
+
+.npoCard-text-container {
+    padding: 20px;
+    margin: 10px;
+
+}
+
+.npoHr {
+    border-top: 3px solid #A400FF;
+}
+
+.npoCardIcon{
+
+    background-color: #DEEAEE;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    padding: 5px;
+}
+
+.npo-space{
+    margin-left: 10px;
+}
+
+.npo-search-field .MuiOutlinedInput-root {
+    width: 340px;
+    border-radius: 25px;
+
+}
+
+.discover-top{
+    margin: 50px;
+}
+
+/**************************
+
+  *************************/
 
 .login-left-card-icon {
     width: 60px;
