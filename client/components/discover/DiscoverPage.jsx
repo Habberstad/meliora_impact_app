@@ -1,4 +1,4 @@
-import { npos } from "../../data/npos";
+import { prosjects } from "../../data/prosjects";
 import { useState } from "react";
 import { ListNpo } from "./ListNpo";
 import { KeywordFilter } from "./KeywordFilter";
@@ -10,7 +10,7 @@ import "../../styles/discoverPage.css";
 const DiscoverPage = () => {
   const [categoryFilter, setCategoryFilter] = useState("");
   const [searchString, setSearchString] = useState("");
-  const [data, setData] = useState(npos);
+  const [data, setData] = useState(prosjects);
 
   function categorySelectHandler(selectedCategory) {
     setCategoryFilter(selectedCategory);
