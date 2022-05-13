@@ -28,6 +28,7 @@ function filterBySearchWord(list, searchWord) {
       npo.name.toLowerCase().includes(searchWord.toLowerCase())
       || npo.description.toLowerCase().includes(searchWord.toLowerCase())
       || npo.category.toLowerCase().includes(searchWord.toLowerCase())
+      || npo.npoName.toLowerCase().includes(searchWord.toLowerCase())
     );
   } else {
     return list;
@@ -35,7 +36,8 @@ function filterBySearchWord(list, searchWord) {
 }
 
 
-export function NpoCard({ npo: { name, description, category } }) {
+export function NpoCard({ npo: { name, description, category, npoName } }) {
+
   return (
 
     <Card className={"npoCardStyle"} sx={{ borderRadius: "25px" }}>
@@ -48,9 +50,9 @@ export function NpoCard({ npo: { name, description, category } }) {
         />
         <Typography variant={"string"}>
           <div className={"npoCardIcon card-image-icon"}>
-            {category}
+            {npoName}
             <span className={"npo-space"}></span>
-            <SchoolIcon />
+            {category.toLowerCase() === "water" ? <OpacityIcon/> : <SchoolIcon/> }
 
           </div>
         </Typography>
