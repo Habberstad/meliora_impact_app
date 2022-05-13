@@ -1,6 +1,7 @@
 import MelioraIcon from "../../media/meliora_logo.png";
 import LoginCardImage from "../../media/login_card_img.png";
 import GoogleIcon from "../../media/google_icon.png";
+import "../../styles/loginPage-styles.css";
 
 import {
   Box,
