@@ -199,6 +199,7 @@ body {
 .npoCard-text-container {
     padding: 20px;
     margin: 10px;
+
 }
 
 .npoHr {
@@ -223,10 +224,11 @@ body {
 .npo-search-field .MuiOutlinedInput-root {
     width: 340px;
     border-radius: 25px;
+
 }
 
 .discover-top{
-    margin: 100px;
+    margin: 50px;
 }
 
 /**************************

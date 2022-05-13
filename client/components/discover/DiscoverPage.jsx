@@ -21,8 +21,6 @@ const DiscoverPage = () => {
 
   return (
     <div className={"discover-page-container"}>
-
-
       <Top />
       <CategoryFilter onClick={categorySelectHandler} />
       <br /><br />
