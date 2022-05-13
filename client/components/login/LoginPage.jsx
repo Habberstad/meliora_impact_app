@@ -95,7 +95,13 @@ export const LoginPage = () => {
               </FormGroup>
               <Button
                 className={"form-button"}
-                sx={{ mt: 1, backgroundColor: "#A400FF" }}
+                sx={{
+                  mt: 1,
+                  backgroundColor: "#A400FF",
+                  "& .MuiButton-root.Mui-focused": {
+                    backgroundColor: "#FFFFFF",
+                  },
+                }}
                 variant="contained"
                 size="large"
               >
