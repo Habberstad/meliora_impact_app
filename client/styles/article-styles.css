@@ -29,7 +29,7 @@
 }
 
 .article-back-button {
-    margin-left: 5%;
+    margin-left: 10%;
     margin-top: 40px;
     display: flex;
     align-items: center;
@@ -45,8 +45,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-left: 5%;
-    margin-right: 5%;
+    margin: 0% 0% 5% 10%;
 }
 
 .top-section {
@@ -66,8 +65,6 @@
 .top-section-item-2 {
     height: 300px;
     max-width: 280px;
-    left: 1050px;
-    top: 643px;
 }
 
 .middle-section {
@@ -76,7 +73,6 @@
 
 .middle-section-item-1 {
     width: 280px;
-
 }
 
 .middle-section-item-2 {
@@ -102,21 +98,23 @@
     margin-top: 50px;
     display: flex;
     align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .bottom-section-fish1 {
     width: 300px;
     object-fit: cover;
-    padding-right: 50px;
 }
 
 .bottom-section-fish2 {
     width: 500px;
     object-fit: cover;
+    padding: 0 20px 0 20px;
+    height: auto;
 }
 
 .bottom-section-fish3 {
     object-fit: cover;
     width: 300px;
-    padding-left: 50px;
 }
