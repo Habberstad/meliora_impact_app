@@ -1,12 +1,13 @@
 body {
     margin: 0;
-    background-color: #FAFAFA;
+    background-color:#FAFAFA;
     font-family: montserrat, serif;
 }
 
 .app-container {
     display: flex;
 }
+
 
 
 /**************************
@@ -24,7 +25,7 @@ body {
 
 .profile-name-badge {
     display: flex;
-    justify-content: flex-start;
+    justify-content:flex-start;
     align-items: center;
     width: 240px;
     height: 75px;
@@ -63,7 +64,7 @@ body {
     display: flex;
     background-color: #fff;
     width: 280px;
-    height: 50px;
+    height:50px;
     align-items: center;
     font-weight: 500;
     color: #637381;
@@ -71,7 +72,7 @@ body {
 }
 
 .nav-item-selected {
-    background-color: #EFD3FF;
+    background-color:#EFD3FF;
     color: #A400FF;
     cursor: pointer;
     font-weight: 600;
@@ -79,7 +80,7 @@ body {
 }
 
 .nav-item:hover {
-    background-color: #EFD3FF;
+    background-color:#EFD3FF;
     color: #A400FF;
     cursor: pointer;
     font-weight: 600;
@@ -234,3 +235,40 @@ body {
 /**************************
 
   *************************/
+
+.login-left-card-icon {
+    width: 60px;
+    margin: 25px 0 0 25px;
+}
+
+.login-left-card-content {
+    height: 500px;
+    align-self: center;
+    width: calc(100% - 120px);
+    margin-top: 15%;
+
+}
+.login-left-card-content img{
+    width: 100%;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid blue;
+    width: 100%
+
+}
+.login-content {
+    border: 2px solid red;
+    height: 500px;
+    width: 50%;
+}
+.login-form {
+    width: 100%;
+}
+
+.form-button .MuiButton-root {
+    background-color: black;
+}
