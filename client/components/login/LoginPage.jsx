@@ -1,10 +1,7 @@
-import MelioraIcon from "../../media/meliora_logo.png";
-import LoginCardImage from "../../media/login_card_img.png";
 import GoogleIcon from "../../media/google_icon.png";
 import "../../styles/loginPage-styles.css";
 
 import {
-  Box,
   Button,
   Checkbox,
   Divider,
@@ -14,22 +11,12 @@ import {
   TextField,
 } from "@mui/material";
 import { Link } from "react-router-dom";
+import { LoginLeftCard } from "./LoginLeftCard";
 
 export const LoginPage = () => {
   return (
     <div className="login-page-container">
-      <div className="login-left-card">
-        <img
-          className="login-left-card-icon"
-          src={MelioraIcon}
-          alt="company-icon"
-        />
-        <div className="login-left-card-content">
-          <h1>Meliora Connect</h1>
-          <h1>Together We Can Change The World</h1>
-          <img src={LoginCardImage} alt="company-icon" />
-        </div>
-      </div>
+      <LoginLeftCard />
       <div className="login-container">
         <div className={"login-content"}>
           <div>
@@ -40,7 +27,15 @@ export const LoginPage = () => {
             <div>
               <Link to="/login-google" style={{ textDecoration: "none" }}>
                 <Button
-                  sx={{ mb: "22px" }}
+                  sx={{
+                    mb: "22px",
+                    borderColor: "#637381",
+                    "&:hover": {
+                      borderColor: "#000",
+                      backgroundColor: "#FFF",
+                      color: "#637381",
+                    },
+                  }}
                   fullWidth
                   variant={"outlined"}
                   size={"large"}
@@ -99,8 +94,9 @@ export const LoginPage = () => {
                 sx={{
                   mt: 1,
                   backgroundColor: "#A400FF",
-                  "& .MuiButton-root.Mui-focused": {
-                    backgroundColor: "#FFFFFF",
+                  "&:hover": {
+                    backgroundColor: "#aa55d9",
+                    color: "#FFF",
                   },
                 }}
                 variant="contained"
@@ -110,6 +106,13 @@ export const LoginPage = () => {
               </Button>
             </FormControl>
           </form>
+          <div className={"bottom-text-container"}>
+            <p className={"bottom-text"}>
+              By registering, I agree to Minimal
+              <strong> Terms of Service</strong> and
+              <strong> Privacy Policy.</strong>
+            </p>
+          </div>
         </div>
       </div>
     </div>

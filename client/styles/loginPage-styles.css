@@ -58,7 +58,15 @@
 .form-button {
     background-color: #a400ff;
 }
+.bottom-text {
+    font-size: 10px;
+}
 
+.bottom-text-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 /**************************
 
   *************************/
