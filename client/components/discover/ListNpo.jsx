@@ -5,7 +5,7 @@ import {
   CardActionArea,
   CardActions,
   CardContent,
-  CardMedia,
+  CardMedia, Divider,
   Grid,
   Typography
 } from "@mui/material";
@@ -13,6 +13,8 @@ import waterImg from "./water.png";
 import SchoolIcon from "@mui/icons-material/School";
 import OpacityIcon from "@mui/icons-material/Opacity";
 import FilterAltOffIcon from "@mui/icons-material/FilterAltOff";
+import ArticlesIcon from "../../media/articles_icon.png";
+import { Link } from "react-router-dom";
 
 function FilterNpoByCategory(list, category) {
   if (category === "") {
@@ -36,11 +38,15 @@ function filterBySearchWord(list, searchWord) {
 }
 
 
-export function NpoCard({ npo: { name, description, category, npoName } }) {
+export function NpoCard({ npo: { name, description, category, npoName, id } }) {
+
+  function navigateToProject() {
+    alert("Should navigate to project: " + name + " (id: " + id + ")");
+  }
 
   return (
 
-    <Card className={"npoCardStyle"} sx={{ borderRadius: "25px" }}>
+    <Card className={"npoCardStyle"} sx={{ borderRadius: "25px", boxShadow: 5 }}>
       <div className={"card-image-wrapper"}>
         <CardMedia
           component="img"
@@ -48,28 +54,25 @@ export function NpoCard({ npo: { name, description, category, npoName } }) {
           alt="background-img"
           className={"card-image"}
         />
-        <Typography variant={"string"}>
-          <div className={"npoCardIcon card-image-icon"}>
+        <div className={"npoCardIcon card-image-icon"}>
+          <div className={"card-image-npoName-wrapper"}>
             {npoName}
-            <span className={"npo-space"}></span>
-            {category.toLowerCase() === "water" ? <OpacityIcon/> : <SchoolIcon/> }
-
           </div>
-        </Typography>
+          <div className={"card-image-icon-wrapper"}>
+            {category.toLowerCase() === "water" ? <OpacityIcon /> : <SchoolIcon />}
+          </div>
+        </div>
       </div>
 
       <div className={"npoCard-text-container"}>
-        <Typography variant="h5" component="div">
-          {name}
-        </Typography>
-        <hr className={"npoHr"} />
-        <br />
-        <Typography variant={"string"}>
-          {description}
-        </Typography>
+        <h3 className={"npoCard-text-header"}>{name}</h3>
+        <Divider variant="middle" className={"divider-1"} />
+        <p className={"npoCard-text-description"}>{description}</p>
       </div>
       <CardActions className={"card-button-container"}>
-        <Button className={"card-button"} variant="contained">Les mer</Button>
+        <Link to={"/articles/article?id=" + id} style={{ textDecoration: "none" }}>
+          <Button className={"card-button"} variant="contained">Les mer</Button>
+        </Link>
       </CardActions>
 
     </Card>
