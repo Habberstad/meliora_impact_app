@@ -4,17 +4,28 @@ import path from "path";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 import fetchJSON from "./fetchJSON.js";
+import { ArticlesAPI } from "./articlesApi.js";
+import { MongoClient } from "mongodb";
 
 const app = express();
 dotenv.config();
 
 app.use(bodyParser.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
-
 app.use(express.static("../client/dist"));
 
 const discovery_endpoint_google =
   "https://accounts.google.com/.well-known/openid-configuration";
+
+const mongoClient = new MongoClient(process.env.MONGODB_URL);
+mongoClient.connect().then(async () => {
+  console.log("Connected to mongodb");
+  const databases = await mongoClient.db().admin().listDatabases();
+  app.use(
+    "/api/articles",
+    ArticlesAPI(mongoClient.db(process.env.MONGODB_DATABASE || "articles"))
+  );
+});
 
 app.post("/api/login", (req, res) => {
   const { access_token } = req.body;

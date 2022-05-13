@@ -2,11 +2,26 @@ import { articles } from "../../mock_data/articles";
 import logo from "../../media/article_header.png";
 import logo2 from "../../media/article_header.png";
 import { Grid } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../../styles/articlesPage.css";
+import { getArticles } from "../../api-client/articles";
 
 const ArticlesPage = () => {
   const [articleList, setArticleList] = useState(articles);
+  const [articlesMongoDb, setArticlesMongoDb] = useState();
+
+  useEffect(() => {
+    async function loadArticleList() {
+      try {
+        const res = await getArticles();
+        setArticlesMongoDb(res?.data?.data);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+    loadArticleList();
+    console.log(articlesMongoDb);
+  }, []);
 
   return (
     <div>
