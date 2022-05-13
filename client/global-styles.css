@@ -92,61 +92,7 @@ body {
     border-right: solid 3px #a400ff;
 }
 
-/************************
-         Articles
-*************************/
 
-.containerContent{
-    display: flex;
-    flex-direction: column;
-}
-
-.contentTextBig{
-    position: absolute;
-    max-width: 350px;
-    color: white;
-    background: hsla(0, 0%, 0%, 0.6);
-    overflow-wrap: break-word;
-    top: 59%;
-    font-size: large;
-}
-
-.contentTextMedium{
-    position: absolute;
-    max-width: 350px;
-    color: white;
-    background: hsla(0, 0%, 0%, 0.6);
-    overflow-wrap: break-word;
-    top: 40%;
-}
-
-.contentTextSmall{
-    position: absolute;
-    max-width: 350px;
-    color: white;
-    background: hsla(0, 0%, 0%, 0.6);
-    overflow-wrap: break-word;
-    top: 65%;
-    font-size: small;
-}
-
-
-
-#bilde{
-    width: 100%;
-}
-#filter_articles{
-
-}
-
-#articles-container{
-    max-height: 100vh;
-    max-width: 100vw;
-}
-
-#articles-recommendation-container{
-
-}
 
 
 .sidebar-image-container {

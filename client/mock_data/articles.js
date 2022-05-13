@@ -1,7 +1,11 @@
+import logo from "../media/article_header.png";
+
 export const articles = [
   {
     main_title: "Leve Havet",
     sub_title: "How Leve Havet is saving the planet by saving the corals.",
+    image: logo,
+    npoName: "Leve Havet",
     author: "Dennis Brenna",
     date: "April 2018",
     _id: "123asdasdasj12",
@@ -56,6 +60,8 @@ export const articles = [
   {
     main_title: "Leve Havet",
     sub_title: "How Leve Havet is saving the planet by saving the corals.",
+    image: logo,
+    npoName: "Leve Havet",
     author: "Dennis Brenna",
     date: "April 2018",
     _id: "123asdasdasj12",
@@ -110,6 +116,8 @@ export const articles = [
   {
     main_title: "Leve Havet",
     sub_title: "How Leve Havet is saving the planet by saving the corals.",
+    image: logo,
+    npoName: "Leve Havet",
     author: "Dennis Brenna",
     date: "April 2018",
     _id: "123asdasdasj12",
@@ -164,6 +172,7 @@ export const articles = [
   {
     main_title: "Leve Havet",
     sub_title: "How Leve Havet is saving the planet by saving the corals.",
+    image: logo,
     author: "Dennis Brenna",
     date: "April 2018",
     _id: "123asdasdasj12",

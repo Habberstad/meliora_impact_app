@@ -3,6 +3,7 @@ import logo from "../../media/article_header.png";
 import logo2 from "../../media/article_header.png";
 import { Grid } from "@mui/material";
 import { useState } from "react";
+import "../../styles/articlesPage.css";
 
 const ArticlesPage = () => {
   const [articleList, setArticleList] = useState(articles);
@@ -36,11 +37,11 @@ const ArticlesPage = () => {
                 id={"bilde"}
                 alt={"das"}
               />
-              <div className={"contentTextBig"}>{articleList[0].content1}</div>
-              <div className={"contentTText"}>
-                {articleList[0].publishingDate}
+              <div className={"contentTextBig"}>
+                {articleList[0].description}
               </div>
-              <div className={"contentTText"}>{articleList[0].npoName}</div>
+              <div className={"contentTText"}>{articleList[0].date}</div>
+              <div className={"contentTText"}>{articleList[0].author}</div>
             </div>
           </Grid>
 
