@@ -1,0 +1,85 @@
+/**************************
+     SIDEBAR NAVIGATION
+*************************/
+
+.sidebar-container {
+    height: 100vh;
+    width: 282px;
+    background-color: #FFF;
+    border-right: solid 1.5px #DEDEDE;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+
+
+.profile-name-badge {
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    width: 240px;
+    height: 75px;
+    background-color: #C0C3C5;
+    margin-left: 16px;
+    margin-top: 25px;
+    font-weight: 500;
+    font-size: 14px;
+    color: #353535;
+    border-radius: 12px;
+}
+
+.profile-name-badge img {
+    margin: 0 10px 0 20px;
+}
+
+.sidebar-company-logo {
+    margin: 5px 0 0 5px;
+}
+
+
+.nav-item-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px;
+
+}
+
+.nav-item-container img {
+    width: 25px;
+    height: 25px;
+    margin: 0 20px 0 40px;
+}
+
+.nav-item {
+    display: flex;
+    background-color: #fff;
+    width: 280px;
+    height:50px;
+    align-items: center;
+    font-weight: 500;
+    color: #637381;
+    font-size: 14px;
+}
+
+.nav-item-selected {
+    background-color:#EFD3FF;
+    color: #A400FF;
+    cursor: pointer;
+    font-weight: 600;
+    border-right: solid 3px #a400ff;
+}
+
+.nav-item:hover {
+    background-color:#EFD3FF;
+    color: #A400FF;
+    cursor: pointer;
+    font-weight: 600;
+    border-right: solid 3px #a400ff;
+}
+
+.sidebar-image-container {
+
+}
