@@ -1,0 +1,92 @@
+
+.discover-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px;
+}
+
+.npoCardStyle {
+    display: block;
+    width: 450px;
+    height: 650px;
+    position: relative;
+}
+
+.npoCard-text-container {
+    padding: 20px;
+    margin: 10px;
+
+}
+
+.npoHr {
+    border-top: 3px solid #A400FF;
+}
+
+.npoCardIcon {
+
+    background-color: #DEEAEE;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 140px;
+    padding: 5px;
+}
+
+.npo-space {
+    margin-left: 10px;
+}
+
+.npo-search-field .MuiOutlinedInput-root {
+    width: 340px;
+    border-radius: 25px;
+
+}
+
+.discover-top {
+    margin: 50px;
+}
+
+.card-image-wrapper {
+    position: relative;
+}
+
+.card-image {
+    width: 100%;
+    height: auto;
+}
+
+.card-image-icon {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    font-size: 18px;
+}
+
+.card-button-container{
+    position: absolute;
+    bottom: 0;
+    margin-left:-50px;
+    left:50%;
+
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.card-button{
+    display: flex;
+    justify-content: center;
+    vertical-align: bottom;
+    position: absolute;
+    bottom: 10px;
+
+}
+
+.card-button.MuiButton-root{
+    background-color: #a400ff;
+    border-radius: 15px;
+}
