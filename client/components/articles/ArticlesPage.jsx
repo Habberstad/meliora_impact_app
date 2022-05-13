@@ -11,7 +11,7 @@ const ArticlesPage = () => {
 
   return (
     <div>
-      <h1>Meliora Articlels</h1>
+      <h1>Meliora Articles</h1>
 
       <Grid container direction="row" spacing={1} justifyContent="center">
         <Grid item>New</Grid>
