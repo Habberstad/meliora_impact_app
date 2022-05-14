@@ -1,4 +1,3 @@
-import { prosjects } from "../../data/prosjects";
 import { useContext, useState } from "react";
 import { ListProjects } from "./ListProjects";
 import { KeywordFilter } from "./KeywordFilter";

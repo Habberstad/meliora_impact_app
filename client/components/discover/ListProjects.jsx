@@ -38,7 +38,7 @@ function filterBySearchWord(list, searchWord) {
 }
 
 
-export function NpoCard({ npo: { name, description, category, npoName, _id } }) {
+export function ProjectCard({ project: { name, description, category, npoName, _id } }) {
 
   function navigateToProject() {
     alert("Should navigate to project: " + name + " (id: " + _id + ")");
@@ -100,9 +100,9 @@ export function ListProjects(props) {
           className={"card-container"}
         >
 
-          {filteredList.map((npo) => (
-            <Grid key={npo.id} item className={"card-item"}>
-              <NpoCard npo={npo} />
+          {filteredList.map((project) => (
+            <Grid key={project._id} item className={"card-item"}>
+              <ProjectCard project={project} />
             </Grid>
           ))}
         </Grid>
