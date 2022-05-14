@@ -6,6 +6,7 @@ import cookieParser from "cookie-parser";
 import fetchJSON from "./fetchJSON.js";
 import { ArticlesAPI } from "./articlesApi.js";
 import { MongoClient } from "mongodb";
+import { ProjectsApi } from "./projectsApi.js";
 
 const app = express();
 dotenv.config();
@@ -25,6 +26,13 @@ mongoClient.connect().then(async () => {
     "/api/articles",
     ArticlesAPI(mongoClient.db(process.env.MONGODB_DATABASE || "articles"))
   );
+
+  app.use(
+    "/api/projects",
+    ProjectsApi(mongoClient.db(process.env.MONGODB_DATABASE || "projects"))
+
+  );
+
 });
 
 app.post("/api/login", (req, res) => {
