@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import fetchJSON from "../../helpers/fetchJSON";
+import { Box, CircularProgress } from "@mui/material";
 
 export function LoginOpenIDStep() {
   useEffect(async () => {
@@ -20,8 +21,8 @@ export function LoginOpenIDStep() {
   }, []);
 
   return (
-    <div>
-      <h1>Please wait...</h1>
-    </div>
+    <Box sx={{ display: "flex" }}>
+      <CircularProgress />
+    </Box>
   );
 }
