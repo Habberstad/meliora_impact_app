@@ -131,8 +131,7 @@ export const articles = [
       "https://images.unsplash.com/photo-1535591273668-578e31182c4f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
     carousel_image3:
       "https://images.unsplash.com/photo-1535591273668-578e31182c4f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
-    description:
-      "We’ve started our work in Burkina Faso. With your help we can provide clean water to several villages",
+    description: "A village in Peru has now access to clean ",
     published: "21 December 2021",
     paragraph_1:
       "Lorem ipsum dolor sit amet, sed ea solum movet scriptorem, " +
@@ -173,6 +172,7 @@ export const articles = [
     main_title: "Leve Havet",
     sub_title: "How Leve Havet is saving the planet by saving the corals.",
     image: logo,
+    npoName: "Leve Havet",
     author: "Dennis Brenna",
     date: "April 2018",
     _id: "123asdasdasj12",
@@ -187,7 +187,7 @@ export const articles = [
     carousel_image3:
       "https://images.unsplash.com/photo-1535591273668-578e31182c4f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
     description:
-      "We’ve started our work in Burkina Faso. With your help we can provide clean water to several villages",
+      "We’re happy to say that our voluenteers have arrived in Peru. Exciting times!",
     published: "21 December 2021",
     paragraph_1:
       "Lorem ipsum dolor sit amet, sed ea solum movet scriptorem, " +
