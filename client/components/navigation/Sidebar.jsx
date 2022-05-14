@@ -63,7 +63,7 @@ const Sidebar = () => {
           <Link to={"/articles"} style={{ textDecoration: "none" }}>
             <div className="nav-item">
               <img className="icon-style" src={ArticlesIcon} alt="dashboard" />
-              <a>Articles</a>
+              <div>Articles</div>
             </div>
           </Link>
           <Link to={"/discover"} style={{ textDecoration: "none" }}>

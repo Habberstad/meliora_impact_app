@@ -71,7 +71,7 @@ export function ProjectCard({ project: { name, description, category, npoName, _
       </div>
       <CardActions className={"card-button-container"}>
         <Link to={"/articles/article?id=" + _id} style={{ textDecoration: "none" }}>
-          <Button className={"card-button"} variant="contained">Les mer</Button>
+          <Button className={"card-button"} variant="contained">Explore</Button>
         </Link>
       </CardActions>
 

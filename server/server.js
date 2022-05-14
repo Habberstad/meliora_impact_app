@@ -29,7 +29,7 @@ mongoClient.connect().then(async () => {
 
   app.use(
     "/api/projects",
-    ProjectsApi(mongoClient.db(process.env.MONGODB_DATABASE || "projects"))
+    ProjectsApi(mongoClient.db(process.env.MONGODB_DATABASE || "meliora_database"))
 
   );
 
