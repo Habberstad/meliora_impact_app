@@ -1,6 +1,6 @@
 import { prosjects } from "../../data/prosjects";
 import { useContext, useState } from "react";
-import { ListNpo } from "./ListNpo";
+import { ListProjects } from "./ListProjects";
 import { KeywordFilter } from "./KeywordFilter";
 import { CategoryFilter } from "./CategoryFilter";
 import { Top } from "./Top";
@@ -47,7 +47,7 @@ const DiscoverPage = () => {
       <br /><br />
       <KeywordFilter searchString={searchString} onChange={handleSearchInput} />
       <br /><br />
-      <ListNpo data={data} category={categoryFilter} searchWord={searchString} />
+      <ListProjects data={data} category={categoryFilter} searchWord={searchString} />
     </div>
   );
 };

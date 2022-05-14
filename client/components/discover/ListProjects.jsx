@@ -20,17 +20,17 @@ function FilterNpoByCategory(list, category) {
   if (category === "") {
     return list;
   } else {
-    return list.filter(npo => npo.category === category);
+    return list.filter(project => project.category === category);
   }
 }
 
 function filterBySearchWord(list, searchWord) {
   if (searchWord !== "") {
-    return list.filter((npo) =>
-      npo.name.toLowerCase().includes(searchWord.toLowerCase())
-      || npo.description.toLowerCase().includes(searchWord.toLowerCase())
-      || npo.category.toLowerCase().includes(searchWord.toLowerCase())
-      || npo.npoName.toLowerCase().includes(searchWord.toLowerCase())
+    return list.filter((project) =>
+      project.name.toLowerCase().includes(searchWord.toLowerCase())
+      || project.description.toLowerCase().includes(searchWord.toLowerCase())
+      || project.category.toLowerCase().includes(searchWord.toLowerCase())
+      || project.npoName.toLowerCase().includes(searchWord.toLowerCase())
     );
   } else {
     return list;
@@ -38,10 +38,10 @@ function filterBySearchWord(list, searchWord) {
 }
 
 
-export function NpoCard({ npo: { name, description, category, npoName, id } }) {
+export function NpoCard({ npo: { name, description, category, npoName, _id } }) {
 
   function navigateToProject() {
-    alert("Should navigate to project: " + name + " (id: " + id + ")");
+    alert("Should navigate to project: " + name + " (id: " + _id + ")");
   }
 
   return (
@@ -70,7 +70,7 @@ export function NpoCard({ npo: { name, description, category, npoName, id } }) {
         <p className={"npoCard-text-description"}>{description}</p>
       </div>
       <CardActions className={"card-button-container"}>
-        <Link to={"/articles/article?id=" + id} style={{ textDecoration: "none" }}>
+        <Link to={"/articles/article?id=" + _id} style={{ textDecoration: "none" }}>
           <Button className={"card-button"} variant="contained">Les mer</Button>
         </Link>
       </CardActions>
@@ -80,7 +80,7 @@ export function NpoCard({ npo: { name, description, category, npoName, id } }) {
   );
 }
 
-export function ListNpo(props) {
+export function ListProjects(props) {
   let filteredList = FilterNpoByCategory(props.data, props.category);
   filteredList = filterBySearchWord(filteredList, props.searchWord);
 
