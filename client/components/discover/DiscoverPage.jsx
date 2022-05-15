@@ -12,10 +12,11 @@ import { useLoading } from "../../useLoading";
 const DiscoverPage = () => {
   const [searchString, setSearchString] = useState("");
   const [category, setCategory] = useState("")
+  const [npoName, setNpoName] = useState("")
 
   const { listProjects } = useContext(ProjectsApiContext);
   const { loading, error, data } = useLoading(
-    async () => await listProjects({category}),
+    async () => await listProjects({category, npoName}),
     [category]
   );
 

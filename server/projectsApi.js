@@ -9,10 +9,14 @@ export function ProjectsApi(mongoDatabase) {
 
     const { category } = req.query;
     if (category) {
-      query.category = { $regex: category };
+      query.category = { $eq: category };
     }
 
-    console.log(req.query)
+    const { npoName } = req.query;
+    if (npoName) {
+      query.npoName = { $eq: npoName };
+    }
+
 
     const projects = await mongoDatabase
       .collection("projects")
