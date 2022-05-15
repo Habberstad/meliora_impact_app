@@ -6,8 +6,8 @@ import { postJSON } from "../../lib/postJSON";
 
 export const ProjectsApiContext = React.createContext({
 
-  async listProjects() {
-    return await fetchJSON("/api/projects");
+  async listProjects(query) {
+    return await fetchJSON("/api/projects?"+ new URLSearchParams(query));
   },
   async createProjects(project) {
     return await postJSON("/api/projects", project);

@@ -5,8 +5,14 @@ export function ProjectsApi(mongoDatabase) {
 
   router.get("/", async (req, res) => {
     const query = {
-
     };
+
+    const { category } = req.query;
+    if (category) {
+      query.category = { $regex: category };
+    }
+
+    console.log(req.query)
 
     const projects = await mongoDatabase
       .collection("projects")

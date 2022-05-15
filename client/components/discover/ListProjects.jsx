@@ -70,7 +70,7 @@ export function ProjectCard({ project: { name, description, category, npoName, _
         <p className={"npoCard-text-description"}>{description}</p>
       </div>
       <CardActions className={"card-button-container"}>
-        <Link to={"/articles/article?id=" + _id} style={{ textDecoration: "none" }}>
+        <Link to={"/project/" + _id} style={{ textDecoration: "none" }}>
           <Button className={"card-button"} variant="contained">Explore</Button>
         </Link>
       </CardActions>
@@ -81,8 +81,7 @@ export function ProjectCard({ project: { name, description, category, npoName, _
 }
 
 export function ListProjects(props) {
-  let filteredList = FilterNpoByCategory(props.data, props.category);
-  filteredList = filterBySearchWord(filteredList, props.searchWord);
+  const filteredList = filterBySearchWord(props.data, props.searchWord);
 
   const numberOfMatches = filteredList.length;
   if (numberOfMatches === 0) {

@@ -1,12 +1,6 @@
 import Sidebar from "./components/navigation/Sidebar";
-import {
-  BrowserRouter,
-  Outlet,
-  Route,
-  Routes,
-  useNavigate,
-} from "react-router-dom";
-import { useEffect, useState } from "react";
+import { Outlet, Route, Routes, useNavigate } from "react-router-dom";
+import React, { useEffect } from "react";
 import ArticlesPage from "./components/articles/ArticlesPage";
 import Article from "./components/articles/Article";
 import DiscoverPage from "./components/discover/DiscoverPage";
@@ -14,10 +8,8 @@ import MyNonProfitsPage from "./components/my-non-profits/MyNonProfitsPage";
 import { LoginPage } from "./components/login/LoginPage";
 import { LoginOpenIDStep } from "./components/login/LoginOpenIDStep";
 import { CookiesProvider, useCookies } from "react-cookie";
-import React from "react";
-import { useLoader } from "./helpers/UseLoader";
-import fetchJSON from "./helpers/fetchJSON";
 import { Box, CircularProgress } from "@mui/material";
+import { ProjectPage } from "./components/project/ProjectPage";
 
 async function fetchPostToken(access_token) {
   await fetch("/api/login", {
@@ -92,6 +84,11 @@ function App() {
               exact
               path="/my-non-profits"
               element={<MyNonProfitsPage />}
+            />
+            <Route
+              exact
+              path="/project/:id"
+              element={<ProjectPage />}
             />
             <Route exact path="/wrapped" element={<MyNonProfitsPage />} />
             <Route exact path="/templates" element={<MyNonProfitsPage />} />

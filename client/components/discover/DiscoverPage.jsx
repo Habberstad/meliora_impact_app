@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { ListProjects } from "./ListProjects";
-import { KeywordFilter } from "./KeywordFilter";
+import { Searchbar } from "./Searchbar";
 import { CategoryFilter } from "./CategoryFilter";
 import { Top } from "./Top";
 import "../../styles/discoverPage.css";
@@ -10,17 +10,17 @@ import { useLoading } from "../../useLoading";
 
 
 const DiscoverPage = () => {
-  const [categoryFilter, setCategoryFilter] = useState("");
   const [searchString, setSearchString] = useState("");
+  const [category, setCategory] = useState("")
 
   const { listProjects } = useContext(ProjectsApiContext);
   const { loading, error, data } = useLoading(
-    async () => await listProjects(),
-    []
+    async () => await listProjects({category}),
+    [category]
   );
 
   function categorySelectHandler(selectedCategory) {
-    setCategoryFilter(selectedCategory);
+    setCategory(selectedCategory)
   }
 
   function handleSearchInput(event) {
@@ -44,9 +44,9 @@ const DiscoverPage = () => {
       <Top />
       <CategoryFilter onClick={categorySelectHandler} />
       <br /><br />
-      <KeywordFilter searchString={searchString} onChange={handleSearchInput} />
+      <Searchbar searchString={searchString} onChange={handleSearchInput} />
       <br /><br />
-      <ListProjects data={data} category={categoryFilter} searchWord={searchString} />
+      <ListProjects data={data} category={category} searchWord={searchString} />
     </div>
   );
 };
