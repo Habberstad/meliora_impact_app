@@ -1,7 +1,7 @@
 import { InputAdornment, TextField } from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
 
-export function KeywordFilter(props) {
+export function Searchbar(props) {
   const placeholderText = "Search for projects"
 
   return (
