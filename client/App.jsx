@@ -15,6 +15,9 @@ import { LoginPage } from "./components/login/LoginPage";
 import { LoginOpenIDStep } from "./components/login/LoginOpenIDStep";
 import { CookiesProvider, useCookies } from "react-cookie";
 import React from "react";
+import { useLoader } from "./helpers/UseLoader";
+import fetchJSON from "./helpers/fetchJSON";
+import { Box, CircularProgress } from "@mui/material";
 
 async function fetchPostToken(access_token) {
   await fetch("/api/login", {
@@ -37,15 +40,28 @@ function LoginCallback() {
 
     setTimeout(function () {
       window.location.reload();
-      navigate("/");
-    }, 1000);
+    }, 500);
+    navigate("/");
   });
 
-  return <h1>Please wait...</h1>;
+  return (
+    <div>
+      <Box sx={{ display: "flex" }}>
+        <CircularProgress size={100} />
+      </Box>
+    </div>
+  );
 }
 
 function App() {
   const [tokenCookie, setTokenCookie] = useCookies(["access_token"]);
+
+  //const { loading, data, error } = useLoader(async () => {
+  //  return await fetchJSON("/api/login");
+  //});
+
+  //if (loading) return <div>Please wait...</div>;
+  //if (error) return <div>Error! {error.toString()}</div>;
 
   if (!tokenCookie.access_token)
     return (
