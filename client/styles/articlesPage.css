@@ -2,6 +2,43 @@
          Articles
 *************************/
 
+
+/******************
+        filter button
+******************/
+
+.filterContainer{
+    margin: 40px;
+    justify-content: center;
+
+}
+
+.dividerFilter{
+    width: 400px;
+    margin: auto;
+    textAlign: center;
+}
+
+.newFilter{
+    font-size: 22px;
+}
+
+.popularFilter{
+    font-size: 22px;
+}
+
+.waterFilter {
+    font-size: 22px;
+}
+
+.knowledgeFilter {
+    font-size: 22px;
+}
+
+/******
+    main content
+*******/
+
 .containerContentBig{
     display: flex;
     flex-direction: column;
@@ -56,9 +93,9 @@
 
 .containerContentMedium img{
     object-fit: cover;
+    border-radius: 5%;
     width: 464px;
     height: 250px;
-    border-radius: 5%;
 }
 .contentTextMedium{
     position: absolute;
@@ -134,6 +171,81 @@
     right: 0;
     font-size: 14px;
 }
+
+
+/******
+    Recommended
+******/
+
+.bigCheckoutContainer{
+    position: relative;
+}
+
+.bigCheckoutContainer img{
+    width: 503px;
+    height: 234px;
+    object-fit: cover;
+    border-radius: 5%;
+}
+
+.bigDateRecommended {
+    position: absolute;
+    top: 140px;
+    max-width: 200px;
+    background: white;
+    overflow-wrap: break-word;
+    font-size: 12px;
+}
+
+.bigDescriptionRecommended {
+    position: absolute;
+    top: 170px;
+    max-width: 300px;
+    background: hsla(0, 0%, 0%, 0.6);
+    color: white;
+    overflow-wrap: break-word;
+    font-size: 12px;
+}
+
+/** small **/
+.smallCheckoutContainer {
+    position: relative;
+}
+.smallCheckoutContainer img{
+    width: 218px;
+    height: 234px;
+    object-fit: cover;
+    border-radius: 5%;
+}
+
+.smallDateRecommended {
+    top: 155px;
+    max-width: 200px;
+    background: white;
+    overflow-wrap: break-word;
+    font-size: 12px;
+    position: absolute;
+}
+
+.smallDescriptionRecommended {
+    position: absolute;
+    top: 180px;
+    max-width: 200px;
+    background: hsla(0, 0%, 0%, 0.6);
+    color: white;
+    overflow-wrap: break-word;
+    font-size: 12px;
+}
+
+.npoTextSmall {
+    background: black;
+    color: white;
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 14px;
+}
+
 
 #filter_articles{
 
