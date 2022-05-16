@@ -1,59 +1,56 @@
 import "../../styles/npo-profile-styles.css";
+import { ProfileHeader } from "./ProfileHeader";
+import { useState } from "react";
 import { Button } from "@mui/material";
-import WavesIcon from "@mui/icons-material/Waves";
+import AppsIcon from "@mui/icons-material/Apps";
+import FlareIcon from "@mui/icons-material/Flare";
+import VolunteerActivismIcon from "@mui/icons-material/VolunteerActivism";
+import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
+
+const navButtonStyle = {
+  fontFamily: "Montserrat",
+  boxShadow:
+    "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.24)",
+
+  width: "190px",
+  height: "60px",
+  borderRadius: "8px",
+  backgroundColor: "#fff",
+  textTransform: "lowercase",
+  fontSize: "16px",
+  fontWeight: 500,
+  color: "#353535",
+  "&:hover": {
+    backgroundColor: "#DEEAEE",
+    boxShadow:
+      "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.24)",
+  },
+};
 
 const NonProfitProfilePage = () => {
+  const [nonProfitData, setNonProfitData] = useState({});
+
   return (
     <div className="main-profile-container">
-      <div className="header-container">
-        <div className="left-header-section">
-          <div className="npo-header-title">The Williams Foundation</div>
-          <div className="header-donate-btn-container">
-            <div>
-              <Button
-                variant="contained"
-                sx={{
-                  width: "190px",
-                  height: "60px",
-                  borderRadius: "8px",
-                  backgroundColor: "#7209B7",
-                  "&:hover": {
-                    backgroundColor: "#8d28ce",
-                  },
-                }}
-              >
-                Donate
-              </Button>
-            </div>
-            <div className="video-text-btn">About us video</div>
-          </div>
-          <div className="header-tile-container">
-            <div className="header-tile">
-              <WavesIcon
-                sx={{ color: "#7209B7", width: "50px", height: "35px" }}
-              />
-              <div className="tile-data-text">1000km</div>
-              <div className="tile-data-sub-text">Coral reefs preserved</div>
-            </div>
-            <div className="header-tile">
-              <WavesIcon
-                sx={{ color: "#7209B7", width: "50px", height: "35px" }}
-              />
-              <div className="tile-data-text">1000km</div>
-              <div className="tile-data-sub-text">Coral reefs preserved</div>
-            </div>
-            <div className="header-tile">
-              <WavesIcon
-                sx={{ color: "#7209B7", width: "50px", height: "35px" }}
-              />
-              <div className="tile-data-text">1000km</div>
-              <div className="tile-data-sub-text">Coral reefs preserved</div>
-            </div>
-          </div>
-        </div>
-        <div className="right-image-section">
-          <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1672&q=80" />
-        </div>
+      <ProfileHeader nonProfitData={nonProfitData} />
+      <div className="tab-navigation-section">
+        <Button variant="contained" sx={navButtonStyle}>
+          <AppsIcon sx={{ marginRight: "10px" }} />
+          <span className="firstLetterCap">O</span>verview
+        </Button>
+        <Button variant="contained" sx={navButtonStyle}>
+          <FlareIcon sx={{ marginRight: "10px" }} />
+          <span className="firstLetterCap">P</span>rojects
+        </Button>
+        <Button variant="contained" sx={navButtonStyle}>
+          <VolunteerActivismIcon sx={{ marginRight: "10px" }} />
+          <span className="firstLetterCap">I</span>mpact
+        </Button>
+        <Button variant="contained" sx={navButtonStyle}>
+          <RemoveRedEyeIcon sx={{ marginRight: "10px" }} />
+          <span className="firstLetterCap">K</span>ey
+          <span className="firstLetterCap"> I</span>nformation
+        </Button>
       </div>
     </div>
   );
