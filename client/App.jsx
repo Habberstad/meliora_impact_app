@@ -19,6 +19,7 @@ import { useLoader } from "./helpers/UseLoader";
 import fetchJSON from "./helpers/fetchJSON";
 import { Box, CircularProgress } from "@mui/material";
 import OurPartnersPage from "./components/our_partners/OurPartnersPage";
+import NonProfitProfilePage from "./components/non-profit-page/NonProfitProfilePage";
 
 async function fetchPostToken(access_token) {
   await fetch("/api/login", {
@@ -90,6 +91,11 @@ function App() {
             <Route exact path="/articles/article" element={<Article />} />
             <Route exact path="/discover" element={<DiscoverPage />} />
             <Route exact path="/our-partners" element={<OurPartnersPage />} />
+            <Route
+              exact
+              path="/npo-profile/id"
+              element={<NonProfitProfilePage />}
+            />
             <Route exact path="/wrapped" element={<Partners />} />
             <Route exact path="/templates" element={<Partners />} />
           </Routes>
