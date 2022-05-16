@@ -27,7 +27,29 @@
 
 .npo-header-title{
     height: 180px;
+    font-weight: 700;
+    font-size: 50px;
+    color: #fff;
+    margin: 40px 0 0 35px;
+}
+
+.header-donate-btn-container {
+    display: flex;
+    align-items: center;
+    margin-left: 35px;
+}
+
+.video-text-btn {
+    display: flex;
+    margin-left: 15px;
+    border-left: 2px solid #fff;
+    height: 55px;
+    align-items:center;
+    padding-left: 15px;
+    font-size:20px;
     font-weight: 500;
+    color: #fff;
+
 }
 
 
@@ -37,7 +59,9 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content:center;
+    margin-left: 30px;
+    margin-top: 30px;
+
 }
 
 .header-tile {
@@ -46,7 +70,7 @@
     max-width: 110px;
     background-color: #fff;
     border-radius: 12px;
-    margin: 15px 15px;
+    margin: 15px 10px;
 }
 
 

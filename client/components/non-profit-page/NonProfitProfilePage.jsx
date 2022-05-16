@@ -1,5 +1,6 @@
 import "../../styles/npo-profile-styles.css";
 import { Button } from "@mui/material";
+import { WavesIcon } from "@mui/icons-material/waves";
 
 const NonProfitProfilePage = () => {
   return (
@@ -9,13 +10,28 @@ const NonProfitProfilePage = () => {
           <div className="npo-header-title">The Williams Foundation</div>
           <div className="header-donate-btn-container">
             <div>
-              <Button>Donate</Button>
+              <Button
+                variant="contained"
+                sx={{
+                  width: "190px",
+                  height: "60px",
+                  borderRadius: "8px",
+                  backgroundColor: "#7209B7",
+                  "&:hover": {
+                    backgroundColor: "#8d28ce",
+                  },
+                }}
+              >
+                Donate
+              </Button>
             </div>
-            <div>About us video</div>
+            <div className="video-text-btn">About us video</div>
           </div>
           <div className="header-tile-container">
             <div className="header-tile">
-              <div>Icon</div>
+              <div>
+                <WavesIcon />
+              </div>
               <div>1000km</div>
               <div>Coral reefs preserved</div>
             </div>
