@@ -1,0 +1,36 @@
+[
+  {
+    "org_name": "Tine BA",
+    "org_number": "32423423423424",
+    "subscription": "grand",
+    "users": [
+      {
+        "first_name": "John",
+        "last_name": "Snow",
+        "email": "john_snow@gmail.com"
+      },
+      {
+        "first_name": "Olav",
+        "last_name": "Hansen",
+        "email": "olav69@gmail.com"
+      }
+    ]
+  },
+  {
+    "org_name": "ExxonMobil Exploration and Production Norway AS",
+    "org_number": "32423423423424",
+    "subscription": "regular",
+    "users": [
+      {
+        "first_name": "Dan",
+        "last_name": "Jameson",
+        "email": "Jameson@gmail.com"
+      },
+      {
+        "first_name": "Oda",
+        "last_name": "Hagen",
+        "email": "Hagen@gmail.com"
+      }
+    ]
+  }
+]
