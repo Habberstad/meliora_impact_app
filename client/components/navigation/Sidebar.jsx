@@ -21,14 +21,19 @@ const Sidebar = () => {
   });
 
   if (loading)
-    return (
-      <div>
-        <Box sx={{ display: "flex" }}>
-          <CircularProgress size={100} />
-          <p>Slett access_token og reload din noob</p>
-        </Box>
-      </div>
-    );
+    setTimeout(function () {
+      window.location.reload();
+    }, 500);
+
+  navigate("/");
+  return (
+    <div>
+      <Box sx={{ display: "flex" }}>
+        <CircularProgress size={100} />
+        <p>Slett access_token og reload din noob</p>
+      </Box>
+    </div>
+  );
   if (error) return <div>Error! {error.toString()}</div>;
 
   return (
@@ -49,7 +54,7 @@ const Sidebar = () => {
             </div>
           </Link>
 
-          <Link to={"my-non-profits"} style={{ textDecoration: "none" }}>
+          <Link to={"our_partners"} style={{ textDecoration: "none" }}>
             <div className="nav-item">
               <img
                 className="icon-style"
