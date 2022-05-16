@@ -1,4 +1,3 @@
-import { useState } from "react";
 import ProfileIcon from "../../media/profile-icon.png";
 import MelioraIcon from "../../media/meliora_logo.png";
 import DashboardIcon from "../../media/dashboard_icon.png";
