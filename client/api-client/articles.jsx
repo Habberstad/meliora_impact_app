@@ -8,3 +8,6 @@ const instance = axios.create({
 export const getArticles = () => {
   return instance.get("/articles");
 };
+export const getArticlesById = (id) => {
+  return instance.get("/articles/{id}");
+};

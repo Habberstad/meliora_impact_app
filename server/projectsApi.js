@@ -1,11 +1,11 @@
 import { Router } from "express";
+import { ObjectId } from "mongodb";
 
 export function ProjectsApi(mongoDatabase) {
   const router = new Router();
 
   router.get("/", async (req, res) => {
-    const query = {
-    };
+    const query = {};
 
     const { category } = req.query;
     if (category) {
@@ -15,6 +15,11 @@ export function ProjectsApi(mongoDatabase) {
     const { npoName } = req.query;
     if (npoName) {
       query.npoName = { $eq: npoName };
+    }
+
+    const { _id } = req.query;
+    if (_id) {
+      query._id = { $eq: ObjectId(_id) };
     }
 
 

@@ -1,7 +1,13 @@
+import { ProjectsApiContext } from "../discover/projectsApiContext";
+
 export function ProjectPage() {
   return (
     <div>
-      <h1>Project page</h1>
+      <ProjectsApiContext.Consumer>
+        <h1>Project page</h1>
+
+      </ProjectsApiContext.Consumer>
     </div>
+
   );
 }

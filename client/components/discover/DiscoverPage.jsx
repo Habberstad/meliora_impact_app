@@ -13,10 +13,11 @@ const DiscoverPage = () => {
   const [searchString, setSearchString] = useState("");
   const [category, setCategory] = useState("")
   const [npoName, setNpoName] = useState("")
+  const [_id, set_id] = useState("")
 
   const { listProjects } = useContext(ProjectsApiContext);
   const { loading, error, data } = useLoading(
-    async () => await listProjects({category, npoName}),
+    async () => await listProjects({category, npoName, _id}),
     [category]
   );
 
