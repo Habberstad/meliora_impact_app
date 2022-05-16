@@ -1,6 +1,6 @@
 import "../../styles/npo-profile-styles.css";
 import { Button } from "@mui/material";
-import { WavesIcon } from "@mui/icons-material/waves";
+import WavesIcon from "@mui/icons-material/Waves";
 
 const NonProfitProfilePage = () => {
   return (
@@ -29,25 +29,31 @@ const NonProfitProfilePage = () => {
           </div>
           <div className="header-tile-container">
             <div className="header-tile">
-              <div>
-                <WavesIcon />
-              </div>
-              <div>1000km</div>
-              <div>Coral reefs preserved</div>
+              <WavesIcon
+                sx={{ color: "#7209B7", width: "50px", height: "35px" }}
+              />
+              <div className="tile-data-text">1000km</div>
+              <div className="tile-data-sub-text">Coral reefs preserved</div>
             </div>
             <div className="header-tile">
-              <div>Icon</div>
-              <div>1000km</div>
-              <div>Coral reefs preserved</div>
+              <WavesIcon
+                sx={{ color: "#7209B7", width: "50px", height: "35px" }}
+              />
+              <div className="tile-data-text">1000km</div>
+              <div className="tile-data-sub-text">Coral reefs preserved</div>
             </div>
             <div className="header-tile">
-              <div>Icon</div>
-              <div>1000km</div>
-              <div>Coral reefs preserved</div>
+              <WavesIcon
+                sx={{ color: "#7209B7", width: "50px", height: "35px" }}
+              />
+              <div className="tile-data-text">1000km</div>
+              <div className="tile-data-sub-text">Coral reefs preserved</div>
             </div>
           </div>
         </div>
-        <div className="right-image-section">image here</div>
+        <div className="right-image-section">
+          <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1672&q=80" />
+        </div>
       </div>
     </div>
   );
