@@ -21,19 +21,14 @@ const Sidebar = () => {
   });
 
   if (loading)
-    setTimeout(function () {
-      window.location.reload();
-    }, 500);
-
-  navigate("/");
-  return (
-    <div>
-      <Box sx={{ display: "flex" }}>
-        <CircularProgress size={100} />
-        <p>Slett access_token og reload din noob</p>
-      </Box>
-    </div>
-  );
+    return (
+      <div>
+        <Box sx={{ display: "flex" }}>
+          <CircularProgress size={100} />
+          <p>Slett access_token og reload din noob</p>
+        </Box>
+      </div>
+    );
   if (error) return <div>Error! {error.toString()}</div>;
 
   return (
