@@ -6,26 +6,7 @@ import AppsIcon from "@mui/icons-material/Apps";
 import FlareIcon from "@mui/icons-material/Flare";
 import VolunteerActivismIcon from "@mui/icons-material/VolunteerActivism";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
-
-const navButtonStyle = {
-  fontFamily: "Montserrat",
-  boxShadow:
-    "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.24)",
-
-  width: "190px",
-  height: "60px",
-  borderRadius: "8px",
-  backgroundColor: "#fff",
-  textTransform: "lowercase",
-  fontSize: "16px",
-  fontWeight: 500,
-  color: "#353535",
-  "&:hover": {
-    backgroundColor: "#DEEAEE",
-    boxShadow:
-      "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.24)",
-  },
-};
+import { navButtonStyle } from "./style-config";
 
 const NonProfitProfilePage = () => {
   const [nonProfitData, setNonProfitData] = useState({});
