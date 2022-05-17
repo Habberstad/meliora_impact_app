@@ -4,8 +4,11 @@ import path from "path";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 import fetchJSON from "./fetchJSON.js";
-import { ArticlesAPI } from "./articlesApi.js";
+import { ArticlesAPI } from "./Api/articlesApi.js";
 import { MongoClient } from "mongodb";
+import { ProjectsApi } from "./Api/projectsApi.js";
+import { NpoApi } from "./Api/npoApi.js";
+import { AccountsApi } from "./Api/accountsApi.js";
 
 const app = express();
 dotenv.config();
@@ -25,6 +28,23 @@ mongoClient.connect().then(async () => {
     "/api/articles",
     ArticlesAPI(mongoClient.db(process.env.MONGODB_DATABASE || "articles"))
   );
+
+  app.use(
+    "/api/projects",
+    ProjectsApi(mongoClient.db(process.env.MONGODB_DATABASE || "meliora_database"))
+
+  );
+
+  app.use(
+    "/api/npos",
+    NpoApi(mongoClient.db(process.env.MONGODB_DATABASE || "meliora_database"))
+  );
+
+  app.use(
+    "/api/accounts",
+    AccountsApi(mongoClient.db(process.env.MONGODB_DATABASE || "meliora_database"))
+  );
+
 });
 
 app.post("/api/login", (req, res) => {
