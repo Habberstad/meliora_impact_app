@@ -11,11 +11,16 @@ import {
   FormControl,
   FormControlLabel,
   FormGroup,
-  TextField,
+  TextField
 } from "@mui/material";
 import { Link } from "react-router-dom";
 
+
 export const LoginPage = () => {
+  const google = () => {
+    window.open("http://localhost:3000/auth/google", "_self");
+  };
+
   return (
     <div className="login-page-container">
       <div className="login-left-card">
@@ -38,7 +43,7 @@ export const LoginPage = () => {
               <p>Log in with:</p>
             </div>
             <div>
-              <Link to="/login-google" style={{ textDecoration: "none" }}>
+              <div onClick={google} style={{ textDecoration: "none" }}>
                 <Button
                   sx={{ mb: "22px" }}
                   fullWidth
@@ -51,7 +56,7 @@ export const LoginPage = () => {
                     alt="GoogleIcon"
                   />
                 </Button>
-              </Link>
+              </div>
             </div>
           </div>
           <Divider style={{ width: "100%" }}>OR</Divider>
@@ -63,12 +68,12 @@ export const LoginPage = () => {
                   mt: "22px",
                   "& .MuiOutlinedInput-root.Mui-focused": {
                     "& > fieldset": {
-                      borderColor: "rgba(0, 0, 0, 0.7)",
-                    },
+                      borderColor: "rgba(0, 0, 0, 0.7)"
+                    }
                   },
                   "& .MuiInputLabel-root.Mui-focused": {
-                    color: "rgba(0, 0, 0, 0.7)",
-                  },
+                    color: "rgba(0, 0, 0, 0.7)"
+                  }
                 }}
                 label="Email adress"
                 variant="outlined"
@@ -79,12 +84,12 @@ export const LoginPage = () => {
                   my: "22px",
                   "& .MuiOutlinedInput-root.Mui-focused": {
                     "& > fieldset": {
-                      borderColor: "rgba(0, 0, 0, 0.7)",
-                    },
+                      borderColor: "rgba(0, 0, 0, 0.7)"
+                    }
                   },
                   "& .MuiInputLabel-root.Mui-focused": {
-                    color: "rgba(0, 0, 0, 0.7)",
-                  },
+                    color: "rgba(0, 0, 0, 0.7)"
+                  }
                 }}
                 label="Password"
                 variant="outlined"
@@ -100,8 +105,8 @@ export const LoginPage = () => {
                   mt: 1,
                   backgroundColor: "#A400FF",
                   "& .MuiButton-root.Mui-focused": {
-                    backgroundColor: "#FFFFFF",
-                  },
+                    backgroundColor: "#FFFFFF"
+                  }
                 }}
                 variant="contained"
                 size="large"
