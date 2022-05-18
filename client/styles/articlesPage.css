@@ -2,7 +2,6 @@
          Articles
 *************************/
 
-
 /******************
         filter button
 ******************/
@@ -38,23 +37,21 @@
     font-size: 22px;
 }
 
-.knowledgeFilter a{
+hr {
+    height: .25rem;
+    width: 25%;
+    margin: 0;
+    background: #8b16ba;
+    border: none;
+    transition: .3s ease-in-out;
 }
 
-.underbar {
-    width: 0;
-    height: 5px;
-    background: rgba(100, 100, 200, 0);
-    left: -50px;
-    top: 20px;
-    position: absolute;
-    -webkit-transition: 0.5s ease;
+.knowledgeFilterA:hover ~ hr {
+    width: 10px;
 }
 
-.knowledgeFilterA:hover ~ .underbar {
-    left: 0;
-    width: 40px;
-    background: rgba(100, 100, 200, 1);
+.waterFilterA:hover ~ hr {
+    margin-left: 50%;
 }
 
 /******

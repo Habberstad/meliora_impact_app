@@ -24,8 +24,8 @@ const ArticlesPage = () => {
     loadArticleList();
     console.log(articlesMongoDb);
   }, []);
-  const[data1, setData1] = useState(articlesMongoDb)
-  console.log(data1)
+  const [data1, setData1] = useState(articlesMongoDb);
+  console.log(data1);
 
   return (
     <div>
@@ -35,21 +35,19 @@ const ArticlesPage = () => {
         <Grid container="column" justifyContent={"center"}>
           <Grid container direction="row" spacing={3} justifyContent="center">
             <Grid className={"newFilter"} item>
-              <a onClick={""}>New</a>
+              <a className={"newFilterA"}>New</a>
             </Grid>
             <Grid className={"popularFilter"} item>
-              <a onClick={"popular"}>Popular</a>
+              <a className={"popularFilterA"}>Popular</a>
             </Grid>
             <Grid className={"waterFilter"} item>
-              <a onClick={"water"}>Water</a>
+              <a className={"waterFilterA"}>Water</a>
             </Grid>
             <Grid className={"knowledgeFilter"} item>
               <a className={"knowledgeFilterA"}>Knowledge</a>
             </Grid>
           </Grid>
-          <Grid item>
-            <div className={"underbar"}></div>
-          </Grid>
+          <hr />
         </Grid>
       </div>
 
@@ -64,7 +62,9 @@ const ArticlesPage = () => {
           >
             <div className={"containerContentBig"}>
               <div className={"npoTextBig"}>{articleList[0].npoName}</div>
-              <img src={articleList[0].image} id={"bilde"} alt={"das"} />
+              <Link href={articleList[0]._id}>
+                <img src={articleList[0].image} id={"bilde"} alt={"das"} />
+              </Link>
               <div className={"dateTextBig"}>{articleList[0].date}</div>
               <div className={"contentTextBig"}>
                 {articleList[0].description}
