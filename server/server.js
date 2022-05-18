@@ -1,16 +1,23 @@
 import express from "express";
 import dotenv from "dotenv";
-import path from "path";
+import passport from "passport";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
-import fetchJSON from "./fetchJSON.js";
+import cookieSession from "cookie-session";
+import cors from "cors";
+import path from "path";
+
 import { ArticlesAPI } from "./Api/articlesApi.js";
 import { MongoClient } from "mongodb";
 import { ProjectsApi } from "./Api/projectsApi.js";
 import { NpoApi } from "./Api/npoApi.js";
 import { AccountsApi } from "./Api/accountsApi.js";
+import authRoute from "./test/auth.js";
+
+import passportSetup from "./test/passport.js";
 
 const app = express();
+
 dotenv.config();
 
 app.use(bodyParser.json());
@@ -32,7 +39,6 @@ mongoClient.connect().then(async () => {
   app.use(
     "/api/projects",
     ProjectsApi(mongoClient.db(process.env.MONGODB_DATABASE || "meliora_database"))
-
   );
 
   app.use(
@@ -47,32 +53,22 @@ mongoClient.connect().then(async () => {
 
 });
 
-app.post("/api/login", (req, res) => {
-  const { access_token } = req.body;
+app.use(
+  cookieSession({ name: "session", keys: ["lama"], maxAge: 24 * 60 * 60 * 100 })
+);
 
-  res.cookie("access_token", access_token, { signed: true });
-  res.sendStatus(200);
-});
+app.use(passport.initialize());
+app.use(passport.session());
 
-app.get("/api/login", async (req, res) => {
-  const { access_token } = req.signedCookies;
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    methods: "GET,POST,PUT,DELETE",
+    credentials: true
+  })
+);
 
-  if (access_token) {
-    const { userinfo_endpoint } = await fetchJSON(discovery_endpoint_google);
-
-    try {
-      const userinfo = await fetchJSON(userinfo_endpoint, {
-        headers: {
-          Authorization: `Bearer ${access_token}`,
-        },
-      });
-
-      res.json(userinfo);
-    } catch (e) {
-      e.message.toString();
-    }
-  }
-});
+app.use("/login", authRoute);
 
 app.use((req, res, next) => {
   if (req.method === "GET" && !req.path.startsWith("/api")) {
@@ -85,3 +81,5 @@ app.use((req, res, next) => {
 const server = app.listen(process.env.PORT || 3000, () => {
   console.log(`Started on http://localhost:${server.address().port}`);
 });
+
+

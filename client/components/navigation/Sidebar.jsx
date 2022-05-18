@@ -15,23 +15,10 @@ import { Box, CircularProgress } from "@mui/material";
 import React from "react";
 
 const Sidebar = () => {
-  const { loading, data, error } = useLoader(async () => {
-    return await fetchJSON("/api/login");
-  });
-
-  if (loading)
-    return (
-      <div>
-        <Box sx={{ display: "flex" }}>
-          <CircularProgress size={100} />
-          <p>Slett access_token og reload din noob</p>
-        </Box>
-      </div>
-    );
-  if (error) return <div>Error! {error.toString()}</div>;
 
   return (
     <div className="sidebar-container">
+
       <div>
         <div className="sidebar-company-logo">
           <img src={MelioraIcon} alt="company-icon" />

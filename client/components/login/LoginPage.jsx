@@ -16,6 +16,10 @@ import {
 import { Link } from "react-router-dom";
 
 export const LoginPage = () => {
+  const google = () => {
+    window.open("http://localhost:3000/auth/google", "_self");
+  };
+
   return (
     <div className="login-page-container">
       <div className="login-left-card">
@@ -38,7 +42,7 @@ export const LoginPage = () => {
               <p>Log in with:</p>
             </div>
             <div>
-              <Link to="/login-google" style={{ textDecoration: "none" }}>
+              <div onClick={google} style={{ textDecoration: "none" }}>
                 <Button
                   sx={{ mb: "22px" }}
                   fullWidth
@@ -51,7 +55,7 @@ export const LoginPage = () => {
                     alt="GoogleIcon"
                   />
                 </Button>
-              </Link>
+              </div>
             </div>
           </div>
           <Divider style={{ width: "100%" }}>OR</Divider>

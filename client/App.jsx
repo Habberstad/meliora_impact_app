@@ -5,6 +5,7 @@ import {
   Route,
   Routes,
   useNavigate,
+  Navigate
 } from "react-router-dom";
 import { useEffect, useState } from "react";
 import ArticlesPage from "./components/articles/ArticlesPage";
@@ -20,88 +21,99 @@ import fetchJSON from "./helpers/fetchJSON";
 import { Box, CircularProgress } from "@mui/material";
 import OurPartnersPage from "./components/our_partners/OurPartnersPage";
 import NonProfitProfilePage from "./components/non-profit-page/NonProfitProfilePage";
+import Login from "./pages/Login";
+import Navbar from "./pages/components/Navbar";
+import Home from "./pages/Home";
+import Post from "./pages/Post";
+import "./pages/app.css";
 
-async function fetchPostToken(access_token) {
-  await fetch("/api/login", {
-    method: "POST",
-    headers: {
-      "content-type": "application/json",
-    },
-    body: JSON.stringify({ access_token }),
-  });
-}
 
-function LoginCallback() {
-  const navigate = useNavigate();
+function App() {
+  const [user, setUser] = useState(null);
+  console.log(user);
 
-  useEffect(async () => {
-    const { access_token } = Object.fromEntries(
-      new URLSearchParams(window.location.hash.substring(1))
-    );
-    await fetchPostToken(access_token);
+  useEffect(() => {
+    const getUser = () => {
+      fetch("http://localhost:3000/auth/login/success", {
+        method: "GET",
+        credentials: "include",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Credentials": true
+        }
+      })
+        .then((response) => {
+          if (response.status === 200) return response.json();
+          throw new Error("authentication has been failed!");
+        })
+        .then((resObject) => {
+          setUser(resObject.user);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+    getUser();
+  }, []);
 
-    setTimeout(function () {
-      window.location.reload();
-    }, 500);
-    navigate("/");
-  });
 
   return (
     <div>
-      <Box sx={{ display: "flex" }}>
-        <CircularProgress size={100} />
-      </Box>
+
+      <header>
+        <Navbar user={user} />
+      </header>
+      <main>
+        <Routes>
+
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/login1"
+            element={user ? <Navigate to="/" /> : <Login />}
+          />
+          <Route
+            path="/post/:id"
+            element={user ? <Post /> : <Navigate to="/login1" />}
+          />
+        </Routes>
+      </main>
+
     </div>
   );
-}
 
-function App() {
-  const [tokenCookie, setTokenCookie] = useCookies(["access_token"]);
 
-  //const { loading, data, error } = useLoader(async () => {
-  //  return await fetchJSON("/api/login");
-  //});
+  /*
+  return (
+    <div className="app-container">
+      <CookiesProvider>
+        <div>
+          <Sidebar />
+        </div>
 
-  //if (loading) return <div>Please wait...</div>;
-  //if (error) return <div>Error! {error.toString()}</div>;
-
-  if (!tokenCookie.access_token)
-    return (
-      <div>
-        <LoginPage />
         <Routes>
-          <Route exact path="/login" element={<LoginPage />} />
-          <Route exact path="/login-google" element={<LoginOpenIDStep />} />
-          <Route path={"/login/callback"} element={<LoginCallback />} />
+          <Route exact path="/" element={<h1>Home</h1>} />
+          <Route exact path="/articles" element={<ArticlesPage />} />
+          <Route exact path="/articles/article" element={<Article />} />
+          <Route exact path="/discover" element={<DiscoverPage />} />
+          <Route exact path="/our-partners" element={<OurPartnersPage />} />
+          <Route
+            exact
+            path="/npo-profile/id"
+            element={<NonProfitProfilePage />}
+          />
+          <Route
+            path="/login"
+            element={user ? <Sidebar to="/" /> : <Sidebar />}
+          />
+          <Route exact path="/wrapped" element={<Partners />} />
+          <Route exact path="/templates" element={<Partners />} />
         </Routes>
-      </div>
-    );
-  else
-    return (
-      <div className="app-container">
-        <CookiesProvider>
-          <div className="sidebar-container">
-            <Sidebar />
-          </div>
-          <Outlet />
+      </CookiesProvider>
+    </div>
+  );
 
-          <Routes>
-            <Route exact path="/" element={<h1>Home</h1>} />
-            <Route exact path="/articles" element={<ArticlesPage />} />
-            <Route exact path="/articles/article" element={<Article />} />
-            <Route exact path="/discover" element={<DiscoverPage />} />
-            <Route exact path="/our-partners" element={<OurPartnersPage />} />
-            <Route
-              exact
-              path="/npo-profile/id"
-              element={<NonProfitProfilePage />}
-            />
-            <Route exact path="/wrapped" element={<Partners />} />
-            <Route exact path="/templates" element={<Partners />} />
-          </Routes>
-        </CookiesProvider>
-      </div>
-    );
+   */
 }
 
 export default App;
