@@ -22,6 +22,8 @@ const ArticlesPage = () => {
     loadArticleList();
     console.log(articlesMongoDb);
   }, []);
+  const[data1, setData1] = useState(articlesMongoDb)
+  console.log(data1)
 
   return (
     <div className="articles-wrapper">
