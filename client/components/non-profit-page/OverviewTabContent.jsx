@@ -1,17 +1,14 @@
 import "../../styles/npo-profle-page-styles/overview-styles.css";
-import Timeline from "./timeline_component4x.png";
-import MissionMap from "./mission_map_img.png";
+import Timeline from "./npo-media/timeline_component4x.png";
+import MissionMap from "./npo-media/mission_map_img.png";
 import WavesIcon from "@mui/icons-material/Waves";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import WorkspacePremiumIcon from "@mui/icons-material/WorkspacePremium";
 import SouthAmericaIcon from "@mui/icons-material/SouthAmerica";
 
-const OverviewContent = () => {
+const OverviewTabContent = () => {
   return (
     <div>
-      <div className="timeline-section">
-        <img src={Timeline} alt="test" />
-      </div>
       <div className="information-section">
         <div className="mission-info-section">
           <div className="mission-paragraph">
@@ -81,4 +78,4 @@ const OverviewContent = () => {
   );
 };
 
-export default OverviewContent;
+export default OverviewTabContent;

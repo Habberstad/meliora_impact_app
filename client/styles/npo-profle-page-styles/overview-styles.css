@@ -1,14 +1,4 @@
-.timeline-section {
-    width: 100%;
-    height: 220px;
-    margin-top: 70px;
-}
 
-.timeline-section img{
-    width: 100%;
-    height: 220px;
-    align-self: flex-start;
-}
 
 .information-section {
     display: flex;
@@ -69,7 +59,7 @@
     flex-direction: column;
     justify-content:center;
     align-items: center;
-    margin-top: 65px;
+    margin-top: 90px;
 }
 
 .vision-box-section{

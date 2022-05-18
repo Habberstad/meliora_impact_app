@@ -119,6 +119,20 @@
     margin-left: 2px;
 }
 
+.timeline-section {
+    width: 100%;
+    height: 220px;
+    margin-top: 70px;
+    position: relative;
+}
+
+.timeline-section img{
+    width: 1000px;
+    height: 184px;
+    align-self: flex-start;
+    position: absolute;
+}
+
 
 /**************************
     NAVIGATION
@@ -126,5 +140,6 @@
 
 .content-container {
     display: flex;
-    align-self: flex-start;
+    align-self: center;
 }
+
