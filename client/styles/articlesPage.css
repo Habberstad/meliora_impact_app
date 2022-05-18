@@ -2,6 +2,37 @@
          Articles
 *************************/
 
+/****
+    filter Grid
+****/
+.filterContainer{
+    margin-bottom: 12px;
+    margin-top:12px;
+    font-size: 32px;
+}
+.newFilter{
+
+}
+
+.popularFilter {
+
+}
+
+.waterFilter {
+
+}
+
+.knowledgeFilter{
+
+}
+
+
+
+/************************
+    top Grid container
+************************/
+
+
 .articles-wrapper {
     margin: 5% 5% 0 5%;
     max-width: 1500px;
@@ -182,14 +213,4 @@
     position: absolute;
     right: 0;
     font-size: 14px;
-}
-
-#filter_articles{
-
-}
-
-
-
-#articles-recommendation-container{
-
 }

@@ -1,7 +1,7 @@
 import { articles } from "../../mock_data/articles";
 import logo from "../../media/article_header.png";
 import logo2 from "../../media/article_header.png";
-import { Grid } from "@mui/material";
+import { Grid, Link } from "@mui/material";
 import { useEffect, useState } from "react";
 import "../../styles/articlesPage.css";
 import { getArticles } from "../../api-client/articles";
@@ -33,10 +33,18 @@ const ArticlesPage = () => {
 
       <div className="articles-sorter">
         <Grid container spacing={6} justifyContent="center">
-          <Grid item>New</Grid>
-          <Grid item>Popular</Grid>
-          <Grid item>Water</Grid>
-          <Grid item>Knowledge</Grid>
+          <Grid className={"newFilter"} item>
+            New
+          </Grid>
+          <Grid className={"popularFilter"} item>
+            Popular
+          </Grid>
+          <Grid className={"waterFilter"} item>
+            Water
+          </Grid>
+          <Grid className={"knowledgeFilter"} item>
+            Knowledge
+          </Grid>
         </Grid>
       </div>
 
@@ -46,7 +54,9 @@ const ArticlesPage = () => {
             <div className="container-big">
               <div className={"containerContentBig"}>
                 <div className={"npoTextBig"}>{articleList[0].npoName}</div>
-                <img src={articleList[0].image} id={"bilde"} alt={"das"} />
+                <Link href={"/article?id=" + articleList[0]._id}>
+                  <img src={articleList[0].image} id={"bilde"} alt={"das"} />
+                </Link>
                 <div className={"dateTextBig"}>{articleList[0].date}</div>
                 <div className={"contentTextBig"}>
                   {articleList[0].description}
