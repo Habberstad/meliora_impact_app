@@ -11,14 +11,14 @@ import { LoginForm } from "./LoginForm";
 
 export const LoginPage = () => {
   const [isRegistered, setIsRegistered] = useState(false);
-  const [isBreakpoint, setIsBreakpoint] = useState(false);
+  const [isOverBreakpoint, setIsOverBreakpoint] = useState(true);
   window.addEventListener("resize", () => {
-    setIsBreakpoint(window.innerWidth >= 1000);
+    setIsOverBreakpoint(window.innerWidth >= 1000);
   });
 
   return (
     <div className="login-page-container">
-      {isBreakpoint && <LoginLeftCard />}
+      {isOverBreakpoint && <LoginLeftCard />}
       <div className="login-container">
         <div className={"login-content"}>
           <div>
