@@ -58,7 +58,7 @@ function App() {
     getUser();
   }, []);
 
-
+  console.log(user)
   return (
     <div>
 
@@ -82,6 +82,8 @@ function App() {
 
     </div>
   );
+
+
 
 
   /*
