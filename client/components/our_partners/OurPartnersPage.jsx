@@ -1,5 +1,5 @@
 const OurPartnersPage = () => {
-  return <div>My non-profits </div>;
+  return <div>My partners </div>;
 };
 
 export default OurPartnersPage;

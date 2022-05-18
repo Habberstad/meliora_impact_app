@@ -1,6 +1,11 @@
 /**************************
     Login Page
   *************************/
+.login-form a {
+    text-decoration: none;
+    line-height: 2em;
+}
+
 .login-page-container {
     display: flex;
     flex-direction: row;
