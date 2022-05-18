@@ -103,8 +103,8 @@ const Article = () => {
             <div>
               <img
                   src={article.mock_article.carousel_image1}
-                  alt="bottom_section_fish1"
-                  className="bottom-section-fish1"
+                  alt="bottom_section_img1"
+                  className="bottom-section-img1"
               />
             </div>
 
@@ -112,16 +112,16 @@ const Article = () => {
             <div>
               <img
                   src={article.mock_article.carousel_image2}
-                  alt="bottom_section_fish2"
-                  className="bottom-section-fish2"
+                  alt="bottom_section_img2"
+                  className="bottom-section-img2"
               />
             </div>
 
             <div>
               <img
                   src={article.mock_article.carousel_image3}
-                  alt="bottom_section_fish3"
-                  className="bottom-section-fish3"
+                  alt="bottom_section_img3"
+                  className="bottom-section-img3"
               />
             </div>
           </div>
