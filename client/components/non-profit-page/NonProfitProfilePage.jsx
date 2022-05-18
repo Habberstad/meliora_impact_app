@@ -1,4 +1,4 @@
-import "../../styles/npo-profile-styles.css";
+import "../../styles/npo-profle-page-styles/npo-profile-styles.css";
 import { ProfileHeader } from "./ProfileHeader";
 import { useState } from "react";
 import { Button } from "@mui/material";
@@ -7,6 +7,7 @@ import FlareIcon from "@mui/icons-material/Flare";
 import VolunteerActivismIcon from "@mui/icons-material/VolunteerActivism";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import { navButtonStyle } from "./style-config";
+import OverviewContent from "./OverviewContent";
 
 const NonProfitProfilePage = () => {
   const [nonProfitData, setNonProfitData] = useState({});
@@ -32,6 +33,9 @@ const NonProfitProfilePage = () => {
           <span className="firstLetterCap">K</span>ey
           <span className="firstLetterCap"> I</span>nformation
         </Button>
+      </div>
+      <div className="content-container">
+        <OverviewContent />
       </div>
     </div>
   );

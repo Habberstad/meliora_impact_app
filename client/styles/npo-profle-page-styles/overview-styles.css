@@ -1,0 +1,77 @@
+.timeline-section {
+    width: 100%;
+    height: 220px;
+    align-self: flex-start;
+    margin-top: 70px;
+}
+
+.information-section {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.mission-info-section {
+    display: flex;
+    flex-direction: row;
+}
+
+.mission-paragraph {
+    min-width: 495px;
+    max-width: 495px;
+    height: 330px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 45px;
+}
+
+.paragraph-title{
+    font-size: 25px;
+    font-weight: 600;
+    display: flex;
+    justify-content:center;
+    border-bottom: solid 1px #A400FF;
+    padding-bottom: 10px;
+}
+
+.paragraph-text{
+    max-width: 400px;
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+    line-height: 150%;
+    margin-top: 25px;
+}
+
+.mission-map-img {
+    min-width: 495px;
+    height: 330px;
+}
+
+
+.vision-section{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    margin-top: 65px;
+}
+
+.vision-title{
+    font-size:30px;
+    font-weight: 600;
+    border-bottom: solid 1px #A400FF;
+    padding-bottom: 10px;
+
+}
+
+.vision-box-section{
+     margin-top: 40px;
+    display: flex;
+}
+
+.vision-box{
+    width: 390px;
+    height: 100px;
+}

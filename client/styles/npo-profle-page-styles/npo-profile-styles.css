@@ -104,7 +104,7 @@
 
 
 /**************************
-    HEADER
+    NAVIGATION
  *************************/
 
 .tab-navigation-section{
@@ -117,4 +117,14 @@
 .firstLetterCap{
     text-transform: uppercase;
     margin-left: 2px;
+}
+
+
+/**************************
+    NAVIGATION
+ *************************/
+
+.content-container {
+    display: flex;
+    align-self: flex-start;
 }
