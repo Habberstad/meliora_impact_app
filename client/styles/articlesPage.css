@@ -13,6 +13,9 @@
 
 }
 
+.filterContainer button{
+
+}
 .dividerFilter{
     width: 400px;
     margin: auto;
@@ -33,6 +36,25 @@
 
 .knowledgeFilter {
     font-size: 22px;
+}
+
+.knowledgeFilter a{
+}
+
+.underbar {
+    width: 0;
+    height: 5px;
+    background: rgba(100, 100, 200, 0);
+    left: -50px;
+    top: 20px;
+    position: absolute;
+    -webkit-transition: 0.5s ease;
+}
+
+.knowledgeFilterA:hover ~ .underbar {
+    left: 0;
+    width: 40px;
+    background: rgba(100, 100, 200, 1);
 }
 
 /******
@@ -212,7 +234,7 @@
     position: relative;
 }
 .smallCheckoutContainer img{
-    width: 218px;
+    width: 100%;
     height: 234px;
     object-fit: cover;
     border-radius: 5%;

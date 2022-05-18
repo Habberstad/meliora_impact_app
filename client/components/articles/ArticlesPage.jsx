@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import "../../styles/articlesPage.css";
 import { getArticles } from "../../api-client/articles";
 import Divider from "@mui/material/Divider";
+import Link from "@mui/material/Link";
 
 const ArticlesPage = () => {
   const [articleList, setArticleList] = useState(articles);
@@ -32,20 +33,20 @@ const ArticlesPage = () => {
         <Grid container="column" justifyContent={"center"}>
           <Grid container direction="row" spacing={3} justifyContent="center">
             <Grid className={"newFilter"} item>
-              New
+              <a onClick={""}>New</a>
             </Grid>
             <Grid className={"popularFilter"} item>
-              Popular
+              <a onClick={"popular"}>Popular</a>
             </Grid>
             <Grid className={"waterFilter"} item>
-              Water
+              <a onClick={"water"}>Water</a>
             </Grid>
             <Grid className={"knowledgeFilter"} item>
-              Knowledge
+              <a className={"knowledgeFilterA"}>Knowledge</a>
             </Grid>
           </Grid>
           <Grid item>
-            <Divider className={"dividerFilter"} />
+            <div className={"underbar"}></div>
           </Grid>
         </Grid>
       </div>
