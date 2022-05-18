@@ -26,7 +26,7 @@ const Navbar = ({ user }) => {
           </li>
         </ul>
       ) : (
-        <Link className="link" to="login1">
+        <Link className="link" to="login">
           Login
         </Link>
       )}

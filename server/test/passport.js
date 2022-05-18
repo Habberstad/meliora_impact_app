@@ -12,7 +12,7 @@ passport.use(
     {
       clientID: process.env.CLIENT_ID_GOOGLE,
       clientSecret: process.env.COOKIE_SECRET,
-      callbackURL: "/login/callback"
+      callbackURL: "/login/google/callback"
       //"/login/google/callback"
     },
     function(accessToken, refreshToken, profile, done) {

@@ -68,7 +68,7 @@ app.use(
   })
 );
 
-app.use("/login", authRoute);
+app.use("/auth", authRoute);
 
 app.use((req, res, next) => {
   if (req.method === "GET" && !req.path.startsWith("/api")) {

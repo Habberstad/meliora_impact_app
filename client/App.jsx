@@ -48,6 +48,7 @@ function App() {
           throw new Error("authentication has been failed!");
         })
         .then((resObject) => {
+          console.log("Setuser line")
           setUser(resObject.user);
         })
         .catch((err) => {
@@ -69,12 +70,12 @@ function App() {
 
           <Route path="/" element={<Home />} />
           <Route
-            path="/login1"
+            path="/login"
             element={user ? <Navigate to="/" /> : <Login />}
           />
           <Route
             path="/post/:id"
-            element={user ? <Post /> : <Navigate to="/login1" />}
+            element={user ? <Post /> : <Navigate to="/login" />}
           />
         </Routes>
       </main>
