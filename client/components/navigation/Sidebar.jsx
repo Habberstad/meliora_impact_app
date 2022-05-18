@@ -1,4 +1,3 @@
-import { useState } from "react";
 import ProfileIcon from "../../media/profile-icon.png";
 import MelioraIcon from "../../media/meliora_logo.png";
 import DashboardIcon from "../../media/dashboard_icon.png";
@@ -9,11 +8,28 @@ import WrappedIcon from "../../media/wrapped_icon.png";
 import TemplatesIcon from "../../media/templates_icon.png";
 import HandImage from "../../media/sidebar_hand_icon.png";
 import { Link } from "react-router-dom";
+import fetchJSON from "../../helpers/fetchJSON";
+import { useLoader } from "../../helpers/UseLoader";
+import "../../styles/sidebar-styles.css";
+import { Box, CircularProgress } from "@mui/material";
+import React from "react";
+import ConstructionIcon from "@mui/icons-material/Construction";
 
 const Sidebar = () => {
-  const [isSelected, setIsSelected] = useState(null);
+  const { loading, data, error } = useLoader(async () => {
+    return await fetchJSON("/api/login");
+  });
 
-  const handleSelectedItem = () => {};
+  if (loading)
+    return (
+      <div>
+        <Box sx={{ display: "flex" }}>
+          <CircularProgress size={100} />
+          <p>Slett access_token og reload din noob</p>
+        </Box>
+      </div>
+    );
+  if (error) return <div>Error! {error.toString()}</div>;
 
   return (
     <div className="sidebar-container">
@@ -23,7 +39,7 @@ const Sidebar = () => {
         </div>
         <div className="profile-name-badge">
           <img src={ProfileIcon} alt="profile-icon" />
-          <div>Test Persson</div> {/* TODO: Replace with username */}
+          <div> Test Persson </div> {/* TODO: Replace with username */}
         </div>
         <div className="nav-item-container">
           <Link to={"/"} style={{ textDecoration: "none" }}>
@@ -32,8 +48,7 @@ const Sidebar = () => {
               <div>Dashboard</div>
             </div>
           </Link>
-
-          <Link to={"my-non-profits"} style={{ textDecoration: "none" }}>
+          <Link to={"our_partners"} style={{ textDecoration: "none" }}>
             <div className="nav-item">
               <img
                 className="icon-style"
@@ -43,11 +58,10 @@ const Sidebar = () => {
               <div>My Non-Profits</div>
             </div>
           </Link>
-
           <Link to={"/articles"} style={{ textDecoration: "none" }}>
             <div className="nav-item">
               <img className="icon-style" src={ArticlesIcon} alt="dashboard" />
-              <a>Articles</a>
+              <div>Articles</div>
             </div>
           </Link>
           <Link to={"/discover"} style={{ textDecoration: "none" }}>
@@ -66,6 +80,14 @@ const Sidebar = () => {
             <div className="nav-item">
               <img className="icon-style" src={TemplatesIcon} alt="dashboard" />
               <div>Social Media Templates</div>
+            </div>
+          </Link>{" "}
+          <Link to={"/npo-profile/id"} style={{ textDecoration: "none" }}>
+            <div className="nav-item">
+              <ConstructionIcon
+                sx={{ margin: "0 20px 0 38px", fontSize: "25px" }}
+              />
+              <div>Development: npo profile</div>
             </div>
           </Link>
         </div>

@@ -4,17 +4,48 @@ import path from "path";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 import fetchJSON from "./fetchJSON.js";
+import { ArticlesAPI } from "./Api/articlesApi.js";
+import { MongoClient } from "mongodb";
+import { ProjectsApi } from "./Api/projectsApi.js";
+import { NpoApi } from "./Api/npoApi.js";
+import { AccountsApi } from "./Api/accountsApi.js";
 
 const app = express();
 dotenv.config();
 
 app.use(bodyParser.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
-
 app.use(express.static("../client/dist"));
 
 const discovery_endpoint_google =
   "https://accounts.google.com/.well-known/openid-configuration";
+
+const mongoClient = new MongoClient(process.env.MONGODB_URL);
+mongoClient.connect().then(async () => {
+  console.log("Connected to mongodb");
+  const databases = await mongoClient.db().admin().listDatabases();
+  app.use(
+    "/api/articles",
+    ArticlesAPI(mongoClient.db(process.env.MONGODB_DATABASE || "articles"))
+  );
+
+  app.use(
+    "/api/projects",
+    ProjectsApi(mongoClient.db(process.env.MONGODB_DATABASE || "meliora_database"))
+
+  );
+
+  app.use(
+    "/api/npos",
+    NpoApi(mongoClient.db(process.env.MONGODB_DATABASE || "meliora_database"))
+  );
+
+  app.use(
+    "/api/accounts",
+    AccountsApi(mongoClient.db(process.env.MONGODB_DATABASE || "meliora_database"))
+  );
+
+});
 
 app.post("/api/login", (req, res) => {
   const { access_token } = req.body;

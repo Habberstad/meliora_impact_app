@@ -1,6 +1,7 @@
 import MelioraIcon from "../../media/meliora_logo.png";
 import LoginCardImage from "../../media/login_card_img.png";
 import GoogleIcon from "../../media/google_icon.png";
+import "../../styles/loginPage-styles.css";
 
 import {
   Box,
@@ -43,9 +44,6 @@ export const LoginPage = () => {
                   fullWidth
                   variant={"outlined"}
                   size={"large"}
-                  onClick={() => {
-                    use;
-                  }}
                 >
                   <img
                     style={{ height: "25px" }}
@@ -61,15 +59,36 @@ export const LoginPage = () => {
             <FormControl className="login-form">
               <TextField
                 fullWidth
-                sx={{ mt: "22px" }}
+                sx={{
+                  mt: "22px",
+                  "& .MuiOutlinedInput-root.Mui-focused": {
+                    "& > fieldset": {
+                      borderColor: "rgba(0, 0, 0, 0.7)",
+                    },
+                  },
+                  "& .MuiInputLabel-root.Mui-focused": {
+                    color: "rgba(0, 0, 0, 0.7)",
+                  },
+                }}
                 label="Email adress"
                 variant="outlined"
               />
               <TextField
                 fullWidth
-                sx={{ my: "22px" }}
+                sx={{
+                  my: "22px",
+                  "& .MuiOutlinedInput-root.Mui-focused": {
+                    "& > fieldset": {
+                      borderColor: "rgba(0, 0, 0, 0.7)",
+                    },
+                  },
+                  "& .MuiInputLabel-root.Mui-focused": {
+                    color: "rgba(0, 0, 0, 0.7)",
+                  },
+                }}
                 label="Password"
                 variant="outlined"
+                type="password"
               />
               <FormGroup row>
                 <FormControlLabel control={<Checkbox />} label="Remember me" />
@@ -77,7 +96,13 @@ export const LoginPage = () => {
               </FormGroup>
               <Button
                 className={"form-button"}
-                sx={{ mt: 1 }}
+                sx={{
+                  mt: 1,
+                  backgroundColor: "#A400FF",
+                  "& .MuiButton-root.Mui-focused": {
+                    backgroundColor: "#FFFFFF",
+                  },
+                }}
                 variant="contained"
                 size="large"
               >
