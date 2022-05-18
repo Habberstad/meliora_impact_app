@@ -1,4 +1,3 @@
-import { useState } from "react";
 import ProfileIcon from "../../media/profile-icon.png";
 import MelioraIcon from "../../media/meliora_logo.png";
 import DashboardIcon from "../../media/dashboard_icon.png";
@@ -14,6 +13,7 @@ import { useLoader } from "../../helpers/UseLoader";
 import "../../styles/sidebar-styles.css";
 import { Box, CircularProgress } from "@mui/material";
 import React from "react";
+import ConstructionIcon from "@mui/icons-material/Construction";
 
 const Sidebar = () => {
   const { loading, data, error } = useLoader(async () => {
@@ -48,8 +48,7 @@ const Sidebar = () => {
               <div>Dashboard</div>
             </div>
           </Link>
-
-          <Link to={"my-non-profits"} style={{ textDecoration: "none" }}>
+          <Link to={"our_partners"} style={{ textDecoration: "none" }}>
             <div className="nav-item">
               <img
                 className="icon-style"
@@ -59,11 +58,10 @@ const Sidebar = () => {
               <div>My Non-Profits</div>
             </div>
           </Link>
-
           <Link to={"/articles"} style={{ textDecoration: "none" }}>
             <div className="nav-item">
               <img className="icon-style" src={ArticlesIcon} alt="dashboard" />
-              <a>Articles</a>
+              <div>Articles</div>
             </div>
           </Link>
           <Link to={"/discover"} style={{ textDecoration: "none" }}>
@@ -82,6 +80,14 @@ const Sidebar = () => {
             <div className="nav-item">
               <img className="icon-style" src={TemplatesIcon} alt="dashboard" />
               <div>Social Media Templates</div>
+            </div>
+          </Link>{" "}
+          <Link to={"/npo-profile/id"} style={{ textDecoration: "none" }}>
+            <div className="nav-item">
+              <ConstructionIcon
+                sx={{ margin: "0 20px 0 38px", fontSize: "25px" }}
+              />
+              <div>Development: npo profile</div>
             </div>
           </Link>
         </div>
