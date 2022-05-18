@@ -29,11 +29,24 @@ const ArticlesPage = () => {
         Meliora <br></br> Articles
       </div>
 
-      <Grid container spacing={1} justifyContent="center">
-        <Grid item>New</Grid>
-        <Grid item>Popular</Grid>
-        <Grid item>Water</Grid>
-        <Grid item>Knowledge</Grid>
+      <Grid
+        className={"filterContainer"}
+        container
+        spacing={1}
+        justifyContent="center"
+      >
+        <Grid className={"newFilter"} item>
+          New
+        </Grid>
+        <Grid className={"popularFilter"} item>
+          Popular
+        </Grid>
+        <Grid className={"waterFilter"} item>
+          Water
+        </Grid>
+        <Grid className={"knowledgeFilter"} item>
+          Knowledge
+        </Grid>
       </Grid>
 
       <div className="articles-container">
@@ -60,7 +73,9 @@ const ArticlesPage = () => {
                   <div className={"npoTextMedium"}>
                     {articleList[1].npoName}
                   </div>
-                  <img src={articleList[1].image} alt={"das"} />
+                  <Link href={"/article?id=" + articleList[1]._id}>
+                    <img src={articleList[1].image} alt={"das"} />
+                  </Link>
                   <div className={"dateTextMedium"}>{articleList[1].date}</div>
                   <div className={"contentTextMedium"}>
                     {articleList[1].description}
