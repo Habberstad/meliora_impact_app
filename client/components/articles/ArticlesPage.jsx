@@ -22,24 +22,27 @@ const ArticlesPage = () => {
     loadArticleList();
     console.log(articlesMongoDb);
   }, []);
-  const[data1, setData1] = useState(articlesMongoDb)
-  console.log(data1)
+  const [data1, setData1] = useState(articlesMongoDb);
+  console.log(data1);
 
   return (
     <div className="articles-wrapper">
-      <div className="header">Meliora <br></br> Articles</div>
+      <div className="top-header">
+        Meliora <br></br> Articles
+      </div>
 
+      <div className="articles-sorter">
+        <Grid container spacing={6} justifyContent="center">
+          <Grid item>New</Grid>
+          <Grid item>Popular</Grid>
+          <Grid item>Water</Grid>
+          <Grid item>Knowledge</Grid>
+        </Grid>
+      </div>
 
-      <Grid container spacing={1} justifyContent="center">
-        <Grid item>New</Grid>
-        <Grid item>Popular</Grid>
-        <Grid item>Water</Grid>
-        <Grid item>Knowledge</Grid>
-      </Grid>
-
-      <div className="articles-container">
-        <Grid container>
-          <Grid item  lg={12} xl={6}>
+      <div className="articles-top-section">
+        <Grid container columnSpacing={{ xl: 4 }} rowSpacing={{ md: 4, lg: 4 }}>
+          <Grid item md={12} lg={12} xl={6}>
             <div className="container-big">
               <div className={"containerContentBig"}>
                 <div className={"npoTextBig"}>{articleList[0].npoName}</div>
@@ -50,16 +53,21 @@ const ArticlesPage = () => {
                 </div>
               </div>
             </div>
-
           </Grid>
 
-
-
-          <Grid container item lg={12} xl={6}>
-            <Grid item xl={12}>
+          <Grid
+            container
+            item
+            lg={12}
+            xl={6}
+            rowSpacing={{ md: 4, lg: 4, xl: 4 }}
+          >
+            <Grid item md={12} lg={12} xl={12}>
               <div className="container-medium">
                 <div className={"containerContentMedium"}>
-                  <div className={"npoTextMedium"}>{articleList[1].npoName}</div>
+                  <div className={"npoTextMedium"}>
+                    {articleList[1].npoName}
+                  </div>
                   <img src={articleList[1].image} alt={"das"} />
                   <div className={"dateTextMedium"}>{articleList[1].date}</div>
                   <div className={"contentTextMedium"}>
@@ -67,73 +75,91 @@ const ArticlesPage = () => {
                   </div>
                 </div>
               </div>
-
             </Grid>
 
-            <Grid item xl={5.75} >
-              <div className="container-small">
-                <div className={"containerContentSmall"}>
-                  <div className={"npoTextSmall"}>{articleList[2].npoName}</div>
-                  <img src={articleList[2].image} alt={"das"} />
-                  <div className={"dateTextSmall"}>{articleList[2].date}</div>
-                  <div className={"contentTextSmall"}>
-                    {articleList[2].description}
+            <Grid
+              container
+              item
+              rowSpacing={{ xl: 4 }}
+              columnSpacing={{ xl: 4, lg: 4, md: 4 }}
+            >
+              <Grid item md={6} lg={6} xl={6}>
+                <div className="container-small">
+                  <div className={"containerContentSmall"}>
+                    <div className={"npoTextSmall"}>
+                      {articleList[2].npoName}
+                    </div>
+                    <img src={articleList[2].image} alt={"das"} />
+                    <div className={"dateTextSmall"}>{articleList[2].date}</div>
+                    <div className={"contentTextSmall"}>
+                      {articleList[2].description}
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Grid>
 
-            </Grid>
-
-            <Grid item xl={0.5}></Grid>
-
-            <Grid item xl={5.75}>
-              <div className="container-small">
-                <div className={"containerContentSmall"}>
-                  <div className={"npoTextSmall"}>{articleList[3].npoName}</div>
-                  <img src={articleList[3].image} id={"bilde"} alt={"das"} />
-                  <div className={"dateTextSmall"}>{articleList[3].date}</div>
-                  <div className={"contentTextSmall"}>
-                    {articleList[3].description}
+              <Grid item md={6} lg={6} xl={6}>
+                <div className="container-small">
+                  <div className={"containerContentSmall"}>
+                    <div className={"npoTextSmall"}>
+                      {articleList[3].npoName}
+                    </div>
+                    <img src={articleList[3].image} id={"bilde"} alt={"das"} />
+                    <div className={"dateTextSmall"}>{articleList[3].date}</div>
+                    <div className={"contentTextSmall"}>
+                      {articleList[3].description}
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Grid>
             </Grid>
           </Grid>
-          </Grid>
+        </Grid>
       </div>
 
+      <div className="articles-bottom-section">
+        <div className="bottom-header">Articles You Should Check Out</div>
+        <Grid container columnSpacing={{ lg: 4, xl: 4 }} rowSpacing={{ lg: 4 }}>
+          <Grid item lg={12} xl={6}>
+            <div className="container-medium">
+              <div className={"containerContentMedium"}>
+                <div className={"npoTextMedium"}>{articleList[1].npoName}</div>
+                <img src={articleList[1].image} alt={"das"} />
+                <div className={"dateTextMedium"}>{articleList[1].date}</div>
+                <div className={"contentTextMedium"}>
+                  {articleList[1].description}
+                </div>
+              </div>
+            </div>
+          </Grid>
 
-      <h1>Articles You Should Check Out</h1>
-      <Grid
-        container
-        direction="row"
-        justifyContent="flex-start"
-        alignItems="center"
-        spacing={0.5}
-      >
-        <Grid item xs={5}>
-          <img width={"100%"} height={"100%"} src={articleList[0].image} />
-          <div>{articleList[0].date}</div>
-          <div>{articleList[0].description}</div>
-        </Grid>
+          <Grid item lg={6} xl={3}>
+            <div className="container-small">
+              <div className={"containerContentSmall"}>
+                <div className={"npoTextSmall"}>{articleList[3].npoName}</div>
+                <img src={articleList[3].image} id={"bilde"} alt={"das"} />
+                <div className={"dateTextSmall"}>{articleList[3].date}</div>
+                <div className={"contentTextSmall"}>
+                  {articleList[3].description}
+                </div>
+              </div>
+            </div>
+          </Grid>
 
-        <Grid item xs={3}>
-          <img width={"100%"} height={"100%"} src={articleList[2].image} />
-          <div>{articleList[2].date}</div>
-          <div>{articleList[2].description}</div>
+          <Grid item lg={6} xl={3}>
+            <div className="container-small">
+              <div className={"containerContentSmall"}>
+                <div className={"npoTextSmall"}>{articleList[3].npoName}</div>
+                <img src={articleList[3].image} id={"bilde"} alt={"das"} />
+                <div className={"dateTextSmall"}>{articleList[3].date}</div>
+                <div className={"contentTextSmall"}>
+                  {articleList[3].description}
+                </div>
+              </div>
+            </div>
+          </Grid>
         </Grid>
-
-        <Grid item xs={3}>
-          <img
-            width={"100%"}
-            height={"100%"}
-            src={articleList[2].image}
-            alt={"das"}
-          />
-          <div>{articleList[2].date}</div>
-          <div>{articleList[2].description}</div>
-        </Grid>
-      </Grid>
+      </div>
     </div>
   );
 };
