@@ -1,7 +1,10 @@
 import "../../styles/npo-profle-page-styles/overview-styles.css";
-import Timeline from "./static_timeline.png";
+import Timeline from "./timeline_component4x.png";
 import MissionMap from "./mission_map_img.png";
 import WavesIcon from "@mui/icons-material/Waves";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import WorkspacePremiumIcon from "@mui/icons-material/WorkspacePremium";
+import SouthAmericaIcon from "@mui/icons-material/SouthAmerica";
 
 const OverviewContent = () => {
   return (
@@ -29,26 +32,49 @@ const OverviewContent = () => {
         <div className="vision-title">Our Vision</div>
         <div className="vision-box-section">
           <div className="vision-box">
-            <WavesIcon
-              sx={{ color: "#A400FF", width: "100px", height: "750px" }}
-            />
-            The ocean takes up 70% of our earth, it is our duty to take care of
-            it.
+            <WavesIcon sx={{ color: "#A400FF", fontSize: "60px" }} />
+            <div className="vision-box-text">
+              The ocean takes up 70% of our earth, it is our duty to take care
+              of it.
+            </div>
           </div>
           <div className="vision-box">
-            The ocean takes up 70% of our earth, it is our duty to take care of
-            it.
+            <FavoriteBorderIcon sx={{ color: "#A400FF", fontSize: "60px" }} />
+            <div className="vision-box-text">
+              The ocean takes up 70% of our earth, it is our duty to take care
+              of it.
+            </div>
           </div>
         </div>
         <div className="vision-box-section">
           <div className="vision-box">
-            The ocean takes up 70% of our earth, it is our duty to take care of
-            it.
+            <WorkspacePremiumIcon sx={{ color: "#A400FF", fontSize: "60px" }} />
+            <div className="vision-box-text">
+              The ocean takes up 70% of our earth, it is our duty to take care
+              of it.
+            </div>
           </div>
           <div className="vision-box">
-            The ocean takes up 70% of our earth, it is our duty to take care of
-            it.
+            <SouthAmericaIcon
+              sx={{
+                color: "#A400FF",
+
+                fontSize: "60px",
+              }}
+            />
+            <div className="vision-box-text">
+              The ocean takes up 70% of our earth, it is our duty to take care
+              of it.
+            </div>
           </div>
+        </div>
+      </div>
+      <div className="article-section">
+        <div className="sub-heading">Latest Updates</div>
+        <div className="article-card-container">
+          <div className="big-article"></div>
+          <div className="small-article"></div>
+          <div className="small-article"></div>
         </div>
       </div>
     </div>
