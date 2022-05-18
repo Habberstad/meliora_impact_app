@@ -62,7 +62,7 @@ const ArticlesPage = () => {
           >
             <div className={"containerContentBig"}>
               <div className={"npoTextBig"}>{articleList[0].npoName}</div>
-              <Link href={articleList[0]._id}>
+              <Link href={"article?id=" + articleList[0]._id}>
                 <img src={articleList[0].image} id={"bilde"} alt={"das"} />
               </Link>
               <div className={"dateTextBig"}>{articleList[0].date}</div>
