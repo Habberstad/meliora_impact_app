@@ -6,6 +6,7 @@ import { Top } from "./Top";
 import "../../styles/discoverPage.css";
 import { ProjectsApiContext } from "./projectsApiContext";
 import { useLoading } from "../../useLoading";
+import { ArticleApiContext } from "../../api-client/articles";
 
 
 
@@ -15,10 +16,11 @@ const DiscoverPage = () => {
   const [npoName, setNpoName] = useState("")
   const [_id, set_id] = useState("")
 
-  const { listProjects } = useContext(ProjectsApiContext);
+
+  const { listProjects } = useContext(ArticleApiContext);
   const { loading, error, data } = useLoading(
     async () => await listProjects({category, npoName, _id}),
-    [category]
+    []
   );
 
   function categorySelectHandler(selectedCategory) {
