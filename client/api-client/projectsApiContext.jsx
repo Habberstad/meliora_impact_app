@@ -1,6 +1,6 @@
 import React from "react";
-import { fetchJSON } from "../../lib/fetchJSON";
-import { postJSON } from "../../lib/postJSON";
+import { fetchJSON } from "../lib/fetchJSON";
+import { postJSON } from "../lib/postJSON";
 
 
 
