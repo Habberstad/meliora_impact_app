@@ -9,7 +9,7 @@ import "../../styles/article-styles.css";
 const Article = () => {
   const [article, setArticle] = useState({ mock_article });
 
-  if (!article) return <div>loading....</div>;
+  if (!article) return <div>Loading....</div>;
 
   if (article) {
     return (

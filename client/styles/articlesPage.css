@@ -2,22 +2,74 @@
          Articles
 *************************/
 
+/****
+    filter Grid
+****/
+.filterContainer{
+    margin-bottom: 12px;
+    margin-top:12px;
+    font-size: 32px;
+}
+.newFilter{
+
+}
+
+.popularFilter {
+
+}
+
+.waterFilter {
+
+}
+
+.knowledgeFilter{
+
+}
+
+
+
+/************************
+    top Grid container
+************************/
+
+
 .articles-wrapper {
     margin: 5% 5% 0 5%;
     max-width: 1500px;
 }
 
-.articles-container{
-    width: 100%;
+.articles-sorter {
+    font-size: 25px;
+    margin-bottom: 50px;
 }
 
-.header {
-    font-size: 50px;
-    font-weight: bold;
+
+.articles-top-section{
+    width: 100%;
+    margin-bottom: 100px;
 }
+
+.top-header {
+    font-size: 65px;
+    font-weight: bold;
+    margin-bottom: 100px;
+}
+
+.articles-bottom-section{
+    width: 100%;
+    margin-bottom: 100px;
+}
+
+.bottom-header {
+    font-size: 45px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    color: #353535;
+}
+
 
 .container-big {
-    width: 95%;
+    width: 100%;
 }
 
 .containerContentBig{
@@ -76,13 +128,12 @@
     flex-direction: column;
     position: relative;
     width: 100%;
-    height: 350px;
 }
 
 .containerContentMedium img{
     object-fit: cover;
     width: 100%;
-    height: 325px;
+    height: 334px;
     border-radius: 5%;
 }
 .contentTextMedium{
@@ -132,7 +183,7 @@
 .containerContentSmall img{
     object-fit: cover;
     width: 100%;
-    height: 350px;
+    height: 334px;
     border-radius: 5%;;
 }
 
@@ -162,14 +213,4 @@
     position: absolute;
     right: 0;
     font-size: 14px;
-}
-
-#filter_articles{
-
-}
-
-
-
-#articles-recommendation-container{
-
 }
