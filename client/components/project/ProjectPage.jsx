@@ -1,4 +1,4 @@
-import { ProjectsApiContext } from "../discover/projectsApiContext";
+import { ProjectsApiContext } from "../../api-client/projectsApiContext";
 
 export function ProjectPage() {
   return (

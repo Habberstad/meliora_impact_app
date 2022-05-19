@@ -15,9 +15,13 @@ import React from "react";
 import OurPartnersPage from "./components/our_partners/OurPartnersPage";
 import NonProfitProfilePage from "./components/non-profit-page/NonProfitProfilePage";
 
+export const UserContext = React.createContext({
+  Account: user => { }
+  ,});
 
 function App() {
   const [user, setUser] = useState(null);
+
 
   useEffect(() => {
     const getUser = () => {
@@ -44,12 +48,20 @@ function App() {
     getUser()
   }, []);
 
+  console.log(user)
+  if(user === null){
+    return (
+      <div>
+        <LoginPage/>
+      </div>
+    );
+  }
 
   return (
     <div className="app-container">
-      <CookiesProvider>
+      <UserContext.Provider value={user}>
         <div>
-          {user ? <Sidebar user={user} /> : <LoginPage />}
+          { <Sidebar/>}
         </div>
         <Outlet />
 
@@ -68,9 +80,11 @@ function App() {
           <Route exact path="/wrapped" element={<Partners />} />
           <Route exact path="/templates" element={<Partners />} />
         </Routes>
-      </CookiesProvider>
+      </UserContext.Provider>
     </div>
   );
 }
+
+
 
 export default App;

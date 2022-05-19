@@ -4,7 +4,7 @@ import { Searchbar } from "./Searchbar";
 import { CategoryFilter } from "./CategoryFilter";
 import { Top } from "./Top";
 import "../../styles/discoverPage.css";
-import { ProjectsApiContext } from "./projectsApiContext";
+import { ProjectsApiContext } from "../../api-client/projectsApiContext";
 import { useLoading } from "../../useLoading";
 
 
