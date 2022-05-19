@@ -1,5 +1,3 @@
-import "../../styles/npo-profle-page-styles/overview-styles.css";
-import Timeline from "./npo-media/timeline_component4x.png";
 import MissionMap from "./npo-media/mission_map_img.png";
 import WavesIcon from "@mui/icons-material/Waves";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";

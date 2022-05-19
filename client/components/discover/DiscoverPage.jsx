@@ -7,11 +7,13 @@ import "../../styles/discoverPage.css";
 import { ProjectsApiContext } from "./projectsApiContext";
 import { useLoading } from "../../useLoading";
 
+
+
 const DiscoverPage = () => {
   const [searchString, setSearchString] = useState("");
-  const [category, setCategory] = useState("");
-  const [npoName, setNpoName] = useState("");
-  const [_id, set_id] = useState("");
+  const [category, setCategory] = useState("")
+  const [npoName, setNpoName] = useState("")
+  const [_id, set_id] = useState("")
 
   const { listProjects } = useContext(ProjectsApiContext);
   const { loading, error, data } = useLoading(
@@ -43,11 +45,9 @@ const DiscoverPage = () => {
     <div className={"discover-page-container"}>
       <Top />
       <CategoryFilter onClick={categorySelectHandler} />
-      <br />
-      <br />
+      <br /><br />
       <Searchbar searchString={searchString} onChange={handleSearchInput} />
-      <br />
-      <br />
+      <br /><br />
       <ListProjects data={data} category={category} searchWord={searchString} />
     </div>
   );

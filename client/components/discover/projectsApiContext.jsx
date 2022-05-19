@@ -9,8 +9,6 @@ export const ProjectsApiContext = React.createContext({
   async listProjects(query) {
     return await fetchJSON("/api/projects?"+ new URLSearchParams(query));
   },
-  async createProjects(project) {
-    return await postJSON("/api/projects", project);
-  },
+
 
 });

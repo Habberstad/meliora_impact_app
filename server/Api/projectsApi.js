@@ -22,7 +22,6 @@ export function ProjectsApi(mongoDatabase) {
       query._id = { $eq: ObjectId(_id) };
     }
 
-
     const projects = await mongoDatabase
       .collection("projects")
       .find(query)

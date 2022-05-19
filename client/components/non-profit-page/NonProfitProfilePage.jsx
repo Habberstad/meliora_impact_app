@@ -1,4 +1,5 @@
-import "../../styles/npo-profle-page-styles/npo-profile-styles.css";
+import "../../styles/npo-profile-page-styles/npo-profile-styles.css";
+import "../../styles/npo-profile-page-styles/overview-styles.css";
 import { ProfileHeader } from "./ProfileHeader";
 import { useState } from "react";
 import { Button } from "@mui/material";
@@ -12,6 +13,7 @@ import {
 } from "../../styles/button-style-config";
 import OverviewTabContent from "./OverviewTabContent";
 import Timeline from "./npo-media/timeline_component4x.png";
+import ProjectsHeader from "./ProjectsHeader";
 
 const NonProfitProfilePage = () => {
   const [nonProfitData, setNonProfitData] = useState({});
@@ -23,7 +25,11 @@ const NonProfitProfilePage = () => {
 
   return (
     <div className="main-profile-container">
-      <ProfileHeader nonProfitData={nonProfitData} />
+      {selectedTab === "projects" ? (
+        <ProjectsHeader nonProfitData={nonProfitData} />
+      ) : (
+        <ProfileHeader nonProfitData={nonProfitData} />
+      )}
       <div className="tab-navigation-section">
         <Button
           onClick={() => handleNavigationState("overview")}

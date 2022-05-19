@@ -48,7 +48,7 @@ const Sidebar = () => {
               <div>Dashboard</div>
             </div>
           </Link>
-          <Link to={"our_partners"} style={{ textDecoration: "none" }}>
+          <Link to={"our-partners"} style={{ textDecoration: "none" }}>
             <div className="nav-item">
               <img
                 className="icon-style"
