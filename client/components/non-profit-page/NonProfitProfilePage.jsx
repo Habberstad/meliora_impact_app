@@ -6,7 +6,10 @@ import AppsIcon from "@mui/icons-material/Apps";
 import FlareIcon from "@mui/icons-material/Flare";
 import VolunteerActivismIcon from "@mui/icons-material/VolunteerActivism";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
-import { highlightedNavButtonStyle, navButtonStyle } from "./style-config";
+import {
+  highlightedNavButtonStyle,
+  navButtonStyle,
+} from "../../styles/button-style-config";
 import OverviewTabContent from "./OverviewTabContent";
 import Timeline from "./npo-media/timeline_component4x.png";
 

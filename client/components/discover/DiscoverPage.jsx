@@ -6,7 +6,6 @@ import { Top } from "./Top";
 import "../../styles/discoverPage.css";
 import { ProjectsApiContext } from "./projectsApiContext";
 import { useLoading } from "../../useLoading";
-import { ArticleApiContext } from "../../api-client/articles";
 
 
 
@@ -18,13 +17,12 @@ const DiscoverPage = () => {
 
   const { listProjects } = useContext(ProjectsApiContext);
   const { loading, error, data } = useLoading(
-    async () => await listProjects({category, npoName, _id}),
-    [category, npoName]
+    async () => await listProjects({ category, npoName, _id }),
+    [category]
   );
 
   function categorySelectHandler(selectedCategory) {
-    setCategory(selectedCategory)
-
+    setCategory(selectedCategory);
   }
 
   function handleSearchInput(event) {

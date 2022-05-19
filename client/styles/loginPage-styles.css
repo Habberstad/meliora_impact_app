@@ -1,6 +1,11 @@
 /**************************
     Login Page
   *************************/
+.login-form a {
+    text-decoration: none;
+    line-height: 2em;
+}
+
 .login-page-container {
     display: flex;
     flex-direction: row;
@@ -47,7 +52,6 @@
 
 }
 .login-content {
-    border: 2px solid red;
     height: 500px;
     width: 50%;
 }
@@ -58,7 +62,15 @@
 .form-button {
     background-color: #a400ff;
 }
+.bottom-text {
+    font-size: 10px;
+}
 
+.bottom-text-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 /**************************
 
   *************************/
