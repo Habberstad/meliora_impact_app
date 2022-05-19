@@ -3,6 +3,9 @@ import { Button } from "@mui/material";
 import { outlinedTabButtonStyle } from "../../styles/button-style-config";
 import WavesIcon from "@mui/icons-material/Waves";
 import SquidImage from "./npo-media/squid_img.png";
+import impactCardImg from "./npo-media/impact_cardpng.png";
+import donationGoalImg from "./npo-media/donation_goal.png";
+import timelineImg from "./npo-media/timeline_projects.png";
 
 const ProjectTabContent = () => {
   return (
@@ -50,7 +53,43 @@ const ProjectTabContent = () => {
             <img src={SquidImage} alt="test" />
           </div>
         </div>
-        <div className="top-section"></div>
+        <div className="middle-section">
+          <div className="impact-text-container">
+            <div className="project-subheading">Our Ocean Needs You</div>
+            <div className="impact-info-text">
+              Our ocean unifies our world like nothing else. And saving it from
+              ongoing threats is a cause that affects us all.
+            </div>
+            <div className="impact-info-text">
+              We are on the front lines of ocean protection, investing in
+              research, leadership and advocacy that advances science-based
+              solutions that work.
+            </div>
+          </div>
+          <div className="donation-image">
+            <img src={donationGoalImg} alt="impact-stats" />
+          </div>
+        </div>
+        <div className="middle-section">
+          <div className="impact-image">
+            <img src={impactCardImg} alt="impact-stats" />
+          </div>
+          <div className="impact-text-container">
+            <div className="project-subheading">Our Ocean Needs You</div>
+            <div className="impact-info-text">
+              Our ocean unifies our world like nothing else. And saving it from
+              ongoing threats is a cause that affects us all.
+            </div>
+            <div className="impact-info-text">
+              We are on the front lines of ocean protection, investing in
+              research, leadership and advocacy that advances science-based
+              solutions that work.
+            </div>
+          </div>
+        </div>
+        <div className="project-timeline-section">
+          <img src={timelineImg} />
+        </div>
       </div>
     </div>
   );
