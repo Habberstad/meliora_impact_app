@@ -16,6 +16,10 @@ export const LoginPage = () => {
     setIsOverBreakpoint(window.innerWidth >= 1000);
   });
 
+  const google = () => {
+    window.open("http://localhost:3000/auth/google", "_self");
+  };
+
   return (
     <div className="login-page-container">
       {isOverBreakpoint && <LoginLeftCard />}
@@ -34,7 +38,7 @@ export const LoginPage = () => {
               </div>
             )}
             <div>
-              <Link to="/login-google" style={{ textDecoration: "none" }}>
+              <div onClick={google}style={{ textDecoration: "none" }}>
                 <Button
                   sx={{
                     mb: "22px",
@@ -55,7 +59,7 @@ export const LoginPage = () => {
                     alt="GoogleIcon"
                   />
                 </Button>
-              </Link>
+              </div>
             </div>
           </div>
           <Divider style={{ width: "100%" }}>OR</Divider>
