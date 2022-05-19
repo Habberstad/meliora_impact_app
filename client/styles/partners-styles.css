@@ -1,0 +1,28 @@
+
+.partners-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.discover-top {
+    margin: 50px;
+    width: 100%;
+}
+
+.list-container {
+    width: 100%;
+    border: 1px solid red;
+}
+
+
+
+
+
+
+
+
+
+
+
+
