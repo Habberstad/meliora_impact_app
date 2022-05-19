@@ -13,7 +13,7 @@ export function HeaderPartner(props) {
               color="textPrimary"
               gutterBottom
             >
-              Your Partners
+              My Partners
             </Typography>
             <Typography
               variant="h5"
