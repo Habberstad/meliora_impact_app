@@ -14,9 +14,11 @@ import "../../styles/sidebar-styles.css";
 import { Box, CircularProgress } from "@mui/material";
 import React from "react";
 import ConstructionIcon from "@mui/icons-material/Construction";
+import { UserContext } from "../../App";
 
 const Sidebar = (props) => {
-
+  const user = React.useContext(UserContext)
+  console.log("test", user)
 
   return (
     <div className="sidebar-container" >
@@ -25,8 +27,8 @@ const Sidebar = (props) => {
           <img src={MelioraIcon} alt="company-icon" />
         </div>
         <div className="profile-name-badge">
-          <img src={props.user.photos[0].value} alt="profile-icon" />
-          <div> {props.user.displayName} </div> {/* TODO: Replace with username */}
+          <img src={user.photos[0].value} alt="profile-icon" />
+          <div> {user.displayName} </div> {/* TODO: Replace with username */}
         </div>
         <div className="nav-item-container">
           <Link to={"/"} style={{ textDecoration: "none" }}>

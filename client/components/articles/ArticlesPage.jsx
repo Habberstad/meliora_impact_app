@@ -4,7 +4,7 @@ import logo2 from "../../media/article_header.png";
 import { Grid, Link } from "@mui/material";
 import { useContext, useEffect, useState } from "react";
 import "../../styles/articlesPage.css";
-import { ArticleApiContext } from "../../api-client/articles";
+import { ArticleApiContext } from "../../api-client/articlesApiContext";
 import { useLoading } from "../../useLoading";
 
 const ArticlesPage = () => {

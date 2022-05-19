@@ -22,8 +22,6 @@ export function ArticlesAPI(mongoDatabase) {
       query._id = { $eq: ObjectId(_id) };
     }
 
-    console.log("test2", query)
-
     const articles = await mongoDatabase
       .collection("articles")
       .find(query)
