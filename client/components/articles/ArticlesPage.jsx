@@ -2,28 +2,32 @@ import { articles } from "../../mock_data/articles";
 import logo from "../../media/article_header.png";
 import logo2 from "../../media/article_header.png";
 import { Grid, Link } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "../../styles/articlesPage.css";
-import { getArticles } from "../../api-client/articles";
+import { ArticleApiContext } from "../../api-client/articles";
+import { useLoading } from "../../useLoading";
 
 const ArticlesPage = () => {
-  const [articleList, setArticleList] = useState(articles);
-  const [articlesMongoDb, setArticlesMongoDb] = useState();
+  const [category, setCategory] = useState("");
+  const [npoName, setNpoName] = useState("")
 
-  useEffect(() => {
-    async function loadArticleList() {
-      try {
-        const res = await getArticles();
-        setArticlesMongoDb(res?.data?.data);
-      } catch (err) {
-        console.error(err);
-      }
-    }
-    loadArticleList();
-    console.log(articlesMongoDb);
-  }, []);
-  const [data1, setData1] = useState(articlesMongoDb);
-  console.log(data1);
+  const {getArticles} = useContext(ArticleApiContext)
+  const { loading, error, data } = useLoading(
+    async () => await getArticles({category, npoName}),
+    [category]
+  );
+
+
+  if (loading) return <div>Loading...</div>;
+
+  if (error)
+    return (
+      <div>
+        <h1>Error</h1>
+        <div id="error-text">{error.toString()}</div>
+      </div>
+    );
+
 
   return (
     <div className="articles-wrapper">
