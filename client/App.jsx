@@ -44,6 +44,7 @@ function App() {
     getUser()
   }, []);
 
+  console.log(user)
   if(user === null){
     return (
       <div>
@@ -54,9 +55,9 @@ function App() {
 
   return (
     <div className="app-container">
-      <UserContext.Provider value={user} >
+      <CookiesProvider>
         <div>
-          <Sidebar user={user}/>}
+          { <LoginPage />}
         </div>
         <Outlet />
 
@@ -75,13 +76,9 @@ function App() {
           <Route exact path="/wrapped" element={<Partners />} />
           <Route exact path="/templates" element={<Partners />} />
         </Routes>
-      </UserContext.Provider>
+      </CookiesProvider>
     </div>
   );
 }
-
-const UserContext = React.createContext({
-  Account: user => { }
-,});
 
 export default App;
