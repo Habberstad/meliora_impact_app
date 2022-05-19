@@ -1,23 +1,44 @@
-import { prosjects } from "../../data/prosjects";
-import { useState } from "react";
-import { ListNpo } from "./ListNpo";
-import { KeywordFilter } from "./KeywordFilter";
+import { useContext, useState } from "react";
+import { ListProjects } from "./ListProjects";
+import { Searchbar } from "./Searchbar";
 import { CategoryFilter } from "./CategoryFilter";
 import { Top } from "./Top";
 import "../../styles/discoverPage.css";
+import { ProjectsApiContext } from "../../api-client/projectsApiContext";
+import { useLoading } from "../../useLoading";
+
 
 
 const DiscoverPage = () => {
-  const [categoryFilter, setCategoryFilter] = useState("");
   const [searchString, setSearchString] = useState("");
-  const [data, setData] = useState(prosjects);
+  const [category, setCategory] = useState("")
+  const [npoName, setNpoName] = useState("")
+  const [_id, set_id] = useState("")
+
+  const { listProjects } = useContext(ProjectsApiContext);
+  const { loading, error, data } = useLoading(
+    async () => await listProjects({ category, npoName, _id }),
+    [category]
+  );
 
   function categorySelectHandler(selectedCategory) {
-    setCategoryFilter(selectedCategory);
+    setCategory(selectedCategory);
   }
 
   function handleSearchInput(event) {
     setSearchString(event.target.value);
+  }
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+  if (error) {
+    return (
+      <div>
+        <h1>Error</h1>
+        <div id="error-text">{error.toString()}</div>
+      </div>
+    );
   }
 
   return (
@@ -25,9 +46,9 @@ const DiscoverPage = () => {
       <Top />
       <CategoryFilter onClick={categorySelectHandler} />
       <br /><br />
-      <KeywordFilter searchString={searchString} onChange={handleSearchInput} />
+      <Searchbar searchString={searchString} onChange={handleSearchInput} />
       <br /><br />
-      <ListNpo data={data} category={categoryFilter} searchWord={searchString} />
+      <ListProjects data={data} category={category} searchWord={searchString} />
     </div>
   );
 };

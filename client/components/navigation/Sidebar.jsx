@@ -1,4 +1,3 @@
-import { useState } from "react";
 import ProfileIcon from "../../media/profile-icon.png";
 import MelioraIcon from "../../media/meliora_logo.png";
 import DashboardIcon from "../../media/dashboard_icon.png";
@@ -12,24 +11,24 @@ import { Link } from "react-router-dom";
 import fetchJSON from "../../helpers/fetchJSON";
 import { useLoader } from "../../helpers/UseLoader";
 import "../../styles/sidebar-styles.css";
+import { Box, CircularProgress } from "@mui/material";
+import React from "react";
+import ConstructionIcon from "@mui/icons-material/Construction";
+import { UserContext } from "../../App";
 
-const Sidebar = ({ user }) => {
-  //const { loading, data, error } = useLoader(async () => {
-  //  return await fetchJSON("/api/login");
-  //});
-
-  //if (loading) return <div>Please wait...</div>;
-  //if (error) return <div>Error! {error.toString()}</div>;
+const Sidebar = (props) => {
+  const user = React.useContext(UserContext)
+  console.log("test", user)
 
   return (
-    <div className="sidebar-container">
+    <div className="sidebar-container" >
       <div>
         <div className="sidebar-company-logo">
           <img src={MelioraIcon} alt="company-icon" />
         </div>
         <div className="profile-name-badge">
-          <img src={ProfileIcon} alt="profile-icon" />
-          <div> {user.name}</div> {/* TODO: Replace with username */}
+          <img src={user.photos[0].value} alt="profile-icon" />
+          <div> {user.displayName} </div> {/* TODO: Replace with username */}
         </div>
         <div className="nav-item-container">
           <Link to={"/"} style={{ textDecoration: "none" }}>
@@ -38,8 +37,7 @@ const Sidebar = ({ user }) => {
               <div>Dashboard</div>
             </div>
           </Link>
-
-          <Link to={"my-non-profits"} style={{ textDecoration: "none" }}>
+          <Link to={"our-partners"} style={{ textDecoration: "none" }}>
             <div className="nav-item">
               <img
                 className="icon-style"
@@ -49,11 +47,10 @@ const Sidebar = ({ user }) => {
               <div>My Non-Profits</div>
             </div>
           </Link>
-
           <Link to={"/articles"} style={{ textDecoration: "none" }}>
             <div className="nav-item">
               <img className="icon-style" src={ArticlesIcon} alt="dashboard" />
-              <a>Articles</a>
+              <div>Articles</div>
             </div>
           </Link>
           <Link to={"/discover"} style={{ textDecoration: "none" }}>
@@ -72,6 +69,14 @@ const Sidebar = ({ user }) => {
             <div className="nav-item">
               <img className="icon-style" src={TemplatesIcon} alt="dashboard" />
               <div>Social Media Templates</div>
+            </div>
+          </Link>{" "}
+          <Link to={"/npo-profile/id"} style={{ textDecoration: "none" }}>
+            <div className="nav-item">
+              <ConstructionIcon
+                sx={{ margin: "0 20px 0 38px", fontSize: "25px" }}
+              />
+              <div>Development: npo profile</div>
             </div>
           </Link>
         </div>
