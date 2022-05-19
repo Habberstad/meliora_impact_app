@@ -36,3 +36,16 @@ export const highlightedNavButtonStyle = {
       "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.24)",
   },
 };
+
+export const outlinedTabButtonStyle = {
+  color: "#000",
+  borderBottom: "2.5px solid #CFD8DC",
+  padding: "20px 10px 10px 10px",
+  borderRadius: "0",
+  fontWeight: "500",
+  fontSize: "13px",
+  "&:hover": {
+    borderBottom: "2.5px solid #7209B7",
+    backgroundColor: "#FAFAFA",
+  },
+};
