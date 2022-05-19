@@ -58,7 +58,7 @@ const ArticlesPage = () => {
             <div className="container-big">
               <div className={"containerContentBig"}>
                 <div className={"npoTextBig"}>{data[0].npoName}</div>
-                <Link href={"/article?id=" + data[0]._id}>
+                <Link href={"/articles/article?id=" + data[0]._id}>
                   <img src={data[0].image} id={"bilde"} alt={"das"} />
                 </Link>
                 <div className={"dateTextBig"}>{data[0].date}</div>
