@@ -16,14 +16,6 @@ import FilterAltOffIcon from "@mui/icons-material/FilterAltOff";
 import ArticlesIcon from "../../media/articles_icon.png";
 import { Link } from "react-router-dom";
 
-function FilterNpoByCategory(list, category) {
-  if (category === "") {
-    return list;
-  } else {
-    return list.filter(project => project.category === category);
-  }
-}
-
 function filterBySearchWord(list, searchWord) {
   if (searchWord !== "") {
     return list.filter((project) =>

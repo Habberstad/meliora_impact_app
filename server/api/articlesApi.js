@@ -6,10 +6,10 @@ export function ArticlesAPI(mongoDatabase) {
 
   router.get("/", async (req, res) => {
     const query = {};
-
-    const { _id } = req.query;
-    if (_id) {
-      query._id = { $eq: ObjectId(_id) };
+    console.log("test1", req.query)
+    const { npoName } = req.query;
+    if (npoName) {
+      query.npoName = { $eq: npoName };
     }
 
     const { category } = req.query;
@@ -17,10 +17,12 @@ export function ArticlesAPI(mongoDatabase) {
       query.category = { $eq: category };
     }
 
+    console.log("test2", query)
+
     const articles = await mongoDatabase
       .collection("articles")
-      .find()
-      .toArray(query);
+      .find(query)
+      .toArray();
     res.json(articles);
   });
 
