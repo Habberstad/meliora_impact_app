@@ -18,24 +18,6 @@ const ArticlesPage = () => {
     [category]
   );
 
-
-  /*
-  useEffect(() => {
-    async function loadArticleList() {
-      try {
-        const res = await getArticles({category, npoName});
-        setArticleList(res?.data);
-        console.log(res.data)
-      } catch (err) {
-        console.error(err);
-      }
-    }
-    loadArticleList();
-
-
-    console.log("tet" + articleList);
-  }, []);
-*/
   if (loading) return <div>Loading...</div>;
 
   if (error)

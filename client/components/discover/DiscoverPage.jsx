@@ -16,15 +16,15 @@ const DiscoverPage = () => {
   const [npoName, setNpoName] = useState("")
   const [_id, set_id] = useState("")
 
-
-  const { listProjects } = useContext(ArticleApiContext);
+  const { listProjects } = useContext(ProjectsApiContext);
   const { loading, error, data } = useLoading(
     async () => await listProjects({category, npoName, _id}),
-    []
+    [category, npoName]
   );
 
   function categorySelectHandler(selectedCategory) {
     setCategory(selectedCategory)
+
   }
 
   function handleSearchInput(event) {
