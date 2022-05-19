@@ -4,7 +4,7 @@ import logo2 from "../../media/article_header.png";
 import { Grid, Link } from "@mui/material";
 import { useContext, useEffect, useState } from "react";
 import "../../styles/articlesPage.css";
-import { ArticleApiContext, getArticles } from "../../api-client/articles";
+import { ArticleApiContext } from "../../api-client/articles";
 import { useLoading } from "../../useLoading";
 
 const ArticlesPage = () => {
@@ -16,6 +16,7 @@ const ArticlesPage = () => {
     async () => await getArticles({category, npoName}),
     [category]
   );
+
 
   if (loading) return <div>Loading...</div>;
 
@@ -29,15 +30,27 @@ const ArticlesPage = () => {
 
 
   return (
-    <div>
-      <h1>Meliora Articles</h1>
+    <div className="articles-wrapper">
+      <div className="top-header">
+        Meliora <br></br> Articles
+      </div>
 
-      <Grid container direction="row" spacing={1} justifyContent="center">
-        <Grid item>New</Grid>
-        <Grid item>Popular</Grid>
-        <Grid item>Water</Grid>
-        <Grid item>Knowledge</Grid>
-      </Grid>
+      <div className="articles-sorter">
+        <Grid container spacing={6} justifyContent="center">
+          <Grid className={"newFilter"} item>
+            New
+          </Grid>
+          <Grid className={"popularFilter"} item>
+            Popular
+          </Grid>
+          <Grid className={"waterFilter"} item>
+            Water
+          </Grid>
+          <Grid className={"knowledgeFilter"} item>
+            Knowledge
+          </Grid>
+        </Grid>
+      </div>
 
       <div className="articles-top-section">
         <Grid container columnSpacing={{ xl: 4 }} rowSpacing={{ md: 4, lg: 4 }}>
