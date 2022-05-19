@@ -17,7 +17,10 @@ export function ArticlesAPI(mongoDatabase) {
       query.category = { $eq: category };
     }
 
-    console.log("test2", query)
+    const { _id } = req.query;
+    if (_id) {
+      query._id = { $eq: ObjectId(_id) };
+    }
 
     const articles = await mongoDatabase
       .collection("articles")
