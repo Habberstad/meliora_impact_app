@@ -1,13 +1,13 @@
-import axios from "axios";
+import React from "react";
+import { fetchJSON } from "../lib/fetchJSON";
 
-const instance = axios.create({
-  baseURL: "http://localhost:3000/api",
-  withCredentials: true,
+
+
+export const ArticleApiContext = React.createContext({
+
+  async getArticles(query) {
+    return await fetchJSON("/api/articles?"+ new URLSearchParams(query));
+  },
+
+
 });
-
-export const getArticles = () => {
-  return instance.get("/articles");
-};
-export const getArticlesById = (id) => {
-  return instance.get("/articles/{id}");
-};

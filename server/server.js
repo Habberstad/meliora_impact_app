@@ -1,31 +1,26 @@
 import express from "express";
 import dotenv from "dotenv";
-import passport from "passport";
+import path from "path";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
+import passport from "passport";
 import cookieSession from "cookie-session";
 import cors from "cors";
-import path from "path";
-
-import { ArticlesAPI } from "./Api/articlesApi.js";
+import { ArticlesAPI } from "./api/articlesApi.js";
 import { MongoClient } from "mongodb";
-import { ProjectsApi } from "./Api/projectsApi.js";
-import { NpoApi } from "./Api/npoApi.js";
-import { AccountsApi } from "./Api/accountsApi.js";
-import authRoute from "./test/auth.js";
+import { ProjectsApi } from "./api/projectsApi.js";
+import { NpoApi } from "./api/npoApi.js";
+import { AccountsApi } from "./api/accountsApi.js";
+import passportSetup from "./passport.js";
+import authRoute from "./api/authApi.js";
 
-import passportSetup from "./test/passport.js";
 
 const app = express();
-
 dotenv.config();
 
 app.use(bodyParser.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(express.static("../client/dist"));
-
-const discovery_endpoint_google =
-  "https://accounts.google.com/.well-known/openid-configuration";
 
 const mongoClient = new MongoClient(process.env.MONGODB_URL);
 mongoClient.connect().then(async () => {
@@ -81,5 +76,3 @@ app.use((req, res, next) => {
 const server = app.listen(process.env.PORT || 3000, () => {
   console.log(`Started on http://localhost:${server.address().port}`);
 });
-
-

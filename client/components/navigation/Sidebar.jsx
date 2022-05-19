@@ -13,19 +13,20 @@ import { useLoader } from "../../helpers/UseLoader";
 import "../../styles/sidebar-styles.css";
 import { Box, CircularProgress } from "@mui/material";
 import React from "react";
+import ConstructionIcon from "@mui/icons-material/Construction";
 
-const Sidebar = () => {
+const Sidebar = (props) => {
+
 
   return (
-    <div className="sidebar-container">
-
+    <div className="sidebar-container" >
       <div>
         <div className="sidebar-company-logo">
           <img src={MelioraIcon} alt="company-icon" />
         </div>
         <div className="profile-name-badge">
-          <img src={ProfileIcon} alt="profile-icon" />
-          <div> Test Persson </div> {/* TODO: Replace with username */}
+          <img src={props.user.photos[0].value} alt="profile-icon" />
+          <div> {props.user.displayName} </div> {/* TODO: Replace with username */}
         </div>
         <div className="nav-item-container">
           <Link to={"/"} style={{ textDecoration: "none" }}>
@@ -34,8 +35,7 @@ const Sidebar = () => {
               <div>Dashboard</div>
             </div>
           </Link>
-
-          <Link to={"our_partners"} style={{ textDecoration: "none" }}>
+          <Link to={"our-partners"} style={{ textDecoration: "none" }}>
             <div className="nav-item">
               <img
                 className="icon-style"
@@ -45,7 +45,6 @@ const Sidebar = () => {
               <div>My Non-Profits</div>
             </div>
           </Link>
-
           <Link to={"/articles"} style={{ textDecoration: "none" }}>
             <div className="nav-item">
               <img className="icon-style" src={ArticlesIcon} alt="dashboard" />
@@ -68,6 +67,14 @@ const Sidebar = () => {
             <div className="nav-item">
               <img className="icon-style" src={TemplatesIcon} alt="dashboard" />
               <div>Social Media Templates</div>
+            </div>
+          </Link>{" "}
+          <Link to={"/npo-profile/id"} style={{ textDecoration: "none" }}>
+            <div className="nav-item">
+              <ConstructionIcon
+                sx={{ margin: "0 20px 0 38px", fontSize: "25px" }}
+              />
+              <div>Development: npo profile</div>
             </div>
           </Link>
         </div>

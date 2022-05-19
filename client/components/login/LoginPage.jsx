@@ -1,50 +1,54 @@
-import MelioraIcon from "../../media/meliora_logo.png";
-import LoginCardImage from "../../media/login_card_img.png";
 import GoogleIcon from "../../media/google_icon.png";
 import "../../styles/loginPage-styles.css";
 
-import {
-  Box,
-  Button,
-  Checkbox,
-  Divider,
-  FormControl,
-  FormControlLabel,
-  FormGroup,
-  TextField,
-} from "@mui/material";
+import { Button, Divider } from "@mui/material";
 import { Link } from "react-router-dom";
+import { LoginLeftCard } from "./LoginLeftCard";
+import { useEffect, useState } from "react";
+import { FormTermsOfServiceText } from "./FormTermsOfServiceText";
+import { RegisterForm } from "./RegisterForm";
+import { LoginForm } from "./LoginForm";
 
 export const LoginPage = () => {
+  const [isRegistered, setIsRegistered] = useState(false);
+  const [isOverBreakpoint, setIsOverBreakpoint] = useState(true);
+  window.addEventListener("resize", () => {
+    setIsOverBreakpoint(window.innerWidth >= 1000);
+  });
+
   const google = () => {
     window.open("http://localhost:3000/auth/google", "_self");
   };
 
   return (
     <div className="login-page-container">
-      <div className="login-left-card">
-        <img
-          className="login-left-card-icon"
-          src={MelioraIcon}
-          alt="company-icon"
-        />
-        <div className="login-left-card-content">
-          <h1>Meliora Connect</h1>
-          <h1>Together We Can Change The World</h1>
-          <img src={LoginCardImage} alt="company-icon" />
-        </div>
-      </div>
+      {isOverBreakpoint && <LoginLeftCard />}
       <div className="login-container">
         <div className={"login-content"}>
           <div>
+            {isRegistered ? (
+              <div>
+                <h2>Login</h2>
+                <p>Log in with:</p>
+              </div>
+            ) : (
+              <div>
+                <h2>Get started for absolutely free</h2>{" "}
+                <p>Create account with:</p>
+              </div>
+            )}
             <div>
-              <h2>login</h2>
-              <p>Log in with:</p>
-            </div>
-            <div>
-              <div onClick={google} style={{ textDecoration: "none" }}>
+              <div onClick={google}style={{ textDecoration: "none" }}>
                 <Button
-                  sx={{ mb: "22px" }}
+                  sx={{
+                    mb: "22px",
+                    borderColor: "#637381",
+                    "&:hover": {
+                      borderColor: "#000",
+                      backgroundColor: "#FFF",
+                      color: "#637381",
+                    },
+                  }}
                   fullWidth
                   variant={"outlined"}
                   size={"large"}
@@ -60,60 +64,9 @@ export const LoginPage = () => {
           </div>
           <Divider style={{ width: "100%" }}>OR</Divider>
           <form className="login-form">
-            <FormControl className="login-form">
-              <TextField
-                fullWidth
-                sx={{
-                  mt: "22px",
-                  "& .MuiOutlinedInput-root.Mui-focused": {
-                    "& > fieldset": {
-                      borderColor: "rgba(0, 0, 0, 0.7)",
-                    },
-                  },
-                  "& .MuiInputLabel-root.Mui-focused": {
-                    color: "rgba(0, 0, 0, 0.7)",
-                  },
-                }}
-                label="Email adress"
-                variant="outlined"
-              />
-              <TextField
-                fullWidth
-                sx={{
-                  my: "22px",
-                  "& .MuiOutlinedInput-root.Mui-focused": {
-                    "& > fieldset": {
-                      borderColor: "rgba(0, 0, 0, 0.7)",
-                    },
-                  },
-                  "& .MuiInputLabel-root.Mui-focused": {
-                    color: "rgba(0, 0, 0, 0.7)",
-                  },
-                }}
-                label="Password"
-                variant="outlined"
-                type="password"
-              />
-              <FormGroup row>
-                <FormControlLabel control={<Checkbox />} label="Remember me" />
-                <a href={"/"}>Forgot password?</a>
-              </FormGroup>
-              <Button
-                className={"form-button"}
-                sx={{
-                  mt: 1,
-                  backgroundColor: "#A400FF",
-                  "& .MuiButton-root.Mui-focused": {
-                    backgroundColor: "#FFFFFF",
-                  },
-                }}
-                variant="contained"
-                size="large"
-              >
-                Log in
-              </Button>
-            </FormControl>
+            {isRegistered ? <LoginForm /> : <RegisterForm />}
           </form>
+          <FormTermsOfServiceText />
         </div>
       </div>
     </div>
