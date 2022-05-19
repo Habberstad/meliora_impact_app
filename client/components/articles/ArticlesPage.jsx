@@ -53,7 +53,9 @@ const ArticlesPage = () => {
           <Grid item md={12} lg={12} xl={6}>
             <div className="container-big">
               <div className={"container-content-big"}>
-                <div className={"npo-text-big"}>{articleList[0].npoName}</div>
+                <div className={"npo-text-big"}>
+                  <span className={"npo-name"}>{articleList[0].npoName}</span>
+                </div>
                 <Link href={"/article?id=" + articleList[0]._id}>
                   <img src={articleList[0].image} id={"bilde"} alt={"das"} />
                 </Link>
@@ -85,7 +87,7 @@ const ArticlesPage = () => {
               <div className="container-medium">
                 <div className={"container-content-medium"}>
                   <div className={"npo-text-medium"}>
-                    {articleList[1].npoName}
+                    <span className={"npo-name"}>{articleList[1].npoName}</span>
                   </div>
                   <img src={articleList[1].image} alt={"das"} />
                   <div className={"card-content-container-medium"}>
@@ -114,7 +116,9 @@ const ArticlesPage = () => {
                 <div className="container-small">
                   <div className={"container-content-small"}>
                     <div className={"npo-text-small"}>
-                      {articleList[2].npoName}
+                      <span className={"npo-name"}>
+                        {articleList[2].npoName}
+                      </span>
                     </div>
                     <img src={articleList[2].image} alt={"das"} />
                     <div className={"card-content-container-small"}>
@@ -137,7 +141,9 @@ const ArticlesPage = () => {
                 <div className="container-small">
                   <div className={"container-content-small"}>
                     <div className={"npo-text-small"}>
-                      {articleList[3].npoName}
+                      <span className={"npo-name"}>
+                        {articleList[3].npoName}
+                      </span>
                     </div>
                     <img src={articleList[3].image} id={"bilde"} alt={"das"} />
                     <div className={"card-content-container-small"}>
@@ -171,7 +177,7 @@ const ArticlesPage = () => {
             <div className="container-medium">
               <div className={"container-content-medium"}>
                 <div className={"npo-text-medium"}>
-                  {articleList[1].npoName}
+                  <span className={"npo-name"}>{articleList[1].npoName}</span>
                 </div>
                 <img src={articleList[1].image} alt={"das"} />
                 <div className={"card-content-container-medium"}>
@@ -193,7 +199,9 @@ const ArticlesPage = () => {
           <Grid item md={6} lg={6} xl={3}>
             <div className="container-small">
               <div className={"container-content-small"}>
-                <div className={"npo-text-small"}>{articleList[3].npoName}</div>
+                <div className={"npo-text-small"}>
+                  <span className={"npo-name"}>{articleList[3].npoName}</span>
+                </div>
                 <img src={articleList[3].image} id={"bilde"} alt={"das"} />
                 <div className={"card-content-container-small"}>
                   <div className={"date-text-small"}>
@@ -214,7 +222,9 @@ const ArticlesPage = () => {
           <Grid item md={6} lg={6} xl={3}>
             <div className="container-small">
               <div className={"container-content-small"}>
-                <div className={"npo-text-small"}>{articleList[3].npoName}</div>
+                <div className={"npo-text-small"}>
+                  <span className={"npo-name"}>{articleList[3].npoName}</span>
+                </div>
                 <img src={articleList[3].image} id={"bilde"} alt={"das"} />
                 <div className={"card-content-container-small"}>
                   <div className={"date-text-small"}>
