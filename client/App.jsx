@@ -15,9 +15,13 @@ import React from "react";
 import OurPartnersPage from "./components/our_partners/OurPartnersPage";
 import NonProfitProfilePage from "./components/non-profit-page/NonProfitProfilePage";
 
+export const UserContext = React.createContext({
+  Account: user => { }
+  ,});
 
 function App() {
   const [user, setUser] = useState(null);
+
 
   useEffect(() => {
     const getUser = () => {
@@ -57,7 +61,7 @@ function App() {
     <div className="app-container">
       <UserContext.Provider value={user}>
         <div>
-          { <Sidebar user={user}/>}
+          { <Sidebar/>}
         </div>
         <Outlet />
 
@@ -81,8 +85,6 @@ function App() {
   );
 }
 
-const UserContext = React.createContext({
-  Account: user => { }
-,});
+
 
 export default App;
