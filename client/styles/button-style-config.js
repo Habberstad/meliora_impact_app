@@ -49,3 +49,17 @@ export const outlinedTabButtonStyle = {
     backgroundColor: "#FAFAFA",
   },
 };
+
+export const outlinedTabButtonStyleTest = {
+  color: "#000",
+  borderBottom: "3px solid #CFD8DC",
+  padding: "20px 20px 0px 20px",
+  borderRadius: "0px",
+  fontWeight: "bold",
+  fontFamily: "Montserrat",
+  fontSize: "20px",
+  "&:hover": {
+    borderBottom: "3px solid #7209B7",
+    backgroundColor: "#FAFAFA",
+  },
+};

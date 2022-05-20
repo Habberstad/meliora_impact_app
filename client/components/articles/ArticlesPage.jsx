@@ -1,11 +1,15 @@
 import { articles } from "../../mock_data/articles";
 import logo from "../../media/article_header.png";
 import logo2 from "../../media/article_header.png";
-import { Grid, Link } from "@mui/material";
+import { Button, Grid, Link } from "@mui/material";
 import { useContext, useEffect, useState } from "react";
 import "../../styles/articlesPage.css";
 import { ArticleApiContext } from "../../api-client/articlesApiContext";
 import { useLoading } from "../../useLoading";
+import {
+  outlinedTabButtonStyle,
+  outlinedTabButtonStyleTest,
+} from "../../styles/button-style-config";
 
 const ArticlesPage = () => {
   const [category, setCategory] = useState("");
@@ -34,18 +38,18 @@ const ArticlesPage = () => {
       </div>
 
       <div className="articles-sorter">
-        <Grid container spacing={6} justifyContent="center">
+        <Grid container justifyContent="center">
           <Grid className={"new-filter"} item>
-            New
+            <Button sx={outlinedTabButtonStyleTest}>New</Button>
           </Grid>
           <Grid className={"popular-filter"} item>
-            Popular
+            <Button sx={outlinedTabButtonStyleTest}>Popular</Button>
           </Grid>
           <Grid className={"water-filter"} item>
-            Water
+            <Button sx={outlinedTabButtonStyleTest}>Water</Button>
           </Grid>
           <Grid className={"knowledge-filter"} item>
-            Knowledge
+            <Button sx={outlinedTabButtonStyleTest}>Knowledge</Button>
           </Grid>
         </Grid>
       </div>
@@ -89,7 +93,7 @@ const ArticlesPage = () => {
                   <div className={"npo-text-medium"}>
                     <span className={"npo-name"}>{data[1].npoName}</span>
                   </div>
-                  <Link href={"/article?id=" + data[1]._id}>
+                  <Link href={"/articles/article?id=" + data[1]._id}>
                     <img src={data[1].image} alt={"das"} />
                   </Link>
                   <div className={"card-content-container-medium"}>
@@ -120,7 +124,9 @@ const ArticlesPage = () => {
                     <div className={"npo-text-small"}>
                       <span className={"npo-name"}>{data[2].npoName}</span>
                     </div>
-                    <img src={data[2].image} alt={"das"} />
+                    <Link href={"/articles/article?id=" + data[2]._id}>
+                      <img src={data[2].image} alt={"das"} />
+                    </Link>
                     <div className={"card-content-container-small"}>
                       <div className={"date-text-small"}>
                         <span className={"card-content-date"}>
@@ -143,7 +149,9 @@ const ArticlesPage = () => {
                     <div className={"npo-text-small"}>
                       <span className={"npo-name"}>{data[3].npoName}</span>
                     </div>
-                    <img src={data[3].image} id={"bilde"} alt={"das"} />
+                    <Link href={"/articles/article?id=" + data[3]._id}>
+                      <img src={data[3].image} id={"bilde"} alt={"das"} />
+                    </Link>
                     <div className={"card-content-container-small"}>
                       <div className={"date-text-small"}>
                         <span className={"card-content-date"}>
@@ -177,7 +185,9 @@ const ArticlesPage = () => {
                 <div className={"npo-text-medium"}>
                   <span className={"npo-name"}>{data[1].npoName}</span>
                 </div>
-                <img src={data[1].image} alt={"das"} />
+                <Link href={"/articles/article?id=" + data[1]._id}>
+                  <img src={data[1].image} alt={"das"} />
+                </Link>
                 <div className={"card-content-container-medium"}>
                   <div className={"date-text-medium"}>
                     <span className={"card-content-date"}>{data[1].date}</span>
@@ -198,7 +208,9 @@ const ArticlesPage = () => {
                 <div className={"npo-text-small"}>
                   <span className={"npo-name"}>{data[3].npoName}</span>
                 </div>
-                <img src={data[3].image} id={"bilde"} alt={"das"} />
+                <Link href={"/articles/article?id=" + data[3]._id}>
+                  <img src={data[3].image} id={"bilde"} alt={"das"} />
+                </Link>
                 <div className={"card-content-container-small"}>
                   <div className={"date-text-small"}>
                     <span className={"card-content-date"}>{data[3].date}</span>
@@ -219,7 +231,9 @@ const ArticlesPage = () => {
                 <div className={"npo-text-small"}>
                   <span className={"npo-name"}>{data[3].npoName}</span>
                 </div>
-                <img src={data[3].image} id={"bilde"} alt={"das"} />
+                <Link href={"/articles/article?id=" + data[3]._id}>
+                  <img src={data[3].image} id={"bilde"} alt={"das"} />
+                </Link>
                 <div className={"card-content-container-small"}>
                   <div className={"date-text-small"}>
                     <span className={"card-content-date"}>{data[3].date}</span>

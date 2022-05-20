@@ -6,7 +6,7 @@ export function ArticlesAPI(mongoDatabase) {
 
   router.get("/", async (req, res) => {
     const query = {};
-    console.log("test1", req.query)
+    console.log("test1", req.query);
     const { npoName } = req.query;
     if (npoName) {
       query.npoName = { $eq: npoName };
