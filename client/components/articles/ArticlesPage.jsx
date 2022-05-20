@@ -134,7 +134,7 @@ const ArticlesPage = () => {
 
       <div className="articles-bottom-section">
         <div className="bottom-header">Articles You Should Check Out</div>
-        <Grid container columnSpacing={{ lg: 4, xl: 4 }} rowSpacing={{ lg: 4 }}>
+        <Grid container columnSpacing={{ md:4, lg: 4, xl: 4 }} rowSpacing={{ md:4, lg: 4 }}>
           <Grid item lg={12} xl={6}>
             <div className="container-medium">
               <div className={"containerContentMedium"}>
@@ -148,7 +148,7 @@ const ArticlesPage = () => {
             </div>
           </Grid>
 
-          <Grid item lg={6} xl={3}>
+          <Grid item md={6} lg={6} xl={3}>
             <div className="container-small">
               <div className={"containerContentSmall"}>
                 <div className={"npoTextSmall"}>{data[3].npoName}</div>
@@ -161,7 +161,7 @@ const ArticlesPage = () => {
             </div>
           </Grid>
 
-          <Grid item lg={6} xl={3}>
+          <Grid item md={6} lg={6} xl={3}>
             <div className="container-small">
               <div className={"containerContentSmall"}>
                 <div className={"npoTextSmall"}>{data[3].npoName}</div>
