@@ -1,23 +1,18 @@
-import { articles } from "../../mock_data/articles";
-import logo from "../../media/article_header.png";
-import logo2 from "../../media/article_header.png";
 import { Button, Grid, Link } from "@mui/material";
 import { useContext, useEffect, useState } from "react";
 import "../../styles/articlesPage.css";
 import { ArticleApiContext } from "../../api-client/articlesApiContext";
 import { useLoading } from "../../useLoading";
-import {
-  outlinedTabButtonStyle,
-  outlinedTabButtonStyleTest,
-} from "../../styles/button-style-config";
+import { outlinedTabButtonStyleTest } from "../../styles/button-style-config";
 
 const ArticlesPage = () => {
   const [category, setCategory] = useState("");
   const [npoName, setNpoName] = useState("");
+  const [_id, set_Id] = useState("");
 
   const { getArticles } = useContext(ArticleApiContext);
   const { loading, error, data } = useLoading(
-    async () => await getArticles({ category, npoName }),
+    async () => await getArticles({ category, _id }),
     [category]
   );
 
