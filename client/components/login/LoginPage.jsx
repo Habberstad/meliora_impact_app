@@ -17,7 +17,7 @@ export const LoginPage = () => {
   });
 
   const google = () => {
-    window.open("http://localhost:3000/auth/google", "_self");
+    window.open(window.location.origin + "/auth/google", "_self");
   };
 
   return (
