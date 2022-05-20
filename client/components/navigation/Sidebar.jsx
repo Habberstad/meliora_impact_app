@@ -18,7 +18,6 @@ import { UserContext } from "../../App";
 
 const Sidebar = (props) => {
   const user = React.useContext(UserContext)
-  console.log("test", user)
 
   return (
     <div className="sidebar-container" >
