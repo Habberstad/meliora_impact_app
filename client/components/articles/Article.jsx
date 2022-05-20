@@ -17,9 +17,6 @@ const Article = () => {
     []
   );
 
-  console.log(_id);
-  console.log(data);
-
 
   if (loading) {
     return <div>Loading...</div>;
