@@ -1,7 +1,7 @@
 import passport from "passport";
-
 import { Strategy as GoogleStrategy } from "passport-google-oauth20";
 import dotenv from "dotenv";
+import { config } from "./config/Constants.js";
 
 dotenv.config();
 
@@ -10,8 +10,7 @@ passport.use(
     {
       clientID: process.env.CLIENT_ID_GOOGLE,
       clientSecret: process.env.COOKIE_SECRET,
-      callbackURL:
-        "https://meliora-impact-connect.herokuapp.com/auth/google/callback",
+      callbackURL: config.url.API_URL + "/auth/google/callback",
     },
     function (accessToken, refreshToken, profile, done) {
       done(null, profile);
