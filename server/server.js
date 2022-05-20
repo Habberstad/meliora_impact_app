@@ -6,7 +6,6 @@ import cookieParser from "cookie-parser";
 import passport from "passport";
 import cookieSession from "cookie-session";
 import cors from "cors";
-import { ArticlesAPI } from "./api/articlesApi.js";
 import { MongoClient } from "mongodb";
 import { ProjectsApi } from "./api/projectsApi.js";
 import { NpoApi } from "./api/npoApi.js";
