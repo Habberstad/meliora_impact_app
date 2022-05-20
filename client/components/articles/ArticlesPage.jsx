@@ -3,12 +3,18 @@ import { useContext, useEffect, useState } from "react";
 import "../../styles/articlesPage.css";
 import { ArticleApiContext } from "../../api-client/articlesApiContext";
 import { useLoading } from "../../useLoading";
-import { outlinedTabButtonStyleTest } from "../../styles/button-style-config";
+import {
+  selectedTabStyle,
+  navButtonStyle,
+  hoverTabStyle,
+} from "../../styles/button-style-config";
+import OpacityIcon from "@mui/icons-material/Opacity";
 
 const ArticlesPage = () => {
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState("water");
   const [npoName, setNpoName] = useState("");
   const [_id, set_Id] = useState("");
+  const [selectedTab, setSelectedTab] = useState("water");
 
   const { getArticles } = useContext(ArticleApiContext);
   const { loading, error, data } = useLoading(
@@ -26,6 +32,14 @@ const ArticlesPage = () => {
       </div>
     );
 
+  function onClickHandler(event) {
+    setCategory(event);
+    console.log(event);
+  }
+
+  console.log(selectedTab);
+  console.log(category);
+
   return (
     <div className="articles-wrapper">
       <div className="top-header">
@@ -34,17 +48,30 @@ const ArticlesPage = () => {
 
       <div className="articles-sorter">
         <Grid container justifyContent="center">
-          <Grid className={"new-filter"} item>
-            <Button sx={outlinedTabButtonStyleTest}>New</Button>
-          </Grid>
-          <Grid className={"popular-filter"} item>
-            <Button sx={outlinedTabButtonStyleTest}>Popular</Button>
+          <Grid className={"all-filter"} item>
+            <Button
+              sx={selectedTab === "all" ? selectedTabStyle : hoverTabStyle}
+            >
+              All
+            </Button>
           </Grid>
           <Grid className={"water-filter"} item>
-            <Button sx={outlinedTabButtonStyleTest}>Water</Button>
+            <Button
+              onClick={() => onClickHandler("water")}
+              sx={selectedTab === "water" ? selectedTabStyle : hoverTabStyle}
+            >
+              Water
+            </Button>
           </Grid>
           <Grid className={"knowledge-filter"} item>
-            <Button sx={outlinedTabButtonStyleTest}>Knowledge</Button>
+            <Button
+              onClick={() => onClickHandler("knowledge")}
+              sx={
+                selectedTab === "knowledge" ? selectedTabStyle : hoverTabStyle
+              }
+            >
+              Knowledge
+            </Button>
           </Grid>
         </Grid>
       </div>
