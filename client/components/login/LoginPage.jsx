@@ -33,12 +33,12 @@ export const LoginPage = () => {
               </div>
             ) : (
               <div>
-                <h2>Get started for absolutely free</h2>{" "}
+                <h2>Get started for absolutely free</h2>
                 <p>Create account with:</p>
               </div>
             )}
             <div>
-              <div onClick={google}style={{ textDecoration: "none" }}>
+              <div onClick={google} style={{ textDecoration: "none" }}>
                 <Button
                   sx={{
                     mb: "22px",
