@@ -14,32 +14,21 @@ import "../../styles/sidebar-styles.css";
 import { Box, CircularProgress } from "@mui/material";
 import React from "react";
 import ConstructionIcon from "@mui/icons-material/Construction";
+import { UserContext } from "../../App";
 
-const Sidebar = () => {
-  const { loading, data, error } = useLoader(async () => {
-    return await fetchJSON("/api/login");
-  });
-
-  if (loading)
-    return (
-      <div>
-        <Box sx={{ display: "flex" }}>
-          <CircularProgress size={100} />
-          <p>Slett access_token og reload din noob</p>
-        </Box>
-      </div>
-    );
-  if (error) return <div>Error! {error.toString()}</div>;
+const Sidebar = (props) => {
+  const user = React.useContext(UserContext)
+  console.log("test", user)
 
   return (
-    <div className="sidebar-container">
+    <div className="sidebar-container" >
       <div>
         <div className="sidebar-company-logo">
           <img src={MelioraIcon} alt="company-icon" />
         </div>
         <div className="profile-name-badge">
-          <img src={ProfileIcon} alt="profile-icon" />
-          <div> Test Persson </div> {/* TODO: Replace with username */}
+          <img src={user.photos[0].value} alt="profile-icon" />
+          <div> {user.displayName} </div> {/* TODO: Replace with username */}
         </div>
         <div className="nav-item-container">
           <Link to={"/"} style={{ textDecoration: "none" }}>

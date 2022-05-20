@@ -3,12 +3,17 @@ import dotenv from "dotenv";
 import path from "path";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
-import fetchJSON from "./fetchJSON.js";
-import { ArticlesAPI } from "./Api/articlesApi.js";
+import passport from "passport";
+import cookieSession from "cookie-session";
+import cors from "cors";
+import { ArticlesAPI } from "./api/articlesApi.js";
 import { MongoClient } from "mongodb";
-import { ProjectsApi } from "./Api/projectsApi.js";
-import { NpoApi } from "./Api/npoApi.js";
-import { AccountsApi } from "./Api/accountsApi.js";
+import { ProjectsApi } from "./api/projectsApi.js";
+import { NpoApi } from "./api/npoApi.js";
+import { AccountsApi } from "./api/accountsApi.js";
+import passportSetup from "./passport.js";
+import authRoute from "./api/authApi.js";
+
 
 const app = express();
 dotenv.config();
@@ -16,9 +21,6 @@ dotenv.config();
 app.use(bodyParser.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(express.static("../client/dist"));
-
-const discovery_endpoint_google =
-  "https://accounts.google.com/.well-known/openid-configuration";
 
 const mongoClient = new MongoClient(process.env.MONGODB_URL);
 mongoClient.connect().then(async () => {
@@ -32,7 +34,6 @@ mongoClient.connect().then(async () => {
   app.use(
     "/api/projects",
     ProjectsApi(mongoClient.db(process.env.MONGODB_DATABASE || "meliora_database"))
-
   );
 
   app.use(
@@ -47,32 +48,22 @@ mongoClient.connect().then(async () => {
 
 });
 
-app.post("/api/login", (req, res) => {
-  const { access_token } = req.body;
+app.use(
+  cookieSession({ name: "session", keys: ["lama"], maxAge: 24 * 60 * 60 * 100 })
+);
 
-  res.cookie("access_token", access_token, { signed: true });
-  res.sendStatus(200);
-});
+app.use(passport.initialize());
+app.use(passport.session());
 
-app.get("/api/login", async (req, res) => {
-  const { access_token } = req.signedCookies;
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    methods: "GET,POST,PUT,DELETE",
+    credentials: true
+  })
+);
 
-  if (access_token) {
-    const { userinfo_endpoint } = await fetchJSON(discovery_endpoint_google);
-
-    try {
-      const userinfo = await fetchJSON(userinfo_endpoint, {
-        headers: {
-          Authorization: `Bearer ${access_token}`,
-        },
-      });
-
-      res.json(userinfo);
-    } catch (e) {
-      e.message.toString();
-    }
-  }
-});
+app.use("/auth", authRoute);
 
 app.use((req, res, next) => {
   if (req.method === "GET" && !req.path.startsWith("/api")) {
