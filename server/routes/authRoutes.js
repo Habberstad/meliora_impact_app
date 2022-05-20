@@ -1,9 +1,10 @@
 import { Router } from "express";
 
 import passport from "passport";
+import { config } from "../config/Constants.js";
 
 const router = Router();
-const CLIENT_URL = process.env.NODE_ENV;
+const CLIENT_URL = config.url.API_URL;
 
 router.get("/login/success", (req, res) => {
   if (req.user) {
