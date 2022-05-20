@@ -58,8 +58,8 @@ const ArticlesPage = () => {
                 <div className={"npo-text-big"}>
                   <span className={"npo-name"}>{data[0].npoName}</span>
                 </div>
-                <Link href={"/article?id=" + data[0]._id}>
-                  <img src={data[0].image} id={"bilde"} alt={"das"} />
+                <Link href={"/articles/article?id=" + data[0]._id}>
+                  <img src={data[0].image} alt={data[0].alt} />
                 </Link>
                 <div className={"card-content-container"}>
                   <div className={"date-text-big"}>
@@ -89,7 +89,9 @@ const ArticlesPage = () => {
                   <div className={"npo-text-medium"}>
                     <span className={"npo-name"}>{data[1].npoName}</span>
                   </div>
-                  <img src={data[1].image} alt={"das"} />
+                  <Link href={"/article?id=" + data[1]._id}>
+                    <img src={data[1].image} alt={"das"} />
+                  </Link>
                   <div className={"card-content-container-medium"}>
                     <div className={"date-text-medium"}>
                       <span className={"card-content-date"}>
