@@ -10,10 +10,11 @@ import { useLoading } from "../../useLoading";
 const ArticlesPage = () => {
   const [category, setCategory] = useState("");
   const [npoName, setNpoName] = useState("")
+  const [_id, set_Id] = useState("")
 
   const {getArticles} = useContext(ArticleApiContext)
   const { loading, error, data } = useLoading(
-    async () => await getArticles({category, npoName}),
+    async () => await getArticles({category, _id}),
     [category]
   );
 

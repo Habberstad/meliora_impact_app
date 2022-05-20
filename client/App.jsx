@@ -2,7 +2,7 @@ import Sidebar from "./components/navigation/Sidebar";
 import {
   Outlet,
   Route,
-  Routes
+  Routes, useLocation
 } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import ArticlesPage from "./components/articles/ArticlesPage";
@@ -21,8 +21,9 @@ export const UserContext = React.createContext({
 
 function App() {
   const [user, setUser] = useState(null);
+  const[cookies, setCookies] = useState(null)
 
-
+  console.log(window.location.origin)
   useEffect(() => {
     const getUser = () => {
       fetch("http://localhost:3000/auth/login/success", {
@@ -40,6 +41,7 @@ function App() {
         })
         .then((resObject) => {
           setUser(resObject.user);
+          setCookies(resObject.cookies)
         })
         .catch((err) => {
           console.log(err);
@@ -48,7 +50,8 @@ function App() {
     getUser()
   }, []);
 
-  console.log(user)
+  console.log("cookie", cookies)
+
   if(user === null){
     return (
       <div>
