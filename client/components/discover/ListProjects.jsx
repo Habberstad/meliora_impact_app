@@ -5,9 +5,10 @@ import {
   CardActionArea,
   CardActions,
   CardContent,
-  CardMedia, Divider,
+  CardMedia,
+  Divider,
   Grid,
-  Typography
+  Typography,
 } from "@mui/material";
 import waterImg from "./water.png";
 import SchoolIcon from "@mui/icons-material/School";
@@ -18,57 +19,84 @@ import { Link } from "react-router-dom";
 
 function filterBySearchWord(list, searchWord) {
   if (searchWord !== "") {
-    return list.filter((project) =>
-      project.name.toLowerCase().includes(searchWord.toLowerCase())
-      || project.description.toLowerCase().includes(searchWord.toLowerCase())
-      || project.category.toLowerCase().includes(searchWord.toLowerCase())
-      || project.npoName.toLowerCase().includes(searchWord.toLowerCase())
+    return list.filter(
+      (project) =>
+        project.name.toLowerCase().includes(searchWord.toLowerCase()) ||
+        project.description.toLowerCase().includes(searchWord.toLowerCase()) ||
+        project.category.toLowerCase().includes(searchWord.toLowerCase()) ||
+        project.npoName.toLowerCase().includes(searchWord.toLowerCase())
     );
   } else {
     return list;
   }
 }
 
-
-export function ProjectCard({ project: { name, description, category, npoName, _id } }) {
-
+export function ProjectCard({
+  project: { name, description, category, npoName, _id },
+}) {
   function navigateToProject() {
     alert("Should navigate to project: " + name + " (id: " + _id + ")");
   }
 
   return (
-
-    <Card className={"npoCardStyle"} sx={{ borderRadius: "25px", boxShadow: 5 }}>
+    <Card
+      className={"npoCardStyle"}
+      sx={{
+        borderRadius: "25px",
+        boxShadow:
+          "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.24)",
+      }}
+    >
       <div className={"card-image-wrapper"}>
         <CardMedia
           component="img"
           image={waterImg}
           alt="background-img"
           className={"card-image"}
+          sx={{ width: "451px" }}
         />
         <div className={"npoCardIcon card-image-icon"}>
-          <div className={"card-image-npoName-wrapper"}>
-            {npoName}
-          </div>
+          <div className={"card-image-npoName-wrapper"}>{npoName}</div>
           <div className={"card-image-icon-wrapper"}>
-            {category.toLowerCase() === "water" ? <OpacityIcon /> : <SchoolIcon />}
+            {category.toLowerCase() === "water" ? (
+              <OpacityIcon sx={{ fontSize: "20px", marginTop: "2px" }} />
+            ) : (
+              <SchoolIcon sx={{ fontSize: "20px", marginTop: "2px" }} />
+            )}
           </div>
         </div>
       </div>
 
       <div className={"npoCard-text-container"}>
-        <h3 className={"npoCard-text-header"}>{name}</h3>
+        <div className={"npoCard-text-header"}>{name}</div>
         <Divider variant="middle" className={"divider-1"} />
-        <p className={"npoCard-text-description"}>{description}</p>
+        <div className={"npoCard-text-description"}>{description}</div>
       </div>
-      <CardActions className={"card-button-container"}>
+      <div className={"card-button-container"}>
         <Link to={"/project/" + _id} style={{ textDecoration: "none" }}>
-          <Button className={"card-button"} variant="contained">Explore</Button>
+          <Button
+            variant="contained"
+            sx={{
+              width: "107px",
+              height: "36px",
+              borderRadius: "10px",
+              backgroundColor: "#7209B7",
+              fontSize: "12px",
+              boxShadow:
+                "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.24)",
+              fontWeight: "400",
+              "&:hover": {
+                backgroundColor: "#7209B7",
+                boxShadow:
+                  "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.24)",
+              },
+            }}
+          >
+            Explore
+          </Button>
         </Link>
-      </CardActions>
-
+      </div>
     </Card>
-
   );
 }
 
@@ -81,8 +109,6 @@ export function ListProjects(props) {
   } else {
     return (
       <div>
-        <div>(Search result: {numberOfMatches})</div>
-
         <Grid
           container
           columns={3}
@@ -90,7 +116,6 @@ export function ListProjects(props) {
           spacing={2}
           className={"card-container"}
         >
-
           {filteredList.map((project) => (
             <Grid key={project._id} item className={"card-item"}>
               <ProjectCard project={project} />
@@ -101,4 +126,3 @@ export function ListProjects(props) {
     );
   }
 }
-
