@@ -18,10 +18,9 @@ router.get("/", async (req, res) => {
     query._id = { $eq: ObjectId(_id) }
   }
 
-  console.log("Article page, myQuery", query)
   const data = await Article.find(query)
 
-  res.send(data)
+  res.json(data)
 })
 
 /*

@@ -12,7 +12,7 @@ import mongoose from "mongoose";
 import projectsRoute from "./routes/projectsRoute.js";
 import articlesRoute from "./routes/articlesRoute.js";
 import { config } from "./config/Constants.js";
-import { orgAccountsRoute } from "./routes/orgAccountsRoute.js";
+import orgAccountsRoute  from "./routes/orgAccountsRoute.js";
 
 const app = express();
 
