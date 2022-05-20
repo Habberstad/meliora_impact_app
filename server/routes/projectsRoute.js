@@ -1,6 +1,6 @@
 import express from "express";
 import { Router } from "express";
-import Project from "../models/projectModel.js"
+import Project from "../models/projectsModel.js"
 import { ObjectId } from "mongodb";
 
 const router = Router();
