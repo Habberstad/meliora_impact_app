@@ -10,10 +10,11 @@ import { useLoading } from "../../useLoading";
 const ArticlesPage = () => {
   const [category, setCategory] = useState("");
   const [npoName, setNpoName] = useState("")
+  const [_id, set_Id] = useState("")
 
   const {getArticles} = useContext(ArticleApiContext)
   const { loading, error, data } = useLoading(
-    async () => await getArticles({category, npoName}),
+    async () => await getArticles({category, _id}),
     [category]
   );
 
@@ -58,7 +59,7 @@ const ArticlesPage = () => {
             <div className="container-big">
               <div className={"containerContentBig"}>
                 <div className={"npoTextBig"}>{data[0].npoName}</div>
-                <Link href={"/article?id=" + data[0]._id}>
+                <Link href={"/articles/article?id=" + data[0]._id}>
                   <img src={data[0].image} id={"bilde"} alt={"das"} />
                 </Link>
                 <div className={"dateTextBig"}>{data[0].date}</div>

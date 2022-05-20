@@ -3,15 +3,15 @@ import { Router } from "express";
 import passport from "passport";
 
 const router = Router();
-const CLIENT_URL = "http://localhost:3000/";
+const CLIENT_URL = process.env.NODE_ENV;
 
 router.get("/login/success", (req, res) => {
   if (req.user) {
     res.status(200).json({
       success: true,
       message: "successfull",
-      user: req.user
-      //   cookies: req.cookies
+      user: req.user,
+      cookies: req.cookies
     });
   }
 });
