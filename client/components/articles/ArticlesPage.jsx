@@ -9,14 +9,13 @@ import { useLoading } from "../../useLoading";
 
 const ArticlesPage = () => {
   const [category, setCategory] = useState("");
-  const [npoName, setNpoName] = useState("")
+  const [npoName, setNpoName] = useState("");
 
-  const {getArticles} = useContext(ArticleApiContext)
+  const { getArticles } = useContext(ArticleApiContext);
   const { loading, error, data } = useLoading(
-    async () => await getArticles({category, npoName}),
+    async () => await getArticles({ category, npoName }),
     [category]
   );
-
 
   if (loading) return <div>Loading...</div>;
 
@@ -27,7 +26,6 @@ const ArticlesPage = () => {
         <div id="error-text">{error.toString()}</div>
       </div>
     );
-
 
   return (
     <div className="articles-wrapper">
@@ -58,21 +56,19 @@ const ArticlesPage = () => {
             <div className="container-big">
               <div className={"container-content-big"}>
                 <div className={"npo-text-big"}>
-                  <span className={"npo-name"}>{articleList[0].npoName}</span>
+                  <span className={"npo-name"}>{data[0].npoName}</span>
                 </div>
-                <Link href={"/article?id=" + articleList[0]._id}>
-                  <img src={articleList[0].image} id={"bilde"} alt={"das"} />
+                <Link href={"/article?id=" + data[0]._id}>
+                  <img src={data[0].image} id={"bilde"} alt={"das"} />
                 </Link>
                 <div className={"card-content-container"}>
                   <div className={"date-text-big"}>
-                    <span className={"card-content-date"}>
-                      {articleList[0].date}
-                    </span>
+                    <span className={"card-content-date"}>{data[0].date}</span>
                   </div>
 
                   <div className={"content-text-big"}>
                     <span className={"card-content-text"}>
-                      {articleList[0].description}
+                      {data[0].description}
                     </span>
                   </div>
                 </div>
@@ -91,18 +87,18 @@ const ArticlesPage = () => {
               <div className="container-medium">
                 <div className={"container-content-medium"}>
                   <div className={"npo-text-medium"}>
-                    <span className={"npo-name"}>{articleList[1].npoName}</span>
+                    <span className={"npo-name"}>{data[1].npoName}</span>
                   </div>
-                  <img src={articleList[1].image} alt={"das"} />
+                  <img src={data[1].image} alt={"das"} />
                   <div className={"card-content-container-medium"}>
                     <div className={"date-text-medium"}>
                       <span className={"card-content-date"}>
-                        {articleList[1].date}
+                        {data[1].date}
                       </span>
                     </div>
                     <div className={"content-text-medium"}>
                       <span className={"card-content-text"}>
-                        {articleList[1].description}
+                        {data[1].description}
                       </span>
                     </div>
                   </div>
@@ -120,20 +116,18 @@ const ArticlesPage = () => {
                 <div className="container-small">
                   <div className={"container-content-small"}>
                     <div className={"npo-text-small"}>
-                      <span className={"npo-name"}>
-                        {articleList[2].npoName}
-                      </span>
+                      <span className={"npo-name"}>{data[2].npoName}</span>
                     </div>
-                    <img src={articleList[2].image} alt={"das"} />
+                    <img src={data[2].image} alt={"das"} />
                     <div className={"card-content-container-small"}>
                       <div className={"date-text-small"}>
                         <span className={"card-content-date"}>
-                          {articleList[2].date}
+                          {data[2].date}
                         </span>
                       </div>
                       <div className={"content-text-small"}>
                         <span className={"card-content-text-small"}>
-                          {articleList[2].description}
+                          {data[2].description}
                         </span>
                       </div>
                     </div>
@@ -145,20 +139,18 @@ const ArticlesPage = () => {
                 <div className="container-small">
                   <div className={"container-content-small"}>
                     <div className={"npo-text-small"}>
-                      <span className={"npo-name"}>
-                        {articleList[3].npoName}
-                      </span>
+                      <span className={"npo-name"}>{data[3].npoName}</span>
                     </div>
-                    <img src={articleList[3].image} id={"bilde"} alt={"das"} />
+                    <img src={data[3].image} id={"bilde"} alt={"das"} />
                     <div className={"card-content-container-small"}>
                       <div className={"date-text-small"}>
                         <span className={"card-content-date"}>
-                          {articleList[3].date}
+                          {data[3].date}
                         </span>
                       </div>
                       <div className={"content-text-small"}>
                         <span className={"card-content-text-small"}>
-                          {articleList[3].description}
+                          {data[3].description}
                         </span>
                       </div>
                     </div>
@@ -181,18 +173,16 @@ const ArticlesPage = () => {
             <div className="container-medium">
               <div className={"container-content-medium"}>
                 <div className={"npo-text-medium"}>
-                  <span className={"npo-name"}>{articleList[1].npoName}</span>
+                  <span className={"npo-name"}>{data[1].npoName}</span>
                 </div>
-                <img src={articleList[1].image} alt={"das"} />
+                <img src={data[1].image} alt={"das"} />
                 <div className={"card-content-container-medium"}>
                   <div className={"date-text-medium"}>
-                    <span className={"card-content-date"}>
-                      {articleList[1].date}
-                    </span>
+                    <span className={"card-content-date"}>{data[1].date}</span>
                   </div>
                   <div className={"content-text-medium"}>
                     <span className={"card-content-text"}>
-                      {articleList[1].description}
+                      {data[1].description}
                     </span>
                   </div>
                 </div>
@@ -204,18 +194,16 @@ const ArticlesPage = () => {
             <div className="container-small">
               <div className={"container-content-small"}>
                 <div className={"npo-text-small"}>
-                  <span className={"npo-name"}>{articleList[3].npoName}</span>
+                  <span className={"npo-name"}>{data[3].npoName}</span>
                 </div>
-                <img src={articleList[3].image} id={"bilde"} alt={"das"} />
+                <img src={data[3].image} id={"bilde"} alt={"das"} />
                 <div className={"card-content-container-small"}>
                   <div className={"date-text-small"}>
-                    <span className={"card-content-date"}>
-                      {articleList[3].date}
-                    </span>
+                    <span className={"card-content-date"}>{data[3].date}</span>
                   </div>
                   <div className={"content-text-small"}>
                     <span className={"card-content-text-small"}>
-                      {articleList[3].description}
+                      {data[3].description}
                     </span>
                   </div>
                 </div>
@@ -227,18 +215,16 @@ const ArticlesPage = () => {
             <div className="container-small">
               <div className={"container-content-small"}>
                 <div className={"npo-text-small"}>
-                  <span className={"npo-name"}>{articleList[3].npoName}</span>
+                  <span className={"npo-name"}>{data[3].npoName}</span>
                 </div>
-                <img src={articleList[3].image} id={"bilde"} alt={"das"} />
+                <img src={data[3].image} id={"bilde"} alt={"das"} />
                 <div className={"card-content-container-small"}>
                   <div className={"date-text-small"}>
-                    <span className={"card-content-date"}>
-                      {articleList[3].date}
-                    </span>
+                    <span className={"card-content-date"}>{data[3].date}</span>
                   </div>
                   <div className={"content-text-small"}>
                     <span className={"card-content-text-small"}>
-                      {articleList[3].description}
+                      {data[3].description}
                     </span>
                   </div>
                 </div>
