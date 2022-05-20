@@ -74,7 +74,7 @@ export function ProjectCard({
                 "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.24)",
               fontWeight: "400",
               "&:hover": {
-                backgroundColor: "#7209B7",
+                backgroundColor: "#8830c4",
                 boxShadow:
                   "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.24)",
               },
