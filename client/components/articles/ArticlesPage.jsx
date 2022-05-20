@@ -14,7 +14,7 @@ const ArticlesPage = () => {
   const [category, setCategory] = useState("water");
   const [npoName, setNpoName] = useState("");
   const [_id, set_Id] = useState("");
-  const [selectedTab, setSelectedTab] = useState("water");
+  const [selectedTab, setSelectedTab] = useState("");
 
   const { getArticles } = useContext(ArticleApiContext);
   const { loading, error, data } = useLoading(
@@ -32,13 +32,10 @@ const ArticlesPage = () => {
       </div>
     );
 
-  function onClickHandler(event) {
+  function handleNavigationAndFiltering(event) {
     setCategory(event);
-    console.log(event);
+    setSelectedTab(event);
   }
-
-  console.log(selectedTab);
-  console.log(category);
 
   return (
     <div className="articles-wrapper">
@@ -50,14 +47,15 @@ const ArticlesPage = () => {
         <Grid container justifyContent="center">
           <Grid className={"all-filter"} item>
             <Button
-              sx={selectedTab === "all" ? selectedTabStyle : hoverTabStyle}
+              onClick={() => handleNavigationAndFiltering("")}
+              sx={selectedTab === "" ? selectedTabStyle : hoverTabStyle}
             >
               All
             </Button>
           </Grid>
           <Grid className={"water-filter"} item>
             <Button
-              onClick={() => onClickHandler("water")}
+              onClick={() => handleNavigationAndFiltering("water")}
               sx={selectedTab === "water" ? selectedTabStyle : hoverTabStyle}
             >
               Water
@@ -65,7 +63,7 @@ const ArticlesPage = () => {
           </Grid>
           <Grid className={"knowledge-filter"} item>
             <Button
-              onClick={() => onClickHandler("knowledge")}
+              onClick={() => handleNavigationAndFiltering("knowledge")}
               sx={
                 selectedTab === "knowledge" ? selectedTabStyle : hoverTabStyle
               }
