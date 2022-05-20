@@ -1,20 +1,8 @@
-import {
-  Box,
-  Button,
-  Card,
-  CardActionArea,
-  CardActions,
-  CardContent,
-  CardMedia,
-  Divider,
-  Grid,
-  Typography,
-} from "@mui/material";
+import { Button, Card, CardMedia, Divider, Grid } from "@mui/material";
 import waterImg from "./water.png";
 import SchoolIcon from "@mui/icons-material/School";
 import OpacityIcon from "@mui/icons-material/Opacity";
-import FilterAltOffIcon from "@mui/icons-material/FilterAltOff";
-import ArticlesIcon from "../../media/articles_icon.png";
+
 import { Link } from "react-router-dom";
 
 function filterBySearchWord(list, searchWord) {
@@ -32,7 +20,7 @@ function filterBySearchWord(list, searchWord) {
 }
 
 export function ProjectCard({
-  project: { name, description, category, npoName, _id },
+  project: { name, description, category, npoName, _id, card_img },
 }) {
   function navigateToProject() {
     alert("Should navigate to project: " + name + " (id: " + _id + ")");
@@ -50,10 +38,10 @@ export function ProjectCard({
       <div className={"card-image-wrapper"}>
         <CardMedia
           component="img"
-          image={waterImg}
+          image={card_img}
           alt="background-img"
           className={"card-image"}
-          sx={{ width: "451px" }}
+          sx={{ width: "320px" }}
         />
         <div className={"npoCardIcon card-image-icon"}>
           <div className={"card-image-npoName-wrapper"}>{npoName}</div>
