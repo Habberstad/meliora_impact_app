@@ -12,4 +12,4 @@ const orgAccountSchema = new mongoose.Schema({
   collection: "accounts",
 });
 
-export default mongoose.model("Account", orgAccountSchema, "accounts");
+export default mongoose.model("Account", orgAccountSchema);

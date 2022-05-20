@@ -21,15 +21,18 @@ router.get("/",  async (req, res) => {
 })
 
 
-router.post("/", (req, res) => {
+router.post("/", async (req, res) => {
   console.log(req.body.org_name)
-  const account = new Account({
-    org_name: req.query.org_name
+  const account = await new Account({
+    org_name: req.query.org_name,
+    org_number: req.query.org_number,
+    google_id: req.query.google_id,
+    subscription: req.query.subscription
   })
 
   console.log(account)
 
-  res.send(account)
+  res.json(account)
 })
 
 
