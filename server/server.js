@@ -7,12 +7,11 @@ import passport from "passport";
 import cookieSession from "cookie-session";
 import cors from "cors";
 import passportSetup from "./passport.js";
-import authRoute from "./api/authApi.js";
+import authRoute from "./routes/authRoutes.js";
 import mongoose from "mongoose";
-import projectsRoute from "./routes/projectsRoute.js"
+import projectsRoute from "./routes/projectsRoute.js";
 import articlesRoute from "./routes/articlesRoute.js";
 import { config } from "./config/Constants.js";
-
 
 const app = express();
 
@@ -22,29 +21,25 @@ app.use(bodyParser.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(express.static("../client/dist"));
 
-try{
-await mongoose
-  .connect(process.env.MONGODB_URL, { useNewUrlParser: true, useUnifiedTopology: true },
+try {
+  await mongoose.connect(
+    process.env.MONGODB_URL,
+    { useNewUrlParser: true, useUnifiedTopology: true },
     () => {
-      console.log("Connected to MongoDB")
+      console.log("Connected to MongoDB");
     }
   );
 } catch (error) {
   console.log("Could not connect to MongoDB");
-  console.log(error)
+  console.log(error);
 }
 
-app.use("/api/projects", projectsRoute)
-app.use("/api/articles", articlesRoute)
-
-
-
+app.use("/api/projects", projectsRoute);
+app.use("/api/articles", articlesRoute);
 
 app.use(
   cookieSession({ name: "session", keys: ["lama"], maxAge: 24 * 60 * 60 * 100 })
 );
-
-
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -53,10 +48,9 @@ app.use(
   cors({
     origin: config.url.API_URL,
     methods: "GET,POST,PUT,DELETE",
-    credentials: true
+    credentials: true,
   })
 );
-
 
 app.use("/auth", authRoute);
 
