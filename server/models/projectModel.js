@@ -1,18 +1,8 @@
-import mongoose from "mongoose";
-import { ObjectId } from "mongodb";
+const mongoose = require("mongoose")
 
-const projectSchema = new mongoose.Schema(
-  {
-    name: String,
-    npoName: String,
-    category: String,
-    description: String,
-  },
-  {
-    collection: "projects",
-    bufferCommands: false,
-    autoCreate: false,
-  }
-);
+const schema = mongoose.Schema({
+  name: String,
+  np: String,
+})
 
-export default mongoose.model("Project", projectSchema, "projects");
+module.exports = mongoose.model("UserModel", schema)
