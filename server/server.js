@@ -4,14 +4,15 @@ import path from "path";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 import passport from "passport";
+import passportSetup from "./passport.js"; // The import is in use. Do not delete!
 import cookieSession from "cookie-session";
 import cors from "cors";
-import passportSetup from "./passport.js";
 import authRoute from "./routes/authRoutes.js";
 import mongoose from "mongoose";
 import projectsRoute from "./routes/projectsRoute.js";
 import articlesRoute from "./routes/articlesRoute.js";
 import { config } from "./config/Constants.js";
+import { orgAccountsRoute } from "./routes/orgAccountsRoute.js";
 
 const app = express();
 
@@ -36,6 +37,8 @@ try {
 
 app.use("/api/projects", projectsRoute);
 app.use("/api/articles", articlesRoute);
+
+app.use("/api/accounts", orgAccountsRoute)
 
 app.use(
   cookieSession({ name: "session", keys: ["lama"], maxAge: 24 * 60 * 60 * 100 })
