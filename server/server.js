@@ -16,6 +16,7 @@ import authRoute from "./api/authApi.js";
 import mongoose from "mongoose";
 import projectsRoute from "./routes/projectsRoute.js"
 import articlesRoute from "./routes/articlesRoute.js";
+import { config } from "./config/Constants.js";
 
 
 const app = express();
@@ -55,11 +56,12 @@ app.use(passport.session());
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: config.url.API_URL,
     methods: "GET,POST,PUT,DELETE",
     credentials: true
   })
 );
+
 
 app.use("/auth", authRoute);
 
@@ -67,7 +69,7 @@ app.use((req, res, next) => {
   if (req.method === "GET" && !req.path.startsWith("/api")) {
     res.sendFile(path.resolve("../client/dist/index.html"));
   } else {
-    next();
+    res.redirect("/");
   }
 });
 

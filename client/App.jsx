@@ -23,10 +23,10 @@ function App() {
   const [user, setUser] = useState(null);
   const[cookies, setCookies] = useState(null)
 
-  console.log(window.location.origin)
+
   useEffect(() => {
     const getUser = () => {
-      fetch("http://localhost:3000/auth/login/success", {
+      fetch(window.location.origin + "/auth/login/success", {
         method: "GET",
         credentials: "include",
         headers: {
