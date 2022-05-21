@@ -20,7 +20,6 @@ router.get("/", async (req, res) => {
   }
 
   const { _id } = req.query;
-  console.log(_id)
   if (_id !== "" && _id !== ObjectId.isValid(_id)) {
     query._id = { $eq: ObjectId(_id) };
   }
