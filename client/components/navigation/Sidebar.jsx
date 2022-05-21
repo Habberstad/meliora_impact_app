@@ -32,18 +32,20 @@ const Sidebar = (props) => {
         <div className="profile-name-badge">
           <img src={user.photos[0].value} alt="profile-icon" />
           <div>
-            <div> {user.displayName} </div> {/* TODO: Replace with username */}
+            <div style={{ marginTop: "10px" }}> {user.displayName} </div>{" "}
+            {/* TODO: Replace with username */}
             <Button
               sx={{
                 with: "70px",
-                height: "20px",
+                height: "22px",
                 fontSize: "10px",
+                fontWeight: "500",
                 marginTop: "5px",
                 color: "black",
                 border: "none",
-                backgroundColor: "#c0c0c0",
+                backgroundColor: "#dadada",
                 "&:hover": {
-                  backgroundColor: "#cbcbcb",
+                  backgroundColor: "#e5e5e5",
                   color: "black",
                   border: "none",
                 },
