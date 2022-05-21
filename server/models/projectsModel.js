@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import { ObjectId } from "mongodb";
 
 const projectSchema = new mongoose.Schema({
+  _id: ObjectId,
   name: String,
   npoName: String,
   category: String,
@@ -12,4 +13,4 @@ const projectSchema = new mongoose.Schema({
   autoCreate: false
 });
 
-export default mongoose.model("Project", projectSchema, "projects");
+export default mongoose.model("Project", projectSchema);

@@ -2,6 +2,7 @@ import express from "express";
 import { Router } from "express";
 import Article from "../models/articleModel.js";
 import { ObjectId } from "mongodb";
+import { config } from "../config/Constants.js";
 
 const router = Router();
 
@@ -14,15 +15,14 @@ router.get("/", async (req, res) => {
   }
 
   const { _id } = req.query;
-  if (_id !== "" && _id !== undefined) {
-    query._id = { $eq: ObjectId(_id) }
+  if (_id !== "" && _id !== undefined && ObjectId.isValid(_id)) {
+    query._id = { $eq: ObjectId(_id) };
   }
 
-  console.log("Article page, myQuery", query)
-  const data = await Article.find(query)
+  const data = await Article.find(query);
+  res.send(data);
 
-  res.send(data)
-})
+});
 
 /*
 router.post("/post1", (req, res) => {
