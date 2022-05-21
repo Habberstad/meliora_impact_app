@@ -3,7 +3,7 @@ import {
   ButtonGroup,
   Grid,
   ToggleButton,
-  Typography,
+  Typography
 } from "@mui/material";
 import MyNonProfitsIcon from "../../media/my_npo_icon.png";
 import SchoolIcon from "@mui/icons-material/School";
@@ -12,15 +12,16 @@ import FilterAltOffIcon from "@mui/icons-material/FilterAltOff";
 import { useState } from "react";
 import {
   highlightedNavButtonStyle,
-  navButtonStyle,
+  navButtonStyle
 } from "../../styles/button-style-config";
 
 export function CategoryFilter(props) {
-  const [selectedButton, setSelectedButton] = useState("");
+  const selectedButton = props.category
 
   function categoryOnClickHandler(selectedCategory) {
-    setSelectedButton(selectedCategory);
     props.onClick(selectedCategory);
+
+
   }
 
   return (
