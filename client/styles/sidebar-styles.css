@@ -4,7 +4,7 @@
 
 .sidebar-container {
     height: 100vh;
-    width: 282px;
+    width: 290px;
     background-color: #FFF;
     border-right: solid 1.5px #DEDEDE;
     display: flex;
@@ -47,19 +47,14 @@
     display: flex;
     flex-direction: column;
     margin-top: 20px;
-
 }
 
-.nav-item-container img {
-    width: 25px;
-    height: 25px;
-    margin: 0 20px 0 20px;
-}
+
 
 .nav-item {
     display: flex;
     background-color: #fff;
-    width: 260px;
+    width: 268px;
     height:045px;
     align-items: center;
     font-weight: 500;
@@ -83,5 +78,5 @@
 }
 
 .sidebar-image-container {
-
+margin-bottom: -33px;
 }
