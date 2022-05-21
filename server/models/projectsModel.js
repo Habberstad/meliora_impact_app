@@ -13,4 +13,4 @@ const projectSchema = new mongoose.Schema({
   autoCreate: false
 });
 
-export default mongoose.model("Project", projectSchema, "projects");
+export default mongoose.model("Project", projectSchema);
