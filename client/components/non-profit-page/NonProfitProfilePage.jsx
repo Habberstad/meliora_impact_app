@@ -15,6 +15,7 @@ import OverviewTabContent from "./OverviewTabContent";
 import Timeline from "./npo-media/timeline_component4x.png";
 import ProjectsHeader from "./ProjectsHeader";
 import ProjectTabContent from "./ProjectTabContent";
+import ImpactTabContent from "./ImpactTabContent";
 
 const NonProfitProfilePage = () => {
   const [nonProfitData, setNonProfitData] = useState({});
@@ -96,6 +97,13 @@ const NonProfitProfilePage = () => {
         <>
           <div className="content-container">
             <ProjectTabContent />
+          </div>
+        </>
+      )}
+      {selectedTab === "impact" && (
+        <>
+          <div className="content-container">
+            <ImpactTabContent />
           </div>
         </>
       )}

@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 import fetchJSON from "../../helpers/fetchJSON";
 import { useLoader } from "../../helpers/UseLoader";
 import "../../styles/sidebar-styles.css";
-import { Box, CircularProgress } from "@mui/material";
+import { Box, Button, CircularProgress } from "@mui/material";
 import React from "react";
 import ConstructionIcon from "@mui/icons-material/Construction";
 import { UserContext } from "../../App";
@@ -19,12 +19,17 @@ import { UserContext } from "../../App";
 const Sidebar = (props) => {
   const user = React.useContext(UserContext)
 
+  function handleLogoutClick() {
+      location.href = (window.location.origin + "/auth/logout");
+  }
+
   return (
     <div className="sidebar-container" >
       <div>
         <div className="sidebar-company-logo">
           <img src={MelioraIcon} alt="company-icon" />
         </div>
+        <Button onClick={handleLogoutClick}>Logout</Button>
         <div className="profile-name-badge">
           <img src={user.photos[0].value} alt="profile-icon" />
           <div> {user.displayName} </div> {/* TODO: Replace with username */}

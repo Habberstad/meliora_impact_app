@@ -6,6 +6,10 @@ import SquidImage from "./npo-media/squid_img.png";
 import impactCardImg from "./npo-media/impact_cardpng.png";
 import donationGoalImg from "./npo-media/donation_goal.png";
 import timelineImg from "./npo-media/timeline_projects.png";
+import contributorsImg from "./npo-media/contributors.png";
+
+const test_image =
+  "https://images.unsplash.com/photo-1652894449003-11e4228e9ae7?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070";
 
 const ProjectTabContent = () => {
   return (
@@ -88,7 +92,29 @@ const ProjectTabContent = () => {
           </div>
         </div>
         <div className="project-timeline-section">
-          <img src={timelineImg} />
+          <img src={timelineImg} alt="project-timeline" />
+        </div>
+        <div className="carousel-section">
+          <div className="small-carousel-image">
+            <img src={test_image} />
+          </div>
+          <div className="large-carousel-image">
+            <img src={test_image} />
+          </div>
+          <div className="small-carousel-image">
+            <img src={test_image} />
+          </div>
+        </div>
+        <div className="contributors-section">
+          <img src={contributorsImg} />
+        </div>
+        <div className="article-section">
+          <div className="project-sub-heading">Latest Updates</div>
+          <div className="article-card-container">
+            <div className="big-article"></div>
+            <div className="small-article"></div>
+            <div className="small-article"></div>
+          </div>
         </div>
       </div>
     </div>

@@ -7,20 +7,15 @@ export function Top(props) {
       <Box className={"discover-top"}>
         <Grid container spacing={12}>
           <Grid item md={6}>
-            <Typography variant="h2" align="left" color="textPrimary" gutterBottom>
-              Discover
-            </Typography>
-            <Typography variant="h4" align="left" color="textPrimary" gutterBottom>
+            <div className="discover-header-title">Discover</div>
+            <div className="discover-header-subtitle">
               Explore other projects
-            </Typography>
-            <br />
-            <br />
-            <Typography variant="string" align="left" color="textSecondary" paragraph>
-              <strong>Lorem</strong> ipsum dolor sit amet, sed ea solum movet scriptorem, eos dolore evertitur ei, ferri
-              omnium sea at.
-            </Typography>
+            </div>
+            <div className="discover-header-text">
+              <strong>Lorem</strong> ipsum dolor sit amet, sed ea solum movet
+              scriptorem, eos dolore evertitur ei, ferri omnium sea at.
+            </div>
           </Grid>
-
           <Grid item md={6}>
             <img src={sideImg} alt={"side img"} />
           </Grid>
