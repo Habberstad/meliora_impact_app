@@ -19,6 +19,17 @@ router.get("/", async (req, res) => {
 
 });
 
+router.get("/:id", (req, res) => {
+  Account.findById(req.params.id, function(err, data) {
+      if (err) {
+        res.redirect(config.url.API_URL);
+      } else {
+        res.send(data);
+      }
+    });
+
+});
+
 
 router.post("/", async (req, res) => {
 
