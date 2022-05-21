@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { ObjectId } from "mongodb";
 import Account from "../models/orgAccountModel.js";
+import { config } from "../config/Constants.js";
 
 
 
@@ -13,7 +14,7 @@ router.get("/", async (req, res) => {
   console.log("test", _id);
   Account.findById(_id, function(err, data) {
     if (err) {
-      res.redirect("http://localhost:3000/wrapped");
+      res.redirect(config.url.API_URL);
     } else {
       res.send(data);
     }
