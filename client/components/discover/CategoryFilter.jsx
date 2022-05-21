@@ -38,7 +38,7 @@ export function CategoryFilter(props) {
             value={"water"}
             variant="contained"
             startIcon={
-              <OpacityIcon onClick={() => categoryOnClickHandler("water")} />
+              <OpacityIcon  />
             }
           >
             Water
@@ -55,7 +55,7 @@ export function CategoryFilter(props) {
             value={"knowledge"}
             variant="contained"
             startIcon={
-              <SchoolIcon onClick={() => categoryOnClickHandler("water")} />
+              <SchoolIcon />
             }
           >
             Knowledge
@@ -70,7 +70,7 @@ export function CategoryFilter(props) {
             value={""}
             variant="contained"
             startIcon={
-              <FilterAltOffIcon onClick={() => categoryOnClickHandler("")} />
+              <FilterAltOffIcon  />
             }
           >
             All
