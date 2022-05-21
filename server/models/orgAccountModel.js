@@ -2,7 +2,10 @@ import mongoose from "mongoose";
 
 
 const orgAccountSchema = new mongoose.Schema({
-  org_name: String,
+  org_name: {
+    type: String,
+    required: false
+  },
   google_id: String,
   org_number: String,
   subscription: {
