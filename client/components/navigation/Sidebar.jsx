@@ -20,7 +20,7 @@ const Sidebar = (props) => {
   const user = React.useContext(UserContext)
 
   function handleLogoutClick() {
-      window.open(window.location.origin + "/auth/logout");
+      location.href = (window.location.origin + "/auth/logout");
   }
 
   return (
