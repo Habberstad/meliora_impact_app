@@ -3,6 +3,8 @@ import HandImage from "../../media/sidebar_hand_icon.png";
 import { Link } from "react-router-dom";
 import "../../styles/sidebar-styles.css";
 import React, { useEffect, useState } from "react";
+import { Box, Button, CircularProgress } from "@mui/material";
+import React from "react";
 import ConstructionIcon from "@mui/icons-material/Construction";
 import { UserContext } from "../../App";
 import SpeedIcon from "@mui/icons-material/Speed";
@@ -16,12 +18,17 @@ const Sidebar = (props) => {
     console.log(url);
   }, []);
 
+  function handleLogoutClick() {
+      location.href = (window.location.origin + "/auth/logout");
+  }
+
   return (
     <div className="sidebar-container">
       <div>
         <div className="sidebar-company-logo">
           <img src={MelioraIcon} alt="company-icon" />
         </div>
+        <Button onClick={handleLogoutClick}>Logout</Button>
         <div className="profile-name-badge">
           <img src={user.photos[0].value} alt="profile-icon" />
           <div> {user.displayName} </div> {/* TODO: Replace with username */}
