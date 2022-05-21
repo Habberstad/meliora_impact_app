@@ -22,19 +22,19 @@ router.get("/", async (req, res) => {
 
 router.post("/", async (req, res) => {
 
-    console.log(req.body)
-    const account =  new Account({ org_name: "halla" });
+  console.log(req.body);
+  const account = new Account({ org_name: "halla" });
 
-    await account.save(function(err,saved) {
-      console.log(err)
-      if (err) {
-        console.log("Error: validation failed")
-        res.send({error:"could not save"});
-      } else  {
-        console.log("Saved")
-        res.send(saved);
-      }
-    })
+  await account.save(function(err, saved) {
+    console.log(err);
+    if (err) {
+      console.log("Error: validation failed");
+      res.send({ error: "could not save" });
+    } else {
+      console.log("Saved");
+      res.send(saved);
+    }
+  });
 
 
 });
@@ -48,6 +48,19 @@ router.get("/exist", async (req, res) => {
     res.redirect("/logout");
   else
     res.redirect("/createAccount");
+
+});
+
+router.delete("/:accountId", (req, res) => {
+  Account.findByIdAndDelete(req.params.accountId, function(err, data) {
+    if (err) {
+      console.log("could not delete the account");
+      res.redirect(config.url.API_URL);
+    } else {
+      console.log("account deleted");
+      res.send(data);
+    }
+  });
 
 });
 
