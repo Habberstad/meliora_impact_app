@@ -1,9 +1,5 @@
 import Sidebar from "./components/navigation/Sidebar";
-import {
-  Outlet,
-  Route,
-  Routes, useLocation
-} from "react-router-dom";
+import { Outlet, Route, Routes, useLocation } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import ArticlesPage from "./components/articles/ArticlesPage";
 import Article from "./components/articles/Article";
@@ -16,13 +12,12 @@ import OurPartnersPage from "./components/our_partners/OurPartnersPage";
 import NonProfitProfilePage from "./components/non-profit-page/NonProfitProfilePage";
 
 export const UserContext = React.createContext({
-  Account: user => { }
-  ,});
+  Account: (user) => {},
+});
 
 function App() {
   const [user, setUser] = useState(null);
-  const[cookies, setCookies] = useState(null)
-
+  const [cookies, setCookies] = useState(null);
 
   useEffect(() => {
     const getUser = () => {
@@ -32,8 +27,8 @@ function App() {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
-          "Access-Control-Allow-Credentials": true
-        }
+          "Access-Control-Allow-Credentials": true,
+        },
       })
         .then((response) => {
           if (response.status === 200) return response.json();
@@ -41,21 +36,21 @@ function App() {
         })
         .then((resObject) => {
           setUser(resObject.user);
-          setCookies(resObject.cookies)
+          setCookies(resObject.cookies);
         })
         .catch((err) => {
           console.log(err);
         });
     };
-    getUser()
+    getUser();
   }, []);
 
-  console.log("cookie", cookies)
+  console.log("cookie", cookies);
 
-  if(user === null){
+  if (user === null) {
     return (
       <div>
-        <LoginPage/>
+        <LoginPage />
       </div>
     );
   }
@@ -63,13 +58,12 @@ function App() {
   return (
     <div className="app-container">
       <UserContext.Provider value={user}>
-        <div>
-          { <Sidebar/>}
-        </div>
+        <div>{<Sidebar />}</div>
         <Outlet />
 
         <Routes>
           <Route exact path="/" element={<h1>Home</h1>} />
+          <Route exact path="/auth/google/production" element={<h1>Home</h1>} />
           <Route exact path="/articles" element={<ArticlesPage />} />
           <Route exact path="/articles/article" element={<Article />} />
           <Route exact path="/discover" element={<DiscoverPage />} />
@@ -87,7 +81,5 @@ function App() {
     </div>
   );
 }
-
-
 
 export default App;

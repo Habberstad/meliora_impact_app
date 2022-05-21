@@ -1,7 +1,8 @@
 import express from "express";
 import { Router } from "express";
-import Project from "../models/projectModel.js"
+import Project from "../models/projectsModel.js";
 import { ObjectId } from "mongodb";
+
 
 const router = Router();
 
@@ -19,16 +20,15 @@ router.get("/", async (req, res) => {
   }
 
   const { _id } = req.query;
-  console.log("id",_id)
-  if (_id !== "" && _id !== undefined) {
-    query._id = { $eq: ObjectId(_id) }
+  if (_id !== "" && _id !== ObjectId.isValid(_id)) {
+    query._id = { $eq: ObjectId(_id) };
   }
 
-  console.log("Discover page, myQuery", query)
-  const projects = await Project.find(query)
+  const projects = await Project.find(query);
 
-  res.send(projects)
-})
+  res.send(projects);
+
+});
 
 /*
 router.post("/post1", (req, res) => {
