@@ -19,7 +19,7 @@ const Sidebar = (props) => {
   }, []);
 
   function handleLogoutClick() {
-      location.href = (window.location.origin + "/auth/logout");
+    location.href = window.location.origin + "/auth/logout";
   }
 
   return (
@@ -28,10 +28,32 @@ const Sidebar = (props) => {
         <div className="sidebar-company-logo">
           <img src={MelioraIcon} alt="company-icon" />
         </div>
-        <Button onClick={handleLogoutClick}>Logout</Button>
+
         <div className="profile-name-badge">
           <img src={user.photos[0].value} alt="profile-icon" />
-          <div> {user.displayName} </div> {/* TODO: Replace with username */}
+          <div>
+            <div> {user.displayName} </div> {/* TODO: Replace with username */}
+            <Button
+              sx={{
+                with: "70px",
+                height: "20px",
+                fontSize: "10px",
+                marginTop: "5px",
+                color: "black",
+                border: "none",
+                backgroundColor: "#c0c0c0",
+                "&:hover": {
+                  backgroundColor: "#cbcbcb",
+                  color: "black",
+                  border: "none",
+                },
+              }}
+              variant="outlined"
+              onClick={handleLogoutClick}
+            >
+              Log out
+            </Button>
+          </div>
         </div>
         <div className="nav-item-container">
           <Link to={"/"} style={{ textDecoration: "none" }}>

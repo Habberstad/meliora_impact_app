@@ -38,7 +38,13 @@ const KeyInformationTab = () => {
             <img src={collected_piechart} alt="pie chart" />
           </div>
         </div>
-        <div className="data-card">test</div>
+        <div className="insights-card">
+          <div
+            style={{ marginTop: "20px", fontWeight: "500", fontSize: "14px" }}
+          >
+            Key Insights
+          </div>
+        </div>
       </div>
     </div>
   );

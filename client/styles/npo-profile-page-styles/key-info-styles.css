@@ -38,3 +38,14 @@
     font-weight: 400;
     letter-spacing: 0.268512px;
 }
+
+.insights-card{
+    display: flex;
+    width: 255px;
+    height: 344px;
+    background-color: #fff;
+    box-shadow: 0 0 2px rgba(148, 157, 176, 0.24), 0 16px 32px -4px rgba(148, 157, 176, 0.24);
+    border-radius: 16px;
+    flex-direction: column;
+    align-items: center;
+}
