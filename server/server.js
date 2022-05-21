@@ -12,7 +12,7 @@ import mongoose from "mongoose";
 import projectsRoute from "./routes/projectsRoute.js";
 import articlesRoute from "./routes/articlesRoute.js";
 import { config } from "./config/Constants.js";
-import orgAccountsRoute  from "./routes/orgAccountsRoute.js";
+import orgAccountsRoute from "./routes/orgAccountsRoute.js";
 
 const app = express();
 
@@ -21,24 +21,6 @@ dotenv.config();
 app.use(bodyParser.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(express.static("../client/dist"));
-
-try {
-  await mongoose.connect(
-    process.env.MONGODB_URL,
-    { useNewUrlParser: true, useUnifiedTopology: true },
-    () => {
-      console.log("Connected to MongoDB");
-    }
-  );
-} catch (error) {
-  console.log("Could not connect to MongoDB");
-  console.log(error);
-}
-
-app.use("/api/projects", projectsRoute);
-app.use("/api/articles", articlesRoute);
-
-app.use("/api/accounts", orgAccountsRoute)
 
 app.use(
   cookieSession({ name: "session", keys: ["lama"], maxAge: 24 * 60 * 60 * 100 })
@@ -51,11 +33,22 @@ app.use(
   cors({
     origin: config.url.API_URL,
     methods: "GET,POST,PUT,DELETE",
-    credentials: true,
+    credentials: true
   })
 );
 
+await mongoose.connect(
+  process.env.MONGODB_URL,
+  { useNewUrlParser: true, useUnifiedTopology: true },
+  () => {
+    console.log("Connected to MongoDB");
+  }
+);
+
 app.use("/auth", authRoute);
+app.use("/api/projects", projectsRoute);
+app.use("/api/articles", articlesRoute);
+app.use("/api/accounts", orgAccountsRoute);
 
 app.use((req, res, next) => {
   if (req.method === "GET" && !req.path.startsWith("/api")) {
