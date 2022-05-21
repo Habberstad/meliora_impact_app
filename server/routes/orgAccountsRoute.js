@@ -1,9 +1,6 @@
 import { Router } from "express";
-import { ObjectId } from "mongodb";
-import Account from "../models/orgAccountModel.js";
+import Account from "../models/accountModel.js";
 import { config } from "../config/Constants.js";
-
-
 
 
 const router = Router();
