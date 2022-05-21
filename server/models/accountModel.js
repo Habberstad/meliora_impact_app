@@ -4,12 +4,27 @@ import mongoose from "mongoose";
 const orgAccountSchema = new mongoose.Schema({
   org_name: {
     type: String,
-    required: false
+    required: true
   },
-  google_id: String,
-  org_number: String,
+  google_id: {
+    type: String,
+    required: true
+  },
+  org_number: {
+    type: String,
+    required: true
+  },
   subscription: {
-    type: String
+    type: String,
+    enum:["FREE", "STANDARD", "GRANDE"],
+    default: "FREE",
+    required: true
+  },
+  role: {
+    type: String,
+    enum: ["USER, ADMIN"],
+    default: "USER",
+    required: true
   }
 }, {
   collection: "accounts",
