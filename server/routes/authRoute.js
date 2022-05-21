@@ -22,10 +22,13 @@ router.get("/login/failed", (req, res) => {
     success: false,
     message: "failure"
   });
+
 });
 
-router.get("/logout", (req, res) => {
-  req.logout();
+router.get("/logout", async (req, res) => {
+  await req.logout();
+  req.session = null;
+  req.sessionOptions.maxAge = 0
   res.redirect(CLIENT_URL);
 });
 
