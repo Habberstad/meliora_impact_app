@@ -55,14 +55,23 @@
     border-radius: 16px;
     margin-left: 12px;
     margin-right: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
 
 }
 
 .right-media-card {
+    display: flex;
     width: 538px;
     height: 440px;
     background-color: red;
     border-radius: 16px;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+
 }
 
 .impact-data-section{
@@ -86,6 +95,10 @@
     height: 460px;
     background-color: red;
     border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
 }
 
 .small-data-box {
