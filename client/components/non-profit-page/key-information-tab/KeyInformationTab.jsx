@@ -1,6 +1,7 @@
 import "../../../styles/npo-profile-page-styles/key-info-styles.css";
 import expenses_piechart from "../npo-media/expenses_piechart.png";
 import collected_piechart from "../npo-media/collected_piechart.png";
+import financial_table from "../npo-media/financial-table.png";
 
 const KeyInformationTab = () => {
   return (
@@ -22,7 +23,7 @@ const KeyInformationTab = () => {
             <img src={expenses_piechart} alt="pie chart" />
           </div>
         </div>
-        <div className="data-card">
+        <div style={{ margin: "0 20px" }} className="data-card">
           <div className="data-card-title">
             <div style={{ margin: "0 75px 0 20px" }}>Collected</div>
             <div> 87,5%</div>
@@ -45,6 +46,9 @@ const KeyInformationTab = () => {
             Key Insights
           </div>
         </div>
+      </div>
+      <div style={{}}>
+        <img src={financial_table} alt="pie chart" />
       </div>
     </div>
   );
