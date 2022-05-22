@@ -1,17 +1,18 @@
 import { Router } from "express";
 
 import passport from "passport";
+import { config } from "../config/Constants.js";
 
 const router = Router();
-const CLIENT_URL = "http://localhost:3000/";
+const CLIENT_URL = config.url.API_URL;
 
 router.get("/login/success", (req, res) => {
   if (req.user) {
     res.status(200).json({
       success: true,
       message: "successfull",
-      user: req.user
-      //   cookies: req.cookies
+      user: req.user,
+      cookies: req.cookies
     });
   }
 });
@@ -21,10 +22,13 @@ router.get("/login/failed", (req, res) => {
     success: false,
     message: "failure"
   });
+
 });
 
-router.get("/logout", (req, res) => {
-  req.logout();
+router.get("/logout", async (req, res) => {
+  await req.logout();
+  req.session = null;
+  req.sessionOptions.maxAge = 0
   res.redirect(CLIENT_URL);
 });
 

@@ -3,7 +3,7 @@ import {
   ButtonGroup,
   Grid,
   ToggleButton,
-  Typography,
+  Typography
 } from "@mui/material";
 import MyNonProfitsIcon from "../../media/my_npo_icon.png";
 import SchoolIcon from "@mui/icons-material/School";
@@ -12,21 +12,16 @@ import FilterAltOffIcon from "@mui/icons-material/FilterAltOff";
 import { useState } from "react";
 import {
   highlightedNavButtonStyle,
-  navButtonStyle,
+  navButtonStyle
 } from "../../styles/button-style-config";
 
 export function CategoryFilter(props) {
-  const [selectedButton, setSelectedButton] = useState("");
-  const [selectedTab, setSelectedTab] = useState("");
-
-  const handleNavigationState = (tabValue) => {
-    setSelectedTab(tabValue);
-  };
+  const selectedButton = props.category
 
   function categoryOnClickHandler(selectedCategory) {
-    setSelectedButton(selectedCategory);
-    handleNavigationState(selectedCategory);
     props.onClick(selectedCategory);
+
+
   }
 
   return (
@@ -34,44 +29,49 @@ export function CategoryFilter(props) {
       <Grid container spacing={2} justify="center">
         <Grid item>
           <Button
-            onClick={() => categoryOnClickHandler("water")}
-            color="inherit"
-            value={"water"}
-            variant="contained"
             sx={
-              selectedTab === "water"
+              selectedButton === "water"
                 ? highlightedNavButtonStyle
                 : navButtonStyle
             }
-            startIcon={<OpacityIcon />}
+            onClick={() => categoryOnClickHandler("water")}
+            value={"water"}
+            variant="contained"
+            startIcon={
+              <OpacityIcon  />
+            }
           >
             Water
           </Button>
         </Grid>
         <Grid item>
           <Button
-            onClick={() => categoryOnClickHandler("knowledge")}
-            color="inherit"
-            value={"knowledge"}
-            variant="contained"
             sx={
-              selectedTab === "knowledge"
+              selectedButton === "knowledge"
                 ? highlightedNavButtonStyle
                 : navButtonStyle
             }
-            startIcon={<SchoolIcon />}
+            onClick={() => categoryOnClickHandler("knowledge")}
+            value={"knowledge"}
+            variant="contained"
+            startIcon={
+              <SchoolIcon />
+            }
           >
             Knowledge
           </Button>
         </Grid>
         <Grid item>
           <Button
+            sx={
+              selectedButton === "" ? highlightedNavButtonStyle : navButtonStyle
+            }
             onClick={() => categoryOnClickHandler("")}
-            color="inherit"
             value={""}
             variant="contained"
-            sx={selectedTab === "" ? highlightedNavButtonStyle : navButtonStyle}
-            startIcon={<FilterAltOffIcon />}
+            startIcon={
+              <FilterAltOffIcon  />
+            }
           >
             All
           </Button>

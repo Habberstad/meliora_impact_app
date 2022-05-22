@@ -17,7 +17,7 @@ export const LoginPage = () => {
   });
 
   const google = () => {
-    window.open("http://localhost:3000/auth/google", "_self");
+    window.open(window.location.origin + "/auth/google", "_self");
   };
 
   return (
@@ -33,12 +33,12 @@ export const LoginPage = () => {
               </div>
             ) : (
               <div>
-                <h2>Get started for absolutely free</h2>{" "}
+                <h2>Get started for absolutely free</h2>
                 <p>Create account with:</p>
               </div>
             )}
             <div>
-              <div onClick={google}style={{ textDecoration: "none" }}>
+              <div onClick={google} style={{ textDecoration: "none" }}>
                 <Button
                   sx={{
                     mb: "22px",
