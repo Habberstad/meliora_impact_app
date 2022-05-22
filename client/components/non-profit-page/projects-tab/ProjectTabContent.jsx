@@ -29,7 +29,7 @@ const ProjectTabContent = () => {
               ongoing threats is a cause that affects us all. We are on the
               front lines of
             </div>
-            <div className="tile-container">
+            <div className="project-tile-container">
               <div className="info-tile">
                 <WavesIcon
                   sx={{ color: "#7209B7", width: "50px", height: "35px" }}
