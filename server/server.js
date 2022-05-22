@@ -13,7 +13,7 @@ import projectsRoute from "./routes/projectsRoute.js";
 import articlesRoute from "./routes/articlesRoute.js";
 import { config } from "./config/Constants.js";
 import orgAccountsRoute from "./routes/orgAccountsRoute.js";
-import AccountModel from "./models/accountModel.js";
+
 
 const app = express();
 dotenv.config();
@@ -43,7 +43,6 @@ app.use(
     credentials: true
   })
 );
-
 
 app.use("/auth", authRoute);
 app.use("/api/projects", projectsRoute);
