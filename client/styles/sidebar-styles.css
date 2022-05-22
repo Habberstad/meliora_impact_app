@@ -64,12 +64,18 @@
 }
 
 .nav-item-selected {
-    background-color:#EFD3FF;
+    display: flex;
+    background-color: #EFD3FF;
+    width: 268px;
+    height:045px;
+    align-items: center;
+    font-weight: 500;
     color: #A400FF;
-    cursor: pointer;
-    font-weight: 600;
+    font-size: 14px;
+    padding-left: 20px;
     border-right: solid 3px #a400ff;
 }
+
 
 .nav-item:hover {
     background-color: #ece9e9;
