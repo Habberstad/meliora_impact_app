@@ -1,6 +1,6 @@
 import ImpactTile from "./ImpactTile";
-import "../../styles/npo-profile-page-styles/impact-styles.css";
-import contributorsImg from "./npo-media/contributors.png";
+import "../../../styles/npo-profile-page-styles/impact-styles.css";
+import contributorsImg from "../npo-media/contributors.png";
 import { LeftMediaCard } from "./LeftMediaCard";
 import { RightMediaCard } from "./RightMediaCard";
 import { DataSectionMediaCard } from "./DataSectionMediaCard";
