@@ -1,5 +1,5 @@
 import { Button, Grid, Link } from "@mui/material";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import "../../styles/articlesPage.css";
 import { ArticleApiContext } from "../../api-client/articlesApiContext";
 import { useLoading } from "../../useLoading";
@@ -9,7 +9,6 @@ import {
   navButtonStyle,
   hoverTabStyle,
 } from "../../styles/button-style-config";
-import OpacityIcon from "@mui/icons-material/Opacity";
 
 const ArticlesPage = () => {
   const [category, setCategory] = useState("water");
