@@ -32,7 +32,7 @@
     width: 50%;
     border-radius: 10px 0 0 10px;
 }
-.card-content-container {
+.partner-card-content-container {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -40,12 +40,12 @@
     margin-right: 10%;
 }
 
-.card-content-container h1 {
+.partner-card-content-container h1 {
     font-weight: 600;
     font-size: 24px;
     line-height: 29px;
 }
-.card-content-container p {
+.partner-card-content-container p {
     width: 70%;
     font-weight: 400;
     font-size: 14px;

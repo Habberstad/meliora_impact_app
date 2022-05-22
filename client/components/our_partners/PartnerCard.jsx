@@ -7,7 +7,7 @@ export function PartnerCard(props) {
     <Grid item xs={12}>
       <div className={"partner-card"}>
         <img src={props.partner.imgage} alt="ball" />
-        <div className="card-content-container">
+        <div className="partner-card-content-container">
           <div className={"card-headline-container"}>
             <h1>{props.partner.name}</h1>
           </div>
