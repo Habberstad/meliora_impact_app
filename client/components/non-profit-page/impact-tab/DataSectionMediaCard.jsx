@@ -1,21 +1,6 @@
 export function DataSectionMediaCard() {
   return (
     <>
-      <div className="left-data-container">
-        <div
-          style={{ backgroundColor: "#E3FCE4" }}
-          className="small-data-box"
-        ></div>
-        <div
-          style={{ backgroundColor: "#E0EFF4" }}
-          className="small-data-box"
-        ></div>
-        <div
-          style={{ backgroundColor: "#FEFFE0" }}
-          className="small-data-box"
-        ></div>
-        <div className="small-data-box"></div>
-      </div>
       <div
         style={{
           backgroundSize: "cover",
