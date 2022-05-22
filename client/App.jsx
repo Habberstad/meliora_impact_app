@@ -45,7 +45,7 @@ function App() {
     getUser();
   }, []);
 
-  console.log("cookie", cookies);
+
 
   if (user === null) {
     return (
