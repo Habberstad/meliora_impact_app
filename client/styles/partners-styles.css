@@ -1,5 +1,12 @@
+.parntes-page-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 .partners-container {
+    max-width: 1920px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -79,7 +86,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    width: 90px;
+    width: 100px;
 }
 .card-icon-container {
     display: flex;

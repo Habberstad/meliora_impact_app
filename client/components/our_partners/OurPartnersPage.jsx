@@ -1,13 +1,10 @@
 import { HeaderPartner } from "./HeaderPartner";
 import { CategoryFilter } from "../discover/CategoryFilter";
 import "../../styles/partners-styles.css";
-import Grid from "@mui/material/Grid";
-import { PartnerCard } from "./PartnerCard";
 import { useState } from "react";
 
 import { useLoader } from "../../helpers/UseLoader";
-import { NpoApiContext } from "../../api-client/npoApiContext";
-import { useContext } from "react";
+import { PartnersList } from "./PartnersList";
 
 const partners = [
   {
@@ -39,22 +36,10 @@ const partners = [
   },
 ];
 
-function filterBySearchWord(list, searchWord) {
-  if (searchWord !== "") {
-    console.log("hei");
-    return list.filter((partner) =>
-      partner.category.toLowerCase().includes(searchWord)
-    );
-  } else {
-    return list;
-  }
-}
-
 const OurPartnersPage = () => {
   const [category, setCategory] = useState("");
   /*const { getNpo } = useContext(NpoApiContext);*/
   const { loading, error, data } = useLoader(() => partners);
-  const filteredList = filterBySearchWord(data, category);
 
   function categorySelectHandler(selectedCategory) {
     setCategory(selectedCategory);
@@ -72,15 +57,11 @@ const OurPartnersPage = () => {
     );
   }
   return (
-    <div className={"partners-container"}>
-      <HeaderPartner />
-      <CategoryFilter onClick={categorySelectHandler} category={category} />
-      <div className={"list-container"}>
-        <Grid container direction="column" alignItems="stretch">
-          {filteredList.map((partner) => {
-            return <PartnerCard key={partner._id} partner={partner} />;
-          })}
-        </Grid>
+    <div className={"parntes-page-container"}>
+      <div className={"partners-container"}>
+        <HeaderPartner />
+        <CategoryFilter onClick={categorySelectHandler} category={category} />
+        <PartnersList data={data} category={category} />
       </div>
     </div>
   );
