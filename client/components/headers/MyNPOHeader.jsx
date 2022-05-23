@@ -1,13 +1,14 @@
 import { Box, Grid, Typography } from "@mui/material";
 import headerImg from "../../media/header-image-partners.png";
 
-export function HeaderPartner(props) {
+export function MyNPOHeader() {
   return (
     <div style={{ width: "100%" }}>
-      <Box className={"partners-header-container"}>
-        <Grid container spacing={12}>
-          <Grid item md={5}>
+      <Box className={"global-header-container"}>
+        <Grid container columnSpacing={{ lg: 10, xl: 10 }}>
+          <Grid item lg={6} xl={6}>
             <Typography
+              className="global-header-title"
               variant="h3"
               align="left"
               color="textPrimary"
@@ -16,6 +17,7 @@ export function HeaderPartner(props) {
               My Partners
             </Typography>
             <Typography
+              className="global-header-sub-title"
               variant="h5"
               align="left"
               color="textPrimary"
@@ -26,6 +28,7 @@ export function HeaderPartner(props) {
             <br />
             <br />
             <Typography
+              className="global-header-desc"
               variant="string"
               align="left"
               color="textSecondary"
@@ -36,13 +39,15 @@ export function HeaderPartner(props) {
             </Typography>
           </Grid>
 
-          <Grid item md={7}>
+          <Grid item lg={5} xl={5}>
             <img
               style={{ width: "350px" }}
               src={headerImg}
-              alt={"Header image"}
+              alt={"MyNPOHeader image"}
             />
           </Grid>
+
+          <Grid item lg={1} xl={1}></Grid>
         </Grid>
       </Box>
     </div>

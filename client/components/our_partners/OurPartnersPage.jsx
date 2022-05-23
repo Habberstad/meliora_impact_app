@@ -1,8 +1,7 @@
-import { HeaderPartner } from "./HeaderPartner";
+import { MyNPOHeader } from "../headers/MyNPOHeader";
 import { CategoryFilter } from "../discover/CategoryFilter";
 import "../../styles/partners-styles.css";
 import { useState } from "react";
-
 import { useLoader } from "../../helpers/UseLoader";
 import { PartnersList } from "./PartnersList";
 
@@ -57,9 +56,9 @@ const OurPartnersPage = () => {
     );
   }
   return (
-    <div className={"parntes-page-container"}>
+    <div className={"partners-page-container"}>
       <div className={"partners-container"}>
-        <HeaderPartner />
+        <MyNPOHeader />
         <CategoryFilter onClick={categorySelectHandler} category={category} />
         <PartnersList data={data} category={category} />
       </div>

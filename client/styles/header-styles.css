@@ -1,0 +1,27 @@
+.global-header-container {
+    max-height: 350px;
+}
+
+.global-header-title {
+    font-size: 42px;
+    font-weight: 600;
+}
+
+.global-header-sub-title {
+    font-size: 20px;
+    font-weight: 600;
+    font-style: italic;
+    margin-top: 5px;
+    color: #637381;
+}
+
+.global-header-desc {
+    font-size: 16px;
+    margin-top: 40px;
+    max-width: 450px;
+}
+
+.global-header-img {
+    max-width: 400px;
+    object-fit: cover;
+}
