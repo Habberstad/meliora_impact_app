@@ -14,24 +14,7 @@ async function list(query) {
 
 async function getById(id) {
   try {
-
-    const npo = Npo.aggregate(
-      [
-        { $match: { _id: id } }
-        ,
-        {
-          $lookup: {
-            from: "projects",
-            localField: "projects_id",
-            foreignField: "_id",
-            as: "my_projects"
-          }
-        }
-
-      ]
-    );
-
-    return await npo;
+    return await Npo.findById(id);
   } catch (e) {
     throw Error();
   }
