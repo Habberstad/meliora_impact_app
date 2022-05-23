@@ -57,10 +57,12 @@ const OurPartnersPage = () => {
     );
   }
   return (
-    <div className={"partners-container"}>
-      <HeaderPartner />
-      <CategoryFilter onClick={categorySelectHandler} category={category} />
-      <PartnersList data={data} category={category} />
+    <div className={"parntes-page-container"}>
+      <div className={"partners-container"}>
+        <HeaderPartner />
+        <CategoryFilter onClick={categorySelectHandler} category={category} />
+        <PartnersList data={data} category={category} />
+      </div>
     </div>
   );
 };
