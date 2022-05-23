@@ -103,6 +103,7 @@ export function ListProjects(props) {
           direction="row"
           spacing={2}
           className={"card-container"}
+          justifyContent="center"
         >
           {filteredList.map((project) => (
             <Grid key={project._id} item className={"card-item"}>
