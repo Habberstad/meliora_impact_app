@@ -1,4 +1,4 @@
-import MissionMap from "./npo-media/mission_map_img.png";
+import MissionMap from "../npo-media/mission_map_img.png";
 import WavesIcon from "@mui/icons-material/Waves";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import WorkspacePremiumIcon from "@mui/icons-material/WorkspacePremium";

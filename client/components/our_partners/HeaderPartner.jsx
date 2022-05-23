@@ -3,10 +3,10 @@ import headerImg from "../../media/header-image-partners.png";
 
 export function HeaderPartner(props) {
   return (
-    <div>
-      <Box className={"discover-top"}>
+    <div style={{ width: "100%" }}>
+      <Box className={"partners-header-container"}>
         <Grid container spacing={12}>
-          <Grid item md={6}>
+          <Grid item md={5}>
             <Typography
               variant="h3"
               align="left"
@@ -36,9 +36,9 @@ export function HeaderPartner(props) {
             </Typography>
           </Grid>
 
-          <Grid item md={6}>
+          <Grid item md={7}>
             <img
-              style={{ width: "300px" }}
+              style={{ width: "350px" }}
               src={headerImg}
               alt={"Header image"}
             />

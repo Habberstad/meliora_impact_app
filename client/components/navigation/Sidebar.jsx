@@ -10,6 +10,7 @@ import { UserContext } from "../../App";
 import SpeedIcon from "@mui/icons-material/Speed";
 
 const Sidebar = (props) => {
+  const [selectedTab, setSelectedTab] = useState("dashboard");
   const user = React.useContext(UserContext);
   const [url, setUrl] = useState();
 
@@ -22,6 +23,10 @@ const Sidebar = (props) => {
     location.href = window.location.origin + "/auth/logout";
   }
 
+  const handleNavigationState = (tabValue) => {
+    setSelectedTab(tabValue);
+  };
+
   return (
     <div className="sidebar-container">
       <div>
@@ -32,18 +37,20 @@ const Sidebar = (props) => {
         <div className="profile-name-badge">
           <img src={user.photos[0].value} alt="profile-icon" />
           <div>
-            <div> {user.displayName} </div> {/* TODO: Replace with username */}
+            <div style={{ marginTop: "10px" }}> {user.displayName} </div>{" "}
+            {/* TODO: Replace with username */}
             <Button
               sx={{
                 with: "70px",
-                height: "20px",
+                height: "22px",
                 fontSize: "10px",
+                fontWeight: "500",
                 marginTop: "5px",
                 color: "black",
                 border: "none",
-                backgroundColor: "#c0c0c0",
+                backgroundColor: "#dadada",
                 "&:hover": {
-                  backgroundColor: "#cbcbcb",
+                  backgroundColor: "#e5e5e5",
                   color: "black",
                   border: "none",
                 },
@@ -56,45 +63,101 @@ const Sidebar = (props) => {
           </div>
         </div>
         <div className="nav-item-container">
-          <Link to={"/"} style={{ textDecoration: "none" }}>
-            <div className="nav-item">
+          <Link
+            onClick={() => handleNavigationState("dashboard")}
+            to={"/"}
+            style={{ textDecoration: "none" }}
+          >
+            <div
+              className={`${
+                selectedTab === "dashboard" ? "nav-item-selected" : "nav-item"
+              }`}
+            >
               <SpeedIcon sx={{ marginRight: "20px" }} />
               <div>Dashboard</div>
             </div>
           </Link>
-          <Link to={"our-partners"} style={{ textDecoration: "none" }}>
-            <div className="nav-item">
+          <Link
+            onClick={() => handleNavigationState("partners")}
+            to={"our-partners"}
+            style={{ textDecoration: "none" }}
+          >
+            <div
+              className={`${
+                selectedTab === "partners" ? "nav-item-selected" : "nav-item"
+              }`}
+            >
               <SpeedIcon sx={{ marginRight: "20px" }} />
 
               <div>My Non-Profits</div>
             </div>
           </Link>
-          <Link to={"/articles"} style={{ textDecoration: "none" }}>
-            <div className="nav-item">
+          <Link
+            onClick={() => handleNavigationState("articles")}
+            to={"/articles"}
+            style={{ textDecoration: "none" }}
+          >
+            <div
+              className={`${
+                selectedTab === "articles" ? "nav-item-selected" : "nav-item"
+              }`}
+            >
               <SpeedIcon sx={{ marginRight: "20px" }} />
               <div>Articles</div>
             </div>
           </Link>
-          <Link to={"/discover"} style={{ textDecoration: "none" }}>
-            <div className="nav-item">
+          <Link
+            onClick={() => handleNavigationState("discover")}
+            to={"/discover"}
+            style={{ textDecoration: "none" }}
+          >
+            <div
+              className={`${
+                selectedTab === "discover" ? "nav-item-selected" : "nav-item"
+              }`}
+            >
               <SpeedIcon sx={{ marginRight: "20px" }} />
               <div>Discover Non-Profits</div>
             </div>
           </Link>
-          <Link to={"/wrapped"} style={{ textDecoration: "none" }}>
-            <div className="nav-item">
+          <Link
+            onClick={() => handleNavigationState("wrapped")}
+            to={"/wrapped"}
+            style={{ textDecoration: "none" }}
+          >
+            <div
+              className={`${
+                selectedTab === "wrapped" ? "nav-item-selected" : "nav-item"
+              }`}
+            >
               <SpeedIcon sx={{ marginRight: "20px" }} />
               <div>Meliora Wrapped</div>
             </div>
           </Link>
-          <Link to={"/templates"} style={{ textDecoration: "none" }}>
-            <div className="nav-item">
+          <Link
+            onClick={() => handleNavigationState("templates")}
+            to={"/templates"}
+            style={{ textDecoration: "none" }}
+          >
+            <div
+              className={`${
+                selectedTab === "templates" ? "nav-item-selected" : "nav-item"
+              }`}
+            >
               <SpeedIcon sx={{ marginRight: "20px" }} />
               <div>Social Media Templates</div>
             </div>
           </Link>
-          <Link to={"/npo-profile/id"} style={{ textDecoration: "none" }}>
-            <div className="nav-item">
+          <Link
+            onClick={() => handleNavigationState("npo")}
+            to={"/npo-profile/id"}
+            style={{ textDecoration: "none" }}
+          >
+            <div
+              className={`${
+                selectedTab === "npo" ? "nav-item-selected" : "nav-item"
+              }`}
+            >
               <ConstructionIcon sx={{ marginRight: "20px" }} />
               <div>Development: npo profile</div>
             </div>

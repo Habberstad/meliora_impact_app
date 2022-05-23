@@ -60,20 +60,26 @@
     font-weight: 500;
     color: #637381;
     font-size: 14px;
-    padding-left: 20px;
+    padding-left: 21px;
 }
 
 .nav-item-selected {
-    background-color:#EFD3FF;
+    display: flex;
+    background-color: #EFD3FF;
+    width: 268px;
+    height:045px;
+    align-items: center;
+    font-weight: 500;
     color: #A400FF;
-    cursor: pointer;
-    font-weight: 600;
+    font-size: 14px;
+    padding-left: 21px;
     border-right: solid 3px #a400ff;
 }
 
+
 .nav-item:hover {
-    background-color: #ece9e9;
-    border-right: solid 3px #ece9e9;
+    background-color: #f6f6f6;
+    border-right: solid 3px #cecece;
     cursor: pointer;
 }
 

@@ -11,11 +11,11 @@ import {
   highlightedNavButtonStyle,
   navButtonStyle,
 } from "../../styles/button-style-config";
-import OverviewTabContent from "./OverviewTabContent";
+import OverviewTabContent from "./overview-tab/OverviewTabContent";
 import Timeline from "./npo-media/timeline_component4x.png";
 import ProjectsHeader from "./ProjectsHeader";
-import ProjectTabContent from "./ProjectTabContent";
-import ImpactTabContent from "./ImpactTabContent";
+import ProjectTabContent from "./projects-tab/ProjectTabContent";
+import ImpactTabContent from "./impact-tab/ImpactTabContent";
 import KeyInformationTab from "./key-information-tab/KeyInformationTab";
 
 const NonProfitProfilePage = () => {
