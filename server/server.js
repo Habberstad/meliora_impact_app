@@ -48,7 +48,6 @@ app.use(
 app.use("/auth", authRoute);
 
 const isLoggedIn = (req, res, next) => {
-  console.log("hei", req.user);
   if (req.user) {
     next();
   } else {
