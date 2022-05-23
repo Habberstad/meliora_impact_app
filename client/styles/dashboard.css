@@ -1,0 +1,27 @@
+.dashboard-container {
+    width: 100%;
+    height: 100%;
+}
+
+.test {
+    background-color: coral;
+}
+.test2 {
+    background-color: lightgrey;
+}
+
+.socialmedia-template {
+    position: relative;
+}
+
+.socialmedia-template2 {
+    background-color: black;
+}
+
+.socialmedia-template img{
+    position: relative;
+}
+
+.socialmedia-template-a{
+    position: absolute;
+}
