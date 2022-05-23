@@ -47,10 +47,20 @@ app.use(
 
 app.use("/auth", authRoute);
 
-app.use("/api/projects", projectsRoute);
-app.use("/api/articles", articlesRoute);
-app.use("/api/npo", npoRoute)
-app.use("/api/accounts", orgAccountsRoute);
+const isLoggedIn = (req, res, next) => {
+  console.log("hei", req.user);
+  if (req.user) {
+    next();
+  } else {
+    res.sendStatus(401);
+  }
+};
+
+app.use("/api/projects", isLoggedIn, projectsRoute);
+app.use("/api/articles", isLoggedIn, articlesRoute);
+app.use("/api/npo", isLoggedIn, npoRoute);
+app.use("/api/accounts", isLoggedIn, orgAccountsRoute);
+
 
 app.use((req, res, next) => {
   if (req.method === "GET" && !req.path.startsWith("/api")) {
