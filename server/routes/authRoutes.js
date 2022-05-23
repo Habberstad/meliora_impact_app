@@ -28,15 +28,13 @@ router.get("/login/failed", (req, res) => {
 router.get("/logout", async (req, res) => {
   await req.logout();
   req.session = null;
-  req.sessionOptions.maxAge = 0
+  req.sessionOptions.maxAge = 0;
   res.redirect(CLIENT_URL);
 });
 
 router.get("/google", passport.authenticate("google", { scope: ["profile"] }));
 
-router.get(
-  "/google/callback",
-  passport.authenticate("google", {
+router.get("/google/callback", passport.authenticate("google", {
     successRedirect: CLIENT_URL,
     failureRedirect: "/login/failed"
   })
