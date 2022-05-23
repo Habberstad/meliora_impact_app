@@ -1,0 +1,141 @@
+.impact-main-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.impact-top-tile-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.impact-tile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 190px;
+    height: 225px;
+    border-radius: 16px;
+
+}
+
+.icon-container{
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.main-data-text{
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 20px;
+}
+
+.sub-data-text{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: 130px;
+}
+
+.impact-media-section{
+    display: flex;
+    flex-direction: row;
+    margin-top: 12px;
+}
+
+.left-media-card {
+    width: 262px;
+    height: 440px;
+    background-color: #a400ff;
+    border-radius: 16px;
+    margin-right: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+
+}
+
+.right-media-card {
+    display: flex;
+    width: 538px;
+    height: 440px;
+    background-color: red;
+    border-radius: 16px;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+
+}
+
+.impact-data-section{
+    display: flex;
+    flex-direction: row;
+    margin-top: 12px;
+}
+
+.left-data-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 400px;
+    height: 466px;
+    border-radius: 16px;
+}
+
+.right-data-container {
+    width: 412px;
+    height: 460px;
+    background-color: red;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.small-data-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 188px;
+    height: 225px;
+    background-color: #243447;
+    border-radius: 16px;
+    margin-right: 12px;
+}
+
+.data-map-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.data-map {
+    width: 800px;
+    height: 405px;
+    border-radius: 16px;
+    margin-left: 10px;
+    margin-top: 10px;
+    border: 0;
+    box-shadow: 0 0 2px rgba(148, 157, 176, 0.24), 0 16px 32px -4px rgba(148, 157, 176, 0.24);
+    background-color: #FAFAFA;
+}
+
+.data-map-title{
+    font-size: 24px;
+    font-weight: 600;
+    margin: 30px 0 0 40px;
+}
+
+.data-map-subheading{
+    font-size: 18px;
+    font-weight: 500;
+    margin: 5px 0 0 40px;
+    color: #353535;
+}
