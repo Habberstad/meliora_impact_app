@@ -46,15 +46,17 @@ const ArticlesPage = () => {
       <div className="articles-sorter">
         <Grid container justifyContent="center">
           <Grid className={"all-filter"} item>
-            <Button
-              onClick={() => handleNavigationAndFiltering("")}
-              sx={selectedTab === "" ? selectedTabStyle : hoverTabStyle}
-            >
-              All
-            </Button>
+              <Button style={{textAlign: "center", padding: "20px 30px 5px 30px"}}
+                  className="test-test"
+                  onClick={() => handleNavigationAndFiltering("")}
+                  sx={selectedTab === "" ? selectedTabStyle : hoverTabStyle}
+              >
+                Test
+              </Button>
+
           </Grid>
           <Grid className={"water-filter"} item>
-            <Button
+            <Button style={{textAlign: "center", padding: "20px 30px 5px 30px"}}
               onClick={() => handleNavigationAndFiltering("water")}
               sx={selectedTab === "water" ? selectedTabStyle : hoverTabStyle}
             >
@@ -62,7 +64,7 @@ const ArticlesPage = () => {
             </Button>
           </Grid>
           <Grid className={"knowledge-filter"} item>
-            <Button
+            <Button style={{textAlign: "center", padding: "20px 30px 5px 30px"}}
               onClick={() => handleNavigationAndFiltering("knowledge")}
               sx={
                 selectedTab === "knowledge" ? selectedTabStyle : hoverTabStyle
@@ -75,8 +77,8 @@ const ArticlesPage = () => {
       </div>
 
       <div className="articles-top-section">
-        <Grid container columnSpacing={{ xl: 4 }} rowSpacing={{ md: 4, lg: 4 }}>
-          <Grid item md={12} lg={12} xl={6}>
+        <Grid container columnSpacing={{ lg:4, xl: 4 }} rowSpacing={{ md: 4 }}>
+          <Grid item md={12} lg={6} xl={6}>
             <div className="container-big">
               <div className={"container-content-big"}>
                 <div className={"npo-text-big"}>
@@ -85,7 +87,7 @@ const ArticlesPage = () => {
                 <Link href={"/articles/article?id=" + data[0]._id}>
                   <img src={data[0].image} alt={data[0].alt} />
                 </Link>
-                <div className={"card-content-container"}>
+                <div className={"card-content-container-big"}>
                   <div className={"date-text-big"}>
                     <span className={"card-content-date"}>{data[0].date}</span>
                   </div>
@@ -103,7 +105,7 @@ const ArticlesPage = () => {
           <Grid
             container
             item
-            lg={12}
+            lg={6}
             xl={6}
             rowSpacing={{ md: 4, lg: 4, xl: 4 }}
           >
@@ -199,7 +201,7 @@ const ArticlesPage = () => {
           columnSpacing={{ md: 4, lg: 4, xl: 4 }}
           rowSpacing={{ md: 4, lg: 4 }}
         >
-          <Grid item lg={12} xl={6}>
+          <Grid item lg={6} xl={6}>
             <div className="container-medium">
               <div className={"container-content-medium"}>
                 <div className={"npo-text-medium"}>
@@ -222,7 +224,7 @@ const ArticlesPage = () => {
             </div>
           </Grid>
 
-          <Grid item md={6} lg={6} xl={3}>
+          <Grid item md={6} lg={3} xl={3}>
             <div className="container-small">
               <div className={"container-content-small"}>
                 <div className={"npo-text-small"}>
@@ -245,7 +247,7 @@ const ArticlesPage = () => {
             </div>
           </Grid>
 
-          <Grid item md={6} lg={6} xl={3}>
+          <Grid item md={6} lg={3} xl={3}>
             <div className="container-small">
               <div className={"container-content-small"}>
                 <div className={"npo-text-small"}>

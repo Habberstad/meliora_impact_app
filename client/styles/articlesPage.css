@@ -9,6 +9,11 @@
     padding-left: 10px;
 }
 
+.articles-sorter-button {
+    text-align: center;
+    justify-content: center;
+    padding: 20px 20px 5px 20px;
+}
 
 
 /****
@@ -80,9 +85,10 @@
 
 }
 
-.card-content-container{
-    top: 560px;
-    left: 20px;
+.card-content-container-big {
+    bottom: 5%;
+    right: 15px;
+    left: 15px;
     position: absolute;
 }
 
@@ -131,8 +137,6 @@
     width: 100%;
 }
 
-
-
 .container-content-medium{
     display: flex;
     flex-direction: column;
@@ -161,9 +165,10 @@
 }
 
 .card-content-container-medium{
+    bottom: 5%;
+    right: 15px;
+    left: 15px;
     position: absolute;
-    top: 200px;
-    left: 10px;
 }
 
 .npo-text-medium {
@@ -212,9 +217,10 @@
 }
 
 .card-content-container-small{
+    bottom: 5%;
+    right: 15px;
+    left: 15px;
     position: absolute;
-    top: 220px;
-    left: 10px;
     font-size: 18px;
 }
 
