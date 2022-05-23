@@ -1,9 +1,5 @@
-/**************************
-          ARTICLE
-  *************************/
-
 .article-container {
-    width: 100vw;
+    width: 100%;
 }
 
 .article-header-img {
@@ -12,7 +8,7 @@
     height: 529px;
 }
 
-.header-title {
+.article-header-title {
     position: absolute;
     margin-top: 400px;
     margin-left: 10%;
@@ -22,7 +18,7 @@
     font-weight: 800;
 }
 
-.date-box {
+.article-date-box {
     margin-top: 25px;
     font-weight: 500;
     font-size: 16px;
@@ -40,84 +36,71 @@
 }
 
 .article-wrapper {
-    max-width: 1200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0% 0% 5% 10%;
+    max-width: 1400px;
+    margin: 0% 10% 5% 10%;
 }
 
-.top-section {
+.article-top-section {
     margin-top: 100px;
-
 }
 
-.top-section-item-1 {
+.article-top-section-sub-title {
     font-size: 40px;
     width: 320px;
     height: 240px;
-    left: 340px;
-    top: 650px;
     font-weight: bold;
 }
 
-.top-section-item-2 {
-    height: 300px;
-    max-width: 280px;
+.article-top-section-paragraph {
+    height: 100%;
+    max-width: 100%;
+    line-height: 150%;
 }
 
-.middle-section {
+.article-middle-section {
     margin-top: 50px;
 }
 
-.middle-section-item-1 {
-    width: 280px;
+.article-middle-section-header {
+    font-size: 20px;
+    font-weight: bold;
 }
 
-.middle-section-item-2 {
-    margin-top: 40px;
-    width: 240px;
-    border-left: solid 1px;
-    border-color: #c4c4c4;
-    padding-left: 20px;
+.article-middle-section-paragraph {
+    max-width: 100%;
+    line-height: 150%;
 }
 
-.middle-section-item-3 {
-    margin-top: 40px;
-    width: 240px;
+.article-middle-section-paragraph-2 {
+    width: 100%;
+    line-height: 150%;
 }
 
 .article-middle-section-img {
     object-fit: cover;
-    width: 45vw;
-    height: 450px;
+    max-width: 100%;
+    height: 100%;
 
 }
 
-.bottom-section {
+.article-bottom-section {
     margin-top: 50px;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    justify-content: space-between;
 }
 
-.bottom-section-img1 {
-    width: 16vw;
+.article-bottom-section-img1 {
     object-fit: cover;
-    height: 200px;
+    width: 100%;
+    height: 100%;
 }
 
-.bottom-section-img2 {
-    width: 24vw;
-    height: 333px;
+.article-bottom-section-img2 {
     object-fit: cover;
-    padding: 0 20px 0 20px;
+    width: 100%;
+    height: 100%;
 }
 
-.bottom-section-img3 {
+.article-bottom-section-img3 {
     object-fit: cover;
-    width: 16vw;
-    height: 200px;
+    width: 100%;
+    height: 100%;
 }
