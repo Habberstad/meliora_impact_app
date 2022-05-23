@@ -2,7 +2,6 @@ import mongoose from "mongoose";
 import { ObjectId } from "mongodb";
 
 const userSchema = new mongoose.Schema({
-  _id: ObjectId,
   first_name: String,
   last_name: String,
   org_id: String,

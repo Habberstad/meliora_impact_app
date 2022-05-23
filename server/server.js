@@ -13,17 +13,25 @@ import projectsRoute from "./routes/projectsRoute.js";
 import articlesRoute from "./routes/articlesRoute.js";
 import { config } from "./config/Constants.js";
 import orgAccountsRoute from "./routes/orgAccountsRoute.js";
+import npoRoute from "./routes/npoRoute.js";
+
 
 const app = express();
-
 dotenv.config();
 
 app.use(bodyParser.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(express.static("../client/dist"));
-
 app.use(
   cookieSession({ name: "session", keys: ["lama"], maxAge: 24 * 60 * 60 * 100 })
+);
+
+await mongoose.connect(
+  process.env.MONGODB_URL,
+  { useNewUrlParser: true, useUnifiedTopology: true },
+  () => {
+    console.log("Connected to MongoDB");
+  }
 );
 
 app.use(passport.initialize());
@@ -37,17 +45,11 @@ app.use(
   })
 );
 
-await mongoose.connect(
-  process.env.MONGODB_URL,
-  { useNewUrlParser: true, useUnifiedTopology: true },
-  () => {
-    console.log("Connected to MongoDB");
-  }
-);
-
 app.use("/auth", authRoute);
+
 app.use("/api/projects", projectsRoute);
 app.use("/api/articles", articlesRoute);
+app.use("/api/npo", npoRoute)
 app.use("/api/accounts", orgAccountsRoute);
 
 app.use((req, res, next) => {

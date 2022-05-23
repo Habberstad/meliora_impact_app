@@ -49,3 +49,32 @@ export const outlinedTabButtonStyle = {
     backgroundColor: "#FAFAFA",
   },
 };
+
+export const hoverTabStyle = {
+  color: "#000",
+  borderBottom: "3px solid #CFD8DC",
+  padding: "20px 50px 5px 20px",
+  borderRadius: "0px",
+  fontWeight: "bold",
+  fontFamily: "Montserrat",
+  fontSize: "20px",
+
+  "&:hover": {
+    borderBottom: "3px solid #7209B7",
+    backgroundColor: "#FAFAFA",
+  },
+};
+
+export const selectedTabStyle = {
+  color: "#000",
+  borderBottom: "3px solid #7209B7",
+  padding: "20px 50px 5px 20px",
+  borderRadius: "0px",
+  fontWeight: "bold",
+  fontFamily: "Montserrat",
+  fontSize: "20px",
+  "&:hover": {
+    borderBottom: "3px solid #7209B7",
+    backgroundColor: "#FAFAFA",
+  },
+};
