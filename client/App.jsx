@@ -10,6 +10,7 @@ import { CookiesProvider, useCookies } from "react-cookie";
 import React from "react";
 import OurPartnersPage from "./components/our_partners/OurPartnersPage";
 import NonProfitProfilePage from "./components/non-profit-page/NonProfitProfilePage";
+import Dashboard from "./components/dashboard/Dashboard";
 
 export const UserContext = React.createContext({
   Account: (user) => {},
@@ -76,6 +77,7 @@ function App() {
           />
           <Route exact path="/wrapped" element={<Partners />} />
           <Route exact path="/templates" element={<Partners />} />
+          <Route exact path="/dashboard" element={<Dashboard/>}/>
         </Routes>
       </UserContext.Provider>
     </div>
