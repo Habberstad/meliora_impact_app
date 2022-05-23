@@ -1,7 +1,8 @@
 import { Button } from "@mui/material";
 import WavesIcon from "@mui/icons-material/Waves";
 
-export function ProfileHeader({ nonProfitData }) {
+export function ProfileHeader({ data }) {
+  console.log("profile-header", data);
   return (
     <div className="header-container">
       <div className="left-header-section">
