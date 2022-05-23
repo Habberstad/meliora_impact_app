@@ -1,4 +1,5 @@
 import NpoService from "../services/npoService.js";
+import { ObjectId } from "mongodb";
 
 
 async function list(req, res, next) {
@@ -14,7 +15,9 @@ async function list(req, res, next) {
 
 async function getById(req, res){
   try {
-    const data = await NpoService.getById(req.params.id);
+    const id = ObjectId(req.params.id)
+    const data = await NpoService.getById(id);
+
     return res.status(200).json(data);
   } catch (e) {
     return res.status(400).json({ status: 400, message: e.message });
