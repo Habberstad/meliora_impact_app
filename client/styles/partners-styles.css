@@ -1,19 +1,103 @@
-
-.partners-container {
+.parntes-page-container {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.discover-top {
+.partners-container {
+    max-width: 1920px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.partners-header-container {
     margin: 50px;
-    width: 100%;
 }
 
 .list-container {
-    width: 100%;
+    width: calc(100% - 160px);
     margin-top: 50px;
-    border: 1px solid red;
+    flex-direction: row;
+    align-items: center;
+}
+
+.partner-card {
+    position: relative;
+    display: flex;
+    height: 220px;
+    width: 100%;
+    margin-bottom: 24px;
+    border-radius: 10px;
+    box-shadow: 0 1.53px 7.66px rgba(0, 0, 0, 0.25);
+}
+
+.partner-card img {
+    object-fit: cover;
+    height: inherit;
+    width: 50%;
+    border-radius: 10px 0 0 10px;
+}
+.partner-card-content-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 10%;
+}
+
+.partner-card-content-container h1 {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+}
+.partner-card-content-container p {
+    width: 70%;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+.card-headline-container {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #7209B7;
+    width: 50%;
+}
+
+.partner-card-button-container {
+    margin-top: 5%;
+}
+.category-tag {
+    display: flex;
+    position: absolute;
+    height: 22px;
+    top: 0;
+    right: 0;
+    border-radius: 0 10px 0 0;
+}
+.category-tag-text {
+    color: #FFF;
+    background-color: #000;
+    font-weight: 500;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100px;
+}
+.card-icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #DEEAEE;
+    border-radius: 0 10px 0 0;
+    width: 28px;
+}
+.card-icon-container img {
+    height: 18px;
 }
 
 

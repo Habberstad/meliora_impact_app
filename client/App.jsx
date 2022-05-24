@@ -46,8 +46,6 @@ function App() {
     getUser();
   }, []);
 
-  console.log("cookie", cookies);
-
   if (user === null) {
     return (
       <div>
@@ -72,7 +70,7 @@ function App() {
           <Route exact path="/login" element={<LoginPage />} />
           <Route
             exact
-            path="/npo-profile/id"
+            path="/npo-profile/*"
             element={<NonProfitProfilePage />}
           />
           <Route exact path="/wrapped" element={<Partners />} />

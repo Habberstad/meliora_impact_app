@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import { ObjectId } from "mongodb";
 
 const projectSchema = new mongoose.Schema({
   name: String,
@@ -12,4 +11,4 @@ const projectSchema = new mongoose.Schema({
   autoCreate: false
 });
 
-export default mongoose.model("Project", projectSchema, "projects");
+export default mongoose.model("Project", projectSchema);
