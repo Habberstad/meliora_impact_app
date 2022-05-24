@@ -25,7 +25,7 @@ const NonProfitProfilePage = () => {
   const [nonProfitData, setNonProfitData] = useState({});
   const [selectedTab, setSelectedTab] = useState("overview");
 
-  const queryParams = new URLSearchParams(window.location.search);
+  /*  const queryParams = new URLSearchParams(window.location.search);
   const _id = queryParams.get("id");
   const { getNpo } = useContext(NpoApiContext);
   const { loading, error, data } = useLoading(
@@ -33,7 +33,7 @@ const NonProfitProfilePage = () => {
     []
   );
 
-  console.log("data", data);
+  console.log("data", data);*/
 
   const handleNavigationState = (tabValue) => {
     setSelectedTab(tabValue);
@@ -44,7 +44,7 @@ const NonProfitProfilePage = () => {
       {selectedTab === "projects" ? (
         <ProjectsHeader nonProfitData={nonProfitData} />
       ) : (
-        <ProfileHeader data={data} nonProfitData={nonProfitData} />
+        <ProfileHeader nonProfitData={nonProfitData} />
       )}
       <div className="tab-navigation-section">
         <Button
