@@ -1,5 +1,5 @@
 import { Button, Card, CardMedia, Divider, Grid } from "@mui/material";
-import waterImg from "./water.png";
+import waterImg from "../../media/water.png";
 import SchoolIcon from "@mui/icons-material/School";
 import OpacityIcon from "@mui/icons-material/Opacity";
 
@@ -33,6 +33,10 @@ export function ProjectCard({
         borderRadius: "25px",
         boxShadow:
           "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.24)",
+        "&:hover": {
+          cursor: "pointer",
+          backgroundColor: "rgba(148, 157, 176, 0.01)",
+        },
       }}
     >
       <div className={"card-image-wrapper"}>
@@ -100,7 +104,7 @@ export function ListProjects(props) {
         <Grid
           container
           columns={3}
-          direction="row"
+
           spacing={2}
           className={"card-container"}
           justifyContent="center"

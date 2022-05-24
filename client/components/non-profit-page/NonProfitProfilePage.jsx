@@ -14,7 +14,7 @@ import {
 import OverviewTabContent from "./overview-tab/OverviewTabContent";
 import Timeline from "./npo-media/timeline_component4x.png";
 import ProjectsHeader from "./ProjectsHeader";
-import ProjectTabContent from "./projects-tab/ProjectTabContent";
+import ProjectTabPage from "./projects-tab/ProjectTabPage";
 import ImpactTabContent from "./impact-tab/ImpactTabContent";
 import KeyInformationTab from "./key-information-tab/KeyInformationTab";
 import { ArticleApiContext } from "../../api-client/articlesApiContext";
@@ -44,15 +44,12 @@ const NonProfitProfilePage = () => {
 
   return (
     <div className="main-profile-container">
-      {selectedTab === "projects" ? (
-        <ProjectsHeader nonProfitData={nonProfitData} />
-      ) : (
-        <ProfileHeader
-          name={data.name}
-          data={data.header_data}
-          nonProfitData={nonProfitData}
-        />
-      )}
+      <ProfileHeader
+        name={data.name}
+        data={data.header_data}
+        nonProfitData={nonProfitData}
+      />
+
       <div className="tab-navigation-section">
         <Button
           onClick={() => handleNavigationState("overview")}
@@ -117,7 +114,7 @@ const NonProfitProfilePage = () => {
       {selectedTab === "projects" && (
         <>
           <div className="content-container">
-            <ProjectTabContent data={data.projects} />
+            <ProjectTabPage data={data.projects} />
           </div>
         </>
       )}
