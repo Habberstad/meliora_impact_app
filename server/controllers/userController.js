@@ -30,7 +30,7 @@ async function getById(req, res) {
 async function create(req, res) {
 
   try {
-    console.log(req.query)
+    console.log(req.query.id)
     await UserService.create(req.query);
     return res.status(201).redirect(config.url.API_URL);
   } catch (e) {
