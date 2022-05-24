@@ -1,5 +1,6 @@
 import { Button } from "@mui/material";
 import waterIcon from "../../media/water_drop_icon.png";
+import { useHref } from "react-router";
 
 export function PartnerCard(props) {
   return (
@@ -14,6 +15,7 @@ export function PartnerCard(props) {
           <div className={"partner-card-button-container"}>
             {/*TODO: make button component, big and ugly code *2*/}
             <Button
+              onClick={ () =>{location.href="/npo-profile/" + props.partner._id}}
               variant="contained"
               sx={{
                 mx: "10px",

@@ -25,11 +25,10 @@ const NonProfitProfilePage = () => {
   const [nonProfitData, setNonProfitData] = useState({});
   const [selectedTab, setSelectedTab] = useState("overview");
 
-  const queryParams = new URLSearchParams(window.location.search);
-  const _id = queryParams.get("id");
-  const { getNpo } = useContext(NpoApiContext);
+  const urlPathParam = window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1);
+  const { getNpoById } = useContext(NpoApiContext);
   const { loading, error, data } = useLoading(
-    async () => await getNpo({ _id }),
+    async () => await getNpoById(urlPathParam ),
     []
   );
 
