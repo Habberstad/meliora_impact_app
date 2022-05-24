@@ -74,3 +74,13 @@
 /**************************
 
   *************************/
+
+.back-container {
+    display: flex;
+    font-size: 14px;
+    text-decoration: underline;
+
+}
+.back-container:hover {
+    cursor: pointer;
+}
