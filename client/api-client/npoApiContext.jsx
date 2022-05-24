@@ -7,5 +7,8 @@ export const NpoApiContext = React.createContext({
     return await fetchJSON("/api/npo?"+ new URLSearchParams(query));
   },
 
+  async getNpoById(urlPathParam) {
+    return await fetchJSON("/api/npo/"+ urlPathParam);
+  },
 
 });

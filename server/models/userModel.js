@@ -5,7 +5,9 @@ const userSchema = new mongoose.Schema({
   first_name: String,
   last_name: String,
   org_id: String,
+  google_id: String,
   description: String,
+  accessToken: String,
   role: {
     type: String,
     enum: ["USER, ADMIN"],
@@ -13,7 +15,7 @@ const userSchema = new mongoose.Schema({
     required: true
   }
 }, {
-  collection: "projects",
+  collection: "users",
   bufferCommands: false,
   autoCreate: false
 });
