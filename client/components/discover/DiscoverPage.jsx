@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { ListProjects } from "./ListProjects";
 import { Searchbar } from "./Searchbar";
 import { CategoryFilter } from "./CategoryFilter";
-import { Top } from "./Top";
+import { DiscoveryHeader } from "../headers/DiscoveryHeader";
 import "../../styles/discoverPage.css";
 import { ProjectsApiContext } from "../../api-client/projectsApiContext";
 import { useLoading } from "../../useLoading";
@@ -43,7 +43,7 @@ const DiscoverPage = () => {
 
   return (
     <div className={"discover-page-container"}>
-      <Top />
+      <DiscoveryHeader />
       <CategoryFilter onClick={categorySelectHandler} category={category} />
       <br /><br />
       <Searchbar searchString={searchString} onChange={handleSearchInput} />

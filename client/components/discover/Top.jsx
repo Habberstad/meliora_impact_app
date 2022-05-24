@@ -1,5 +1,5 @@
 import { Box, Grid, Typography } from "@mui/material";
-import sideImg from "./side-img.png";
+import sideImg from "../../media/discover_header.png";
 
 export function Top(props) {
   return (
