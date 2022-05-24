@@ -1,5 +1,5 @@
 import { Button, Card, CardMedia, Divider, Grid } from "@mui/material";
-import waterImg from "./water.png";
+import waterImg from "../../media/water.png";
 import SchoolIcon from "@mui/icons-material/School";
 import OpacityIcon from "@mui/icons-material/Opacity";
 
@@ -100,7 +100,7 @@ export function ListProjects(props) {
         <Grid
           container
           columns={3}
-          direction="row"
+
           spacing={2}
           className={"card-container"}
           justifyContent="center"
