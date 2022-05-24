@@ -4,7 +4,6 @@ import path from "path";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 import passport from "passport";
-import passportSetup from "./passport.js"; // The import is in use. Do not delete!
 import cookieSession from "cookie-session";
 import cors from "cors";
 import authRoute from "./routes/authRoutes.js";
@@ -15,7 +14,8 @@ import { config } from "./config/Constants.js";
 import orgAccountsRoute from "./routes/orgAccountsRoute.js";
 import npoRoute from "./routes/npoRoute.js";
 import userRoute from "./routes/userRoute.js";
-import User from "./models/userModel.js"
+import  isLoggedIn from "./middleware/middleware.js";
+import passportSetup from "./middleware/passport.js";
 
 const app = express();
 dotenv.config();
@@ -47,16 +47,6 @@ app.use(
 );
 
 app.use("/auth", authRoute);
-
-const isLoggedIn = async (req, res, next) => {
-  const user = await  User.find({google_id: req.user.id})
-
-  if (req.user) {
-    next();
-  } else {
-    res.sendStatus(401);
-  }
-};
 
 app.use("/api/projects", isLoggedIn, projectsRoute);
 app.use("/api/articles", isLoggedIn, articlesRoute);
