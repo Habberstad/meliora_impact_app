@@ -15,7 +15,7 @@ export function MyNPOHeader() {
 
               <div className="global-header-desc">
                 <strong>Correlate</strong> with the projects directly tied to your supported NPOs. <br></br>
-                Create a template to share exciting
+                Create a template to easily share content with your relations.
               </div>
             </Grid>
 
