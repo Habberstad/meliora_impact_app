@@ -13,7 +13,7 @@ import articlesRoute from "./routes/articlesRoute.js";
 import { config } from "./config/Constants.js";
 import npoRoute from "./routes/npoRoute.js";
 import userRoute from "./routes/userRoute.js";
-import  isLoggedIn from "./middleware/middleware.js";
+import { isLoggedIn, hasAccount, accessToOwnAccountOnly } from "./middleware/middleware.js";
 import passportSetup from "./middleware/passport.js";
 
 const app = express();
@@ -47,10 +47,10 @@ app.use(
 
 app.use("/auth", authRoute);
 
-app.use("/api/projects", isLoggedIn, projectsRoute);
-app.use("/api/articles", isLoggedIn, articlesRoute);
-app.use("/api/npo", isLoggedIn, npoRoute);
-app.use("/api/users", userRoute);
+app.use("/api/projects", hasAccount, projectsRoute);
+app.use("/api/articles", hasAccount, articlesRoute);
+app.use("/api/npo", hasAccount, npoRoute);
+app.use("/api/users",hasAccount, userRoute);
 
 
 app.use((req, res, next) => {
