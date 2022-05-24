@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useLoading } from "../../useLoading";
-import { Grid, Link } from "@mui/material";
+import { Grid, Link, styled } from "@mui/material";
 import { useContext, useState } from "react";
 import "../../styles/dashboard.css";
 import SchoolIcon from "@mui/icons-material/School";
@@ -8,6 +8,20 @@ import LocalHospitalIcon from "@mui/icons-material/LocalHospital";
 import { ArticleApiContext } from "../../api-client/articlesApiContext";
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
+
+
+const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
+  height: 10,
+  borderRadius: 5,
+  [`&.${linearProgressClasses.colorPrimary}`]: {
+    backgroundColor: theme.palette.grey[theme.palette.mode === 'light' ? 200 : 800],
+  },
+  [`& .${linearProgressClasses.bar}`]: {
+    borderRadius: 5,
+    backgroundColor: theme.palette.mode === 'light' ? '#1a90ff' : '#308fe8',
+  },
+}));
 
 const Dashboard = () => {
   const queryParams = new URLSearchParams(window.location.search);
@@ -33,7 +47,6 @@ const Dashboard = () => {
     <div className={"dashboard-container"}>
       <h1>Hi, Welcome back </h1>
       <Grid container direction={"column"}>
-
         <Grid
           container
           columnSpacing={{lg:4, xl:4}}
@@ -81,17 +94,17 @@ const Dashboard = () => {
                 <LocalHospitalIcon />
                 <h2>Asha Foundation</h2>
               </div>
-              <div>
+              <div className={"highlighted-partners-vaccination"}>
                 <a>Vaccination Program</a>
-                <></>
+                <LinearProgress sx={{width: "300px", height: "5px", position: "absolut"}} variant="determinate" value={30} />
               </div>
-              <div>
+              <div className={"highlighted-partners-infant"}>
                 <a>Infant Mortality</a>
-                <></>
+                <LinearProgress sx={{width: "300px", height: "5px", position: "absolut"}} variant="determinate" value={40} />
               </div>
-              <div>
+              <div className={"highlighted-partners-dental"}>
                 <a>Dental program</a>
-                <></>
+                <LinearProgress sx={{width: "300px", height: "5px", position: "absolut"}} variant="determinate" value={80} />
               </div>
             </div>
           </Grid>

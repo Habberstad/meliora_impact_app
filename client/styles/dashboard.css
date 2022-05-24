@@ -101,3 +101,24 @@
     margin-left: 10px;
     gap: 10px;
 }
+
+.highlighted-partners-vaccination{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.highlighted-partners-infant{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.highlighted-partners-dental{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
