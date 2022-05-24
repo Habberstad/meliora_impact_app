@@ -1,11 +1,10 @@
-import Grid from "@mui/material/Grid";
 import { Button } from "@mui/material";
 import waterIcon from "../../media/water_drop_icon.png";
 import { useHref } from "react-router";
 
 export function PartnerCard(props) {
   return (
-    <Grid item xs={12}>
+
       <div className={"partner-card"}>
         <img src={props.partner.imgage} alt="ball" />
         <div className="partner-card-content-container">
@@ -20,7 +19,7 @@ export function PartnerCard(props) {
               variant="contained"
               sx={{
                 mx: "10px",
-                width: "130px",
+                width: "150px",
                 height: "35px",
                 textTransform: "none",
                 borderRadius: "10px",
@@ -36,7 +35,7 @@ export function PartnerCard(props) {
               variant="outlined"
               sx={{
                 mx: "10px",
-                width: "130px",
+                width: "150px",
                 height: "35px",
                 textTransform: "none",
                 borderRadius: "10px",
@@ -49,7 +48,7 @@ export function PartnerCard(props) {
                 },
               }}
             >
-              Lag templates
+              Create template
             </Button>
           </div>
           <div className={"category-tag"}>
@@ -62,6 +61,5 @@ export function PartnerCard(props) {
           </div>
         </div>
       </div>
-    </Grid>
   );
 }
