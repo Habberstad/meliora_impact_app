@@ -4,11 +4,11 @@ import "../../styles/articlesPage.css";
 import { ArticleApiContext } from "../../api-client/articlesApiContext";
 import { useLoading } from "../../useLoading";
 import {
-
   selectedTabStyle,
   navButtonStyle,
   hoverTabStyle,
 } from "../../styles/button-style-config";
+import { ArticlesHeader } from "../headers/ArticlesHeader";
 
 const ArticlesPage = () => {
   const [category, setCategory] = useState("water");
@@ -39,24 +39,23 @@ const ArticlesPage = () => {
 
   return (
     <div className="articles-wrapper">
-      <div className="top-header">
-        Meliora <br></br> Articles
-      </div>
+      <ArticlesHeader />
 
       <div className="articles-sorter">
         <Grid container justifyContent="center">
           <Grid className={"all-filter"} item>
-              <Button style={{textAlign: "center", padding: "20px 30px 5px 30px"}}
-                  className="test-test"
-                  onClick={() => handleNavigationAndFiltering("")}
-                  sx={selectedTab === "" ? selectedTabStyle : hoverTabStyle}
-              >
-                Test
-              </Button>
-
+            <Button
+              style={{ textAlign: "center", padding: "20px 30px 5px 30px" }}
+              className="test-test"
+              onClick={() => handleNavigationAndFiltering("")}
+              sx={selectedTab === "" ? selectedTabStyle : hoverTabStyle}
+            >
+              Test
+            </Button>
           </Grid>
           <Grid className={"water-filter"} item>
-            <Button style={{textAlign: "center", padding: "20px 30px 5px 30px"}}
+            <Button
+              style={{ textAlign: "center", padding: "20px 30px 5px 30px" }}
               onClick={() => handleNavigationAndFiltering("water")}
               sx={selectedTab === "water" ? selectedTabStyle : hoverTabStyle}
             >
@@ -64,7 +63,8 @@ const ArticlesPage = () => {
             </Button>
           </Grid>
           <Grid className={"knowledge-filter"} item>
-            <Button style={{textAlign: "center", padding: "20px 30px 5px 30px"}}
+            <Button
+              style={{ textAlign: "center", padding: "20px 30px 5px 30px" }}
               onClick={() => handleNavigationAndFiltering("knowledge")}
               sx={
                 selectedTab === "knowledge" ? selectedTabStyle : hoverTabStyle
@@ -77,7 +77,7 @@ const ArticlesPage = () => {
       </div>
 
       <div className="articles-top-section">
-        <Grid container columnSpacing={{ lg:4, xl: 4 }} rowSpacing={{ md: 4 }}>
+        <Grid container columnSpacing={{ lg: 4, xl: 4 }} rowSpacing={{ md: 4 }}>
           <Grid item md={12} lg={6} xl={6}>
             <div className="container-big">
               <div className={"container-content-big"}>
