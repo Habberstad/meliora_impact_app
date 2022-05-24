@@ -9,10 +9,9 @@ import { ArticleApiContext } from "../../api-client/articlesApiContext";
 
 const Dashboard = () => {
   const queryParams = new URLSearchParams(window.location.search);
-  const _id = queryParams.get("id");
   const { getArticles } = useContext(ArticleApiContext);
   const { loading, error, data } = useLoading(
-    async () => await getArticles({ _id }),
+    async () => await getArticles({  }),
     []
   );
 
@@ -27,10 +26,12 @@ const Dashboard = () => {
       </div>
     );
   }
+
   return (
     <div className={"dashboard-container"}>
       <h1>Hi, Welcome back </h1>
       <Grid container direction={"column"}>
+
         <Grid
           container
           direction="row"
@@ -39,23 +40,35 @@ const Dashboard = () => {
           className={"test"}
         >
           <Grid item>
-            <div>
-              <SchoolIcon />
-              <a>3751</a>
-              <a>students impacted</a>
-            </div>
+            <div className="students-impact-container">
+                <div className="students-impact-icon">
+                  <SchoolIcon fontSize={"large"}/>
+                </div>
+                <div className="students-impact-count">
+                  <a>3751</a>
+                </div>
+                <div className="students-impact-content">
+                  <a>students impacted</a>
+                </div>
+              </div>
           </Grid>
-          <Grid item className={"socialmedia-template2"}>
-            <div className={"socialmedia-template"}>
+
+          <Grid item className={"socialmedia-template"}>
+            <Grid container item direction="column" className={"socialmedia-template-container"}>
               <img
                 src={
                   "https://images.unsplash.com/photo-1600096194534-95cf5ece04cf?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=200"
                 }
                 alt={"das"}
               />
-              <a className={"socialmedia-template-a"}>Share on Social Media</a>
-              <a className={"socialmedia-template-a"}>View templates</a>
-            </div>
+              <div className={"socialmedia-template-container-shadow"}></div>
+              <Grid item className={"socialmedia-template-content-top"}>
+                <a>Share on Social Media</a>
+              </Grid>
+              <Grid item className={"socialmedia-template-content-bot"}>
+                <a>View templates</a>
+              </Grid>
+              </Grid>
           </Grid>
           <Grid item>
             <h1>Highlighted partners</h1>

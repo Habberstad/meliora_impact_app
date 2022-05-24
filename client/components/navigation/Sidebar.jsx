@@ -30,7 +30,7 @@ const Sidebar = (props) => {
           <div> {user.displayName} </div> {/* TODO: Replace with username */}
         </div>
         <div className="nav-item-container">
-          <Link to={"/"} style={{ textDecoration: "none" }}>
+          <Link to={"/dashboard"} style={{ textDecoration: "none" }}>
             <div className="nav-item">
               <img className="icon-style" src={DashboardIcon} alt="dashboard" />
               <div>Dashboard</div>

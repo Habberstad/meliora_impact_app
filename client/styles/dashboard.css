@@ -3,25 +3,83 @@
     height: 100%;
 }
 
-.test {
-    background-color: coral;
-}
-.test2 {
-    background-color: lightgrey;
+/*
+ student impact
+*/
+
+
+.students-impact-container{
+    display: flex;
+    flex-direction: column;
+    width: 240px;
+    height: 279px;
+    background-color: #FFF7CD;
+    align-items: center;
 }
 
-.socialmedia-template {
-    position: relative;
-}
-
-.socialmedia-template2 {
-    background-color: black;
-}
-
-.socialmedia-template img{
-    position: relative;
-}
-
-.socialmedia-template-a{
+.students-impact-icon{
+    top: 150px;
     position: absolute;
+}
+
+.students-impact-count{
+    position: absolute;
+    top: 190px;
+    font-size: 20px;
+}
+
+.students-impact-content{
+    position: absolute;
+    top: 220px;
+    font-size: 20px;
+}
+/************************
+    socialmedia section
+*************************/
+
+
+.socialmedia-template{
+
+}
+
+
+.socialmedia-template-container {
+    position: relative;
+}
+
+.socialmedia-template-container img{
+    object-fit: cover;
+    width: 240px;
+    height: 279px;
+    border-radius: 20px;
+}
+
+.socialmedia-template-container-shadow {
+    object-fit: cover;
+    width: 240px;
+    height: 279px;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    opacity: 40%;
+    position: absolute;
+}
+
+.socialmedia-template-content-top {
+    position: absolute;
+    left: 60px;
+    top: 160px;
+    color: white;
+    font-size: 24px;
+}
+.socialmedia-template-content-bot {
+    position: absolute;
+    left: 60px;
+    top: 220px;
+    color: white;
+    font-size: 17px;
+}
+
+.socialmedia-template-content-bot:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }
