@@ -1,7 +1,7 @@
 import "../../styles/npo-profile-page-styles/npo-profile-styles.css";
 import "../../styles/npo-profile-page-styles/overview-styles.css";
 import { ProfileHeader } from "./ProfileHeader";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Button } from "@mui/material";
 import AppsIcon from "@mui/icons-material/Apps";
 import FlareIcon from "@mui/icons-material/Flare";
@@ -17,10 +17,23 @@ import ProjectsHeader from "./ProjectsHeader";
 import ProjectTabContent from "./projects-tab/ProjectTabContent";
 import ImpactTabContent from "./impact-tab/ImpactTabContent";
 import KeyInformationTab from "./key-information-tab/KeyInformationTab";
+import { ArticleApiContext } from "../../api-client/articlesApiContext";
+import { useLoading } from "../../useLoading";
+import { NpoApiContext } from "../../api-client/npoApiContext";
 
 const NonProfitProfilePage = () => {
   const [nonProfitData, setNonProfitData] = useState({});
   const [selectedTab, setSelectedTab] = useState("overview");
+
+  const queryParams = new URLSearchParams(window.location.search);
+  const _id = queryParams.get("id");
+  const { getNpo } = useContext(NpoApiContext);
+  const { loading, error, data } = useLoading(
+    async () => await getNpo({ _id }),
+    []
+  );
+
+  console.log("data", data);
 
   const handleNavigationState = (tabValue) => {
     setSelectedTab(tabValue);
@@ -31,7 +44,7 @@ const NonProfitProfilePage = () => {
       {selectedTab === "projects" ? (
         <ProjectsHeader nonProfitData={nonProfitData} />
       ) : (
-        <ProfileHeader nonProfitData={nonProfitData} />
+        <ProfileHeader data={data} nonProfitData={nonProfitData} />
       )}
       <div className="tab-navigation-section">
         <Button
