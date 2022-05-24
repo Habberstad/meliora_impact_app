@@ -26,7 +26,7 @@ export function CategoryFilter(props) {
 
   return (
     <div>
-      <Grid container spacing={2} justify="center">
+      <Grid container columnSpacing={{lg: 3, xl: 3}} justifyContent="center">
         <Grid item>
           <Button
             sx={

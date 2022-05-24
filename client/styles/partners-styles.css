@@ -1,32 +1,20 @@
-.parntes-page-container {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.partners-page-container {
+    max-width: 1500px;
+    margin: 75px 5% 0 5%;
 }
 
 .partners-container {
-    max-width: 1920px;
-    display: flex;
-    flex-direction: column;
     align-items: center;
-}
-
-.partners-header-container {
-    margin: 50px;
 }
 
 .list-container {
-    width: calc(100% - 160px);
     margin-top: 50px;
-    flex-direction: row;
-    align-items: center;
 }
 
 .partner-card {
     position: relative;
     display: flex;
-    height: 220px;
+    height: 250px;
     width: 100%;
     margin-bottom: 24px;
     border-radius: 10px;
@@ -47,6 +35,13 @@
     margin-right: 10%;
 }
 
+.card-headline-container {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #7209B7;
+    width: 50%;
+}
+
 .partner-card-content-container h1 {
     font-weight: 600;
     font-size: 24px;
@@ -57,13 +52,6 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
-}
-
-.card-headline-container {
-    display: flex;
-    justify-content: center;
-    border-bottom: 1px solid #7209B7;
-    width: 50%;
 }
 
 .partner-card-button-container {

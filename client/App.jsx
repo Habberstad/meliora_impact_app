@@ -54,6 +54,8 @@ function App() {
     );
   }
 
+  console.log(user.id);
+
   return (
     <div className="app-container">
       <UserContext.Provider value={user}>

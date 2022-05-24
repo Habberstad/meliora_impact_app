@@ -4,7 +4,7 @@ import WavesIcon from "@mui/icons-material/Waves";
 export function ProfileHeader({ data }) {
   console.log("profile-header", data);
   return (
-    <div className="header-container">
+    <div className="global-header-container">
       <div className="left-header-section">
         <div className="npo-header-title">The Williams Foundation</div>
         <div className="header-donate-btn-container">

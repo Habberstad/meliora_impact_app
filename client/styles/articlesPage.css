@@ -2,12 +2,6 @@
          Articles
 *************************/
 
-.npo-name{
-    margin-right: 10px;
-    font-weight: bold;
-    font-size: 20px;
-    padding-left: 10px;
-}
 
 .articles-sorter-button {
     text-align: center;
@@ -15,10 +9,6 @@
     padding: 20px 20px 5px 20px;
 }
 
-
-/****
-    filter Grid
-****/
 .articles-sorter{
     margin-top:12px;
     margin-bottom: 50px;
@@ -31,7 +21,7 @@
 
 
 .articles-wrapper {
-    margin: 5% 5% 0 5%;
+    margin: 75px 5% 0 5%;
     max-width: 1500px;
 }
 
@@ -46,12 +36,6 @@
     margin-bottom: 100px;
 }
 
-.top-header {
-    font-size: 65px;
-    font-weight: bold;
-    margin-bottom: 100px;
-}
-
 .articles-bottom-section{
     width: 100%;
     margin-bottom: 100px;
@@ -62,6 +46,13 @@
     font-weight: 600;
     margin-bottom: 25px;
     color: #353535;
+}
+
+.npo-name{
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    padding-left: 10px;
 }
 
 
