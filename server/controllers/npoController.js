@@ -5,7 +5,7 @@ async function list(req, res, next) {
   const query = {};
 
   const { _id } = req.query;
-  if (_id !== "" && _id !== ObjectId.isValid(_id)) {
+  if (_id !== "" && _id !== undefined && ObjectId.isValid(_id)) {
     query._id = { $eq: ObjectId(_id) };
   }
 
