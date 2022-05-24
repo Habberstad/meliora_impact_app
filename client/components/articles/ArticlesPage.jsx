@@ -1,14 +1,12 @@
-import { Button, Grid, Link } from "@mui/material";
-import { useContext, useState } from "react";
+import {Grid, Link} from "@mui/material";
+import {useContext, useState} from "react";
 import "../../styles/articlesPage.css";
-import { ArticleApiContext } from "../../api-client/articlesApiContext";
-import { useLoading } from "../../useLoading";
-import {
-  selectedTabStyle,
-  navButtonStyle,
-  hoverTabStyle,
-} from "../../styles/button-style-config";
-import { ArticlesHeader } from "../headers/ArticlesHeader";
+import {ArticleApiContext} from "../../api-client/articlesApiContext";
+import {useLoading} from "../../useLoading";
+import {ArticlesHeader} from "../headers/ArticlesHeader";
+import {Sorter} from "./Sorter";
+
+
 
 const ArticlesPage = () => {
   const [category, setCategory] = useState("water");
@@ -39,45 +37,14 @@ const ArticlesPage = () => {
 
   return (
     <div className="articles-wrapper">
-      <ArticlesHeader />
+      <ArticlesHeader/>
 
-      <div className="articles-sorter">
-        <Grid container justifyContent="center">
-          <Grid className={"all-filter"} item>
-            <Button
-              style={{ textAlign: "center", padding: "20px 30px 5px 30px" }}
-              className="test-test"
-              onClick={() => handleNavigationAndFiltering("")}
-              sx={selectedTab === "" ? selectedTabStyle : hoverTabStyle}
-            >
-              Test
-            </Button>
-          </Grid>
-          <Grid className={"water-filter"} item>
-            <Button
-              style={{ textAlign: "center", padding: "20px 30px 5px 30px" }}
-              onClick={() => handleNavigationAndFiltering("water")}
-              sx={selectedTab === "water" ? selectedTabStyle : hoverTabStyle}
-            >
-              Water
-            </Button>
-          </Grid>
-          <Grid className={"knowledge-filter"} item>
-            <Button
-              style={{ textAlign: "center", padding: "20px 30px 5px 30px" }}
-              onClick={() => handleNavigationAndFiltering("knowledge")}
-              sx={
-                selectedTab === "knowledge" ? selectedTabStyle : hoverTabStyle
-              }
-            >
-              Knowledge
-            </Button>
-          </Grid>
-        </Grid>
-      </div>
+      <Sorter onClick={() => handleNavigationAndFiltering("")} selectedTab={selectedTab}
+              onClick1={() => handleNavigationAndFiltering("water")}
+              onClick2={() => handleNavigationAndFiltering("knowledge")}/>
 
       <div className="articles-top-section">
-        <Grid container columnSpacing={{ lg: 4, xl: 4 }} rowSpacing={{ md: 4 }}>
+        <Grid container columnSpacing={{lg: 4, xl: 4}} rowSpacing={{md: 4}}>
           <Grid item md={12} lg={6} xl={6}>
             <div className="container-big">
               <div className={"container-content-big"}>
@@ -85,7 +52,7 @@ const ArticlesPage = () => {
                   <span className={"npo-name"}>{data[0].npoName}</span>
                 </div>
                 <Link href={"/articles/article?id=" + data[0]._id}>
-                  <img src={data[0].image} alt={data[0].alt} />
+                  <img src={data[0].image} alt={data[0].alt}/>
                 </Link>
                 <div className={"card-content-container-big"}>
                   <div className={"date-text-big"}>
@@ -103,11 +70,11 @@ const ArticlesPage = () => {
           </Grid>
 
           <Grid
-            container
-            item
-            lg={6}
-            xl={6}
-            rowSpacing={{ md: 4, lg: 4, xl: 4 }}
+              container
+              item
+              lg={6}
+              xl={6}
+              rowSpacing={{md: 4, lg: 4, xl: 4}}
           >
             <Grid item md={12} lg={12} xl={12}>
               <div className="container-medium">
@@ -116,7 +83,7 @@ const ArticlesPage = () => {
                     <span className={"npo-name"}>{data[1].npoName}</span>
                   </div>
                   <Link href={"/articles/article?id=" + data[1]._id}>
-                    <img src={data[1].image} alt={"das"} />
+                    <img src={data[1].image} alt={"das"}/>
                   </Link>
                   <div className={"card-content-container-medium"}>
                     <div className={"date-text-medium"}>
@@ -135,10 +102,10 @@ const ArticlesPage = () => {
             </Grid>
 
             <Grid
-              container
-              item
-              rowSpacing={{ xl: 4 }}
-              columnSpacing={{ xl: 4, lg: 4, md: 4 }}
+                container
+                item
+                rowSpacing={{xl: 4}}
+                columnSpacing={{xl: 4, lg: 4, md: 4}}
             >
               <Grid item md={6} lg={6} xl={6}>
                 <div className="container-small">
@@ -147,7 +114,7 @@ const ArticlesPage = () => {
                       <span className={"npo-name"}>{data[2].npoName}</span>
                     </div>
                     <Link href={"/articles/article?id=" + data[2]._id}>
-                      <img src={data[2].image} alt={"das"} />
+                      <img src={data[2].image} alt={"das"}/>
                     </Link>
                     <div className={"card-content-container-small"}>
                       <div className={"date-text-small"}>
@@ -172,7 +139,7 @@ const ArticlesPage = () => {
                       <span className={"npo-name"}>{data[3].npoName}</span>
                     </div>
                     <Link href={"/articles/article?id=" + data[3]._id}>
-                      <img src={data[3].image} id={"bilde"} alt={"das"} />
+                      <img src={data[3].image} id={"bilde"} alt={"das"}/>
                     </Link>
                     <div className={"card-content-container-small"}>
                       <div className={"date-text-small"}>
@@ -197,9 +164,9 @@ const ArticlesPage = () => {
       <div className="articles-bottom-section">
         <div className="bottom-header">Articles You Should Check Out</div>
         <Grid
-          container
-          columnSpacing={{ md: 4, lg: 4, xl: 4 }}
-          rowSpacing={{ md: 4, lg: 4 }}
+            container
+            columnSpacing={{md: 4, lg: 4, xl: 4}}
+            rowSpacing={{md: 4, lg: 4}}
         >
           <Grid item lg={6} xl={6}>
             <div className="container-medium">
@@ -208,7 +175,7 @@ const ArticlesPage = () => {
                   <span className={"npo-name"}>{data[1].npoName}</span>
                 </div>
                 <Link href={"/articles/article?id=" + data[1]._id}>
-                  <img src={data[1].image} alt={"das"} />
+                  <img src={data[1].image} alt={"das"}/>
                 </Link>
                 <div className={"card-content-container-medium"}>
                   <div className={"date-text-medium"}>
@@ -231,7 +198,7 @@ const ArticlesPage = () => {
                   <span className={"npo-name"}>{data[3].npoName}</span>
                 </div>
                 <Link href={"/articles/article?id=" + data[3]._id}>
-                  <img src={data[3].image} id={"bilde"} alt={"das"} />
+                  <img src={data[3].image} id={"bilde"} alt={"das"}/>
                 </Link>
                 <div className={"card-content-container-small"}>
                   <div className={"date-text-small"}>
@@ -254,7 +221,7 @@ const ArticlesPage = () => {
                   <span className={"npo-name"}>{data[3].npoName}</span>
                 </div>
                 <Link href={"/articles/article?id=" + data[3]._id}>
-                  <img src={data[3].image} id={"bilde"} alt={"das"} />
+                  <img src={data[3].image} id={"bilde"} alt={"das"}/>
                 </Link>
                 <div className={"card-content-container-small"}>
                   <div className={"date-text-small"}>

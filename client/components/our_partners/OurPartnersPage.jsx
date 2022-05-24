@@ -33,6 +33,15 @@ const partners = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id quisque sed sed eleifend tempor ",
     category: "Water",
   },
+  {
+    _id: "4",
+    name: "Good school",
+    imgage:
+        "https://www.uidownload.com/files/893/147/580/big-white-circle-background.jpg",
+    description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id quisque sed sed eleifend tempor ",
+    category: "Knowledge",
+  }
 ];
 
 const OurPartnersPage = () => {

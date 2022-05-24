@@ -1,5 +1,5 @@
 import { Box, Grid } from "@mui/material";
-import headerImg from "../../media/header-image-partners.png";
+import headerImg from "../../media/articles_header_image.png"
 import "../../styles/header-styles.css";
 
 export function ArticlesHeader() {

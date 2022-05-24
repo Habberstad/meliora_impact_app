@@ -3,53 +3,35 @@ import headerImg from "../../media/header-image-partners.png";
 
 export function MyNPOHeader() {
   return (
-    <div style={{ width: "100%" }}>
-      <Box className={"global-header-container"}>
-        <Grid container columnSpacing={{ lg: 10, xl: 10 }}>
-          <Grid item lg={6} xl={6}>
-            <Typography
-              className="global-header-title"
-              variant="h3"
-              align="left"
-              color="textPrimary"
-              gutterBottom
-            >
-              My Partners
-            </Typography>
-            <Typography
-              className="global-header-sub-title"
-              variant="h5"
-              align="left"
-              color="textPrimary"
-              gutterBottom
-            >
-              Overview of NGOs you support
-            </Typography>
-            <br />
-            <br />
-            <Typography
-              className="global-header-desc"
-              variant="string"
-              align="left"
-              color="textSecondary"
-              paragraph
-            >
-              <strong>Lorem</strong> ipsum dolor sit amet, sed ea solum movet
-              scriptorem, eos dolore evertitur ei, ferri omnium sea at.
-            </Typography>
-          </Grid>
+      <div>
+        <Box className={"global-header-container"}>
+          <Grid container columnSpacing={{ lg: 10, xl: 10 }}>
+            <Grid item lg={6} xl={6}>
+              <div className="global-header-title">My Partners</div>
 
-          <Grid item lg={5} xl={5}>
-            <img
-              style={{ width: "350px" }}
-              src={headerImg}
-              alt={"MyNPOHeader image"}
-            />
-          </Grid>
+              <div className="global-header-sub-title">
+                Overview of NPOs you support
+              </div>
 
-          <Grid item lg={1} xl={1}></Grid>
-        </Grid>
-      </Box>
-    </div>
+              <div className="global-header-desc">
+                <strong>Correlate</strong> with the projects directly tied to your supported NPOs. <br></br>
+                Create a template to share exciting
+              </div>
+            </Grid>
+
+            <Grid item lg={5} xl={5}>
+              <div>
+                <img
+                    className="global-header-img"
+                    src={headerImg}
+                    alt={"Header image"}
+                />
+              </div>
+            </Grid>
+
+            <Grid item lg={1} xl={1}></Grid>
+          </Grid>
+        </Box>
+      </div>
   );
 }
