@@ -14,6 +14,7 @@ import articlesRoute from "./routes/articlesRoute.js";
 import { config } from "./config/Constants.js";
 import orgAccountsRoute from "./routes/orgAccountsRoute.js";
 import npoRoute from "./routes/npoRoute.js";
+import userRoute from "./routes/userRoute.js";
 
 
 const app = express();
@@ -47,10 +48,20 @@ app.use(
 
 app.use("/auth", authRoute);
 
-app.use("/api/projects", projectsRoute);
-app.use("/api/articles", articlesRoute);
-app.use("/api/npo", npoRoute)
-app.use("/api/accounts", orgAccountsRoute);
+const isLoggedIn = (req, res, next) => {
+  if (req.user) {
+    next();
+  } else {
+    res.sendStatus(401);
+  }
+};
+
+app.use("/api/projects", isLoggedIn, projectsRoute);
+app.use("/api/articles", isLoggedIn, articlesRoute);
+app.use("/api/npo", isLoggedIn, npoRoute);
+app.use("/api/accounts", isLoggedIn, orgAccountsRoute);
+app.use("/api/users", userRoute)
+
 
 app.use((req, res, next) => {
   if (req.method === "GET" && !req.path.startsWith("/api")) {
