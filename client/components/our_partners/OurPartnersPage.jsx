@@ -8,7 +8,7 @@ import { PartnersList } from "./PartnersList";
 
 const partners = [
   {
-    _id: "628be87082005f8d2ff3379d",
+    _id: "628cb9f4a519ef93ebee3a10",
     name: "Leve havet",
     imgage:
       "https://static.vecteezy.com/packs/media/components/global/search-explore-nav/img/vectors/term-bg-1-666de2d941529c25aa511dc18d727160.jpg",

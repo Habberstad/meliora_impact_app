@@ -29,133 +29,132 @@
       "vision_4": "Climate change is currently one of our societys biggest challenges. All our work takes this in consideration."
     }
   },
-  "projects":  [
-    {
-      "name": "Save the Coral",
-      "npo_id": "",
-      "description" : "A Leve Havet Project",
-      "header_image": "https://images.unsplash.com/photo-1598846019232-a5752b94c3af?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2000",
-      "top_section": {
-        "title" : "Water For All",
-        "paragraph" : "Our ocean unifies our world like nothing else. And saving it from ongoing threats is a cause that affects us all. We are on the front lines of",
-        "tiles": [
-          {
-            "value": "1000km",
-            "description": "Coral reefs preserved"
-          },
-          {
-            "value": "1000km",
-            "description": "Coral reefs preserved"
-          },
-          {
-            "value": "1000km",
-            "description": "Coral reefs preserved"
-          }
-        ],
-        "middle_section": {
-          "title": "Our Ocean Needs You",
-          "paragraph": "Our ocean unifies our world like nothing else. And saving it from ongoing threats is a cause that affects us all.\nWe are on the front lines of ocean protection, investing in research, leadership and advocacy that advances science-based solutions that work."
-        },
-        "bottom_section": {
-          "title": "Our Ocean Needs You",
-          "paragraph": "Our ocean unifies our world like nothing else. And saving it from ongoing threats is a cause that affects us all.\nWe are on the front lines of ocean protection, investing in research, leadership and advocacy that advances science-based solutions that work."
-        }
+  "projects": {
+ "project_1" : {
+  "name": "Save the Coral",
+  "npo_id": "",
+  "description" : "A Leve Havet Project",
+  "header_image": "https://images.unsplash.com/photo-1598846019232-a5752b94c3af?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2000",
+  "top_section": {
+    "title" : "Water For All",
+    "paragraph" : "Our ocean unifies our world like nothing else. And saving it from ongoing threats is a cause that affects us all. We are on the front lines of",
+    "tiles": [
+      {
+        "value": "1000km",
+        "description": "Coral reefs preserved"
+      },
+      {
+        "value": "1000km",
+        "description": "Coral reefs preserved"
+      },
+      {
+        "value": "1000km",
+        "description": "Coral reefs preserved"
       }
+    ],
+    "middle_section": {
+      "title": "Our Ocean Needs You",
+      "paragraph": "Our ocean unifies our world like nothing else. And saving it from ongoing threats is a cause that affects us all.\nWe are on the front lines of ocean protection, investing in research, leadership and advocacy that advances science-based solutions that work."
     },
-    {
-      "name": "Water For All",
-      "description" : "A Leve Havet Project",
-      "header_image": "https://images.unsplash.com/photo-1598846019232-a5752b94c3af?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2000",
-      "top_section": {
-        "title" : "Water For All",
-        "paragraph" : "Our ocean unifies our world like nothing else. And saving it from ongoing threats is a cause that affects us all. We are on the front lines of",
-        "tiles": [
-          {
-            "value": "1000km",
-            "description": "Coral reefs preserved"
-          },
-          {
-            "value": "1000km",
-            "description": "Coral reefs preserved"
-          },
-          {
-            "value": "1000km",
-            "description": "Coral reefs preserved"
-          }
-        ],
-        "middle_section": {
-          "title": "Our Ocean Needs You",
-          "paragraph": "Our ocean unifies our world like nothing else. And saving it from ongoing threats is a cause that affects us all.\nWe are on the front lines of ocean protection, investing in research, leadership and advocacy that advances science-based solutions that work."
-        },
-        "bottom_section": {
-          "title": "Our Ocean Needs You",
-          "paragraph": "Our ocean unifies our world like nothing else. And saving it from ongoing threats is a cause that affects us all.\nWe are on the front lines of ocean protection, investing in research, leadership and advocacy that advances science-based solutions that work."
-        }
-      }
-    },
-    {
-      "name": "Project Clean Water",
-      "description" : "A Leve Havet Project",
-      "header_image": "https://images.unsplash.com/photo-1598846019232-a5752b94c3af?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2000",
-      "top_section": {
-        "title" : "Water For All",
-        "paragraph" : "Our ocean unifies our world like nothing else. And saving it from ongoing threats is a cause that affects us all. We are on the front lines of",
-        "tiles": [
-          {
-            "value": "1000km",
-            "description": "Coral reefs preserved"
-          },
-          {
-            "value": "1000km",
-            "description": "Coral reefs preserved"
-          },
-          {
-            "value": "1000km",
-            "description": "Coral reefs preserved"
-          }
-        ],
-        "middle_section": {
-          "title": "Our Ocean Needs You",
-          "paragraph": "Our ocean unifies our world like nothing else. And saving it from ongoing threats is a cause that affects us all.\nWe are on the front lines of ocean protection, investing in research, leadership and advocacy that advances science-based solutions that work."
-        },
-        "bottom_section": {
-          "title": "Our Ocean Needs You",
-          "paragraph": "Our ocean unifies our world like nothing else. And saving it from ongoing threats is a cause that affects us all.\nWe are on the front lines of ocean protection, investing in research, leadership and advocacy that advances science-based solutions that work."
-        }
-      }
-    },
-    {
-      "name": "Stop Plastic Waste",
-      "description" : "A Leve Havet Project",
-      "header_image": "https://images.unsplash.com/photo-1598846019232-a5752b94c3af?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2000",
-      "top_section": {
-        "title" : "Water For All",
-        "paragraph" : "Our ocean unifies our world like nothing else. And saving it from ongoing threats is a cause that affects us all. We are on the front lines of",
-        "tiles": [
-          {
-            "value": "1000km",
-            "description": "Coral reefs preserved"
-          },
-          {
-            "value": "1000km",
-            "description": "Coral reefs preserved"
-          },
-          {
-            "value": "1000km",
-            "description": "Coral reefs preserved"
-          }
-        ],
-        "middle_section": {
-          "title": "Our Ocean Needs You",
-          "paragraph": "Our ocean unifies our world like nothing else. And saving it from ongoing threats is a cause that affects us all.\nWe are on the front lines of ocean protection, investing in research, leadership and advocacy that advances science-based solutions that work."
-        },
-        "bottom_section": {
-          "title": "Our Ocean Needs You",
-          "paragraph": "Our ocean unifies our world like nothing else. And saving it from ongoing threats is a cause that affects us all.\nWe are on the front lines of ocean protection, investing in research, leadership and advocacy that advances science-based solutions that work."
-        }
-      }
+    "bottom_section": {
+      "title": "Our Ocean Needs You",
+      "paragraph": "Our ocean unifies our world like nothing else. And saving it from ongoing threats is a cause that affects us all.\nWe are on the front lines of ocean protection, investing in research, leadership and advocacy that advances science-based solutions that work."
     }
-  ],
+  }
+},
+    "project_2" :{
+"name": "Water For All",
+"description" : "A Leve Havet Project",
+"header_image": "https://images.unsplash.com/photo-1598846019232-a5752b94c3af?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2000",
+"top_section": {
+"title" : "Water For All",
+"paragraph" : "Our ocean unifies our world like nothing else. And saving it from ongoing threats is a cause that affects us all. We are on the front lines of",
+"tiles": [
+{
+"value": "1000km",
+"description": "Coral reefs preserved"
+},
+{
+"value": "1000km",
+"description": "Coral reefs preserved"
+},
+{
+"value": "1000km",
+"description": "Coral reefs preserved"
+}
+],
+"middle_section": {
+"title": "Our Ocean Needs You",
+"paragraph": "Our ocean unifies our world like nothing else. And saving it from ongoing threats is a cause that affects us all.\nWe are on the front lines of ocean protection, investing in research, leadership and advocacy that advances science-based solutions that work."
+},
+"bottom_section": {
+"title": "Our Ocean Needs You",
+"paragraph": "Our ocean unifies our world like nothing else. And saving it from ongoing threats is a cause that affects us all.\nWe are on the front lines of ocean protection, investing in research, leadership and advocacy that advances science-based solutions that work."
+}
+}
+},
+    "project_3" :{
+"name": "Project Clean Water",
+"description" : "A Leve Havet Project",
+"header_image": "https://images.unsplash.com/photo-1598846019232-a5752b94c3af?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2000",
+"top_section": {
+"title" : "Water For All",
+"paragraph" : "Our ocean unifies our world like nothing else. And saving it from ongoing threats is a cause that affects us all. We are on the front lines of",
+"tiles": [
+{
+"value": "1000km",
+"description": "Coral reefs preserved"
+},
+{
+"value": "1000km",
+"description": "Coral reefs preserved"
+},
+{
+"value": "1000km",
+"description": "Coral reefs preserved"
+}
+],
+"middle_section": {
+"title": "Our Ocean Needs You",
+"paragraph": "Our ocean unifies our world like nothing else. And saving it from ongoing threats is a cause that affects us all.\nWe are on the front lines of ocean protection, investing in research, leadership and advocacy that advances science-based solutions that work."
+},
+"bottom_section": {
+"title": "Our Ocean Needs You",
+"paragraph": "Our ocean unifies our world like nothing else. And saving it from ongoing threats is a cause that affects us all.\nWe are on the front lines of ocean protection, investing in research, leadership and advocacy that advances science-based solutions that work."
+}
+}
+},
+    "project_4" :{
+"name": "Stop Plastic Waste",
+"description" : "A Leve Havet Project",
+"header_image": "https://images.unsplash.com/photo-1598846019232-a5752b94c3af?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2000",
+"top_section": {
+"title" : "Water For All",
+"paragraph" : "Our ocean unifies our world like nothing else. And saving it from ongoing threats is a cause that affects us all. We are on the front lines of",
+"tiles": [
+{
+"value": "1000km",
+"description": "Coral reefs preserved"
+},
+{
+"value": "1000km",
+"description": "Coral reefs preserved"
+},
+{
+"value": "1000km",
+"description": "Coral reefs preserved"
+}
+],
+"middle_section": {
+"title": "Our Ocean Needs You",
+"paragraph": "Our ocean unifies our world like nothing else. And saving it from ongoing threats is a cause that affects us all.\nWe are on the front lines of ocean protection, investing in research, leadership and advocacy that advances science-based solutions that work."
+},
+"bottom_section": {
+"title": "Our Ocean Needs You",
+"paragraph": "Our ocean unifies our world like nothing else. And saving it from ongoing threats is a cause that affects us all.\nWe are on the front lines of ocean protection, investing in research, leadership and advocacy that advances science-based solutions that work."
+}
+}
+}},
   "impact_tab": {},
   "key_information_tab": {}
 }
