@@ -6,6 +6,8 @@ import "../../styles/dashboard.css";
 import SchoolIcon from "@mui/icons-material/School";
 import LocalHospitalIcon from "@mui/icons-material/LocalHospital";
 import { ArticleApiContext } from "../../api-client/articlesApiContext";
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 const Dashboard = () => {
   const queryParams = new URLSearchParams(window.location.search);
@@ -34,12 +36,10 @@ const Dashboard = () => {
 
         <Grid
           container
-          direction="row"
-          justifyContent="space-evenly"
-          alignItems="center"
+          columnSpacing={{lg:4, xl:4}}
           className={"test"}
         >
-          <Grid item>
+          <Grid lg={3} xl={3} item>
             <div className="students-impact-container">
                 <div className="students-impact-icon">
                   <SchoolIcon fontSize={"large"}/>
@@ -53,37 +53,55 @@ const Dashboard = () => {
               </div>
           </Grid>
 
-          <Grid item className={"socialmedia-template"}>
-            <Grid container item direction="column" className={"socialmedia-template-container"}>
+
+
+          <Grid item lg={3} xl={3} className={"socialmedia-template"}>
+            <div className={"socialmedia-template-container"}>
               <img
                 src={
-                  "https://images.unsplash.com/photo-1600096194534-95cf5ece04cf?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=200"
+                  "https://images.unsplash.com/photo-1600096194534-95cf5ece04cf?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1600"
                 }
                 alt={"das"}
               />
-              <div className={"socialmedia-template-container-shadow"}></div>
-              <Grid item className={"socialmedia-template-content-top"}>
+              <div className={"socialmedia-template-content-top"}>
                 <a>Share on Social Media</a>
-              </Grid>
-              <Grid item className={"socialmedia-template-content-bot"}>
+              </div>
+              <div className={"socialmedia-template-content-bot"}>
                 <a>View templates</a>
-              </Grid>
-              </Grid>
+              </div>
+              </div>
           </Grid>
-          <Grid item>
-            <h1>Highlighted partners</h1>
-            <LocalHospitalIcon />
-            <h2>Asha Fundation</h2>
-            <a>Vaccination Program</a>
-            <></>
-            <a>Infant Mortality</a>
-            <></>
-            <a>Dental program</a>
-            <></>
+
+
+          <Grid item lg={6} xl={6}>
+
+            <div className={"highlighted-partners-container"}>
+              <h1>Highlighted partners</h1>
+              <div className={"highlighted-partners-icon"}>
+                <LocalHospitalIcon />
+                <h2>Asha Foundation</h2>
+              </div>
+              <div>
+                <a>Vaccination Program</a>
+                <></>
+              </div>
+              <div>
+                <a>Infant Mortality</a>
+                <></>
+              </div>
+              <div>
+                <a>Dental program</a>
+                <></>
+              </div>
+            </div>
           </Grid>
+
+
         </Grid>
+
+
         <div className="articles-bottom-section">
-          <div className="bottom-header">Articles You Should Check Out</div>
+          <div className="bottom-header">Latest updates</div>
           <Grid
             container
             columnSpacing={{ md: 4, lg: 4, xl: 4 }}
