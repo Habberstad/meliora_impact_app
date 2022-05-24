@@ -1,5 +1,6 @@
 import UserService from "../services/userService.js";
 import { ObjectId } from "mongodb";
+import { config } from "../config/Constants.js";
 
 async function list(req, res, next) {
   const query = {};
@@ -27,10 +28,11 @@ async function getById(req, res) {
 }
 
 async function create(req, res) {
+
   try {
     console.log(req.query)
     await UserService.create(req.query);
-    return res.status(201).json({ status: 201 });
+    return res.status(201).redirect(config.url.API_URL);
   } catch (e) {
     return res.status(400).json({ status: 400, message: e.message });
   }
