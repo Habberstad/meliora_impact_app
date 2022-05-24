@@ -2,9 +2,7 @@ import "../../../styles/npo-profile-page-styles/project-tab-styles.css";
 import { Button } from "@mui/material";
 import {
   highlightedOutlinedTabButtonStyle,
-  hoverTabStyle,
   outlinedTabButtonStyle,
-  selectedTabStyle,
 } from "../../../styles/button-style-config";
 import WavesIcon from "@mui/icons-material/Waves";
 import SquidImage from "../npo-media/squid_img.png";
@@ -17,40 +15,28 @@ import { useState } from "react";
 const test_image =
   "https://images.unsplash.com/photo-1652894449003-11e4228e9ae7?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070";
 
+function InfoTile({ data }) {
+  return (
+    <div className="info-tile">
+      <WavesIcon sx={{ color: "#7209B7", width: "50px", height: "35px" }} />
+      <div className="tile-data-text">{data.value}</div>
+      <div className="tile-data-sub-text">{data.description}</div>
+    </div>
+  );
+}
+
 function ProjectContent({ data }) {
   console.log("project", data);
   return (
     <>
       <div className="top-section">
         <div className="top-left-section">
-          <div className="project-info-title">{data.name}</div>
-          <div className="project-info-text">
-            Our ocean unifies our world like nothing else. And saving it from
-            ongoing threats is a cause that affects us all. We are on the front
-            lines of
-          </div>
+          <div className="project-info-title">{data.top_section.title}</div>
+          <div className="project-info-text">{data.top_section.paragraph}</div>
           <div className="project-tile-container">
-            <div className="info-tile">
-              <WavesIcon
-                sx={{ color: "#7209B7", width: "50px", height: "35px" }}
-              />
-              <div className="tile-data-text">1000km</div>
-              <div className="tile-data-sub-text">Coral reefs preserved</div>
-            </div>
-            <div className="info-tile">
-              <WavesIcon
-                sx={{ color: "#7209B7", width: "50px", height: "35px" }}
-              />
-              <div className="tile-data-text">1000km</div>
-              <div className="tile-data-sub-text">Coral reefs preserved</div>
-            </div>
-            <div className="info-tile">
-              <WavesIcon
-                sx={{ color: "#7209B7", width: "50px", height: "35px" }}
-              />
-              <div className="tile-data-text">1000km</div>
-              <div className="tile-data-sub-text">Coral reefs preserved</div>
-            </div>
+            {data.tiles.map((data) => (
+              <InfoTile key={data.value} data={data} />
+            ))}
           </div>
         </div>
         <div className="top-right-section">
@@ -59,15 +45,9 @@ function ProjectContent({ data }) {
       </div>
       <div className="middle-section">
         <div className="impact-text-container">
-          <div className="project-subheading">Our Ocean Needs You</div>
+          <div className="project-subheading">{data.middle_section.title}</div>
           <div className="impact-info-text">
-            Our ocean unifies our world like nothing else. And saving it from
-            ongoing threats is a cause that affects us all.
-          </div>
-          <div className="impact-info-text">
-            We are on the front lines of ocean protection, investing in
-            research, leadership and advocacy that advances science-based
-            solutions that work.
+            {data.middle_section.paragraph}
           </div>
         </div>
         <div className="donation-image">
@@ -79,15 +59,9 @@ function ProjectContent({ data }) {
           <img src={impactCardImg} alt="impact-stats" />
         </div>
         <div className="impact-text-container">
-          <div className="project-subheading">Our Ocean Needs You</div>
+          <div className="project-subheading">{data.bottom_section.title}</div>
           <div className="impact-info-text">
-            Our ocean unifies our world like nothing else. And saving it from
-            ongoing threats is a cause that affects us all.
-          </div>
-          <div className="impact-info-text">
-            We are on the front lines of ocean protection, investing in
-            research, leadership and advocacy that advances science-based
-            solutions that work.
+            {data.bottom_section.paragraph}
           </div>
         </div>
       </div>
@@ -174,10 +148,18 @@ const ProjectTabContent = ({ data }) => {
         </Button>
       </div>
       <div className="project-content-container">
-        {selectedTab === "project1" && <ProjectContent data={data.project_1} />}
-        {selectedTab === "project2" && <ProjectContent data={data.project_2} />}
-        {selectedTab === "project3" && <ProjectContent data={data.project_3} />}
-        {selectedTab === "project4" && <ProjectContent data={data.project_4} />}
+        {selectedTab === "project1" && (
+          <ProjectContent data={data.project_1.content} />
+        )}
+        {selectedTab === "project2" && (
+          <ProjectContent data={data.project_2.content} />
+        )}
+        {selectedTab === "project3" && (
+          <ProjectContent data={data.project_3.content} />
+        )}
+        {selectedTab === "project4" && (
+          <ProjectContent data={data.project_4.content} />
+        )}
       </div>
     </div>
   );
