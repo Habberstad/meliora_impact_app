@@ -8,7 +8,7 @@ import { RegisterForm } from "./RegisterForm";
 import { LoginForm } from "./LoginForm";
 
 export const LoginPage = () => {
-  const [isRegistered, setIsRegistered] = useState(false);
+  const [isRegistered, setIsRegistered] = useState(true);
   const [isOverBreakpoint, setIsOverBreakpoint] = useState(true);
   window.addEventListener("resize", () => {
     setIsOverBreakpoint(window.innerWidth >= 1000);
