@@ -28,6 +28,7 @@ async function getById(req, res) {
 
 async function create(req, res) {
   try {
+    console.log(req.query)
     await UserService.create(req.query);
     return res.status(201).json({ status: 201 });
   } catch (e) {

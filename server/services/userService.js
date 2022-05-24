@@ -20,9 +20,11 @@ async function getById(id) {
 }
 
 
-async function create(data) {
+async function create(query) {
+  console.log(query)
   try {
-    return await new User(data).save();
+    const data = await new User(query)
+    return data.save();
   } catch (e) {
 
     throw Error();

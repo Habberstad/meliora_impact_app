@@ -13,9 +13,8 @@ const userSchema = new mongoose.Schema({
   subscription: String,
   role: {
     type: String,
-    enum: ["USER, ADMIN"],
+    enum: ["USER", "ADMIN"],
     default: "USER",
-    required: true
   }
 }, {
   collection: "users",
