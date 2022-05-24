@@ -11,7 +11,6 @@ import mongoose from "mongoose";
 import projectsRoute from "./routes/projectsRoute.js";
 import articlesRoute from "./routes/articlesRoute.js";
 import { config } from "./config/Constants.js";
-import orgAccountsRoute from "./routes/orgAccountsRoute.js";
 import npoRoute from "./routes/npoRoute.js";
 import userRoute from "./routes/userRoute.js";
 import  isLoggedIn from "./middleware/middleware.js";
@@ -51,7 +50,6 @@ app.use("/auth", authRoute);
 app.use("/api/projects", isLoggedIn, projectsRoute);
 app.use("/api/articles", isLoggedIn, articlesRoute);
 app.use("/api/npo", isLoggedIn, npoRoute);
-app.use("/api/accounts", isLoggedIn, orgAccountsRoute);
 app.use("/api/users", userRoute);
 
 
