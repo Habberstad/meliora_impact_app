@@ -1,53 +1,18 @@
 import { MyNPOHeader } from "../headers/MyNPOHeader";
 import { CategoryFilter } from "../discover/CategoryFilter";
 import "../../styles/partners-styles.css";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useLoader } from "../../helpers/UseLoader";
 import { PartnersList } from "./PartnersList";
-
-const partners = [
-  {
-    _id: "628be87082005f8d2ff3379d",
-    name: "Leve havet",
-    imgage:
-      "https://static.vecteezy.com/packs/media/components/global/search-explore-nav/img/vectors/term-bg-1-666de2d941529c25aa511dc18d727160.jpg",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id quisque sed sed eleifend tempor ",
-    category: "Water",
-  },
-  {
-    _id: "2",
-    name: "Good school",
-    imgage:
-      "https://www.uidownload.com/files/893/147/580/big-white-circle-background.jpg",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id quisque sed sed eleifend tempor ",
-    category: "Knowledge",
-  },
-  {
-    _id: "3",
-    name: "Leve havet",
-    imgage:
-      "https://static.vecteezy.com/packs/media/components/global/search-explore-nav/img/vectors/term-bg-1-666de2d941529c25aa511dc18d727160.jpg",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id quisque sed sed eleifend tempor ",
-    category: "Water",
-  },
-  {
-    _id: "4",
-    name: "Good school",
-    imgage:
-        "https://www.uidownload.com/files/893/147/580/big-white-circle-background.jpg",
-    description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id quisque sed sed eleifend tempor ",
-    category: "Knowledge",
-  }
-];
+import { NpoApiContext } from "../../api-client/npoApiContext";
 
 const OurPartnersPage = () => {
   const [category, setCategory] = useState("");
-  /*const { getNpo } = useContext(NpoApiContext);*/
-  const { loading, error, data } = useLoader(() => partners);
+  const { getNpo } = useContext(NpoApiContext);
+  const { loading, error, data } = useLoader(
+    async () => await getNpo({ category }),
+    [category]
+  );
 
   function categorySelectHandler(selectedCategory) {
     setCategory(selectedCategory);
