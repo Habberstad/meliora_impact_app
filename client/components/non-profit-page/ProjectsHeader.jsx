@@ -10,9 +10,7 @@ const ProjectsHeader = () => {
       />
       <div className="header-title-section">
         <div className="header-main-title">Save The Coral</div>
-        <div className="global-header-sub-title">
-          A Williams Foundation Project
-        </div>
+        <div className="header-sub-title">A Williams Foundation Project</div>
         <div className="header-donate-btn">
           <Button
             variant="contained"
