@@ -1,12 +1,12 @@
 import { Button } from "@mui/material";
 import WavesIcon from "@mui/icons-material/Waves";
 
-export function ProfileHeader({ data }) {
+export function ProfileHeader({ data, name }) {
   console.log("profile-header", data);
   return (
-    <div className="global-header-container">
+    <div className="main-header-container">
       <div className="left-header-section">
-        <div className="npo-header-title">The Williams Foundation</div>
+        <div className="npo-header-title">{name}</div>
         <div className="header-donate-btn-container">
           <div>
             <Button
@@ -31,27 +31,27 @@ export function ProfileHeader({ data }) {
             <WavesIcon
               sx={{ color: "#7209B7", width: "50px", height: "35px" }}
             />
-            <div className="tile-data-text">1000km</div>
-            <div className="tile-data-sub-text">Coral reefs preserved</div>
+            <div className="tile-data-text">{data.tile_1.value}</div>
+            <div className="tile-data-sub-text">{data.tile_1.description}</div>
           </div>
           <div className="header-tile">
             <WavesIcon
               sx={{ color: "#7209B7", width: "50px", height: "35px" }}
             />
-            <div className="tile-data-text">1000km</div>
-            <div className="tile-data-sub-text">Coral reefs preserved</div>
+            <div className="tile-data-text">{data.tile_2.value}</div>
+            <div className="tile-data-sub-text">{data.tile_2.description}</div>
           </div>
           <div className="header-tile">
             <WavesIcon
               sx={{ color: "#7209B7", width: "50px", height: "35px" }}
             />
-            <div className="tile-data-text">1000km</div>
-            <div className="tile-data-sub-text">Coral reefs preserved</div>
+            <div className="tile-data-text">{data.tile_3.value}</div>
+            <div className="tile-data-sub-text">{data.tile_3.description}</div>
           </div>
         </div>
       </div>
       <div className="right-image-section">
-        <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1672&q=80" />
+        <img src={data.header_image} />
       </div>
     </div>
   );
