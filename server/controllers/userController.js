@@ -8,7 +8,7 @@ async function list(req, res, next) {
   if (_id !== "" && _id !== undefined && ObjectId.isValid(_id)) {
     query._id = { $eq: ObjectId(_id) };
   }
-  console.log(query._id)
+
   try {
     const users = await UserService.list(query);
     return res.status(200).json(users);
