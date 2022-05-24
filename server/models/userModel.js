@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema({
     required: true
   }
 }, {
-  collection: "projects",
+  collection: "users",
   bufferCommands: false,
   autoCreate: false
 });

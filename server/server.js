@@ -14,6 +14,7 @@ import articlesRoute from "./routes/articlesRoute.js";
 import { config } from "./config/Constants.js";
 import orgAccountsRoute from "./routes/orgAccountsRoute.js";
 import npoRoute from "./routes/npoRoute.js";
+import userRoute from "./routes/userRoute.js";
 
 
 const app = express();
@@ -59,6 +60,7 @@ app.use("/api/projects", isLoggedIn, projectsRoute);
 app.use("/api/articles", isLoggedIn, articlesRoute);
 app.use("/api/npo", isLoggedIn, npoRoute);
 app.use("/api/accounts", isLoggedIn, orgAccountsRoute);
+app.use("/api/users", userRoute)
 
 
 app.use((req, res, next) => {
