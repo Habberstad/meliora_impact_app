@@ -7,7 +7,10 @@ const userSchema = new mongoose.Schema({
   org_id: String,
   google_id: String,
   description: String,
-  accessToken: String,
+  address: String,
+  postal_code: String,
+  city: String,
+  subscription: String,
   role: {
     type: String,
     enum: ["USER, ADMIN"],
