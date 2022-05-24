@@ -25,12 +25,16 @@ const NonProfitProfilePage = () => {
   const [nonProfitData, setNonProfitData] = useState({});
   const [selectedTab, setSelectedTab] = useState("overview");
 
-  const urlPathParam = window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1);
+  const urlPathParam = window.location.pathname.substring(
+    window.location.pathname.lastIndexOf("/") + 1
+  );
   const { getNpoById } = useContext(NpoApiContext);
   const { loading, error, data } = useLoading(
-    async () => await getNpoById(urlPathParam ),
+    async () => await getNpoById(urlPathParam),
     []
   );
+
+  if (loading) return <h1>loading..</h1>;
 
   console.log("data", data);
 
@@ -43,7 +47,11 @@ const NonProfitProfilePage = () => {
       {selectedTab === "projects" ? (
         <ProjectsHeader nonProfitData={nonProfitData} />
       ) : (
-        <ProfileHeader data={data} nonProfitData={nonProfitData} />
+        <ProfileHeader
+          name={data.name}
+          data={data.header_data}
+          nonProfitData={nonProfitData}
+        />
       )}
       <div className="tab-navigation-section">
         <Button
@@ -102,14 +110,14 @@ const NonProfitProfilePage = () => {
             <img src={Timeline} alt="test" />
           </div>
           <div className="content-container">
-            <OverviewTabContent />
+            <OverviewTabContent data={data.overview_tab} />
           </div>
         </>
       )}
       {selectedTab === "projects" && (
         <>
           <div className="content-container">
-            <ProjectTabContent />
+            <ProjectTabContent data={data.projects} />
           </div>
         </>
       )}
