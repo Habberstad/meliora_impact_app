@@ -24,6 +24,7 @@
   "dependencies": {
     "express": "^4.18.1",
     "mongodb": "^4.6.0",
-    "prettier": "^2.6.2"
+    "prettier": "^2.6.2",
+    "react-simple-maps": "^2.3.0"
   }
 }
