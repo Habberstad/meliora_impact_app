@@ -10,7 +10,6 @@ const CLIENT_URL = config.url.API_URL;
 router.get("/login/success", async (req, res) => {
   if (req.user) {
     const dbUser = await User.find({ google_id: req.user.id });
-    console.log(req.user.id);
     if (dbUser.length !== 0 && req.user.id === dbUser[0].google_id) {
       res.status(200).json({
         success: true,

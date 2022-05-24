@@ -32,8 +32,6 @@ const NonProfitProfilePage = () => {
     []
   );
 
-  console.log("data", data);
-
   const handleNavigationState = (tabValue) => {
     setSelectedTab(tabValue);
   };

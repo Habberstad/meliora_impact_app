@@ -50,8 +50,7 @@ app.use("/auth", authRoute);
 
 const isLoggedIn = async (req, res, next) => {
   const user = await  User.find({google_id: req.user.id})
-  console.log(user)
-  console.log(req.user.id)
+
   if (req.user) {
     next();
   } else {
