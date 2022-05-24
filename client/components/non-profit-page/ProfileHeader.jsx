@@ -17,9 +17,8 @@ export function ProfileHeader({ data, name }) {
           style={{
             /*     backgroundColor: "rgba(0, 0, 0, 0.3)",*/
             background:
-              "linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(255,255,255,0) 100%)",
+              "linear-gradient(90deg, rgba(0,0,0,0.3) 0%, rgba(255,255,255,0) 100%)",
             height: "496px",
-            width: "100%",
             position: "absolute",
           }}
         >
