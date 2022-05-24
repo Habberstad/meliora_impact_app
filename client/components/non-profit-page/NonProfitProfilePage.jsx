@@ -44,15 +44,12 @@ const NonProfitProfilePage = () => {
 
   return (
     <div className="main-profile-container">
-      {selectedTab === "projects" ? (
-        <ProjectsHeader nonProfitData={nonProfitData} />
-      ) : (
-        <ProfileHeader
-          name={data.name}
-          data={data.header_data}
-          nonProfitData={nonProfitData}
-        />
-      )}
+      <ProfileHeader
+        name={data.name}
+        data={data.header_data}
+        nonProfitData={nonProfitData}
+      />
+
       <div className="tab-navigation-section">
         <Button
           onClick={() => handleNavigationState("overview")}
