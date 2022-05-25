@@ -25,7 +25,7 @@ const ProjectTabPage = ({ data }) => {
               : outlinedTabButtonStyle
           }
         >
-          {data.project_1.name}
+          {data[0].name}
         </Button>
         <Button
           onClick={() => handleNavigationState("project2")}
@@ -35,7 +35,7 @@ const ProjectTabPage = ({ data }) => {
               : outlinedTabButtonStyle
           }
         >
-          {data.project_2.name}
+          {data[1].name}
         </Button>
         <Button
           onClick={() => handleNavigationState("project3")}
@@ -45,7 +45,7 @@ const ProjectTabPage = ({ data }) => {
               : outlinedTabButtonStyle
           }
         >
-          {data.project_3.name}
+          {data[2].name}
         </Button>
         <Button
           onClick={() => handleNavigationState("project4")}
@@ -55,21 +55,21 @@ const ProjectTabPage = ({ data }) => {
               : outlinedTabButtonStyle
           }
         >
-          {data.project_4.name}
+          {data[3].name}
         </Button>
       </div>
       <div className="project-content-container">
         {selectedTab === "project1" && (
-          <ProjectContent data={data.project_1.content} />
+          <ProjectContent data={data[0].content} />
         )}
         {selectedTab === "project2" && (
-          <ProjectContent data={data.project_2.content} />
+          <ProjectContent data={data[1].content} />
         )}
         {selectedTab === "project3" && (
-          <ProjectContent data={data.project_3.content} />
+          <ProjectContent data={data[2].content} />
         )}
         {selectedTab === "project4" && (
-          <ProjectContent data={data.project_4.content} />
+          <ProjectContent data={data[3].content} />
         )}
       </div>
     </div>
