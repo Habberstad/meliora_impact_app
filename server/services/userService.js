@@ -1,4 +1,6 @@
 import User from "../models/userModel.js";
+import Npo from "../models/npoModel.js";
+import { ObjectId } from "mongodb";
 
 
 
@@ -13,16 +15,36 @@ async function list(query) {
 
 async function getById(id) {
   try {
-    return await User.findById(id);
+    const user = await User.aggregate(
+      [
+        { $match: { _id: ObjectId(id) } }
+        ,
+        {
+          $lookup: {
+            from: "npos",
+            localField: "active_npos_id",
+            foreignField: "_id",
+            as: "npo_partners"
+          }
+        }
+
+      ]
+    );
+
+    console.log(user)
+
+    return user;
   } catch (e) {
     throw Error();
   }
 }
 
 
-async function create(data) {
+async function create(query) {
+  console.log(query)
   try {
-    return await new User(data).save();
+    const data = await new User(query)
+    return data.save();
   } catch (e) {
 
     throw Error();

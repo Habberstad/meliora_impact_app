@@ -3,7 +3,7 @@ import { fetchJSON } from "../lib/fetchJSON";
 
 export const NpoApiContext = React.createContext({
 
-  async getNpo(query) {
+  async listNpos(query) {
     return await fetchJSON("/api/npo?"+ new URLSearchParams(query));
   },
 

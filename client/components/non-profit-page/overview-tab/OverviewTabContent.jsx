@@ -3,6 +3,7 @@ import WavesIcon from "@mui/icons-material/Waves";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import WorkspacePremiumIcon from "@mui/icons-material/WorkspacePremium";
 import SouthAmericaIcon from "@mui/icons-material/SouthAmerica";
+import MapChart from "../../../MapChart";
 
 const OverviewTabContent = ({ data }) => {
   return (
@@ -14,7 +15,7 @@ const OverviewTabContent = ({ data }) => {
             <div className="paragraph-text">{data.paragraph_1.text}</div>
           </div>
           <div className="mission-map-img">
-            <img src={MissionMap} alt="test" />
+            <MapChart style={{ color: "blue" }} />
           </div>
         </div>
       </div>

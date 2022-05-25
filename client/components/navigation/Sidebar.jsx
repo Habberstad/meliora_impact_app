@@ -23,6 +23,11 @@ const Sidebar = (props) => {
     location.href = window.location.origin + "/auth/logout";
   }
 
+  /*TODO: Investigate for sidebar highlight logic*/
+  const urlPathParam = window.location.pathname.substring(
+    window.location.pathname.lastIndexOf("/") + 1
+  );
+
   const handleNavigationState = (tabValue) => {
     setSelectedTab(tabValue);
   };
@@ -146,20 +151,6 @@ const Sidebar = (props) => {
             >
               <SpeedIcon sx={{ marginRight: "20px" }} />
               <div>Social Media Templates</div>
-            </div>
-          </Link>
-          <Link
-            onClick={() => handleNavigationState("npo")}
-            to={"/npo-profile/id"}
-            style={{ textDecoration: "none" }}
-          >
-            <div
-              className={`${
-                selectedTab === "npo" ? "nav-item-selected" : "nav-item"
-              }`}
-            >
-              <ConstructionIcon sx={{ marginRight: "20px" }} />
-              <div>Development: npo profile</div>
             </div>
           </Link>
         </div>
