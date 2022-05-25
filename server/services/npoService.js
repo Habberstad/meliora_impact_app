@@ -44,9 +44,10 @@ async function getByIdWithProjectData(id) {
   }
 }
 
-async function create(data) {
+async function create(query) {
   try {
-    return await new Npo(data).save();
+    const data = new Npo(query)
+    return await data.save();
   } catch (e) {
 
     throw Error();

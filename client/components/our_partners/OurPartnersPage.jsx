@@ -8,9 +8,9 @@ import { NpoApiContext } from "../../api-client/npoApiContext";
 
 const OurPartnersPage = () => {
   const [category, setCategory] = useState("");
-  const { getNpo } = useContext(NpoApiContext);
+  const { listNpos } = useContext(NpoApiContext);
   const { loading, error, data } = useLoader(
-    async () => await getNpo({ category }),
+    async () => await listNpos({ category }),
     [category]
   );
 
