@@ -1,0 +1,23 @@
+.template-main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
+
+
+.template-header-container{
+    display: flex;
+    background-color: red;
+    height: 300px;
+    width: 100%;
+}
+
+
+.template-content-container{
+    display: flex;
+    width: 800px;
+    height: 1000px;
+    background-color: #243447;
+}
