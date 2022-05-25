@@ -11,6 +11,7 @@ import React from "react";
 import OurPartnersPage from "./components/our_partners/OurPartnersPage";
 import NonProfitProfilePage from "./components/non-profit-page/NonProfitProfilePage";
 import Dashboard from "./components/dashboard/Dashboard";
+import MediaTemplatePage from "./components/media-template/MediaTemplatePage";
 
 export const UserContext = React.createContext({
   Account: (user) => {},
@@ -74,7 +75,7 @@ function App() {
             element={<NonProfitProfilePage />}
           />
           <Route exact path="/wrapped" element={<Partners />} />
-          <Route exact path="/templates" element={<Partners />} />
+          <Route exact path="/templates" element={<MediaTemplatePage />} />
           <Route exact path="/dashboard" element={<Dashboard />} />
         </Routes>
       </UserContext.Provider>
