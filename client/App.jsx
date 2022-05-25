@@ -75,7 +75,11 @@ function App() {
             element={<NonProfitProfilePage />}
           />
           <Route exact path="/wrapped" element={<Partners />} />
-          <Route exact path="/templates" element={<MediaTemplatePage />} />
+          <Route
+            exact
+            path="/templates"
+            element={<MediaTemplatePage user={user} />}
+          />
           <Route exact path="/dashboard" element={<Dashboard />} />
         </Routes>
       </UserContext.Provider>

@@ -5,21 +5,17 @@
     align-items: center;
 }
 
-
 .template-header-container{
     display: flex;
-    background-color: red;
     height: 300px;
     width: 100%;
 }
-
 
 .template-content-container{
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-
     width: 800px;
 }
 
@@ -39,6 +35,3 @@
     font-size: 32px;
     font-weight: 600;
 }
-
-
-
