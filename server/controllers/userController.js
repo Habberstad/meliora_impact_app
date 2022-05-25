@@ -2,7 +2,7 @@ import UserService from "../services/userService.js";
 import { ObjectId } from "mongodb";
 import { config } from "../config/Constants.js";
 
-async function list(req, res, next) {
+async function list(req, res) {
   const query = {};
 
   const { _id } = req.query;

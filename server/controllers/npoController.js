@@ -1,12 +1,17 @@
 import NpoService from "../services/npoService.js";
 import { ObjectId } from "mongodb";
 
-async function list(req, res, next) {
+async function list(req, res) {
   const query = {};
 
   const { _id } = req.query;
   if (_id !== "" && _id !== undefined && ObjectId.isValid(_id)) {
     query._id = { $eq: ObjectId(_id) };
+  }
+
+  const { category } = req.query;
+  if (category !== "" && category !== undefined) {
+    query.category = category;
   }
 
   try {
