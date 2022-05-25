@@ -1,6 +1,7 @@
 .global-header-container {
     max-height: 350px;
     max-width: 1500px;
+    margin-bottom: 20px;
 }
 
 .global-header-title {
@@ -24,6 +25,6 @@
 }
 
 .global-header-img {
-    max-width: 400px;
+    width: 400px;
     object-fit: cover;
 }

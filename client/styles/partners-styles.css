@@ -24,7 +24,8 @@
 .partner-card img {
     object-fit: cover;
     height: inherit;
-    width: 50%;
+    max-width: 38%;
+    min-width: 38%;
     border-radius: 10px 0 0 10px;
 }
 .partner-card-content-container {

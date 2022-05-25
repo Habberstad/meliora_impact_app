@@ -8,10 +8,12 @@ import {
   TextField,
 } from "@mui/material";
 import GoogleIcon from "../../media/google_icon.png";
+import { BackButton } from "./BackButton";
 
 export function LoginForm(props) {
   return (
     <div className={"login-content"}>
+      <BackButton />
       <div>
         <h2>Login</h2>
         <p>Log in with:</p>

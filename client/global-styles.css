@@ -8,6 +8,10 @@ body {
     display: flex;
 }
 
+.loading-state {
+    display: flex;
+}
+
 
 
 /**************************
