@@ -1,9 +1,8 @@
 .template-main-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     width: 100vw;
+    align-items: center;
 }
 
 
@@ -17,7 +16,29 @@
 
 .template-content-container{
     display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
     width: 800px;
-    height: 1000px;
-    background-color: #243447;
 }
+
+.template-timeline-container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.template-timeline-container img {
+    width: 493px;
+    height: 49px;
+}
+
+.template-content-title{
+    font-size: 32px;
+    font-weight: 600;
+}
+
+
+
