@@ -1,7 +1,10 @@
 import { BackButton } from "./BackButton";
 import { Button, TextField } from "@mui/material";
+import { useNavigate } from "react-router";
 
 export const FindCompany = () => {
+  const navigate = useNavigate();
+
   const onChangeHandler = (e) => {
     console.log(e.target.value);
   };
@@ -31,6 +34,9 @@ export const FindCompany = () => {
       />
       <div className="company-search-list">hei</div>
       <Button
+        onClick={() => {
+          navigate("/select-payment-method");
+        }}
         className={"form-button"}
         sx={{
           mt: 1,

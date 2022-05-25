@@ -1,14 +1,14 @@
-import GoogleIcon from "../../media/google_icon.png";
 import "../../styles/loginPage-styles.css";
 
 import { Routes } from "react-router";
 import { LoginLeftCard } from "./LoginLeftCard";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { RegisterForm } from "./RegisterForm";
 import { LoginForm } from "./LoginForm";
 import { Link, Route } from "react-router-dom";
 import { SelectSubscription } from "./SelectSubscription";
 import { FindCompany } from "./FindCompany";
+import { SelectPaymentMethod } from "./SelectPaymentMethod";
 
 export const LoginPage = () => {
   const [isRegistered, setIsRegistered] = useState(true);
@@ -28,6 +28,7 @@ export const LoginPage = () => {
         <Link to={"/login-form"}>login</Link>
         <Link to={"/select-subscription"}>select</Link>
         <Link to={"/find-company"}>company</Link>
+        <Link to={"/select-payment-method"}>payment</Link>
       </div>
       <div className="login-container">
         <Routes>
@@ -48,6 +49,11 @@ export const LoginPage = () => {
             element={<SelectSubscription />}
           />
           <Route exact path={"/find-company"} element={<FindCompany />} />
+          <Route
+            exact
+            path={"/select-payment-method"}
+            element={<SelectPaymentMethod />}
+          />
         </Routes>
       </div>
     </div>
