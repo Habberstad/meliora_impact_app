@@ -89,7 +89,7 @@ const Dashboard = () => {
           <Grid item lg={6} xl={6}>
 
             <div className={"highlighted-partners-container"}>
-              <h1>Highlighted partners</h1>
+              <p>Highlighted partners</p>
               <div className={"highlighted-partners-icon"}>
                 <LocalHospitalIcon />
                 <h2>Asha Foundation</h2>
