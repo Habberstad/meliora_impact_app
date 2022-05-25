@@ -16,6 +16,6 @@ export const UserApiContext = React.createContext({
   },
 
   async registerUser(user) {
-    return await postJSON("/api/user", user);
+    return await postJSON("/api/users/register", user);
   },
 });
