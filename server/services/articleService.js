@@ -19,9 +19,10 @@ async function getArticleById(id) {
   }
 }
 
-async function createArticle(data) {
+async function createArticle(query) {
   try {
-    return await new Article(data).save();
+    const data = new Article(query)
+    return await data.save();
   } catch (e) {
 
     throw Error();

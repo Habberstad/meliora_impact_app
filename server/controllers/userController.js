@@ -1,5 +1,6 @@
-import NpoService from "../services/npoService.js";
+import UserService from "../services/userService.js";
 import { ObjectId } from "mongodb";
+import { config } from "../config/Constants.js";
 
 async function list(req, res, next) {
   const query = {};
@@ -10,8 +11,8 @@ async function list(req, res, next) {
   }
 
   try {
-    const projects = await NpoService.list(query);
-    return res.status(200).json(projects);
+    const users = await UserService.list(query);
+    return res.status(200).json(users);
   } catch (e) {
     return res.status(400).json({ status: 400, message: e.message });
   }
@@ -19,7 +20,7 @@ async function list(req, res, next) {
 
 async function getById(req, res) {
   try {
-    const data = await NpoService.getById(req.params.id);
+    const data = await UserService.getById(req.params.id);
     return res.status(200).json(data);
   } catch (e) {
     return res.status(400).json({ status: 400, message: e.message });
@@ -27,9 +28,11 @@ async function getById(req, res) {
 }
 
 async function create(req, res) {
+
   try {
-    await NpoService.create(req.query);
-    return res.status(201).json({ status: 201 });
+    console.log(req.query.id)
+    await UserService.create(req.query);
+    return res.status(201).redirect(config.url.API_URL);
   } catch (e) {
     return res.status(400).json({ status: 400, message: e.message });
   }

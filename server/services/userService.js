@@ -1,11 +1,12 @@
+import User from "../models/userModel.js";
 import Npo from "../models/npoModel.js";
-import Projects from "../models/projectsModel.js";
 import { ObjectId } from "mongodb";
+
 
 
 async function list(query) {
   try {
-    return await Npo.find(query);
+    return await User.find(query);
   } catch (e) {
 
     throw Error(e);
@@ -14,40 +15,36 @@ async function list(query) {
 
 async function getById(id) {
   try {
-    return await Npo.findById(id);
-  } catch (e) {
-    throw Error();
-  }
-}
-
-async function getByIdWithProjectData(id) {
-  try {
-    const npo = Npo.aggregate(
+    const user = await User.aggregate(
       [
         { $match: { _id: ObjectId(id) } }
         ,
         {
           $lookup: {
-            from: "projects",
-            localField: "projects_id",
+            from: "npos",
+            localField: "active_npos_id",
             foreignField: "_id",
-            as: "my_projects"
+            as: "npo_partners"
           }
         }
 
       ]
     );
 
-    return await npo;
+    console.log(user)
+
+    return user;
   } catch (e) {
     throw Error();
   }
 }
 
+
 async function create(query) {
+  console.log(query)
   try {
-    const data = new Npo(query)
-    return await data.save();
+    const data = await new User(query)
+    return data.save();
   } catch (e) {
 
     throw Error();

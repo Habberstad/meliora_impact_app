@@ -19,9 +19,10 @@ async function getProjectById(id) {
   }
 }
 
-async function createProject(data) {
+async function createProject(query) {
   try {
-    return await new Project(data).save();
+    const data = new Project(query)
+    return await data.save();
   } catch (e) {
 
     throw Error();

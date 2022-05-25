@@ -3,23 +3,19 @@ import WavesIcon from "@mui/icons-material/Waves";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import WorkspacePremiumIcon from "@mui/icons-material/WorkspacePremium";
 import SouthAmericaIcon from "@mui/icons-material/SouthAmerica";
+import MapChart from "../../../MapChart";
 
-const OverviewTabContent = () => {
+const OverviewTabContent = ({ data }) => {
   return (
     <div>
       <div className="information-section">
         <div className="mission-info-section">
           <div className="mission-paragraph">
-            <div className="paragraph-title">The Williams Mission</div>
-            <div className="paragraph-text">
-              Our ocean unifies our world like nothing else. We are on the front
-              lines of ocean protection, investing in research, leadership and
-              advocacy that advances science-based solutions that work. Give
-              today and make a difference for the future of our ocean!
-            </div>
+            <div className="paragraph-title">Our Mission</div>
+            <div className="paragraph-text">{data.paragraph_1.text}</div>
           </div>
           <div className="mission-map-img">
-            <img src={MissionMap} alt="test" />
+            <MapChart style={{ color: "blue" }} />
           </div>
         </div>
       </div>
@@ -29,15 +25,13 @@ const OverviewTabContent = () => {
           <div className="vision-box">
             <WavesIcon sx={{ color: "#A400FF", fontSize: "60px" }} />
             <div className="vision-box-text">
-              The ocean takes up 70% of our earth, it is our duty to take care
-              of it.
+              {data.vision_section.vision_1}
             </div>
           </div>
           <div className="vision-box">
             <FavoriteBorderIcon sx={{ color: "#A400FF", fontSize: "60px" }} />
             <div className="vision-box-text">
-              The ocean takes up 70% of our earth, it is our duty to take care
-              of it.
+              {data.vision_section.vision_2}
             </div>
           </div>
         </div>
@@ -45,8 +39,7 @@ const OverviewTabContent = () => {
           <div className="vision-box">
             <WorkspacePremiumIcon sx={{ color: "#A400FF", fontSize: "60px" }} />
             <div className="vision-box-text">
-              The ocean takes up 70% of our earth, it is our duty to take care
-              of it.
+              {data.vision_section.vision_3}
             </div>
           </div>
           <div className="vision-box">
@@ -58,8 +51,7 @@ const OverviewTabContent = () => {
               }}
             />
             <div className="vision-box-text">
-              The ocean takes up 70% of our earth, it is our duty to take care
-              of it.
+              {data.vision_section.vision_4}
             </div>
           </div>
         </div>

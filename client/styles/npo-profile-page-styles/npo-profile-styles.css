@@ -10,14 +10,14 @@
      HEADER
   *************************/
 
-.header-container {
+.main-header-container {
     display: flex;
     width: 100%;
     height: 496px;
 }
 
 .left-header-section {
-    width: 45%;
+    width: 100%;
     background-color: #243447;
     height: 100%;
 }
@@ -32,6 +32,7 @@
     font-size: 50px;
     color: #fff;
     margin: 40px 0 0 35px;
+    max-width: 250px;
 }
 
 .header-donate-btn-container {
@@ -89,6 +90,8 @@
     font-weight: 500;
     margin-left: 30px;
     margin-top: 5px;
+    max-height: 30px;
+    overflow: hidden;
 }
 
 .right-image-section  {

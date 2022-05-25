@@ -2,10 +2,11 @@ import { useContext, useState } from "react";
 import { ListProjects } from "./ListProjects";
 import { Searchbar } from "./Searchbar";
 import { CategoryFilter } from "./CategoryFilter";
-import { Top } from "./Top";
+import { DiscoveryHeader } from "../headers/DiscoveryHeader";
 import "../../styles/discoverPage.css";
 import { ProjectsApiContext } from "../../api-client/projectsApiContext";
 import { useLoading } from "../../useLoading";
+import { NpoApiContext } from "../../api-client/npoApiContext";
 
 
 
@@ -15,9 +16,9 @@ const DiscoverPage = () => {
   const [npoName, setNpoName] = useState("")
   const [_id, set_id] = useState("")
 
-  const { listProjects } = useContext(ProjectsApiContext);
+  const { listNpos } = useContext(NpoApiContext);
   const { loading, error, data } = useLoading(
-    async () => await listProjects({ category, npoName, _id }),
+    async () => await listNpos({ category }),
     [category]
   );
 
@@ -43,8 +44,8 @@ const DiscoverPage = () => {
 
   return (
     <div className={"discover-page-container"}>
-      <Top />
-      <CategoryFilter onClick={categorySelectHandler} category={category} />
+      <DiscoveryHeader/>
+      <CategoryFilter onClick={categorySelectHandler} category={category}/>
       <br /><br />
       <Searchbar searchString={searchString} onChange={handleSearchInput} />
       <br /><br />
