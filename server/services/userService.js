@@ -1,5 +1,4 @@
 import User from "../models/userModel.js";
-import Npo from "../models/npoModel.js";
 import { ObjectId } from "mongodb";
 
 
@@ -72,8 +71,7 @@ async function getByGoogleId(id) {
       ]
     );
 
-
-    return user;
+    return user[0];
   } catch (e) {
     throw Error();
   }
