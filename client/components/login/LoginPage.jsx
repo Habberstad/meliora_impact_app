@@ -9,6 +9,7 @@ import { Link, Route } from "react-router-dom";
 import { SelectSubscription } from "./SelectSubscription";
 import { FindCompany } from "./FindCompany";
 import { SelectPaymentMethod } from "./SelectPaymentMethod";
+import { SelectIdentificationMethod } from "./SelectIdentificationMethod";
 
 export const LoginPage = () => {
   const [isRegistered, setIsRegistered] = useState(true);
@@ -29,6 +30,7 @@ export const LoginPage = () => {
         <Link to={"/select-subscription"}>select</Link>
         <Link to={"/find-company"}>company</Link>
         <Link to={"/select-payment-method"}>payment</Link>
+        <Link to={"/select-identification-method"}>identity</Link>
       </div>
       <div className="login-container">
         <Routes>
@@ -54,6 +56,12 @@ export const LoginPage = () => {
             path={"/select-payment-method"}
             element={<SelectPaymentMethod />}
           />
+          <Route
+            exact
+            path={"/select-identification-method"}
+            element={<SelectIdentificationMethod />}
+          />
+          <Route exact path={"/register-form"} element={<RegisterForm />} />
         </Routes>
       </div>
     </div>
