@@ -47,9 +47,9 @@ app.use(
 
 app.use("/auth", authRoute);
 
-app.use("/api/projects", hasAccount, projectsRoute);
-app.use("/api/articles", hasAccount, articlesRoute);
-app.use("/api/npo", hasAccount, npoRoute);
+app.use("/api/projects", projectsRoute);
+app.use("/api/articles", articlesRoute);
+app.use("/api/npo", npoRoute);
 app.use("/api/users", userRoute);
 
 
