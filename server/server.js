@@ -50,7 +50,7 @@ app.use("/auth", authRoute);
 app.use("/api/projects", hasAccount, projectsRoute);
 app.use("/api/articles", hasAccount, articlesRoute);
 app.use("/api/npo", hasAccount, npoRoute);
-app.use("/api/users",hasAccount, userRoute);
+app.use("/api/users", userRoute);
 
 
 app.use((req, res, next) => {

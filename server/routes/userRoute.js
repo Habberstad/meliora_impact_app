@@ -5,7 +5,7 @@ import { accessToOwnAccountOnly } from "../middleware/middleware.js";
 const router = Router();
 
 router.get("/", UserController.list);
-router.get("/:id", accessToOwnAccountOnly , UserController.getById);
+router.get("/:id" , UserController.getById);
 router.post("/register", UserController.create);
 
 
