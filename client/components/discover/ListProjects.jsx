@@ -20,7 +20,7 @@ function filterBySearchWord(list, searchWord) {
 }
 
 export function ProjectCard({
-  project: { name, description, category, npoName, _id, card_img },
+  project: { name, description, category, _id, card_image },
 }) {
   function navigateToProject() {
     alert("Should navigate to project: " + name + " (id: " + _id + ")");
@@ -42,13 +42,13 @@ export function ProjectCard({
       <div className={"card-image-wrapper"}>
         <CardMedia
           component="img"
-          image={card_img}
+          image={card_image}
           alt="background-img"
           className={"card-image"}
           sx={{ width: "320px" }}
         />
         <div className={"npoCardIcon card-image-icon"}>
-          <div className={"card-image-npoName-wrapper"}>{npoName}</div>
+          <div className={"card-image-npoName-wrapper"}>{category}</div>
           <div className={"card-image-icon-wrapper"}>
             {category.toLowerCase() === "water" ? (
               <OpacityIcon sx={{ fontSize: "20px", marginTop: "2px" }} />
@@ -65,7 +65,7 @@ export function ProjectCard({
         <div className={"npoCard-text-description"}>{description}</div>
       </div>
       <div className={"card-button-container"}>
-        <Link to={"/project/" + _id} style={{ textDecoration: "none" }}>
+        <Link to={"/npo-profile/" + _id} style={{ textDecoration: "none" }}>
           <Button
             variant="contained"
             sx={{
