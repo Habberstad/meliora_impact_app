@@ -11,6 +11,10 @@ export const UserApiContext = React.createContext({
     return await fetchJSON("/api/npo/" + urlPathParam);
   },
 
+  async getUserByGoogleId(urlPathParam) {
+    return await fetchJSON("/api/npo/google-id/" + urlPathParam);
+  },
+
   async registerUser(user) {
     return await postJSON("/api/user", user);
   },

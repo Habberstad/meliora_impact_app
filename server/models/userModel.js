@@ -2,15 +2,15 @@ import mongoose from "mongoose";
 import { ObjectId } from "mongodb";
 
 const userSchema = new mongoose.Schema({
-  first_name: String,
+  _id: String,
+  name: String,
   last_name: String,
   org_number: {
-    type: String,
-    unique: true
+    type: String
   },
+  org_name: String,
   google_id: {
-    type: String,
-    unique: true
+    type: String
   },
   description: String,
   address: String,
