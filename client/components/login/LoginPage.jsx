@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { RegisterForm } from "./RegisterForm";
 import { LoginForm } from "./LoginForm";
 import { Link, Route } from "react-router-dom";
+import { SelectSubscription } from "./SelectSubscription";
 
 export const LoginPage = () => {
   const [isRegistered, setIsRegistered] = useState(true);
@@ -22,9 +23,9 @@ export const LoginPage = () => {
   return (
     <div className="login-page-container">
       {isOverBreakpoint && <LoginLeftCard />}
+      <Link to={"/login-form"}>login</Link>
+      <Link to={"/select-subscription"}>select</Link>
       <div className="login-container">
-        <Link to={"/login-form"}>login</Link>
-        <Link to={"/register-form"}>register</Link>
         <Routes>
           <Route
             exact
@@ -32,6 +33,16 @@ export const LoginPage = () => {
             element={<LoginForm google={google} />}
           />
           <Route exact path={"/register-form"} element={<RegisterForm />} />
+          <Route
+            exact
+            path={"/select-subscription"}
+            element={<SelectSubscription />}
+          />
+          <Route
+            exact
+            path={"/select-subscription"}
+            element={<SelectSubscription />}
+          />
         </Routes>
       </div>
     </div>
