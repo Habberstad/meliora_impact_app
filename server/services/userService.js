@@ -3,7 +3,6 @@ import Npo from "../models/npoModel.js";
 import { ObjectId } from "mongodb";
 
 
-
 async function list(query) {
   try {
     return await User.find(query);
@@ -17,21 +16,31 @@ async function getById(id) {
   try {
     const user = await User.aggregate(
       [
-        { $match: { _id: ObjectId(id) } }
-        ,
+        { $match: { _id: ObjectId(id) } },
+        {
+          $lookup: {
+            from: "transactions",
+            localField: "_id",
+            foreignField: "giver_id",
+            as: "donation_history"
+          }
+        },
+        { $match: { _id: ObjectId(id) } },
         {
           $lookup: {
             from: "npos",
-            localField: "active_npos_id",
+            localField: "active_npos_id.id",
             foreignField: "_id",
             as: "npo_partners"
           }
         }
 
+
+
       ]
     );
 
-    console.log(user)
+    console.log(user);
 
     return user;
   } catch (e) {
@@ -41,9 +50,9 @@ async function getById(id) {
 
 
 async function create(query) {
-  console.log(query)
+  console.log(query);
   try {
-    const data = await new User(query)
+    const data = await new User(query);
     return data.save();
   } catch (e) {
 
