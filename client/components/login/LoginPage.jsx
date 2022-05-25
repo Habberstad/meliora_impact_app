@@ -8,6 +8,7 @@ import { RegisterForm } from "./RegisterForm";
 import { LoginForm } from "./LoginForm";
 import { Link, Route } from "react-router-dom";
 import { SelectSubscription } from "./SelectSubscription";
+import { FindCompany } from "./FindCompany";
 
 export const LoginPage = () => {
   const [isRegistered, setIsRegistered] = useState(true);
@@ -23,8 +24,11 @@ export const LoginPage = () => {
   return (
     <div className="login-page-container">
       {isOverBreakpoint && <LoginLeftCard />}
-      <Link to={"/login-form"}>login</Link>
-      <Link to={"/select-subscription"}>select</Link>
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        <Link to={"/login-form"}>login</Link>
+        <Link to={"/select-subscription"}>select</Link>
+        <Link to={"/find-company"}>company</Link>
+      </div>
       <div className="login-container">
         <Routes>
           <Route
@@ -43,6 +47,7 @@ export const LoginPage = () => {
             path={"/select-subscription"}
             element={<SelectSubscription />}
           />
+          <Route exact path={"/find-company"} element={<FindCompany />} />
         </Routes>
       </div>
     </div>
