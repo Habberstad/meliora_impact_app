@@ -80,7 +80,9 @@ const Dashboard = () => {
                 <a>Share on Social Media</a>
               </div>
               <div className={"socialmedia-template-content-bot"}>
+                <Link href={"/templates"} color="inherit">
                 <a>View templates</a>
+                </Link>
               </div>
               </div>
           </Grid>
