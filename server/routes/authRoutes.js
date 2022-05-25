@@ -24,6 +24,16 @@ router.get("/login/failed", (req, res) => {
 
 router.get("/login/success", async (req, res) => {
   if (req.user) {
+    res.status(200).json({
+      success: true,
+      message: "successfull",
+      user: req.user,
+      cookies: req.cookies
+    });
+  }
+
+  /*
+    if (req.user) {
     const dbUser = await User.find({ google_id: req.user.id });
 
     if (dbUser.length !== 0 && req.user.id === dbUser[0].google_id) {
@@ -34,12 +44,11 @@ router.get("/login/success", async (req, res) => {
         cookies: req.cookies
       });
     } else {
-      res.status(401).json({
-        success: false,
-        message: "failure"
-      });
+      res.redirect(CLIENT_URL)
     }
   }
+   */
+
 });
 
 
