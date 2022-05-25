@@ -3,6 +3,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 50px;
 }
 
 .project-content-container {
@@ -73,6 +74,7 @@
     height: 420px;
     display: flex;
     flex-direction: row;
+    margin-top: 100px;
 }
 
 .impact-text-container{

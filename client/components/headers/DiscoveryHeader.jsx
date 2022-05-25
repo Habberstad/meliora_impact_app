@@ -1,23 +1,22 @@
 import { Box, Grid } from "@mui/material";
-import headerImg from "../../media/articles_header_image.png"
+import headerImg from "../../media/discover_header.png";
 import "../../styles/header-styles.css";
 
-export function ArticlesHeader() {
+export function DiscoveryHeader() {
   return (
     <div>
       <Box className={"global-header-container"}>
         <Grid container columnSpacing={{ lg: 10, xl: 10 }}>
           <Grid item lg={6} xl={6}>
-            <div className="global-header-title">Meliora Articles</div>
+            <div className="global-header-title">Discover</div>
 
             <div className="global-header-sub-title">
-              Enjoy regular project updates
+              Explore other projects
             </div>
 
             <div className="global-header-desc">
-              <strong>Inspiring</strong> articles from the projects directly
-              associated with the Meliora platform. Take a moment to interact with
-              these exciting <news className=""></news>
+              <strong>Dive</strong> in and learn about which projects our passionate NPOs are engaged with.
+              Quickly sort and collaborate on different propositions we can offer.
             </div>
           </Grid>
 
