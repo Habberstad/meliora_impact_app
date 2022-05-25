@@ -43,8 +43,8 @@ const DiscoverPage = () => {
 
   return (
     <div className={"discover-page-container"}>
-      <DiscoveryHeader />
-      <CategoryFilter onClick={categorySelectHandler} category={category} />
+      <DiscoveryHeader/>
+      <CategoryFilter onClick={categorySelectHandler} category={category}/>
       <br /><br />
       <Searchbar searchString={searchString} onChange={handleSearchInput} />
       <br /><br />
