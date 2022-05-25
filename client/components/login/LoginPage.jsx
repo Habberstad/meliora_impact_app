@@ -1,8 +1,8 @@
 import "../../styles/loginPage-styles.css";
 
-import { Routes } from "react-router";
+import { Routes, useNavigate } from "react-router";
 import { LoginLeftCard } from "./LoginLeftCard";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { RegisterForm } from "./RegisterForm";
 import { LoginForm } from "./LoginForm";
 import { Link, Route } from "react-router-dom";
@@ -10,8 +10,13 @@ import { SelectSubscription } from "./SelectSubscription";
 import { FindCompany } from "./FindCompany";
 import { SelectPaymentMethod } from "./SelectPaymentMethod";
 import { SelectIdentificationMethod } from "./SelectIdentificationMethod";
+import { UserApiContext } from "../../api-client/userApiContext";
 
 export const LoginPage = () => {
+  const navigate = useNavigate();
+  const { registerUser } = useContext(UserApiContext);
+  const [orgName, setOrgName] = useState("123");
+  const [orgNumber, setOrgNumber] = useState("Gutta");
   const [isRegistered, setIsRegistered] = useState(true);
   const [isOverBreakpoint, setIsOverBreakpoint] = useState(true);
   window.addEventListener("resize", () => {
@@ -20,6 +25,13 @@ export const LoginPage = () => {
 
   const google = () => {
     window.open(window.location.origin + "/auth/google", "_self");
+  };
+
+  const handleSubmit = () => {
+    //maybe async?
+    console.log({ orgName: orgName, orgNumber: orgNumber });
+    registerUser({ orgName: orgName, orgNumber: orgNumber });
+    navigate("/");
   };
 
   return (
@@ -59,7 +71,12 @@ export const LoginPage = () => {
           <Route
             exact
             path={"/select-identification-method"}
-            element={<SelectIdentificationMethod />}
+            element={
+              <SelectIdentificationMethod
+                google={google}
+                sumbit={handleSubmit}
+              />
+            }
           />
           <Route exact path={"/register-form"} element={<RegisterForm />} />
         </Routes>
