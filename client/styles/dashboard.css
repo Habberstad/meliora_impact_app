@@ -12,7 +12,7 @@
 .students-impact-container{
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 240px;
     height: 279px;
     background-color: #FFF7CD;
     align-items: center;
@@ -48,7 +48,7 @@
 .socialmedia-template-container {
     position: relative;
     border-radius: 20px;
-    width: 100%;
+    width: 240px;
     height: 279px;
     background-color: rgb(0, 0, 0);
 }
@@ -90,14 +90,20 @@
     flex-direction: column;
     background-color: #FFE7D9;
     border-radius: 20px;
-    width: 100%;
+    width: 499px;
     height: 280px;
-    font-size: 20px;
+    align-content: center;
 }
 
-.highlighted-partners-container p {
-    font-size: 30px;
-    margin-bottom: -5px;
+.accordion-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+
+.accordion-title{
+    font-size: 18px;
+    font-weight: bold;
 }
 
 .highlighted-partners-icon{
@@ -127,4 +133,17 @@
     flex-direction: row;
     align-items: center;
     gap: 10px;
+}
+
+/*
+    bottoms section
+*/
+
+/*
+ donation history
+*/
+
+.donation-history-filter-content {
+    justify-content: center;
+    align-items: center;
 }
