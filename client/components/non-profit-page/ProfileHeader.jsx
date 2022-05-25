@@ -2,7 +2,7 @@ import { Button } from "@mui/material";
 import WavesIcon from "@mui/icons-material/Waves";
 
 export function ProfileHeader({ data, name }) {
-  console.log("profile-header", data);
+
   return (
     <div className="main-header-container">
       <div

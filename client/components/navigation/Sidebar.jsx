@@ -16,7 +16,6 @@ const Sidebar = (props) => {
 
   useEffect(() => {
     setUrl(window.location.href);
-    console.log(url);
   }, []);
 
   function handleLogoutClick() {
