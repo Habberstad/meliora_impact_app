@@ -4,6 +4,7 @@ const npoSchema = new mongoose.Schema({
   name: String,
   card_description: String,
   card_image: String,
+  category: String
 });
 
-export default mongoose.model("Npo", npoSchema);
+export default mongoose.model("Npo", npoSchema, "npos");

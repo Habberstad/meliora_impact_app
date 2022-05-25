@@ -10,8 +10,8 @@ async function list(req, res, next) {
   }
 
   try {
-    const projects = await NpoService.list(query);
-    return res.status(200).json(projects);
+    const npo = await NpoService.list(query);
+    return res.status(200).json(npo);
   } catch (e) {
     return res.status(400).json({ status: 400, message: e.message });
   }
