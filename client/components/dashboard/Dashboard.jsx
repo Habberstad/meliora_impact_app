@@ -46,11 +46,10 @@ const Dashboard = (props) => {
   );
 
   console.log("hei", props.user.id);
-  const user = React.useContext(UserContext);
 
   const { getUserByGoogleId } = useContext(UserApiContext);
   const { loading2, error2, data2 } = useLoader(
-    async () => await getUserByGoogleId(user.id),
+    async () => await getUserByGoogleId(props.user.id),
     []
   );
 
