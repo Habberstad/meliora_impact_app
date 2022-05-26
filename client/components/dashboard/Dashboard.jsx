@@ -20,19 +20,36 @@ import LinearProgress, {
   linearProgressClasses,
 } from "@mui/material/LinearProgress";
 import WaterIcon from "@mui/icons-material/Water";
-import Stack from "@mui/material/Stack";
+
+import Timeline from "@mui/lab/Timeline";
+import TimelineItem from "@mui/lab/TimelineItem";
+import TimelineSeparator from "@mui/lab/TimelineSeparator";
+import TimelineConnector from "@mui/lab/TimelineConnector";
+import TimelineDot from "@mui/lab/TimelineDot";
 
 import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { TimelineContent } from "@mui/lab";
+import { UserApiContext } from "../../api-client/userApiContext";
+import { UserContext } from "../../App";
+import { useLoader } from "../../helpers/UseLoader";
 
 const Dashboard = () => {
   const queryParams = new URLSearchParams(window.location.search);
   const { getArticles } = useContext(ArticleApiContext);
   const { loading, error, data } = useLoading(
     async () => await getArticles({}),
+    []
+  );
+
+  const user = React.useContext(UserContext);
+
+  const { getUserByGoogleId } = useContext(UserApiContext);
+  const { loading2, error2, data2 } = useLoader(
+    async () => await getUserByGoogleId(user.id),
     []
   );
 
@@ -59,6 +76,20 @@ const Dashboard = () => {
       </div>
     );
   }
+
+  if (loading2) {
+    return <div>Loading...</div>;
+  }
+  if (error2) {
+    return (
+      <div>
+        <h1>Error</h1>
+        <div id="error-text">{error2.toString()}</div>
+      </div>
+    );
+  }
+
+  console.log(data2);
 
   return (
     <div className={"dashboard-container"}>
@@ -243,8 +274,9 @@ const Dashboard = () => {
           className={"bottom-container-dashboard"}
         >
           <Grid item xl={6} lg={6} className={"donation-history-container"}>
-            <div className={"donation-history-title"}>Donation History</div>
             <div className={"donation-history-filter"}>
+              <div className={"donation-history-title"}>Donation History</div>
+
               <div className={"donation-history-filter-content"}>
                 <InputLabel>Select Non-profit</InputLabel>
                 <Select style={{ width: "232px" }} onChange={handleChange1}>
@@ -253,13 +285,28 @@ const Dashboard = () => {
                   <MenuItem value={"placeholder"}>placholder</MenuItem>
                 </Select>
               </div>
+              <Grid
+                container
+                justifyContent="space-around"
+                className={"donation-history-timeline-container"}
+              >
+                <Grid item className={"donation-history-timeline"}>
+                  <Timeline>
+                    <TimelineItem>
+                      <TimelineSeparator>
+                        <TimelineDot color={"secondary"} />
+                        <TimelineConnector />
+                      </TimelineSeparator>
+                      <TimelineContent>Monthly Donation</TimelineContent>
+                      <TimelineContent color={"secondary"}>
+                        {data[0].npoName}
+                      </TimelineContent>
+                      <TimelineContent>1.000Kr</TimelineContent>
+                    </TimelineItem>
+                  </Timeline>
+                </Grid>
+              </Grid>
             </div>
-            <div></div>
-            <div>
-              <div></div>
-              <div></div>
-            </div>
-            <div></div>
           </Grid>
           <Grid item xl={6} lg={6} className={"highlighted-data-container"}>
             test

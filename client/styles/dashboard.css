@@ -143,7 +143,29 @@
  donation history
 */
 
-.donation-history-filter-content {
+.donation-history-filter{
+    display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
+    background-color: white;
+    margin: 20px;
+}
+.donation-history-filter-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.donation-history-timeline-container{
+}
+
+.donation-history-timeline{
+    color: #5D5FEF;
+}
+
+.donation-history-recent{
+}
+
+.donation-history-amount{
 }
