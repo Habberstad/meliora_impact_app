@@ -12,6 +12,7 @@ import {
   templateCardButtonStyle,
   templateSelectedCardButtonStyle,
 } from "../../styles/button-style-config";
+import { Check } from "@mui/icons-material";
 
 const steps = ["Content", "Format", "Customize", "Review"];
 
@@ -123,15 +124,36 @@ const MediaTemplatePage = ({ user }) => {
       </div>
       <div className="template-content-container">
         <div className="template-timeline-container">
-          <Box sx={{ width: "500px" }}>
+          <Box sx={{ width: "800px" }}>
             <Stepper
-              sx={{ ".MuiStep-active": { color: "red" } }}
+              sx={{
+                width: "100%",
+                "& .MuiStepConnector-line": {
+                  borderColor: "#DA97FE",
+                  borderTopWidth: "4px",
+                },
+                "& .MuiStepConnector-root.Mui-active .MuiStepConnector-line": {
+                  borderColor: "#551477",
+                },
+                "& .MuiStepConnector-root.Mui-completed .MuiStepConnector-line":
+                  {
+                    borderColor: "#551477",
+                  },
+              }}
               activeStep={activeStep}
               alternativeLabel
             >
               {steps.map((label) => (
                 <Step key={label}>
-                  <StepLabel>{label}</StepLabel>
+                  <StepLabel
+                    sx={{
+                      "&.MuiStepLabel-root.Mui-active .MuiStepLabel-label": {
+                        borderColor: "red",
+                      },
+                    }}
+                  >
+                    {label}
+                  </StepLabel>
                 </Step>
               ))}
             </Stepper>
