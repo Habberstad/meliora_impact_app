@@ -46,7 +46,7 @@ export const FindCompany = (props) => {
       <BackButton />
       <div>
         <h1>Find Your Company</h1>
-        <p>{props.subscriptionType}</p> {/* Todo subscription selected */}
+        <p>{props.subscriptionType}</p>
       </div>
       <TextField
         onChange={onChangeHandler}
@@ -76,7 +76,6 @@ export const FindCompany = (props) => {
                     company.navn,
                     company.organisasjonsnummer
                   );
-                  console.log(company.navn, company.organisasjonsnummer);
                 }}
               >
                 select
