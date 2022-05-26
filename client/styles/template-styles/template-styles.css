@@ -80,3 +80,19 @@
     border-bottom-left-radius: 10px;
     border-top-left-radius: 10px;
 }
+
+.template-content-sub-title{
+    font-size: 32px;
+    font-weight: 600;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+.template-content-card-title {
+    font-size: 24px;
+    font-weight: 500;
+    margin: 10px 0 15px 60px;
+    padding: 0 15px 5px 15px;
+    border-bottom: solid 1px #7209b7;
+
+}
