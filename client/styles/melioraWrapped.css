@@ -1,0 +1,11 @@
+.meliora-wrapped-container {
+    height: 100vh;
+    width: 100%;
+}
+
+.meliora-background-image {
+    object-fit: fill;
+    max-width: 100%;
+    min-width: 1150px;
+    height: 100vh;
+}
