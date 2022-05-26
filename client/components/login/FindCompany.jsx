@@ -72,6 +72,10 @@ export const FindCompany = (props) => {
               <p>{company.navn} </p>
               <button
                 onClick={() => {
+                  props.handleCompanyInfo(
+                    company.navn,
+                    company.organisasjonsnummer
+                  );
                   console.log(company.navn, company.organisasjonsnummer);
                 }}
               >
