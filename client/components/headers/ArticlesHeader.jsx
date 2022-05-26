@@ -1,5 +1,5 @@
 import { Box, Grid } from "@mui/material";
-import headerImg from "../../media/articles_header_image.png"
+import headerImg from "../../media/articles_header_image.png";
 import "../../styles/header-styles.css";
 
 export function ArticlesHeader() {
@@ -16,8 +16,8 @@ export function ArticlesHeader() {
 
             <div className="global-header-desc">
               <strong>Inspiring</strong> articles from the projects directly
-              associated with the Meliora platform. Take a moment to interact with
-              these exciting <news className=""></news>
+              associated with the Meliora platform. Take a moment to interact
+              with these exciting
             </div>
           </Grid>
 

@@ -67,7 +67,6 @@ export const hoverTabStyle = {
   fontWeight: "bold",
   fontFamily: "Montserrat",
   fontSize: "20px",
-
   "&:hover": {
     borderBottom: "3px solid #7209B7",
     backgroundColor: "#FAFAFA",
@@ -86,4 +85,41 @@ export const selectedTabStyle = {
     borderBottom: "3px solid #7209B7",
     backgroundColor: "#FAFAFA",
   },
+};
+
+export const templateCardButtonStyle = {
+  display: "flex",
+  height: "130px",
+  width: "120px",
+  borderRadius: "8px",
+  border: "solid 2px #464D51",
+  justifyContent: "center",
+  alignItems: "center",
+  textAlign: "center",
+  fontSize: "14px",
+  fontWeight: "500",
+  margin: "0px 6px",
+  cursor: "pointer",
+  backgroundColor: "#FFF",
+  "&:hover": {
+    backgroundColor: "red",
+    color: "#FFF",
+  },
+};
+
+export const templateSelectedCardButtonStyle = {
+  display: "flex",
+  height: "130px",
+  width: "120px",
+  borderRadius: "8px",
+  border: "solid 2px #464D51",
+  justifyContent: "center",
+  alignItems: "center",
+  textAlign: "center",
+  fontSize: "14px",
+  fontWeight: "500",
+  margin: "0px 6px",
+  cursor: "pointer",
+  backgroundColor: "#7209B7",
+  color: "#FFF",
 };

@@ -2,7 +2,7 @@ import ProjectService from "../services/projectService.js";
 import { ObjectId } from "mongodb";
 
 
-async function listProjects(req, res, next) {
+async function listProjects(req, res) {
   const query = {};
 
   const { category } = req.query;
@@ -16,7 +16,7 @@ async function listProjects(req, res, next) {
   }
 
   const { _id } = req.query;
-  if (_id !== "" && _id !== ObjectId.isValid(_id)) {
+  if (_id !== "" && _id !== undefined && ObjectId.isValid(_id)) {
     query._id = { $eq: ObjectId(_id) };
   }
 

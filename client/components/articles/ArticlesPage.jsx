@@ -1,14 +1,15 @@
-import {useContext, useState} from "react";
+import { useContext, useState } from "react";
 import "../../styles/articlesPage.css";
-import {ArticleApiContext} from "../../api-client/articlesApiContext";
-import {useLoading} from "../../useLoading";
-import {ArticlesHeader} from "../headers/ArticlesHeader";
-import {Sorter} from "./Sorter";
-import * as PropTypes from "prop-types";
-import {ArticlesContent} from "./ArticlesContent";
+import { ArticleApiContext } from "../../api-client/articlesApiContext";
+import { useLoading } from "../../useLoading";
+import { Sorter } from "./Sorter";
+import { ArticlesContent } from "./ArticlesContent";
+import { isLoading } from "../shared-components/Loading";
+import { Error } from "../shared-components/Error";
+import { GlobalHeader } from "../headers/GlobalHeader";
+import { HEADER } from "../headers/HEADER";
+import headerImg from "../../media/articles_header_image.png";
 
-
-ArticlesContent.propTypes = {data: PropTypes.any};
 const ArticlesPage = () => {
   const [category, setCategory] = useState("water");
   const [npoName, setNpoName] = useState("");
@@ -21,15 +22,9 @@ const ArticlesPage = () => {
     [category]
   );
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return isLoading();
 
-  if (error)
-    return (
-      <div>
-        <h1>Error</h1>
-        <div id="error-text">{error.toString()}</div>
-      </div>
-    );
+  if (error) return <Error error={error} />;
 
   function handleNavigationAndFiltering(event) {
     setCategory(event);
@@ -38,11 +33,20 @@ const ArticlesPage = () => {
 
   return (
     <div className="articles-wrapper">
-      <ArticlesHeader/>
-      <Sorter onClick={() => handleNavigationAndFiltering("")} selectedTab={selectedTab}
-              onClick1={() => handleNavigationAndFiltering("water")}
-              onClick2={() => handleNavigationAndFiltering("knowledge")}/>
-      <ArticlesContent data={data}/>
+      <GlobalHeader
+        title={HEADER[1].title}
+        subtitle={HEADER[1].subtitle}
+        desc={HEADER[1].desc}
+        image={headerImg}
+      />
+
+      <Sorter
+        onClick={() => handleNavigationAndFiltering("")}
+        selectedTab={selectedTab}
+        onClick1={() => handleNavigationAndFiltering("water")}
+        onClick2={() => handleNavigationAndFiltering("knowledge")}
+      />
+      <ArticlesContent data={data} />
     </div>
   );
 };

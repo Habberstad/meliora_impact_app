@@ -2,36 +2,36 @@ import User from "../models/userModel.js";
 import Npo from "../models/npoModel.js";
 import { ObjectId } from "mongodb";
 
-
-
 async function list(query) {
   try {
     return await User.find(query);
   } catch (e) {
-
     throw Error(e);
   }
 }
 
 async function getById(id) {
   try {
-    const user = await User.aggregate(
-      [
-        { $match: { _id: ObjectId(id) } }
-        ,
-        {
-          $lookup: {
-            from: "npos",
-            localField: "active_npos_id",
-            foreignField: "_id",
-            as: "npo_partners"
-          }
-        }
-
-      ]
-    );
-
-    console.log(user)
+    const user = await User.aggregate([
+      { $match: { _id: ObjectId(id) } },
+      {
+        $lookup: {
+          from: "transactions",
+          localField: "_id",
+          foreignField: "giver_id",
+          as: "donation_history",
+        },
+      },
+      { $match: { _id: ObjectId(id) } },
+      {
+        $lookup: {
+          from: "npos",
+          localField: "active_npos_id.id",
+          foreignField: "_id",
+          as: "npo_partners",
+        },
+      },
+    ]);
 
     return user;
   } catch (e) {
@@ -39,17 +39,45 @@ async function getById(id) {
   }
 }
 
-
-async function create(query) {
-  console.log(query)
+async function getByGoogleId(id) {
   try {
-    const data = await new User(query)
-    return data.save();
-  } catch (e) {
+    const user1 = await User.find({ google_id: id });
+    const userId = user1[0]._id;
 
+    const user = await User.aggregate([
+      { $match: { _id: ObjectId(userId) } },
+      {
+        $lookup: {
+          from: "transactions",
+          localField: "_id",
+          foreignField: "giver_id",
+          as: "donation_history",
+        },
+      },
+      { $match: { _id: ObjectId(userId) } },
+      {
+        $lookup: {
+          from: "npos",
+          localField: "active_npos_id.id",
+          foreignField: "_id",
+          as: "npo_partners",
+        },
+      },
+    ]);
+
+    return user[0];
+  } catch (e) {
     throw Error();
   }
 }
 
+async function create(query) {
+  try {
+    const data = await new User(query);
+    return data.save();
+  } catch (e) {
+    throw Error();
+  }
+}
 
-export default { list, getById, create };
+export default { list, getById, create, getByGoogleId };
