@@ -38,10 +38,10 @@ async function getByGoogleId(req, res) {
 }
 
 async function create(req, res) {
-
+  console.log(req.body)
   try {
 
-    await UserService.create(req.query);
+    await UserService.create(req.body);
     return res.status(201).redirect(config.url.API_URL);
   } catch (e) {
     return res.status(400).json({ status: 400, message: e.message });
