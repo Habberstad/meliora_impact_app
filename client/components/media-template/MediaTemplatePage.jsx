@@ -9,6 +9,7 @@ import { FormatStep } from "./FormatStep";
 import { CustomizeStep } from "./CustomizeStep";
 import { ReviewStep } from "./ReviewStep";
 import {
+  outlinedTabButtonStyle,
   templateCardButtonStyle,
   templateSelectedCardButtonStyle,
 } from "../../styles/button-style-config";
@@ -19,10 +20,7 @@ function TemplateProjectCard({ data }) {
   return (
     <div className="template-project-card">
       <div style={{ width: "252px" }}>
-        <img
-          src="https://images.unsplash.com/photo-1544552866-d3ed42536cfd?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500"
-          alt=""
-        />
+        <img src={data.header_image} alt="" />
       </div>
       <div>
         <div className="template-content-card-title">{data.name}</div>
@@ -42,15 +40,16 @@ function TemplateProjectCard({ data }) {
 }
 
 const ContentStep = ({ npoList }) => {
-  const [selectedCard, setSelectedCard] = useState("");
+  const [selectedCard, setSelectedCard] = useState();
   const [filteredProjects, setFilteredProjects] = useState([]);
-  const [isCardSelected, setIsCardSelected] = useState(true);
+  const [isCardSelected, setIsCardSelected] = useState(false);
 
   const handleFilterProjects = (id) => {
     const res = npoList.filter((x) => x._id === id);
     const selectedNpo = { ...res[0] };
     setFilteredProjects(selectedNpo.projects);
     setSelectedCard(id);
+    setIsCardSelected(true);
   };
 
   return (
@@ -144,8 +143,26 @@ const MediaTemplatePage = ({ user }) => {
           {activeStep === 2 && <CustomizeStep />}
           {activeStep === 3 && <ReviewStep />}
         </div>
-        <div>
-          <Button onClick={handleBack} disabled={activeStep === 0}>
+        <div style={{ margin: "25px" }}>
+          <Button
+            sx={{
+              height: "45px",
+              width: "140px",
+              marginRight: "25px",
+              borderRadius: "8px",
+              backgroundColor: "#FFF",
+              border: "solid 2px black",
+              color: "black",
+              "&:hover": {
+                backgroundColor: "#FFF",
+                border: "solid 2px #7209B7",
+                color: "#7209B7",
+              },
+            }}
+            onClick={handleBack}
+            disabled={activeStep === 0}
+            variant="outlined"
+          >
             Back
           </Button>
           {activeStep === 3 ? (
@@ -154,7 +171,21 @@ const MediaTemplatePage = ({ user }) => {
               <Button>Share</Button>
             </>
           ) : (
-            <Button onClick={handleNext}>Next</Button>
+            <Button
+              variant="contained"
+              sx={{
+                height: "45px",
+                width: "140px",
+                borderRadius: "8px",
+                backgroundColor: "#7209B7",
+                "&:hover": {
+                  backgroundColor: "#A400FF",
+                },
+              }}
+              onClick={handleNext}
+            >
+              Next
+            </Button>
           )}
         </div>
       </div>

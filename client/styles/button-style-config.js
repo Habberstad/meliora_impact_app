@@ -67,7 +67,6 @@ export const hoverTabStyle = {
   fontWeight: "bold",
   fontFamily: "Montserrat",
   fontSize: "20px",
-
   "&:hover": {
     borderBottom: "3px solid #7209B7",
     backgroundColor: "#FAFAFA",
@@ -103,7 +102,7 @@ export const templateCardButtonStyle = {
   cursor: "pointer",
   backgroundColor: "#FFF",
   "&:hover": {
-    backgroundColor: "#7209B7",
+    backgroundColor: "red",
     color: "#FFF",
   },
 };
