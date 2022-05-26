@@ -47,7 +47,7 @@ export const SelectPaymentMethod = (props) => {
       </div>
       <Button
         onClick={() => {
-          navigate("/select-identification-method");
+          props.sumbit();
         }}
         className={"form-button"}
         sx={{
@@ -61,7 +61,7 @@ export const SelectPaymentMethod = (props) => {
         variant="contained"
         size="large"
       >
-        Next
+        finish
       </Button>
     </div>
   );

@@ -39,16 +39,16 @@ export const LoginPage = () => {
   const handleSubmit = () => {
     //maybe async?
     console.log({
-      orgName: orgName,
-      orgNumber: orgNumber,
-      paymentOption: paymentOption,
-      subscriptionType: subscriptionType,
+      org_name: orgName,
+      org_number: orgNumber,
+      payment_option: paymentOption,
+      subscription_type: subscriptionType,
     });
     registerUser({
-      orgName: orgName,
-      orgNumber: orgNumber,
-      paymentOption: paymentOption,
-      subscriptionType: subscriptionType,
+      org_name: orgName,
+      org_number: orgNumber,
+      payment_option: paymentOption,
+      subscription_type: subscriptionType,
     });
   };
 
@@ -57,10 +57,10 @@ export const LoginPage = () => {
       {isOverBreakpoint && <LoginLeftCard />}
       <div style={{ display: "flex", flexDirection: "column" }}>
         <Link to={"/login-form"}>login</Link>
-        <Link to={"/select-subscription"}>select</Link>
-        <Link to={"/find-company"}>company</Link>
-        <Link to={"/select-payment-method"}>payment</Link>
         <Link to={"/select-identification-method"}>identity</Link>
+        <Link to={"/find-company"}>company</Link>
+        <Link to={"/select-subscription"}>select</Link>
+        <Link to={"/select-payment-method"}>payment</Link>
       </div>
       <div className="login-container">
         <Routes>
@@ -71,8 +71,23 @@ export const LoginPage = () => {
           />
           <Route
             exact
+            path={"/select-identification-method"}
+            element={
+              <SelectIdentificationMethod
+                subscriptionType={subscriptionType}
+                google={google}
+              />
+            }
+          />
+          <Route
+            exact
             path={"/register-form"}
             element={<RegisterForm subscriptionType={subscriptionType} />}
+          />
+          <Route
+            exact
+            path={"/find-company"}
+            element={<FindCompany subscriptionType={subscriptionType} />}
           />
           <Route
             exact
@@ -88,27 +103,12 @@ export const LoginPage = () => {
           />
           <Route
             exact
-            path={"/find-company"}
-            element={<FindCompany subscriptionType={subscriptionType} />}
-          />
-          <Route
-            exact
             path={"/select-payment-method"}
             element={
               <SelectPaymentMethod
                 subscriptionType={subscriptionType}
                 handleChange={handlePaymentType}
                 paymentOption={paymentOption}
-              />
-            }
-          />
-          <Route
-            exact
-            path={"/select-identification-method"}
-            element={
-              <SelectIdentificationMethod
-                subscriptionType={subscriptionType}
-                google={google}
                 sumbit={handleSubmit}
               />
             }

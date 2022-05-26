@@ -19,7 +19,7 @@ export const SelectSubscription = (props) => {
         onClick={() => {
           console.log("Fremium");
           props.handleClick("freemium");
-          navigate("/find-company");
+          navigate("/select-payment-method");
         }}
         sx={{
           mb: "22px",
@@ -40,7 +40,7 @@ export const SelectSubscription = (props) => {
         onClick={() => {
           console.log("premium");
           props.handleClick("premium");
-          navigate("/find-company");
+          navigate("/select-payment-method");
         }}
         sx={{
           mb: "22px",
