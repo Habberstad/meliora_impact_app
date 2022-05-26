@@ -5,9 +5,9 @@ import { GlobalHeader } from "../headers/GlobalHeader";
 import { useLoader } from "../../helpers/UseLoader";
 import { UserApiContext } from "../../api-client/userApiContext";
 import { isLoading } from "../shared-components/Loading";
-import { FormatStep } from "./FormatStep";
-import { CustomizeStep } from "./CustomizeStep";
-import { ReviewStep } from "./ReviewStep";
+import FormatStep from "./FormatStep";
+import CustomizeStep from "./CustomizeStep";
+import ReviewStep from "./ReviewStep";
 import ContentStep from "./ContentStep";
 
 const steps = ["Content", "Format", "Customize", "Review"];
@@ -123,8 +123,44 @@ const MediaTemplatePage = ({ user }) => {
               </Button>
               {activeStep === 3 ? (
                 <>
-                  <Button>Download</Button>
-                  <Button>Share</Button>
+                  <Button
+                    disabled={true}
+                    sx={{
+                      height: "45px",
+                      width: "140px",
+                      marginRight: "25px",
+                      borderRadius: "8px",
+                      backgroundColor: "#FFF",
+                      border: "solid 2px black",
+                      color: "black",
+                      "&:hover": {
+                        backgroundColor: "#FFF",
+                        border: "solid 2px #7209B7",
+                        color: "#7209B7",
+                      },
+                    }}
+                  >
+                    Download
+                  </Button>
+                  <Button
+                    disabled={true}
+                    sx={{
+                      height: "45px",
+                      width: "140px",
+                      marginRight: "25px",
+                      borderRadius: "8px",
+                      backgroundColor: "#FFF",
+                      border: "solid 2px black",
+                      color: "black",
+                      "&:hover": {
+                        backgroundColor: "#FFF",
+                        border: "solid 2px #7209B7",
+                        color: "#7209B7",
+                      },
+                    }}
+                  >
+                    Share
+                  </Button>
                 </>
               ) : (
                 <Button

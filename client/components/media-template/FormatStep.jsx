@@ -18,7 +18,7 @@ const formats = ["Coming soon", "Coming soon", "Coming soon", "Coming soon"];
 const cards = ["Twitter", "Facebook", "Instagram", "Newsletter", "Newsletter"];
 const templateFormats = ["Text", "Visual Data", "Updates"];
 
-export const FormatStep = () => {
+const FormatStep = () => {
   const [isPlatformSelected, setIsPlatformSelected] = useState(false);
   const [isFormatSelected, setIsFormatSelected] = useState(false);
   const [isTemplateCardSelected, setIsTemplateCardSelected] = useState(false);
@@ -189,3 +189,5 @@ export const FormatStep = () => {
     </div>
   );
 };
+
+export default FormatStep;

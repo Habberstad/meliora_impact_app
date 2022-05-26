@@ -6,7 +6,7 @@ import EditIcon from "@mui/icons-material/Edit";
 
 import "../../styles/template-styles/template-styles.css";
 
-export const CustomizeStep = () => {
+const CustomizeStep = () => {
   return (
     <div>
       <div className="template-content-title">
@@ -55,3 +55,5 @@ export const CustomizeStep = () => {
     </div>
   );
 };
+
+export default CustomizeStep;
