@@ -29,7 +29,6 @@ const MediaTemplatePage = ({ user }) => {
 
   const totalSteps = steps.length;
   const completedSteps = Object.keys(completed).length;
-  const allStepsCompleted = completedSteps === totalSteps;
 
   const handleNext = () => {
     const newCompleted = completed;
@@ -42,15 +41,18 @@ const MediaTemplatePage = ({ user }) => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
-  const handleReset = () => {};
-
   return (
     <div className="template-main-container">
       <div className="template-header-container">
-        <GlobalHeader
-          title="Start sharing your impact"
-          desc="Generate social media content to share your impact to the world, tailored for your company’s platforms."
-        />
+        <div style={{ marginTop: "60px", marginLeft: "74px" }}>
+          <div className="template-header-main-title">
+            Generate Social Media Templates
+          </div>
+          <div className="template-header-sub-title">
+            <strong>Create</strong> modern and stunning content with our unique
+            templates, designed by proffesionals.
+          </div>
+        </div>
       </div>
       <div className="template-content-container">
         <div className="template-timeline-container">
