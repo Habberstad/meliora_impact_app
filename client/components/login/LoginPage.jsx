@@ -17,7 +17,8 @@ export const LoginPage = () => {
   const { registerUser } = useContext(UserApiContext);
   const [orgName, setOrgName] = useState("123");
   const [orgNumber, setOrgNumber] = useState("Gutta");
-  const [isRegistered, setIsRegistered] = useState(true);
+  const [subscriptionType, setSubscriptionType] = useState("");
+  const [paymentOption, setPaymentOption] = useState("");
   const [isOverBreakpoint, setIsOverBreakpoint] = useState(true);
   window.addEventListener("resize", () => {
     setIsOverBreakpoint(window.innerWidth >= 1000);
@@ -27,11 +28,28 @@ export const LoginPage = () => {
     window.open(window.location.origin + "/auth/google", "_self");
   };
 
+  const handlePaymentType = (option) => {
+    setPaymentOption(option);
+  };
+
+  const handleSubscriptionType = (option) => {
+    setSubscriptionType(option);
+  };
+
   const handleSubmit = () => {
     //maybe async?
-    console.log({ orgName: orgName, orgNumber: orgNumber });
-    registerUser({ orgName: orgName, orgNumber: orgNumber });
-    navigate("/");
+    console.log({
+      org_name: orgName,
+      org_number: orgNumber,
+      payment_option: paymentOption,
+      subscription_type: subscriptionType,
+    });
+    registerUser({
+      org_name: orgName,
+      org_number: orgNumber,
+      payment_option: paymentOption,
+      subscription_type: subscriptionType,
+    });
   };
 
   return (
@@ -39,10 +57,10 @@ export const LoginPage = () => {
       {isOverBreakpoint && <LoginLeftCard />}
       <div style={{ display: "flex", flexDirection: "column" }}>
         <Link to={"/login-form"}>login</Link>
-        <Link to={"/select-subscription"}>select</Link>
-        <Link to={"/find-company"}>company</Link>
-        <Link to={"/select-payment-method"}>payment</Link>
         <Link to={"/select-identification-method"}>identity</Link>
+        <Link to={"/find-company"}>company</Link>
+        <Link to={"/select-subscription"}>select</Link>
+        <Link to={"/select-payment-method"}>payment</Link>
       </div>
       <div className="login-container">
         <Routes>
@@ -51,29 +69,46 @@ export const LoginPage = () => {
             path={"/login-form"}
             element={<LoginForm google={google} />}
           />
-          <Route exact path={"/register-form"} element={<RegisterForm />} />
-          <Route
-            exact
-            path={"/select-subscription"}
-            element={<SelectSubscription />}
-          />
-          <Route
-            exact
-            path={"/select-subscription"}
-            element={<SelectSubscription />}
-          />
-          <Route exact path={"/find-company"} element={<FindCompany />} />
-          <Route
-            exact
-            path={"/select-payment-method"}
-            element={<SelectPaymentMethod />}
-          />
           <Route
             exact
             path={"/select-identification-method"}
             element={
               <SelectIdentificationMethod
+                subscriptionType={subscriptionType}
                 google={google}
+              />
+            }
+          />
+          <Route
+            exact
+            path={"/register-form"}
+            element={<RegisterForm subscriptionType={subscriptionType} />}
+          />
+          <Route
+            exact
+            path={"/find-company"}
+            element={<FindCompany subscriptionType={subscriptionType} />}
+          />
+          <Route
+            exact
+            path={"/select-subscription"}
+            element={
+              <SelectSubscription handleClick={handleSubscriptionType} />
+            }
+          />
+          <Route
+            exact
+            path={"/select-subscription"}
+            element={<SelectSubscription />}
+          />
+          <Route
+            exact
+            path={"/select-payment-method"}
+            element={
+              <SelectPaymentMethod
+                subscriptionType={subscriptionType}
+                handleChange={handlePaymentType}
+                paymentOption={paymentOption}
                 sumbit={handleSubmit}
               />
             }
