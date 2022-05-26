@@ -47,7 +47,7 @@ const Dashboard = (props) => {
   const handleChange1 = (event) => {
     setAge(event.target.value);
   };
-  console.log(userData);
+
   // TODO: Denne burde ha et mer beskrivende navn
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
@@ -64,6 +64,7 @@ const Dashboard = (props) => {
     );
   }
 
+  console.log(userData.active_npos_id[0].impacts);
   return (
     <div className={"dashboard-container"}>
       <h1>Hi, Welcome back </h1>
@@ -275,7 +276,7 @@ const Dashboard = (props) => {
                       </TimelineSeparator>
                       <TimelineContent className={"donation-history-content"}>
                         <div className={"monthly-donation"}>
-                          Monthly donation
+                          {userData.active_npos_id[0].impacts.impact_type}
                           <div className={"donation-date"}>24 mai 2021</div>
                         </div>
                         <div className={"donation-npo-name"}>
