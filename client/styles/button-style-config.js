@@ -104,10 +104,6 @@ export const templateCardButtonStyle = {
   margin: "0px 6px",
   cursor: "pointer",
   backgroundColor: "#FFF",
-  "&:hover": {
-    backgroundColor: "red",
-    color: "#FFF",
-  },
 };
 
 export const templateSelectedCardButtonStyle = {

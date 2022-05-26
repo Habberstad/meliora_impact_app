@@ -27,9 +27,12 @@
 }
 
 .template-content-title{
+    display: flex;
     font-size: 32px;
     font-weight: 500;
     margin-bottom: 50px;
+    justify-content: center;
+    align-items: center;
 }
 
 .template-step-content{
