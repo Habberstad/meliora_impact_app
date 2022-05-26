@@ -37,7 +37,7 @@ import { UserApiContext } from "../../api-client/userApiContext";
 import { UserContext } from "../../App";
 import { useLoader } from "../../helpers/UseLoader";
 
-const Dashboard = () => {
+const Dashboard = (props) => {
   const queryParams = new URLSearchParams(window.location.search);
   const { getArticles } = useContext(ArticleApiContext);
   const { loading, error, data } = useLoading(
@@ -45,6 +45,7 @@ const Dashboard = () => {
     []
   );
 
+  console.log("hei", props.user.id);
   const user = React.useContext(UserContext);
 
   const { getUserByGoogleId } = useContext(UserApiContext);
