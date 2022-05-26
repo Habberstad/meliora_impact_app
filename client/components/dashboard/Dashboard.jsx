@@ -36,6 +36,7 @@ import { TimelineContent } from "@mui/lab";
 import { UserApiContext } from "../../api-client/userApiContext";
 import { UserContext } from "../../App";
 import { useLoader } from "../../helpers/UseLoader";
+import { fetchJSON } from "../../lib/fetchJSON";
 
 const Dashboard = (props) => {
   const queryParams = new URLSearchParams(window.location.search);
@@ -45,13 +46,38 @@ const Dashboard = (props) => {
     []
   );
 
-  console.log("hei", props.user.id);
-
+  console.log(props.user.id);
   const { getUserByGoogleId } = useContext(UserApiContext);
   const { loading2, error2, data2 } = useLoader(
     async () => await getUserByGoogleId(props.user.id),
     []
   );
+
+  const data3 = getUserByGoogleId(props.user.id);
+
+  data3.then(function (result) {
+    console.log("jajaaa", result);
+    setResult(result);
+  });
+
+  const [result, setResult] = useState("");
+
+  console.log("data3", data3);
+  const { loading4, error4, data4 } = useLoader(async () => await data3, []);
+
+  if (loading4) {
+    return <div>Loading...</div>;
+  }
+  if (error4) {
+    return (
+      <div>
+        <h1>Error</h1>
+        <div id="error-text">{error4.toString()}</div>
+      </div>
+    );
+  }
+
+  console.log("hei", data4);
 
   const [age, setAge] = React.useState("");
 
@@ -89,11 +115,10 @@ const Dashboard = (props) => {
     );
   }
 
-  console.log(data2);
-
   return (
     <div className={"dashboard-container"}>
       <h1>Hi, Welcome back </h1>
+      <div>{result._id}</div>
       <Grid container direction={"column"}>
         <Grid container columnSpacing={{ lg: 4, xl: 4 }} className={"test"}>
           <Grid lg={3} xl={3} item>
