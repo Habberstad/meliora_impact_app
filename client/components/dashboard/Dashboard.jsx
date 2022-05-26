@@ -64,7 +64,7 @@ const Dashboard = (props) => {
     );
   }
 
-  console.log(userData.active_npos_id[0].impacts);
+  console.log(userData.active_npos_id[0].impacts[0].amount);
   return (
     <div className={"dashboard-container"}>
       <h1>Hi, Welcome back </h1>
@@ -280,11 +280,11 @@ const Dashboard = (props) => {
                           <div className={"donation-date"}>24 mai 2021</div>
                         </div>
                         <div className={"donation-npo-name"}>
-                          {articlesData[0].npoName}
+                          {userData.active_npos_id[0].impacts[0].impact_type}
                         </div>
-                        <div className={"donation-amount"}>1.000 kr</div>
+                        <div className={"donation-amount"}>{userData.active_npos_id[0].impacts[0].amount}</div>
                       </TimelineContent>
-                    </TimelineItem>
+                    </TimelineItem>                                                 
                   </Timeline>
                 </Grid>
               </Grid>
