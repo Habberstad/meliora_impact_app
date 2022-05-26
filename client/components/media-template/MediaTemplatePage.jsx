@@ -9,7 +9,6 @@ import { FormatStep } from "./FormatStep";
 import { CustomizeStep } from "./CustomizeStep";
 import { ReviewStep } from "./ReviewStep";
 import {
-  outlinedTabButtonStyle,
   templateCardButtonStyle,
   templateSelectedCardButtonStyle,
 } from "../../styles/button-style-config";
@@ -20,7 +19,7 @@ function TemplateProjectCard({ data }) {
   return (
     <div className="template-project-card">
       <div style={{ width: "252px" }}>
-        <img src={data.header_image} alt="" />
+        <img src={data.header_image} alt="header image" />
       </div>
       <div>
         <div className="template-content-card-title">{data.name}</div>
@@ -97,8 +96,6 @@ const MediaTemplatePage = ({ user }) => {
 
   if (loading) return isLoading();
 
-  console.log("npo response", data);
-
   const totalSteps = steps.length;
   const completedSteps = Object.keys(completed).length;
   const allStepsCompleted = completedSteps === totalSteps;
@@ -127,7 +124,11 @@ const MediaTemplatePage = ({ user }) => {
       <div className="template-content-container">
         <div className="template-timeline-container">
           <Box sx={{ width: "500px" }}>
-            <Stepper activeStep={activeStep} alternativeLabel>
+            <Stepper
+              sx={{ ".MuiStep-active": { color: "red" } }}
+              activeStep={activeStep}
+              alternativeLabel
+            >
               {steps.map((label) => (
                 <Step key={label}>
                   <StepLabel>{label}</StepLabel>

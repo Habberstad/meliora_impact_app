@@ -87,6 +87,9 @@ export const selectedTabStyle = {
   },
 };
 
+// Social Media Template
+//    - Style for project cards
+
 export const templateCardButtonStyle = {
   display: "flex",
   height: "130px",

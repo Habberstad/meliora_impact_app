@@ -67,7 +67,7 @@
     cursor: pointer;
 }
 .template-project-card:hover{
-    width: 732px;
+    width: 730px;
     height: 135px;
     border-radius: 12px;
     box-shadow: 0 1.53px 7.66px rgba(0, 0, 0, 0.25);
