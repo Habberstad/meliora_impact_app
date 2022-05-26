@@ -1,10 +1,11 @@
 import { Button } from "@mui/material";
 import { BackButton } from "./BackButton";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router";
 
-export const SelectSubscription = () => {
-  /*TODO need to send up state for selected plan*/
-  console.log("gegegegfajsdf");
+export const SelectSubscription = (props) => {
+  const navigate = useNavigate();
+
   return (
     <div className={"login-content"}>
       <div>
@@ -17,6 +18,8 @@ export const SelectSubscription = () => {
       <Button
         onClick={() => {
           console.log("Fremium");
+          props.handleClick("freemium");
+          navigate("/select-payment-method");
         }}
         sx={{
           mb: "22px",
@@ -36,6 +39,8 @@ export const SelectSubscription = () => {
       <Button
         onClick={() => {
           console.log("premium");
+          props.handleClick("premium");
+          navigate("/select-payment-method");
         }}
         sx={{
           mb: "22px",
