@@ -2,6 +2,7 @@ import { BackButton } from "./BackButton";
 import { Button } from "@mui/material";
 import GoogleIcon from "../../media/google_icon.png";
 import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 
 export const SelectIdentificationMethod = (props) => {
   const navigate = useNavigate();
@@ -10,12 +11,11 @@ export const SelectIdentificationMethod = (props) => {
       <BackButton />
       <div>
         <h1>Identify Yourself</h1>
-        <p>Meliora Partner (check)</p> {/* Todo subscription selected */}
+        <p>{props.subscriptionType}</p> {/* Todo subscription selected */}
       </div>
       <div>
         <div
           onClick={() => {
-            props.sumbit();
             props.google();
           }}
           style={{ textDecoration: "none" }}
@@ -57,6 +57,9 @@ export const SelectIdentificationMethod = (props) => {
           Register Manually
         </Button>
       </div>
+      <p>
+        Already got an account? <Link to={"/login-form"}>Log in here.</Link>
+      </p>
     </div>
   );
 };
