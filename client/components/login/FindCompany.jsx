@@ -2,7 +2,7 @@ import { BackButton } from "./BackButton";
 import { Button, TextField } from "@mui/material";
 import { useNavigate } from "react-router";
 
-export const FindCompany = () => {
+export const FindCompany = (props) => {
   const navigate = useNavigate();
 
   const onChangeHandler = (e) => {
@@ -13,7 +13,7 @@ export const FindCompany = () => {
       <BackButton />
       <div>
         <h1>Find Your Company</h1>
-        <p>Meliora Partner (check)</p> {/* Todo subscription selected */}
+        <p>{props.subscriptionType}</p> {/* Todo subscription selected */}
       </div>
       <TextField
         onChange={onChangeHandler}

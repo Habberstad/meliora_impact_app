@@ -10,7 +10,7 @@ export const SelectIdentificationMethod = (props) => {
       <BackButton />
       <div>
         <h1>Identify Yourself</h1>
-        <p>Meliora Partner (check)</p> {/* Todo subscription selected */}
+        <p>{props.subscriptionType}</p> {/* Todo subscription selected */}
       </div>
       <div>
         <div

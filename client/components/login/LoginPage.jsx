@@ -17,7 +17,8 @@ export const LoginPage = () => {
   const { registerUser } = useContext(UserApiContext);
   const [orgName, setOrgName] = useState("123");
   const [orgNumber, setOrgNumber] = useState("Gutta");
-  const [isRegistered, setIsRegistered] = useState(true);
+  const [subscriptionType, setSubscriptionType] = useState("");
+  const [paymentOption, setPaymentOption] = useState("");
   const [isOverBreakpoint, setIsOverBreakpoint] = useState(true);
   window.addEventListener("resize", () => {
     setIsOverBreakpoint(window.innerWidth >= 1000);
@@ -27,11 +28,28 @@ export const LoginPage = () => {
     window.open(window.location.origin + "/auth/google", "_self");
   };
 
+  const handlePaymentType = (option) => {
+    setPaymentOption(option);
+  };
+
+  const handleSubscriptionType = (option) => {
+    setSubscriptionType(option);
+  };
+
   const handleSubmit = () => {
     //maybe async?
-    console.log({ orgName: orgName, orgNumber: orgNumber });
-    registerUser({ orgName: orgName, orgNumber: orgNumber });
-    navigate("/");
+    console.log({
+      orgName: orgName,
+      orgNumber: orgNumber,
+      paymentOption: paymentOption,
+      subscriptionType: subscriptionType,
+    });
+    registerUser({
+      orgName: orgName,
+      orgNumber: orgNumber,
+      paymentOption: paymentOption,
+      subscriptionType: subscriptionType,
+    });
   };
 
   return (
@@ -51,28 +69,45 @@ export const LoginPage = () => {
             path={"/login-form"}
             element={<LoginForm google={google} />}
           />
-          <Route exact path={"/register-form"} element={<RegisterForm />} />
+          <Route
+            exact
+            path={"/register-form"}
+            element={<RegisterForm subscriptionType={subscriptionType} />}
+          />
           <Route
             exact
             path={"/select-subscription"}
-            element={<SelectSubscription />}
+            element={
+              <SelectSubscription handleClick={handleSubscriptionType} />
+            }
           />
           <Route
             exact
             path={"/select-subscription"}
             element={<SelectSubscription />}
           />
-          <Route exact path={"/find-company"} element={<FindCompany />} />
+          <Route
+            exact
+            path={"/find-company"}
+            element={<FindCompany subscriptionType={subscriptionType} />}
+          />
           <Route
             exact
             path={"/select-payment-method"}
-            element={<SelectPaymentMethod />}
+            element={
+              <SelectPaymentMethod
+                subscriptionType={subscriptionType}
+                handleChange={handlePaymentType}
+                paymentOption={paymentOption}
+              />
+            }
           />
           <Route
             exact
             path={"/select-identification-method"}
             element={
               <SelectIdentificationMethod
+                subscriptionType={subscriptionType}
                 google={google}
                 sumbit={handleSubmit}
               />
