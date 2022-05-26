@@ -5,7 +5,7 @@ import { useLoader } from "../../helpers/UseLoader";
 import { PartnersList } from "./PartnersList";
 import { NpoApiContext } from "../../api-client/npoApiContext";
 import { HEADER } from "../headers/HEADER";
-import headerImg from "../../media/articles_header_image.png";
+import headerImg from "../../media/header-image-partners.png";
 import { GlobalHeader } from "../headers/GlobalHeader";
 import { isLoading } from "../shared-components/Loading";
 import { Error } from "../shared-components/Error";
