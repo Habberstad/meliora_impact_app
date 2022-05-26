@@ -3,7 +3,6 @@ import { useState } from "react";
 import ImageIcon from "@mui/icons-material/Image";
 import ShortTextIcon from "@mui/icons-material/ShortText";
 import TextSnippetIcon from "@mui/icons-material/TextSnippet";
-import FacebookIcon from "@mui/icons-material/Facebook";
 import {
   selectedSocialMediaButton,
   selectedTemplateCard,
@@ -13,12 +12,12 @@ import {
   templateCardIconStyle,
   templateFormatButton,
 } from "../../styles/button-style-config";
+import { SoMeTemplateSelectButtons } from "./SoMeTemplateSelectButtons";
 
-const formats = ["Coming soon", "Coming soon", "Coming soon", "Coming soon"];
 const cards = ["Twitter", "Facebook", "Instagram", "Newsletter", "Newsletter"];
 const templateFormats = ["Text", "Visual Data", "Updates"];
 
-export const FormatStep = () => {
+const FormatStep = () => {
   const [isPlatformSelected, setIsPlatformSelected] = useState(false);
   const [isFormatSelected, setIsFormatSelected] = useState(false);
   const [isTemplateCardSelected, setIsTemplateCardSelected] = useState(false);
@@ -44,40 +43,7 @@ export const FormatStep = () => {
       </div>
       <div className="template-step-main-container">
         <div className="template-format-buttons">
-          {formats.map((x) => (
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-              }}
-            >
-              <Button
-                variant="outlined"
-                disabled={true}
-                sx={{
-                  width: "53px",
-                  height: "53px",
-                  borderRadius: "8px",
-                  backgroundColor: "#FFF",
-                  boxShadow: "0 0 50px rgba(145, 158, 171, 0.05)",
-                  margin: "0 12px 0 12px",
-                  border: "solid 1px #637381",
-                }}
-              ></Button>
-              <div
-                style={{
-                  fontSize: "12px",
-                  fontWeight: "500",
-                  color: "#464D51",
-                  margin: "5px",
-                  textAlign: "center",
-                }}
-              >
-                {x}
-              </div>
-            </div>
-          ))}
+          <SoMeTemplateSelectButtons />
           <div
             style={{
               display: "flex",
@@ -189,3 +155,5 @@ export const FormatStep = () => {
     </div>
   );
 };
+
+export default FormatStep;

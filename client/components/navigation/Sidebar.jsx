@@ -13,7 +13,6 @@ const Sidebar = (props) => {
   const [selectedTab, setSelectedTab] = useState("dashboard");
   const user = React.useContext(UserContext);
   const [url, setUrl] = useState();
-  console.log(user);
 
   useEffect(() => {
     setUrl(window.location.href);
