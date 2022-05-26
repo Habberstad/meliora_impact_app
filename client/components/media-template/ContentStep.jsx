@@ -5,6 +5,7 @@ import {
 } from "../../styles/button-style-config";
 import TemplateProjectCard from "./TemplateProjectCard";
 import "../../styles/template-styles/template-styles.css";
+import { Button } from "@mui/material";
 
 const ContentStep = ({ npoList, handleNext }) => {
   const [selectedCard, setSelectedCard] = useState();
@@ -35,8 +36,8 @@ const ContentStep = ({ npoList, handleNext }) => {
       </div>
       <div className="npo-card-container">
         {npoList.map((x) => (
-          <div
-            style={
+          <Button
+            sx={
               selectedCard === x._id
                 ? templateSelectedCardButtonStyle
                 : templateCardButtonStyle
@@ -44,7 +45,7 @@ const ContentStep = ({ npoList, handleNext }) => {
             onClick={() => handleFilterProjects(x._id)}
           >
             <div key={x._id}>{x.name}</div>
-          </div>
+          </Button>
         ))}
       </div>
       {isCardSelected && (

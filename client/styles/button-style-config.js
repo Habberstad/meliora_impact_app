@@ -95,6 +95,7 @@ export const templateCardButtonStyle = {
   height: "130px",
   width: "120px",
   borderRadius: "8px",
+  color: "#000",
   border: "solid 2px #464D51",
   justifyContent: "center",
   alignItems: "center",
@@ -104,6 +105,10 @@ export const templateCardButtonStyle = {
   margin: "0px 6px",
   cursor: "pointer",
   backgroundColor: "#FFF",
+  "&:hover": {
+    backgroundColor: "#7209B7",
+    color: "#FFF",
+  },
 };
 
 export const templateSelectedCardButtonStyle = {
@@ -121,6 +126,10 @@ export const templateSelectedCardButtonStyle = {
   cursor: "pointer",
   backgroundColor: "#7209B7",
   color: "#FFF",
+  "&:hover": {
+    backgroundColor: "#7209B7",
+    color: "#FFF",
+  },
 };
 
 // Social Media Template
