@@ -273,7 +273,7 @@ const Dashboard = () => {
           direction={"row"}
           className={"bottom-container-dashboard"}
         >
-          <Grid item xl={6} lg={6} className={"donation-history-container"}>
+          <Grid item xl={5} lg={5} className={"donation-history-container"}>
             <div className={"donation-history-filter"}>
               <div className={"donation-history-title"}>Donation History</div>
 
@@ -290,18 +290,26 @@ const Dashboard = () => {
                 justifyContent="space-around"
                 className={"donation-history-timeline-container"}
               >
-                <Grid item className={"donation-history-timeline"}>
+                <Grid item>
                   <Timeline>
                     <TimelineItem>
                       <TimelineSeparator>
-                        <TimelineDot color={"secondary"} />
+                        <TimelineDot
+                          color={"secondary"}
+                          className={"donation-history-timeline"}
+                        />
                         <TimelineConnector />
                       </TimelineSeparator>
-                      <TimelineContent>Monthly Donation</TimelineContent>
-                      <TimelineContent color={"secondary"}>
-                        {data[0].npoName}
+                      <TimelineContent className={"donation-history-content"}>
+                        <div className={"monthly-donation"}>
+                          Monthly donation
+                          <div className={"donation-date"}>24 mai 2021</div>
+                        </div>
+                        <div className={"donation-npo-name"}>
+                          {data[0].npoName}
+                        </div>
+                        <div className={"donation-amount"}>1.000 kr</div>
                       </TimelineContent>
-                      <TimelineContent>1.000Kr</TimelineContent>
                     </TimelineItem>
                   </Timeline>
                 </Grid>

@@ -143,6 +143,10 @@
  donation history
 */
 
+.donation-history-container{
+
+}
+
 .donation-history-filter{
     display: flex;
     justify-content: center;
@@ -160,12 +164,27 @@
 .donation-history-timeline-container{
 }
 
-.donation-history-timeline{
-    color: #5D5FEF;
+.donation-history-content {
+    display: flex;
+    flex-direction: row;
+    white-space: nowrap;
 }
 
-.donation-history-recent{
+
+.monthly-donation{
+    font-size: 12px;
 }
 
-.donation-history-amount{
+.donation-npo-name{
+    font-size: 14px;
+    color: #551477;
+}
+
+.donation-date{
+    font-size: 10px
+}
+
+.donation-amount{
+    font-size: 16px;
+    font-weight: bold;
 }
