@@ -7,9 +7,25 @@
 
 .template-header-container{
     display: flex;
-    height: 300px;
+    height: 250px;
     width: 100%;
 }
+.template-header-main-title{
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 49px;
+    width: 475px;
+    color: #353535
+}
+.template-header-sub-title{
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 28px;
+    width: 400px;
+    margin-top: 20px;
+    margin-left: 8px;
+}
+
 
 .template-content-container{
     display: flex;
@@ -30,7 +46,7 @@
     display: flex;
     font-size: 32px;
     font-weight: 500;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     justify-content: center;
     align-items: center;
 }
@@ -164,5 +180,25 @@
     margin: 10px 0 15px 60px;
     padding: 0 15px 5px 15px;
     border-bottom: solid 1px #7209b7;
+}
 
+.customize-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.newsletter-left-section{
+}
+
+.newsletter-right-section {
+    display: flex;
+    flex-direction: column;
+    width: 270px;
+}
+
+.customize-editor-title{
+    font-size: 14px;
+    font-weight: 500;
+    color:#637381;
+    margin: 20px 0;
 }

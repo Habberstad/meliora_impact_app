@@ -5,9 +5,9 @@ import { GlobalHeader } from "../headers/GlobalHeader";
 import { useLoader } from "../../helpers/UseLoader";
 import { UserApiContext } from "../../api-client/userApiContext";
 import { isLoading } from "../shared-components/Loading";
-import { FormatStep } from "./FormatStep";
-import { CustomizeStep } from "./CustomizeStep";
-import { ReviewStep } from "./ReviewStep";
+import FormatStep from "./FormatStep";
+import CustomizeStep from "./CustomizeStep";
+import ReviewStep from "./ReviewStep";
 import ContentStep from "./ContentStep";
 
 const steps = ["Content", "Format", "Customize", "Review"];
@@ -29,7 +29,6 @@ const MediaTemplatePage = ({ user }) => {
 
   const totalSteps = steps.length;
   const completedSteps = Object.keys(completed).length;
-  const allStepsCompleted = completedSteps === totalSteps;
 
   const handleNext = () => {
     const newCompleted = completed;
@@ -42,15 +41,18 @@ const MediaTemplatePage = ({ user }) => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
-  const handleReset = () => {};
-
   return (
     <div className="template-main-container">
       <div className="template-header-container">
-        <GlobalHeader
-          title="Start sharing your impact"
-          desc="Generate social media content to share your impact to the world, tailored for your company’s platforms."
-        />
+        <div style={{ marginTop: "60px", marginLeft: "74px" }}>
+          <div className="template-header-main-title">
+            Generate Social Media Templates
+          </div>
+          <div className="template-header-sub-title">
+            <strong>Create</strong> modern and stunning content with our unique
+            templates, designed by proffesionals.
+          </div>
+        </div>
       </div>
       <div className="template-content-container">
         <div className="template-timeline-container">
@@ -123,8 +125,44 @@ const MediaTemplatePage = ({ user }) => {
               </Button>
               {activeStep === 3 ? (
                 <>
-                  <Button>Download</Button>
-                  <Button>Share</Button>
+                  <Button
+                    disabled={true}
+                    sx={{
+                      height: "45px",
+                      width: "140px",
+                      marginRight: "25px",
+                      borderRadius: "8px",
+                      backgroundColor: "#FFF",
+                      border: "solid 2px black",
+                      color: "black",
+                      "&:hover": {
+                        backgroundColor: "#FFF",
+                        border: "solid 2px #7209B7",
+                        color: "#7209B7",
+                      },
+                    }}
+                  >
+                    Download
+                  </Button>
+                  <Button
+                    disabled={true}
+                    sx={{
+                      height: "45px",
+                      width: "140px",
+                      marginRight: "25px",
+                      borderRadius: "8px",
+                      backgroundColor: "#FFF",
+                      border: "solid 2px black",
+                      color: "black",
+                      "&:hover": {
+                        backgroundColor: "#FFF",
+                        border: "solid 2px #7209B7",
+                        color: "#7209B7",
+                      },
+                    }}
+                  >
+                    Share
+                  </Button>
                 </>
               ) : (
                 <Button

@@ -69,7 +69,7 @@ const Sidebar = (props) => {
         <div className="nav-item-container">
           <Link
             onClick={() => handleNavigationState("dashboard")}
-            to={"/dashboard"}
+            to={"/"}
             style={{ textDecoration: "none" }}
           >
             <div
