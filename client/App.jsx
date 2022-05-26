@@ -59,11 +59,11 @@ function App() {
   return (
     <div className="app-container">
       <UserContext.Provider value={user}>
-        <div>{<Sidebar />}</div>
+        <div>{<Sidebar user={user} />}</div>
         <Outlet />
 
         <Routes>
-          <Route exact path="/" element={<Dashboard />} />
+          <Route exact path="/" element={<Dashboard user={user} />} />
           <Route exact path="/auth/google/production" element={<h1>Home</h1>} />
           <Route exact path="/articles" element={<ArticlesPage />} />
           <Route exact path="/articles/article" element={<Article />} />

@@ -13,7 +13,6 @@ const Sidebar = (props) => {
   const [selectedTab, setSelectedTab] = useState("dashboard");
   const user = React.useContext(UserContext);
   const [url, setUrl] = useState();
-  console.log(user);
 
   useEffect(() => {
     setUrl(window.location.href);
@@ -70,7 +69,7 @@ const Sidebar = (props) => {
         <div className="nav-item-container">
           <Link
             onClick={() => handleNavigationState("dashboard")}
-            to={"/"}
+            to={"/dashboard"}
             style={{ textDecoration: "none" }}
           >
             <div

@@ -1,19 +1,49 @@
 import { BackButton } from "./BackButton";
 import { Button, TextField } from "@mui/material";
 import { useNavigate } from "react-router";
+import { useEffect } from "react";
 
-export const FindCompany = () => {
+export const FindCompany = (props) => {
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const url =
+      "https://data.brreg.no/enhetsregisteret/api/enheter?navn=dnb&konkurs=false";
+
+    const fetchData = async () => {
+      try {
+        const response = await fetch(url);
+        const json = await response.json();
+        console.log(json);
+      } catch (error) {
+        console.log("error", error);
+      }
+    };
+
+    fetchData();
+  }, []);
   const onChangeHandler = (e) => {
     console.log(e.target.value);
+    let url = `https://data.brreg.no/enhetsregisteret/api/enheter?navn=${e.target.value}&konkurs=false&organisasjonsform=AS,ENK,ANS,DA`;
+
+    const fetchData = async () => {
+      try {
+        const response = await fetch(url);
+        const json = await response.json();
+        console.log(json);
+      } catch (error) {
+        console.log("error", error);
+      }
+    };
+
+    fetchData();
   };
   return (
     <div className={"login-content"}>
       <BackButton />
       <div>
         <h1>Find Your Company</h1>
-        <p>Meliora Partner (check)</p> {/* Todo subscription selected */}
+        <p>{props.subscriptionType}</p> {/* Todo subscription selected */}
       </div>
       <TextField
         onChange={onChangeHandler}
@@ -35,7 +65,7 @@ export const FindCompany = () => {
       <div className="company-search-list">hei</div>
       <Button
         onClick={() => {
-          navigate("/select-payment-method");
+          navigate("/select-subscription");
         }}
         className={"form-button"}
         sx={{
