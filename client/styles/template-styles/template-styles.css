@@ -28,7 +28,7 @@
 
 .template-content-title{
     font-size: 32px;
-    font-weight: 600;
+    font-weight: 500;
     margin-bottom: 50px;
 }
 
@@ -44,19 +44,12 @@
     height: 130px;
 }
 
-.npo-card{
-    display: flex;
-    height: 130px;
-    width: 120px;
-    border-radius: 8px;
-    border: solid 2px #464D51;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-size: 14px;
-    font-weight: 500;
-    margin: 0 6px;
-}
+
+
+
+
+
+
 
 .template-project-container {
     display: flex;
@@ -71,6 +64,16 @@
     box-shadow: 0 1.53px 7.66px rgba(0, 0, 0, 0.25);
     display: flex;
     margin-bottom: 16px;
+    cursor: pointer;
+}
+.template-project-card:hover{
+    width: 732px;
+    height: 135px;
+    border-radius: 12px;
+    box-shadow: 0 1.53px 7.66px rgba(0, 0, 0, 0.25);
+    display: flex;
+    margin-bottom: 14px;
+    border: solid 2px #7209B7;
 }
 
 .template-project-container img {
@@ -79,4 +82,20 @@
     height: 137px;
     border-bottom-left-radius: 10px;
     border-top-left-radius: 10px;
+}
+
+.template-content-sub-title{
+    font-size: 32px;
+    font-weight: 500;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+.template-content-card-title {
+    font-size: 24px;
+    font-weight: 500;
+    margin: 10px 0 15px 60px;
+    padding: 0 15px 5px 15px;
+    border-bottom: solid 1px #7209b7;
+
 }
