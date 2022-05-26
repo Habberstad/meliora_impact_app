@@ -1,116 +1,65 @@
 import * as React from "react";
 import { useLoading } from "../../useLoading";
-import {
-  FormControl,
-  Grid,
-  InputLabel,
-  Link,
-  MenuItem,
-  Select,
-  styled,
-} from "@mui/material";
-import { useContext, useState } from "react";
+import { Grid, InputLabel, Link, MenuItem, Select } from "@mui/material";
+import { useContext } from "react";
 import "../../styles/dashboard.css";
 import SchoolIcon from "@mui/icons-material/School";
 import LocalHospitalIcon from "@mui/icons-material/LocalHospital";
 import { ArticleApiContext } from "../../api-client/articlesApiContext";
-import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import LinearProgress, {
-  linearProgressClasses,
-} from "@mui/material/LinearProgress";
+import LinearProgress from "@mui/material/LinearProgress";
 import WaterIcon from "@mui/icons-material/Water";
-
 import Timeline from "@mui/lab/Timeline";
 import TimelineItem from "@mui/lab/TimelineItem";
 import TimelineSeparator from "@mui/lab/TimelineSeparator";
 import TimelineConnector from "@mui/lab/TimelineConnector";
 import TimelineDot from "@mui/lab/TimelineDot";
-
 import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
-import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { TimelineContent } from "@mui/lab";
 import { UserApiContext } from "../../api-client/userApiContext";
-import { UserContext } from "../../App";
 import { useLoader } from "../../helpers/UseLoader";
-import { fetchJSON } from "../../lib/fetchJSON";
 
 const Dashboard = (props) => {
-  const queryParams = new URLSearchParams(window.location.search);
-  const { getArticles } = useContext(ArticleApiContext);
-  const { loading, error, data } = useLoading(
-    async () => await getArticles({}),
-    []
-  );
+  //TODO: Mer beskrivende navn på state.
+  const [age, setAge] = React.useState("");
+  //TODO: Mer beskrivende navn på state. F.eks. expandPartnerAccordion
+  const [expanded, setExpanded] = React.useState(false);
 
-  console.log(props.user.id);
+  const { getArticles } = useContext(ArticleApiContext);
   const { getUserByGoogleId } = useContext(UserApiContext);
-  const { loading2, error2, data2 } = useLoader(
+
+  // DATA FETCHING
+  const rawArticlesData = useLoading(async () => await getArticles({}), []);
+  const rawUserData = useLoader(
     async () => await getUserByGoogleId(props.user.id),
     []
   );
 
-  const data3 = getUserByGoogleId(props.user.id);
+  //TODO: userData er data med all informasjon om user/company
+  const userData = { ...rawUserData.data };
 
-  data3.then(function (result) {
-    console.log("jajaaa", result);
-    setResult(result);
-  });
+  //TODO: articlesData er data med all informasjon om user/company
+  const articlesData = { ...rawArticlesData.data };
 
-  const [result, setResult] = useState("");
-
-  console.log("data3", data3);
-  const { loading4, error4, data4 } = useLoader(async () => await data3, []);
-
-  if (loading4) {
-    return <div>Loading...</div>;
-  }
-  if (error4) {
-    return (
-      <div>
-        <h1>Error</h1>
-        <div id="error-text">{error4.toString()}</div>
-      </div>
-    );
-  }
-
-  console.log("hei", data4);
-
-  const [age, setAge] = React.useState("");
-
+  // TODO: Denne burde ha et mer beskrivende navn
   const handleChange1 = (event) => {
     setAge(event.target.value);
   };
-
-  const [expanded, setExpanded] = React.useState(false);
-
+  console.log(userData);
+  // TODO: Denne burde ha et mer beskrivende navn
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
 
-  if (loading) {
+  if (rawArticlesData.loading || rawUserData.loading) {
     return <div>Loading...</div>;
   }
-  if (error) {
+  if (rawArticlesData.error || rawUserData.error) {
     return (
       <div>
         <h1>Error</h1>
-        <div id="error-text">{error.toString()}</div>
-      </div>
-    );
-  }
-
-  if (loading2) {
-    return <div>Loading...</div>;
-  }
-  if (error2) {
-    return (
-      <div>
-        <h1>Error</h1>
-        <div id="error-text">{error2.toString()}</div>
       </div>
     );
   }
@@ -118,7 +67,6 @@ const Dashboard = (props) => {
   return (
     <div className={"dashboard-container"}>
       <h1>Hi, Welcome back </h1>
-      <div>{result._id}</div>
       <Grid container direction={"column"}>
         <Grid container columnSpacing={{ lg: 4, xl: 4 }} className={"test"}>
           <Grid lg={3} xl={3} item>
@@ -331,7 +279,7 @@ const Dashboard = (props) => {
                           <div className={"donation-date"}>24 mai 2021</div>
                         </div>
                         <div className={"donation-npo-name"}>
-                          {data[0].npoName}
+                          {articlesData[0].npoName}
                         </div>
                         <div className={"donation-amount"}>1.000 kr</div>
                       </TimelineContent>
@@ -357,20 +305,22 @@ const Dashboard = (props) => {
               <div className="container-medium">
                 <div className={"container-content-medium"}>
                   <div className={"npo-text-medium"}>
-                    <span className={"npo-name"}>{data[1].npoName}</span>
+                    <span className={"npo-name"}>
+                      {articlesData[1].npoName}
+                    </span>
                   </div>
-                  <Link href={"/articles/article?id=" + data[1]._id}>
-                    <img src={data[1].image} alt={"das"} />
+                  <Link href={"/articles/article?id=" + articlesData[1]._id}>
+                    <img src={articlesData[1].image} alt={"das"} />
                   </Link>
                   <div className={"card-content-container-medium"}>
                     <div className={"date-text-medium"}>
                       <span className={"card-content-date"}>
-                        {data[1].date}
+                        {articlesData[1].date}
                       </span>
                     </div>
                     <div className={"content-text-medium"}>
                       <span className={"card-content-text"}>
-                        {data[1].description}
+                        {articlesData[1].description}
                       </span>
                     </div>
                   </div>
@@ -382,20 +332,22 @@ const Dashboard = (props) => {
               <div className="container-small">
                 <div className={"container-content-small"}>
                   <div className={"npo-text-small"}>
-                    <span className={"npo-name"}>{data[3].npoName}</span>
+                    <span className={"npo-name"}>
+                      {articlesData[3].npoName}
+                    </span>
                   </div>
-                  <Link href={"/articles/article?id=" + data[3]._id}>
-                    <img src={data[3].image} id={"bilde"} alt={"das"} />
+                  <Link href={"/articles/article?id=" + articlesData[3]._id}>
+                    <img src={articlesData[3].image} id={"bilde"} alt={"das"} />
                   </Link>
                   <div className={"card-content-container-small"}>
                     <div className={"date-text-small"}>
                       <span className={"card-content-date"}>
-                        {data[3].date}
+                        {articlesData[3].date}
                       </span>
                     </div>
                     <div className={"content-text-small"}>
                       <span className={"card-content-text-small"}>
-                        {data[3].description}
+                        {articlesData[3].description}
                       </span>
                     </div>
                   </div>
@@ -407,20 +359,22 @@ const Dashboard = (props) => {
               <div className="container-small">
                 <div className={"container-content-small"}>
                   <div className={"npo-text-small"}>
-                    <span className={"npo-name"}>{data[3].npoName}</span>
+                    <span className={"npo-name"}>
+                      {articlesData[3].npoName}
+                    </span>
                   </div>
-                  <Link href={"/articles/article?id=" + data[3]._id}>
-                    <img src={data[3].image} id={"bilde"} alt={"das"} />
+                  <Link href={"/articles/article?id=" + articlesData[3]._id}>
+                    <img src={articlesData[3].image} id={"bilde"} alt={"das"} />
                   </Link>
                   <div className={"card-content-container-small"}>
                     <div className={"date-text-small"}>
                       <span className={"card-content-date"}>
-                        {data[3].date}
+                        {articlesData[3].date}
                       </span>
                     </div>
                     <div className={"content-text-small"}>
                       <span className={"card-content-text-small"}>
-                        {data[3].description}
+                        {articlesData[3].description}
                       </span>
                     </div>
                   </div>
@@ -433,5 +387,4 @@ const Dashboard = (props) => {
     </div>
   );
 };
-
 export default Dashboard;
