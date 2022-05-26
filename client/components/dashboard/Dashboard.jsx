@@ -47,7 +47,7 @@ const Dashboard = (props) => {
   const handleChange1 = (event) => {
     setAge(event.target.value);
   };
-  console.log(userData);
+
   // TODO: Denne burde ha et mer beskrivende navn
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);

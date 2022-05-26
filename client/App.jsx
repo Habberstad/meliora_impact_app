@@ -47,7 +47,7 @@ function App() {
     getUser();
   }, []);
 
-  if (user === null) {
+  if (true) {
     return (
       <div>
         <LoginPage />

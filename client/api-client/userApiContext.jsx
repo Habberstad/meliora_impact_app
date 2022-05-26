@@ -15,7 +15,13 @@ export const UserApiContext = React.createContext({
     return await fetchJSON("/api/users/google-id/" + urlPathParam);
   },
 
-  async registerUser(user) {
-    return await postJSON("/api/users/register", user);
+  async registerUser(newUser) {
+    return await postJSON("/api/users/register", newUser);
   },
+
+  async getLoggedInUser(query) {
+    return await fetchJSON("/api/users/get-logged-in-user?" + new URLSearchParams(query));
+  },
+
+
 });

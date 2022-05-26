@@ -28,6 +28,20 @@ async function getById(req, res) {
   }
 }
 
+async function getLoggedInUser(req, res) {
+
+
+  try {
+
+    const data = await UserService.getLoggedInUser();
+    return res.status(200).json(data);
+  } catch (e) {
+    return res.status(400).json({ status: 400, message: e.message });
+  }
+}
+
+
+
 async function getByGoogleId(req, res) {
   try {
     const data = await UserService.getByGoogleId(req.params.id);
@@ -38,6 +52,11 @@ async function getByGoogleId(req, res) {
 }
 
 async function create(req, res) {
+
+  console.log("controller", req.user)
+  console.log("body", req.body)
+  req.body.google_id = req.user.id
+  req.body.name = req.user.displayName
   console.log(req.body)
   try {
 
@@ -48,4 +67,4 @@ async function create(req, res) {
   }
 }
 
-export default { list, getById, create, getByGoogleId };
+export default { list, getById, create, getByGoogleId, getLoggedInUser};

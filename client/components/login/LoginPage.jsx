@@ -42,13 +42,11 @@ export const LoginPage = () => {
       org_name: orgName,
       org_number: orgNumber,
       payment_option: paymentOption,
-      subscription_type: subscriptionType,
+      subscription_type: subscriptionType
     });
     registerUser({
       org_name: orgName,
-      org_number: orgNumber,
-      payment_option: paymentOption,
-      subscription_type: subscriptionType,
+      org_number: orgNumber
     });
   };
 
@@ -64,6 +62,11 @@ export const LoginPage = () => {
       </div>
       <div className="login-container">
         <Routes>
+          <Route exact
+                 path={"/"}
+                 element={<LoginForm google={google} />}
+          />
+
           <Route
             exact
             path={"/login-form"}

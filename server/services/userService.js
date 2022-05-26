@@ -10,6 +10,14 @@ async function list(query) {
   }
 }
 
+async function getLoggedInUser(query) {
+  try {
+    return await User.find(query);
+  } catch (e) {
+    throw Error(e);
+  }
+}
+
 async function getById(id) {
   try {
     const user = await User.aggregate([
@@ -80,4 +88,4 @@ async function create(query) {
   }
 }
 
-export default { list, getById, create, getByGoogleId };
+export default { list, getById, create, getByGoogleId , getLoggedInUser};

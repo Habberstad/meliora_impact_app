@@ -6,7 +6,7 @@ import cookieParser from "cookie-parser";
 import passport from "passport";
 import cookieSession from "cookie-session";
 import cors from "cors";
-import authRoute from "./routes/authRoutes.js";
+import authRoutes, { isLoggedIn2 } from "./routes/authRoutes.js";
 import mongoose from "mongoose";
 import projectsRoute from "./routes/projectsRoute.js";
 import articlesRoute from "./routes/articlesRoute.js";
@@ -45,7 +45,7 @@ app.use(
   })
 );
 
-app.use("/auth", authRoute);
+app.use("/auth", authRoutes);
 
 app.use("/api/projects", projectsRoute);
 app.use("/api/articles", articlesRoute);
