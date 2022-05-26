@@ -40,7 +40,7 @@ const Dashboard = (props) => {
   //TODO: userData er data med all informasjon om user/company
   const userData = { ...rawUserData.data };
 
-  //TODO: articlesData er data med all informasjon om user/company
+  //TODO: articlesData er liste med articles
   const articlesData = { ...rawArticlesData.data };
 
   // TODO: Denne burde ha et mer beskrivende navn
