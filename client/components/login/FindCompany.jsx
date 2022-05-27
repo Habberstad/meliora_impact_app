@@ -26,6 +26,13 @@ export const FindCompany = (props) => {
   const onChangeHandler = (e) => {
     console.log(e.target.value);
     let url = `https://data.brreg.no/enhetsregisteret/api/enheter?navn=${e.target.value}&konkurs=false`;
+    if (
+      e.target.value.trim().length === 9 &&
+      /^\d+$/.test(e.target.value.trim())
+    ) {
+      console.log("orgnumber true");
+      url = `https://data.brreg.no/enhetsregisteret/api/enheter?organisasjonsnummer=${e.target.value}&konkurs=false`;
+    }
 
     const fetchData = async () => {
       try {
@@ -33,7 +40,6 @@ export const FindCompany = (props) => {
         const json = await response.json();
         const array = [...json._embedded.enheter];
         setData(array);
-        console.log(array);
       } catch (error) {
         console.log("error", error);
       }
@@ -68,7 +74,7 @@ export const FindCompany = (props) => {
       <div className="company-search-list">
         {data.map((company) => {
           return (
-            <div className={"company-list-item"}>
+            <div key={company.navn} className={"company-list-item"}>
               <p>{company.navn} </p>
               <button
                 onClick={() => {
