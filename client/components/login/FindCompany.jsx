@@ -6,29 +6,39 @@ import { useEffect, useState } from "react";
 export const FindCompany = (props) => {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
+  const [url, setUrl] = useState("");
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch(url);
+      const json = await response.json();
+      const array = [...json._embedded.enheter];
+      setData(array);
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
 
   const onChangeHandler = (e) => {
-    console.log(e.target.value);
     let value = e.target.value;
-    let url = `https://data.brreg.no/enhetsregisteret/api/enheter?navn=${value}&konkurs=false`;
+    setUrl(
+      `https://data.brreg.no/enhetsregisteret/api/enheter?navn=${value}&konkurs=false`
+    );
     if (value.trim().length === 9 && /^\d+$/.test(value.trim())) {
       console.log("orgnumber true");
-      url = `https://data.brreg.no/enhetsregisteret/api/enheter?organisasjonsnummer=${value}&konkurs=false`;
+      setUrl(
+        `https://data.brreg.no/enhetsregisteret/api/enheter?organisasjonsnummer=${value}&konkurs=false`
+      );
     }
-
-    const fetchData = async () => {
-      try {
-        const response = await fetch(url);
-        const json = await response.json();
-        const array = [...json._embedded.enheter];
-        setData(array);
-      } catch (error) {
-        console.log("error", error);
-      }
-    };
+    if (value.trim().length === 0) {
+      setData([]);
+      console.log(value);
+      console.log(data);
+    }
 
     fetchData();
   };
+
   return (
     <div className={"login-content"}>
       <BackButton />
