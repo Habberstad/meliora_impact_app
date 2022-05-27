@@ -58,7 +58,10 @@ export const FindCompany = (props) => {
       <div className="company-search-list">
         {data.map((company) => {
           return (
-            <div key={company.navn} className={"company-list-item"}>
+            <div
+              key={company.organisasjonsnummer}
+              className={"company-list-item"}
+            >
               <p>{company.navn} </p>
               <button
                 onClick={() => {
