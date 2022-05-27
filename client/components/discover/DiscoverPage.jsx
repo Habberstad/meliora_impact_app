@@ -7,7 +7,7 @@ import { useLoading } from "../../useLoading";
 import { NpoApiContext } from "../../api-client/npoApiContext";
 import { isLoading } from "../shared-components/Loading";
 import { HEADER } from "../headers/HEADER";
-import headerImg from "../../media/articles_header_image.png";
+import headerImg from "../../media/discover_header.png";
 import { GlobalHeader } from "../headers/GlobalHeader";
 import { Error } from "../shared-components/Error";
 

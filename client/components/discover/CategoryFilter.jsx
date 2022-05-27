@@ -3,7 +3,7 @@ import {
   ButtonGroup,
   Grid,
   ToggleButton,
-  Typography
+  Typography,
 } from "@mui/material";
 import MyNonProfitsIcon from "../../media/my_npo_icon.png";
 import SchoolIcon from "@mui/icons-material/School";
@@ -12,21 +12,19 @@ import FilterAltOffIcon from "@mui/icons-material/FilterAltOff";
 import { useState } from "react";
 import {
   highlightedNavButtonStyle,
-  navButtonStyle
+  navButtonStyle,
 } from "../../styles/button-style-config";
 
 export function CategoryFilter(props) {
-  const selectedButton = props.category
+  const selectedButton = props.category;
 
   function categoryOnClickHandler(selectedCategory) {
     props.onClick(selectedCategory);
-
-
   }
 
   return (
     <div>
-      <Grid container columnSpacing={{lg: 3, xl: 3}} justifyContent="center">
+      <Grid container columnSpacing={{ lg: 3, xl: 3 }} justifyContent="center">
         <Grid item>
           <Button
             sx={
@@ -37,9 +35,7 @@ export function CategoryFilter(props) {
             onClick={() => categoryOnClickHandler("water")}
             value={"water"}
             variant="contained"
-            startIcon={
-              <OpacityIcon  />
-            }
+            startIcon={<OpacityIcon />}
           >
             Water
           </Button>
@@ -54,9 +50,7 @@ export function CategoryFilter(props) {
             onClick={() => categoryOnClickHandler("knowledge")}
             value={"knowledge"}
             variant="contained"
-            startIcon={
-              <SchoolIcon />
-            }
+            startIcon={<SchoolIcon />}
           >
             Knowledge
           </Button>
@@ -69,9 +63,7 @@ export function CategoryFilter(props) {
             onClick={() => categoryOnClickHandler("")}
             value={""}
             variant="contained"
-            startIcon={
-              <FilterAltOffIcon  />
-            }
+            startIcon={<FilterAltOffIcon />}
           >
             All
           </Button>
