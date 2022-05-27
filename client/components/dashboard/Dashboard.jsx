@@ -64,7 +64,25 @@ const Dashboard = (props) => {
     );
   }
 
-  console.log(userData.active_npos_id[0].impacts[0].amount);
+  const impact = userData.active_npos_id[0].impacts;
+
+  const highlited = userData.npo_partners[0].projects;
+
+  const history = userData.donation_history;
+
+  console.log("history", history);
+
+  console.log("impact", impact);
+
+  console.log("high", highlited[0]);
+
+  console.log(userData);
+
+  history.map((val) => {
+    console.log("val", val)
+  })
+
+  const i = 1;
   return (
     <div className={"dashboard-container"}>
       <h1>Hi, Welcome back </h1>
@@ -76,10 +94,10 @@ const Dashboard = (props) => {
                 <SchoolIcon fontSize={"large"} />
               </div>
               <div className="students-impact-count">
-                <a>3751</a>
+                <div>{impact[i].amount}</div>
               </div>
               <div className="students-impact-content">
-                <a>students impacted</a>
+                <div>{impact[i].impact_type}</div>
               </div>
             </div>
           </Grid>
@@ -93,11 +111,11 @@ const Dashboard = (props) => {
                 alt={"das"}
               />
               <div className={"socialmedia-template-content-top"}>
-                <a>Share on Social Media</a>
+                <div>Share on Social Media</div>
               </div>
               <div className={"socialmedia-template-content-bot"}>
                 <Link href={"/templates"} color="inherit">
-                  <a>View templates</a>
+                  <div>View templates</div>
                 </Link>
               </div>
             </div>
@@ -128,13 +146,13 @@ const Dashboard = (props) => {
                   >
                     <div className={"highlighted-partners-icon"}>
                       <LocalHospitalIcon />
-                      <div className={"accordion-title"}>Asha Foundation</div>
+                      <div className={"accordion-title"}>{highlited[0].name}</div>
                     </div>
                   </AccordionSummary>
 
                   <AccordionDetails sx={{ borderRadius: "16px" }}>
                     <div className={"highlighted-partners-vaccination"}>
-                      <a>Vaccination Program</a>
+                      <div>{highlited[0].name}</div>
                       <LinearProgress
                         sx={{
                           width: "162px",
@@ -147,7 +165,7 @@ const Dashboard = (props) => {
                       />
                     </div>
                     <div className={"highlighted-partners-infant"}>
-                      <a>Infant Mortality</a>
+                      <div>Infant Mortality</div>
                       <LinearProgress
                         sx={{
                           width: "162px",
@@ -160,7 +178,7 @@ const Dashboard = (props) => {
                       />
                     </div>
                     <div className={"highlighted-partners-dental"}>
-                      <a>Dental program</a>
+                      <div>Dental program</div>
                       <LinearProgress
                         sx={{
                           width: "162px",
@@ -193,7 +211,7 @@ const Dashboard = (props) => {
                 >
                   <div className={"highlighted-partners-icon"}>
                     <WaterIcon />
-                    <div className={"accordion-title"}>Vaccination Program</div>
+                    <div className={"accordion-title"}>{highlited[1].name}</div>
                   </div>
                 </AccordionSummary>
                 <AccordionDetails>
@@ -276,13 +294,14 @@ const Dashboard = (props) => {
                       </TimelineSeparator>
                       <TimelineContent className={"donation-history-content"}>
                         <div className={"monthly-donation"}>
-                          {userData.active_npos_id[0].impacts.impact_type}
-                          <div className={"donation-date"}>24 mai 2021</div>
+
+                          {history[0].type}
+                          <div className={"donation-date"}>{history[0].date}</div>
                         </div>
                         <div className={"donation-npo-name"}>
-                          {userData.active_npos_id[0].impacts[0].impact_type}
+                          name
                         </div>
-                        <div className={"donation-amount"}>{userData.active_npos_id[0].impacts[0].amount}</div>
+                        <div className={"donation-amount"}>{history[0].amount}</div>
                       </TimelineContent>
                     </TimelineItem>                                                 
                   </Timeline>
