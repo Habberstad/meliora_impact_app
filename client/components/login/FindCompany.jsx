@@ -6,41 +6,39 @@ import { useEffect, useState } from "react";
 export const FindCompany = (props) => {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
+  const [url, setUrl] = useState("");
 
-  useEffect(() => {
-    const url =
-      "https://data.brreg.no/enhetsregisteret/api/enheter?navn=dnb&konkurs=false";
+  const fetchData = async () => {
+    try {
+      const response = await fetch(url);
+      const json = await response.json();
+      const array = [...json._embedded.enheter];
+      setData(array);
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
 
-    const fetchData = async () => {
-      try {
-        const response = await fetch(url);
-        const json = await response.json();
-        console.log(json);
-      } catch (error) {
-        console.log("error", error);
-      }
-    };
-
-    fetchData();
-  }, []);
   const onChangeHandler = (e) => {
-    console.log(e.target.value);
-    let url = `https://data.brreg.no/enhetsregisteret/api/enheter?navn=${e.target.value}&konkurs=false`;
-
-    const fetchData = async () => {
-      try {
-        const response = await fetch(url);
-        const json = await response.json();
-        const array = [...json._embedded.enheter];
-        setData(array);
-        console.log(array);
-      } catch (error) {
-        console.log("error", error);
-      }
-    };
+    let value = e.target.value;
+    setUrl(
+      `https://data.brreg.no/enhetsregisteret/api/enheter?navn=${value}&konkurs=false`
+    );
+    if (value.trim().length === 9 && /^\d+$/.test(value.trim())) {
+      console.log("orgnumber true");
+      setUrl(
+        `https://data.brreg.no/enhetsregisteret/api/enheter?organisasjonsnummer=${value}&konkurs=false`
+      );
+    }
+    if (value.trim().length === 0) {
+      setData([]);
+      console.log(value);
+      console.log(data);
+    }
 
     fetchData();
   };
+
   return (
     <div className={"login-content"}>
       <BackButton />
@@ -68,7 +66,10 @@ export const FindCompany = (props) => {
       <div className="company-search-list">
         {data.map((company) => {
           return (
-            <div className={"company-list-item"}>
+            <div
+              key={company.organisasjonsnummer}
+              className={"company-list-item"}
+            >
               <p>{company.navn} </p>
               <button
                 onClick={() => {
