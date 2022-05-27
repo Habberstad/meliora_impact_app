@@ -1,10 +1,11 @@
 import { BackButton } from "./BackButton";
 import { Button, TextField } from "@mui/material";
 import { useNavigate } from "react-router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export const FindCompany = (props) => {
   const navigate = useNavigate();
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     const url =
@@ -24,13 +25,15 @@ export const FindCompany = (props) => {
   }, []);
   const onChangeHandler = (e) => {
     console.log(e.target.value);
-    let url = `https://data.brreg.no/enhetsregisteret/api/enheter?navn=${e.target.value}&konkurs=false&organisasjonsform=AS,ENK,ANS,DA`;
+    let url = `https://data.brreg.no/enhetsregisteret/api/enheter?navn=${e.target.value}&konkurs=false`;
 
     const fetchData = async () => {
       try {
         const response = await fetch(url);
         const json = await response.json();
-        console.log(json);
+        const array = [...json._embedded.enheter];
+        setData(array);
+        console.log(array);
       } catch (error) {
         console.log("error", error);
       }
@@ -43,7 +46,7 @@ export const FindCompany = (props) => {
       <BackButton />
       <div>
         <h1>Find Your Company</h1>
-        <p>{props.subscriptionType}</p> {/* Todo subscription selected */}
+        <p>{props.subscriptionType}</p>
       </div>
       <TextField
         onChange={onChangeHandler}
@@ -62,7 +65,25 @@ export const FindCompany = (props) => {
         label="Organizational Number / Company Name"
         variant="outlined"
       />
-      <div className="company-search-list">hei</div>
+      <div className="company-search-list">
+        {data.map((company) => {
+          return (
+            <div className={"company-list-item"}>
+              <p>{company.navn} </p>
+              <button
+                onClick={() => {
+                  props.handleCompanyInfo(
+                    company.navn,
+                    company.organisasjonsnummer
+                  );
+                }}
+              >
+                select
+              </button>
+            </div>
+          );
+        })}
+      </div>
       <Button
         onClick={() => {
           navigate("/select-subscription");
