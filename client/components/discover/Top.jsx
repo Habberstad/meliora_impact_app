@@ -1,7 +1,7 @@
 import { Box, Grid, Typography } from "@mui/material";
 import sideImg from "../../media/discover_header.png";
 
-export function Top(props) {
+export function NotNeededTop(props) {
   return (
     <div>
       <Box className={"discover-top"}>

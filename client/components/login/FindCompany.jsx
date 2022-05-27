@@ -1,49 +1,50 @@
 import { BackButton } from "./BackButton";
 import { Button, TextField } from "@mui/material";
 import { useNavigate } from "react-router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export const FindCompany = (props) => {
   const navigate = useNavigate();
+  const [data, setData] = useState([]);
+  const [url, setUrl] = useState("");
 
-  useEffect(() => {
-    const url =
-      "https://data.brreg.no/enhetsregisteret/api/enheter?navn=dnb&konkurs=false";
+  const fetchData = async () => {
+    try {
+      const response = await fetch(url);
+      const json = await response.json();
+      const array = [...json._embedded.enheter];
+      setData(array);
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
 
-    const fetchData = async () => {
-      try {
-        const response = await fetch(url);
-        const json = await response.json();
-        console.log(json);
-      } catch (error) {
-        console.log("error", error);
-      }
-    };
-
-    fetchData();
-  }, []);
   const onChangeHandler = (e) => {
-    console.log(e.target.value);
-    let url = `https://data.brreg.no/enhetsregisteret/api/enheter?navn=${e.target.value}&konkurs=false&organisasjonsform=AS,ENK,ANS,DA`;
-
-    const fetchData = async () => {
-      try {
-        const response = await fetch(url);
-        const json = await response.json();
-        console.log(json);
-      } catch (error) {
-        console.log("error", error);
-      }
-    };
+    let value = e.target.value;
+    setUrl(
+      `https://data.brreg.no/enhetsregisteret/api/enheter?navn=${value}&konkurs=false`
+    );
+    if (value.trim().length === 9 && /^\d+$/.test(value.trim())) {
+      console.log("orgnumber true");
+      setUrl(
+        `https://data.brreg.no/enhetsregisteret/api/enheter?organisasjonsnummer=${value}&konkurs=false`
+      );
+    }
+    if (value.trim().length === 0) {
+      setData([]);
+      console.log(value);
+      console.log(data);
+    }
 
     fetchData();
   };
+
   return (
     <div className={"login-content"}>
       <BackButton />
       <div>
         <h1>Find Your Company</h1>
-        <p>{props.subscriptionType}</p> {/* Todo subscription selected */}
+        <p>{props.subscriptionType}</p>
       </div>
       <TextField
         onChange={onChangeHandler}
@@ -62,7 +63,28 @@ export const FindCompany = (props) => {
         label="Organizational Number / Company Name"
         variant="outlined"
       />
-      <div className="company-search-list">hei</div>
+      <div className="company-search-list">
+        {data.map((company) => {
+          return (
+            <div
+              key={company.organisasjonsnummer}
+              className={"company-list-item"}
+            >
+              <p>{company.navn} </p>
+              <button
+                onClick={() => {
+                  props.handleCompanyInfo(
+                    company.navn,
+                    company.organisasjonsnummer
+                  );
+                }}
+              >
+                select
+              </button>
+            </div>
+          );
+        })}
+      </div>
       <Button
         onClick={() => {
           navigate("/select-subscription");

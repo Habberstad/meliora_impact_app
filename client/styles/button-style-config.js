@@ -242,3 +242,13 @@ export const templateCardIconStyle = {
   fontSize: "40px",
   color: "#000",
 };
+
+export const purplePlatformButton = {
+  height: "45px",
+  width: "140px",
+  borderRadius: "8px",
+  backgroundColor: "#7209B7",
+  "&:hover": {
+    backgroundColor: "#A400FF",
+  },
+};
