@@ -9,13 +9,11 @@ export const FindCompany = (props) => {
 
   const onChangeHandler = (e) => {
     console.log(e.target.value);
-    let url = `https://data.brreg.no/enhetsregisteret/api/enheter?navn=${e.target.value}&konkurs=false`;
-    if (
-      e.target.value.trim().length === 9 &&
-      /^\d+$/.test(e.target.value.trim())
-    ) {
+    let value = e.target.value;
+    let url = `https://data.brreg.no/enhetsregisteret/api/enheter?navn=${value}&konkurs=false`;
+    if (value.trim().length === 9 && /^\d+$/.test(value.trim())) {
       console.log("orgnumber true");
-      url = `https://data.brreg.no/enhetsregisteret/api/enheter?organisasjonsnummer=${e.target.value}&konkurs=false`;
+      url = `https://data.brreg.no/enhetsregisteret/api/enheter?organisasjonsnummer=${value}&konkurs=false`;
     }
 
     const fetchData = async () => {
