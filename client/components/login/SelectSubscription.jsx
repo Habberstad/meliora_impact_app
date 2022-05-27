@@ -9,7 +9,7 @@ export const SelectSubscription = (props) => {
   return (
     <div className={"login-content"}>
       <BackButton />
-      <div>
+      <div className={"login-content-header"}>
         <h1>Philanthropy is everything</h1>
         <p>Get started for free </p>
         <p>Or</p>

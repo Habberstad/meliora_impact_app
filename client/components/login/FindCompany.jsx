@@ -1,8 +1,9 @@
 import { BackButton } from "./BackButton";
-import { Button, TextField } from "@mui/material";
+import { Button, InputAdornment, TextField } from "@mui/material";
 import { useNavigate } from "react-router";
 import { useEffect, useState } from "react";
 import { LoginForm } from "./LoginForm";
+import SearchIcon from "@mui/icons-material/Search";
 
 export const FindCompany = (props) => {
   const navigate = useNavigate();
@@ -42,9 +43,8 @@ export const FindCompany = (props) => {
   return (
     <div className={"login-content"}>
       <BackButton />
-      <div>
+      <div className={"login-content-header"}>
         <h1>Find Your Company</h1>
-        <p>{props.subscriptionType}</p>
       </div>
       <TextField
         onChange={onChangeHandler}
@@ -62,6 +62,13 @@ export const FindCompany = (props) => {
         }}
         label="Organizational Number / Company Name"
         variant="outlined"
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <SearchIcon />
+            </InputAdornment>
+          ),
+        }}
       />
       <div className="company-search-list">
         {data.map((company) => {
