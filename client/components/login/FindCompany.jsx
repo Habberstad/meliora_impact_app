@@ -1,14 +1,16 @@
 import { BackButton } from "./BackButton";
-import { Button, TextField } from "@mui/material";
+import { Button, InputAdornment, TextField } from "@mui/material";
 import { useNavigate } from "react-router";
 import { useEffect, useState } from "react";
+import { LoginForm } from "./LoginForm";
+import SearchIcon from "@mui/icons-material/Search";
 
 export const FindCompany = (props) => {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
-  const [url, setUrl] = useState("");
+  const [value, setValue] = useState("");
 
-  const fetchData = async () => {
+  const fetchData = async (url) => {
     try {
       const response = await fetch(url);
       const json = await response.json();
@@ -20,31 +22,29 @@ export const FindCompany = (props) => {
   };
 
   const onChangeHandler = (e) => {
-    let value = e.target.value;
-    setUrl(
-      `https://data.brreg.no/enhetsregisteret/api/enheter?navn=${value}&konkurs=false`
-    );
-    if (value.trim().length === 9 && /^\d+$/.test(value.trim())) {
-      console.log("orgnumber true");
-      setUrl(
-        `https://data.brreg.no/enhetsregisteret/api/enheter?organisasjonsnummer=${value}&konkurs=false`
-      );
-    }
-    if (value.trim().length === 0) {
-      setData([]);
-      console.log(value);
-      console.log(data);
-    }
+    let url = `https://data.brreg.no/enhetsregisteret/api/enheter?navn=${e.target.value}&konkurs=false&organisasjonsform=AS,ENK,ANS,DA,STI`;
 
-    fetchData();
+    if (
+      e.target.value.trim().length === 9 &&
+      /^\d+$/.test(e.target.value.trim())
+    ) {
+      url = `https://data.brreg.no/enhetsregisteret/api/enheter?organisasjonsnummer=${e.target.value}&konkurs=false`;
+      fetchData(url);
+    }
+    if (e.target.value.trim().length === 0) {
+      setData([]);
+    } else {
+      console.log(e.target.value);
+      console.log(url);
+      fetchData(url);
+    }
   };
 
   return (
     <div className={"login-content"}>
       <BackButton />
-      <div>
+      <div className={"login-content-header"}>
         <h1>Find Your Company</h1>
-        <p>{props.subscriptionType}</p>
       </div>
       <TextField
         onChange={onChangeHandler}
@@ -62,6 +62,13 @@ export const FindCompany = (props) => {
         }}
         label="Organizational Number / Company Name"
         variant="outlined"
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <SearchIcon />
+            </InputAdornment>
+          ),
+        }}
       />
       <div className="company-search-list">
         {data.map((company) => {
