@@ -6,7 +6,8 @@ const router = Router();
 
 router.get("/", UserController.list);
 router.get("/:id" , UserController.getById);
-router.post("/register", UserController.create);
+router.get("/google-id/:id" , UserController.getByGoogleId);
+router.post("/register/", UserController.create);
 
 
 export default router;

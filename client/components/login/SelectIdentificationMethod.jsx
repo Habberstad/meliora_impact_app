@@ -2,33 +2,41 @@ import { BackButton } from "./BackButton";
 import { Button } from "@mui/material";
 import GoogleIcon from "../../media/google_icon.png";
 import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 
-export const SelectIdentificationMethod = () => {
+export const SelectIdentificationMethod = (props) => {
   const navigate = useNavigate();
   return (
     <div className="login-content">
       <BackButton />
       <div>
         <h1>Identify Yourself</h1>
-        <p>Meliora Partner (check)</p> {/* Todo subscription selected */}
+        <p>{props.subscriptionType}</p> {/* Todo subscription selected */}
       </div>
       <div>
-        <Button
-          sx={{
-            mb: "22px",
-            borderColor: "#637381",
-            "&:hover": {
-              borderColor: "#000",
-              backgroundColor: "#FFF",
-              color: "#637381",
-            },
+        <div
+          onClick={() => {
+            props.google();
           }}
-          fullWidth
-          variant={"outlined"}
-          size={"large"}
+          style={{ textDecoration: "none" }}
         >
-          <img style={{ height: "25px" }} src={GoogleIcon} alt="GoogleIcon" />
-        </Button>
+          <Button
+            sx={{
+              mb: "22px",
+              borderColor: "#637381",
+              "&:hover": {
+                borderColor: "#000",
+                backgroundColor: "#FFF",
+                color: "#637381",
+              },
+            }}
+            fullWidth
+            variant={"outlined"}
+            size={"large"}
+          >
+            <img style={{ height: "25px" }} src={GoogleIcon} alt="GoogleIcon" />
+          </Button>
+        </div>
         <Button
           onClick={() => {
             navigate("/register-form");
@@ -49,6 +57,9 @@ export const SelectIdentificationMethod = () => {
           Register Manually
         </Button>
       </div>
+      <p>
+        Already got an account? <Link to={"/login-form"}>Log in here.</Link>
+      </p>
     </div>
   );
 };

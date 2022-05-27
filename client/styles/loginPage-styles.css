@@ -109,3 +109,12 @@
     border: 1px solid #000;
 
 }
+
+.company-list-item {
+    position: relative;
+    display: flex;
+}
+.company-list-item button{
+    position: absolute;
+    right: 0;
+}

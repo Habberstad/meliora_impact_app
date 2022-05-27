@@ -2,7 +2,7 @@ import ArticleService from "../services/articleService.js";
 import { ObjectId } from "mongodb";
 
 
-async function listArticles(req, res, next) {
+async function listArticles(req, res) {
   const query = {};
 
   const { category } = req.query;

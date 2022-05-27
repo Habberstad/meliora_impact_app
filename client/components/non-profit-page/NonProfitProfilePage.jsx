@@ -36,8 +36,6 @@ const NonProfitProfilePage = () => {
 
   if (loading) return <h1>loading..</h1>;
 
-  console.log("data", data);
-
   const handleNavigationState = (tabValue) => {
     setSelectedTab(tabValue);
   };

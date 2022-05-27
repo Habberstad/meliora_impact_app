@@ -1,7 +1,7 @@
 import NpoService from "../services/npoService.js";
 import { ObjectId } from "mongodb";
 
-async function list(req, res, next) {
+async function list(req, res) {
   const query = {};
 
   const { _id } = req.query;
@@ -9,9 +9,14 @@ async function list(req, res, next) {
     query._id = { $eq: ObjectId(_id) };
   }
 
+  const { category } = req.query;
+  if (category !== "" && category !== undefined) {
+    query.category = category;
+  }
+
   try {
-    const projects = await NpoService.list(query);
-    return res.status(200).json(projects);
+    const npo = await NpoService.list(query);
+    return res.status(200).json(npo);
   } catch (e) {
     return res.status(400).json({ status: 400, message: e.message });
   }
