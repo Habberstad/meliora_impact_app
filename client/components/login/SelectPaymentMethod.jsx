@@ -12,10 +12,10 @@ export const SelectPaymentMethod = (props) => {
   return (
     <div className="login-content">
       <BackButton />
-      <div>
+      <div className={"login-content-header"}>
         <h1>Payment method</h1>
-        <p>{props.subscriptionType}</p> {/* Todo subscription selected */}
-        <p>Welcom back, (company)</p> {/* Todo add company name dynamic */}
+        <p>{props.subscriptionType}</p>
+        <p>Welcom, {props.orgName}</p>
       </div>
       <div className={"payment-options-container"}>
         <div className={"payment-option-container"}>

@@ -1,52 +1,50 @@
 import { BackButton } from "./BackButton";
-import { Button, TextField } from "@mui/material";
+import { Button, InputAdornment, TextField } from "@mui/material";
 import { useNavigate } from "react-router";
 import { useEffect, useState } from "react";
+import { LoginForm } from "./LoginForm";
+import SearchIcon from "@mui/icons-material/Search";
 
 export const FindCompany = (props) => {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
+  const [value, setValue] = useState("");
 
-  useEffect(() => {
-    const url =
-      "https://data.brreg.no/enhetsregisteret/api/enheter?navn=dnb&konkurs=false";
-
-    const fetchData = async () => {
-      try {
-        const response = await fetch(url);
-        const json = await response.json();
-        console.log(json);
-      } catch (error) {
-        console.log("error", error);
-      }
-    };
-
-    fetchData();
-  }, []);
-  const onChangeHandler = (e) => {
-    console.log(e.target.value);
-    let url = `https://data.brreg.no/enhetsregisteret/api/enheter?navn=${e.target.value}&konkurs=false`;
-
-    const fetchData = async () => {
-      try {
-        const response = await fetch(url);
-        const json = await response.json();
-        const array = [...json._embedded.enheter];
-        setData(array);
-        console.log(array);
-      } catch (error) {
-        console.log("error", error);
-      }
-    };
-
-    fetchData();
+  const fetchData = async (url) => {
+    try {
+      const response = await fetch(url);
+      const json = await response.json();
+      const array = [...json._embedded.enheter];
+      setData(array);
+    } catch (error) {
+      console.log("error", error);
+    }
   };
+
+  const onChangeHandler = (e) => {
+    let url = `https://data.brreg.no/enhetsregisteret/api/enheter?navn=${e.target.value}&konkurs=false&organisasjonsform=AS,ENK,ANS,DA,STI`;
+
+    if (
+      e.target.value.trim().length === 9 &&
+      /^\d+$/.test(e.target.value.trim())
+    ) {
+      url = `https://data.brreg.no/enhetsregisteret/api/enheter?organisasjonsnummer=${e.target.value}&konkurs=false`;
+      fetchData(url);
+    }
+    if (e.target.value.trim().length === 0) {
+      setData([]);
+    } else {
+      console.log(e.target.value);
+      console.log(url);
+      fetchData(url);
+    }
+  };
+
   return (
     <div className={"login-content"}>
       <BackButton />
-      <div>
+      <div className={"login-content-header"}>
         <h1>Find Your Company</h1>
-        <p>{props.subscriptionType}</p>
       </div>
       <TextField
         onChange={onChangeHandler}
@@ -64,11 +62,21 @@ export const FindCompany = (props) => {
         }}
         label="Organizational Number / Company Name"
         variant="outlined"
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <SearchIcon />
+            </InputAdornment>
+          ),
+        }}
       />
       <div className="company-search-list">
         {data.map((company) => {
           return (
-            <div className={"company-list-item"}>
+            <div
+              key={company.organisasjonsnummer}
+              className={"company-list-item"}
+            >
               <p>{company.navn} </p>
               <button
                 onClick={() => {

@@ -20,6 +20,8 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { TimelineContent } from "@mui/lab";
 import { UserApiContext } from "../../api-client/userApiContext";
 import { useLoader } from "../../helpers/UseLoader";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 const Dashboard = (props) => {
   //TODO: Mer beskrivende navn på state.
@@ -64,6 +66,22 @@ const Dashboard = (props) => {
     );
   }
 
+  const impact = userData.active_npos_id[0].impacts;
+
+  const highlited = userData.npo_partners[0].projects;
+
+  const history = userData.donation_history;
+
+  console.log("history", history);
+
+  console.log("impact", impact);
+
+  console.log("high", highlited[0]);
+
+  console.log(userData);
+
+  const i = 0;
+
   return (
     <div className={"dashboard-container"}>
       <h1>Hi, Welcome back </h1>
@@ -74,11 +92,13 @@ const Dashboard = (props) => {
               <div className="students-impact-icon">
                 <SchoolIcon fontSize={"large"} />
               </div>
+              <ArrowBackIosIcon className={"student-back-button"} />
               <div className="students-impact-count">
-                <a>3751</a>
+                <div>{impact[i].amount}</div>
               </div>
+
               <div className="students-impact-content">
-                <a>students impacted</a>
+                <div>{impact[i].impact_type}</div>
               </div>
             </div>
           </Grid>
@@ -92,11 +112,11 @@ const Dashboard = (props) => {
                 alt={"das"}
               />
               <div className={"socialmedia-template-content-top"}>
-                <a>Share on Social Media</a>
+                <div>Share on Social Media</div>
               </div>
               <div className={"socialmedia-template-content-bot"}>
                 <Link href={"/templates"} color="inherit">
-                  <a>View templates</a>
+                  <div>View templates</div>
                 </Link>
               </div>
             </div>
@@ -127,13 +147,15 @@ const Dashboard = (props) => {
                   >
                     <div className={"highlighted-partners-icon"}>
                       <LocalHospitalIcon />
-                      <div className={"accordion-title"}>Asha Foundation</div>
+                      <div className={"accordion-title"}>
+                        {highlited[0].name}
+                      </div>
                     </div>
                   </AccordionSummary>
 
                   <AccordionDetails sx={{ borderRadius: "16px" }}>
                     <div className={"highlighted-partners-vaccination"}>
-                      <a>Vaccination Program</a>
+                      <div>{highlited[0].name}</div>
                       <LinearProgress
                         sx={{
                           width: "162px",
@@ -146,7 +168,7 @@ const Dashboard = (props) => {
                       />
                     </div>
                     <div className={"highlighted-partners-infant"}>
-                      <a>Infant Mortality</a>
+                      <div>Infant Mortality</div>
                       <LinearProgress
                         sx={{
                           width: "162px",
@@ -159,7 +181,7 @@ const Dashboard = (props) => {
                       />
                     </div>
                     <div className={"highlighted-partners-dental"}>
-                      <a>Dental program</a>
+                      <div>Dental program</div>
                       <LinearProgress
                         sx={{
                           width: "162px",
@@ -192,7 +214,7 @@ const Dashboard = (props) => {
                 >
                   <div className={"highlighted-partners-icon"}>
                     <WaterIcon />
-                    <div className={"accordion-title"}>Vaccination Program</div>
+                    <div className={"accordion-title"}>{highlited[1].name}</div>
                   </div>
                 </AccordionSummary>
                 <AccordionDetails>
@@ -258,33 +280,34 @@ const Dashboard = (props) => {
                   <MenuItem value={"placeholder"}>placholder</MenuItem>
                 </Select>
               </div>
-              <Grid
-                container
-                justifyContent="space-around"
-                className={"donation-history-timeline-container"}
-              >
+              <Grid container className={"donation-history-timeline-container"}>
                 <Grid item>
-                  <Timeline>
-                    <TimelineItem>
-                      <TimelineSeparator>
-                        <TimelineDot
-                          color={"secondary"}
-                          className={"donation-history-timeline"}
-                        />
-                        <TimelineConnector />
-                      </TimelineSeparator>
-                      <TimelineContent className={"donation-history-content"}>
-                        <div className={"monthly-donation"}>
-                          Monthly donation
-                          <div className={"donation-date"}>24 mai 2021</div>
-                        </div>
-                        <div className={"donation-npo-name"}>
-                          {articlesData[0].npoName}
-                        </div>
-                        <div className={"donation-amount"}>1.000 kr</div>
-                      </TimelineContent>
-                    </TimelineItem>
-                  </Timeline>
+                  {history.map((m) => (
+                    <Timeline>
+                      <TimelineSeparator color={"primary"}></TimelineSeparator>
+                      <TimelineItem>
+                        <TimelineSeparator>
+                          <TimelineDot
+                            color={"secondary"}
+                            className={"donation-history-timeline"}
+                          />
+                          <TimelineConnector />
+                        </TimelineSeparator>
+                        <TimelineContent>
+                          <div className={"donation-history-content"}>
+                            <div className={"monthly-donation"}>
+                              {m.type}
+                              <span className="donation-npo-name">
+                                Leve havet
+                              </span>
+                              <div>{m.date}</div>
+                            </div>
+                            <div className={"donation-amount"}>{m.amount}</div>
+                          </div>
+                        </TimelineContent>
+                      </TimelineItem>
+                    </Timeline>
+                  ))}
                 </Grid>
               </Grid>
             </div>

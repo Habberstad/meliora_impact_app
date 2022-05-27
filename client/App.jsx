@@ -12,6 +12,7 @@ import OurPartnersPage from "./components/our_partners/OurPartnersPage";
 import NonProfitProfilePage from "./components/non-profit-page/NonProfitProfilePage";
 import Dashboard from "./components/dashboard/Dashboard";
 import MediaTemplatePage from "./components/media-template/MediaTemplatePage";
+import MelioraWrapped from "./components/wrapped/MelioraWrapped";
 import { NpoApiContext } from "./api-client/npoApiContext";
 import { useLoading } from "./useLoading";
 import { isLoading } from "./components/shared-components/Loading";
@@ -68,7 +69,7 @@ function App() {
             path="/npo-profile/*"
             element={<NonProfitProfilePage />}
           />
-          <Route exact path="/wrapped" element={<Partners />} />
+          <Route exact path="/wrapped" element={<MelioraWrapped />} />
           <Route
             exact
             path="/templates"

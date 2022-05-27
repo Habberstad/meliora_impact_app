@@ -9,6 +9,7 @@ import FormatStep from "./FormatStep";
 import CustomizeStep from "./CustomizeStep";
 import ReviewStep from "./ReviewStep";
 import ContentStep from "./ContentStep";
+import { purplePlatformButton } from "../../styles/button-style-config";
 
 const steps = ["Content", "Format", "Customize", "Review"];
 
@@ -167,15 +168,7 @@ const MediaTemplatePage = ({ user }) => {
               ) : (
                 <Button
                   variant="contained"
-                  sx={{
-                    height: "45px",
-                    width: "140px",
-                    borderRadius: "8px",
-                    backgroundColor: "#7209B7",
-                    "&:hover": {
-                      backgroundColor: "#A400FF",
-                    },
-                  }}
+                  sx={purplePlatformButton}
                   onClick={handleNext}
                 >
                   Next
