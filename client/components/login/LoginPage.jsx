@@ -36,6 +36,11 @@ export const LoginPage = () => {
     setSubscriptionType(option);
   };
 
+  const handleCompanyInfo = (name, orgNumber) => {
+    setOrgName(name);
+    setOrgNumber(orgNumber);
+  };
+
   const handleSubmit = () => {
     //maybe async?
     console.log({
@@ -90,7 +95,12 @@ export const LoginPage = () => {
           <Route
             exact
             path={"/find-company"}
-            element={<FindCompany subscriptionType={subscriptionType} />}
+            element={
+              <FindCompany
+                subscriptionType={subscriptionType}
+                handleCompanyInfo={handleCompanyInfo}
+              />
+            }
           />
           <Route
             exact
@@ -98,11 +108,6 @@ export const LoginPage = () => {
             element={
               <SelectSubscription handleClick={handleSubscriptionType} />
             }
-          />
-          <Route
-            exact
-            path={"/select-subscription"}
-            element={<SelectSubscription />}
           />
           <Route
             exact
