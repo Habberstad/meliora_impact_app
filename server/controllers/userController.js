@@ -29,11 +29,27 @@ async function getById(req, res) {
 }
 
 async function getLoggedInUser(req, res) {
+  const query = {};
+
+  if(req.user === undefined)
+    return res.status(200).json(null);
+
+  if(req.user !== undefined){
+    const { id } = req.user.id;
+    if (id !== "" && id !== undefined) {
+      query.google_id = id
+    }
+  }
+
+
+
 
 
   try {
 
-    const data = await UserService.getLoggedInUser();
+
+    const data = await UserService.getLoggedInUser(query);
+
     return res.status(200).json(data);
   } catch (e) {
     return res.status(400).json({ status: 400, message: e.message });
@@ -43,6 +59,7 @@ async function getLoggedInUser(req, res) {
 
 
 async function getByGoogleId(req, res) {
+  console.log("test")
   try {
     const data = await UserService.getByGoogleId(req.params.id);
     return res.status(200).json(data);

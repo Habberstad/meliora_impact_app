@@ -39,9 +39,9 @@ const Sidebar = (props) => {
         </div>
 
         <div className="profile-name-badge">
-          <img src={user.photos[0].value} alt="profile-icon" />
+
           <div>
-            <div style={{ marginTop: "10px" }}> {user.displayName} </div>{" "}
+            <div style={{ marginTop: "10px" }}> {user.org_name} </div>{" "}
             {/* TODO: Replace with username */}
             <Button
               sx={{

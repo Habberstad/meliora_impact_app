@@ -10,11 +10,39 @@ async function list(query) {
   }
 }
 
-async function getLoggedInUser(query) {
+async function getLoggedInUser(google_id) {
+  if(google_id === { google_id: "" })
+    return null;
+
   try {
-    return await User.find(query);
+
+    const user1 = await User.find(google_id);
+    const userId = user1[0]._id;
+
+    const user = await User.aggregate([
+      { $match: { _id: ObjectId(userId) } },
+      {
+        $lookup: {
+          from: "transactions",
+          localField: "_id",
+          foreignField: "giver_id",
+          as: "donation_history",
+        },
+      },
+      { $match: { _id: ObjectId(userId) } },
+      {
+        $lookup: {
+          from: "npos",
+          localField: "active_npos_id.id",
+          foreignField: "_id",
+          as: "npo_partners",
+        },
+      },
+    ]);
+
+    return user[0];
   } catch (e) {
-    throw Error(e);
+    throw Error();
   }
 }
 
