@@ -21,7 +21,7 @@ export const FindCompany = (props) => {
   };
 
   const onChangeHandler = (e) => {
-    let url = `https://data.brreg.no/enhetsregisteret/api/enheter?navn=${e.target.value}&konkurs=false`;
+    let url = `https://data.brreg.no/enhetsregisteret/api/enheter?navn=${e.target.value}&konkurs=false&organisasjonsform=AS,ENK,ANS,DA,STI`;
 
     if (
       e.target.value.trim().length === 9 &&
