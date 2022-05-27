@@ -15,8 +15,8 @@ import { UserApiContext } from "../../api-client/userApiContext";
 export const LoginPage = () => {
   const navigate = useNavigate();
   const { registerUser } = useContext(UserApiContext);
-  const [orgName, setOrgName] = useState("123");
-  const [orgNumber, setOrgNumber] = useState("Gutta");
+  const [orgName, setOrgName] = useState("");
+  const [orgNumber, setOrgNumber] = useState("");
   const [subscriptionType, setSubscriptionType] = useState("");
   const [paymentOption, setPaymentOption] = useState("");
   const [isOverBreakpoint, setIsOverBreakpoint] = useState(true);
@@ -77,12 +77,7 @@ export const LoginPage = () => {
           <Route
             exact
             path={"/select-identification-method"}
-            element={
-              <SelectIdentificationMethod
-                subscriptionType={subscriptionType}
-                google={google}
-              />
-            }
+            element={<SelectIdentificationMethod google={google} />}
           />
           <Route
             exact
@@ -92,12 +87,7 @@ export const LoginPage = () => {
           <Route
             exact
             path={"/find-company"}
-            element={
-              <FindCompany
-                subscriptionType={subscriptionType}
-                handleCompanyInfo={handleCompanyInfo}
-              />
-            }
+            element={<FindCompany handleCompanyInfo={handleCompanyInfo} />}
           />
           <Route
             exact
@@ -112,8 +102,9 @@ export const LoginPage = () => {
             element={
               <SelectPaymentMethod
                 subscriptionType={subscriptionType}
-                handleChange={handlePaymentType}
                 paymentOption={paymentOption}
+                orgName={orgName}
+                handleChange={handlePaymentType}
                 sumbit={handleSubmit}
               />
             }
