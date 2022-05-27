@@ -22,7 +22,7 @@ const MediaTemplatePage = ({ user }) => {
 
   console.log(user);
   const { loading, error, data } = useLoader(
-    async () => await getUserByGoogleId(user.id),
+    async () => await getUserByGoogleId(user.google_id),
     []
   );
 
