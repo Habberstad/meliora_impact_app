@@ -7,22 +7,6 @@ export const FindCompany = (props) => {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
 
-  useEffect(() => {
-    const url =
-      "https://data.brreg.no/enhetsregisteret/api/enheter?navn=dnb&konkurs=false";
-
-    const fetchData = async () => {
-      try {
-        const response = await fetch(url);
-        const json = await response.json();
-        console.log(json);
-      } catch (error) {
-        console.log("error", error);
-      }
-    };
-
-    fetchData();
-  }, []);
   const onChangeHandler = (e) => {
     console.log(e.target.value);
     let url = `https://data.brreg.no/enhetsregisteret/api/enheter?navn=${e.target.value}&konkurs=false`;
