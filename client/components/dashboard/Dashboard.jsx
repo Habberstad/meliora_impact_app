@@ -20,6 +20,8 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { TimelineContent } from "@mui/lab";
 import { UserApiContext } from "../../api-client/userApiContext";
 import { useLoader } from "../../helpers/UseLoader";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 const Dashboard = (props) => {
   //TODO: Mer beskrivende navn på state.
@@ -78,11 +80,8 @@ const Dashboard = (props) => {
 
   console.log(userData);
 
-  history.map((val) => {
-    console.log("val", val)
-  })
+  const i = 0;
 
-  const i = 1;
   return (
     <div className={"dashboard-container"}>
       <h1>Hi, Welcome back </h1>
@@ -93,9 +92,11 @@ const Dashboard = (props) => {
               <div className="students-impact-icon">
                 <SchoolIcon fontSize={"large"} />
               </div>
+              <ArrowBackIosIcon className={"student-back-button"} />
               <div className="students-impact-count">
                 <div>{impact[i].amount}</div>
               </div>
+
               <div className="students-impact-content">
                 <div>{impact[i].impact_type}</div>
               </div>
@@ -146,7 +147,9 @@ const Dashboard = (props) => {
                   >
                     <div className={"highlighted-partners-icon"}>
                       <LocalHospitalIcon />
-                      <div className={"accordion-title"}>{highlited[0].name}</div>
+                      <div className={"accordion-title"}>
+                        {highlited[0].name}
+                      </div>
                     </div>
                   </AccordionSummary>
 
@@ -277,34 +280,34 @@ const Dashboard = (props) => {
                   <MenuItem value={"placeholder"}>placholder</MenuItem>
                 </Select>
               </div>
-              <Grid
-                container
-                justifyContent="space-around"
-                className={"donation-history-timeline-container"}
-              >
+              <Grid container className={"donation-history-timeline-container"}>
                 <Grid item>
-                  <Timeline>
-                    <TimelineItem>
-                      <TimelineSeparator>
-                        <TimelineDot
-                          color={"secondary"}
-                          className={"donation-history-timeline"}
-                        />
-                        <TimelineConnector />
-                      </TimelineSeparator>
-                      <TimelineContent className={"donation-history-content"}>
-                        <div className={"monthly-donation"}>
-
-                          {history[0].type}
-                          <div className={"donation-date"}>{history[0].date}</div>
-                        </div>
-                        <div className={"donation-npo-name"}>
-                          name
-                        </div>
-                        <div className={"donation-amount"}>{history[0].amount}</div>
-                      </TimelineContent>
-                    </TimelineItem>                                                 
-                  </Timeline>
+                  {history.map((m) => (
+                    <Timeline>
+                      <TimelineSeparator color={"primary"}></TimelineSeparator>
+                      <TimelineItem>
+                        <TimelineSeparator>
+                          <TimelineDot
+                            color={"secondary"}
+                            className={"donation-history-timeline"}
+                          />
+                          <TimelineConnector />
+                        </TimelineSeparator>
+                        <TimelineContent>
+                          <div className={"donation-history-content"}>
+                            <div className={"monthly-donation"}>
+                              {m.type}
+                              <span className="donation-npo-name">
+                                Leve havet
+                              </span>
+                              <div>{m.date}</div>
+                            </div>
+                            <div className={"donation-amount"}>{m.amount}</div>
+                          </div>
+                        </TimelineContent>
+                      </TimelineItem>
+                    </Timeline>
+                  ))}
                 </Grid>
               </Grid>
             </div>
