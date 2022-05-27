@@ -67,7 +67,7 @@ function App() {
           <Route
             exact
             path="/npo-profile/*"
-            element={<NonProfitProfilePage />}
+            element={<NonProfitProfilePage user={user} />}
           />
           <Route exact path="/wrapped" element={<MelioraWrapped />} />
           <Route

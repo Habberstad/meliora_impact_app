@@ -252,3 +252,156 @@ export const purplePlatformButton = {
     backgroundColor: "#A400FF",
   },
 };
+
+// DONATE MODAL
+
+export const leftPaymentModalFreqBtn = {
+  fontSize: "12px",
+  fontWeight: "500",
+  width: "157px",
+  height: "42px",
+  backgroundColor: "#FAFAFA",
+  border: "0",
+  color: "black",
+  marginLeft: "-2px",
+  borderRadius: "8px 0px 0px 8px",
+  boxShadow:
+    "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.1)",
+  "&:hover": {
+    border: "0",
+    backgroundColor: "#B8F0DA",
+    boxShadow:
+      "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.1)",
+  },
+};
+
+export const leftSelectedPaymentModalFreqBtn = {
+  fontSize: "12px",
+  fontWeight: "500",
+  width: "157px",
+  height: "42px",
+  backgroundColor: "#B8F0DA",
+  border: "0",
+  color: "black",
+  marginLeft: "-2px",
+  borderRadius: "8px 0px 0px 8px",
+  boxShadow:
+    "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.1)",
+  "&:hover": {
+    border: "0",
+    backgroundColor: "#B8F0DA",
+    boxShadow:
+      "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.1)",
+  },
+};
+
+export const rightPaymentModalFreqBtn = {
+  fontSize: "12px",
+  fontWeight: "500",
+  width: "157px",
+  height: "42px",
+  backgroundColor: "#FAFAFA",
+  border: "0",
+  color: "black",
+  marginLeft: "-2px",
+  borderRadius: "0px 8px 8px 0px",
+  boxShadow:
+    "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.1)",
+  "&:hover": {
+    border: "0",
+    backgroundColor: "#B8F0DA",
+    boxShadow:
+      "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.1)",
+  },
+};
+
+export const rightSelectedPaymentModalFreqBtn = {
+  fontSize: "12px",
+  fontWeight: "500",
+  width: "157px",
+  height: "42px",
+  backgroundColor: "#B8F0DA",
+  border: "0",
+  color: "black",
+  marginLeft: "-2px",
+  borderRadius: "0px 8px 8px 0px",
+  boxShadow:
+    "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.1)",
+  "&:hover": {
+    border: "0",
+    backgroundColor: "#B8F0DA",
+    boxShadow:
+      "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.1)",
+  },
+};
+
+export const donateAmountButton = {
+  fontSize: "12px",
+  fontWeight: "500",
+  width: "124px",
+  height: "42px",
+  backgroundColor: "#FAFAFA",
+  border: "0",
+  color: "black",
+  margin: "6px",
+  borderRadius: "8px 8px 8px 8px",
+  boxShadow:
+    "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.2)",
+  "&:hover": {
+    border: "0",
+    backgroundColor: "#B8F0DA",
+    boxShadow:
+      "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.1)",
+  },
+};
+
+export const selectedDonateAmountButton = {
+  fontSize: "12px",
+  fontWeight: "500",
+  width: "124px",
+  height: "42px",
+  backgroundColor: "#B8F0DA",
+  border: "0",
+  color: "black",
+  margin: "6px",
+
+  borderRadius: "8px 8px 8px 8px",
+  boxShadow:
+    "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.2)",
+  "&:hover": {
+    border: "0",
+    backgroundColor: "#B8F0DA",
+    boxShadow:
+      "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.1)",
+  },
+};
+
+export const allocationDonateButton = {
+  fontSize: "12px",
+  fontWeight: "500",
+  width: "96px",
+  height: "42px",
+  backgroundColor: "#FAFAFA",
+  border: "0",
+  color: "black",
+  marginLeft: "-2px",
+  borderRadius: "8px 8px 8px 8px",
+  boxShadow:
+    "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.2)",
+};
+
+export const greenWidePlatformButton = {
+  height: "45px",
+  width: "410px",
+  borderRadius: "8px",
+  backgroundColor: "#B8F0DA",
+  color: "#000",
+  fontSize: "12px",
+  boxShadow:
+    "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.1)",
+  "&:hover": {
+    backgroundColor: "#a8e8d0",
+    boxShadow:
+      "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.1)",
+  },
+};
