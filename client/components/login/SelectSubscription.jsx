@@ -8,6 +8,7 @@ export const SelectSubscription = (props) => {
 
   return (
     <div className={"login-content"}>
+      <BackButton />
       <div>
         <h1>Philanthropy is everything</h1>
         <p>Get started for free </p>
@@ -57,9 +58,6 @@ export const SelectSubscription = (props) => {
       >
         premium
       </Button>
-      <p>
-        Already got an account? <Link to={"/login-form"}>Log in here.</Link>
-      </p>
     </div>
   );
 };
