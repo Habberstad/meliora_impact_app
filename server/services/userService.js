@@ -11,12 +11,15 @@ async function list(query) {
 }
 
 async function getLoggedInUser(google_id) {
-  if(google_id === { google_id: "" })
-    return null;
+
 
   try {
 
     const user1 = await User.find(google_id);
+
+    if(user1.length === 0)
+        return null
+
     const userId = user1[0]._id;
 
     const user = await User.aggregate([
@@ -76,9 +79,11 @@ async function getById(id) {
 }
 
 async function getByGoogleId(id) {
+
   try {
     const user1 = await User.find({ google_id: id });
     const userId = user1[0]._id;
+
 
     const user = await User.aggregate([
       { $match: { _id: ObjectId(userId) } },

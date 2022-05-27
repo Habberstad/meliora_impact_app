@@ -19,9 +19,12 @@ import { isLoading } from "./components/shared-components/Loading";
 import { Error } from "./components/shared-components/Error";
 import { UserApiContext } from "./api-client/userApiContext";
 
+
 export const UserContext = React.createContext({
 
 });
+
+
 
 function App() {
 
@@ -31,14 +34,11 @@ function App() {
     []
   );
 
-
   if (loading) return isLoading();
 
   if (error) return <Error error={error} />;
 
 
-  console.log(data === undefined)
-  console.log(data)
 
 
   if (data === undefined || data === null) {
@@ -56,8 +56,8 @@ function App() {
         <Outlet />
 
         <Routes>
-          <Route exact path="/login" element={<LoginPage />} />
-          <Route exact path="/" element={<Dashboard user={data} />} />
+          <Route exact path="/login-page" element={<LoginPage />} />
+          <Route exact path="/dashboard" element={<Dashboard user={data} />} />
           <Route exact path="/auth/google/production" element={<h1>Home</h1>} />
           <Route exact path="/articles" element={<ArticlesPage />} />
           <Route exact path="/articles/article" element={<Article />} />
@@ -67,7 +67,7 @@ function App() {
           <Route
             exact
             path="/npo-profile/*"
-            element={<NonProfitProfilePage user={user} />}
+            element={<NonProfitProfilePage user={data} />}
           />
           <Route exact path="/wrapped" element={<MelioraWrapped />} />
           <Route

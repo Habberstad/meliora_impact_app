@@ -41,7 +41,9 @@ const Sidebar = (props) => {
         <div className="profile-name-badge">
 
           <div>
-            <div style={{ marginTop: "10px" }}> {user.org_name} </div>{" "}
+            <div style={{ marginTop: "10px" }}> {user.org_name} </div>
+            <div style={{ marginTop: "10px" }}> {user.name} </div>
+            {" "}
             {/* TODO: Replace with username */}
             <Button
               sx={{
@@ -56,8 +58,8 @@ const Sidebar = (props) => {
                 "&:hover": {
                   backgroundColor: "#e5e5e5",
                   color: "black",
-                  border: "none",
-                },
+                  border: "none"
+                }
               }}
               variant="outlined"
               onClick={handleLogoutClick}

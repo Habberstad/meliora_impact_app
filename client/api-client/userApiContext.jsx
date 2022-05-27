@@ -20,7 +20,7 @@ export const UserApiContext = React.createContext({
   },
 
   async testGet(urlPathParam) {
-    return await fetchJSON("/api/users/test/sadf" );
+    return await fetchJSON("/api/users/login/user" );
   },
 
 
