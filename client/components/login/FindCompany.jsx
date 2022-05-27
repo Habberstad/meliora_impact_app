@@ -28,7 +28,6 @@ export const FindCompany = (props) => {
       /^\d+$/.test(e.target.value.trim())
     ) {
       url = `https://data.brreg.no/enhetsregisteret/api/enheter?organisasjonsnummer=${e.target.value}&konkurs=false`;
-
       fetchData(url);
     }
     if (e.target.value.trim().length === 0) {
