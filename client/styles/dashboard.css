@@ -30,6 +30,18 @@
     font-size: 20px;
 }
 
+.student-back-button{
+    position: absolute;
+    top: 220px;
+    align-self: flex-start;
+}
+
+.student-back-button{
+    position: absolute;
+    top: 220px;
+    align-self: flex-start;
+}
+
 .students-impact-content{
     position: absolute;
     top: 260px;
@@ -168,23 +180,30 @@
     display: flex;
     flex-direction: row;
     white-space: nowrap;
+    position: absolute;
+    left: 50px;
+    gap: 30px;
 }
 
 
 .monthly-donation{
     font-size: 12px;
+    width: 180px;
 }
 
 .donation-npo-name{
     font-size: 14px;
     color: #551477;
+    font-weight: 600;
 }
 
 .donation-date{
     font-size: 10px
+
 }
 
 .donation-amount{
     font-size: 16px;
-    font-weight: bold;
+    font-weight: 600;
+    justify-self: flex-end;
 }
