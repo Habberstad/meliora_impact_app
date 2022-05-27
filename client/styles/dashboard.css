@@ -35,10 +35,10 @@
     align-self: flex-start;
 }
 
-.student-back-button{
+.students-forward-button{
     position: absolute;
     top: 220px;
-    align-self: flex-start;
+    align-self: flex-end;
 }
 
 .students-impact-content{

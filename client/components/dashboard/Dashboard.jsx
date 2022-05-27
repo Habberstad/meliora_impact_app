@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useLoading } from "../../useLoading";
 import { Grid, InputLabel, Link, MenuItem, Select } from "@mui/material";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import "../../styles/dashboard.css";
 import SchoolIcon from "@mui/icons-material/School";
 import LocalHospitalIcon from "@mui/icons-material/LocalHospital";
@@ -28,6 +28,7 @@ const Dashboard = (props) => {
   const [age, setAge] = React.useState("");
   //TODO: Mer beskrivende navn på state. F.eks. expandPartnerAccordion
   const [expanded, setExpanded] = React.useState(false);
+  const [counter, setCounter] = useState(1);
 
   const { getArticles } = useContext(ArticleApiContext);
   const { getUserByGoogleId } = useContext(UserApiContext);
@@ -68,7 +69,9 @@ const Dashboard = (props) => {
 
   const impact = userData.active_npos_id[0].impacts;
 
-  const highlited = userData.npo_partners[0].projects;
+  console.log("length", impact.length);
+
+  const highlighted = userData.npo_partners[0].projects;
 
   const history = userData.donation_history;
 
@@ -76,11 +79,26 @@ const Dashboard = (props) => {
 
   console.log("impact", impact);
 
-  console.log("high", highlited[0]);
+  console.log("high", highlighted[0]);
 
   console.log(userData);
 
-  const i = 0;
+  const increase = () => {
+    if (counter === impact.length - 1) {
+      setCounter(0);
+    } else {
+      setCounter(+1);
+    }
+  };
+
+  const decrease = () => {
+    if (counter === 0) {
+      setCounter(impact.length - 1);
+    }
+    if (counter > 0) {
+      setCounter(counter - 1);
+    }
+  };
 
   return (
     <div className={"dashboard-container"}>
@@ -92,13 +110,20 @@ const Dashboard = (props) => {
               <div className="students-impact-icon">
                 <SchoolIcon fontSize={"large"} />
               </div>
-              <ArrowBackIosIcon className={"student-back-button"} />
+              <ArrowBackIosIcon
+                onClick={decrease}
+                className={"student-back-button"}
+              />
+              <ArrowForwardIosIcon
+                onClick={increase}
+                className={"students-forward-button"}
+              />
               <div className="students-impact-count">
-                <div>{impact[i].amount}</div>
+                <div>{impact[counter].amount}</div>
               </div>
 
               <div className="students-impact-content">
-                <div>{impact[i].impact_type}</div>
+                <div>{impact[counter].impact_type}</div>
               </div>
             </div>
           </Grid>
@@ -148,14 +173,14 @@ const Dashboard = (props) => {
                     <div className={"highlighted-partners-icon"}>
                       <LocalHospitalIcon />
                       <div className={"accordion-title"}>
-                        {highlited[0].name}
+                        {highlighted[0].name}
                       </div>
                     </div>
                   </AccordionSummary>
 
                   <AccordionDetails sx={{ borderRadius: "16px" }}>
                     <div className={"highlighted-partners-vaccination"}>
-                      <div>{highlited[0].name}</div>
+                      <div>{highlighted[0].name}</div>
                       <LinearProgress
                         sx={{
                           width: "162px",
@@ -214,7 +239,9 @@ const Dashboard = (props) => {
                 >
                   <div className={"highlighted-partners-icon"}>
                     <WaterIcon />
-                    <div className={"accordion-title"}>{highlited[1].name}</div>
+                    <div className={"accordion-title"}>
+                      {highlighted[1].name}
+                    </div>
                   </div>
                 </AccordionSummary>
                 <AccordionDetails>
