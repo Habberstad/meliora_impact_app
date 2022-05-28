@@ -13,7 +13,7 @@ export const SelectSubscription = (props) => {
         <h1>Philanthropy is everything</h1>
         <p>Get started for free </p>
         <p>Or</p>
-        <p>get access to all our extended features as a Meliora Partner</p>
+        <p>Get access to all our extended features as a Meliora Partner</p>
       </div>
 
       <Button

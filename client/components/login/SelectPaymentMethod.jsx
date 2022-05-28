@@ -2,6 +2,7 @@ import { BackButton } from "./BackButton";
 import { Button, Checkbox, Radio } from "@mui/material";
 import { useNavigate } from "react-router";
 import { useState } from "react";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 export const SelectPaymentMethod = (props) => {
   const navigate = useNavigate();
@@ -14,7 +15,13 @@ export const SelectPaymentMethod = (props) => {
       <BackButton />
       <div className={"login-content-header"}>
         <h1>Payment method</h1>
-        <p>{props.subscriptionType}</p>
+        <div
+          className={`login-content-header-subscription-tag ${
+            props.subscriptionType === "premium" ? "premium" : "freemium"
+          }`}
+        >
+          <p>{props.subscriptionType}</p> <CheckCircleIcon />
+        </div>
         <p>Welcom, {props.orgName}</p>
       </div>
       <div className={"payment-options-container"}>
