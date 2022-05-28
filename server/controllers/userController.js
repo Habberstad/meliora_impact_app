@@ -1,7 +1,7 @@
 import UserService from "../services/userService.js";
 import { ObjectId } from "mongodb";
 import { config } from "../config/Constants.js";
-import User from "../models/userModel.js"
+import User from "../models/userModel.js";
 
 async function list(req, res) {
   const query = {};
@@ -33,18 +33,18 @@ async function getLoggedInUser(req, res) {
 
   try {
     const query = {};
-    if(req.user === undefined)
+    if (req.user === undefined)
       return res.status(200).json(null);
     else
-    query.google_id = req.user.id
+      query.google_id = req.user.id;
 
+  console.log("controll")
     const data = await UserService.getLoggedInUser(query);
     return res.status(200).json(data);
   } catch (e) {
     return res.status(400).json({ status: 400, message: e.message });
   }
 }
-
 
 
 async function getByGoogleId(req, res) {
@@ -58,11 +58,9 @@ async function getByGoogleId(req, res) {
 
 async function create(req, res) {
 
-  console.log("controller", req.user)
-  console.log("body", req.body)
-  req.body.google_id = req.user.id
-  req.body.name = req.user.displayName
-  console.log(req.body)
+  req.body.google_id = req.user.id;
+  req.body.name = req.user.displayName;
+
   try {
 
     await UserService.create(req.body);
@@ -72,4 +70,4 @@ async function create(req, res) {
   }
 }
 
-export default { list, getById, create, getByGoogleId, getLoggedInUser};
+export default { list, getById, create, getByGoogleId, getLoggedInUser };

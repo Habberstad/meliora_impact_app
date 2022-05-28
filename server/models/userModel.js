@@ -25,7 +25,6 @@ const userSchema = new mongoose.Schema({
   }
 }, {
   collection: "users",
-  bufferCommands: false,
   autoCreate: false
 });
 

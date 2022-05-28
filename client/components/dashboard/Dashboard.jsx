@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useLoading } from "../../useLoading";
 import { Grid, InputLabel, Link, MenuItem, Select } from "@mui/material";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import "../../styles/dashboard.css";
 import SchoolIcon from "@mui/icons-material/School";
 import LocalHospitalIcon from "@mui/icons-material/LocalHospital";
@@ -28,6 +28,8 @@ const Dashboard = (props) => {
   const [age, setAge] = React.useState("");
   //TODO: Mer beskrivende navn på state. F.eks. expandPartnerAccordion
   const [expanded, setExpanded] = React.useState(false);
+  const [counter, setCounter] = useState(1);
+
 
   const { getArticles } = useContext(ArticleApiContext);
   const { getUserByGoogleId } = useContext(UserApiContext);
@@ -66,11 +68,11 @@ const Dashboard = (props) => {
     );
   }
 
-  const impact = userData.active_npos_id[0].impacts;
+  const impact = props.user.active_subscriptions[0].impacts;
 
-  const highlited = userData.npo_partners[0].projects;
+  const highlited = props.user.npo_partners[0].projects;
 
-  const history = userData.donation_history;
+  const history = props.user.donation_history;
 
   console.log("history", history);
 
@@ -80,7 +82,23 @@ const Dashboard = (props) => {
 
   console.log(userData);
 
-  const i = 0;
+  const increase = () => {
+    if (counter === impact.length - 1) {
+      setCounter(0);
+    } else {
+      setCounter(+1);
+    }
+  };
+
+  const decrease = () => {
+    if (counter === 0) {
+      setCounter(impact.length - 1);
+    }
+    if (counter > 0) {
+      setCounter(counter - 1);
+    }
+  };
+
 
   return (
     <div className={"dashboard-container"}>
@@ -92,13 +110,19 @@ const Dashboard = (props) => {
               <div className="students-impact-icon">
                 <SchoolIcon fontSize={"large"} />
               </div>
-              <ArrowBackIosIcon className={"student-back-button"} />
+              <ArrowBackIosIcon
+                onClick={decrease}
+                className={"student-back-button"}
+              />
+              <ArrowForwardIosIcon
+                onClick={increase}
+                className={"students-forward-button"}
+              />
               <div className="students-impact-count">
-                <div>{impact[i].amount}</div>
+                {impact === undefined ? <div>impact not set</div> : <div>{impact[counter].amount}</div>}
               </div>
-
               <div className="students-impact-content">
-                <div>{impact[i].impact_type}</div>
+                {impact === undefined ? <div>impact not set</div> : <div>{impact[counter].impact_type}</div>}
               </div>
             </div>
           </Grid>
@@ -135,7 +159,7 @@ const Dashboard = (props) => {
                     backgroundColor: "#FCEFE7",
                     width: "480px",
                     borderRadius: "16px",
-                    dropShadow: "0",
+                    dropShadow: "0"
                   }}
                   expanded={expanded === "panel1"}
                   onChange={handleChange("panel1")}
@@ -161,7 +185,7 @@ const Dashboard = (props) => {
                           width: "162px",
                           height: "9px",
                           backgroundColor: "#A5A5A5",
-                          position: "absolut",
+                          position: "absolut"
                         }}
                         variant="determinate"
                         value={30}
@@ -174,7 +198,7 @@ const Dashboard = (props) => {
                           width: "162px",
                           height: "9px",
                           backgroundColor: "#A5A5A5",
-                          position: "absolut",
+                          position: "absolut"
                         }}
                         variant="determinate"
                         value={40}
@@ -187,7 +211,7 @@ const Dashboard = (props) => {
                           width: "162px",
                           height: "9px",
                           backgroundColor: "#A5A5A5",
-                          position: "absolut",
+                          position: "absolut"
                         }}
                         variant="determinate"
                         value={80}
@@ -202,7 +226,7 @@ const Dashboard = (props) => {
                   backgroundColor: "#FCEFE7",
                   fontSize: "18px",
                   margin: "10px",
-                  dropShadow: "0",
+                  dropShadow: "0"
                 }}
                 expanded={expanded === "panel2"}
                 onChange={handleChange("panel2")}
@@ -225,7 +249,7 @@ const Dashboard = (props) => {
                         width: "162px",
                         height: "9px",
                         backgroundColor: "#A5A5A5",
-                        position: "absolut",
+                        position: "absolut"
                       }}
                       variant="determinate"
                       value={10}
@@ -238,7 +262,7 @@ const Dashboard = (props) => {
                         width: "162px",
                         height: "9px",
                         backgroundColor: "#A5A5A5",
-                        position: "absolut",
+                        position: "absolut"
                       }}
                       variant="determinate"
                       value={70}
@@ -251,7 +275,7 @@ const Dashboard = (props) => {
                         width: "162px",
                         height: "9px",
                         backgroundColor: "#A5A5A5",
-                        position: "absolut",
+                        position: "absolut"
                       }}
                       variant="determinate"
                       value={90}

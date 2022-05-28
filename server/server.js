@@ -51,7 +51,7 @@ app.use("/auth", authRoutes);
 app.use("/api/projects", hasAccount, projectsRoute);
 app.use("/api/articles", hasAccount, articlesRoute);
 app.use("/api/npo", hasAccount, npoRoute);
-app.use("/api/subscriptions", hasAccount, subscriptionRoutes)
+app.use("/api/subscriptions", subscriptionRoutes)
 app.use("/api/users", userRoute);
 
 

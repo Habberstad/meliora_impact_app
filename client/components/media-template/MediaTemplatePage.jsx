@@ -94,7 +94,7 @@ const MediaTemplatePage = ({ user }) => {
         </div>
         <div className="template-step-content">
           {activeStep === 0 && (
-            <ContentStep handleNext={handleNext} npoList={data.npo_partners} />
+            <ContentStep handleNext={handleNext} npoList={user.npo_partners} />
           )}
           {activeStep === 1 && <FormatStep />}
           {activeStep === 2 && <CustomizeStep />}

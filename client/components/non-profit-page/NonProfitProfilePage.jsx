@@ -30,7 +30,7 @@ const NonProfitProfilePage = ({ user }) => {
   );
 
   const subscriptionInfo = {
-    _id: user.id,
+    user_id: user.google_id,
     npo_id: data?._id,
     payment_amount: paymentAmount,
     payment_frequency: paymentFrequency,
