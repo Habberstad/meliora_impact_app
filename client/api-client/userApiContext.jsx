@@ -8,14 +8,20 @@ export const UserApiContext = React.createContext({
   },
 
   async getUserById(urlPathParam) {
-    return await fetchJSON("/api/npo/" + urlPathParam);
+    return await fetchJSON("/api/users/" + urlPathParam);
   },
 
   async getUserByGoogleId(urlPathParam) {
     return await fetchJSON("/api/users/google-id/" + urlPathParam);
   },
 
-  async registerUser(user) {
-    return await postJSON("/api/user", user);
+  async registerUser(newUser) {
+    return await postJSON("/api/users/register", newUser);
   },
+
+  async testGet(urlPathParam) {
+    return await fetchJSON("/api/users/login/user" );
+  },
+
+
 });

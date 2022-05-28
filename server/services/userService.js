@@ -10,6 +10,45 @@ async function list(query) {
   }
 }
 
+async function getLoggedInUser(google_id) {
+
+
+  try {
+
+    const user1 = await User.find(google_id);
+
+    if(user1.length === 0)
+        return null
+
+    const userId = user1[0]._id;
+
+    const user = await User.aggregate([
+      { $match: { _id: ObjectId(userId) } },
+      {
+        $lookup: {
+          from: "transactions",
+          localField: "_id",
+          foreignField: "giver_id",
+          as: "donation_history",
+        },
+      },
+      { $match: { _id: ObjectId(userId) } },
+      {
+        $lookup: {
+          from: "npos",
+          localField: "active_npos_id.id",
+          foreignField: "_id",
+          as: "npo_partners",
+        },
+      },
+    ]);
+
+    return user[0];
+  } catch (e) {
+    throw Error();
+  }
+}
+
 async function getById(id) {
   try {
     const user = await User.aggregate([
@@ -40,9 +79,11 @@ async function getById(id) {
 }
 
 async function getByGoogleId(id) {
+
   try {
     const user1 = await User.find({ google_id: id });
     const userId = user1[0]._id;
+
 
     const user = await User.aggregate([
       { $match: { _id: ObjectId(userId) } },
@@ -80,4 +121,4 @@ async function create(query) {
   }
 }
 
-export default { list, getById, create, getByGoogleId };
+export default { list, getById, create, getByGoogleId , getLoggedInUser};

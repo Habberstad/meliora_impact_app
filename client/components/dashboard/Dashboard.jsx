@@ -35,7 +35,7 @@ const Dashboard = (props) => {
   // DATA FETCHING
   const rawArticlesData = useLoading(async () => await getArticles({}), []);
   const rawUserData = useLoader(
-    async () => await getUserByGoogleId(props.user.id),
+    async () => await getUserByGoogleId(props.user.google_id),
     []
   );
 
