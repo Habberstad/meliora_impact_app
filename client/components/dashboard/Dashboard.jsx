@@ -67,9 +67,9 @@ const Dashboard = (props) => {
     );
   }
 
-  const impact = props.user.active_npos_id[0].impacts;
+  const impact = props.user.active_subscriptions[0].impacts;
 
-  const highlited = props.user.npo_partners[0].impact_measurement;
+  const highlited = props.user.npo_partners[0].projects;
 
   const history = props.user.donation_history;
 
