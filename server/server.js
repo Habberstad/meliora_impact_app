@@ -15,6 +15,7 @@ import userRoute from "./routes/userRoute.js";
 import { isAuthenticated, hasAccount, accessToOwnAccountOnly } from "./middleware/middleware.js";
 import passportSetup from "./middleware/passport.js";
 import authRoutes from "./routes/authRoutes.js";
+import subscriptionRoutes from "./routes/subscriptionRoutes.js";
 
 const app = express();
 dotenv.config();
@@ -50,6 +51,7 @@ app.use("/auth", authRoutes);
 app.use("/api/projects", hasAccount, projectsRoute);
 app.use("/api/articles", hasAccount, articlesRoute);
 app.use("/api/npo", hasAccount, npoRoute);
+app.use("/api/subscriptions", hasAccount, subscriptionRoutes)
 app.use("/api/users", userRoute);
 
 

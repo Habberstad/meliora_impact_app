@@ -21,6 +21,7 @@ import { UserApiContext } from "./api-client/userApiContext";
 
 
 export const UserContext = React.createContext({
+  Account: (user) => {},
 
 });
 
@@ -40,7 +41,6 @@ function App() {
 
 
 
-
   if (data === undefined || data === null) {
     return (
       <div>
@@ -48,6 +48,7 @@ function App() {
       </div>
     );
   }
+
 
   return (
     <div className="app-container">
@@ -57,7 +58,7 @@ function App() {
 
         <Routes>
           <Route exact path="/login-page" element={<LoginPage />} />
-          <Route exact path="/dashboard" element={<Dashboard user={data} />} />
+          <Route exact path="/" element={<Dashboard user={data} />} />
           <Route exact path="/auth/google/production" element={<h1>Home</h1>} />
           <Route exact path="/articles" element={<ArticlesPage />} />
           <Route exact path="/articles/article" element={<Article />} />
