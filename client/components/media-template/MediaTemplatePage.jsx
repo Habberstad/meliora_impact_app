@@ -22,7 +22,7 @@ const MediaTemplatePage = ({ user }) => {
 
   console.log(user);
   const { loading, error, data } = useLoader(
-    async () => await getUserByGoogleId(user.id),
+    async () => await getUserByGoogleId(user.google_id),
     []
   );
 
@@ -94,7 +94,7 @@ const MediaTemplatePage = ({ user }) => {
         </div>
         <div className="template-step-content">
           {activeStep === 0 && (
-            <ContentStep handleNext={handleNext} npoList={data.npo_partners} />
+            <ContentStep handleNext={handleNext} npoList={user.npo_partners} />
           )}
           {activeStep === 1 && <FormatStep />}
           {activeStep === 2 && <CustomizeStep />}

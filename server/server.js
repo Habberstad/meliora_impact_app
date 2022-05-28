@@ -6,15 +6,16 @@ import cookieParser from "cookie-parser";
 import passport from "passport";
 import cookieSession from "cookie-session";
 import cors from "cors";
-import authRoute from "./routes/authRoutes.js";
 import mongoose from "mongoose";
 import projectsRoute from "./routes/projectsRoute.js";
 import articlesRoute from "./routes/articlesRoute.js";
 import { config } from "./config/Constants.js";
 import npoRoute from "./routes/npoRoute.js";
 import userRoute from "./routes/userRoute.js";
-import { isLoggedIn, hasAccount, accessToOwnAccountOnly } from "./middleware/middleware.js";
+import { isAuthenticated, hasAccount, accessToOwnAccountOnly } from "./middleware/middleware.js";
 import passportSetup from "./middleware/passport.js";
+import authRoutes from "./routes/authRoutes.js";
+import subscriptionRoutes from "./routes/subscriptionRoutes.js";
 
 const app = express();
 dotenv.config();
@@ -45,11 +46,12 @@ app.use(
   })
 );
 
-app.use("/auth", authRoute);
+app.use("/auth", authRoutes);
 
-app.use("/api/projects", projectsRoute);
-app.use("/api/articles", articlesRoute);
-app.use("/api/npo", npoRoute);
+app.use("/api/projects", hasAccount, projectsRoute);
+app.use("/api/articles", hasAccount, articlesRoute);
+app.use("/api/npo", hasAccount, npoRoute);
+app.use("/api/subscriptions", subscriptionRoutes)
 app.use("/api/users", userRoute);
 
 

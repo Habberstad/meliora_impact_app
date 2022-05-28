@@ -2,21 +2,22 @@ import mongoose from "mongoose";
 import { ObjectId } from "mongodb";
 
 const userSchema = new mongoose.Schema({
-  _id: String,
   name: String,
   last_name: String,
-  org_number: {
-    type: String
-  },
+  org_number: String,
   org_name: String,
-  google_id: {
-    type: String
-  },
-  description: String,
+  google_id: String,
   address: String,
   postal_code: String,
   city: String,
-  subscription: String,
+  payment_option: {
+    type: String,
+    enum: ["vipps", "klarna"]
+  },
+  subscription_type: {
+    type: String,
+    enum: ["freemium", "premium"]
+  },
   role: {
     type: String,
     enum: ["USER", "ADMIN"],
@@ -24,7 +25,6 @@ const userSchema = new mongoose.Schema({
   }
 }, {
   collection: "users",
-  bufferCommands: false,
   autoCreate: false
 });
 
