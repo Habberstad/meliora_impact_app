@@ -32,7 +32,7 @@ async function getLoggedInUser(google_id) {
           as: "donation_history",
         },
       },
-      { $match: { _id: ObjectId(userId) } },
+
       {
         $lookup: {
           from: "npos",
@@ -41,7 +41,16 @@ async function getLoggedInUser(google_id) {
           as: "npo_partners",
         },
       },
-    ]);
+
+      {
+        $lookup: {
+          from: "subscriptions",
+          localField: "google_id",
+          foreignField: "user_id",
+          as: "active_subscriptions",
+        },
+      },
+    ], );
 
     return user[0];
   } catch (e) {
