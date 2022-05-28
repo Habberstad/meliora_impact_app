@@ -11,42 +11,37 @@ import React from "react";
 import OurPartnersPage from "./components/our_partners/OurPartnersPage";
 import NonProfitProfilePage from "./components/non-profit-page/NonProfitProfilePage";
 import Dashboard from "./components/dashboard/Dashboard";
+import MediaTemplatePage from "./components/media-template/MediaTemplatePage";
+import MelioraWrapped from "./components/wrapped/MelioraWrapped";
+import { NpoApiContext } from "./api-client/npoApiContext";
+import { useLoading } from "./useLoading";
+import { isLoading } from "./components/shared-components/Loading";
+import { Error } from "./components/shared-components/Error";
+import { UserApiContext } from "./api-client/userApiContext";
+
 
 export const UserContext = React.createContext({
   Account: (user) => {},
+
 });
 
+
+
 function App() {
-  const [user, setUser] = useState(null);
-  const [cookies, setCookies] = useState(null);
 
-  useEffect(() => {
-    const getUser = () => {
-      fetch(window.location.origin + "/auth/login/success", {
-        method: "GET",
-        credentials: "include",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Credentials": true,
-        },
-      })
-        .then((response) => {
-          if (response.status === 200) return response.json();
-          throw new Error("authentication has been failed!");
-        })
-        .then((resObject) => {
-          setUser(resObject.user);
-          setCookies(resObject.cookies);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    };
-    getUser();
-  }, []);
+  const { testGet } = useContext(UserApiContext);
+  const { loading, error, data } = useLoading(
+    async () => await testGet(),
+    []
+  );
 
-  if (user === null) {
+  if (loading) return isLoading();
+
+  if (error) return <Error error={error} />;
+
+
+
+  if (data === undefined || data === null) {
     return (
       <div>
         <LoginPage />
@@ -54,14 +49,16 @@ function App() {
     );
   }
 
+
   return (
     <div className="app-container">
-      <UserContext.Provider value={user}>
-        <div>{<Sidebar />}</div>
+      <UserContext.Provider value={data}>
+        <div>{ <Sidebar user={data} /> }</div>
         <Outlet />
 
         <Routes>
-          <Route exact path="/" element={<Dashboard />} />
+          <Route exact path="/login-page" element={<LoginPage />} />
+          <Route exact path="/" element={<Dashboard user={data} />} />
           <Route exact path="/auth/google/production" element={<h1>Home</h1>} />
           <Route exact path="/articles" element={<ArticlesPage />} />
           <Route exact path="/articles/article" element={<Article />} />
@@ -71,10 +68,14 @@ function App() {
           <Route
             exact
             path="/npo-profile/*"
-            element={<NonProfitProfilePage />}
+            element={<NonProfitProfilePage user={data} />}
           />
-          <Route exact path="/wrapped" element={<Partners />} />
-          <Route exact path="/templates" element={<Partners />} />
+          <Route exact path="/wrapped" element={<MelioraWrapped />} />
+          <Route
+            exact
+            path="/templates"
+            element={<MediaTemplatePage user={data} />}
+          />
           <Route exact path="/dashboard" element={<Dashboard />} />
         </Routes>
       </UserContext.Provider>

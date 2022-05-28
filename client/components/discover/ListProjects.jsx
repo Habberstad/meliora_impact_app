@@ -11,8 +11,7 @@ function filterBySearchWord(list, searchWord) {
       (project) =>
         project.name.toLowerCase().includes(searchWord.toLowerCase()) ||
         project.description.toLowerCase().includes(searchWord.toLowerCase()) ||
-        project.category.toLowerCase().includes(searchWord.toLowerCase()) ||
-        project.npoName.toLowerCase().includes(searchWord.toLowerCase())
+        project.category.toLowerCase().includes(searchWord.toLowerCase())
     );
   } else {
     return list;

@@ -1,10 +1,14 @@
-import { MyNPOHeader } from "../headers/MyNPOHeader";
 import { CategoryFilter } from "../discover/CategoryFilter";
 import "../../styles/partners-styles.css";
 import { useContext, useState } from "react";
 import { useLoader } from "../../helpers/UseLoader";
 import { PartnersList } from "./PartnersList";
 import { NpoApiContext } from "../../api-client/npoApiContext";
+import { HEADER } from "../headers/HEADER";
+import headerImg from "../../media/header-image-partners.png";
+import { GlobalHeader } from "../headers/GlobalHeader";
+import { isLoading } from "../shared-components/Loading";
+import { Error } from "../shared-components/Error";
 
 const OurPartnersPage = () => {
   const [category, setCategory] = useState("");
@@ -18,21 +22,19 @@ const OurPartnersPage = () => {
     setCategory(selectedCategory);
   }
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-  if (error) {
-    return (
-      <div>
-        <h1>Error</h1>
-        <div id="error-text">{error.toString()}</div>
-      </div>
-    );
-  }
+  if (loading) return isLoading();
+
+  if (error) return <Error error={error} />;
+
   return (
     <div className={"partners-page-container"}>
       <div className={"partners-container"}>
-        <MyNPOHeader />
+        <GlobalHeader
+          title={HEADER[0].title}
+          subtitle={HEADER[0].subtitle}
+          desc={HEADER[0].desc}
+          image={headerImg}
+        />
         <CategoryFilter onClick={categorySelectHandler} category={category} />
         <PartnersList data={data} category={category} />
       </div>

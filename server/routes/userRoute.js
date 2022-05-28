@@ -1,12 +1,13 @@
 import { Router } from "express";
 import UserController from "../controllers/userController.js";
-import { accessToOwnAccountOnly } from "../middleware/middleware.js";
+import { accessToOwnAccountOnly, hasAccount, hasAuthority, isAuthenticated } from "../middleware/middleware.js";
 
 const router = Router();
 
-router.get("/", UserController.list);
-router.get("/:id" , UserController.getById);
-router.post("/register", UserController.create);
+router.get("/:id", hasAuthority("ADMIN") , UserController.getById);
+router.get("/login/:id" , UserController.getLoggedInUser);
+router.get("/google-id/:id", hasAccount , UserController.getByGoogleId);
+router.post("/register", isAuthenticated, UserController.create);
 
 
 export default router;

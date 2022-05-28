@@ -6,28 +6,22 @@ import { useContext, useState } from "react";
 import "../../styles/article-styles.css";
 import { useLoading } from "../../useLoading";
 import { ArticleApiContext } from "../../api-client/articlesApiContext";
+import { isLoading } from "../shared-components/Loading";
+import { Error } from "../shared-components/Error";
 
 const Article = () => {
   const queryParams = new URLSearchParams(window.location.search);
   const _id = queryParams.get("id");
   const { getArticles } = useContext(ArticleApiContext);
+
   const { loading, error, data } = useLoading(
     async () => await getArticles({ _id }),
     []
   );
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  if (loading) return isLoading();
 
-  if (error) {
-    return (
-      <div>
-        <h1>Error</h1>
-        <div id="error-text">{error.toString()}</div>
-      </div>
-    );
-  }
+  if (error) return <Error error={error} />;
 
   return (
     <div className="article-container">

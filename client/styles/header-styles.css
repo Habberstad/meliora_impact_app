@@ -25,6 +25,6 @@
 }
 
 .global-header-img {
-    max-width: 400px;
+    width: 400px;
     object-fit: cover;
 }

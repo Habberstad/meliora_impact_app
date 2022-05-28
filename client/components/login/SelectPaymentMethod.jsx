@@ -3,21 +3,19 @@ import { Button, Checkbox, Radio } from "@mui/material";
 import { useNavigate } from "react-router";
 import { useState } from "react";
 
-export const SelectPaymentMethod = () => {
-  const [paymentOption, setPaymentOption] = useState("");
+export const SelectPaymentMethod = (props) => {
   const navigate = useNavigate();
   const handleChange = (event) => {
-    setPaymentOption(event.target.value);
-    console.log(paymentOption);
+    props.handleChange(event.target.value);
   };
 
   return (
     <div className="login-content">
       <BackButton />
-      <div>
+      <div className={"login-content-header"}>
         <h1>Payment method</h1>
-        <p>Meliora Partner (check)</p> {/* Todo subscription selected */}
-        <p>Welcom back, (company)</p> {/* Todo add company name dynamic */}
+        <p>{props.subscriptionType}</p>
+        <p>Welcom, {props.orgName}</p>
       </div>
       <div className={"payment-options-container"}>
         <div className={"payment-option-container"}>
@@ -26,7 +24,7 @@ export const SelectPaymentMethod = () => {
             alt="png"
           />
           <Radio
-            checked={paymentOption === "klarna"}
+            checked={props.paymentOption === "klarna"}
             onChange={handleChange}
             value="klarna"
             name="radio-buttons"
@@ -39,7 +37,7 @@ export const SelectPaymentMethod = () => {
             alt="vipps"
           />
           <Radio
-            checked={paymentOption === "vipps"}
+            checked={props.paymentOption === "vipps"}
             onChange={handleChange}
             value="vipps"
             name="radio-buttons"
@@ -48,6 +46,9 @@ export const SelectPaymentMethod = () => {
         </div>
       </div>
       <Button
+        onClick={() => {
+          props.sumbit();
+        }}
         className={"form-button"}
         sx={{
           mt: 1,
@@ -60,7 +61,7 @@ export const SelectPaymentMethod = () => {
         variant="contained"
         size="large"
       >
-        Next
+        finish
       </Button>
     </div>
   );

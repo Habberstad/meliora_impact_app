@@ -109,3 +109,25 @@
     border: 1px solid #000;
 
 }
+
+.company-list-item {
+    position: relative;
+    display: flex;
+}
+.company-list-item button{
+    position: absolute;
+    right: 0;
+}
+
+.login-content-header h1 {
+    font-weight: 800;
+    font-size: 50px;
+    text-align: center;
+}
+
+.login-content-header p {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    text-align: center;
+}

@@ -1,7 +1,7 @@
 
 .discover-page-container {
     margin: 75px 5% 0 5%;
-    max-width: 1500px;
+    width: 1500px;
 }
 
 .npo-search-container{
@@ -64,9 +64,6 @@
     padding: 5px;
 }
 
-
-
-
 .discover-top {
     margin: 50px;
     width: 100%;
@@ -76,13 +73,10 @@
     position: relative;
 }
 
-
-
 .card-image {
     width: 100%;
     height: 209px;
 }
-
 
 .card-image-icon {
     position: absolute;

@@ -1,13 +1,15 @@
 import { Button } from "@mui/material";
 import { BackButton } from "./BackButton";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router";
 
-export const SelectSubscription = () => {
-  /*TODO need to send up state for selected plan*/
-  console.log("gegegegfajsdf");
+export const SelectSubscription = (props) => {
+  const navigate = useNavigate();
+
   return (
     <div className={"login-content"}>
-      <div>
+      <BackButton />
+      <div className={"login-content-header"}>
         <h1>Philanthropy is everything</h1>
         <p>Get started for free </p>
         <p>Or</p>
@@ -17,6 +19,8 @@ export const SelectSubscription = () => {
       <Button
         onClick={() => {
           console.log("Fremium");
+          props.handleClick("freemium");
+          navigate("/select-payment-method");
         }}
         sx={{
           mb: "22px",
@@ -36,6 +40,8 @@ export const SelectSubscription = () => {
       <Button
         onClick={() => {
           console.log("premium");
+          props.handleClick("premium");
+          navigate("/select-payment-method");
         }}
         sx={{
           mb: "22px",
@@ -52,9 +58,6 @@ export const SelectSubscription = () => {
       >
         premium
       </Button>
-      <p>
-        Already got an account? <Link to={"/login-form"}>Log in here.</Link>
-      </p>
     </div>
   );
 };

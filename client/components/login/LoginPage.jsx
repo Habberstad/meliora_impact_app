@@ -1,8 +1,8 @@
 import "../../styles/loginPage-styles.css";
 
-import { Routes } from "react-router";
+import { Routes, useNavigate } from "react-router";
 import { LoginLeftCard } from "./LoginLeftCard";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { RegisterForm } from "./RegisterForm";
 import { LoginForm } from "./LoginForm";
 import { Link, Route } from "react-router-dom";
@@ -10,9 +10,15 @@ import { SelectSubscription } from "./SelectSubscription";
 import { FindCompany } from "./FindCompany";
 import { SelectPaymentMethod } from "./SelectPaymentMethod";
 import { SelectIdentificationMethod } from "./SelectIdentificationMethod";
+import { UserApiContext } from "../../api-client/userApiContext";
 
 export const LoginPage = () => {
-  const [isRegistered, setIsRegistered] = useState(true);
+  const navigate = useNavigate();
+  const { registerUser } = useContext(UserApiContext);
+  const [orgName, setOrgName] = useState("");
+  const [orgNumber, setOrgNumber] = useState("");
+  const [subscriptionType, setSubscriptionType] = useState("");
+  const [paymentOption, setPaymentOption] = useState("");
   const [isOverBreakpoint, setIsOverBreakpoint] = useState(true);
   window.addEventListener("resize", () => {
     setIsOverBreakpoint(window.innerWidth >= 1000);
@@ -22,44 +28,91 @@ export const LoginPage = () => {
     window.open(window.location.origin + "/auth/google", "_self");
   };
 
+  const handlePaymentType = (option) => {
+    setPaymentOption(option);
+  };
+
+  const handleSubscriptionType = (option) => {
+    setSubscriptionType(option);
+  };
+
+  const handleCompanyInfo = (name, orgNumber) => {
+    setOrgName(name);
+    setOrgNumber(orgNumber);
+  };
+
+  const handleSubmit = () => {
+    //maybe async?
+    console.log({
+      org_name: orgName,
+      org_number: orgNumber,
+      payment_option: paymentOption,
+      subscription_type: subscriptionType,
+    });
+    registerUser({
+      org_name: orgName,
+      org_number: orgNumber,
+      payment_option: paymentOption,
+      subscription_type: subscriptionType,
+    });
+  };
+
   return (
     <div className="login-page-container">
       {isOverBreakpoint && <LoginLeftCard />}
       <div style={{ display: "flex", flexDirection: "column" }}>
         <Link to={"/login-form"}>login</Link>
-        <Link to={"/select-subscription"}>select</Link>
-        <Link to={"/find-company"}>company</Link>
-        <Link to={"/select-payment-method"}>payment</Link>
         <Link to={"/select-identification-method"}>identity</Link>
+        <Link to={"/find-company"}>company</Link>
+        <Link to={"/select-subscription"}>select</Link>
+        <Link to={"/select-payment-method"}>payment</Link>
       </div>
       <div className="login-container">
         <Routes>
           <Route
             exact
-            path={"/login-form"}
+            path={"/"}
             element={<LoginForm google={google} />}
           />
-          <Route exact path={"/register-form"} element={<RegisterForm />} />
           <Route
             exact
-            path={"/select-subscription"}
-            element={<SelectSubscription />}
-          />
-          <Route
-            exact
-            path={"/select-subscription"}
-            element={<SelectSubscription />}
-          />
-          <Route exact path={"/find-company"} element={<FindCompany />} />
-          <Route
-            exact
-            path={"/select-payment-method"}
-            element={<SelectPaymentMethod />}
+            path={"/login-form"}
+            element={<LoginForm google={google} />}
           />
           <Route
             exact
             path={"/select-identification-method"}
-            element={<SelectIdentificationMethod />}
+            element={<SelectIdentificationMethod google={google} />}
+          />
+          <Route
+            exact
+            path={"/register-form"}
+            element={<RegisterForm subscriptionType={subscriptionType} />}
+          />
+          <Route
+            exact
+            path={"/find-company"}
+            element={<FindCompany handleCompanyInfo={handleCompanyInfo} />}
+          />
+          <Route
+            exact
+            path={"/select-subscription"}
+            element={
+              <SelectSubscription handleClick={handleSubscriptionType} />
+            }
+          />
+          <Route
+            exact
+            path={"/select-payment-method"}
+            element={
+              <SelectPaymentMethod
+                subscriptionType={subscriptionType}
+                paymentOption={paymentOption}
+                orgName={orgName}
+                handleChange={handlePaymentType}
+                sumbit={handleSubmit}
+              />
+            }
           />
           <Route exact path={"/register-form"} element={<RegisterForm />} />
         </Routes>

@@ -1,0 +1,152 @@
+.meliora-wrapped-container {
+    max-height: 1080px;
+    width: 100%;
+    background-color: #FCDDEC !important;
+}
+
+.meliora-wrapped-images img {
+    width: auto;
+    max-height: 500px;
+
+}
+
+.meliora-wrapped-left {
+    position: absolute;
+    bottom: 0;
+}
+
+.meliora-wrapped-top {
+    position: absolute;
+    top: 0;
+    left: 35%;
+}
+
+.meliora-wrapped-top img {
+    max-width: 650px;
+}
+
+.meliora-wrapped-right {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.meliora-wrapped-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 200px;
+    color: #503658;
+}
+
+.meliora-wrapped-title {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+
+.meliora-wrapped-buttons {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.meliora-wrapped-buttons .button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: white;
+    border-radius: 50px;
+    padding: 10px 60px 10px 50px;
+    margin: 0px 15px 0px 15px;
+    font-size: 30px;
+    font-weight: 600;
+    color: #503658;
+    font-family: montserrat, serif;
+    text-transform: unset !important;
+}
+
+.meliora-wrapped-buttons .button:hover {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: white;
+    border-radius: 50px;
+    padding: 10px 60px 10px 50px;
+    margin: 0px 15px 0px 15px;
+    font-size: 30px;
+    font-weight: 600;
+    color: #E5AB8A;
+    font-family: montserrat, serif;
+    text-transform: unset !important;
+}
+
+.meliora-wrapped-buttons .play-arrow{
+    width: 50px;
+    height: 50px;
+}
+
+.meliora-wrapped-punchline {
+    margin-top: 50px;
+    font-size: 80px;
+    font-weight: bold;
+}
+
+.meliora-wrapped-info {
+    margin-top: 50px;
+    width: 500px;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.meliora-wrapped-view-modal {
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+}
+
+.meliora-wrapped-share-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+.meliora-wrapped-share-modal-buttons Button {
+    width: 75px;
+    height: 75px;
+    border: solid 1px lightgrey;
+    border-radius: 10px;
+    margin: 0 5px 20px 5px;
+}
+
+.meliora-wrapped-share-modal-textfield {
+    width: 100%;
+}
+
+
+
+.meliora-wrapped-share-modal-buttons-bot .button{
+    margin: 20px 5px 0px 5px;
+    font-family: montserrat, serif;
+    text-transform: unset !important;
+    width: 160px;
+
+}
+
+.video-player {
+    width: 800px;
+    height: 500px;
+}
+
+
+
+
+

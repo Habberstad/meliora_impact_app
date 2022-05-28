@@ -16,7 +16,6 @@ const Sidebar = (props) => {
 
   useEffect(() => {
     setUrl(window.location.href);
-    console.log(url);
   }, []);
 
   function handleLogoutClick() {
@@ -40,9 +39,11 @@ const Sidebar = (props) => {
         </div>
 
         <div className="profile-name-badge">
-          <img src={user.photos[0].value} alt="profile-icon" />
+
           <div>
-            <div style={{ marginTop: "10px" }}> {user.displayName} </div>{" "}
+            <div style={{ marginTop: "10px" }}> {user.org_name} </div>
+            <div style={{ marginTop: "10px" }}> {user.name} </div>
+            {" "}
             {/* TODO: Replace with username */}
             <Button
               sx={{
@@ -57,8 +58,8 @@ const Sidebar = (props) => {
                 "&:hover": {
                   backgroundColor: "#e5e5e5",
                   color: "black",
-                  border: "none",
-                },
+                  border: "none"
+                }
               }}
               variant="outlined"
               onClick={handleLogoutClick}

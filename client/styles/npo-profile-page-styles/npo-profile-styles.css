@@ -145,3 +145,21 @@
     align-self: center;
 }
 
+/**************************
+    Subscription modal
+ *************************/
+
+.allocate-project-text {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.badge-style {
+    font-size: 10px;
+    color: #687285;
+    background-color: rgba(148, 157, 176, 0.16);
+    border-radius: 5px;
+    padding: 2px 5px;
+}
+
