@@ -20,7 +20,12 @@ export const SelectPaymentMethod = (props) => {
             props.subscriptionType === "premium" ? "premium" : "freemium"
           }`}
         >
-          <p>{props.subscriptionType}</p> <CheckCircleIcon />
+          <p>
+            {props.subscriptionType === "premium"
+              ? "Meliora Parnter"
+              : "Freemium"}
+          </p>{" "}
+          <CheckCircleIcon />
         </div>
         <p>Welcom, {props.orgName}</p>
       </div>
