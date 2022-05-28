@@ -1,8 +1,7 @@
 import { Button } from "@mui/material";
 import WavesIcon from "@mui/icons-material/Waves";
 
-export function ProfileHeader({ data, name }) {
-
+export function ProfileHeader({ data, name, handleShowModal }) {
   return (
     <div className="main-header-container">
       <div
@@ -26,6 +25,7 @@ export function ProfileHeader({ data, name }) {
           <div className="header-donate-btn-container">
             <div>
               <Button
+                onClick={handleShowModal}
                 variant="contained"
                 sx={{
                   width: "190px",
@@ -37,7 +37,7 @@ export function ProfileHeader({ data, name }) {
                   },
                 }}
               >
-                Donate
+                Become partner
               </Button>
             </div>
             <div className="video-text-btn">About us video</div>
