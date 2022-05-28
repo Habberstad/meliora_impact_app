@@ -30,13 +30,14 @@ const Dashboard = (props) => {
   const [expanded, setExpanded] = React.useState(false);
   const [counter, setCounter] = useState(1);
 
+
   const { getArticles } = useContext(ArticleApiContext);
   const { getUserByGoogleId } = useContext(UserApiContext);
 
   // DATA FETCHING
   const rawArticlesData = useLoading(async () => await getArticles({}), []);
   const rawUserData = useLoader(
-    async () => await getUserByGoogleId(props.user.id),
+    async () => await getUserByGoogleId(props.user.google_id),
     []
   );
 
@@ -67,19 +68,17 @@ const Dashboard = (props) => {
     );
   }
 
-  const impact = userData.active_npos_id[0].impacts;
+  const impact = props.user.active_subscriptions[0].impacts;
 
-  console.log("length", impact.length);
+  const highlited = props.user.npo_partners[0].projects;
 
-  const highlighted = userData.npo_partners[0].impact_measurement;
-
-  const history = userData.donation_history;
+  const history = props.user.donation_history;
 
   console.log("history", history);
 
   console.log("impact", impact);
 
-  console.log("high", highlighted[0]);
+  console.log("high", highlited[0]);
 
   console.log(userData);
 
@@ -100,6 +99,7 @@ const Dashboard = (props) => {
     }
   };
 
+
   return (
     <div className={"dashboard-container"}>
       <h1>Hi, Welcome back </h1>
@@ -119,11 +119,10 @@ const Dashboard = (props) => {
                 className={"students-forward-button"}
               />
               <div className="students-impact-count">
-                <div>{impact[counter].amount}</div>
+                {impact === undefined ? <div>impact not set</div> : <div>{impact[counter].amount}</div>}
               </div>
-
               <div className="students-impact-content">
-                <div>{impact[counter].impact_type}</div>
+                {impact === undefined ? <div>impact not set</div> : <div>{impact[counter].impact_type}</div>}
               </div>
             </div>
           </Grid>
@@ -160,7 +159,7 @@ const Dashboard = (props) => {
                     backgroundColor: "#FCEFE7",
                     width: "480px",
                     borderRadius: "16px",
-                    dropShadow: "0",
+                    dropShadow: "0"
                   }}
                   expanded={expanded === "panel1"}
                   onChange={handleChange("panel1")}
@@ -172,7 +171,9 @@ const Dashboard = (props) => {
                   >
                     <div className={"highlighted-partners-icon"}>
                       <LocalHospitalIcon />
-                      <div className={"accordion-title"}>test</div>
+                      <div className={"accordion-title"}>
+                        {highlited[0].name}
+                      </div>
                     </div>
                   </AccordionSummary>
 
@@ -195,6 +196,19 @@ const Dashboard = (props) => {
                         </div>
                       ))}
                     </div>
+                    <div className={"highlighted-partners-dental"}>
+                      <div>Dental program</div>
+                      <LinearProgress
+                        sx={{
+                          width: "162px",
+                          height: "9px",
+                          backgroundColor: "#A5A5A5",
+                          position: "absolut",
+                        }}
+                        variant="determinate"
+                        value={80}
+                      />
+                    </div>
                   </AccordionDetails>
                 </Accordion>
               </div>
@@ -204,7 +218,7 @@ const Dashboard = (props) => {
                   backgroundColor: "#FCEFE7",
                   fontSize: "18px",
                   margin: "10px",
-                  dropShadow: "0",
+                  dropShadow: "0"
                 }}
                 expanded={expanded === "panel2"}
                 onChange={handleChange("panel2")}
@@ -229,7 +243,7 @@ const Dashboard = (props) => {
                         width: "162px",
                         height: "9px",
                         backgroundColor: "#A5A5A5",
-                        position: "absolut",
+                        position: "absolut"
                       }}
                       variant="determinate"
                       value={10}
@@ -242,7 +256,7 @@ const Dashboard = (props) => {
                         width: "162px",
                         height: "9px",
                         backgroundColor: "#A5A5A5",
-                        position: "absolut",
+                        position: "absolut"
                       }}
                       variant="determinate"
                       value={70}
@@ -255,7 +269,7 @@ const Dashboard = (props) => {
                         width: "162px",
                         height: "9px",
                         backgroundColor: "#A5A5A5",
-                        position: "absolut",
+                        position: "absolut"
                       }}
                       variant="determinate"
                       value={90}

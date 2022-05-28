@@ -24,6 +24,9 @@ import { modalStyle } from "./modal-style";
 import { useState } from "react";
 
 const MelioraWrapped = () => {
+  {
+    /* MODAL METHODS */
+  }
   const [viewIsOpen, viewSetOpen] = React.useState(false);
   const viewHandleOpen = () => viewSetOpen(true);
   const viewHandleClose = () => viewSetOpen(false);
@@ -32,20 +35,32 @@ const MelioraWrapped = () => {
   const shareHandleOpen = () => shareSetOpen(true);
   const shareHandleClose = () => shareSetOpen(false);
 
-  const [fieldPlaceholder, setFieldPlaceholder] = useState(
+  {
+    /* SHARE METHODS */
+  }
+  const [sharePlaceholder, setSharePlaceholder] = useState(
     "Where would you like to share to?"
   );
   const [copiedText, setCopiedText] = useState();
+  const [shareLink, setShareLink] = useState("");
 
+  const ahref = "https://youtu.be/DmQ4Dqxs0HI";
+  const encodedAhref = encodeURIComponent(ahref);
   const facebookPlaceholder = "Share on Facebook...";
   const linkedInPlaceholder = "Share on Linked-in...";
   const twitterPlaceholder = "Share on Twitter...";
   const instagramPlaceholder = "Share on Instagram...";
+
+  const handleShare = () => {
+    if (shareLink == "") alert("Unavailable");
+    else open(shareLink);
+  };
+
   const onDownload = () => {
-    const link = document.createElement("a");
-    link.download = `download.txt`;
-    link.href = "./download.txt";
-    link.click();
+    const downloadLink = document.createElement("a");
+    downloadLink.download = `download.txt`;
+    downloadLink.href = "./download.txt";
+    downloadLink.click();
   };
 
   return (
@@ -116,43 +131,66 @@ const MelioraWrapped = () => {
                 <h1>Share</h1>
                 <div className="meliora-wrapped-share-modal-buttons">
                   <Button
+                    variant={"outlined"}
                     onClick={() => {
-                      setFieldPlaceholder(linkedInPlaceholder);
+                      setSharePlaceholder(linkedInPlaceholder);
+                      setShareLink(
+                        `https://www.linkedin.com/sharing/share-offsite/?url=${encodedAhref}`
+                      );
+                      console.log(shareLink);
                     }}
                   >
                     <img src={linkedinLogo} />
                   </Button>
                   <Button
+                    variant={"outlined"}
                     onClick={() => {
-                      setFieldPlaceholder(twitterPlaceholder);
+                      setSharePlaceholder(twitterPlaceholder);
+                      setShareLink(
+                        `https://twitter.com/intent/tweet?url=${encodedAhref}`
+                      );
+                      console.log(shareLink);
                     }}
                   >
                     <img src={twitterLogo} />
                   </Button>
                   <Button
+                    variant={"outlined"}
                     onClick={() => {
-                      setFieldPlaceholder(facebookPlaceholder);
+                      setSharePlaceholder(facebookPlaceholder);
+                      setShareLink(
+                        `https://www.facebook.com/sharer/sharer.php?u=${ahref}`
+                      );
+                      console.log(shareLink);
                     }}
                   >
                     <img src={facebookLogo} />
                   </Button>
-                  <Button
-                    onClick={() => {
-                      setFieldPlaceholder(instagramPlaceholder);
-                    }}
+                  <Tooltip
+                    title={"Not available at this moment!"}
+                    placement="top"
                   >
-                    <img src={instagramLogo} />
-                  </Button>
+                    <Button
+                      variant={"outlined"}
+                      onClick={() => {
+                        setSharePlaceholder(instagramPlaceholder);
+                        setShareLink(``);
+                        console.log(shareLink);
+                      }}
+                    >
+                      <img src={instagramLogo} />
+                    </Button>
+                  </Tooltip>
                 </div>
                 <TextField
                   className="meliora-wrapped-share-modal-textfield"
-                  placeholder={fieldPlaceholder}
+                  placeholder={sharePlaceholder}
                   InputProps={{
                     endAdornment: (
                       <InputAdornment position="end">
                         <Tooltip
                           title={
-                            copiedText === fieldPlaceholder
+                            copiedText === sharePlaceholder
                               ? "Copied!"
                               : "Copy To Clipboard"
                           }
@@ -160,8 +198,8 @@ const MelioraWrapped = () => {
                         >
                           <IconButton
                             onClick={() => {
-                              navigator.clipboard.writeText(fieldPlaceholder);
-                              setCopiedText(fieldPlaceholder);
+                              navigator.clipboard.writeText(sharePlaceholder);
+                              setCopiedText(sharePlaceholder);
                             }}
                           >
                             <ContentCopyIcon />
@@ -179,7 +217,11 @@ const MelioraWrapped = () => {
                   >
                     Download
                   </Button>
-                  <Button className="button" variant={"contained"}>
+                  <Button
+                    className="button"
+                    variant={"contained"}
+                    onClick={handleShare}
+                  >
                     Share
                   </Button>
                 </div>
