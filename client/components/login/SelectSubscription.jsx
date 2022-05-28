@@ -15,49 +15,50 @@ export const SelectSubscription = (props) => {
         <p>Or</p>
         <p>Get access to all our extended features as a Meliora Partner</p>
       </div>
-
-      <Button
-        onClick={() => {
-          console.log("Fremium");
-          props.handleClick("freemium");
-          navigate("/select-payment-method");
-        }}
-        sx={{
-          mb: "22px",
-          borderColor: "#637381",
-          "&:hover": {
-            borderColor: "#000",
-            backgroundColor: "#FFF",
-            color: "#637381",
-          },
-        }}
-        fullWidth
-        variant={"outlined"}
-        size={"large"}
-      >
-        Freeemium
-      </Button>
-      <Button
-        onClick={() => {
-          console.log("premium");
-          props.handleClick("premium");
-          navigate("/select-payment-method");
-        }}
-        sx={{
-          mb: "22px",
-          borderColor: "#637381",
-          "&:hover": {
-            borderColor: "#000",
-            backgroundColor: "#FFF",
-            color: "#637381",
-          },
-        }}
-        fullWidth
-        variant={"outlined"}
-        size={"large"}
-      >
-        premium
-      </Button>
+      <div className="login-content-main">
+        <Button
+          onClick={() => {
+            console.log("Fremium");
+            props.handleClick("freemium");
+            navigate("/select-payment-method");
+          }}
+          sx={{
+            mb: "22px",
+            borderColor: "#637381",
+            "&:hover": {
+              borderColor: "#000",
+              backgroundColor: "#FFF",
+              color: "#637381",
+            },
+          }}
+          fullWidth
+          variant={"outlined"}
+          size={"large"}
+        >
+          Freeemium
+        </Button>
+        <Button
+          onClick={() => {
+            console.log("premium");
+            props.handleClick("premium");
+            navigate("/select-payment-method");
+          }}
+          sx={{
+            mb: "22px",
+            borderColor: "#637381",
+            "&:hover": {
+              borderColor: "#000",
+              backgroundColor: "#FFF",
+              color: "#637381",
+            },
+          }}
+          fullWidth
+          variant={"outlined"}
+          size={"large"}
+        >
+          premium
+        </Button>
+      </div>
     </div>
   );
 };

@@ -95,6 +95,7 @@
 .payment-options-container {
     display: flex;
     width: 100%;
+    justify-content: space-around;
 }
 
 .payment-option-container  {
@@ -105,7 +106,9 @@
 
 }
 .payment-option-container img {
-    width: 100%;
+    object-fit: cover;
+    width: 100px;
+    height: 100px;
     border: 1px solid #000;
 
 }
@@ -141,7 +144,7 @@
 
 .login-content-main {
     width: 100%;
-    margin-top: 70px;
+    margin: 70px 0 70px 0;
 }
 
 .premium {
