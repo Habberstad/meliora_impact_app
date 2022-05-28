@@ -30,7 +30,6 @@ const Dashboard = (props) => {
   const [expanded, setExpanded] = React.useState(false);
   const [counter, setCounter] = useState(1);
 
-
   const { getArticles } = useContext(ArticleApiContext);
   const { getUserByGoogleId } = useContext(UserApiContext);
 
@@ -68,9 +67,9 @@ const Dashboard = (props) => {
     );
   }
 
-  const impact = props.user.active_subscriptions[0].impacts;
+  const impact = props.user.active_npos_id[0].impacts;
 
-  const highlited = props.user.npo_partners[0].projects;
+  const highlited = props.user.npo_partners[0].impact_measurement;
 
   const history = props.user.donation_history;
 
@@ -80,7 +79,7 @@ const Dashboard = (props) => {
 
   console.log("high", highlited[0]);
 
-  console.log(userData);
+  console.log("all", userData);
 
   const increase = () => {
     if (counter === impact.length - 1) {
@@ -98,7 +97,6 @@ const Dashboard = (props) => {
       setCounter(counter - 1);
     }
   };
-
 
   return (
     <div className={"dashboard-container"}>
@@ -119,10 +117,18 @@ const Dashboard = (props) => {
                 className={"students-forward-button"}
               />
               <div className="students-impact-count">
-                {impact === undefined ? <div>impact not set</div> : <div>{impact[counter].amount}</div>}
+                {impact === undefined ? (
+                  <div>impact not set</div>
+                ) : (
+                  <div>{impact[counter].amount}</div>
+                )}
               </div>
               <div className="students-impact-content">
-                {impact === undefined ? <div>impact not set</div> : <div>{impact[counter].impact_type}</div>}
+                {impact === undefined ? (
+                  <div>impact not set</div>
+                ) : (
+                  <div>{impact[counter].impact_type}</div>
+                )}
               </div>
             </div>
           </Grid>
@@ -159,7 +165,7 @@ const Dashboard = (props) => {
                     backgroundColor: "#FCEFE7",
                     width: "480px",
                     borderRadius: "16px",
-                    dropShadow: "0"
+                    dropShadow: "0",
                   }}
                   expanded={expanded === "panel1"}
                   onChange={handleChange("panel1")}
@@ -179,7 +185,7 @@ const Dashboard = (props) => {
 
                   <AccordionDetails sx={{ borderRadius: "16px" }}>
                     <div>
-                      {highlighted.map((m) => (
+                      {highlited.map((m) => (
                         <div>
                           {m.impact_name}
 
@@ -218,7 +224,7 @@ const Dashboard = (props) => {
                   backgroundColor: "#FCEFE7",
                   fontSize: "18px",
                   margin: "10px",
-                  dropShadow: "0"
+                  dropShadow: "0",
                 }}
                 expanded={expanded === "panel2"}
                 onChange={handleChange("panel2")}
@@ -230,9 +236,7 @@ const Dashboard = (props) => {
                 >
                   <div className={"highlighted-partners-icon"}>
                     <WaterIcon />
-                    <div className={"accordion-title"}>
-                      {highlighted[1].name}
-                    </div>
+                    <div className={"accordion-title"}>{highlited[1].name}</div>
                   </div>
                 </AccordionSummary>
                 <AccordionDetails>
@@ -243,7 +247,7 @@ const Dashboard = (props) => {
                         width: "162px",
                         height: "9px",
                         backgroundColor: "#A5A5A5",
-                        position: "absolut"
+                        position: "absolut",
                       }}
                       variant="determinate"
                       value={10}
@@ -256,7 +260,7 @@ const Dashboard = (props) => {
                         width: "162px",
                         height: "9px",
                         backgroundColor: "#A5A5A5",
-                        position: "absolut"
+                        position: "absolut",
                       }}
                       variant="determinate"
                       value={70}
@@ -269,7 +273,7 @@ const Dashboard = (props) => {
                         width: "162px",
                         height: "9px",
                         backgroundColor: "#A5A5A5",
-                        position: "absolut"
+                        position: "absolut",
                       }}
                       variant="determinate"
                       value={90}
