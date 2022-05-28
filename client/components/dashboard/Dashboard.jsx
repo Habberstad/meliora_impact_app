@@ -66,11 +66,11 @@ const Dashboard = (props) => {
     );
   }
 
-  const impact = userData.active_npos_id[0].impacts;
+  const impact = props.user.active_subscriptions[0].impacts;
 
-  const highlited = userData.npo_partners[0].projects;
+  const highlited = props.user.npo_partners[0].projects;
 
-  const history = userData.donation_history;
+  const history = props.user.donation_history;
 
   console.log("history", history);
 
