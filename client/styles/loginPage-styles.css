@@ -95,6 +95,7 @@
 .payment-options-container {
     display: flex;
     width: 100%;
+    justify-content: space-around;
 }
 
 .payment-option-container  {
@@ -105,7 +106,9 @@
 
 }
 .payment-option-container img {
-    width: 100%;
+    object-fit: cover;
+    width: 100px;
+    height: 100px;
     border: 1px solid #000;
 
 }
@@ -129,5 +132,24 @@
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
+    line-height: 20px;
     text-align: center;
+}
+
+.login-content-header-subscription-tag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-content-main {
+    width: 100%;
+    margin: 70px 0 70px 0;
+}
+
+.premium {
+    color: #7209B7;
+}
+.freemium {
+    color: #464D51;
 }
