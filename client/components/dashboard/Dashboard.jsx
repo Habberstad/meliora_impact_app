@@ -71,7 +71,7 @@ const Dashboard = (props) => {
 
   console.log("length", impact.length);
 
-  const highlighted = userData.npo_partners[0].projects;
+  const highlighted = userData.npo_partners[0].impact_measurement;
 
   const history = userData.donation_history;
 
@@ -172,51 +172,28 @@ const Dashboard = (props) => {
                   >
                     <div className={"highlighted-partners-icon"}>
                       <LocalHospitalIcon />
-                      <div className={"accordion-title"}>
-                        {highlighted[0].name}
-                      </div>
+                      <div className={"accordion-title"}>test</div>
                     </div>
                   </AccordionSummary>
 
                   <AccordionDetails sx={{ borderRadius: "16px" }}>
-                    <div className={"highlighted-partners-vaccination"}>
-                      <div>{highlighted[0].name}</div>
-                      <LinearProgress
-                        sx={{
-                          width: "162px",
-                          height: "9px",
-                          backgroundColor: "#A5A5A5",
-                          position: "absolut",
-                        }}
-                        variant="determinate"
-                        value={30}
-                      />
-                    </div>
-                    <div className={"highlighted-partners-infant"}>
-                      <div>Infant Mortality</div>
-                      <LinearProgress
-                        sx={{
-                          width: "162px",
-                          height: "9px",
-                          backgroundColor: "#A5A5A5",
-                          position: "absolut",
-                        }}
-                        variant="determinate"
-                        value={40}
-                      />
-                    </div>
-                    <div className={"highlighted-partners-dental"}>
-                      <div>Dental program</div>
-                      <LinearProgress
-                        sx={{
-                          width: "162px",
-                          height: "9px",
-                          backgroundColor: "#A5A5A5",
-                          position: "absolut",
-                        }}
-                        variant="determinate"
-                        value={80}
-                      />
+                    <div>
+                      {highlighted.map((m) => (
+                        <div>
+                          {m.impact_name}
+
+                          <LinearProgress
+                            sx={{
+                              width: "162px",
+                              height: "9px",
+                              backgroundColor: "#A5A5A5",
+                              position: "absolut",
+                            }}
+                            variant="determinate"
+                            value={m.impact_value}
+                          />
+                        </div>
+                      ))}
                     </div>
                   </AccordionDetails>
                 </Accordion>
