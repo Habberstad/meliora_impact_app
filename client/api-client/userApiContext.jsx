@@ -19,9 +19,7 @@ export const UserApiContext = React.createContext({
     return await postJSON("/api/users/register", newUser);
   },
 
-  async testGet(urlPathParam) {
-    return await fetchJSON("/api/users/login/user" );
+  async getCurrentUser(urlPathParam) {
+    return await fetchJSON("/api/users/login/user");
   },
-
-
 });
