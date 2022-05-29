@@ -88,14 +88,36 @@ async function getById(id) {
   }
 }
 
-async function getByGoogleId(id) {
+async function getByGoogleId(google_id) {
 
   try {
-    const user1 = await User.find({ google_id: id });
+
+    const user1 = await User.find(google_id);
+
+    if(user1.length === 0)
+      return null
+
     const userId = user1[0]._id;
 
-
     const user = await User.aggregate([
+      { $match: { _id: ObjectId(userId) } },
+      {
+        $lookup: {
+          from: "subscriptions",
+          localField: "google_id",
+          foreignField: "user_id",
+          as: "active_subscriptions",
+        },
+      },
+      { $match: { _id: ObjectId(userId) } },
+      {
+        $lookup: {
+          from: "npos",
+          localField: "active_subscriptions.npo_id",
+          foreignField: "_id",
+          as: "npo_partners",
+        },
+      },
       { $match: { _id: ObjectId(userId) } },
       {
         $lookup: {
@@ -105,17 +127,8 @@ async function getByGoogleId(id) {
           as: "donation_history",
         },
       },
-      { $match: { _id: ObjectId(userId) } },
-      {
-        $lookup: {
-          from: "npos",
-          localField: "active_npos_id.id",
-          foreignField: "_id",
-          as: "npo_partners",
-        },
-      },
-    ]);
 
+    ], );
     return user[0];
   } catch (e) {
     throw Error();
