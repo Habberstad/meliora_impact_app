@@ -30,7 +30,6 @@ const Dashboard = (props) => {
   const [expanded, setExpanded] = React.useState(false);
   const [counter, setCounter] = useState(1);
 
-
   const { getArticles } = useContext(ArticleApiContext);
   const { getUserByGoogleId } = useContext(UserApiContext);
 
@@ -68,9 +67,9 @@ const Dashboard = (props) => {
     );
   }
 
-  const impact = props.user.active_subscriptions[0].impacts;
+  const impact = props.user.active_npos_id[0].impacts;
 
-  const highlited = props.user.npo_partners[0].projects;
+  const highlited = props.user.npo_partners[0].impact_measurement;
 
   const history = props.user.donation_history;
 
@@ -80,7 +79,7 @@ const Dashboard = (props) => {
 
   console.log("high", highlited[0]);
 
-  console.log(userData);
+  console.log("all", userData);
 
   const increase = () => {
     if (counter === impact.length - 1) {
@@ -98,7 +97,6 @@ const Dashboard = (props) => {
       setCounter(counter - 1);
     }
   };
-
 
   return (
     <div className={"dashboard-container"}>
@@ -119,10 +117,18 @@ const Dashboard = (props) => {
                 className={"students-forward-button"}
               />
               <div className="students-impact-count">
-                {impact === undefined ? <div>impact not set</div> : <div>{impact[counter].amount}</div>}
+                {impact === undefined ? (
+                  <div>impact not set</div>
+                ) : (
+                  <div>{impact[counter].amount}</div>
+                )}
               </div>
               <div className="students-impact-content">
-                {impact === undefined ? <div>impact not set</div> : <div>{impact[counter].impact_type}</div>}
+                {impact === undefined ? (
+                  <div>impact not set</div>
+                ) : (
+                  <div>{impact[counter].impact_type}</div>
+                )}
               </div>
             </div>
           </Grid>
@@ -159,7 +165,7 @@ const Dashboard = (props) => {
                     backgroundColor: "#FCEFE7",
                     width: "480px",
                     borderRadius: "16px",
-                    dropShadow: "0"
+                    dropShadow: "0",
                   }}
                   expanded={expanded === "panel1"}
                   onChange={handleChange("panel1")}
@@ -169,120 +175,88 @@ const Dashboard = (props) => {
                     aria-controls="panel1bh-content"
                     id="panel1bh-header"
                   >
-                    <div className={"highlighted-partners-icon"}>
+                    <div className={"accordion-title-container"}>
                       <LocalHospitalIcon />
-                      <div className={"accordion-title"}>
-                        {highlited[0].name}
-                      </div>
+                      <div className={"accordion-title"}>title</div>
                     </div>
                   </AccordionSummary>
 
                   <AccordionDetails sx={{ borderRadius: "16px" }}>
-                    <div className={"highlighted-partners-vaccination"}>
-                      <div>{highlited[0].name}</div>
-                      <LinearProgress
-                        sx={{
-                          width: "162px",
-                          height: "9px",
-                          backgroundColor: "#A5A5A5",
-                          position: "absolut"
-                        }}
-                        variant="determinate"
-                        value={30}
-                      />
+                    <div>
+                      {highlited.map((m) => (
+                        <div
+                          className={"highlighted-partners-content-container"}
+                        >
+                          <div className={"highlighted-partners-project"}>
+                            {m.impact_name}
+                          </div>
+                          <div className={"highlighted-partners-progress"}>
+                            <LinearProgress
+                              sx={{
+                                width: "162px",
+                                height: "9px",
+                                backgroundColor: "#A5A5A5",
+                                position: "absolut",
+                              }}
+                              variant="determinate"
+                              value={m.impact_value}
+                            />
+                          </div>
+                        </div>
+                      ))}
                     </div>
-                    <div className={"highlighted-partners-infant"}>
-                      <div>Infant Mortality</div>
-                      <LinearProgress
-                        sx={{
-                          width: "162px",
-                          height: "9px",
-                          backgroundColor: "#A5A5A5",
-                          position: "absolut"
-                        }}
-                        variant="determinate"
-                        value={40}
-                      />
+                  </AccordionDetails>
+                </Accordion>
+
+                <Accordion
+                  className={"accordion-bottom-container"}
+                  sx={{
+                    backgroundColor: "#FCEFE7",
+                    width: "480px",
+                    borderRadius: "16px",
+                    dropShadow: "0",
+                  }}
+                  expanded={expanded === "panel2"}
+                  onChange={handleChange("panel2")}
+                >
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel1bh-content"
+                    id="panel1bh-header"
+                  >
+                    <div className={"accordion-title-container"}>
+                      <LocalHospitalIcon />
+                      <div className={"accordion-title"}>title</div>
                     </div>
-                    <div className={"highlighted-partners-dental"}>
-                      <div>Dental program</div>
-                      <LinearProgress
-                        sx={{
-                          width: "162px",
-                          height: "9px",
-                          backgroundColor: "#A5A5A5",
-                          position: "absolut"
-                        }}
-                        variant="determinate"
-                        value={80}
-                      />
+                  </AccordionSummary>
+
+                  <AccordionDetails sx={{ borderRadius: "16px" }}>
+                    <div>
+                      {highlited.map((m) => (
+                        <div
+                          className={"highlighted-partners-content-container"}
+                        >
+                          <div className={"highlighted-partners-project"}>
+                            {m.impact_name}
+                          </div>
+                          <div className={"highlighted-partners-progress"}>
+                            <LinearProgress
+                              sx={{
+                                width: "162px",
+                                height: "9px",
+                                backgroundColor: "#A5A5A5",
+                                position: "absolut",
+                              }}
+                              variant="determinate"
+                              value={m.impact_value}
+                            />
+                          </div>
+                        </div>
+                      ))}
                     </div>
                   </AccordionDetails>
                 </Accordion>
               </div>
-
-              <Accordion
-                sx={{
-                  backgroundColor: "#FCEFE7",
-                  fontSize: "18px",
-                  margin: "10px",
-                  dropShadow: "0"
-                }}
-                expanded={expanded === "panel2"}
-                onChange={handleChange("panel2")}
-              >
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls="panel1bh-content"
-                  id="panel1bh-header"
-                >
-                  <div className={"highlighted-partners-icon"}>
-                    <WaterIcon />
-                    <div className={"accordion-title"}>{highlited[1].name}</div>
-                  </div>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <div className={"highlighted-partners-vaccination"}>
-                    <div>Program</div>
-                    <LinearProgress
-                      sx={{
-                        width: "162px",
-                        height: "9px",
-                        backgroundColor: "#A5A5A5",
-                        position: "absolut"
-                      }}
-                      variant="determinate"
-                      value={10}
-                    />
-                  </div>
-                  <div className={"highlighted-partners-infant"}>
-                    <div>Infant Mortality</div>
-                    <LinearProgress
-                      sx={{
-                        width: "162px",
-                        height: "9px",
-                        backgroundColor: "#A5A5A5",
-                        position: "absolut"
-                      }}
-                      variant="determinate"
-                      value={70}
-                    />
-                  </div>
-                  <div className={"highlighted-partners-dental"}>
-                    <div>Dental program</div>
-                    <LinearProgress
-                      sx={{
-                        width: "162px",
-                        height: "9px",
-                        backgroundColor: "#A5A5A5",
-                        position: "absolut"
-                      }}
-                      variant="determinate"
-                      value={90}
-                    />
-                  </div>
-                </AccordionDetails>
-              </Accordion>
             </div>
           </Grid>
         </Grid>
