@@ -5,6 +5,7 @@ const router = Router();
 
 router.get("/", ArticleController.listArticles )
 router.get("/:id", ArticleController.getArticleById)
+
 router.post("/", ArticleController.createArticle)
 
 

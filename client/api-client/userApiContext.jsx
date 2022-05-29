@@ -4,7 +4,7 @@ import { postJSON } from "../lib/postJSON";
 
 export const UserApiContext = React.createContext({
   async listUsers(query) {
-    return await fetchJSON("/api/user?" + new URLSearchParams(query));
+    return await fetchJSON("/api/users?" + new URLSearchParams(query));
   },
 
   async getUserById(urlPathParam) {
@@ -15,11 +15,16 @@ export const UserApiContext = React.createContext({
     return await fetchJSON("/api/users/google-id/" + urlPathParam);
   },
 
-  async registerUser(newUser) {
-    return await postJSON("/api/users/register", newUser);
-  },
 
-  async getCurrentUser(urlPathParam) {
+  async getCurrentUser() {
     return await fetchJSON("/api/users/login/user");
   },
+
+
+//post
+  async registerUser(newUser) {
+    return await postJSON("/api/users/register", newUser);
+  }
+
+
 });

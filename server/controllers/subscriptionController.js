@@ -1,5 +1,6 @@
 import { ObjectId } from "mongodb";
 import SubscriptionService from "../services/subscriptionService.js";
+import Subscription from "../models/subscriptionModel.js";
 
 async function list(req, res) {
   const query = {};
@@ -19,10 +20,9 @@ async function list(req, res) {
 
 async function listByUserId(req, res) {
   const query = {};
-  console.log(req.query)
   const { user_id } = req.query;
-  if(user_id)
-    query.user_id = user_id
+  if (user_id)
+    query.user_id = user_id;
   else
     return res.status(200).json([]);
 
@@ -44,7 +44,20 @@ async function getById(req, res) {
 }
 
 async function create(req, res) {
+  const query = {};
+  const npo_id = req.body.npo_id;
+  query.npo_id = { $eq: ObjectId(npo_id) };
+  query.user_id = req.body.user_id
+
+
+
   try {
+    const test = await Subscription.find(query)
+
+    if(test.length !== 0)
+      return res.status(409).json({ status: 409, message: "already exist" });
+
+    console.log(test);
     await SubscriptionService.create(req.body);
     return res.status(201).json({ status: 201 });
   } catch (e) {
@@ -55,12 +68,10 @@ async function create(req, res) {
 async function deleteRecord(req, res) {
   try {
     const query = {};
-    console.log(req.query)
     const { _id } = req.query;
     if (_id !== "" && _id !== undefined) {
-      query._id = ObjectId(_id) ;
+      query._id = ObjectId(_id);
     }
-    console.log(query)
     await SubscriptionService.deleteRecord(query);
     return res.status(201).json({ status: 201 });
   } catch (e) {
@@ -68,4 +79,4 @@ async function deleteRecord(req, res) {
   }
 }
 
-export default { list, getById, create, listByUserId , deleteRecord};
+export default { list, getById, create, listByUserId, deleteRecord };
