@@ -28,8 +28,6 @@ export const LoginPage = () => {
     window.open(window.location.origin + "/auth/google", "_self");
   };
 
-
-
   const handlePaymentType = (option) => {
     setPaymentOption(option);
   };
@@ -58,9 +56,7 @@ export const LoginPage = () => {
       payment_option: paymentOption,
       subscription_type: subscriptionType,
     });
-    navigate("/")
-
-
+    navigate("/");
   };
 
   return (
@@ -100,7 +96,10 @@ export const LoginPage = () => {
             exact
             path={"/select-subscription"}
             element={
-              <SelectSubscription handleClick={handleSubscriptionType} />
+              <SelectSubscription
+                handleClick={handleSubscriptionType}
+                sumbit={handleSubmit}
+              />
             }
           />
           <Route

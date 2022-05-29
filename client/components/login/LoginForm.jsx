@@ -15,7 +15,7 @@ export function LoginForm(props) {
     <div className={"login-content"}>
       <BackButton />
       <div className={"login-content-header"}>
-        <h2>Login</h2>
+        <h1>Login</h1>
         <p>Log in with:</p>
       </div>
       <div>
