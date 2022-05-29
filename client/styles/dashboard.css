@@ -115,7 +115,11 @@
 
 }
 
-
+.accordion-title-container{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 .accordion-title{
     font-size: 18px;
     font-weight: bold;
@@ -125,9 +129,7 @@
     border-radius: 16px;
 }
 
-.accordion-title-container{
-    display: flex;
-}
+
 
 
 .highlighted-partners-content-container{
