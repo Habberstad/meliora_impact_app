@@ -54,14 +54,12 @@ const Dashboard = () => {
   const highlited = data.npo_partners[0].impact_measurement;
   const history = data.donation_history;
 
-
-
   return (
     <div className={"dashboard-container"}>
       <h1>Hi, Welcome back </h1>
       <Grid container direction={"column"}>
         <Grid container columnSpacing={{ lg: 4, xl: 4 }} className={"test"}>
-          <ImpactSection data={data}  />
+          <ImpactSection data={data} />
           <Grid item lg={3} xl={3} className={"socialmedia-template"}>
             <div className={"socialmedia-template-container"}>
               <img
@@ -92,7 +90,7 @@ const Dashboard = () => {
                 <Accordion
                   sx={{
                     backgroundColor: "#FCEFE7",
-                    width: "480px",
+                    width: "90%",
                     borderRadius: "16px",
                     dropShadow: "0"
                   }}
@@ -141,7 +139,7 @@ const Dashboard = () => {
                   className={"accordion-bottom-container"}
                   sx={{
                     backgroundColor: "#FCEFE7",
-                    width: "480px",
+                    width: "90%",
                     borderRadius: "16px",
                     dropShadow: "0"
                   }}
@@ -199,14 +197,6 @@ const Dashboard = () => {
             <div className={"donation-history-filter"}>
               <div className={"donation-history-title"}>Donation History</div>
 
-              <div className={"donation-history-filter-content"}>
-                <InputLabel>Select Non-profit</InputLabel>
-                <Select style={{ width: "232px" }} onChange={handleChange1}>
-                  <MenuItem value={"leve-havet"}>Leve Havet</MenuItem>
-                  <MenuItem value={"water for all"}>Water for all</MenuItem>
-                  <MenuItem value={"placeholder"}>placholder</MenuItem>
-                </Select>
-              </div>
               <Grid container className={"donation-history-timeline-container"}>
                 <Grid item>
                   {history.map((m) => (
