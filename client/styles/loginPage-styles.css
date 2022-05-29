@@ -54,6 +54,7 @@
 .login-content {
     height: 500px;
     width: 50%;
+    max-width: 600px;
 }
 .login-form {
     width: 100%;
@@ -153,6 +154,12 @@
     font-size: 50px;
     text-align: center;
 }
+.login-content-header h3 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    text-align: center;
+}
 
 .login-content-header p {
     font-style: normal;
@@ -170,17 +177,45 @@
 
 .login-content-main {
     width: 100%;
-    margin: 70px 0 70px 0;
+    margin: 70px 0 35px 0;
 }
 
 .subscription-type-information-content {
+    display: flex;
+    position: relative;
+    flex-direction: column; /* <- Also inlin to be able to reach MUI root*/
+    align-items: center;
+    text-align: center;
+    margin: 6px 10px;
+}
 
+.subscription-type-information-content p {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    margin-block-end: 0;
 }
 .subscription-type-information {
-    width: 100%;
+    position: relative;
     border: 1px solid #000;
     border-radius: 10px;
-    height: 380px;
+}
+
+.subsctiption-type-info-badge {
+    position: absolute;
+    height: 21px;
+    top: 0;
+    right: 0;
+    border-radius: 0 10px 0 10px;
+    background-color: #FFD878;
+
+}
+.subsctiption-type-info-badge p{
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 0;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .premium {
