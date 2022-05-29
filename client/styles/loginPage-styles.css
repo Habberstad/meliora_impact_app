@@ -147,6 +147,16 @@
     margin: 70px 0 70px 0;
 }
 
+.subscription-type-information-content {
+
+}
+.subscription-type-information {
+    width: 100%;
+    border: 1px solid #000;
+    border-radius: 10px;
+    height: 380px;
+}
+
 .premium {
     color: #7209B7;
 }

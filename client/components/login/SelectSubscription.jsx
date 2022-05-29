@@ -7,57 +7,62 @@ export const SelectSubscription = (props) => {
   const navigate = useNavigate();
 
   return (
-    <div className={"login-content"}>
-      <BackButton />
-      <div className={"login-content-header"}>
-        <h1>Philanthropy is everything</h1>
-        <p>Get started for free </p>
-        <p>Or</p>
-        <p>Get access to all our extended features as a Meliora Partner</p>
+    <div>
+      <div className={"login-content"}>
+        <BackButton />
+        <div className={"login-content-header"}>
+          <h1>Philanthropy is everything</h1>
+          <p>Get started for free </p>
+          <p>Or</p>
+          <p>Get access to all our extended features as a Meliora Partner</p>
+        </div>
+        <div className="login-content-main">
+          <Button
+            onClick={() => {
+              console.log("Fremium");
+              props.handleClick("freemium");
+              navigate("/select-payment-method");
+            }}
+            sx={{
+              mb: "22px",
+              borderColor: "#637381",
+              "&:hover": {
+                borderColor: "#000",
+                backgroundColor: "#FFF",
+                color: "#637381",
+              },
+            }}
+            fullWidth
+            variant={"outlined"}
+            size={"large"}
+          >
+            Freeemium
+          </Button>
+          <Button
+            onClick={() => {
+              console.log("premium");
+              props.handleClick("premium");
+              navigate("/select-payment-method");
+            }}
+            sx={{
+              mb: "22px",
+              borderColor: "#637381",
+              "&:hover": {
+                borderColor: "#000",
+                backgroundColor: "#FFF",
+                color: "#637381",
+              },
+            }}
+            fullWidth
+            variant={"outlined"}
+            size={"large"}
+          >
+            premium
+          </Button>
+        </div>
       </div>
-      <div className="login-content-main">
-        <Button
-          onClick={() => {
-            console.log("Fremium");
-            props.handleClick("freemium");
-            navigate("/select-payment-method");
-          }}
-          sx={{
-            mb: "22px",
-            borderColor: "#637381",
-            "&:hover": {
-              borderColor: "#000",
-              backgroundColor: "#FFF",
-              color: "#637381",
-            },
-          }}
-          fullWidth
-          variant={"outlined"}
-          size={"large"}
-        >
-          Freeemium
-        </Button>
-        <Button
-          onClick={() => {
-            console.log("premium");
-            props.handleClick("premium");
-            navigate("/select-payment-method");
-          }}
-          sx={{
-            mb: "22px",
-            borderColor: "#637381",
-            "&:hover": {
-              borderColor: "#000",
-              backgroundColor: "#FFF",
-              color: "#637381",
-            },
-          }}
-          fullWidth
-          variant={"outlined"}
-          size={"large"}
-        >
-          premium
-        </Button>
+      <div className={"subscription-type-information"}>
+        <div className={"subscription-type-information-content"}> hei</div>
       </div>
     </div>
   );
