@@ -41,6 +41,7 @@ export const LoginPage = () => {
   const handleCompanyInfo = (name, orgNumber) => {
     setOrgName(name);
     setOrgNumber(orgNumber);
+    console.log("company handler", name, orgNumber);
   };
 
   const handleSubmit = () => {
@@ -74,11 +75,7 @@ export const LoginPage = () => {
       </div>
       <div className="login-container">
         <Routes>
-          <Route
-            exact
-            path={"/"}
-            element={<LoginForm google={google} />}
-          />
+          <Route exact path={"/"} element={<LoginForm google={google} />} />
           <Route
             exact
             path={"/login-form"}
