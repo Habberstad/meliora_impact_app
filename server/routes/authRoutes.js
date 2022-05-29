@@ -12,10 +12,17 @@ router.get("/google", passport.authenticate("google", { scope: ["profile"] }));
 
 
 router.get("/google/callback", passport.authenticate("google", {
-    successRedirect:  CLIENT_URL,
     failureRedirect: "/login/failed"
-  })
-);
+  }), async function(req, res) {
+  const test = await User.find({google_id: req.user.id})
+
+  if(test.length === 0)
+    res.redirect(CLIENT_URL + "/find-company?exists=false");
+  else
+    res.redirect(CLIENT_URL);
+});
+
+
 
 router.get("/login/failed", (req, res) => {
   res.status(401).json({
@@ -23,6 +30,15 @@ router.get("/login/failed", (req, res) => {
     message: "failure"
   });
 });
+
+router.get('/login',  passport.authenticate("google", {
+  failureRedirect: "/login/failed"
+})
+
+)
+
+
+
 
 
 

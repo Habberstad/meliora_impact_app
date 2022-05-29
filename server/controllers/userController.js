@@ -60,8 +60,12 @@ async function create(req, res) {
 
   req.body.google_id = req.user.id;
   req.body.name = req.user.displayName;
-
+  console.log(req.body);
   try {
+    const user = await UserService.list({org_number: req.body.org_number});
+    if (user.length !== 0)
+      return res.status(409).json({ status: 409, message: "already exist" });
+
 
     await UserService.create(req.body);
     return res.status(201).redirect(config.url.API_URL);
@@ -77,7 +81,7 @@ async function checkIfRegistered(req, res) {
     const query = {};
     const { org_number } = req.query;
     query.org_number = org_number;
-    console.log(query);
+
 
     const user = await UserService.list(query);
     console.log(user);

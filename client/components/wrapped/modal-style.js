@@ -22,5 +22,5 @@ export const donateModalStyle = {
   bgcolor: "#FFF",
   borderRadius: "16px",
   width: "600px",
-  height: "720px",
+  height: "740px",
 };

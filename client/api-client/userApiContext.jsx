@@ -20,14 +20,13 @@ export const UserApiContext = React.createContext({
   },
 
   async checkIsOrgRegistered(query) {
-    return await fetchJSON("/api/users/org/check-register?" + new URLSearchParams(query));
+    return await fetchJSON(
+      "/api/users/org/check-register?" + new URLSearchParams(query)
+    );
   },
 
-
-//post
+  //post
   async registerUser(newUser) {
     return await postJSON("/api/users/register", newUser);
-  }
-
-
+  },
 });
