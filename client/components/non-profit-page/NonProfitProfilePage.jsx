@@ -17,6 +17,8 @@ const NonProfitProfilePage = ({ user }) => {
   const [paymentAmount, setPaymentAmount] = useState(null);
   const [formError, setFormError] = useState(false);
   const [invalidCustomAmount, setInvalidCustomAmount] = useState(false);
+  const [registerError, setRegisterError] = useState(false);
+  const [registerSuccess, setRegisterSuccess] = useState(false);
 
   const { registerSubscription } = React.useContext(SubscriptionApiContext);
 
@@ -60,19 +62,22 @@ const NonProfitProfilePage = ({ user }) => {
     setPaymentAmount(event.target.value);
   };
 
-  const handleSubmitSubscription = () => {
+  const handleSubmitSubscription = async () => {
     if (paymentAmount === null) {
       setFormError(true);
     } else {
       setFormError(false);
     }
 
-    console.log(subscriptionInfo);
-    console.log(formError);
     if (!formError && !invalidCustomAmount && paymentAmount != null) {
-      registerSubscription(subscriptionInfo);
-      console.log("submitting", subscriptionInfo);
-      handleShowModal();
+      try {
+        await registerSubscription(subscriptionInfo);
+        setRegisterError(false);
+        setRegisterSuccess(true);
+      } catch (e) {
+        setRegisterSuccess(false);
+        setRegisterError(true);
+      }
     }
   };
 
@@ -115,6 +120,8 @@ const NonProfitProfilePage = ({ user }) => {
         handleSubmitSubscription={handleSubmitSubscription}
         formError={formError}
         invalidCustomAmount={invalidCustomAmount}
+        registerError={registerError}
+        registerSuccess={registerSuccess}
       />
     </div>
   );
