@@ -118,34 +118,25 @@
     font-weight: bold;
 }
 
-.highlighted-partners-icon{
+.accordion-title-container{
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-left: 10px;
-    gap: 10px;
 }
 
-.highlighted-partners-vaccination{
+.highlighted-partners-content-container{
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 10px;
 }
 
-.highlighted-partners-infant{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 10px;
+.highlighted-partners-project{
+    flex: 50%;
+
 }
 
-.highlighted-partners-dental{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 10px;
+.highlighted-partners-progress{
+
 }
+
+
+
 
 /*
     bottoms section

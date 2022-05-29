@@ -175,45 +175,35 @@ const Dashboard = (props) => {
                     aria-controls="panel1bh-content"
                     id="panel1bh-header"
                   >
-                    <div className={"highlighted-partners-icon"}>
+                    <div className={"accordion-title-container"}>
                       <LocalHospitalIcon />
-                      <div className={"accordion-title"}>
-                        {highlited[0].name}
-                      </div>
+                      <div className={"accordion-title"}>title</div>
                     </div>
                   </AccordionSummary>
 
                   <AccordionDetails sx={{ borderRadius: "16px" }}>
                     <div>
                       {highlited.map((m) => (
-                        <div>
-                          {m.impact_name}
-
-                          <LinearProgress
-                            sx={{
-                              width: "162px",
-                              height: "9px",
-                              backgroundColor: "#A5A5A5",
-                              position: "absolut",
-                            }}
-                            variant="determinate"
-                            value={m.impact_value}
-                          />
+                        <div
+                          className={"highlighted-partners-content-container"}
+                        >
+                          <div className={"highlighted-partners-project"}>
+                            {m.impact_name}
+                          </div>
+                          <div className={"highlighted-partners-progress"}>
+                            <LinearProgress
+                              sx={{
+                                width: "162px",
+                                height: "9px",
+                                backgroundColor: "#A5A5A5",
+                                position: "absolut",
+                              }}
+                              variant="determinate"
+                              value={m.impact_value}
+                            />
+                          </div>
                         </div>
                       ))}
-                    </div>
-                    <div className={"highlighted-partners-dental"}>
-                      <div>Dental program</div>
-                      <LinearProgress
-                        sx={{
-                          width: "162px",
-                          height: "9px",
-                          backgroundColor: "#A5A5A5",
-                          position: "absolut",
-                        }}
-                        variant="determinate"
-                        value={80}
-                      />
                     </div>
                   </AccordionDetails>
                 </Accordion>
