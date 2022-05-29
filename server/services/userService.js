@@ -16,7 +16,7 @@ async function getLoggedInUser(google_id) {
   try {
 
     const user1 = await User.find(google_id);
-    console.log("user", user1)
+
     if(user1.length === 0)
         return null
 
@@ -53,7 +53,6 @@ async function getLoggedInUser(google_id) {
 
 
     ], );
-    console.log("return", user)
     return user[0];
   } catch (e) {
     throw Error();
@@ -126,7 +125,7 @@ async function getByGoogleId(id) {
 async function create(query) {
   try {
     const data = await new User(query);
-    console.log("New user", data)
+
     return data.save();
   } catch (e) {
     throw Error();

@@ -19,7 +19,6 @@ async function list(req, res) {
 
 async function listByUserId(req, res) {
   const query = {};
-  console.log(req.query)
   const { user_id } = req.query;
   if(user_id)
     query.user_id = user_id
@@ -55,12 +54,10 @@ async function create(req, res) {
 async function deleteRecord(req, res) {
   try {
     const query = {};
-    console.log(req.query)
     const { _id } = req.query;
     if (_id !== "" && _id !== undefined) {
       query._id = ObjectId(_id) ;
     }
-    console.log(query)
     await SubscriptionService.deleteRecord(query);
     return res.status(201).json({ status: 201 });
   } catch (e) {

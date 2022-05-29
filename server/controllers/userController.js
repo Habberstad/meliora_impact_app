@@ -38,7 +38,6 @@ async function getLoggedInUser(req, res) {
     else
       query.google_id = req.user.id;
 
-  console.log("controll")
     const data = await UserService.getLoggedInUser(query);
     return res.status(200).json(data);
   } catch (e) {
