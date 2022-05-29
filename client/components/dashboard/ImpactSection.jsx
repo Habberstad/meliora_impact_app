@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useState } from "react";
-import { Grid } from "@mui/material";
+import { Grid, Link } from "@mui/material";
 import SchoolIcon from "@mui/icons-material/School";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
@@ -8,7 +8,7 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 export function ImpactSection(props) {
   const [counter, setCounter] = useState(1);
   const impact = props.data.active_subscriptions[0].impacts;
-
+  console.log(impact);
   const increase = () => {
     if (counter === impact.length - 1) {
       setCounter(0);
@@ -41,14 +41,14 @@ export function ImpactSection(props) {
       />
       <div className="students-impact-count">
         {props.impact === undefined ? (
-          <div>impact not set</div>
+          <div>No Donations</div>
         ) : (
           <div>{props.impact[props.counter].amount}</div>
         )}
       </div>
       <div className="students-impact-content">
         {props.impact === undefined ? (
-          <div>impact not set</div>
+          <Link href={"/discover"} color={"inherit"}>Discover Non-Profits</Link>
         ) : (
           <div>{props.impact[props.counter].impact_type}</div>
         )}
