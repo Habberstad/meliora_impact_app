@@ -50,7 +50,7 @@ const Dashboard = () => {
 
   if (error) return <Error error={error} />;
 
-  const impact = data.active_subscriptions[0].impacts;
+
   const highlited = data.npo_partners[0].impact_measurement;
   const history = data.donation_history;
 
@@ -61,7 +61,7 @@ const Dashboard = () => {
       <h1>Hi, Welcome back </h1>
       <Grid container direction={"column"}>
         <Grid container columnSpacing={{ lg: 4, xl: 4 }} className={"test"}>
-          <ImpactSection  />
+          <ImpactSection data={data}  />
           <Grid item lg={3} xl={3} className={"socialmedia-template"}>
             <div className={"socialmedia-template-container"}>
               <img
