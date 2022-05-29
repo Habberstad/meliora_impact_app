@@ -17,14 +17,15 @@ export const FindCompany = ({ handleCompanyInfo }) => {
       const json = await response.json();
       const array = [...json._embedded.enheter];
       setCompanies(array);
+      setSelectedCompany();
     } catch (error) {
       console.log("error", error);
     }
   };
 
   const handleSelectCompany = (id, name) => {
-    console.log("tester handler", id, name);
-    setSelectedCompany(id);
+    if (selectedCompany === id) setSelectedCompany();
+    if (selectedCompany !== id) setSelectedCompany(id);
   };
 
   const onChangeHandler = (e) => {
@@ -103,6 +104,7 @@ export const FindCompany = ({ handleCompanyInfo }) => {
       ) : null}
 
       <Button
+        disabled={!selectedCompany}
         onClick={() => {
           navigate("/select-subscription");
         }}
