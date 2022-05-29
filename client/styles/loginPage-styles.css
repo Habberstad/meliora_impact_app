@@ -87,11 +87,23 @@
 
 .company-search-list {
     margin-top: 30px;
+    margin-bottom: 10px;
     border: 1px solid #000;
     border-radius: 4px;
     width: 590px;
     height: 260px;
     overflow-y: scroll;
+}
+
+.company-error-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    color: red;
+    background-color: #FFE7D9;
+    margin-top: 20px;
+    border-radius: 8px;
 }
 .payment-options-container {
     display: flex;

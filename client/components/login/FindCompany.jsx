@@ -1,15 +1,23 @@
 import { BackButton } from "./BackButton";
 import { Button, InputAdornment, TextField } from "@mui/material";
 import { useNavigate } from "react-router";
+import * as React from "react";
 import { useEffect, useState } from "react";
-import { LoginForm } from "./LoginForm";
 import SearchIcon from "@mui/icons-material/Search";
 import { companyListItem, selectedCompanyListItem } from "./login-styles";
+import { UserApiContext } from "../../api-client/userApiContext";
+import fetchJSON from "../../helpers/fetchJSON";
+import ErrorMessage from "../shared-components/ErrorMessage";
 
 export const FindCompany = ({ handleCompanyInfo }) => {
   const navigate = useNavigate();
   const [companies, setCompanies] = useState([]);
   const [selectedCompany, setSelectedCompany] = useState();
+  const [showError, setShowError] = useState(false);
+  const [companyId, setCompanyId] = useState(null);
+  const [companyName, setCompanyName] = useState(null);
+
+  const { checkIsOrgRegistered } = React.useContext(UserApiContext);
 
   const getCompanies = async (url) => {
     try {
@@ -24,8 +32,23 @@ export const FindCompany = ({ handleCompanyInfo }) => {
   };
 
   const handleSelectCompany = (id, name) => {
+    setCompanyId(id);
+    setCompanyName(name);
+
     if (selectedCompany === id) setSelectedCompany();
     if (selectedCompany !== id) setSelectedCompany(id);
+  };
+
+  const handleSendCompanyInfo = async () => {
+    const data = await checkIsOrgRegistered({ org_number: companyId });
+
+    if (data.isRegistered) {
+      setShowError(true);
+    } else {
+      handleCompanyInfo(companyName, companyId);
+      setShowError(false);
+      navigate("/select-subscription");
+    }
   };
 
   const onChangeHandler = (e) => {
@@ -44,7 +67,6 @@ export const FindCompany = ({ handleCompanyInfo }) => {
       getCompanies(url);
     }
   };
-  console.log("companies", companies);
 
   return (
     <div className={"login-content"}>
@@ -77,37 +99,43 @@ export const FindCompany = ({ handleCompanyInfo }) => {
         }}
       />
       {companies.length > 0 ? (
-        <div className="company-search-list">
-          {companies.map((company) => {
-            return (
-              <Button
-                key={company.organisasjonsnummer}
-                sx={
-                  selectedCompany === company.organisasjonsnummer
-                    ? selectedCompanyListItem
-                    : companyListItem
-                }
-                onClick={() =>
-                  handleSelectCompany(company.organisasjonsnummer, company.navn)
-                }
-              >
-                <div className="company-list-item">
-                  <div>{company.navn}</div>
-                  <div style={{ fontSize: "12px" }}>
-                    {company.organisasjonsnummer}
+        <div>
+          {showError && (
+            <ErrorMessage message="This organization already exist" />
+          )}
+          <div className="company-search-list">
+            {companies.map((company) => {
+              return (
+                <Button
+                  key={company.organisasjonsnummer}
+                  sx={
+                    selectedCompany === company.organisasjonsnummer
+                      ? selectedCompanyListItem
+                      : companyListItem
+                  }
+                  onClick={() =>
+                    handleSelectCompany(
+                      company.organisasjonsnummer,
+                      company.navn
+                    )
+                  }
+                >
+                  <div className="company-list-item">
+                    <div>{company.navn}</div>
+                    <div style={{ fontSize: "12px" }}>
+                      {company.organisasjonsnummer}
+                    </div>
                   </div>
-                </div>
-              </Button>
-            );
-          })}
+                </Button>
+              );
+            })}
+          </div>
         </div>
       ) : null}
 
       <Button
         disabled={!selectedCompany}
-        onClick={() => {
-          navigate("/select-subscription");
-        }}
+        onClick={handleSendCompanyInfo}
         className={"form-button"}
         sx={{
           mt: 1,
