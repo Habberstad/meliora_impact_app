@@ -58,6 +58,7 @@
 
 
 .socialmedia-template-container {
+    display: flex;
     position: relative;
     border-radius: 20px;
     height: 300px;
@@ -74,15 +75,13 @@
 
 .socialmedia-template-content-top {
     position: absolute;
-    left: 60px;
-    top: 160px;
+    background-color: black;
     color: white;
     font-size: 24px;
+    font-weight: 600;
 }
 .socialmedia-template-content-bot {
     position: absolute;
-    left: 60px;
-    top: 220px;
     color: white;
     font-size: 17px;
 }
@@ -103,6 +102,10 @@
     border-radius: 20px;
     height: 300px;
     align-content: center;
+}
+
+.highlighted-partners-title{
+
 }
 
 .accordion-wrapper {

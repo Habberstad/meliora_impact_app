@@ -69,7 +69,8 @@ const Dashboard = () => {
                 alt={"das"}
               />
               <div className={"socialmedia-template-content-top"}>
-                <div>Share on Social Media</div>
+                <div>Share on </div>
+                <div>Social Media</div>
               </div>
               <div className={"socialmedia-template-content-bot"}>
                 <Link href={"/templates"} color="inherit">
@@ -81,7 +82,7 @@ const Dashboard = () => {
 
           <Grid item lg={6} xl={6}>
             <div className={"highlighted-partners-container"}>
-              <div
+              <div className={"highlighted-partners-title"}
                 style={{ fontSize: "18px", margin: "10px", fontWeight: "bold" }}
               >
                 Highlighted partners
