@@ -28,6 +28,8 @@ export const LoginPage = () => {
     window.open(window.location.origin + "/auth/google", "_self");
   };
 
+
+
   const handlePaymentType = (option) => {
     setPaymentOption(option);
   };
@@ -55,8 +57,9 @@ export const LoginPage = () => {
       payment_option: paymentOption,
       subscription_type: subscriptionType,
     });
+    navigate("/")
 
-    window.open(window.location.origin + "/auth/google", "_self");
+
   };
 
   return (
