@@ -4,9 +4,11 @@ import { ObjectId } from "mongodb";
 const userSchema = new mongoose.Schema({
   name: String,
   last_name: String,
+  email: String,
   org_number: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   org_name: {
     type: String,
@@ -14,7 +16,8 @@ const userSchema = new mongoose.Schema({
   },
   google_id: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   address: String,
   postal_code: String,
