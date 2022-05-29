@@ -55,6 +55,7 @@
     height: 500px;
     width: 50%;
     max-width: 600px;
+
 }
 .login-form {
     width: 100%;
@@ -180,6 +181,15 @@
     margin: 70px 0 35px 0;
 }
 
+.subscription-type-information {
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+
+.subscription-type-information-container {
+    width: calc(100% - 200px)
+}
+
 .subscription-type-information-content {
     display: flex;
     position: relative;
@@ -194,11 +204,6 @@
     font-size: 14px;
     line-height: 17px;
     margin-block-end: 0;
-}
-.subscription-type-information {
-    position: relative;
-    border: 1px solid #000;
-    border-radius: 10px;
 }
 
 .subsctiption-type-info-badge {
@@ -216,6 +221,13 @@
     line-height: 0;
     margin-left: 5px;
     margin-right: 5px;
+}
+
+.select-subscription-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
 
 .premium {

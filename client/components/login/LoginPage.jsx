@@ -62,7 +62,15 @@ export const LoginPage = () => {
   return (
     <div className="login-page-container">
       {isOverBreakpoint && <LoginLeftCard />}
-      <div style={{ display: "flex", flexDirection: "column" }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          position: "absolute",
+          left: "200px",
+          top: "0",
+        }}
+      >
         <Link to={"/login-form"}>login</Link>
         <Link to={"/select-identification-method"}>identity</Link>
         <Link to={"/find-company"}>company</Link>
