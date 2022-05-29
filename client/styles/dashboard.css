@@ -109,7 +109,10 @@
 
 .accordion-wrapper {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
 }
 
 
@@ -118,9 +121,14 @@
     font-weight: bold;
 }
 
+.accordion-bottom-container {
+    border-radius: 16px;
+}
+
 .accordion-title-container{
     display: flex;
 }
+
 
 .highlighted-partners-content-container{
     display: flex;
@@ -128,11 +136,9 @@
 
 .highlighted-partners-project{
     flex: 50%;
-
 }
 
 .highlighted-partners-progress{
-
 }
 
 
