@@ -11,6 +11,8 @@ import {
   selectedDonateAmountButton,
 } from "../../styles/button-style-config";
 import * as React from "react";
+import ErrorMessage from "../shared-components/ErrorMessage";
+import SuccessMessage from "../shared-components/SuccessMessage";
 
 function SubscriptionModal({
   open,
@@ -26,6 +28,8 @@ function SubscriptionModal({
   handleSubmitSubscription,
   formError,
   invalidCustomAmount,
+  registerError,
+  registerSuccess,
 }) {
   return (
     <Modal open={open} onClose={onClose}>
@@ -238,6 +242,12 @@ function SubscriptionModal({
         >
           Complete
         </Button>
+        {registerError && (
+          <ErrorMessage message="You are already a partner with this non-profit" />
+        )}
+        {registerSuccess && (
+          <SuccessMessage message="You are now registered as a partner!" />
+        )}
         {formError && (
           <div style={{ fontSize: "12px", color: "red", marginTop: "10px" }}>
             Please select payment method and amount.
