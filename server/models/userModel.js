@@ -4,7 +4,10 @@ import { ObjectId } from "mongodb";
 const userSchema = new mongoose.Schema({
   name: String,
   last_name: String,
-  email: String,
+  email: {
+    type: String,
+    unique: true
+  },
   org_number: {
     type: String,
     required: true,
