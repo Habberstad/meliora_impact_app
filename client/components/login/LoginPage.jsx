@@ -55,6 +55,8 @@ export const LoginPage = () => {
       payment_option: paymentOption,
       subscription_type: subscriptionType,
     });
+
+    window.open(window.location.origin + "/auth/google", "_self");
   };
 
   return (

@@ -4,21 +4,28 @@ import { useNavigate } from "react-router";
 import { useEffect, useState } from "react";
 import { LoginForm } from "./LoginForm";
 import SearchIcon from "@mui/icons-material/Search";
+import { companyListItem, selectedCompanyListItem } from "./login-styles";
 
-export const FindCompany = (props) => {
+export const FindCompany = ({ handleCompanyInfo }) => {
   const navigate = useNavigate();
-  const [data, setData] = useState([]);
-  const [value, setValue] = useState("");
+  const [companies, setCompanies] = useState([]);
+  const [selectedCompany, setSelectedCompany] = useState();
 
-  const fetchData = async (url) => {
+  const getCompanies = async (url) => {
     try {
       const response = await fetch(url);
       const json = await response.json();
       const array = [...json._embedded.enheter];
-      setData(array);
+      setCompanies(array);
+      setSelectedCompany();
     } catch (error) {
       console.log("error", error);
     }
+  };
+
+  const handleSelectCompany = (id, name) => {
+    if (selectedCompany === id) setSelectedCompany();
+    if (selectedCompany !== id) setSelectedCompany(id);
   };
 
   const onChangeHandler = (e) => {
@@ -29,16 +36,15 @@ export const FindCompany = (props) => {
       /^\d+$/.test(e.target.value.trim())
     ) {
       url = `https://data.brreg.no/enhetsregisteret/api/enheter?organisasjonsnummer=${e.target.value}&konkurs=false`;
-      fetchData(url);
+      getCompanies(url);
     }
     if (e.target.value.trim().length === 0) {
-      setData([]);
+      setCompanies([]);
     } else {
-      console.log(e.target.value);
-      console.log(url);
-      fetchData(url);
+      getCompanies(url);
     }
   };
+  console.log("companies", companies);
 
   return (
     <div className={"login-content"}>
@@ -53,11 +59,11 @@ export const FindCompany = (props) => {
           mt: "22px",
           "& .MuiOutlinedInput-root.Mui-focused": {
             "& > fieldset": {
-              borderColor: "rgba(0, 0, 0, 0.7)",
+              borderColor: "#7209B7",
             },
           },
           "& .MuiInputLabel-root.Mui-focused": {
-            color: "rgba(0, 0, 0, 0.7)",
+            color: "#7209B7",
           },
         }}
         label="Organizational Number / Company Name"
@@ -70,29 +76,35 @@ export const FindCompany = (props) => {
           ),
         }}
       />
-      <div className="company-search-list">
-        {data.map((company) => {
-          return (
-            <div
-              key={company.organisasjonsnummer}
-              className={"company-list-item"}
-            >
-              <p>{company.navn} </p>
-              <button
-                onClick={() => {
-                  props.handleCompanyInfo(
-                    company.navn,
-                    company.organisasjonsnummer
-                  );
-                }}
+      {companies.length > 0 ? (
+        <div className="company-search-list">
+          {companies.map((company) => {
+            return (
+              <Button
+                key={company.organisasjonsnummer}
+                sx={
+                  selectedCompany === company.organisasjonsnummer
+                    ? selectedCompanyListItem
+                    : companyListItem
+                }
+                onClick={() =>
+                  handleSelectCompany(company.organisasjonsnummer, company.navn)
+                }
               >
-                select
-              </button>
-            </div>
-          );
-        })}
-      </div>
+                <div className="company-list-item">
+                  <div>{company.navn}</div>
+                  <div style={{ fontSize: "12px" }}>
+                    {company.organisasjonsnummer}
+                  </div>
+                </div>
+              </Button>
+            );
+          })}
+        </div>
+      ) : null}
+
       <Button
+        disabled={!selectedCompany}
         onClick={() => {
           navigate("/select-subscription");
         }}
