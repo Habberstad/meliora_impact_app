@@ -105,6 +105,18 @@
     margin-top: 20px;
     border-radius: 8px;
 }
+
+.company-success-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    color: rgba(62, 123, 52, 1);
+    background-color: rgba(220, 255, 215, 1);
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
 .payment-options-container {
     display: flex;
     width: 100%;
