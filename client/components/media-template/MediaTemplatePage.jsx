@@ -13,20 +13,21 @@ import { purplePlatformButton } from "../../styles/button-style-config";
 
 const steps = ["Content", "Format", "Customize", "Review"];
 
-const MediaTemplatePage = ({ user }) => {
+const MediaTemplatePage = () => {
   const [activeStep, setActiveStep] = useState(0);
   const [completed, setCompleted] = useState({});
   const [npoList, setNpoList] = useState();
   const [projectList, setProjectList] = useState();
-  const { getUserByGoogleId } = useContext(UserApiContext);
+  const { getCurrentUser } = useContext(UserApiContext);
 
-  console.log(user);
   const { loading, error, data } = useLoader(
-    async () => await getUserByGoogleId(user.id),
+    async () => await getCurrentUser(),
     []
   );
 
   if (loading) return isLoading();
+
+  console.log("getCurrentUser", data);
 
   const totalSteps = steps.length;
   const completedSteps = Object.keys(completed).length;

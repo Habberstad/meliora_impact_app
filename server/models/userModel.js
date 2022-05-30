@@ -2,21 +2,39 @@ import mongoose from "mongoose";
 import { ObjectId } from "mongodb";
 
 const userSchema = new mongoose.Schema({
-  _id: String,
   name: String,
   last_name: String,
+  email: {
+    type: String,
+    unique: true
+  },
   org_number: {
-    type: String
+    type: String,
+    required: true,
+    unique: true
   },
-  org_name: String,
+  org_name: {
+    type: String,
+    required: true
+  },
   google_id: {
-    type: String
+    type: String,
+    required: true,
+    unique: true
   },
-  description: String,
   address: String,
   postal_code: String,
   city: String,
-  subscription: String,
+  payment_option: {
+    type: String,
+    enum: ["vipps", "klarna"],
+    required: true
+  },
+  subscription_type: {
+    type: String,
+    enum: ["freemium", "premium"],
+    required: true
+  },
   role: {
     type: String,
     enum: ["USER", "ADMIN"],
@@ -24,7 +42,6 @@ const userSchema = new mongoose.Schema({
   }
 }, {
   collection: "users",
-  bufferCommands: false,
   autoCreate: false
 });
 

@@ -15,8 +15,8 @@ import { UserApiContext } from "../../api-client/userApiContext";
 export const LoginPage = () => {
   const navigate = useNavigate();
   const { registerUser } = useContext(UserApiContext);
-  const [orgName, setOrgName] = useState("123");
-  const [orgNumber, setOrgNumber] = useState("Gutta");
+  const [orgName, setOrgName] = useState("");
+  const [orgNumber, setOrgNumber] = useState("");
   const [subscriptionType, setSubscriptionType] = useState("");
   const [paymentOption, setPaymentOption] = useState("");
   const [isOverBreakpoint, setIsOverBreakpoint] = useState(true);
@@ -27,6 +27,8 @@ export const LoginPage = () => {
   const google = () => {
     window.open(window.location.origin + "/auth/google", "_self");
   };
+
+
 
   const handlePaymentType = (option) => {
     setPaymentOption(option);
@@ -39,6 +41,7 @@ export const LoginPage = () => {
   const handleCompanyInfo = (name, orgNumber) => {
     setOrgName(name);
     setOrgNumber(orgNumber);
+    console.log("company handler", name, orgNumber);
   };
 
   const handleSubmit = () => {
@@ -55,6 +58,9 @@ export const LoginPage = () => {
       payment_option: paymentOption,
       subscription_type: subscriptionType,
     });
+    navigate("/")
+
+
   };
 
   return (
@@ -69,6 +75,7 @@ export const LoginPage = () => {
       </div>
       <div className="login-container">
         <Routes>
+          <Route exact path={"/"} element={<LoginForm google={google} />} />
           <Route
             exact
             path={"/login-form"}
@@ -77,12 +84,7 @@ export const LoginPage = () => {
           <Route
             exact
             path={"/select-identification-method"}
-            element={
-              <SelectIdentificationMethod
-                subscriptionType={subscriptionType}
-                google={google}
-              />
-            }
+            element={<SelectIdentificationMethod google={google} />}
           />
           <Route
             exact
@@ -92,12 +94,7 @@ export const LoginPage = () => {
           <Route
             exact
             path={"/find-company"}
-            element={
-              <FindCompany
-                subscriptionType={subscriptionType}
-                handleCompanyInfo={handleCompanyInfo}
-              />
-            }
+            element={<FindCompany handleCompanyInfo={handleCompanyInfo} />}
           />
           <Route
             exact
@@ -112,8 +109,9 @@ export const LoginPage = () => {
             element={
               <SelectPaymentMethod
                 subscriptionType={subscriptionType}
-                handleChange={handlePaymentType}
                 paymentOption={paymentOption}
+                orgName={orgName}
+                handleChange={handlePaymentType}
                 sumbit={handleSubmit}
               />
             }

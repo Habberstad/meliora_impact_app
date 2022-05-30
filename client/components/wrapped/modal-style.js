@@ -10,3 +10,17 @@ export const modalStyle = {
   boxShadow: 24,
   p: 4,
 };
+
+export const donateModalStyle = {
+  display: "flex",
+  alignItems: "center",
+  flexDirection: "column",
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  bgcolor: "#FFF",
+  borderRadius: "16px",
+  width: "600px",
+  height: "740px",
+};

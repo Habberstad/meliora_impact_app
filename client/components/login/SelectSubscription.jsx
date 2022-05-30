@@ -8,58 +8,57 @@ export const SelectSubscription = (props) => {
 
   return (
     <div className={"login-content"}>
-      <div>
+      <BackButton />
+      <div className={"login-content-header"}>
         <h1>Philanthropy is everything</h1>
         <p>Get started for free </p>
         <p>Or</p>
-        <p>get access to all our extended features as a Meliora Partner</p>
+        <p>Get access to all our extended features as a Meliora Partner</p>
       </div>
-
-      <Button
-        onClick={() => {
-          console.log("Fremium");
-          props.handleClick("freemium");
-          navigate("/select-payment-method");
-        }}
-        sx={{
-          mb: "22px",
-          borderColor: "#637381",
-          "&:hover": {
-            borderColor: "#000",
-            backgroundColor: "#FFF",
-            color: "#637381",
-          },
-        }}
-        fullWidth
-        variant={"outlined"}
-        size={"large"}
-      >
-        Freeemium
-      </Button>
-      <Button
-        onClick={() => {
-          console.log("premium");
-          props.handleClick("premium");
-          navigate("/select-payment-method");
-        }}
-        sx={{
-          mb: "22px",
-          borderColor: "#637381",
-          "&:hover": {
-            borderColor: "#000",
-            backgroundColor: "#FFF",
-            color: "#637381",
-          },
-        }}
-        fullWidth
-        variant={"outlined"}
-        size={"large"}
-      >
-        premium
-      </Button>
-      <p>
-        Already got an account? <Link to={"/login-form"}>Log in here.</Link>
-      </p>
+      <div className="login-content-main">
+        <Button
+          onClick={() => {
+            console.log("Fremium");
+            props.handleClick("freemium");
+            navigate("/select-payment-method");
+          }}
+          sx={{
+            mb: "22px",
+            borderColor: "#637381",
+            "&:hover": {
+              borderColor: "#000",
+              backgroundColor: "#FFF",
+              color: "#637381",
+            },
+          }}
+          fullWidth
+          variant={"outlined"}
+          size={"large"}
+        >
+          Freeemium
+        </Button>
+        <Button
+          onClick={() => {
+            console.log("premium");
+            props.handleClick("premium");
+            navigate("/select-payment-method");
+          }}
+          sx={{
+            mb: "22px",
+            borderColor: "#637381",
+            "&:hover": {
+              borderColor: "#000",
+              backgroundColor: "#FFF",
+              color: "#637381",
+            },
+          }}
+          fullWidth
+          variant={"outlined"}
+          size={"large"}
+        >
+          premium
+        </Button>
+      </div>
     </div>
   );
 };

@@ -1,50 +1,78 @@
 import { BackButton } from "./BackButton";
-import { Button, TextField } from "@mui/material";
+import { Button, InputAdornment, TextField } from "@mui/material";
 import { useNavigate } from "react-router";
+import * as React from "react";
 import { useEffect, useState } from "react";
+import SearchIcon from "@mui/icons-material/Search";
+import { companyListItem, selectedCompanyListItem } from "./login-styles";
+import { UserApiContext } from "../../api-client/userApiContext";
+import fetchJSON from "../../helpers/fetchJSON";
+import ErrorMessage from "../shared-components/ErrorMessage";
 
-export const FindCompany = (props) => {
+export const FindCompany = ({ handleCompanyInfo }) => {
   const navigate = useNavigate();
-  const [data, setData] = useState([]);
-  const [url, setUrl] = useState("");
+  const [companies, setCompanies] = useState([]);
+  const [selectedCompany, setSelectedCompany] = useState();
+  const [showError, setShowError] = useState(false);
+  const [companyId, setCompanyId] = useState(null);
+  const [companyName, setCompanyName] = useState(null);
 
-  const fetchData = async () => {
+  const { checkIsOrgRegistered } = React.useContext(UserApiContext);
+
+  const getCompanies = async (url) => {
     try {
       const response = await fetch(url);
       const json = await response.json();
       const array = [...json._embedded.enheter];
-      setData(array);
+      setCompanies(array);
+      setSelectedCompany();
     } catch (error) {
       console.log("error", error);
     }
   };
 
-  const onChangeHandler = (e) => {
-    let value = e.target.value;
-    setUrl(
-      `https://data.brreg.no/enhetsregisteret/api/enheter?navn=${value}&konkurs=false`
-    );
-    if (value.trim().length === 9 && /^\d+$/.test(value.trim())) {
-      console.log("orgnumber true");
-      setUrl(
-        `https://data.brreg.no/enhetsregisteret/api/enheter?organisasjonsnummer=${value}&konkurs=false`
-      );
-    }
-    if (value.trim().length === 0) {
-      setData([]);
-      console.log(value);
-      console.log(data);
-    }
+  const handleSelectCompany = (id, name) => {
+    setCompanyId(id);
+    setCompanyName(name);
 
-    fetchData();
+    if (selectedCompany === id) setSelectedCompany();
+    if (selectedCompany !== id) setSelectedCompany(id);
+  };
+
+  const handleSendCompanyInfo = async () => {
+    const data = await checkIsOrgRegistered({ org_number: companyId });
+
+    if (data.isRegistered) {
+      setShowError(true);
+    } else {
+      handleCompanyInfo(companyName, companyId);
+      setShowError(false);
+      navigate("/select-subscription");
+    }
+  };
+
+  const onChangeHandler = (e) => {
+    let url = `https://data.brreg.no/enhetsregisteret/api/enheter?navn=${e.target.value}&konkurs=false&organisasjonsform=AS,ENK,ANS,DA,STI`;
+
+    if (
+      e.target.value.trim().length === 9 &&
+      /^\d+$/.test(e.target.value.trim())
+    ) {
+      url = `https://data.brreg.no/enhetsregisteret/api/enheter?organisasjonsnummer=${e.target.value}&konkurs=false`;
+      getCompanies(url);
+    }
+    if (e.target.value.trim().length === 0) {
+      setCompanies([]);
+    } else {
+      getCompanies(url);
+    }
   };
 
   return (
     <div className={"login-content"}>
       <BackButton />
-      <div>
+      <div className={"login-content-header"}>
         <h1>Find Your Company</h1>
-        <p>{props.subscriptionType}</p>
       </div>
       <TextField
         onChange={onChangeHandler}
@@ -53,42 +81,61 @@ export const FindCompany = (props) => {
           mt: "22px",
           "& .MuiOutlinedInput-root.Mui-focused": {
             "& > fieldset": {
-              borderColor: "rgba(0, 0, 0, 0.7)",
+              borderColor: "#7209B7",
             },
           },
           "& .MuiInputLabel-root.Mui-focused": {
-            color: "rgba(0, 0, 0, 0.7)",
+            color: "#7209B7",
           },
         }}
         label="Organizational Number / Company Name"
         variant="outlined"
-      />
-      <div className="company-search-list">
-        {data.map((company) => {
-          return (
-            <div
-              key={company.organisasjonsnummer}
-              className={"company-list-item"}
-            >
-              <p>{company.navn} </p>
-              <button
-                onClick={() => {
-                  props.handleCompanyInfo(
-                    company.navn,
-                    company.organisasjonsnummer
-                  );
-                }}
-              >
-                select
-              </button>
-            </div>
-          );
-        })}
-      </div>
-      <Button
-        onClick={() => {
-          navigate("/select-subscription");
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <SearchIcon />
+            </InputAdornment>
+          ),
         }}
+      />
+      {companies.length > 0 ? (
+        <div>
+          {showError && (
+            <ErrorMessage message="This organization already exist" />
+          )}
+          <div className="company-search-list">
+            {companies.map((company) => {
+              return (
+                <Button
+                  key={company.organisasjonsnummer}
+                  sx={
+                    selectedCompany === company.organisasjonsnummer
+                      ? selectedCompanyListItem
+                      : companyListItem
+                  }
+                  onClick={() =>
+                    handleSelectCompany(
+                      company.organisasjonsnummer,
+                      company.navn
+                    )
+                  }
+                >
+                  <div className="company-list-item">
+                    <div>{company.navn}</div>
+                    <div style={{ fontSize: "12px" }}>
+                      {company.organisasjonsnummer}
+                    </div>
+                  </div>
+                </Button>
+              );
+            })}
+          </div>
+        </div>
+      ) : null}
+
+      <Button
+        disabled={!selectedCompany}
+        onClick={handleSendCompanyInfo}
         className={"form-button"}
         sx={{
           mt: 1,

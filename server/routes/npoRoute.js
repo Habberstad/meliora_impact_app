@@ -5,6 +5,7 @@ const router = Router();
 
 router.get("/", NpoController.list )
 router.get("/:id", NpoController.getById)
+
 router.post("/", NpoController.create)
 
 
