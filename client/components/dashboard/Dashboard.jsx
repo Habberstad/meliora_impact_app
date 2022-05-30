@@ -22,6 +22,7 @@ import { isLoading } from "../shared-components/Loading";
 import { Error } from "../shared-components/Error";
 import { ImpactSection } from "./ImpactSection";
 import WaterIcon from "@mui/icons-material/Water";
+import { DateFormater } from "../shared-components/dateFormater";
 
 const Dashboard = () => {
   //TODO: Mer beskrivende navn på state.
@@ -179,7 +180,7 @@ const Dashboard = () => {
                               <span className="donation-npo-name">
                                 {npos.map((npo) => {if (npo._id === donation.npo_id) return npo.name;})}
                               </span>
-                              <div>{donation.date}</div>
+                              <DateFormater date={donation.date}/>
                             </div>
                             <div className={"donation-amount"}>
                               {donation.payment_amount} kr
