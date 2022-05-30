@@ -5,7 +5,16 @@ import "../../styles/sidebar-styles.css";
 import React, { useEffect, useState } from "react";
 import { Box, Button, CircularProgress } from "@mui/material";
 import React from "react";
-import ConstructionIcon from "@mui/icons-material/Construction";
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import VolunteerActivismIcon from "@mui/icons-material/VolunteerActivism";
+import SlowMotionVideoIcon from "@mui/icons-material/SlowMotionVideo";
+import CreateIcon from "@mui/icons-material/Create";
+import SearchIcon from "@mui/icons-material/Search";
+import ArticleIcon from "@mui/icons-material/Article";
+import BarChartIcon from "@mui/icons-material/BarChart";
+import SettingsIcon from "@mui/icons-material/Settings";
+import GroupIcon from "@mui/icons-material/Group";
+import ReceiptIcon from "@mui/icons-material/Receipt";
 import { UserContext } from "../../App";
 import SpeedIcon from "@mui/icons-material/Speed";
 
@@ -34,36 +43,35 @@ const Sidebar = (props) => {
   return (
     <div className="sidebar-container">
       <div className="sidebar-company-logo">
-        <img src={MelioraIcon} alt="company-icon" />
+        <Link to={"/"}>
+          <img src={MelioraIcon} alt="company-icon" />
+        </Link>
       </div>
 
       <div className="profile-name-badge">
-        <div>
-          <div style={{ marginTop: "10px" }}> {user.org_name} </div>
-          <div style={{ marginTop: "10px" }}> {user.name} </div>
-          {/* TODO: Replace with username */}
-          <Button
-            sx={{
-              with: "70px",
-              height: "22px",
-              fontSize: "10px",
-              fontWeight: "500",
-              marginTop: "5px",
+        <div style={{ marginTop: "10px" }}> {user.org_name} </div>
+        {/* TODO: Replace with username */}
+        <Button
+          sx={{
+            with: "70px",
+            height: "22px",
+            fontSize: "10px",
+            fontWeight: "500",
+            marginTop: "5px",
+            color: "black",
+            border: "none",
+            backgroundColor: "#dadada",
+            "&:hover": {
+              backgroundColor: "#e5e5e5",
               color: "black",
               border: "none",
-              backgroundColor: "#dadada",
-              "&:hover": {
-                backgroundColor: "#e5e5e5",
-                color: "black",
-                border: "none",
-              },
-            }}
-            variant="outlined"
-            onClick={handleLogoutClick}
-          >
-            Log out
-          </Button>
-        </div>
+            },
+          }}
+          variant="outlined"
+          onClick={handleLogoutClick}
+        >
+          Log out
+        </Button>
       </div>
       <div className="nav-item-container">
         <div>
@@ -77,7 +85,7 @@ const Sidebar = (props) => {
                 selectedTab === "dashboard" ? "nav-item-selected" : "nav-item"
               }`}
             >
-              <SpeedIcon sx={{ marginRight: "20px" }} />
+              <DashboardIcon sx={{ marginRight: "20px" }} />
               <div>Dashboard</div>
             </div>
           </Link>
@@ -91,7 +99,7 @@ const Sidebar = (props) => {
                 selectedTab === "partners" ? "nav-item-selected" : "nav-item"
               }`}
             >
-              <SpeedIcon sx={{ marginRight: "20px" }} />
+              <VolunteerActivismIcon sx={{ marginRight: "20px" }} />
 
               <div>My Non-Profits</div>
             </div>
@@ -106,7 +114,7 @@ const Sidebar = (props) => {
                 selectedTab === "articles" ? "nav-item-selected" : "nav-item"
               }`}
             >
-              <SpeedIcon sx={{ marginRight: "20px" }} />
+              <ArticleIcon sx={{ marginRight: "20px" }} />
               <div>Articles</div>
             </div>
           </Link>
@@ -120,7 +128,7 @@ const Sidebar = (props) => {
                 selectedTab === "discover" ? "nav-item-selected" : "nav-item"
               }`}
             >
-              <SpeedIcon sx={{ marginRight: "20px" }} />
+              <SearchIcon sx={{ marginRight: "20px" }} />
               <div>Discover Non-Profits</div>
             </div>
           </Link>
@@ -134,7 +142,7 @@ const Sidebar = (props) => {
                 selectedTab === "wrapped" ? "nav-item-selected" : "nav-item"
               }`}
             >
-              <SpeedIcon sx={{ marginRight: "20px" }} />
+              <SlowMotionVideoIcon sx={{ marginRight: "20px" }} />
               <div>Meliora Wrapped</div>
             </div>
           </Link>
@@ -148,7 +156,7 @@ const Sidebar = (props) => {
                 selectedTab === "templates" ? "nav-item-selected" : "nav-item"
               }`}
             >
-              <SpeedIcon sx={{ marginRight: "20px" }} />
+              <CreateIcon sx={{ marginRight: "20px" }} />
               <div>Social Media Templates</div>
             </div>
           </Link>
@@ -164,7 +172,7 @@ const Sidebar = (props) => {
                 selectedTab === "accounting" ? "nav-item-selected" : "nav-item"
               }`}
             >
-              <SpeedIcon sx={{ marginRight: "20px" }} />
+              <BarChartIcon sx={{ marginRight: "20px" }} />
               <div>Accounting</div>
             </div>
           </Link>
@@ -178,7 +186,7 @@ const Sidebar = (props) => {
                 selectedTab === "" ? "nav-item-selected" : "nav-item"
               }`}
             >
-              <SpeedIcon sx={{ marginRight: "20px" }} />
+              <SettingsIcon sx={{ marginRight: "20px" }} />
               <div>Settings</div>
             </div>
           </Link>
@@ -192,7 +200,7 @@ const Sidebar = (props) => {
                 selectedTab === "" ? "nav-item-selected" : "nav-item"
               }`}
             >
-              <SpeedIcon sx={{ marginRight: "20px" }} />
+              <GroupIcon sx={{ marginRight: "20px" }} />
               <div>Users</div>
             </div>
           </Link>
@@ -206,7 +214,7 @@ const Sidebar = (props) => {
                 selectedTab === "" ? "nav-item-selected" : "nav-item"
               }`}
             >
-              <SpeedIcon sx={{ marginRight: "20px" }} />
+              <ReceiptIcon sx={{ marginRight: "20px" }} />
               <div>Billing</div>
             </div>
           </Link>

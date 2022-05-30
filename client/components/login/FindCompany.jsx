@@ -76,8 +76,8 @@ export const FindCompany = ({ handleCompanyInfo }) => {
       </div>
       <TextField
         onChange={onChangeHandler}
-        fullWidth
         sx={{
+          width: "590px",
           mt: "22px",
           "& .MuiOutlinedInput-root.Mui-focused": {
             "& > fieldset": {
@@ -136,17 +136,14 @@ export const FindCompany = ({ handleCompanyInfo }) => {
       <Button
         disabled={!selectedCompany}
         onClick={handleSendCompanyInfo}
-        className={"form-button"}
         sx={{
-          mt: 1,
+          width: "190px",
+          height: "60px",
+          borderRadius: "8px",
           backgroundColor: "#551477",
-          "&:hover": {
-            backgroundColor: "#aa55d9",
-            color: "#FFF",
-          },
+          marginTop: "80px",
         }}
         variant="contained"
-        size="large"
       >
         Next
       </Button>
