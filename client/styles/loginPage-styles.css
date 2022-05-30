@@ -140,6 +140,14 @@
     border-width: 3px;
     padding: -1px;
 }
+
+.selected-payment-option {
+    border-color: #551477;
+    border-width: 3px;
+    padding: -1px;
+
+}
+
 .payment-option-container img {
     object-fit: cover;
     width: 100%;
