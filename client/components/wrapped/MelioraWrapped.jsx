@@ -3,10 +3,10 @@ import melioraWrappedTop from "../../media/group3.png";
 import melioraWrappedLeft from "../../media/group1.png";
 import melioraWrappedRight from "../../media/group2.png";
 import melioraLogo from "../../media/meliora_logo_transparent.png";
-import linkedinLogo from "../../media/linkedin_logo.png";
-import twitterLogo from "../../media/twitter_logo.png";
-import facebookLogo from "../../media/facebook_logo.png";
-import instagramLogo from "../../media/instragram_logo.png";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import InstagramIcon from "@mui/icons-material/Instagram";
 import PlayArrowOutlinedIcon from "@mui/icons-material/PlayArrowOutlined";
 import IosShareOutlinedIcon from "@mui/icons-material/IosShareOutlined";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
@@ -22,6 +22,7 @@ import {
 } from "@mui/material";
 import { modalStyle } from "./modal-style";
 import { useState } from "react";
+import { purplePlatformButton } from "../../styles/button-style-config";
 
 const MelioraWrapped = () => {
   {
@@ -56,7 +57,7 @@ const MelioraWrapped = () => {
     else open(shareLink);
   };
 
-  const onDownload = () => {
+  const handleDownload = () => {
     const downloadLink = document.createElement("a");
     downloadLink.download = `download.txt`;
     downloadLink.href = "./download.txt";
@@ -140,7 +141,9 @@ const MelioraWrapped = () => {
                       console.log(shareLink);
                     }}
                   >
-                    <img src={linkedinLogo} />
+                    <div>
+                      <LinkedInIcon sx={{ fontSize: 50 }} />
+                    </div>
                   </Button>
                   <Button
                     variant={"outlined"}
@@ -152,7 +155,9 @@ const MelioraWrapped = () => {
                       console.log(shareLink);
                     }}
                   >
-                    <img src={twitterLogo} />
+                    <div>
+                      <TwitterIcon sx={{ fontSize: 50 }} />
+                    </div>
                   </Button>
                   <Button
                     variant={"outlined"}
@@ -164,7 +169,9 @@ const MelioraWrapped = () => {
                       console.log(shareLink);
                     }}
                   >
-                    <img src={facebookLogo} />
+                    <div>
+                      <FacebookIcon sx={{ fontSize: 50 }} />
+                    </div>
                   </Button>
                   <Tooltip
                     title={"Not available at this moment!"}
@@ -178,12 +185,15 @@ const MelioraWrapped = () => {
                         console.log(shareLink);
                       }}
                     >
-                      <img src={instagramLogo} />
+                      <div>
+                        <InstagramIcon sx={{ fontSize: 50 }} />
+                      </div>
                     </Button>
                   </Tooltip>
                 </div>
                 <TextField
                   className="meliora-wrapped-share-modal-textfield"
+                  disabled={true}
                   placeholder={sharePlaceholder}
                   InputProps={{
                     endAdornment: (
@@ -211,15 +221,17 @@ const MelioraWrapped = () => {
                 />
                 <div className="meliora-wrapped-share-modal-buttons-bot">
                   <Button
-                    className="button"
                     variant={"contained"}
-                    onClick={onDownload}
+                    sx={purplePlatformButton}
+                    style={{ margin: "20px 5px 0px 0px" }}
+                    onClick={handleDownload}
                   >
                     Download
                   </Button>
                   <Button
-                    className="button"
                     variant={"contained"}
+                    sx={purplePlatformButton}
+                    style={{ margin: "20px 0px 0px 5px" }}
                     onClick={handleShare}
                   >
                     Share

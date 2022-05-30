@@ -10,17 +10,26 @@ body {
 
 .loading-state {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    font-size: 20px;
 }
 
+.error-state {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    font-size: 20px;
+}
 
-
-/**************************
-     SIDEBAR NAVIGATION
-  *************************/
-
-
-
-
+.error-state h1 {
+    font-size: 100px;
+    color: grey;
+}
 
 
 
