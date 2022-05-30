@@ -11,12 +11,14 @@ import { FindCompany } from "./FindCompany";
 import { SelectPaymentMethod } from "./SelectPaymentMethod";
 import { SelectIdentificationMethod } from "./SelectIdentificationMethod";
 import { UserApiContext } from "../../api-client/userApiContext";
+import { RegistrationSummary } from "./RegistrationSummary";
 
 export const LoginPage = () => {
   const navigate = useNavigate();
   const { registerUser } = useContext(UserApiContext);
   const [orgName, setOrgName] = useState("");
   const [orgNumber, setOrgNumber] = useState("");
+  const [orgAdress, setOrgAdress] = useState("");
   const [subscriptionType, setSubscriptionType] = useState("");
   const [paymentOption, setPaymentOption] = useState("");
   const [isOverBreakpoint, setIsOverBreakpoint] = useState(true);
@@ -36,9 +38,10 @@ export const LoginPage = () => {
     setSubscriptionType(option);
   };
 
-  const handleCompanyInfo = (name, orgNumber) => {
+  const handleCompanyInfo = (name, orgNumber, adress) => {
     setOrgName(name);
     setOrgNumber(orgNumber);
+    setOrgAdress(adress);
     console.log("company handler", name, orgNumber);
   };
 
@@ -76,6 +79,7 @@ export const LoginPage = () => {
         <Link to={"/find-company"}>company</Link>
         <Link to={"/select-subscription"}>select</Link>
         <Link to={"/select-payment-method"}>payment</Link>
+        <Link to={"/register-summary"}>summary</Link>
       </div>
       <div className="login-container">
         <Routes>
@@ -106,7 +110,7 @@ export const LoginPage = () => {
             element={
               <SelectSubscription
                 handleClick={handleSubscriptionType}
-                sumbit={handleSubmit}
+                submit={handleSubmit}
               />
             }
           />
@@ -119,7 +123,18 @@ export const LoginPage = () => {
                 paymentOption={paymentOption}
                 orgName={orgName}
                 handleChange={handlePaymentType}
-                sumbit={handleSubmit}
+                submit={handleSubmit}
+              />
+            }
+          />
+          <Route
+            exact
+            path={"/register-summary"}
+            element={
+              <RegistrationSummary
+                orgName={orgName}
+                orgNumber={orgNumber}
+                orgAdress={orgAdress}
               />
             }
           />
