@@ -4,6 +4,7 @@ import { Grid, Link } from "@mui/material";
 import SchoolIcon from "@mui/icons-material/School";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { Avatar } from "@mui/material";
 
 export function ImpactSection(props) {
   const [counter, setCounter] = useState(1);
@@ -26,33 +27,39 @@ export function ImpactSection(props) {
     }
   };
 
-  return <Grid lg={3} xl={3} item>
-    <div className="students-impact-container">
-      <div className="students-impact-icon">
-        <SchoolIcon fontSize={"large"} />
+  return (
+    <Grid lg={3} xl={3} item>
+      <div className="students-impact-container">
+        <div className="students-impact-icon">
+          <div className={"students"}>
+            <SchoolIcon className="students-school-icon" fontSize={"large"} />
+          </div>
+        </div>
+        <ArrowBackIosIcon
+          onClick={decrease}
+          className={"student-back-button"}
+        />
+        <ArrowForwardIosIcon
+          onClick={increase}
+          className={"students-forward-button"}
+        />
+        <div className="students-impact-count">
+          {props.impact === undefined ? (
+            <div>No Donations</div>
+          ) : (
+            <div>{props.impact[props.counter].amount}</div>
+          )}
+        </div>
+        <div className="students-impact-content">
+          {props.impact === undefined ? (
+            <Link href={"/discover"} color={"inherit"}>
+              Discover Non-Profits
+            </Link>
+          ) : (
+            <div>{props.impact[props.counter].impact_type}</div>
+          )}
+        </div>
       </div>
-      <ArrowBackIosIcon
-        onClick={decrease}
-        className={"student-back-button"}
-      />
-      <ArrowForwardIosIcon
-        onClick={increase}
-        className={"students-forward-button"}
-      />
-      <div className="students-impact-count">
-        {props.impact === undefined ? (
-          <div>No Donations</div>
-        ) : (
-          <div>{props.impact[props.counter].amount}</div>
-        )}
-      </div>
-      <div className="students-impact-content">
-        {props.impact === undefined ? (
-          <Link href={"/discover"} color={"inherit"}>Discover Non-Profits</Link>
-        ) : (
-          <div>{props.impact[props.counter].impact_type}</div>
-        )}
-      </div>
-    </div>
-  </Grid>;
+    </Grid>
+  );
 }
