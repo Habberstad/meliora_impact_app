@@ -54,6 +54,8 @@
 .login-content {
     height: 500px;
     width: 50%;
+    max-width: 600px;
+
 }
 .login-form {
     width: 100%;
@@ -77,6 +79,7 @@
 
 .back-container {
     display: flex;
+    align-self: flex-start;
     font-size: 14px;
     text-decoration: underline;
 
@@ -135,6 +138,7 @@
     width: 100px;
     height: 100px;
     border: 1px solid #000;
+    border-radius: 10px;
 
 }
 
@@ -148,9 +152,21 @@
     right: 0;
 }
 
+.login-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .login-content-header h1 {
     font-weight: 800;
     font-size: 50px;
+    text-align: center;
+}
+.login-content-header h3 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
     text-align: center;
 }
 
@@ -170,7 +186,56 @@
 
 .login-content-main {
     width: 100%;
-    margin: 70px 0 70px 0;
+    margin: 70px 0 35px 0;
+}
+
+.subscription-type-information {
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+
+.subscription-type-information-container {
+    width: calc(100% - 200px)
+}
+
+.subscription-type-information-content {
+    display: flex;
+    position: relative;
+    flex-direction: column; /* <- Also inlin to be able to reach MUI root*/
+    align-items: center;
+    text-align: center;
+    margin: 6px 10px;
+}
+
+.subscription-type-information-content p {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    margin-block-end: 0;
+}
+
+.subsctiption-type-info-badge {
+    position: absolute;
+    height: 21px;
+    top: 0;
+    right: 0;
+    border-radius: 0 10px 0 10px;
+    background-color: #FFD878;
+
+}
+.subsctiption-type-info-badge p{
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 0;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.select-subscription-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
 
 .premium {
