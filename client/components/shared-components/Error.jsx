@@ -1,6 +1,9 @@
 export function Error(props) {
-    return <div>
-        <h1>Error</h1>
-        <div id="error-text">{props.error.toString()}</div>
-    </div>;
+  console.log(props.error);
+  return (
+    <div className="error-state">
+      <h1>404</h1>
+      <p>Oops! Something went wrong... :P</p>
+    </div>
+  );
 }

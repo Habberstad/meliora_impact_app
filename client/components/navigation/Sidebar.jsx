@@ -151,6 +151,19 @@ const Sidebar = (props) => {
               <SpeedIcon sx={{ marginRight: "20px" }} />
               <div>Social Media Templates</div>
             </div>
+          </Link> <Link
+            onClick={() => handleNavigationState("templates")}
+            to={"/accounting"}
+            style={{ textDecoration: "none" }}
+          >
+            <div
+              className={`${
+                selectedTab === "templates" ? "nav-item-selected" : "nav-item"
+              }`}
+            >
+              <SpeedIcon sx={{ marginRight: "20px" }} />
+              <div>Accounting</div>
+            </div>
           </Link>
         </div>
         <div style={{ marginBottom: "10px" }}>
