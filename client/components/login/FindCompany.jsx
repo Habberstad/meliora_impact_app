@@ -16,7 +16,7 @@ export const FindCompany = ({ handleCompanyInfo }) => {
   const [showError, setShowError] = useState(false);
   const [companyId, setCompanyId] = useState(null);
   const [companyName, setCompanyName] = useState(null);
-
+  const [companyAdress, setCompanyAdress] = useState(null);
   const { checkIsOrgRegistered } = React.useContext(UserApiContext);
 
   const getCompanies = async (url) => {
@@ -31,9 +31,10 @@ export const FindCompany = ({ handleCompanyInfo }) => {
     }
   };
 
-  const handleSelectCompany = (id, name) => {
+  const handleSelectCompany = (id, name, adress, postalCode, city) => {
     setCompanyId(id);
     setCompanyName(name);
+    setCompanyAdress(`${adress}, ${postalCode} ${city}`);
 
     if (selectedCompany === id) setSelectedCompany();
     if (selectedCompany !== id) setSelectedCompany(id);
@@ -45,7 +46,7 @@ export const FindCompany = ({ handleCompanyInfo }) => {
     if (data.isRegistered) {
       setShowError(true);
     } else {
-      handleCompanyInfo(companyName, companyId);
+      handleCompanyInfo(companyName, companyId, companyAdress);
       setShowError(false);
       navigate("/select-subscription");
     }
@@ -116,7 +117,10 @@ export const FindCompany = ({ handleCompanyInfo }) => {
                   onClick={() =>
                     handleSelectCompany(
                       company.organisasjonsnummer,
-                      company.navn
+                      company.navn,
+                      company.forretningsadresse.adresse,
+                      company.forretningsadresse.postnummer,
+                      company.forretningsadresse.poststed
                     )
                   }
                 >
