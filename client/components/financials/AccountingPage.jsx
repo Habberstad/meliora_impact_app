@@ -34,6 +34,13 @@ export const AccountingPage = (props) => {
           rowsPerPageOptions={[5]}
           checkboxSelection
           getRowId={(row)=> row._id}
+          initialState={{
+            filter: {
+              filterModel: {
+                items: [{ columnField: "Date", operatorValue: '>', value: '2.5' }],
+              },
+            },
+          }}
         />
       </div>
     </div>
