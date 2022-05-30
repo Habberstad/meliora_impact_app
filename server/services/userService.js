@@ -45,8 +45,8 @@ async function getLoggedInUser(google_id) {
       {
         $lookup: {
           from: "transactions",
-          localField: "_id",
-          foreignField: "giver_id",
+          localField: "google_id",
+          foreignField: "user_id",
           as: "donation_history",
         },
       },
@@ -122,8 +122,8 @@ async function getByGoogleId(google_id) {
       {
         $lookup: {
           from: "transactions",
-          localField: "_id",
-          foreignField: "giver_id",
+          localField: "google_id",
+          foreignField: "user_id",
           as: "donation_history",
         },
       },
