@@ -12,15 +12,6 @@ export const SelectPaymentMethod = (props) => {
     setSelectedOption(option);
   };
 
-  /*
-  put this class in css if its not there, handles selected payment option:
-  .selected-payment-option {
-    border-color: #551477;
-    border-width: 3px;
-    padding: -1px;
-
-}*/
-
   return (
     <div className="login-content">
       <BackButton />
@@ -87,24 +78,24 @@ export const SelectPaymentMethod = (props) => {
         </div>
       </div>
       <Button
+        disabled={!props.subscriptionType}
         onClick={() => {
-
           navigate("/register-summary");
-
         }}
-        className={"form-button"}
         sx={{
-          mt: 1,
+          width: "190px",
+          height: "60px",
+          borderRadius: "8px",
           backgroundColor: "#551477",
+          marginTop: "80px",
           "&:hover": {
             backgroundColor: "#aa55d9",
             color: "#FFF",
           },
         }}
         variant="contained"
-        size="large"
       >
-        finish
+        Next
       </Button>
     </div>
   );
