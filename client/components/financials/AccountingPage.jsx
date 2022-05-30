@@ -3,10 +3,10 @@ import { DataGrid } from "@mui/x-data-grid";
 import ReactToPrint from "react-to-print"
 
 const columns = [
-  { field: "_id", headerName: "ID", width: 250 },
-  { field: "amount", headerName: "Amount", width: 130 },
-  { field: "date", headerName: "Date", width: 130 },
-  { field: "type", headerName: "Type", type: "number", width: 90 },
+  { field: "_id", headerName: "Transaction id", width: 250 },
+  { field: "payment_amount", headerName: "Amount", width: 130 },
+  { field: "date", headerName: "Date", width: 400, type: "date", valueGetter: ({ value }) => new Date(value).toLocaleDateString("no-NO",{day: "2-digit", month: "2-digit", year: "numeric" })  },
+  { field: "payment_frequency", headerName: "Type", type: "number", width: 90 },
   { field: "test", headerName: "aggregert data", description: "This column has a value getter and is not sortable.", sortable: false, width: 160,
     valueGetter: (params) =>
       `${params.row.type || ""} ${params.row.type || ""}`
