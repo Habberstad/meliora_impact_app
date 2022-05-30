@@ -173,12 +173,12 @@
 
 .login-content-header div{
     font-size: 50px;
-    font-weight: 700;
+    font-weight: 800;
     margin-bottom: 35px;
 }
 
 .login-content-header p {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 500;
     line-height: 20px;
     margin: 0;
@@ -191,7 +191,7 @@
 }
 
 .login-content-main Button {
-    justify-content: space-between;
+    border-radius: 10px;
 }
 
 .login-content-header-subscription-tag {

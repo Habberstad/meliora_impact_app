@@ -31,6 +31,7 @@ export const SelectSubscription = (props) => {
               props.submit();
             }}
             sx={{
+              justifyContent: "space-between",
               mb: "22px",
               borderColor: "#637381",
               color: "#000",
@@ -54,6 +55,7 @@ export const SelectSubscription = (props) => {
               navigate("/select-payment-method");
             }}
             sx={{
+              justifyContent: "space-between",
               mb: "22px",
               borderColor: "#A400FF",
               backgroundColor: "#F6E8FF",
