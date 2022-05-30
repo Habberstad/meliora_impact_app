@@ -106,7 +106,7 @@ export const LoginPage = () => {
             element={
               <SelectSubscription
                 handleClick={handleSubscriptionType}
-                sumbit={handleSubmit}
+                submit={handleSubmit}
               />
             }
           />
@@ -119,7 +119,7 @@ export const LoginPage = () => {
                 paymentOption={paymentOption}
                 orgName={orgName}
                 handleChange={handlePaymentType}
-                sumbit={handleSubmit}
+                submit={handleSubmit}
               />
             }
           />
