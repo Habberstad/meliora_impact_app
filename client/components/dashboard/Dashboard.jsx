@@ -182,7 +182,7 @@ const Dashboard = () => {
                               <div>{m.date}</div>
                             </div>
                             <div className={"donation-amount"}>
-                              {m.amount} kr
+                              {m.payment_amount} kr
                             </div>
                           </div>
                         </TimelineContent>

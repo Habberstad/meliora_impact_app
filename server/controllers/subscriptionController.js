@@ -1,6 +1,7 @@
 import { ObjectId } from "mongodb";
 import SubscriptionService from "../services/subscriptionService.js";
 import Subscription from "../models/subscriptionModel.js";
+import TransactionService from "../services/TransactionService.js";
 
 async function list(req, res) {
   const query = {};
@@ -49,15 +50,13 @@ async function create(req, res) {
   query.npo_id = { $eq: ObjectId(npo_id) };
   query.user_id = req.body.user_id
 
-
-
   try {
     const test = await Subscription.find(query)
     if(test.length !== 0)
       return res.status(409).json({ alreadyExist: true, status: 409, message: "already exist" });
-
-    console.log(test);
+    console.log(req.body)
     await SubscriptionService.create(req.body);
+    await TransactionService.create(req.body);
     return res.status(201).json({ status: 201 });
   } catch (e) {
     return res.status(400).json({ status: 400, message: e.message });
