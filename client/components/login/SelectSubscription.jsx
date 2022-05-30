@@ -14,19 +14,21 @@ export const SelectSubscription = (props) => {
   return (
     <div className="select-subscription-container">
       <div className={"login-content"}>
-        <BackButton />
+        <BackButton className={"login-back-button"} />
         <div className={"login-content-header"}>
-          <h3>Philanthropy is everything</h3>
+          <div>Philanthropy is everything</div>
           <p>Get started for free </p>
-          <p>Or</p>
-          <p>Get access to all our extended features as a Meliora Partner</p>
+          <p style={{ fontStyle: "italic" }}>or</p>
+          <p>
+            get access to <strong>all</strong> our extended features as a
+            <strong> Meliora Partner</strong>
+          </p>
         </div>
         <div className="login-content-main">
           <Button
             onClick={() => {
-              console.log("Fremium");
               props.handleClick("freemium");
-              props.sumbit();
+              props.submit();
             }}
             sx={{
               mb: "22px",
@@ -65,35 +67,33 @@ export const SelectSubscription = (props) => {
             fullWidth
             variant={"outlined"}
             size={"large"}
-            endIcon={"$ 7.99 / per month"}
           >
-            Get Meliora Partner
-          </Button>
-          <Button
-            onClick={() => {
-              setIsShowingInfo(!isShowingInfo);
-            }}
-            sx={{
-              mb: "22px",
-              color: "#000",
-              "&:hover": {
-                color: "#637381",
-              },
-            }}
-            fullWidth
-            variant={"text"}
-            size={"large"}
-            endIcon={
-              isShowingInfo ? (
-                <KeyboardArrowUpIcon />
-              ) : (
-                <KeyboardArrowDownIcon />
-              )
-            }
-          >
-            What do you get?
+            <div>Get Meliora Partner</div>
+            <div>$ 7.99 / per month</div>
           </Button>
         </div>
+        <Button
+          onClick={() => {
+            setIsShowingInfo(!isShowingInfo);
+          }}
+          sx={{
+            textDecoration: "underline",
+            padding: "0",
+            mb: "22px",
+            color: "#000",
+            "&:hover": {
+              color: "#637381",
+            },
+          }}
+          fullWidth
+          variant={"text"}
+          size={"large"}
+          endIcon={
+            isShowingInfo ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />
+          }
+        >
+          What do you get?
+        </Button>
       </div>
       <div className={"subscription-type-information-container"}>
         {isShowingInfo && <SubscriptionInfoGrid />}
