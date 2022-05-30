@@ -123,7 +123,7 @@ export const LoginPage = () => {
                 subscriptionType={subscriptionType}
                 paymentOption={paymentOption}
                 orgName={orgName}
-                handleChange={handlePaymentType}
+                handleSubmit={handlePaymentType}
                 submit={handleSubmit}
               />
             }

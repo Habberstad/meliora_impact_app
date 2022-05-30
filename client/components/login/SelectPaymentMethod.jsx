@@ -8,8 +8,12 @@ export const SelectPaymentMethod = (props) => {
   const [selectedOption, setSelectedOption] = useState(props.paymentOption);
   const navigate = useNavigate();
   const handleChange = (option) => {
-    props.handleChange(option);
     setSelectedOption(option);
+  };
+
+  const handlePaymentTypeSubmit = () => {
+    props.handleSubmit(selectedOption);
+    navigate("/register-summary");
   };
 
   return (
@@ -78,10 +82,8 @@ export const SelectPaymentMethod = (props) => {
         </div>
       </div>
       <Button
-        disabled={!props.paymentOption}
-        onClick={() => {
-          navigate("/register-summary");
-        }}
+        disabled={!selectedOption}
+        onClick={handlePaymentTypeSubmit}
         sx={{
           width: "190px",
           height: "60px",
