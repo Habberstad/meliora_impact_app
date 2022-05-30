@@ -28,8 +28,6 @@ export const LoginPage = () => {
     window.open(window.location.origin + "/auth/google", "_self");
   };
 
-
-
   const handlePaymentType = (option) => {
     setPaymentOption(option);
   };
@@ -58,15 +56,21 @@ export const LoginPage = () => {
       payment_option: paymentOption,
       subscription_type: subscriptionType,
     });
-    navigate("/")
-
-
+    navigate("/");
   };
 
   return (
     <div className="login-page-container">
       {isOverBreakpoint && <LoginLeftCard />}
-      <div style={{ display: "flex", flexDirection: "column" }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          position: "absolute",
+          left: "200px",
+          top: "0",
+        }}
+      >
         <Link to={"/login-form"}>login</Link>
         <Link to={"/select-identification-method"}>identity</Link>
         <Link to={"/find-company"}>company</Link>
@@ -100,7 +104,10 @@ export const LoginPage = () => {
             exact
             path={"/select-subscription"}
             element={
-              <SelectSubscription handleClick={handleSubscriptionType} />
+              <SelectSubscription
+                handleClick={handleSubscriptionType}
+                sumbit={handleSubmit}
+              />
             }
           />
           <Route

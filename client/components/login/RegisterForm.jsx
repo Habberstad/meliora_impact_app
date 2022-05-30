@@ -14,7 +14,7 @@ export function RegisterForm() {
     <div className={"login-content"}>
       <BackButton />
       <div className={"login-content-header"}>
-        <h2>We’re so happy to have you as a</h2>
+        <h3>We’re so happy to have you as a</h3>
         <h1>Meliora Partner</h1>
         <p>Registrer Manually</p>
       </div>
