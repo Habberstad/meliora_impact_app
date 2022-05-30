@@ -35,6 +35,10 @@
     max-width: 80px;
 }
 
+.article-back-button:hover {
+    cursor: pointer;
+}
+
 .article-wrapper {
     max-width: 1400px;
     margin: 0% 10% 5% 10%;
