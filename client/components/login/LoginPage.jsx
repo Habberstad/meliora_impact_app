@@ -11,6 +11,7 @@ import { FindCompany } from "./FindCompany";
 import { SelectPaymentMethod } from "./SelectPaymentMethod";
 import { SelectIdentificationMethod } from "./SelectIdentificationMethod";
 import { UserApiContext } from "../../api-client/userApiContext";
+import { RegistrationSummary } from "./RegistrationSummary";
 
 export const LoginPage = () => {
   const navigate = useNavigate();
@@ -76,6 +77,7 @@ export const LoginPage = () => {
         <Link to={"/find-company"}>company</Link>
         <Link to={"/select-subscription"}>select</Link>
         <Link to={"/select-payment-method"}>payment</Link>
+        <Link to={"/register-summary"}>summary</Link>
       </div>
       <div className="login-container">
         <Routes>
@@ -122,6 +124,11 @@ export const LoginPage = () => {
                 sumbit={handleSubmit}
               />
             }
+          />
+          <Route
+            exact
+            path={"/register-summary"}
+            element={<RegistrationSummary />}
           />
           <Route exact path={"/register-form"} element={<RegisterForm />} />
         </Routes>
