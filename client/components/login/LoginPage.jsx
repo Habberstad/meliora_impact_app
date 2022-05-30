@@ -18,6 +18,7 @@ export const LoginPage = () => {
   const { registerUser } = useContext(UserApiContext);
   const [orgName, setOrgName] = useState("");
   const [orgNumber, setOrgNumber] = useState("");
+  const [orgAdress, setOrgAdress] = useState("");
   const [subscriptionType, setSubscriptionType] = useState("");
   const [paymentOption, setPaymentOption] = useState("");
   const [isOverBreakpoint, setIsOverBreakpoint] = useState(true);
@@ -37,9 +38,10 @@ export const LoginPage = () => {
     setSubscriptionType(option);
   };
 
-  const handleCompanyInfo = (name, orgNumber) => {
+  const handleCompanyInfo = (name, orgNumber, adress) => {
     setOrgName(name);
     setOrgNumber(orgNumber);
+    setOrgAdress(adress);
     console.log("company handler", name, orgNumber);
   };
 
@@ -128,7 +130,13 @@ export const LoginPage = () => {
           <Route
             exact
             path={"/register-summary"}
-            element={<RegistrationSummary />}
+            element={
+              <RegistrationSummary
+                orgName={orgName}
+                orgNumber={orgNumber}
+                orgAdress={orgAdress}
+              />
+            }
           />
           <Route exact path={"/register-form"} element={<RegisterForm />} />
         </Routes>
