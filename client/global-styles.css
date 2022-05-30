@@ -10,17 +10,12 @@ body {
 
 .loading-state {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    font-size: 20px;
 }
-
-
-
-/**************************
-     SIDEBAR NAVIGATION
-  *************************/
-
-
-
-
 
 
 

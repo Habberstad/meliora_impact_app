@@ -22,6 +22,7 @@ import {
 } from "@mui/material";
 import { modalStyle } from "./modal-style";
 import { useState } from "react";
+import { purplePlatformButton } from "../../styles/button-style-config";
 
 const MelioraWrapped = () => {
   {
@@ -56,7 +57,7 @@ const MelioraWrapped = () => {
     else open(shareLink);
   };
 
-  const onDownload = () => {
+  const handleDownload = () => {
     const downloadLink = document.createElement("a");
     downloadLink.download = `download.txt`;
     downloadLink.href = "./download.txt";
@@ -184,12 +185,15 @@ const MelioraWrapped = () => {
                         console.log(shareLink);
                       }}
                     >
-                      <img src={instagramLogo} />
+                      <div>
+                        <InstagramIcon sx={{ fontSize: 50 }} />
+                      </div>
                     </Button>
                   </Tooltip>
                 </div>
                 <TextField
                   className="meliora-wrapped-share-modal-textfield"
+                  disabled={true}
                   placeholder={sharePlaceholder}
                   InputProps={{
                     endAdornment: (
@@ -220,19 +224,15 @@ const MelioraWrapped = () => {
                     variant={"contained"}
                     sx={purplePlatformButton}
                     style={{ margin: "20px 5px 0px 0px" }}
-                    onClick={onDownload}
+                    onClick={handleDownload}
                   >
                     Download
                   </Button>
                   <Button
-                    className="button"
-                    variant={"contained"}
-                    onClick={handleShare}
-                  >
-                  <Button
                     variant={"contained"}
                     sx={purplePlatformButton}
                     style={{ margin: "20px 0px 0px 5px" }}
+                    onClick={handleShare}
                   >
                     Share
                   </Button>
