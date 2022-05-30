@@ -40,7 +40,9 @@ const NonProfitProfilePage = ({ user }) => {
 
   const handleShowModal = () => {
     setPaymentAmount(null);
-
+    setRegisterError(false);
+    setRegisterSuccess(false);
+    setInvalidCustomAmount(false);
     setShowModal((prevState) => !prevState);
   };
 
@@ -50,10 +52,12 @@ const NonProfitProfilePage = ({ user }) => {
 
   const handleUpdatePaymentAmount = (event) => {
     setFormError(false);
+    setRegisterError(false);
     setPaymentAmount(event);
   };
 
   const handleUpdatePaymentCustomAmount = (event) => {
+    setRegisterError(false);
     if (event.target.value < 999) {
       setInvalidCustomAmount(true);
     } else {

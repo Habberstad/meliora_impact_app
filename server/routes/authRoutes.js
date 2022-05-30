@@ -20,6 +20,7 @@ router.get("/google/callback", passport.authenticate("google", {
     res.redirect(CLIENT_URL + "/find-company?exists=false");
   else
     res.redirect(CLIENT_URL);
+
 });
 
 
@@ -30,16 +31,6 @@ router.get("/login/failed", (req, res) => {
     message: "failure"
   });
 });
-
-router.get('/login',  passport.authenticate("google", {
-  failureRedirect: "/login/failed"
-})
-
-)
-
-
-
-
 
 
 router.get("/logout", async (req, res) => {

@@ -122,8 +122,8 @@ function SubscriptionModal({
         </div>
         <div>
           <TextField
-            label="Enter custom value"
             color="secondary"
+            value={paymentAmount}
             sx={{
               width: "395px",
               bgcolor: "#FFF",
@@ -136,6 +136,16 @@ function SubscriptionModal({
             onChange={addCustomPaymentAmount}
           />
         </div>
+        {formError && (
+          <div style={{ fontSize: "12px", color: "red", marginTop: "10px" }}>
+            Please select payment method and amount.
+          </div>
+        )}
+        {invalidCustomAmount && (
+          <div style={{ fontSize: "12px", color: "red", marginTop: "10px" }}>
+            The minimum contribution amount is 1000kr.
+          </div>
+        )}
         <div
           style={{
             fontSize: "20px",
@@ -247,16 +257,6 @@ function SubscriptionModal({
         )}
         {registerSuccess && (
           <SuccessMessage message="You are now registered as a partner!" />
-        )}
-        {formError && (
-          <div style={{ fontSize: "12px", color: "red", marginTop: "10px" }}>
-            Please select payment method and amount.
-          </div>
-        )}
-        {invalidCustomAmount && (
-          <div style={{ fontSize: "12px", color: "red", marginTop: "10px" }}>
-            The minimum contribution amount is 1000kr.
-          </div>
         )}
       </Box>
     </Modal>
