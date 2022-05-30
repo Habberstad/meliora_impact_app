@@ -8,18 +8,13 @@ export const SelectPaymentMethod = (props) => {
   const [selectedOption, setSelectedOption] = useState(props.paymentOption);
   const navigate = useNavigate();
   const handleChange = (option) => {
-    props.handleChange(option);
     setSelectedOption(option);
   };
 
-  /*
-  put this class in css if its not there, handles selected payment option:
-  .selected-payment-option {
-    border-color: #551477;
-    border-width: 3px;
-    padding: -1px;
-
-}*/
+  const handlePaymentTypeSubmit = () => {
+    props.handleSubmit(selectedOption);
+    navigate("/register-summary");
+  };
 
   return (
     <div className="login-content">
@@ -87,24 +82,22 @@ export const SelectPaymentMethod = (props) => {
         </div>
       </div>
       <Button
-        onClick={() => {
-
-          navigate("/register-summary");
-
-        }}
-        className={"form-button"}
+        disabled={!selectedOption}
+        onClick={handlePaymentTypeSubmit}
         sx={{
-          mt: 1,
+          width: "190px",
+          height: "60px",
+          borderRadius: "8px",
           backgroundColor: "#551477",
+          marginTop: "80px",
           "&:hover": {
             backgroundColor: "#aa55d9",
             color: "#FFF",
           },
         }}
         variant="contained"
-        size="large"
       >
-        finish
+        Next
       </Button>
     </div>
   );

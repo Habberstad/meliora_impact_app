@@ -109,7 +109,8 @@ export const LoginPage = () => {
             path={"/select-subscription"}
             element={
               <SelectSubscription
-                handleClick={handleSubscriptionType}
+                handleSubmit={handleSubscriptionType}
+                subscriptionType={subscriptionType}
                 submit={handleSubmit}
               />
             }
@@ -122,7 +123,7 @@ export const LoginPage = () => {
                 subscriptionType={subscriptionType}
                 paymentOption={paymentOption}
                 orgName={orgName}
-                handleChange={handlePaymentType}
+                handleSubmit={handlePaymentType}
                 submit={handleSubmit}
               />
             }
