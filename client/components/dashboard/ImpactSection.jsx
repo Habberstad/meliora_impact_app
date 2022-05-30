@@ -4,7 +4,6 @@ import { Grid, Link } from "@mui/material";
 import SchoolIcon from "@mui/icons-material/School";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import { Avatar } from "@mui/material";
 
 export function ImpactSection(props) {
   const [counter, setCounter] = useState(1);
