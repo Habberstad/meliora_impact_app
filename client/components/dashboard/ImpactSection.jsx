@@ -32,7 +32,9 @@ export function ImpactSection(props) {
       <div className="students-impact-container">
         <div className="students-impact-icon">
           <div className={"students"}>
-            <SchoolIcon className="students-school-icon" fontSize={"large"} />
+            <div className={"students-circle"}>
+              <SchoolIcon className="students-school-icon" fontSize={"large"} />
+            </div>
           </div>
         </div>
         <ArrowBackIosIcon

@@ -19,6 +19,16 @@
     border-radius: 20px;
 }
 
+.students-circle{
+    display: flex;
+    border:1px solid rgba(0, 0, 0, 0.09);
+    border-radius:50%;
+    width: 64px;
+    height: 64px;
+    align-items: center;
+    justify-content: center;
+}
+
 .students-impact-icon{
     top: 150px;
     position: absolute;
@@ -53,13 +63,7 @@
     font-size: 12px;
 }
 
-.students-circle{
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    background-color: black;
-    position: absolute;
-}
+
 
 .students-school-icon{
     display: flex;

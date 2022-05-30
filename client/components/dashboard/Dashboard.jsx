@@ -57,7 +57,7 @@ const Dashboard = () => {
     <div className={"dashboard-container"}>
       <h1>Hi, Welcome back </h1>
       <Grid container direction={"column"}>
-        <Grid container columnSpacing={{ lg: 4, xl: 4 }} className={"test"}>
+        <Grid container columnSpacing={{ lg: 4, xl: 4 }}>
           <ImpactSection data={data} />
           <Grid item lg={3} xl={3} className={"socialmedia-template"}>
             <div className={"socialmedia-template-container"}>
