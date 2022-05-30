@@ -17,6 +17,20 @@ body {
     font-size: 20px;
 }
 
+.error-state {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    font-size: 20px;
+}
+
+.error-state h1 {
+    font-size: 100px;
+    color: grey;
+}
+
 
 
 
