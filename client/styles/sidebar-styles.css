@@ -47,6 +47,8 @@
     display: flex;
     flex-direction: column;
     margin-top: 20px;
+    height: 100%;
+    justify-content: space-between;
 }
 
 
@@ -70,10 +72,10 @@
     height:045px;
     align-items: center;
     font-weight: 500;
-    color: #A400FF;
+    color: #551477;
     font-size: 14px;
     padding-left: 21px;
-    border-right: solid 3px #a400ff;
+    border-right: solid 3px #551477;
 }
 
 

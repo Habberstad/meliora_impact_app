@@ -33,42 +33,40 @@ const Sidebar = (props) => {
 
   return (
     <div className="sidebar-container">
-      <div>
-        <div className="sidebar-company-logo">
-          <img src={MelioraIcon} alt="company-icon" />
-        </div>
+      <div className="sidebar-company-logo">
+        <img src={MelioraIcon} alt="company-icon" />
+      </div>
 
-        <div className="profile-name-badge">
-
-          <div>
-            <div style={{ marginTop: "10px" }}> {user.org_name} </div>
-            <div style={{ marginTop: "10px" }}> {user.name} </div>
-            {" "}
-            {/* TODO: Replace with username */}
-            <Button
-              sx={{
-                with: "70px",
-                height: "22px",
-                fontSize: "10px",
-                fontWeight: "500",
-                marginTop: "5px",
+      <div className="profile-name-badge">
+        <div>
+          <div style={{ marginTop: "10px" }}> {user.org_name} </div>
+          <div style={{ marginTop: "10px" }}> {user.name} </div>
+          {/* TODO: Replace with username */}
+          <Button
+            sx={{
+              with: "70px",
+              height: "22px",
+              fontSize: "10px",
+              fontWeight: "500",
+              marginTop: "5px",
+              color: "black",
+              border: "none",
+              backgroundColor: "#dadada",
+              "&:hover": {
+                backgroundColor: "#e5e5e5",
                 color: "black",
                 border: "none",
-                backgroundColor: "#dadada",
-                "&:hover": {
-                  backgroundColor: "#e5e5e5",
-                  color: "black",
-                  border: "none"
-                }
-              }}
-              variant="outlined"
-              onClick={handleLogoutClick}
-            >
-              Log out
-            </Button>
-          </div>
+              },
+            }}
+            variant="outlined"
+            onClick={handleLogoutClick}
+          >
+            Log out
+          </Button>
         </div>
-        <div className="nav-item-container">
+      </div>
+      <div className="nav-item-container">
+        <div>
           <Link
             onClick={() => handleNavigationState("dashboard")}
             to={"/"}
@@ -155,10 +153,69 @@ const Sidebar = (props) => {
             </div>
           </Link>
         </div>
+        <div style={{ marginBottom: "10px" }}>
+          <Link
+            onClick={() => handleNavigationState("financials")}
+            to={"/templates"}
+            style={{ textDecoration: "none" }}
+          >
+            <div
+              className={`${
+                selectedTab === "templates" ? "nav-item-selected" : "nav-item"
+              }`}
+            >
+              <SpeedIcon sx={{ marginRight: "20px" }} />
+              <div>Financials</div>
+            </div>
+          </Link>
+          <Link
+            onClick={() => handleNavigationState("settings")}
+            to={"/templates"}
+            style={{ textDecoration: "none" }}
+          >
+            <div
+              className={`${
+                selectedTab === "templates" ? "nav-item-selected" : "nav-item"
+              }`}
+            >
+              <SpeedIcon sx={{ marginRight: "20px" }} />
+              <div>Settings</div>
+            </div>
+          </Link>
+          <Link
+            onClick={() => handleNavigationState("settings")}
+            to={"/templates"}
+            style={{ textDecoration: "none" }}
+          >
+            <div
+              className={`${
+                selectedTab === "templates" ? "nav-item-selected" : "nav-item"
+              }`}
+            >
+              <SpeedIcon sx={{ marginRight: "20px" }} />
+              <div>Users</div>
+            </div>
+          </Link>
+          <Link
+            onClick={() => handleNavigationState("settings")}
+            to={"/templates"}
+            style={{ textDecoration: "none" }}
+          >
+            <div
+              className={`${
+                selectedTab === "templates" ? "nav-item-selected" : "nav-item"
+              }`}
+            >
+              <SpeedIcon sx={{ marginRight: "20px" }} />
+              <div>Billing</div>
+            </div>
+          </Link>
+        </div>
       </div>
-      <div className="sidebar-image-container">
+
+      {/*      <div className="sidebar-image-container">
         <img src={HandImage} className="sidebar-image" alt="sidebar-image" />
-      </div>
+      </div>*/}
     </div>
   );
 };
