@@ -1,6 +1,13 @@
 import { Button } from "@mui/material";
+import { UserApiContext } from "../../api-client/userApiContext";
+import { useContext } from "react";
 
-export const RegistrationSummary = () => {
+export const RegistrationSummary = (props) => {
+  const { getCurrentUser } = useContext(UserApiContext);
+  const user = getCurrentUser();
+  console.log(user);
+  /*Todo ask harry if this works*/
+
   return (
     <div className="login-content">
       <div className="login-content-header">
@@ -12,12 +19,16 @@ export const RegistrationSummary = () => {
         <p>navn</p>
         <p>epost</p>
         <h3>Company</h3>
-        <p>company name</p>
-        <p>adresse</p>
+        <p>{props.orgName}</p>
+        <p>{props.orgAdress}</p>
         <h4>Account</h4>
-        <p>subscription type tag</p>
+        <p>{props.subscriptionType}</p> {/*TODO: replace with tag*/}
         <h4>payment method</h4>
-        <p>metode</p>
+        {props.subscriptionType === "freemium" ? (
+          <p>Free</p>
+        ) : (
+          <p>{props.paymentOption}</p>
+        )}
       </div>
       <Button>Get started, bitch</Button>
     </div>

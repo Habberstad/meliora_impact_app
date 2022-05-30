@@ -28,7 +28,9 @@ export const SelectSubscription = (props) => {
           <Button
             onClick={() => {
               props.handleClick("freemium");
-              props.submit();
+
+              navigate("/register-summary");
+
             }}
             sx={{
               justifyContent: "space-between",

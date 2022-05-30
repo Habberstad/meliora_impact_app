@@ -135,6 +135,8 @@ export const LoginPage = () => {
                 orgName={orgName}
                 orgNumber={orgNumber}
                 orgAdress={orgAdress}
+                paymentOption={paymentOption}
+                subscriptionType={subscriptionType}
               />
             }
           />

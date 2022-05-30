@@ -130,16 +130,27 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 25%;
+    width: 104px;
+    height: 100px;
     border: 2px solid #000;
     border-radius: 10px;
-    margin: 0 5px;
 }
 .payment-option-container:hover {
+    border: 3px solid #551477;
+    width: 102px;
+    height: 99px;
+    border-radius: 12px;
+}
+
+.selected-payment-option {
     border-color: #551477;
     border-width: 3px;
-    padding: -1px;
+    width: 102px;
+    height: 99px;
+    border-radius: 12px;
+
 }
+
 .payment-option-container img {
     object-fit: cover;
     width: 100%;
