@@ -50,9 +50,9 @@ const Dashboard = () => {
   if (error) return <Error error={error} />;
 
   const highlighted = data.npo_partners;
-  console.log("parn", highlighted)
+  console.log("parn", highlighted);
   const history = data.donation_history;
-  const name = data.npo_partners;
+  const npos = data.npo_partners;
 
   return (
     <div className={"dashboard-container"}>
@@ -69,7 +69,7 @@ const Dashboard = () => {
                 alt={"das"}
               />
               <div className={"socialmedia-template-content-top"}>
-                <div>Share on </div>
+                <div>Share on</div>
                 <div>Social Media</div>
               </div>
               <div className={"socialmedia-template-content-bot"}>
@@ -88,7 +88,7 @@ const Dashboard = () => {
                   fontSize: "20px",
                   margin: "10px",
                   fontWeight: "600",
-                  marginLeft: "10px",
+                  marginLeft: "10px"
                 }}
               >
                 Highlighted partners
@@ -97,53 +97,53 @@ const Dashboard = () => {
                 {highlighted.map((npo) => (
 
 
-                <Accordion
-                  sx={{
-                    backgroundColor: "#FCEFE7",
-                    width: "90%",
-                    borderRadius: "16px",
-                    dropShadow: "0",
-                  }}
-                  expanded={expanded === npo._id}
-                  onChange={handleChange(npo._id)}
-                >
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel1bh-content"
-                    id="panel1bh-header"
+                  <Accordion
+                    sx={{
+                      backgroundColor: "#FCEFE7",
+                      width: "90%",
+                      borderRadius: "16px",
+                      dropShadow: "0"
+                    }}
+                    expanded={expanded === npo._id}
+                    onChange={handleChange(npo._id)}
                   >
-                    <div className={"accordion-title-container"}>
-                      <LocalHospitalIcon />
-                      <div className={"accordion-title"}>{npo.name}</div>
-                    </div>
-                  </AccordionSummary>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="panel1bh-content"
+                      id="panel1bh-header"
+                    >
+                      <div className={"accordion-title-container"}>
+                        <LocalHospitalIcon />
+                        <div className={"accordion-title"}>{npo.name}</div>
+                      </div>
+                    </AccordionSummary>
 
-                  <AccordionDetails sx={{ borderRadius: "16px" }}>
-                    <div>
-                      {npo.impact_measurement.map((impactItem) => (
-                        <div
-                          className={"highlighted-partners-content-container"}
-                        >
-                          <div className={"highlighted-partners-project"}>
-                            {impactItem.impact_name}
+                    <AccordionDetails sx={{ borderRadius: "16px" }}>
+                      <div>
+                        {npo.impact_measurement.map((impactItem) => (
+                          <div
+                            className={"highlighted-partners-content-container"}
+                          >
+                            <div className={"highlighted-partners-project"}>
+                              {impactItem.impact_name}
+                            </div>
+                            <div className={"highlighted-partners-progress"}>
+                              <LinearProgress
+                                sx={{
+                                  width: "162px",
+                                  height: "9px",
+                                  backgroundColor: "#A5A5A5",
+                                  position: "absolut"
+                                }}
+                                variant="determinate"
+                                value={impactItem.impact_value}
+                              />
+                            </div>
                           </div>
-                          <div className={"highlighted-partners-progress"}>
-                            <LinearProgress
-                              sx={{
-                                width: "162px",
-                                height: "9px",
-                                backgroundColor: "#A5A5A5",
-                                position: "absolut",
-                              }}
-                              variant="determinate"
-                              value={impactItem.impact_value}
-                            />
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </AccordionDetails>
-                </Accordion>
+                        ))}
+                      </div>
+                    </AccordionDetails>
+                  </Accordion>
                 ))}
 
               </div>
@@ -162,7 +162,7 @@ const Dashboard = () => {
 
               <Grid container className={"donation-history-timeline-container"}>
                 <Grid item>
-                  {history.map((m) => (
+                  {history.map((donation) => (
                     <Timeline>
                       <TimelineItem>
                         <TimelineSeparator>
@@ -175,14 +175,14 @@ const Dashboard = () => {
                         <TimelineContent>
                           <div className={"donation-history-content"}>
                             <div className={"monthly-donation"}>
-                              {m.type}
+                              {donation.type}
                               <span className="donation-npo-name">
-                                {name[0].name}
+                                {npos.map((npo) => {if (npo._id === donation.npo_id) return npo.name;})}
                               </span>
-                              <div>{m.date}</div>
+                              <div>{donation.date}</div>
                             </div>
                             <div className={"donation-amount"}>
-                              {m.amount} kr
+                              {donation.payment_amount} kr
                             </div>
                           </div>
                         </TimelineContent>
