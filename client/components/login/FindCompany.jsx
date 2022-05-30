@@ -67,6 +67,8 @@ export const FindCompany = ({ handleCompanyInfo }) => {
     } else {
       getCompanies(url);
     }
+    if (e.target.value.trim().length === 0)
+      setSelectedCompany(setSelectedCompany);
   };
 
   return (
@@ -146,6 +148,10 @@ export const FindCompany = ({ handleCompanyInfo }) => {
           borderRadius: "8px",
           backgroundColor: "#551477",
           marginTop: "80px",
+          "&:hover": {
+            backgroundColor: "#aa55d9",
+            color: "#FFF",
+          },
         }}
         variant="contained"
       >

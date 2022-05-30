@@ -5,11 +5,32 @@ import { SubscriptionInfoGrid } from "./SubscriptionInfoGrid";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { useState } from "react";
+import {
+  selectedSubsciptionTypeFreemium,
+  subscriptionTypeFreemium,
+  selectedSubsciptionTypePremium,
+  subscriptionTypePremium,
+} from "./login-styles";
 
 export const SelectSubscription = (props) => {
   const [isShowingInfo, setIsShowingInfo] = useState(false);
+  const [subscriptionType, setSubscriptionType] = useState(
+    props.subscriptionType
+  );
 
   const navigate = useNavigate();
+
+  const handleSubscriptionSelect = (subscription) => {
+    setSubscriptionType(subscription);
+  };
+
+  const handleSubcriptionSubmit = () => {
+    props.handleSubmit(subscriptionType);
+
+    subscriptionType === "premium"
+      ? navigate("/select-payment-method")
+      : navigate("/register-summary");
+  };
 
   return (
     <div className="select-subscription-container">
@@ -27,22 +48,13 @@ export const SelectSubscription = (props) => {
         <div className="login-content-main">
           <Button
             onClick={() => {
-              props.handleClick("freemium");
-
-              navigate("/register-summary");
-
+              handleSubscriptionSelect("freemium");
             }}
-            sx={{
-              justifyContent: "space-between",
-              mb: "22px",
-              borderColor: "#637381",
-              color: "#000",
-              "&:hover": {
-                borderColor: "#000",
-                backgroundColor: "#FFF",
-                color: "#637381",
-              },
-            }}
+            sx={
+              subscriptionType === "freemium"
+                ? selectedSubsciptionTypeFreemium
+                : subscriptionTypeFreemium
+            }
             fullWidth
             variant={"outlined"}
             size={"large"}
@@ -52,22 +64,13 @@ export const SelectSubscription = (props) => {
           </Button>
           <Button
             onClick={() => {
-              console.log("premium");
-              props.handleClick("premium");
-              navigate("/select-payment-method");
+              handleSubscriptionSelect("premium");
             }}
-            sx={{
-              justifyContent: "space-between",
-              mb: "22px",
-              borderColor: "#A400FF",
-              backgroundColor: "#F6E8FF",
-              color: "#000",
-              "&:hover": {
-                borderColor: "#000",
-                backgroundColor: "#FFF",
-                color: "#637381",
-              },
-            }}
+            sx={
+              subscriptionType === "premium"
+                ? selectedSubsciptionTypePremium
+                : subscriptionTypePremium
+            }
             fullWidth
             variant={"outlined"}
             size={"large"}
@@ -76,6 +79,24 @@ export const SelectSubscription = (props) => {
             <div>$ 7.99 / per month</div>
           </Button>
         </div>
+        <Button
+          disabled={!subscriptionType}
+          onClick={handleSubcriptionSubmit}
+          sx={{
+            width: "190px",
+            height: "60px",
+            borderRadius: "8px",
+            backgroundColor: "#551477",
+            marginTop: "80px",
+            "&:hover": {
+              backgroundColor: "#aa55d9",
+              color: "#FFF",
+            },
+          }}
+          variant="contained"
+        >
+          Next
+        </Button>
         <Button
           onClick={() => {
             setIsShowingInfo(!isShowingInfo);
