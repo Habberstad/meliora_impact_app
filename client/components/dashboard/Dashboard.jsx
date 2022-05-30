@@ -207,7 +207,6 @@ const Dashboard = () => {
                 <Grid item>
                   {history.map((m) => (
                     <Timeline>
-                      <TimelineSeparator color={"primary"}></TimelineSeparator>
                       <TimelineItem>
                         <TimelineSeparator>
                           <TimelineDot
