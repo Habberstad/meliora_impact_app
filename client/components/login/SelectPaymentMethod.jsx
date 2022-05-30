@@ -88,7 +88,7 @@ export const SelectPaymentMethod = (props) => {
       </div>
       <Button
         onClick={() => {
-          props.sumbit();
+          props.submit();
         }}
         className={"form-button"}
         sx={{
