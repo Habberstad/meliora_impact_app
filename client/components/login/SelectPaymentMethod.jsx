@@ -88,7 +88,7 @@ export const SelectPaymentMethod = (props) => {
       </div>
       <Button
         onClick={() => {
-          props.submit();
+          navigate("/register-summary");
         }}
         className={"form-button"}
         sx={{
