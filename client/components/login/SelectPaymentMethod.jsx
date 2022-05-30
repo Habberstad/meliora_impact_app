@@ -78,7 +78,7 @@ export const SelectPaymentMethod = (props) => {
         </div>
       </div>
       <Button
-        disabled={!props.subscriptionType}
+        disabled={!props.paymentOption}
         onClick={() => {
           navigate("/register-summary");
         }}

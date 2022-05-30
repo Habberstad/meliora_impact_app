@@ -14,8 +14,23 @@ import {
 
 export const SelectSubscription = (props) => {
   const [isShowingInfo, setIsShowingInfo] = useState(false);
+  const [subscriptionType, setSubscriptionType] = useState(
+    props.subscriptionType
+  );
 
   const navigate = useNavigate();
+
+  const handleSubscriptionSelect = (subscription) => {
+    setSubscriptionType(subscription);
+  };
+
+  const handleSubcriptionSubmit = () => {
+    props.handleSubmit(subscriptionType);
+
+    subscriptionType === "premium"
+      ? navigate("/select-payment-method")
+      : navigate("/register-summary");
+  };
 
   return (
     <div className="select-subscription-container">
@@ -33,10 +48,10 @@ export const SelectSubscription = (props) => {
         <div className="login-content-main">
           <Button
             onClick={() => {
-              props.handleClick("freemium");
+              handleSubscriptionSelect("freemium");
             }}
             sx={
-              props.subscriptionType === "freemium"
+              subscriptionType === "freemium"
                 ? selectedSubsciptionTypeFreemium
                 : subscriptionTypeFreemium
             }
@@ -49,11 +64,10 @@ export const SelectSubscription = (props) => {
           </Button>
           <Button
             onClick={() => {
-              console.log("premium");
-              props.handleClick("premium");
+              handleSubscriptionSelect("premium");
             }}
             sx={
-              props.subscriptionType === "premium"
+              subscriptionType === "premium"
                 ? selectedSubsciptionTypePremium
                 : subscriptionTypePremium
             }
@@ -66,12 +80,8 @@ export const SelectSubscription = (props) => {
           </Button>
         </div>
         <Button
-          disabled={!props.subscriptionType}
-          onClick={() => {
-            props.subscriptionType === "premium"
-              ? navigate("/select-payment-method")
-              : navigate("/register-summary");
-          }}
+          disabled={!subscriptionType}
+          onClick={handleSubcriptionSubmit}
           sx={{
             width: "190px",
             height: "60px",

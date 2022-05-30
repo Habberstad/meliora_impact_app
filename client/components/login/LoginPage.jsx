@@ -109,7 +109,7 @@ export const LoginPage = () => {
             path={"/select-subscription"}
             element={
               <SelectSubscription
-                handleClick={handleSubscriptionType}
+                handleSubmit={handleSubscriptionType}
                 subscriptionType={subscriptionType}
                 submit={handleSubmit}
               />
