@@ -67,6 +67,8 @@ export const FindCompany = ({ handleCompanyInfo }) => {
     } else {
       getCompanies(url);
     }
+    if (e.target.value.trim().length === 0)
+      setSelectedCompany(setSelectedCompany);
   };
 
   return (
