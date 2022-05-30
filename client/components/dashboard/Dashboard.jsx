@@ -29,7 +29,6 @@ const Dashboard = () => {
   //TODO: Mer beskrivende navn på state. F.eks. expandPartnerAccordion
   const [expanded, setExpanded] = React.useState(false);
 
-
   // DATA FETCHING
 
   const { getCurrentUser } = useContext(UserApiContext);
