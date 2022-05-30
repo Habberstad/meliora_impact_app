@@ -21,14 +21,13 @@ import { ArticleSelection } from "./ArticleSelection";
 import { isLoading } from "../shared-components/Loading";
 import { Error } from "../shared-components/Error";
 import { ImpactSection } from "./ImpactSection";
-
+import WaterIcon from "@mui/icons-material/Water";
 
 const Dashboard = () => {
   //TODO: Mer beskrivende navn på state.
   const [age, setAge] = React.useState("");
   //TODO: Mer beskrivende navn på state. F.eks. expandPartnerAccordion
   const [expanded, setExpanded] = React.useState(false);
-
 
   // DATA FETCHING
 
@@ -50,15 +49,15 @@ const Dashboard = () => {
 
   if (error) return <Error error={error} />;
 
-
-  const highlited = data.npo_partners[0].impact_measurement;
+  const highlighted = data.npo_partners[0].impact_measurement;
   const history = data.donation_history;
+  const name = data.npo_partners;
 
   return (
     <div className={"dashboard-container"}>
       <h1>Hi, Welcome back </h1>
       <Grid container direction={"column"}>
-        <Grid container columnSpacing={{ lg: 4, xl: 4 }} className={"test"}>
+        <Grid container columnSpacing={{ lg: 4, xl: 4 }}>
           <ImpactSection data={data} />
           <Grid item lg={3} xl={3} className={"socialmedia-template"}>
             <div className={"socialmedia-template-container"}>
@@ -82,8 +81,14 @@ const Dashboard = () => {
 
           <Grid item lg={6} xl={6}>
             <div className={"highlighted-partners-container"}>
-              <div className={"highlighted-partners-title"}
-                style={{ fontSize: "18px", margin: "10px", fontWeight: "bold" }}
+              <div
+                className={"highlighted-partners-title"}
+                style={{
+                  fontSize: "20px",
+                  margin: "10px",
+                  fontWeight: "600",
+                  marginLeft: "10px",
+                }}
               >
                 Highlighted partners
               </div>
@@ -93,7 +98,7 @@ const Dashboard = () => {
                     backgroundColor: "#FCEFE7",
                     width: "90%",
                     borderRadius: "16px",
-                    dropShadow: "0"
+                    dropShadow: "0",
                   }}
                   expanded={expanded === "panel1"}
                   onChange={handleChange("panel1")}
@@ -105,13 +110,13 @@ const Dashboard = () => {
                   >
                     <div className={"accordion-title-container"}>
                       <LocalHospitalIcon />
-                      <div className={"accordion-title"}>title</div>
+                      <div className={"accordion-title"}>{name[0].name}</div>
                     </div>
                   </AccordionSummary>
 
                   <AccordionDetails sx={{ borderRadius: "16px" }}>
                     <div>
-                      {highlited.map((m) => (
+                      {highlighted.map((m) => (
                         <div
                           className={"highlighted-partners-content-container"}
                         >
@@ -124,7 +129,7 @@ const Dashboard = () => {
                                 width: "162px",
                                 height: "9px",
                                 backgroundColor: "#A5A5A5",
-                                position: "absolut"
+                                position: "absolut",
                               }}
                               variant="determinate"
                               value={m.impact_value}
@@ -142,7 +147,7 @@ const Dashboard = () => {
                     backgroundColor: "#FCEFE7",
                     width: "90%",
                     borderRadius: "16px",
-                    dropShadow: "0"
+                    dropShadow: "0",
                   }}
                   expanded={expanded === "panel2"}
                   onChange={handleChange("panel2")}
@@ -153,14 +158,14 @@ const Dashboard = () => {
                     id="panel1bh-header"
                   >
                     <div className={"accordion-title-container"}>
-                      <LocalHospitalIcon />
-                      <div className={"accordion-title"}>title</div>
+                      <WaterIcon />
+                      <div className={"accordion-title"}>{name[0].name}</div>
                     </div>
                   </AccordionSummary>
 
                   <AccordionDetails sx={{ borderRadius: "16px" }}>
                     <div>
-                      {highlited.map((m) => (
+                      {highlighted.map((m) => (
                         <div
                           className={"highlighted-partners-content-container"}
                         >
@@ -173,7 +178,7 @@ const Dashboard = () => {
                                 width: "162px",
                                 height: "9px",
                                 backgroundColor: "#A5A5A5",
-                                position: "absolut"
+                                position: "absolut",
                               }}
                               variant="determinate"
                               value={m.impact_value}
@@ -202,7 +207,6 @@ const Dashboard = () => {
                 <Grid item>
                   {history.map((m) => (
                     <Timeline>
-                      <TimelineSeparator color={"primary"}></TimelineSeparator>
                       <TimelineItem>
                         <TimelineSeparator>
                           <TimelineDot
@@ -216,11 +220,13 @@ const Dashboard = () => {
                             <div className={"monthly-donation"}>
                               {m.type}
                               <span className="donation-npo-name">
-                                Leve havet
+                                {name[0].name}
                               </span>
                               <div>{m.date}</div>
                             </div>
-                            <div className={"donation-amount"}>{m.amount}</div>
+                            <div className={"donation-amount"}>
+                              {m.amount} kr
+                            </div>
                           </div>
                         </TimelineContent>
                       </TimelineItem>
@@ -230,8 +236,12 @@ const Dashboard = () => {
               </Grid>
             </div>
           </Grid>
-          <Grid item xl={6} lg={6} className={"highlighted-data-container"}>
-          </Grid>
+          <Grid
+            item
+            xl={6}
+            lg={6}
+            className={"highlighted-data-container"}
+          ></Grid>
         </Grid>
         <ArticleSelection />
       </Grid>
