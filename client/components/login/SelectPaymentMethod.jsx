@@ -5,7 +5,7 @@ import { useState } from "react";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 export const SelectPaymentMethod = (props) => {
-  const [selectedOption, setSelectedOption] = useState("");
+  const [selectedOption, setSelectedOption] = useState(props.paymentOption);
   const navigate = useNavigate();
   const handleChange = (option) => {
     props.handleChange(option);
