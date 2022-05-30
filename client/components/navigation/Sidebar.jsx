@@ -151,34 +151,21 @@ const Sidebar = (props) => {
               <SpeedIcon sx={{ marginRight: "20px" }} />
               <div>Social Media Templates</div>
             </div>
-          </Link> <Link
-            onClick={() => handleNavigationState("templates")}
+          </Link>
+        </div>
+        <div style={{ marginBottom: "10px" }}>
+          <Link
+            onClick={() => handleNavigationState("accounting")}
             to={"/accounting"}
             style={{ textDecoration: "none" }}
           >
             <div
               className={`${
-                selectedTab === "templates" ? "nav-item-selected" : "nav-item"
+                selectedTab === "accounting" ? "nav-item-selected" : "nav-item"
               }`}
             >
               <SpeedIcon sx={{ marginRight: "20px" }} />
               <div>Accounting</div>
-            </div>
-          </Link>
-        </div>
-        <div style={{ marginBottom: "10px" }}>
-          <Link
-            onClick={() => handleNavigationState("financials")}
-            to={"/templates"}
-            style={{ textDecoration: "none" }}
-          >
-            <div
-              className={`${
-                selectedTab === "templates" ? "nav-item-selected" : "nav-item"
-              }`}
-            >
-              <SpeedIcon sx={{ marginRight: "20px" }} />
-              <div>Financials</div>
             </div>
           </Link>
           <Link
@@ -188,7 +175,7 @@ const Sidebar = (props) => {
           >
             <div
               className={`${
-                selectedTab === "templates" ? "nav-item-selected" : "nav-item"
+                selectedTab === "" ? "nav-item-selected" : "nav-item"
               }`}
             >
               <SpeedIcon sx={{ marginRight: "20px" }} />
@@ -202,7 +189,7 @@ const Sidebar = (props) => {
           >
             <div
               className={`${
-                selectedTab === "templates" ? "nav-item-selected" : "nav-item"
+                selectedTab === "" ? "nav-item-selected" : "nav-item"
               }`}
             >
               <SpeedIcon sx={{ marginRight: "20px" }} />
@@ -216,7 +203,7 @@ const Sidebar = (props) => {
           >
             <div
               className={`${
-                selectedTab === "templates" ? "nav-item-selected" : "nav-item"
+                selectedTab === "" ? "nav-item-selected" : "nav-item"
               }`}
             >
               <SpeedIcon sx={{ marginRight: "20px" }} />
