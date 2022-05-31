@@ -1,4 +1,3 @@
-import { BackButton } from "./BackButton";
 import { Button } from "@mui/material";
 import GoogleIcon from "../../media/google_icon.png";
 import BankIdIcon from "../../media/bankid_icon.png";
@@ -15,9 +14,9 @@ export const SelectIdentificationMethod = (props) => {
   return (
     <div className="login-content">
       <div className={"login-content-header"}>
-        {/*Todo maybe change headers here if this is the first thing the user meets*/}
         <div>
-          Get started for <br></br>free today!
+          Get started for <br />
+          free today!
         </div>
         <p>
           Please select an <strong>identification</strong> method
