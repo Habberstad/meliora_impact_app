@@ -7,7 +7,10 @@ import User from "../models/userModel.js";
 const router = Router();
 const CLIENT_URL = config.url.API_URL;
 
-router.get("/google", passport.authenticate("google", { scope: ["profile"] }));
+router.get(
+  "/google",
+  passport.authenticate("google", { scope: ["profile", "email"] })
+);
 
 router.get(
   "/google/callback",

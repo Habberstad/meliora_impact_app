@@ -86,7 +86,7 @@ export const LoginPage = () => {
         .then((resObject) => {
           setUser(resObject.user);
           setUsername(resObject.user.displayName);
-          setUserEmail("Not getting it, harry will fix");
+          setUserEmail(resObject.user._json.email);
           setCookies(resObject.cookies);
         })
         .catch((err) => {
