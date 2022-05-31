@@ -52,6 +52,7 @@ export const LoginPage = () => {
       org_number: orgNumber,
       payment_option: paymentOption,
       subscription_type: subscriptionType,
+      adress: orgAdress,
     });
     registerUser({
       org_name: orgName,
@@ -138,6 +139,7 @@ export const LoginPage = () => {
                 orgAdress={orgAdress}
                 paymentOption={paymentOption}
                 subscriptionType={subscriptionType}
+                handleSubmit={handleSubmit}
               />
             }
           />
