@@ -111,7 +111,6 @@ const Dashboard = () => {
                 <div className={"accordion-wrapper"}>
                   {highlighted.map((npo, index) => (
                     <Accordion
-                      defaultExpanded={true}
                       sx={{
                         backgroundColor: "#FCEFE7",
                         width: "97%",
