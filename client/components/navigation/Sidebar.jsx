@@ -16,7 +16,6 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import GroupIcon from "@mui/icons-material/Group";
 import ReceiptIcon from "@mui/icons-material/Receipt";
 import { UserContext } from "../../App";
-import SpeedIcon from "@mui/icons-material/Speed";
 import { useLocation } from "react-router-dom";
 
 const Sidebar = (props) => {
@@ -178,10 +177,6 @@ const Sidebar = (props) => {
           </Link>
         </div>
       </div>
-
-      {/*      <div className="sidebar-image-container">
-        <img src={HandImage} className="sidebar-image" alt="sidebar-image" />
-      </div>*/}
     </div>
   );
 };
