@@ -10,12 +10,13 @@ export const SelectIdentificationMethod = (props) => {
   const navigate = useNavigate();
   return (
     <div className="login-content">
-      <BackButton />
       <div className={"login-content-header"}>
         {/*Todo maybe change headers here if this is the first thing the user meets*/}
-        <div>Let's get started!</div>
+        <div>
+          Get started for <br></br>free today!
+        </div>
         <p>
-          Please select an <strong>identification</strong> method.
+          Please select an <strong>identification</strong> method
         </p>
       </div>
       <div className={"login-content-main"}>
