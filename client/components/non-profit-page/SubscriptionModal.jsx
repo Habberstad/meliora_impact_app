@@ -11,6 +11,8 @@ import {
   selectedDonateAmountButton,
 } from "../../styles/button-style-config";
 import * as React from "react";
+import ErrorMessage from "../shared-components/ErrorMessage";
+import SuccessMessage from "../shared-components/SuccessMessage";
 
 function SubscriptionModal({
   open,
@@ -26,6 +28,8 @@ function SubscriptionModal({
   handleSubmitSubscription,
   formError,
   invalidCustomAmount,
+  registerError,
+  registerSuccess,
 }) {
   return (
     <Modal open={open} onClose={onClose}>
@@ -118,8 +122,8 @@ function SubscriptionModal({
         </div>
         <div>
           <TextField
-            label="Enter custom value"
             color="secondary"
+            value={paymentAmount}
             sx={{
               width: "395px",
               bgcolor: "#FFF",
@@ -132,6 +136,16 @@ function SubscriptionModal({
             onChange={addCustomPaymentAmount}
           />
         </div>
+        {formError && (
+          <div style={{ fontSize: "12px", color: "red", marginTop: "10px" }}>
+            Please select payment method and amount.
+          </div>
+        )}
+        {invalidCustomAmount && (
+          <div style={{ fontSize: "12px", color: "red", marginTop: "10px" }}>
+            The minimum contribution amount is 1000kr.
+          </div>
+        )}
         <div
           style={{
             fontSize: "20px",
@@ -238,15 +252,11 @@ function SubscriptionModal({
         >
           Complete
         </Button>
-        {formError && (
-          <div style={{ fontSize: "12px", color: "red", marginTop: "10px" }}>
-            Please select payment method and amount.
-          </div>
+        {registerError && (
+          <ErrorMessage message="You are already a partner with this non-profit" />
         )}
-        {invalidCustomAmount && (
-          <div style={{ fontSize: "12px", color: "red", marginTop: "10px" }}>
-            The minimum contribution amount is 1000kr.
-          </div>
+        {registerSuccess && (
+          <SuccessMessage message="You are now registered as a partner!" />
         )}
       </Box>
     </Modal>

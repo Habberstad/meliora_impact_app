@@ -54,6 +54,8 @@
 .login-content {
     height: 500px;
     width: 50%;
+    max-width: 600px;
+
 }
 .login-form {
     width: 100%;
@@ -77,57 +79,192 @@
 
 .back-container {
     display: flex;
+    align-self: flex-start;
     font-size: 14px;
     text-decoration: underline;
-
+    margin-bottom: 30px;
 }
 .back-container:hover {
     cursor: pointer;
 }
 
 .company-search-list {
-    margin-top: 60px;
+    margin-top: 30px;
+    margin-bottom: 10px;
     border: 1px solid #000;
-    border-radius: 10px;
-    width: 100%;
-    height: 150px;
+    border-radius: 4px;
+    width: 590px;
+    height: 260px;
+    overflow-y: scroll;
 }
+
+.company-error-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    color: red;
+    background-color: #FFE7D9;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+.company-success-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    color: rgba(62, 123, 52, 1);
+    background-color: rgba(220, 255, 215, 1);
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
 .payment-options-container {
     display: flex;
     width: 100%;
+    justify-content: space-around;
 }
 
 .payment-option-container  {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 25%;
+    width: 104px;
+    height: 100px;
+    border: 2px solid #000;
+    border-radius: 10px;
+}
+.payment-option-container:hover {
+    border: 3px solid #551477;
+    width: 102px;
+    height: 99px;
+    border-radius: 12px;
+}
+
+.selected-payment-option {
+    border-color: #551477;
+    border-width: 3px;
+    width: 102px;
+    height: 99px;
+    border-radius: 12px;
 
 }
+
 .payment-option-container img {
+    object-fit: cover;
     width: 100%;
-    border: 1px solid #000;
+    height: 100%;
+    border-radius: 10px;
 
 }
 
 .company-list-item {
-    position: relative;
     display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 .company-list-item button{
     position: absolute;
     right: 0;
 }
 
-.login-content-header h1 {
-    font-weight: 800;
-    font-size: 50px;
+
+
+/* LOGIN CONTENT */
+
+.login-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-content-header {
     text-align: center;
 }
 
+.login-content-header div{
+    font-size: 50px;
+    font-weight: 800;
+    margin-bottom: 35px;
+}
+
 .login-content-header p {
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.login-content-main {
+    width: 100%;
+    margin: 70px 0 0px 0;
+}
+
+.login-content-main Button {
+    border-radius: 10px;
+}
+
+.login-content-header-subscription-tag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.subscription-type-information {
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+
+.subscription-type-information-container {
+    width: calc(100% - 200px)
+}
+
+.subscription-type-information-content {
+    display: flex;
+    position: relative;
+    flex-direction: column; /* <- Also inlin to be able to reach MUI root*/
+    align-items: center;
     text-align: center;
+    margin: 6px 10px;
+}
+
+.subscription-type-information-content p {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    margin-block-end: 0;
+}
+
+.subsctiption-type-info-badge {
+    position: absolute;
+    height: 21px;
+    top: 0;
+    right: 0;
+    border-radius: 0 10px 0 10px;
+    background-color: #FFD878;
+
+}
+.subsctiption-type-info-badge p{
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 0;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.select-subscription-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.premium {
+    color: #7209B7;
+}
+.freemium {
+    color: #464D51;
 }

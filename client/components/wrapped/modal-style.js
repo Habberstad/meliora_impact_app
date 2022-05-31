@@ -19,8 +19,8 @@ export const donateModalStyle = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  bgcolor: "#FAFAFA",
+  bgcolor: "#FFF",
   borderRadius: "16px",
   width: "600px",
-  height: "720px",
+  height: "740px",
 };

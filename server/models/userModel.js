@@ -4,19 +4,36 @@ import { ObjectId } from "mongodb";
 const userSchema = new mongoose.Schema({
   name: String,
   last_name: String,
-  org_number: String,
-  org_name: String,
-  google_id: String,
+  email: {
+    type: String,
+    unique: true
+  },
+  org_number: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  org_name: {
+    type: String,
+    required: true
+  },
+  google_id: {
+    type: String,
+    required: true,
+    unique: true
+  },
   address: String,
   postal_code: String,
   city: String,
   payment_option: {
     type: String,
-    enum: ["vipps", "klarna"]
+    enum: ["vipps", "klarna"],
+    required: true
   },
   subscription_type: {
     type: String,
-    enum: ["freemium", "premium"]
+    enum: ["freemium", "premium"],
+    required: true
   },
   role: {
     type: String,

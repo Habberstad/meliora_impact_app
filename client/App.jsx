@@ -18,28 +18,22 @@ import { useLoading } from "./useLoading";
 import { isLoading } from "./components/shared-components/Loading";
 import { Error } from "./components/shared-components/Error";
 import { UserApiContext } from "./api-client/userApiContext";
-
+import { AccountingPage } from "./components/financials/AccountingPage";
 
 export const UserContext = React.createContext({
   Account: (user) => {},
-
 });
 
-
-
 function App() {
-
-  const { testGet } = useContext(UserApiContext);
+  const { getCurrentUser } = useContext(UserApiContext);
   const { loading, error, data } = useLoading(
-    async () => await testGet(),
+    async () => await getCurrentUser(),
     []
   );
 
   if (loading) return isLoading();
 
   if (error) return <Error error={error} />;
-
-
 
   if (data === undefined || data === null) {
     return (
@@ -49,11 +43,10 @@ function App() {
     );
   }
 
-
   return (
     <div className="app-container">
       <UserContext.Provider value={data}>
-        <div>{ <Sidebar user={data} /> }</div>
+        <div>{<Sidebar user={data} />}</div>
         <Outlet />
 
         <Routes>
@@ -67,6 +60,11 @@ function App() {
           <Route exact path="/login" element={<LoginPage />} />
           <Route
             exact
+            path="/accounting"
+            element={<AccountingPage user={data} />}
+          />
+          <Route
+            exact
             path="/npo-profile/*"
             element={<NonProfitProfilePage user={data} />}
           />
@@ -74,7 +72,7 @@ function App() {
           <Route
             exact
             path="/templates"
-            element={<MediaTemplatePage user={data} />}
+            element={<MediaTemplatePage data={data} />}
           />
           <Route exact path="/dashboard" element={<Dashboard />} />
         </Routes>

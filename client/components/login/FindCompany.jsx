@@ -1,23 +1,54 @@
 import { BackButton } from "./BackButton";
 import { Button, InputAdornment, TextField } from "@mui/material";
 import { useNavigate } from "react-router";
+import * as React from "react";
 import { useEffect, useState } from "react";
-import { LoginForm } from "./LoginForm";
 import SearchIcon from "@mui/icons-material/Search";
+import { companyListItem, selectedCompanyListItem } from "./login-styles";
+import { UserApiContext } from "../../api-client/userApiContext";
+import fetchJSON from "../../helpers/fetchJSON";
+import ErrorMessage from "../shared-components/ErrorMessage";
 
-export const FindCompany = (props) => {
+export const FindCompany = ({ handleCompanyInfo }) => {
   const navigate = useNavigate();
-  const [data, setData] = useState([]);
-  const [value, setValue] = useState("");
+  const [companies, setCompanies] = useState([]);
+  const [selectedCompany, setSelectedCompany] = useState();
+  const [showError, setShowError] = useState(false);
+  const [companyId, setCompanyId] = useState(null);
+  const [companyName, setCompanyName] = useState(null);
+  const [companyAdress, setCompanyAdress] = useState(null);
+  const { checkIsOrgRegistered } = React.useContext(UserApiContext);
 
-  const fetchData = async (url) => {
+  const getCompanies = async (url) => {
     try {
       const response = await fetch(url);
       const json = await response.json();
       const array = [...json._embedded.enheter];
-      setData(array);
+      setCompanies(array);
+      setSelectedCompany();
     } catch (error) {
       console.log("error", error);
+    }
+  };
+
+  const handleSelectCompany = (id, name, adress, postalCode, city) => {
+    setCompanyId(id);
+    setCompanyName(name);
+    setCompanyAdress(`${adress}, ${postalCode} ${city}`);
+
+    if (selectedCompany === id) setSelectedCompany();
+    if (selectedCompany !== id) setSelectedCompany(id);
+  };
+
+  const handleSendCompanyInfo = async () => {
+    const data = await checkIsOrgRegistered({ org_number: companyId });
+
+    if (data.isRegistered) {
+      setShowError(true);
+    } else {
+      handleCompanyInfo(companyName, companyId, companyAdress);
+      setShowError(false);
+      navigate("/select-subscription");
     }
   };
 
@@ -29,15 +60,15 @@ export const FindCompany = (props) => {
       /^\d+$/.test(e.target.value.trim())
     ) {
       url = `https://data.brreg.no/enhetsregisteret/api/enheter?organisasjonsnummer=${e.target.value}&konkurs=false`;
-      fetchData(url);
+      getCompanies(url);
     }
     if (e.target.value.trim().length === 0) {
-      setData([]);
+      setCompanies([]);
     } else {
-      console.log(e.target.value);
-      console.log(url);
-      fetchData(url);
+      getCompanies(url);
     }
+    if (e.target.value.trim().length === 0)
+      setSelectedCompany(setSelectedCompany);
   };
 
   return (
@@ -48,16 +79,16 @@ export const FindCompany = (props) => {
       </div>
       <TextField
         onChange={onChangeHandler}
-        fullWidth
         sx={{
+          width: "590px",
           mt: "22px",
           "& .MuiOutlinedInput-root.Mui-focused": {
             "& > fieldset": {
-              borderColor: "rgba(0, 0, 0, 0.7)",
+              borderColor: "#7209B7",
             },
           },
           "& .MuiInputLabel-root.Mui-focused": {
-            color: "rgba(0, 0, 0, 0.7)",
+            color: "#7209B7",
           },
         }}
         label="Organizational Number / Company Name"
@@ -70,43 +101,59 @@ export const FindCompany = (props) => {
           ),
         }}
       />
-      <div className="company-search-list">
-        {data.map((company) => {
-          return (
-            <div
-              key={company.organisasjonsnummer}
-              className={"company-list-item"}
-            >
-              <p>{company.navn} </p>
-              <button
-                onClick={() => {
-                  props.handleCompanyInfo(
-                    company.navn,
-                    company.organisasjonsnummer
-                  );
-                }}
-              >
-                select
-              </button>
-            </div>
-          );
-        })}
-      </div>
+      {companies.length > 0 ? (
+        <div>
+          {showError && (
+            <ErrorMessage message="This organization already exist" />
+          )}
+          <div className="company-search-list">
+            {companies.map((company) => {
+              return (
+                <Button
+                  key={company.organisasjonsnummer}
+                  sx={
+                    selectedCompany === company.organisasjonsnummer
+                      ? selectedCompanyListItem
+                      : companyListItem
+                  }
+                  onClick={() =>
+                    handleSelectCompany(
+                      company.organisasjonsnummer,
+                      company.navn,
+                      company.forretningsadresse.adresse,
+                      company.forretningsadresse.postnummer,
+                      company.forretningsadresse.poststed
+                    )
+                  }
+                >
+                  <div className="company-list-item">
+                    <div>{company.navn}</div>
+                    <div style={{ fontSize: "12px" }}>
+                      {company.organisasjonsnummer}
+                    </div>
+                  </div>
+                </Button>
+              );
+            })}
+          </div>
+        </div>
+      ) : null}
+
       <Button
-        onClick={() => {
-          navigate("/select-subscription");
-        }}
-        className={"form-button"}
+        disabled={!selectedCompany}
+        onClick={handleSendCompanyInfo}
         sx={{
-          mt: 1,
+          width: "190px",
+          height: "60px",
+          borderRadius: "8px",
           backgroundColor: "#551477",
+          marginTop: "80px",
           "&:hover": {
             backgroundColor: "#aa55d9",
             color: "#FFF",
           },
         }}
         variant="contained"
-        size="large"
       >
         Next
       </Button>

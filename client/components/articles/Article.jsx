@@ -1,6 +1,7 @@
 import * as React from "react";
 import Grid from "@mui/material/Grid";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { useContext, useState } from "react";
 import "../../styles/article-styles.css";
@@ -13,6 +14,7 @@ const Article = () => {
   const queryParams = new URLSearchParams(window.location.search);
   const _id = queryParams.get("id");
   const { getArticles } = useContext(ArticleApiContext);
+  const navigate = useNavigate();
 
   const { loading, error, data } = useLoading(
     async () => await getArticles({ _id }),
@@ -33,12 +35,10 @@ const Article = () => {
           className="article-header-img"
         />
       </div>
-      <Link to={"/articles"} style={{ textDecoration: "none" }}>
-        <div className="article-back-button">
-          <ArrowBackIosIcon />
-          Back
-        </div>
-      </Link>
+      <div className="article-back-button" onClick={() => navigate(-1)}>
+        <ArrowBackIosIcon />
+        Back
+      </div>
 
       <div className="article-wrapper">
         <Grid
