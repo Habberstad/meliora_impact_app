@@ -26,7 +26,7 @@ import { useNavigate } from "react-router";
 
 const Dashboard = () => {
   //TODO: Mer beskrivende navn på state. F.eks. expandPartnerAccordion
-  const [expanded, setExpanded] = React.useState("panel1");
+  const [expanded, setExpanded] = React.useState(0);
 
   const [npo, setNpo] = React.useState("");
 
@@ -102,29 +102,26 @@ const Dashboard = () => {
                     Highlighted partners
                   </div>
                   <div
-                    onClick={() => navigate("/")}
+                    onClick={() => navigate("/our-partners")}
                     className="highlighted-view-all"
                   >
                     View all
                   </div>
                 </div>
                 <div className={"accordion-wrapper"}>
-                  {highlighted.map((npo) => (
+                  {highlighted.map((npo, index) => (
                     <Accordion
+                      defaultExpanded={true}
                       sx={{
                         backgroundColor: "#FCEFE7",
                         width: "97%",
                         borderRadius: "16px",
                         dropShadow: "0",
                       }}
-                      expanded={expanded === npo._id}
-                      onChange={handleChange(npo._id)}
+                      expanded={expanded === index}
+                      onChange={handleChange(index)}
                     >
-                      <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="panel1bh-content"
-                        id="panel1bh-header"
-                      >
+                      <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                         <div className={"accordion-title-container"}>
                           <LocalHospitalIcon />
                           <div className={"accordion-title"}>{npo.name}</div>
