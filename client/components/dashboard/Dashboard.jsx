@@ -5,25 +5,41 @@ import { Grid, InputLabel, Link, MenuItem, Select } from "@mui/material";
 import "../../styles/dashboard.css";
 import LocalHospitalIcon from "@mui/icons-material/LocalHospital";
 import LinearProgress from "@mui/material/LinearProgress";
-import Timeline from "@mui/lab/Timeline";
-import TimelineItem from "@mui/lab/TimelineItem";
-import TimelineSeparator from "@mui/lab/TimelineSeparator";
-import TimelineConnector from "@mui/lab/TimelineConnector";
-import TimelineDot from "@mui/lab/TimelineDot";
 import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { TimelineContent } from "@mui/lab";
 import { UserApiContext } from "../../api-client/userApiContext";
-import * as PropTypes from "prop-types";
 import { ArticleSelection } from "./ArticleSelection";
 import { isLoading } from "../shared-components/Loading";
 import { Error } from "../shared-components/Error";
 import { ImpactSection } from "./ImpactSection";
-import WaterIcon from "@mui/icons-material/Water";
 import { useNavigate } from "react-router";
-import { DateFormater } from "../shared-components/dateFormater";
+
+function DonationListItem({ donation: { payment_amount, date } }) {
+  return (
+    <div className="donation-list-item">
+      <div className="donation-timeline-dot"></div>
+      <div className="donation-data-container">
+        <div className="left-donation-text">
+          <div style={{ fontSize: "14px", fontWeight: "500" }}>
+            Donated to Safe the Coral
+          </div>
+          <div
+            style={{
+              fontSize: "14px",
+              fontWeight: "400",
+              marginTop: "3px",
+            }}
+          >
+            {date}
+          </div>
+        </div>
+        <div className="right-donation-text">{payment_amount}kr</div>
+      </div>
+    </div>
+  );
+}
 
 const Dashboard = () => {
   //TODO: Mer beskrivende navn på state. F.eks. expandPartnerAccordion
@@ -50,6 +66,8 @@ const Dashboard = () => {
   if (loading) return isLoading();
 
   if (error) return <Error error={error} />;
+
+  console.log("data", data);
 
   const highlighted = data.npo_partners;
   console.log("high", highlighted);
@@ -84,7 +102,7 @@ const Dashboard = () => {
                   alt={"das"}
                 />
                 <div className={"socialmedia-template-content-top"}>
-                  <div>Share on </div>
+                  <div>Share on</div>
                   <div>Social Media</div>
                 </div>
                 <div className={"socialmedia-template-content-bot"}>
@@ -205,63 +223,33 @@ const Dashboard = () => {
                     </Select>
                   </div>
                 </div>
-                <Grid
-                  container
-                  className={"donation-history-timeline-container"}
-                >
-                  <Grid item>
-                    {filteredHistory.map((donation) => (
-                      <Timeline>
-                        <TimelineItem>
-                          <TimelineSeparator>
-                            <TimelineDot
-                              color={"secondary"}
-                              className={"donation-history-timeline"}
-                            />
-                            <TimelineConnector />
-                          </TimelineSeparator>
-                          <TimelineContent>
-                            <div className={"donation-history-content"}>
-                              <div className={"monthly-donation"}>
-                                {donation.payment_frequency} donation to
-                                <span className="donation-npo-name">
-                                  {npos.map((npo) => {
-                                    if (npo._id === donation.npo_id)
-                                      return npo.name;
-                                  })}
-                                </span>
-                                <DateFormater date={donation.date} />
-                              </div>
-                              <div className={"donation-amount"}>
-                                {donation.payment_amount} kr
-                              </div>
-                            </div>
-                          </TimelineContent>
-                        </TimelineItem>
-                      </Timeline>
-                    ))}
-                  </Grid>
-                </Grid>
-                <div className={"donation-see-all-wrapper"}>
-                  <div
-                    onClick={() => navigate("/accounting")}
-                    className={"donation-see-all"}
+                <Grid container>
+                  <Grid
+                    container
+                    className={"donation-history-timeline-container"}
                   >
-                    See all donations
+                    <Grid item>
+                      <div className="donation-list-container">
+                        {filteredHistory.map((donation) => (
+                          <DonationListItem donation={donation} />
+                        ))}
+                      </div>
+                    </Grid>
+                  </Grid>
+                  <div className={"donation-see-all-wrapper"}>
+                    <div
+                      onClick={() => navigate("/accounting")}
+                      className={"donation-see-all"}
+                    >
+                      See all donations
+                    </div>
                   </div>
-                </div>
+                </Grid>
               </div>
             </Grid>
-
-            <Grid
-              item
-              xl={6}
-              lg={6}
-              className={"highlighted-data-container"}
-            ></Grid>
           </Grid>
-          <ArticleSelection />
         </Grid>
+        <ArticleSelection />
       </div>
     </div>
   );
