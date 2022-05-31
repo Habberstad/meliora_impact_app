@@ -2,35 +2,30 @@ import * as React from "react";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import ReactToPrint, { useReactToPrint } from "react-to-print";
 import { Button } from "@mui/material";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Report from "./Report";
 
 
-const columns = [
-  { field: "_id", headerName: "Transaction id", width: 250 },
-  { field: "payment_amount", headerName: "Amount", width: 130 },
-  { field: "date", headerName: "Date", width: 100, type: "date", valueGetter: ({ value }) => new Date(value).toLocaleDateString("no-NO",{day: "2-digit", month: "2-digit", year: "numeric" })  },
-  { field: "payment_frequency", headerName: "Type", type: "number", width: 90 },
-  { field: "test", headerName: "aggregert data", description: "This column has a value getter and is not sortable.", sortable: false, width: 160,
-    valueGetter: (params) =>
-      `${params.row.type || ""} ${params.row.type || ""}`
-  }
-];
 
-
-function ComponentToPrint() {
-  return (
-    <div>
-      test
-    </div>
-  );
-}
 
 export const AccountingPage = (props) => {
   const componentRef = useRef();
   const handlePrint = useReactToPrint({
     content: () => componentRef.current
   });
+
+
+  const[year, setYear] = useState(  new Date().getFullYear());
+  const[selectedTransactions, setSelectedTransactions] = useState("")
+
+
+  function backYear() {
+    setYear(year - 1)
+  }
+
+  function forwardYear() {
+    setYear(year + 1)
+  }
 
   return (
     <div >
@@ -45,7 +40,10 @@ export const AccountingPage = (props) => {
       <br/>
       <br/>
       <h1>Donation history</h1>
-      <Report ref={componentRef} user={props.user} />
+      <Button onClick={backYear} >back</Button>
+      {year}
+      <Button onClick={forwardYear}>forward</Button>
+      <Report ref={componentRef} user={props.user} year={year} />
     </div>
   );
 };
