@@ -93,7 +93,7 @@ export const submitButtonStyle = {
   borderRadius: "8px",
   alignSelf: "center",
   backgroundColor: "#551477",
-  marginTop: "80px",
+  marginTop: "50px",
   "&:hover": {
     backgroundColor: "#aa55d9",
     color: "#FFF",
