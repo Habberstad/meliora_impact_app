@@ -136,34 +136,32 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 104px;
-    height: 100px;
-    border: 2px solid #000;
-    border-radius: 10px;
+    width: 120px;
+    height: 120px;
+    border: 2px solid transparent;
+    border-radius: 5px;
 }
 .payment-option-container:hover {
-    border: 3px solid #551477;
-    width: 102px;
-    height: 99px;
-    border-radius: 12px;
-}
-
-.selected-payment-option {
-    border-color: #551477;
-    border-width: 3px;
-    width: 102px;
-    height: 99px;
-    border-radius: 12px;
-
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 120px;
+    height: 120px;
 }
 
 .payment-option-container img {
     object-fit: cover;
     width: 100%;
     height: 100%;
-    border-radius: 10px;
+    border-radius: 3px;
+}
+
+.selected-payment-option {
+    border-color: #551477;
+    border-radius: 5px;
 
 }
+
+
 
 .company-list-item {
     display: flex;
@@ -179,9 +177,6 @@
 
 /* LOGIN CONTENT */
 
-.login-content {
-
-}
 
 .login-content-header {
     text-align: center;
@@ -208,6 +203,7 @@
 
 .login-content-main Button {
     border-radius: 10px;
+    height: 50px;
 }
 
 .login-content-header-subscription-tag {

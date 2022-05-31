@@ -5,6 +5,7 @@ import BankIdIcon from "../../media/bankid_icon.png";
 import MicrosoftIcon from "../../media/microsoft_icon.png";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
+import { identificationButtonStyle } from "./login-styles";
 
 export const SelectIdentificationMethod = (props) => {
   const navigate = useNavigate();
@@ -24,17 +25,7 @@ export const SelectIdentificationMethod = (props) => {
           onClick={() => {
             navigate("/register-form");
           }}
-          sx={{
-            justifyContent: "center",
-            mb: "22px",
-            borderColor: "#464D51",
-            color: "#000",
-            "&:hover": {
-              borderColor: "#000",
-              backgroundColor: "#FFF",
-              color: "#637381",
-            },
-          }}
+          sx={identificationButtonStyle}
           fullWidth
           variant={"outlined"}
           size={"large"}
@@ -46,15 +37,7 @@ export const SelectIdentificationMethod = (props) => {
           />
         </Button>
         <Button
-          sx={{
-            mb: "22px",
-            borderColor: "#464D51",
-            "&:hover": {
-              borderColor: "#000",
-              backgroundColor: "#FFF",
-              color: "#637381",
-            },
-          }}
+          sx={identificationButtonStyle}
           fullWidth
           variant={"outlined"}
           size={"large"}
@@ -69,16 +52,7 @@ export const SelectIdentificationMethod = (props) => {
           onClick={() => {
             navigate("/register-form");
           }}
-          sx={{
-            mb: "22px",
-            borderColor: "#464D51",
-            color: "#000",
-            "&:hover": {
-              borderColor: "#000",
-              backgroundColor: "#FFF",
-              color: "#637381",
-            },
-          }}
+          sx={identificationButtonStyle}
           fullWidth
           variant={"outlined"}
           size={"large"}
@@ -93,17 +67,7 @@ export const SelectIdentificationMethod = (props) => {
           onClick={() => {
             navigate("/register-form");
           }}
-          sx={{
-            height: "56px",
-            mb: "22px",
-            borderColor: "#464D51",
-            color: "#000",
-            "&:hover": {
-              borderColor: "#000",
-              backgroundColor: "#FFF",
-              color: "#637381",
-            },
-          }}
+          sx={identificationButtonStyle}
           fullWidth
           variant={"outlined"}
           size={"large"}
@@ -111,8 +75,14 @@ export const SelectIdentificationMethod = (props) => {
           Register Manually
         </Button>
       </div>
-      <p style={{ display: "flex", justifyContent: "center" }}>
-        Already got an account? <Link to={"/login-form"}> Log in here.</Link>
+      <p
+        style={{
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        Already got an account?
+        <Link to={"/login-form"}> Log in here</Link>
       </p>
     </div>
   );
