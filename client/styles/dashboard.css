@@ -242,7 +242,7 @@
 
 .donation-history-filter{
     display: flex;
-    justify-content: center;
+    padding-top: 25px;
     flex-direction: column;
     align-items: center;
     width:100%;
@@ -268,6 +268,7 @@
 .donation-filter-select-wrapper{
     display: flex;
     justify-content: center;
+    padding-top: 10px;
 }
 
 .donation-input-label-wrapper{
@@ -279,7 +280,8 @@
     width: 200px;
     height: 30px;
     border: 15px;
-    color: #551477;
+    border-radius: 16px;
+    background-color: #551477;
 }
 
 .donation-see-all-wrapper{
@@ -288,24 +290,23 @@
     justify-content: center;
 }
 
+.donation-history-timeline-container{
+    height: 355px;
+}
 .donation-see-all{
     display: flex;
     font-weight: 600;
     font-size: 14px;
     line-height: 17px;
-    justify-self: center;
-    align-self: center;
+    justify-content: center;
+    align-content: center;
     border-bottom: 1px solid #7209B7;
-    padding-bottom: 7px;
-    margin-bottom: 24px;
     cursor: pointer;
 }
 
 .donation-list-container{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content:center;
     margin: 30px 0 0 25px;
 
 }

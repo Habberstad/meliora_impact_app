@@ -45,6 +45,9 @@ const Dashboard = () => {
   const history = data.donation_history;
   const npoList = data.npo_partners;
 
+  console.log(npoList);
+
+
   const filteredHistory = history.filter((donation) => donation.npo_id === npo);
 
   let donationHistory = filteredHistory.length > 0 ? filteredHistory : history;
@@ -164,30 +167,28 @@ const Dashboard = () => {
               <div className={"donation-history-filter"}>
                 <div className={"donation-history-title"}>Donation History</div>
                 <div className={"donation-history-filter-wrapper"}>
-                  <div className={"donation-input-label-wrapper"}>
-                    <InputLabel>Filter Donations</InputLabel>
-                  </div>
                   <div className={"donation-filter-select-wrapper"}>
                     <Select
                       className={"donation-filter-select"}
                       defaultValue={"Recent"}
-                      label="Partner"
                       onChange={handleChange1}
+                      displayEmpty
+                      inputProps={{ 'aria-label': 'Without label' }}
+                      sx={{color: "#ffff", "& .MuiSelect-iconOpen": { color: "#ffff" }, "& .MuiSelect-icon": { color: "#ffff" }, borderRadius: "10px", textAlign: "center",}}
                     >
                       <MenuItem value={"Recent"} label="All">
                         Recent
                       </MenuItem>
                       {npoList.map((x) => (
                         <MenuItem key={x._id} value={x._id}>
-                          {x._id}
+                          {x.name}
                         </MenuItem>
                       ))}
                     </Select>
                   </div>
                 </div>
                 <Grid container>
-                  <Grid
-                    container
+                  <div
                     className={"donation-history-timeline-container"}
                   >
                     <Grid item>
@@ -201,7 +202,7 @@ const Dashboard = () => {
                         })}
                       </div>
                     </Grid>
-                  </Grid>
+                  </div>
                   <div className={"donation-see-all-wrapper"}>
                     <div
                       onClick={() => navigate("/accounting")}
@@ -215,7 +216,7 @@ const Dashboard = () => {
             </Grid>
 
             <Grid item xl={7} lg={7} className={"map"}>
-              <div className={"test"}></div>
+
             </Grid>
           </Grid>
 
