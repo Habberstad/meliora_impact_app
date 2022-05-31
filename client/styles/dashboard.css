@@ -241,8 +241,11 @@
     flex-direction: column;
     align-items: center;
     background-color: white;
-    margin: 20px;
+    margin-top: 20px;
+    box-shadow: 0 0 50px rgba(145, 158, 171, 0.2);
+    border-radius: 16px;
 }
+
 .donation-history-filter-content {
     display: flex;
     flex-direction: column;
