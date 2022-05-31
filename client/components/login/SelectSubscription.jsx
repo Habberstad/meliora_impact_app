@@ -6,7 +6,7 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { useState } from "react";
 import {
-  selectedSubsciptionTypeFreemium,
+  selectedSubscriptionTypeFreemium,
   subscriptionTypeFreemium,
   selectedSubsciptionTypePremium,
   subscriptionTypePremium,
@@ -53,7 +53,7 @@ export const SelectSubscription = (props) => {
             }}
             sx={
               subscriptionType === "freemium"
-                ? selectedSubsciptionTypeFreemium
+                ? selectedSubscriptionTypeFreemium
                 : subscriptionTypeFreemium
             }
             fullWidth
