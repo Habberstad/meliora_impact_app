@@ -53,8 +53,7 @@ const Dashboard = () => {
     <div className={"dashboard-wrapper"}>
       <div className={"dashboard-container"}>
         <h1>Hi, Welcome back </h1>
-        <Grid container direction={"column"}>
-          <Grid container columnSpacing={{ lg: 4, xl: 4 }}>
+          <Grid container columnSpacing={{ lg: 4, xl: 4}} rowSpacing={{lg: 4, xl: 4}}>
             <ImpactSection data={data} />
             <Grid item lg={3} xl={3} className={"socialmedia-template"}>
               <div
@@ -79,7 +78,7 @@ const Dashboard = () => {
               </div>
             </Grid>
 
-            <Grid item lg={6} xl={6}>
+            <Grid item lg={6} xl={6} >
               <div className={"highlighted-partners-container"}>
                 <div className={"highlighted-title-view-container"}>
                   <div
@@ -161,13 +160,6 @@ const Dashboard = () => {
                 </div>
               </div>
             </Grid>
-          </Grid>
-
-          <Grid
-            container
-            direction={"row"}
-            className={"bottom-container-dashboard"}
-          >
             <Grid item xl={5} lg={5} className={"donation-history-container"}>
               <div className={"donation-history-filter"}>
                 <div className={"donation-history-title"}>Donation History</div>
@@ -178,12 +170,12 @@ const Dashboard = () => {
                   <div className={"donation-filter-select-wrapper"}>
                     <Select
                       className={"donation-filter-select"}
-                      defaultValue={"All"}
+                      defaultValue={"Recent"}
                       label="Partner"
                       onChange={handleChange1}
                     >
-                      <MenuItem value={"All"} label="All">
-                        All
+                      <MenuItem value={"Recent"} label="All">
+                        Recent
                       </MenuItem>
                       {npoList.map((x) => (
                         <MenuItem key={x._id} value={x._id}>
@@ -200,12 +192,13 @@ const Dashboard = () => {
                   >
                     <Grid item>
                       <div className="donation-list-container">
-                        {donationHistory.map((donation) => (
+                        {donationHistory.map((donation, index) => { if(index <= 3)
+                        return(
                           <DonationListItem
                             npoList={npoList}
                             donation={donation}
-                          />
-                        ))}
+                          />)
+                        })}
                       </div>
                     </Grid>
                   </Grid>
@@ -220,8 +213,21 @@ const Dashboard = () => {
                 </Grid>
               </div>
             </Grid>
+
+            <Grid item xl={7} lg={7} className={"map"}>
+              <div className={"test"}></div>
+            </Grid>
           </Grid>
-        </Grid>
+
+          <Grid
+            container
+            direction={"row"}
+            className={"bottom-container-dashboard"}
+            columnSpacing={{lg: 4, xl:4}}
+
+          >
+          </Grid>
+
         <ArticleSelection />
       </div>
     </div>
