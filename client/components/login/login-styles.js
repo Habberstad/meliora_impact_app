@@ -108,8 +108,18 @@ export const identificationButtonStyle = {
   backgroundColor: "#FFF",
   border: "solid 0.5px lightgrey",
   "&:hover": {
-    borderColor: "#000",
     backgroundColor: "#B8F0DA",
     color: "#637381",
+    borderColor: "#FFF",
   },
+};
+
+export const identificationButtonStyleDisabled = {
+  justifyContent: "center",
+  mb: "22px",
+  borderColor: "#637381",
+  color: "#000",
+  backgroundColor: "#FFF",
+  opacity: "0.5",
+  border: "solid 0.5px lightgrey",
 };
