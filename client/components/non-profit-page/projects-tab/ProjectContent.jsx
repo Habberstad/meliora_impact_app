@@ -4,6 +4,8 @@ import donationGoalImg from "../npo-media/donation_goal.png";
 import impactCardImg from "../npo-media/impact_cardpng.png";
 import timelineImg from "../npo-media/timeline_projects.png";
 import contributorsImg from "../npo-media/contributors.png";
+import { DataTile } from "./DataTile";
+import { NatureTile } from "./NatureTiles";
 
 const test_image =
   "https://images.unsplash.com/photo-1652894449003-11e4228e9ae7?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070";
@@ -16,9 +18,9 @@ export const ProjectContent = ({ data }) => {
           <div className="project-info-title">{data.top_section.title}</div>
           <div className="project-info-text">{data.top_section.paragraph}</div>
           <div className="project-tile-container">
-            {data.tiles.map((data) => (
-              <InfoTile key={data.value} data={data} />
-            ))}
+            <InfoTile data={data.tiles[0]} />
+            <DataTile data={data.tiles[1]} />
+            <NatureTile data={data.tiles[2]} />
           </div>
         </div>
         <div className="top-right-section">
