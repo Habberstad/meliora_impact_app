@@ -1,10 +1,14 @@
 import { BackButton } from "./BackButton";
-import { Button, InputAdornment, TextField } from "@mui/material";
+import { Button, InputAdornment, TextField, Tooltip } from "@mui/material";
 import { useNavigate } from "react-router";
 import * as React from "react";
 import { useEffect, useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
-import { companyListItem, selectedCompanyListItem } from "./login-styles";
+import {
+  companyListItem,
+  selectedCompanyListItem,
+  submitButtonStyle,
+} from "./login-styles";
 import { UserApiContext } from "../../api-client/userApiContext";
 import fetchJSON from "../../helpers/fetchJSON";
 import ErrorMessage from "../shared-components/ErrorMessage";
@@ -86,7 +90,7 @@ export const FindCompany = ({ handleCompanyInfo }) => {
       <TextField
         onChange={onChangeHandler}
         sx={{
-          width: "590px",
+          width: "100%",
           mt: "22px",
           "& .MuiOutlinedInput-root.Mui-focused": {
             "& > fieldset": {
@@ -145,24 +149,22 @@ export const FindCompany = ({ handleCompanyInfo }) => {
         </div>
       ) : null}
 
-      <Button
-        disabled={!selectedCompany}
-        onClick={handleSendCompanyInfo}
-        sx={{
-          width: "190px",
-          height: "60px",
-          borderRadius: "8px",
-          backgroundColor: "#551477",
-          marginTop: "80px",
-          "&:hover": {
-            backgroundColor: "#aa55d9",
-            color: "#FFF",
-          },
-        }}
-        variant="contained"
+      <Tooltip
+        style={{ display: "flex", justifyContent: "center" }}
+        title={!selectedCompany ? "Select your organization" : ""}
+        leaveDelay={1000}
       >
-        Next
-      </Button>
+        <span>
+          <Button
+            disabled={!selectedCompany}
+            onClick={handleSendCompanyInfo}
+            sx={{ ...submitButtonStyle, marginTop: "30px" }}
+            variant="contained"
+          >
+            Next
+          </Button>
+        </span>
+      </Tooltip>
     </div>
   );
 };
