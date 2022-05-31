@@ -46,19 +46,19 @@ export function ImpactSection(props) {
           className={"students-forward-button"}
         />
         <div className="students-impact-count">
-          {props.impact === undefined ? (
+          {impact === undefined ? (
             <div>No Donations</div>
           ) : (
-            <div>{props.impact[props.counter].amount}</div>
+            <div>{impact[counter].amount}</div>
           )}
         </div>
         <div className="students-impact-content">
-          {props.impact === undefined ? (
+          {impact === undefined ? (
             <Link href={"/discover"} color={"inherit"}>
               Discover Non-Profits
             </Link>
           ) : (
-            <div>{props.impact[props.counter].impact_type}</div>
+            <div>{impact[counter].impact_type}</div>
           )}
         </div>
       </div>
