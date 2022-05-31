@@ -1,8 +1,15 @@
 .dashboard-container {
-    width: 1500px;
+    width: 1000px;
     height: 100%;
     margin: 0 5% 0 5%;
+}
 
+.dashboard-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 /*
@@ -47,6 +54,8 @@
     top: 220px;
     align-self: flex-start;
     justify-self: center;
+    cursor: pointer;
+    padding-left: 46px;
 }
 
 .students-forward-button{
@@ -55,6 +64,8 @@
     top: 220px;
     align-self: flex-end;
     gap: 10px;
+    cursor: pointer;
+    padding-right: 46px;
 
 }
 
@@ -62,6 +73,7 @@
     position: absolute;
     top: 260px;
     font-size: 12px;
+    color: #637381;
 }
 
 
@@ -81,7 +93,9 @@
     height: 300px;
     background-color: rgb(0, 0, 0);
     align-items: center;
+    cursor: pointer;
 }
+
 
 .socialmedia-template-container img{
     object-fit: cover;
@@ -113,6 +127,7 @@
     cursor: pointer;
 }
 
+
 /************************
     Highlighted partners
 *************************/
@@ -125,10 +140,33 @@
     height: 300px;
     align-content: center;
 }
+.highlighted-title-view-container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 18px;
+}
 
 .highlighted-partners-title{
-
+    justify-self: flex-start;
+    margin-left: 16px;
+    width: 100px;
+    white-space: nowrap;
 }
+
+.highlighted-view-all{
+    align-self: center;
+    flex: 50%;
+    text-align: right;
+    cursor:pointer;
+    font-size: 14px;
+    font-weight: 500;
+    color: #637381;
+    margin-right: 21px;
+}
+
+
+
 
 .accordion-wrapper {
     display: flex;
@@ -229,4 +267,23 @@
     font-size: 16px;
     font-weight: 600;
     justify-self: flex-end;
+}
+
+.donation-see-all-wrapper{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.donation-see-all{
+    display: flex;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    justify-self: center;
+    align-self: center;
+    border-bottom: 1px solid #7209B7;
+    padding-bottom: 7px;
+    margin-bottom: 24px;
+    cursor: pointer;
 }
