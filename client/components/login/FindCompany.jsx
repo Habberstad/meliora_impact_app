@@ -152,22 +152,24 @@ export const FindCompany = ({ handleCompanyInfo }) => {
         </div>
       ) : null}
 
-      <Tooltip
-        style={{ display: "flex", justifyContent: "center" }}
-        title={!selectedCompany ? "Select your organization" : ""}
-        leaveDelay={1000}
-      >
-        <span>
-          <Button
-            disabled={!selectedCompany}
-            onClick={handleSendCompanyInfo}
-            sx={{ ...submitButtonStyle, marginTop: "30px" }}
-            variant="contained"
-          >
-            Next
-          </Button>
-        </span>
-      </Tooltip>
+      {!showList && (
+        <Tooltip
+          style={{ display: "flex", justifyContent: "center" }}
+          title={!selectedCompany ? "Select your organization" : ""}
+          leaveDelay={1000}
+        >
+          <span>
+            <Button
+              disabled={!selectedCompany}
+              onClick={handleSendCompanyInfo}
+              sx={{ ...submitButtonStyle, marginTop: "30px" }}
+              variant="contained"
+            >
+              Next
+            </Button>
+          </span>
+        </Tooltip>
+      )}
     </div>
   );
 };
