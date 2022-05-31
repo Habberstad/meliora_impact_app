@@ -15,7 +15,6 @@ export const SelectIdentificationMethod = (props) => {
   return (
     <div className="login-content">
       <div className={"login-content-header"}>
-        {/*Todo maybe change headers here if this is the first thing the user meets*/}
         <div>
           Get started for <br></br>free today!
         </div>
