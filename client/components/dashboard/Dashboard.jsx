@@ -109,53 +109,63 @@ const Dashboard = () => {
                   </div>
                 </div>
                 <div className={"accordion-wrapper"}>
-                  {highlighted.map((npo, index) => (
-                    <Accordion
-                      sx={{
-                        backgroundColor: "#FCEFE7",
-                        width: "97%",
-                        borderRadius: "16px",
-                        dropShadow: "0",
-                      }}
-                      expanded={expanded === index}
-                      onChange={handleChange(index)}
-                    >
-                      <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                        <div className={"accordion-title-container"}>
-                          <LocalHospitalIcon />
-                          <div className={"accordion-title"}>{npo.name}</div>
-                        </div>
-                      </AccordionSummary>
-
-                      <AccordionDetails sx={{ borderRadius: "16px" }}>
-                        <div>
-                          {npo.impact_measurement.map((impactItem) => (
-                            <div
-                              className={
-                                "highlighted-partners-content-container"
-                              }
-                            >
-                              <div className={"highlighted-partners-project"}>
-                                {impactItem.impact_name}
-                              </div>
-                              <div className={"highlighted-partners-progress"}>
-                                <LinearProgress
-                                  sx={{
-                                    width: "162px",
-                                    height: "9px",
-                                    backgroundColor: "#A5A5A5",
-                                    position: "absolut",
-                                  }}
-                                  variant="determinate"
-                                  value={impactItem.impact_value}
-                                />
+                  {highlighted.map((npo, index) => {
+                    if (index <= 1)
+                      return (
+                        <Accordion
+                          className={"highlighted-accordion"}
+                          sx={{
+                            backgroundColor: "#FCEFE7",
+                            width: "97%",
+                            borderRadius: "16px",
+                            dropShadow: "0",
+                          }}
+                          expanded={expanded === index}
+                          onChange={handleChange(index)}
+                        >
+                          <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                            <div className={"accordion-title-container"}>
+                              <LocalHospitalIcon />
+                              <div className={"accordion-title"}>
+                                {npo.name}
                               </div>
                             </div>
-                          ))}
-                        </div>
-                      </AccordionDetails>
-                    </Accordion>
-                  ))}
+                          </AccordionSummary>
+
+                          <AccordionDetails sx={{ borderRadius: "16px" }}>
+                            <div>
+                              {npo.impact_measurement.map((impactItem) => (
+                                <div
+                                  className={
+                                    "highlighted-partners-content-container"
+                                  }
+                                >
+                                  <div
+                                    className={"highlighted-partners-project"}
+                                  >
+                                    {impactItem.impact_name}
+                                  </div>
+                                  <div
+                                    className={"highlighted-partners-progress"}
+                                  >
+                                    <LinearProgress
+                                      sx={{
+                                        width: "162px",
+                                        height: "9px",
+                                        backgroundColor: "#A5A5A5",
+                                        position: "absolut",
+                                      }}
+                                      variant="determinate"
+                                      value={impactItem.impact_value}
+                                    />
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          </AccordionDetails>
+                        </Accordion>
+                      );
+                  })}
                 </div>
               </div>
             </Grid>
@@ -171,23 +181,22 @@ const Dashboard = () => {
                 <div className={"donation-history-title"}>Donation History</div>
                 <div className={"donation-history-filter-wrapper"}>
                   <div className={"donation-input-label-wrapper"}>
-                    <InputLabel>Npos</InputLabel>
+                    <InputLabel>Filter Donations</InputLabel>
                   </div>
                   <div className={"donation-filter-select-wrapper"}>
                     <Select
                       className={"donation-filter-select"}
-                      variant={"outlined"}
-                      value={handleChange1}
+                      value={npo}
                       label="Npos"
                       onChange={handleChange1}
                     >
-                      <MenuItem value={"redde havet"}>npo</MenuItem>
-                      <MenuItem value={"npo navn"}>npo1</MenuItem>
-                      <MenuItem value={"npo navn"}>npo2</MenuItem>
+                      <MenuItem value={""}>all</MenuItem>
+                      {npos.map((item) => (
+                        <MenuItem value={item.name}>{item.name}</MenuItem>
+                      ))}
                     </Select>
                   </div>
                 </div>
-
                 <Grid
                   container
                   className={"donation-history-timeline-container"}
@@ -206,7 +215,7 @@ const Dashboard = () => {
                           <TimelineContent>
                             <div className={"donation-history-content"}>
                               <div className={"monthly-donation"}>
-                                {donation.type}
+                                {donation.payment_frequency} donation to
                                 <span className="donation-npo-name">
                                   {npos.map((npo) => {
                                     if (npo._id === donation.npo_id)
