@@ -3,6 +3,21 @@
   "description": "This is a short description of Leve Havet",
   "card_image": "https://images.unsplash.com/photo-1553570739-330b8db8a925?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600",
   "category": "water",
+  "location_coordinates": {},
+  "impact_measurement": [
+    {
+      "impact_name": "test impact 1",
+      "impact_value": 100
+    },
+    {
+      "impact_name": "test impact 2" ,
+      "impact_value": 69
+    },
+    {
+      "impact_name": "test impact 3",
+      "impact_value": 96
+    }
+],
   "header_data": {
     "tile_1": {
       "value": "1000KM",
@@ -29,8 +44,8 @@
       "vision_4": "Climate change is currently one of our societys biggest challenges. All our work takes this in consideration."
     }
   },
-  "projects": {
- "project_1" : {
+  "projects": [
+{
   "name": "Save the Coral",
   "npo_id": "",
   "description" : "A Leve Havet Project",
@@ -64,7 +79,7 @@
     }
   }
 },
-    "project_2" : {
+ {
       "name": "Water for all",
       "npo_id": "",
       "description" : "A Leve Havet Project",
@@ -98,7 +113,7 @@
         }
       }
     },
-    "project_3" : {
+ {
       "name": "Project clean water",
       "npo_id": "",
       "description" : "A Leve Havet Project",
@@ -132,7 +147,7 @@
         }
       }
     },
-    "project_4" : {
+ {
       "name": "Stop plastic waste",
       "npo_id": "",
       "description" : "A Leve Havet Project",
@@ -166,7 +181,40 @@
         }
       }
     }
+  ],
+  "impact_tab": {
+    "top_tile_1" : {
+      "value": "100",
+      "description": "Lorem ipsum"
+    },
+    "top_tile_2" : {
+      "value": "100",
+      "description": "Lorem ipsum"
+    },
+    "top_tile_3" : {
+      "value": "100",
+      "description": "Lorem ipsum"
+    },
+    "top_tile_4" : {
+      "value": "100",
+      "description": "Lorem ipsum"
+    },
+    "middle_tile_1": {
+      "value": "Something",
+      "description": "lorem ipsum"
+    },
+    "middle_tile_2": {
+      "value": "Something",
+      "description": "lorem ipsum"
+    },
+    "middle_tile_3": {
+      "value": "Something",
+      "description": "lorem ipsum"
+    },
+    "middle_tile_4": {
+      "value": "Something",
+      "description": "lorem ipsum"
+    }
   },
-  "impact_tab": {},
   "key_information_tab": {}
 }
