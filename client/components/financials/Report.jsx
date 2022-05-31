@@ -28,6 +28,7 @@ const Report = React.forwardRef((props, ref) => {
     <div ref={ref}>
 
       <Box sx={{
+
         display: "none",
         displayPrint: "block",
         m: 1,
@@ -44,7 +45,6 @@ const Report = React.forwardRef((props, ref) => {
         <br />
         <br />
       </Box>
-
 
       <Box>
         <div style={{ height: 400, width: "1500px" }}>
