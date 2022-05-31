@@ -15,31 +15,7 @@ import { isLoading } from "../shared-components/Loading";
 import { Error } from "../shared-components/Error";
 import { ImpactSection } from "./ImpactSection";
 import { useNavigate } from "react-router";
-
-function DonationListItem({ donation: { payment_amount, date } }) {
-  return (
-    <div className="donation-list-item">
-      <div className="donation-timeline-dot"></div>
-      <div className="donation-data-container">
-        <div className="left-donation-text">
-          <div style={{ fontSize: "14px", fontWeight: "500" }}>
-            Donated to Safe the Coral
-          </div>
-          <div
-            style={{
-              fontSize: "14px",
-              fontWeight: "400",
-              marginTop: "3px",
-            }}
-          >
-            {date}
-          </div>
-        </div>
-        <div className="right-donation-text">{payment_amount}kr</div>
-      </div>
-    </div>
-  );
-}
+import { DonationListItem } from "./DonationListItem";
 
 const Dashboard = () => {
   //TODO: Mer beskrivende navn på state. F.eks. expandPartnerAccordion
@@ -47,7 +23,6 @@ const Dashboard = () => {
 
   const [npo, setNpo] = React.useState("");
 
-  // DATA FETCHING
   const navigate = useNavigate();
   const { getCurrentUser } = useContext(UserApiContext);
   const { loading, error, data } = useLoading(
@@ -64,31 +39,21 @@ const Dashboard = () => {
   };
 
   if (loading) return isLoading();
-
   if (error) return <Error error={error} />;
 
-  console.log("data", data);
-
   const highlighted = data.npo_partners;
-  console.log("high", highlighted);
   const history = data.donation_history;
-  console.log("his" + history);
-  const npos = data.npo_partners;
-  console.log("npo" + npos);
+  const npoList = data.npo_partners;
 
-  console.log(npo);
-
-  console.log(history[0].npo_id);
   const filteredHistory = history.filter((donation) => donation.npo_id === npo);
 
-  console.log("harry" + filteredHistory);
+  let donationHistory = filteredHistory.length > 0 ? filteredHistory : history;
 
   return (
     <div className={"dashboard-wrapper"}>
       <div className={"dashboard-container"}>
         <h1>Hi, Welcome back </h1>
-        <Grid container direction={"column"}>
-          <Grid container columnSpacing={{ lg: 4, xl: 4 }}>
+          <Grid container columnSpacing={{ lg: 4, xl: 4}} rowSpacing={{lg: 4, xl: 4}}>
             <ImpactSection data={data} />
             <Grid item lg={3} xl={3} className={"socialmedia-template"}>
               <div
@@ -113,7 +78,7 @@ const Dashboard = () => {
               </div>
             </Grid>
 
-            <Grid item lg={6} xl={6}>
+            <Grid item lg={6} xl={6} >
               <div className={"highlighted-partners-container"}>
                 <div className={"highlighted-title-view-container"}>
                   <div
@@ -195,13 +160,6 @@ const Dashboard = () => {
                 </div>
               </div>
             </Grid>
-          </Grid>
-
-          <Grid
-            container
-            direction={"row"}
-            className={"bottom-container-dashboard"}
-          >
             <Grid item xl={5} lg={5} className={"donation-history-container"}>
               <div className={"donation-history-filter"}>
                 <div className={"donation-history-title"}>Donation History</div>
@@ -212,13 +170,17 @@ const Dashboard = () => {
                   <div className={"donation-filter-select-wrapper"}>
                     <Select
                       className={"donation-filter-select"}
-                      value={npo}
-                      label="Npos"
+                      defaultValue={"Recent"}
+                      label="Partner"
                       onChange={handleChange1}
                     >
-                      <MenuItem value={""}>all</MenuItem>
-                      {npos.map((item) => (
-                        <MenuItem value={item._id}>{item._id}</MenuItem>
+                      <MenuItem value={"Recent"} label="All">
+                        Recent
+                      </MenuItem>
+                      {npoList.map((x) => (
+                        <MenuItem key={x._id} value={x._id}>
+                          {x._id}
+                        </MenuItem>
                       ))}
                     </Select>
                   </div>
@@ -230,9 +192,13 @@ const Dashboard = () => {
                   >
                     <Grid item>
                       <div className="donation-list-container">
-                        {filteredHistory.map((donation) => (
-                          <DonationListItem donation={donation} />
-                        ))}
+                        {donationHistory.map((donation, index) => { if(index <= 3)
+                        return(
+                          <DonationListItem
+                            npoList={npoList}
+                            donation={donation}
+                          />)
+                        })}
                       </div>
                     </Grid>
                   </Grid>
@@ -247,8 +213,21 @@ const Dashboard = () => {
                 </Grid>
               </div>
             </Grid>
+
+            <Grid item xl={7} lg={7} className={"map"}>
+              <div className={"test"}></div>
+            </Grid>
           </Grid>
-        </Grid>
+
+          <Grid
+            container
+            direction={"row"}
+            className={"bottom-container-dashboard"}
+            columnSpacing={{lg: 4, xl:4}}
+
+          >
+          </Grid>
+
         <ArticleSelection />
       </div>
     </div>
