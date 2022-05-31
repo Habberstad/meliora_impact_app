@@ -53,13 +53,6 @@ export const LoginPage = () => {
 
   const handleSubmit = () => {
     //maybe async?
-    console.log({
-      org_name: orgName,
-      org_number: orgNumber,
-      payment_option: paymentOption,
-      subscription_type: subscriptionType,
-      adress: orgAdress,
-    });
     registerUser({
       org_name: orgName,
       org_number: orgNumber,
@@ -110,26 +103,19 @@ export const LoginPage = () => {
           top: "0",
         }}
       >
-        <Link to={"/login-form"}>login</Link>
-        <Link to={"/select-identification-method"}>identity</Link>
         <Link to={"/find-company"}>company</Link>
-        <Link to={"/select-subscription"}>select</Link>
-        <Link to={"/select-payment-method"}>payment</Link>
-        <Link to={"/register-summary"}>summary</Link>
-        <Link to={"/post-login"}>Post</Link>
       </div>
       <div className="login-container">
         <Routes>
-          <Route exact path={"/"} element={<LoginForm google={google} />} />
+          <Route
+            exact
+            path={"/"}
+            element={<SelectIdentificationMethod google={google} />}
+          />
           <Route
             exact
             path={"/login-form"}
             element={<LoginForm google={google} />}
-          />
-          <Route
-            exact
-            path={"/select-identification-method"}
-            element={<SelectIdentificationMethod google={google} />}
           />
           <Route
             exact

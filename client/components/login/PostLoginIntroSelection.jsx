@@ -1,14 +1,6 @@
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { Button } from "@mui/material";
-import {
-  postLoginButtonBook,
-  postLoginButtonExplore,
-  postLoginButtons,
-  selectedSubsciptionTypePremium,
-  selectedSubscriptionTypeFreemium,
-  subscriptionTypeFreemium,
-  subscriptionTypePremium,
-} from "./login-styles";
+import { postLoginButtonBook, postLoginButtonExplore } from "./login-styles";
 
 export const PostLoginIntroSelection = (props) => {
   return (
@@ -42,9 +34,7 @@ export const PostLoginIntroSelection = (props) => {
           </div>
         </Button>
         <Button
-          onClick={() => {
-            props.google();
-          }}
+          onClick={props.google}
           sx={postLoginButtonExplore}
           fullWidth
           variant={"outlined"}
