@@ -1,5 +1,5 @@
 import { BackButton } from "./BackButton";
-import { Button, Checkbox, Radio } from "@mui/material";
+import { Button, Checkbox, Radio, Tooltip } from "@mui/material";
 import { useNavigate } from "react-router";
 import { useState } from "react";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
@@ -87,14 +87,21 @@ export const SelectPaymentMethod = (props) => {
           />
         </div>
       </div>
-      <Button
-        disabled={!selectedOption}
-        onClick={handlePaymentTypeSubmit}
-        sx={submitButtonStyle}
-        variant="contained"
+      <Tooltip
+        title={!selectedOption ? "Select a payment method" : ""}
+        leaveDelay={1500}
       >
-        Next
-      </Button>
+        <span>
+          <Button
+            disabled={!selectedOption}
+            onClick={handlePaymentTypeSubmit}
+            sx={submitButtonStyle}
+            variant="contained"
+          >
+            Next
+          </Button>
+        </span>
+      </Tooltip>
     </div>
   );
 };

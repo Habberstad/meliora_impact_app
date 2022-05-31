@@ -1,5 +1,5 @@
 import { BackButton } from "./BackButton";
-import { Button, InputAdornment, TextField } from "@mui/material";
+import { Button, InputAdornment, TextField, Tooltip } from "@mui/material";
 import { useNavigate } from "react-router";
 import * as React from "react";
 import { useEffect, useState } from "react";
@@ -148,15 +148,21 @@ export const FindCompany = ({ handleCompanyInfo }) => {
           </div>
         </div>
       ) : null}
-
-      <Button
-        disabled={!selectedCompany}
-        onClick={handleSendCompanyInfo}
-        sx={{ ...submitButtonStyle, marginTop: "30px" }}
-        variant="contained"
+      <Tooltip
+        title={!selectedCompany ? "Select your organization" : ""}
+        leaveDelay={1500}
       >
-        Next
-      </Button>
+        <span>
+          <Button
+            disabled={!selectedCompany}
+            onClick={handleSendCompanyInfo}
+            sx={{ ...submitButtonStyle, marginTop: "30px" }}
+            variant="contained"
+          >
+            Next
+          </Button>
+        </span>
+      </Tooltip>
     </div>
   );
 };
