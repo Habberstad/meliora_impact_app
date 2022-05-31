@@ -58,6 +58,13 @@ const Dashboard = () => {
   const npos = data.npo_partners;
   console.log("npo" + npos);
 
+  console.log(npo);
+
+  console.log(history[0].npo_id);
+  const filteredHistory = history.filter((donation) => donation.npo_id === npo);
+
+  console.log("harry" + filteredHistory);
+
   return (
     <div className={"dashboard-wrapper"}>
       <div className={"dashboard-container"}>
@@ -193,7 +200,7 @@ const Dashboard = () => {
                     >
                       <MenuItem value={""}>all</MenuItem>
                       {npos.map((item) => (
-                        <MenuItem value={item.name}>{item.name}</MenuItem>
+                        <MenuItem value={item._id}>{item._id}</MenuItem>
                       ))}
                     </Select>
                   </div>
@@ -203,7 +210,7 @@ const Dashboard = () => {
                   className={"donation-history-timeline-container"}
                 >
                   <Grid item>
-                    {history.map((donation) => (
+                    {filteredHistory.map((donation) => (
                       <Timeline>
                         <TimelineItem>
                           <TimelineSeparator>
@@ -223,7 +230,7 @@ const Dashboard = () => {
                                       return npo.name;
                                   })}
                                 </span>
-                                <DateFormater date={donation.date}/>
+                                <DateFormater date={donation.date} />
                               </div>
                               <div className={"donation-amount"}>
                                 {donation.payment_amount} kr
