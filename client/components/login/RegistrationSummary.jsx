@@ -2,6 +2,7 @@ import { Button } from "@mui/material";
 import { UserApiContext } from "../../api-client/userApiContext";
 import { useContext } from "react";
 import { submitButtonStyle } from "./login-styles";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 export const RegistrationSummary = (props) => {
   const { getCurrentUser } = useContext(UserApiContext);
@@ -27,6 +28,18 @@ export const RegistrationSummary = (props) => {
         <p>{props.orgName}</p>
         <p>{props.orgAdress}</p>
         <h4>Account</h4>
+        <div
+          className={`login-content-header-subscription-tag ${
+            props.subscriptionType === "premium" ? "premium" : "freemium"
+          }`}
+        >
+          <p>
+            {props.subscriptionType === "premium"
+              ? "Meliora Parnter"
+              : "Freemium"}
+          </p>
+          <CheckCircleIcon />
+        </div>
         <p>{props.subscriptionType}</p> {/*TODO: replace with tag*/}
         <h4>payment method</h4>
         {props.subscriptionType === "freemium" ? (
