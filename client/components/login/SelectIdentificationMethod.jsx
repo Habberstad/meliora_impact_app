@@ -5,7 +5,10 @@ import BankIdIcon from "../../media/bankid_icon.png";
 import MicrosoftIcon from "../../media/microsoft_icon.png";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
-import { identificationButtonStyle } from "./login-styles";
+import {
+  identificationButtonStyle,
+  identificationButtonStyleDisabled,
+} from "./login-styles";
 
 export const SelectIdentificationMethod = (props) => {
   const navigate = useNavigate();
@@ -22,21 +25,6 @@ export const SelectIdentificationMethod = (props) => {
       </div>
       <div className={"login-content-main"}>
         <Button
-          onClick={() => {
-            navigate("/register-form");
-          }}
-          sx={identificationButtonStyle}
-          fullWidth
-          variant={"outlined"}
-          size={"large"}
-        >
-          <img
-            style={{ height: "40px", width: "30%", objectFit: "cover" }}
-            src={BankIdIcon}
-            alt="BankIdIcon"
-          />
-        </Button>
-        <Button
           sx={identificationButtonStyle}
           fullWidth
           variant={"outlined"}
@@ -47,12 +35,28 @@ export const SelectIdentificationMethod = (props) => {
         >
           <img style={{ height: "40px" }} src={GoogleIcon} alt="GoogleIcon" />
         </Button>
+        <Button
+          onClick={() => {
+            navigate("/register-form");
+          }}
+          disabled={true}
+          sx={identificationButtonStyleDisabled}
+          fullWidth
+          variant={"outlined"}
+          size={"large"}
+        >
+          <img
+            style={{ height: "40px", width: "30%", objectFit: "cover" }}
+            src={BankIdIcon}
+            alt="BankIdIcon"
+          />
+        </Button>
 
         <Button
           onClick={() => {
             navigate("/register-form");
           }}
-          sx={identificationButtonStyle}
+          sx={identificationButtonStyleDisabled}
           fullWidth
           variant={"outlined"}
           size={"large"}
