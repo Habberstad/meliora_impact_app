@@ -15,39 +15,14 @@ import { isLoading } from "../shared-components/Loading";
 import { Error } from "../shared-components/Error";
 import { ImpactSection } from "./ImpactSection";
 import { useNavigate } from "react-router";
-
-function DonationListItem({ donation: { payment_amount, date } }) {
-  return (
-    <div className="donation-list-item">
-      <div className="donation-timeline-dot"></div>
-      <div className="donation-data-container">
-        <div className="left-donation-text">
-          <div style={{ fontSize: "14px", fontWeight: "500" }}>
-            Donated to Safe the Coral
-          </div>
-          <div
-            style={{
-              fontSize: "14px",
-              fontWeight: "400",
-              marginTop: "3px",
-            }}
-          >
-            {date}
-          </div>
-        </div>
-        <div className="right-donation-text">{payment_amount}kr</div>
-      </div>
-    </div>
-  );
-}
+import { DonationListItem } from "./DonationListItem";
 
 const Dashboard = () => {
   //TODO: Mer beskrivende navn på state. F.eks. expandPartnerAccordion
   const [expanded, setExpanded] = React.useState(0);
 
-  const [npo, setNpo] = React.useState();
+  const [npo, setNpo] = React.useState("");
 
-  // DATA FETCHING
   const navigate = useNavigate();
   const { getCurrentUser } = useContext(UserApiContext);
   const { loading, error, data } = useLoading(
@@ -64,34 +39,15 @@ const Dashboard = () => {
   };
 
   if (loading) return isLoading();
-
   if (error) return <Error error={error} />;
 
-  console.log("data", data);
-
   const highlighted = data.npo_partners;
-  console.log("high", highlighted);
   const history = data.donation_history;
-  console.log("his" + history);
-  const npos = data.npo_partners;
-  console.log("npo" + npos);
+  const npoList = data.npo_partners;
 
-  console.log("filter " + npo);
+  const filteredHistory = history.filter((donation) => donation.npo_id === npo);
 
-  console.log(history[0].npo_id);
-
-  let filteredHistory = history.filter((donation) => donation.npo_id === npo);
-
-  function checkFilter(){
-    if (npo === "all"){
-      return history
-    }else {
-      return filteredHistory;
-    }
-
-  }
-
-  console.log("harry" + filteredHistory);
+  let donationHistory = filteredHistory.length > 0 ? filteredHistory : history;
 
   return (
     <div className={"dashboard-wrapper"}>
@@ -223,13 +179,16 @@ const Dashboard = () => {
                     <Select
                       className={"donation-filter-select"}
                       value={npo}
-                      label="Npos"
+                      label="Partner"
                       onChange={handleChange1}
-                      defaultValue={"all"}
                     >
-                      <MenuItem value={"all"}>all</MenuItem>
-                      {npos.map((item) => (
-                        <MenuItem value={item._id}>{item._id}</MenuItem>
+                      <MenuItem value={""} label="All">
+                        All
+                      </MenuItem>
+                      {npoList.map((x) => (
+                        <MenuItem key={x._id} value={x._id}>
+                          {x._id}
+                        </MenuItem>
                       ))}
                     </Select>
                   </div>
@@ -241,8 +200,11 @@ const Dashboard = () => {
                   >
                     <Grid item>
                       <div className="donation-list-container">
-                        {checkFilter().map((donation) => (
-                          <DonationListItem donation={donation} />
+                        {donationHistory.map((donation) => (
+                          <DonationListItem
+                            npoList={npoList}
+                            donation={donation}
+                          />
                         ))}
                       </div>
                     </Grid>
