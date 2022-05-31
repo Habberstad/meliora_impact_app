@@ -246,7 +246,7 @@ const Dashboard = () => {
                 </Grid>
                 <div className={"donation-see-all-wrapper"}>
                   <div
-                    onClick={() => navigate("/templates")}
+                    onClick={() => navigate("/our-partners")}
                     className={"donation-see-all"}
                   >
                     See all donations
