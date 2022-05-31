@@ -26,7 +26,7 @@ const Sidebar = (props) => {
   console.log("location", location);
 
   function handleLogoutClick() {
-    location.href = window.location.origin + "/auth/logout";
+    window.location.href = window.location.origin + "/auth/logout";
   }
 
   /*TODO: Investigate for sidebar highlight logic*/
