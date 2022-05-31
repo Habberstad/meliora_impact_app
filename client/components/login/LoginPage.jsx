@@ -2,7 +2,7 @@ import "../../styles/loginPage-styles.css";
 
 import { Routes, useNavigate } from "react-router";
 import { LoginLeftCard } from "./LoginLeftCard";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { RegisterForm } from "./RegisterForm";
 import { LoginForm } from "./LoginForm";
 import { Link, Route } from "react-router-dom";
@@ -62,6 +62,36 @@ export const LoginPage = () => {
     });
     navigate("/");
   };
+
+  const [user, setUser] = useState(null);
+  const [cookies, setCookies] = useState(null);
+
+  useEffect(() => {
+    const getUser = () => {
+      fetch(window.location.origin + "/auth/login/success", {
+        method: "GET",
+        credentials: "include",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Credentials": true,
+        },
+      })
+        .then((response) => {
+          if (response.status === 200) return response.json();
+          throw new Error("authentication has been failed!");
+        })
+        .then((resObject) => {
+          setUser(resObject.user);
+          setCookies(resObject.cookies);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+    getUser();
+  }, []);
+  console.log(user);
 
   return (
     <div className="login-page-container">
