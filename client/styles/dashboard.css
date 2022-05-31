@@ -231,6 +231,31 @@
     align-items: center;
 }
 
+.donation-history-filter-wrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.donation-filter-select-wrapper{
+    display: flex;
+    justify-content: center;
+}
+
+.donation-input-label-wrapper{
+    display:flex;
+    justify-content: center;
+}
+
+
+.donation-filter-select{
+    width: 200px;
+    height: 30px;
+    border: 15px;
+    color: #551477;
+}
+
 .donation-history-timeline-container{
 }
 
