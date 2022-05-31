@@ -58,7 +58,11 @@ function App() {
           <Route exact path="/discover" element={<DiscoverPage />} />
           <Route exact path="/our-partners" element={<OurPartnersPage />} />
           <Route exact path="/login" element={<LoginPage />} />
-          <Route exact path="/accounting" element={< AccountingPage user={data}/>} />
+          <Route
+            exact
+            path="/accounting"
+            element={<AccountingPage user={data} />}
+          />
           <Route
             exact
             path="/npo-profile/*"
