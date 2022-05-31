@@ -45,7 +45,7 @@ const Dashboard = () => {
   //TODO: Mer beskrivende navn på state. F.eks. expandPartnerAccordion
   const [expanded, setExpanded] = React.useState(0);
 
-  const [npo, setNpo] = React.useState("");
+  const [npo, setNpo] = React.useState();
 
   // DATA FETCHING
   const navigate = useNavigate();
@@ -76,10 +76,20 @@ const Dashboard = () => {
   const npos = data.npo_partners;
   console.log("npo" + npos);
 
-  console.log(npo);
+  console.log("filter " + npo);
 
   console.log(history[0].npo_id);
-  const filteredHistory = history.filter((donation) => donation.npo_id === npo);
+
+  let filteredHistory = history.filter((donation) => donation.npo_id === npo);
+
+  function checkFilter(){
+    if (npo === "all"){
+      return history
+    }else {
+      return filteredHistory;
+    }
+
+  }
 
   console.log("harry" + filteredHistory);
 
@@ -215,8 +225,9 @@ const Dashboard = () => {
                       value={npo}
                       label="Npos"
                       onChange={handleChange1}
+                      defaultValue={"all"}
                     >
-                      <MenuItem value={""}>all</MenuItem>
+                      <MenuItem value={"all"}>all</MenuItem>
                       {npos.map((item) => (
                         <MenuItem value={item._id}>{item._id}</MenuItem>
                       ))}
@@ -230,7 +241,7 @@ const Dashboard = () => {
                   >
                     <Grid item>
                       <div className="donation-list-container">
-                        {filteredHistory.map((donation) => (
+                        {checkFilter().map((donation) => (
                           <DonationListItem donation={donation} />
                         ))}
                       </div>
