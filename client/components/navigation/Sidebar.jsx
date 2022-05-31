@@ -17,15 +17,13 @@ import GroupIcon from "@mui/icons-material/Group";
 import ReceiptIcon from "@mui/icons-material/Receipt";
 import { UserContext } from "../../App";
 import SpeedIcon from "@mui/icons-material/Speed";
+import { useLocation } from "react-router-dom";
 
 const Sidebar = (props) => {
-  const [selectedTab, setSelectedTab] = useState("dashboard");
   const user = React.useContext(UserContext);
-  const [url, setUrl] = useState();
 
-  useEffect(() => {
-    setUrl(window.location.href);
-  }, []);
+  const { pathname: location } = useLocation();
+  console.log("location", location);
 
   function handleLogoutClick() {
     location.href = window.location.origin + "/auth/logout";
@@ -75,28 +73,20 @@ const Sidebar = (props) => {
       </div>
       <div className="nav-item-container">
         <div>
-          <Link
-            onClick={() => handleNavigationState("dashboard")}
-            to={"/"}
-            style={{ textDecoration: "none" }}
-          >
+          <Link to={"/"} style={{ textDecoration: "none" }}>
             <div
               className={`${
-                selectedTab === "dashboard" ? "nav-item-selected" : "nav-item"
+                location === "/" ? "nav-item-selected" : "nav-item"
               }`}
             >
               <DashboardIcon sx={{ marginRight: "20px" }} />
               <div>Dashboard</div>
             </div>
           </Link>
-          <Link
-            onClick={() => handleNavigationState("partners")}
-            to={"our-partners"}
-            style={{ textDecoration: "none" }}
-          >
+          <Link to={"our-partners"} style={{ textDecoration: "none" }}>
             <div
               className={`${
-                selectedTab === "partners" ? "nav-item-selected" : "nav-item"
+                location === "/our-partners" ? "nav-item-selected" : "nav-item"
               }`}
             >
               <VolunteerActivismIcon sx={{ marginRight: "20px" }} />
@@ -104,56 +94,40 @@ const Sidebar = (props) => {
               <div>My Non-Profits</div>
             </div>
           </Link>
-          <Link
-            onClick={() => handleNavigationState("articles")}
-            to={"/articles"}
-            style={{ textDecoration: "none" }}
-          >
+          <Link to={"/articles"} style={{ textDecoration: "none" }}>
             <div
               className={`${
-                selectedTab === "articles" ? "nav-item-selected" : "nav-item"
+                location === "/articles" ? "nav-item-selected" : "nav-item"
               }`}
             >
               <ArticleIcon sx={{ marginRight: "20px" }} />
               <div>Articles</div>
             </div>
           </Link>
-          <Link
-            onClick={() => handleNavigationState("discover")}
-            to={"/discover"}
-            style={{ textDecoration: "none" }}
-          >
+          <Link to={"/discover"} style={{ textDecoration: "none" }}>
             <div
               className={`${
-                selectedTab === "discover" ? "nav-item-selected" : "nav-item"
+                location === "/discover" ? "nav-item-selected" : "nav-item"
               }`}
             >
               <SearchIcon sx={{ marginRight: "20px" }} />
               <div>Discover Non-Profits</div>
             </div>
           </Link>
-          <Link
-            onClick={() => handleNavigationState("wrapped")}
-            to={"/wrapped"}
-            style={{ textDecoration: "none" }}
-          >
+          <Link to={"/wrapped"} style={{ textDecoration: "none" }}>
             <div
               className={`${
-                selectedTab === "wrapped" ? "nav-item-selected" : "nav-item"
+                location === "/wrapped" ? "nav-item-selected" : "nav-item"
               }`}
             >
               <SlowMotionVideoIcon sx={{ marginRight: "20px" }} />
               <div>Meliora Wrapped</div>
             </div>
           </Link>
-          <Link
-            onClick={() => handleNavigationState("templates")}
-            to={"/templates"}
-            style={{ textDecoration: "none" }}
-          >
+          <Link to={"/templates"} style={{ textDecoration: "none" }}>
             <div
               className={`${
-                selectedTab === "templates" ? "nav-item-selected" : "nav-item"
+                location === "/templates" ? "nav-item-selected" : "nav-item"
               }`}
             >
               <CreateIcon sx={{ marginRight: "20px" }} />
@@ -162,56 +136,40 @@ const Sidebar = (props) => {
           </Link>
         </div>
         <div style={{ marginBottom: "10px" }}>
-          <Link
-            onClick={() => handleNavigationState("accounting")}
-            to={"/accounting"}
-            style={{ textDecoration: "none" }}
-          >
+          <Link to={"/accounting"} style={{ textDecoration: "none" }}>
             <div
               className={`${
-                selectedTab === "accounting" ? "nav-item-selected" : "nav-item"
+                location === "/accounting" ? "nav-item-selected" : "nav-item"
               }`}
             >
               <BarChartIcon sx={{ marginRight: "20px" }} />
               <div>Accounting</div>
             </div>
           </Link>
-          <Link
-            onClick={() => handleNavigationState("settings")}
-            to={"/templates"}
-            style={{ textDecoration: "none" }}
-          >
+          <Link to={"/templates"} style={{ textDecoration: "none" }}>
             <div
               className={`${
-                selectedTab === "" ? "nav-item-selected" : "nav-item"
+                location === "/settings" ? "nav-item-selected" : "nav-item"
               }`}
             >
               <SettingsIcon sx={{ marginRight: "20px" }} />
               <div>Settings</div>
             </div>
           </Link>
-          <Link
-            onClick={() => handleNavigationState("settings")}
-            to={"/templates"}
-            style={{ textDecoration: "none" }}
-          >
+          <Link to={"/templates"} style={{ textDecoration: "none" }}>
             <div
               className={`${
-                selectedTab === "" ? "nav-item-selected" : "nav-item"
+                location === "/users" ? "nav-item-selected" : "nav-item"
               }`}
             >
               <GroupIcon sx={{ marginRight: "20px" }} />
               <div>Users</div>
             </div>
           </Link>
-          <Link
-            onClick={() => handleNavigationState("settings")}
-            to={"/templates"}
-            style={{ textDecoration: "none" }}
-          >
+          <Link to={"/templates"} style={{ textDecoration: "none" }}>
             <div
               className={`${
-                selectedTab === "" ? "nav-item-selected" : "nav-item"
+                location === "/billing" ? "nav-item-selected" : "nav-item"
               }`}
             >
               <ReceiptIcon sx={{ marginRight: "20px" }} />
