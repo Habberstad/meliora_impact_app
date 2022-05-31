@@ -22,6 +22,11 @@ export const LoginPage = () => {
   const [subscriptionType, setSubscriptionType] = useState("");
   const [paymentOption, setPaymentOption] = useState("");
   const [isOverBreakpoint, setIsOverBreakpoint] = useState(true);
+  const [user, setUser] = useState(null);
+  const [userName, setUsername] = useState(null);
+  const [userEmail, setUserEmail] = useState(null);
+  const [cookies, setCookies] = useState(null);
+
   window.addEventListener("resize", () => {
     setIsOverBreakpoint(window.innerWidth >= 1000);
   });
@@ -63,9 +68,6 @@ export const LoginPage = () => {
     navigate("/");
   };
 
-  const [user, setUser] = useState(null);
-  const [cookies, setCookies] = useState(null);
-
   useEffect(() => {
     const getUser = () => {
       fetch(window.location.origin + "/auth/login/success", {
@@ -83,6 +85,8 @@ export const LoginPage = () => {
         })
         .then((resObject) => {
           setUser(resObject.user);
+          setUsername(resObject.user.displayName);
+          setUserEmail("Not getting it, harry will fix");
           setCookies(resObject.cookies);
         })
         .catch((err) => {
@@ -164,6 +168,8 @@ export const LoginPage = () => {
             path={"/register-summary"}
             element={
               <RegistrationSummary
+                userName={userName}
+                userEmail={userEmail}
                 orgName={orgName}
                 orgNumber={orgNumber}
                 orgAdress={orgAdress}

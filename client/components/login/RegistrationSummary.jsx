@@ -21,8 +21,8 @@ export const RegistrationSummary = (props) => {
       </div>
       <div className={"login-content-main"}>
         <h4>Amin</h4>
-        <p>navn</p>
-        <p>epost</p>
+        <p>{props.userName}</p>
+        <p>{props.userEmail}</p>
         <h3>Company</h3>
         <p>{props.orgName}</p>
         <p>{props.orgAdress}</p>
