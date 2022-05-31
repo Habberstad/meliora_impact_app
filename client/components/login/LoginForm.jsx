@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import GoogleIcon from "../../media/google_icon.png";
 import { BackButton } from "./BackButton";
+import { identificationButtonStyle } from "./login-styles";
 
 export function LoginForm(props) {
   return (
@@ -21,20 +22,12 @@ export function LoginForm(props) {
       <div className={"login-content-main"}>
         <Button
           onClick={props.google}
-          sx={{
-            mb: "22px",
-            borderColor: "#637381",
-            "&:hover": {
-              borderColor: "#000",
-              backgroundColor: "#FFF",
-              color: "#637381",
-            },
-          }}
+          sx={identificationButtonStyle}
           variant={"outlined"}
           fullWidth
           size={"large"}
         >
-          <img style={{ height: "25px" }} src={GoogleIcon} alt="GoogleIcon" />
+          <img style={{ height: "40px" }} src={GoogleIcon} alt="GoogleIcon" />
         </Button>
         <Divider style={{ width: "100%" }}>OR</Divider>
         <form className="login-form">
