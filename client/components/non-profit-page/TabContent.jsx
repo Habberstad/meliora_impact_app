@@ -6,6 +6,7 @@ import KeyInformationTab from "./key-information-tab/KeyInformationTab";
 import * as React from "react";
 
 export function TabContent({ selectedTab, data }) {
+  console.log(data);
   return (
     <>
       {selectedTab === "overview" && (
@@ -28,7 +29,7 @@ export function TabContent({ selectedTab, data }) {
       {selectedTab === "impact" && (
         <>
           <div className="content-container">
-            <ImpactTabContent />
+            <ImpactTabContent data={data.impact_tab} />
           </div>
         </>
       )}

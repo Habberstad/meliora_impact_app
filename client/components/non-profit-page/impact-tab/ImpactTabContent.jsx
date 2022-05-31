@@ -1,4 +1,4 @@
-import ImpactTile from "./ImpactTile";
+import ImpactTile from "./GreenImpactTile";
 import "../../../styles/npo-profile-page-styles/impact-styles.css";
 import contributorsImg from "../npo-media/contributors.png";
 import { LeftMediaCard } from "./LeftMediaCard";
@@ -7,80 +7,35 @@ import { DataSectionMediaCard } from "./DataSectionMediaCard";
 import HandshakeIcon from "@mui/icons-material/Handshake";
 import OpacityIcon from "@mui/icons-material/Opacity";
 import BeachAccessIcon from "@mui/icons-material/BeachAccess";
+import GreenImpactTile from "./GreenImpactTile";
+import BlueImpactTile from "./BlueImpactTile";
+import PinkImpactTile from "./PinkImpactTile";
+import YellowMiddleTile from "./YellowMiddleTile";
+import PinkMiddleTile from "./PinkMiddleTile";
+import BlueMiddleTile from "./BlueMiddleTile";
+import GreenMiddleTile from "./GreenMiddleTile";
 
-const ImpactTabContent = () => {
+const ImpactTabContent = ({ data }) => {
+  console.log(data);
   return (
     <div className="impact-main-container">
       <div className="impact-top-tile-section">
-        <ImpactTile />
-        <ImpactTile />
-        <ImpactTile />
-        <ImpactTile />
+        <GreenImpactTile data={data.top_tile_1} />
+        <BlueImpactTile data={data.top_tile_2} />
+        <PinkImpactTile data={data.top_tile_3} />
+        <GreenImpactTile data={data.top_tile_4} />
       </div>
       <div className="impact-media-section">
         <LeftMediaCard />
         <RightMediaCard />
       </div>
       <div className="impact-data-section">
-        {/*TODO: REFACTOR INTO RE-USABLE COMPONENTS*/}
         <div className="left-data-container">
-          <div
-            style={{ backgroundColor: "#A68BB7", color: "#FFF" }}
-            className="small-data-box"
-          >
-            <div className="icon-container">
-              <HandshakeIcon sx={{ fontSize: "35px" }} />
-            </div>
-            <div className="main-data-text">Donate</div>
-            <div
-              style={{
-                fontSize: "14px",
-                margin: "0 10px",
-                textAlign: "center",
-              }}
-            >
-              And make the world a better place with us
-            </div>
-          </div>
-          <div
-            style={{ backgroundColor: "#E0EFF4" }}
-            className="small-data-box"
-          >
-            <div className="icon-container">
-              <OpacityIcon sx={{ fontSize: "35px" }} />
-            </div>
-            <div className="main-data-text">Donate</div>
-            <div
-              style={{
-                fontSize: "14px",
-                margin: "0 10px",
-                textAlign: "center",
-              }}
-            >
-              And make the world a better place with us
-            </div>
-          </div>
-          <div
-            style={{ backgroundColor: "#FEFFE0" }}
-            className="small-data-box"
-          >
-            <div className="icon-container">
-              <BeachAccessIcon sx={{ fontSize: "35px" }} />
-            </div>
-            <div className="main-data-text">Donate</div>
-            <div
-              style={{
-                fontSize: "14px",
-                margin: "0 10px",
-                textAlign: "center",
-              }}
-            >
-              And make the world a better place with us
-            </div>
-          </div>
-          <div className="small-data-box"></div>
+          <YellowMiddleTile data={data.middle_tile_1} />
+          <PinkMiddleTile data={data.middle_tile_2} />
+          <BlueMiddleTile data={data.middle_tile_3} />
+          <GreenMiddleTile data={data.middle_tile_4} />
         </div>
-        {/*TODO: REFACTOR INTO RE-USABLE COMPONENTS*/}
         <DataSectionMediaCard />
       </div>
       <div className="data-map-section">
