@@ -10,7 +10,12 @@ export function DonationListItem({ donation, npoList }) {
       <div className="donation-timeline-dot"></div>
       <div className="donation-data-container">
         <div className="left-donation-text">
-          <div style={{ fontSize: "14px", fontWeight: "500" }}>{npo.name}</div>
+          <div style={{ fontSize: "13px", fontWeight: "500" }}>
+            Donated to{" "}
+            <span style={{ color: "#551477", fontWeight: "600" }}>
+              {npo.name}
+            </span>
+          </div>
           <div
             style={{
               fontSize: "14px",

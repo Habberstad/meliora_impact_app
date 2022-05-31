@@ -23,7 +23,6 @@ const Dashboard = () => {
 
   const [npo, setNpo] = React.useState("");
 
-  // DATA FETCHING
   const navigate = useNavigate();
   const { getCurrentUser } = useContext(UserApiContext);
   const { loading, error, data } = useLoading(
@@ -40,24 +39,15 @@ const Dashboard = () => {
   };
 
   if (loading) return isLoading();
-
   if (error) return <Error error={error} />;
 
-  console.log("data", data);
-
   const highlighted = data.npo_partners;
-  console.log("high", highlighted);
   const history = data.donation_history;
-  console.log("his" + history);
   const npoList = data.npo_partners;
-  console.log("npo" + npoList);
 
-  console.log(npo);
-
-  console.log(history[0].npo_id);
   const filteredHistory = history.filter((donation) => donation.npo_id === npo);
 
-  console.log("harry" + filteredHistory);
+  let donationHistory = filteredHistory.length > 0 ? filteredHistory : history;
 
   return (
     <div className={"dashboard-wrapper"}>
@@ -189,10 +179,12 @@ const Dashboard = () => {
                     <Select
                       className={"donation-filter-select"}
                       value={npo}
-                      label="Npos"
+                      label="Partner"
                       onChange={handleChange1}
                     >
-                      <MenuItem value={""}>all</MenuItem>
+                      <MenuItem value={""} label="All">
+                        All
+                      </MenuItem>
                       {npoList.map((x) => (
                         <MenuItem key={x._id} value={x._id}>
                           {x._id}
@@ -208,7 +200,7 @@ const Dashboard = () => {
                   >
                     <Grid item>
                       <div className="donation-list-container">
-                        {filteredHistory.map((donation) => (
+                        {donationHistory.map((donation) => (
                           <DonationListItem
                             npoList={npoList}
                             donation={donation}
