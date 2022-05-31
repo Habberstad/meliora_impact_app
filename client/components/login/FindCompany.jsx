@@ -75,7 +75,13 @@ export const FindCompany = ({ handleCompanyInfo }) => {
     <div className={"login-content"}>
       <BackButton />
       <div className={"login-content-header"}>
-        <h1>Find Your Company</h1>
+        <div>
+          Find Your <br></br>Company
+        </div>
+        <p>
+          Let's <strong>connect</strong> to your company! <br></br>
+          Search on name or <strong>organizational</strong> number
+        </p>
       </div>
       <TextField
         onChange={onChangeHandler}

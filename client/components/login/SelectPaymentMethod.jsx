@@ -3,6 +3,7 @@ import { Button, Checkbox, Radio } from "@mui/material";
 import { useNavigate } from "react-router";
 import { useState } from "react";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import { submitButtonStyle } from "./login-styles";
 
 export const SelectPaymentMethod = (props) => {
   const [selectedOption, setSelectedOption] = useState(props.paymentOption);
@@ -28,14 +29,19 @@ export const SelectPaymentMethod = (props) => {
         >
           <p>
             {props.subscriptionType === "premium"
-              ? "Meliora Parnter"
+              ? "Meliora Partner"
               : "Freemium"}
           </p>
           <CheckCircleIcon />
         </div>
-        <p>Welcome, {props.orgName}</p>
+        <p>
+          Welcome, <strong>{props.orgName}</strong>!
+        </p>
+        <p>
+          Please select your <strong>preferred</strong> payment method
+        </p>
       </div>
-      <div className={"payment-options-container login-content-main"}>
+      <div className={"payment-options-container"}>
         <div
           className={`payment-option-container ${
             selectedOption === "klarna" && "selected-payment-option"
@@ -44,7 +50,7 @@ export const SelectPaymentMethod = (props) => {
         >
           <img
             src="https://www.elkjop.no/resource/responsive-image/1744350/hero/mobile/3/750/562/ccc-payment-klarna-logo-on-pink-background-mobile.png"
-            alt="png"
+            alt="klarna"
           />
         </div>
         <div
@@ -68,7 +74,7 @@ export const SelectPaymentMethod = (props) => {
             src="https://www.notebookcheck.net/fileadmin/Notebooks/News/_nc3/paypal_logo.jpg"
             alt="paypal"
           />
-        </div>{" "}
+        </div>
         <div
           className={`payment-option-container ${
             selectedOption === "applepay" && "selected-payment-option"
@@ -77,24 +83,14 @@ export const SelectPaymentMethod = (props) => {
         >
           <img
             src="https://riskconsulting.rs/wp-content/uploads/2014/03/apple-pay-logo.jpg"
-            alt="apple_pay"
+            alt="applepay"
           />
         </div>
       </div>
       <Button
         disabled={!selectedOption}
         onClick={handlePaymentTypeSubmit}
-        sx={{
-          width: "190px",
-          height: "60px",
-          borderRadius: "8px",
-          backgroundColor: "#551477",
-          marginTop: "80px",
-          "&:hover": {
-            backgroundColor: "#aa55d9",
-            color: "#FFF",
-          },
-        }}
+        sx={submitButtonStyle}
         variant="contained"
       >
         Next

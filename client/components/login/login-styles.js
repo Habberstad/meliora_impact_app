@@ -29,14 +29,42 @@ export const selectedCompanyListItem = {
   },
 };
 
+export const subscriptionTypeFreemium = {
+  justifyContent: "space-between",
+  mb: "22px",
+  borderColor: "#637381",
+  color: "#000",
+  border: "solid 0.5px lightgrey",
+  backgroundColor: "#FFF",
+  "&:hover": {
+    borderColor: "#b8f0da",
+    backgroundColor: "#B8F0DA",
+    color: "#000",
+  },
+};
+
+export const selectedSubsciptionTypeFreemium = {
+  justifyContent: "space-between",
+  mb: "22px",
+  borderColor: "#b8f0da",
+  backgroundColor: "#B8F0DA",
+  color: "#000",
+  "&:hover": {
+    borderColor: "#B8F0DA",
+    backgroundColor: "#B8F0DA",
+    color: "#000",
+  },
+};
+
 export const subscriptionTypePremium = {
   justifyContent: "space-between",
   mb: "22px",
   borderColor: "#A400FF",
-  backgroundColor: "#F6E8FF",
   color: "#000",
+  border: "solid 0.5px lightgrey",
+  backgroundColor: "#FFF",
   "&:hover": {
-    borderColor: "#F6E8FF",
+    borderColor: "#A400FF",
     backgroundColor: "#7209B7",
     color: "#FFF",
   },
@@ -54,38 +82,14 @@ export const selectedSubsciptionTypePremium = {
     color: "#FFF",
   },
 };
-export const subscriptionTypeFreemium = {
-  justifyContent: "space-between",
-  mb: "22px",
-  borderColor: "#637381",
-  color: "#000",
-  "&:hover": {
-    borderColor: "#464D51",
-    backgroundColor: "#B8F0DA",
-    color: "#000",
-  },
-};
-
-export const selectedSubsciptionTypeFreemium = {
-  justifyContent: "space-between",
-  mb: "22px",
-  borderColor: "#464D51",
-  backgroundColor: "#B8F0DA",
-  color: "#000",
-  "&:hover": {
-    borderColor: "#464D51",
-    backgroundColor: "#B8F0DA",
-    color: "#000",
-  },
-};
 
 export const submitButtonStyle = {
   width: "190px",
-  height: "60px",
+  height: "50px",
   maxWidth: "190px",
-  maxHeight: "60px",
+  maxHeight: "50px",
   minWidth: "190px",
-  minHeight: "60px",
+  minHeight: "50px",
   borderRadius: "8px",
   alignSelf: "center",
   backgroundColor: "#551477",
@@ -93,5 +97,19 @@ export const submitButtonStyle = {
   "&:hover": {
     backgroundColor: "#aa55d9",
     color: "#FFF",
+  },
+};
+
+export const identificationButtonStyle = {
+  justifyContent: "center",
+  mb: "22px",
+  borderColor: "#637381",
+  color: "#000",
+  backgroundColor: "#FFF",
+  border: "solid 0.5px lightgrey",
+  "&:hover": {
+    borderColor: "#000",
+    backgroundColor: "#B8F0DA",
+    color: "#637381",
   },
 };
