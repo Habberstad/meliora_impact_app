@@ -78,3 +78,20 @@ export const selectedSubsciptionTypeFreemium = {
     color: "#000",
   },
 };
+
+export const submitButtonStyle = {
+  width: "190px",
+  height: "60px",
+  maxWidth: "190px",
+  maxHeight: "60px",
+  minWidth: "190px",
+  minHeight: "60px",
+  borderRadius: "8px",
+  alignSelf: "center",
+  backgroundColor: "#551477",
+  marginTop: "80px",
+  "&:hover": {
+    backgroundColor: "#aa55d9",
+    color: "#FFF",
+  },
+};

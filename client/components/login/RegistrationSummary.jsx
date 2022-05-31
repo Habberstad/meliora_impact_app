@@ -1,12 +1,17 @@
 import { Button } from "@mui/material";
 import { UserApiContext } from "../../api-client/userApiContext";
 import { useContext } from "react";
+import { submitButtonStyle } from "./login-styles";
 
 export const RegistrationSummary = (props) => {
   const { getCurrentUser } = useContext(UserApiContext);
   const user = getCurrentUser();
   console.log(user);
   /*Todo ask harry if this works*/
+
+  const handleSubmit = () => {
+    props.handleSubmit();
+  };
 
   return (
     <div className="login-content">
@@ -30,7 +35,9 @@ export const RegistrationSummary = (props) => {
           <p>{props.paymentOption}</p>
         )}
       </div>
-      <Button>Get started, bitch</Button>
+      <Button onClick={handleSubmit} sx={submitButtonStyle} variant="contained">
+        Confirm
+      </Button>
     </div>
   );
 };
