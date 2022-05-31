@@ -120,12 +120,10 @@
     color: white;
     top: 65%;
     font-size: 17px;
-}
-
-.socialmedia-template-content-bot:hover {
-    text-decoration: underline;
     cursor: pointer;
 }
+
+
 
 
 /************************
@@ -202,6 +200,9 @@
 .highlighted-partners-progress{
 }
 
+.MuiPaper-root.MuiAccordion-root::before {
+    background-color: #FFE7D9;
+}
 
 
 
@@ -257,6 +258,7 @@
 }
 
 .donation-history-timeline-container{
+
 }
 
 .donation-history-content {
