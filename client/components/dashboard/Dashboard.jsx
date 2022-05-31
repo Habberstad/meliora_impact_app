@@ -15,31 +15,7 @@ import { isLoading } from "../shared-components/Loading";
 import { Error } from "../shared-components/Error";
 import { ImpactSection } from "./ImpactSection";
 import { useNavigate } from "react-router";
-
-function DonationListItem({ donation: { payment_amount, date } }) {
-  return (
-    <div className="donation-list-item">
-      <div className="donation-timeline-dot"></div>
-      <div className="donation-data-container">
-        <div className="left-donation-text">
-          <div style={{ fontSize: "14px", fontWeight: "500" }}>
-            Donated to Safe the Coral
-          </div>
-          <div
-            style={{
-              fontSize: "14px",
-              fontWeight: "400",
-              marginTop: "3px",
-            }}
-          >
-            {date}
-          </div>
-        </div>
-        <div className="right-donation-text">{payment_amount}kr</div>
-      </div>
-    </div>
-  );
-}
+import { DonationListItem } from "./DonationListItem";
 
 const Dashboard = () => {
   //TODO: Mer beskrivende navn på state. F.eks. expandPartnerAccordion
@@ -73,8 +49,8 @@ const Dashboard = () => {
   console.log("high", highlighted);
   const history = data.donation_history;
   console.log("his" + history);
-  const npos = data.npo_partners;
-  console.log("npo" + npos);
+  const npoList = data.npo_partners;
+  console.log("npo" + npoList);
 
   console.log(npo);
 
@@ -217,8 +193,10 @@ const Dashboard = () => {
                       onChange={handleChange1}
                     >
                       <MenuItem value={""}>all</MenuItem>
-                      {npos.map((item) => (
-                        <MenuItem value={item._id}>{item._id}</MenuItem>
+                      {npoList.map((x) => (
+                        <MenuItem key={x._id} value={x._id}>
+                          {x._id}
+                        </MenuItem>
                       ))}
                     </Select>
                   </div>
@@ -231,7 +209,10 @@ const Dashboard = () => {
                     <Grid item>
                       <div className="donation-list-container">
                         {filteredHistory.map((donation) => (
-                          <DonationListItem donation={donation} />
+                          <DonationListItem
+                            npoList={npoList}
+                            donation={donation}
+                          />
                         ))}
                       </div>
                     </Grid>
