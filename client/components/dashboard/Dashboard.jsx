@@ -45,9 +45,11 @@ const Dashboard = () => {
   if (error) return <Error error={error} />;
 
   const highlighted = data.npo_partners;
-  console.log("parn", highlighted);
+  console.log("high", highlighted);
   const history = data.donation_history;
+  console.log("his" + history);
   const npos = data.npo_partners;
+  console.log("npo" + npos);
 
   return (
     <div className={"dashboard-wrapper"}>
@@ -186,7 +188,10 @@ const Dashboard = () => {
                               <div className={"monthly-donation"}>
                                 {donation.type}
                                 <span className="donation-npo-name">
-                                  {npos.map((npo) => {if (npo._id === donation.npo_id) return npo.name;})}
+                                  {npos.map((npo) => {
+                                    if (npo._id === donation.npo_id)
+                                      return npo.name;
+                                  })}
                                 </span>
                                 <div>{donation.date}</div>
                               </div>
