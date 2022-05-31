@@ -12,6 +12,7 @@ import { SelectPaymentMethod } from "./SelectPaymentMethod";
 import { SelectIdentificationMethod } from "./SelectIdentificationMethod";
 import { UserApiContext } from "../../api-client/userApiContext";
 import { RegistrationSummary } from "./RegistrationSummary";
+import { PostLoginIntroSelection } from "./PostLoginIntroSelection";
 
 export const LoginPage = () => {
   const navigate = useNavigate();
@@ -115,6 +116,7 @@ export const LoginPage = () => {
         <Link to={"/select-subscription"}>select</Link>
         <Link to={"/select-payment-method"}>payment</Link>
         <Link to={"/register-summary"}>summary</Link>
+        <Link to={"/post-login"}>Post</Link>
       </div>
       <div className="login-container">
         <Routes>
@@ -177,6 +179,13 @@ export const LoginPage = () => {
                 subscriptionType={subscriptionType}
                 handleSubmit={handleSubmit}
               />
+            }
+          />
+          <Route
+            exact
+            path={"/post-login"}
+            element={
+              <PostLoginIntroSelection subscriptionType={subscriptionType} />
             }
           />
           <Route exact path={"/register-form"} element={<RegisterForm />} />
