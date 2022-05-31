@@ -148,26 +148,24 @@ export const FindCompany = ({ handleCompanyInfo }) => {
         </div>
       ) : null}
 
-      {!showList && (
-        <Button
-          disabled={!selectedCompany}
-          onClick={handleSendCompanyInfo}
-          sx={{
-            width: "190px",
-            height: "60px",
-            borderRadius: "8px",
-            backgroundColor: "#551477",
-            marginTop: "80px",
-            "&:hover": {
-              backgroundColor: "#aa55d9",
-              color: "#FFF",
-            },
-          }}
-          variant="contained"
-        >
-          Next
-        </Button>
-      )}
+      <Button
+        disabled={!selectedCompany}
+        onClick={handleSendCompanyInfo}
+        sx={{
+          width: "190px",
+          height: "60px",
+          borderRadius: "8px",
+          backgroundColor: "#551477",
+          marginTop: "80px",
+          "&:hover": {
+            backgroundColor: "#aa55d9",
+            color: "#FFF",
+          },
+        }}
+        variant="contained"
+      >
+        Next
+      </Button>
     </div>
   );
 };
