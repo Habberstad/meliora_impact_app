@@ -26,7 +26,9 @@ import { useNavigate } from "react-router";
 
 const Dashboard = () => {
   //TODO: Mer beskrivende navn på state. F.eks. expandPartnerAccordion
-  const [expanded, setExpanded] = React.useState("panel1");
+  const [expanded, setExpanded] = React.useState(0);
+
+  const [npo, setNpo] = React.useState("");
 
   // DATA FETCHING
   const navigate = useNavigate();
@@ -37,7 +39,11 @@ const Dashboard = () => {
   );
 
   const handleChange = (panel) => (event, isExpanded) => {
-    setExpanded(isExpanded ? panel : false);
+    setExpanded(isExpanded ? panel : true);
+  };
+
+  const handleChange1 = (event) => {
+    setNpo(event.target.value);
   };
 
   if (loading) return isLoading();
@@ -96,14 +102,14 @@ const Dashboard = () => {
                     Highlighted partners
                   </div>
                   <div
-                    onClick={() => navigate("/")}
+                    onClick={() => navigate("/our-partners")}
                     className="highlighted-view-all"
                   >
                     View all
                   </div>
                 </div>
                 <div className={"accordion-wrapper"}>
-                  {highlighted.map((npo) => (
+                  {highlighted.map((npo, index) => (
                     <Accordion
                       sx={{
                         backgroundColor: "#FCEFE7",
@@ -111,14 +117,10 @@ const Dashboard = () => {
                         borderRadius: "16px",
                         dropShadow: "0",
                       }}
-                      expanded={expanded === npo._id}
-                      onChange={handleChange(npo._id)}
+                      expanded={expanded === index}
+                      onChange={handleChange(index)}
                     >
-                      <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="panel1bh-content"
-                        id="panel1bh-header"
-                      >
+                      <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                         <div className={"accordion-title-container"}>
                           <LocalHospitalIcon />
                           <div className={"accordion-title"}>{npo.name}</div>
@@ -167,6 +169,24 @@ const Dashboard = () => {
             <Grid item xl={5} lg={5} className={"donation-history-container"}>
               <div className={"donation-history-filter"}>
                 <div className={"donation-history-title"}>Donation History</div>
+                <div className={"donation-history-filter-wrapper"}>
+                  <div className={"donation-input-label-wrapper"}>
+                    <InputLabel>Npos</InputLabel>
+                  </div>
+                  <div className={"donation-filter-select-wrapper"}>
+                    <Select
+                      className={"donation-filter-select"}
+                      variant={"outlined"}
+                      value={handleChange1}
+                      label="Npos"
+                      onChange={handleChange1}
+                    >
+                      <MenuItem value={"redde havet"}>npo</MenuItem>
+                      <MenuItem value={"npo navn"}>npo1</MenuItem>
+                      <MenuItem value={"npo navn"}>npo2</MenuItem>
+                    </Select>
+                  </div>
+                </div>
 
                 <Grid
                   container
@@ -207,7 +227,7 @@ const Dashboard = () => {
                 </Grid>
                 <div className={"donation-see-all-wrapper"}>
                   <div
-                    onClick={() => navigate("/our-partners")}
+                    onClick={() => navigate("/accounting")}
                     className={"donation-see-all"}
                   >
                     See all donations
