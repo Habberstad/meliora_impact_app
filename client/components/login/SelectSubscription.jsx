@@ -10,6 +10,7 @@ import {
   subscriptionTypeFreemium,
   selectedSubsciptionTypePremium,
   subscriptionTypePremium,
+  submitButtonStyle,
 } from "./login-styles";
 
 export const SelectSubscription = (props) => {
@@ -24,7 +25,7 @@ export const SelectSubscription = (props) => {
     setSubscriptionType(subscription);
   };
 
-  const handleSubcriptionSubmit = () => {
+  const handleSubscriptionSubmit = () => {
     props.handleSubmit(subscriptionType);
 
     subscriptionType === "premium"
@@ -79,24 +80,7 @@ export const SelectSubscription = (props) => {
             <div>$ 7.99 / per month</div>
           </Button>
         </div>
-        <Button
-          disabled={!subscriptionType}
-          onClick={handleSubcriptionSubmit}
-          sx={{
-            width: "190px",
-            height: "60px",
-            borderRadius: "8px",
-            backgroundColor: "#551477",
-            marginTop: "80px",
-            "&:hover": {
-              backgroundColor: "#aa55d9",
-              color: "#FFF",
-            },
-          }}
-          variant="contained"
-        >
-          Next
-        </Button>
+
         <Button
           onClick={() => {
             setIsShowingInfo(!isShowingInfo);
@@ -123,6 +107,14 @@ export const SelectSubscription = (props) => {
       <div className={"subscription-type-information-container"}>
         {isShowingInfo && <SubscriptionInfoGrid />}
       </div>
+      <Button
+        disabled={!subscriptionType}
+        onClick={handleSubscriptionSubmit}
+        sx={{ ...submitButtonStyle, marginTop: "30px" }}
+        variant="contained"
+      >
+        Next
+      </Button>
     </div>
   );
 };

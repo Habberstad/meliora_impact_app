@@ -10,7 +10,11 @@
     display: flex;
     flex-direction: row;
     height: 100vh;
-    width: 100%
+    width: 100%;
+
+    background-size: cover;
+    background-image: url("../media/login_backdrop.png");
+    background-color: white;
 }
 
 .login-left-card {
@@ -55,8 +59,10 @@
     height: 500px;
     width: 50%;
     max-width: 600px;
-
+    display: flex;
+    flex-direction: column;
 }
+
 .login-form {
     width: 100%;
 }
@@ -79,7 +85,7 @@
 
 .back-container {
     display: flex;
-    align-self: flex-start;
+    align-items: center;
     font-size: 14px;
     text-decoration: underline;
     margin-bottom: 30px;
@@ -130,34 +136,32 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 104px;
-    height: 100px;
-    border: 2px solid #000;
-    border-radius: 10px;
+    width: 120px;
+    height: 120px;
+    border: 2px solid transparent;
+    border-radius: 5px;
 }
 .payment-option-container:hover {
-    border: 3px solid #551477;
-    width: 102px;
-    height: 99px;
-    border-radius: 12px;
-}
-
-.selected-payment-option {
-    border-color: #551477;
-    border-width: 3px;
-    width: 102px;
-    height: 99px;
-    border-radius: 12px;
-
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 120px;
+    height: 120px;
 }
 
 .payment-option-container img {
     object-fit: cover;
     width: 100%;
     height: 100%;
-    border-radius: 10px;
+    border-radius: 3px;
+}
+
+.selected-payment-option {
+    border-color: #551477;
+    border-radius: 5px;
 
 }
+
+
 
 .company-list-item {
     display: flex;
@@ -173,13 +177,10 @@
 
 /* LOGIN CONTENT */
 
-.login-content {
-    display: flex;
-    flex-direction: column;
-}
 
 .login-content-header {
     text-align: center;
+    margin: 0 0 50px 0;
 }
 
 .login-content-header div{
@@ -191,18 +192,18 @@
 .login-content-header p {
     font-size: 18px;
     font-weight: 500;
-    line-height: 20px;
+    line-height: 26px;
     margin: 0;
     padding: 0;
 }
 
 .login-content-main {
     width: 100%;
-    margin: 70px 0 0px 0;
 }
 
 .login-content-main Button {
     border-radius: 10px;
+    height: 50px;
 }
 
 .login-content-header-subscription-tag {
