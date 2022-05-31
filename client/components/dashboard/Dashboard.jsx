@@ -178,11 +178,11 @@ const Dashboard = () => {
                   <div className={"donation-filter-select-wrapper"}>
                     <Select
                       className={"donation-filter-select"}
-                      value={npo}
+                      defaultValue={"All"}
                       label="Partner"
                       onChange={handleChange1}
                     >
-                      <MenuItem value={""} label="All">
+                      <MenuItem value={"All"} label="All">
                         All
                       </MenuItem>
                       {npoList.map((x) => (
