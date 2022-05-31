@@ -88,8 +88,9 @@ export const SelectPaymentMethod = (props) => {
         </div>
       </div>
       <Tooltip
+        style={{ display: "flex", justifyContent: "center" }}
         title={!selectedOption ? "Select a payment method" : ""}
-        leaveDelay={1500}
+        leaveDelay={1000}
       >
         <span>
           <Button

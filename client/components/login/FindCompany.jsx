@@ -148,9 +148,11 @@ export const FindCompany = ({ handleCompanyInfo }) => {
           </div>
         </div>
       ) : null}
+
       <Tooltip
+        style={{ display: "flex", justifyContent: "center" }}
         title={!selectedCompany ? "Select your organization" : ""}
-        leaveDelay={1500}
+        leaveDelay={1000}
       >
         <span>
           <Button
