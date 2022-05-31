@@ -33,15 +33,19 @@ export const AccountingPage = (props) => {
   });
 
   return (
-    <div className="bg-gray-200 p-6">
+    <div >
       <button
         type="button"
         onClick={handlePrint}
       >
         {" "}
-        Print Resume{" "}
+        Print to PDF{" "}
       </button>
-      <Report ref={componentRef} />
+      <br/>
+      <br/>
+      <br/>
+      <h1>Donation history</h1>
+      <Report ref={componentRef} user={props.user} />
     </div>
   );
 };
