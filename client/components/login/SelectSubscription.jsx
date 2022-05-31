@@ -5,39 +5,56 @@ import { SubscriptionInfoGrid } from "./SubscriptionInfoGrid";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { useState } from "react";
+import {
+  selectedSubsciptionTypeFreemium,
+  subscriptionTypeFreemium,
+  selectedSubsciptionTypePremium,
+  subscriptionTypePremium,
+} from "./login-styles";
 
 export const SelectSubscription = (props) => {
   const [isShowingInfo, setIsShowingInfo] = useState(false);
+  const [subscriptionType, setSubscriptionType] = useState(
+    props.subscriptionType
+  );
 
   const navigate = useNavigate();
+
+  const handleSubscriptionSelect = (subscription) => {
+    setSubscriptionType(subscription);
+  };
+
+  const handleSubcriptionSubmit = () => {
+    props.handleSubmit(subscriptionType);
+
+    subscriptionType === "premium"
+      ? navigate("/select-payment-method")
+      : navigate("/register-summary");
+  };
 
   return (
     <div className="select-subscription-container">
       <div className={"login-content"}>
-        <BackButton />
+        <BackButton className={"login-back-button"} />
         <div className={"login-content-header"}>
-          <h3>Philanthropy is everything</h3>
+          <div>Philanthropy is everything</div>
           <p>Get started for free </p>
-          <p>Or</p>
-          <p>Get access to all our extended features as a Meliora Partner</p>
+          <p style={{ fontStyle: "italic" }}>or</p>
+          <p>
+            get access to <strong>all</strong> our extended features as a
+            <strong> Meliora Partner</strong>
+          </p>
         </div>
         <div className="login-content-main">
           <Button
             onClick={() => {
-              console.log("Fremium");
-              props.handleClick("freemium");
-              props.sumbit();
+              handleSubscriptionSelect("freemium");
             }}
-            sx={{
-              mb: "22px",
-              borderColor: "#637381",
-              color: "#000",
-              "&:hover": {
-                borderColor: "#000",
-                backgroundColor: "#FFF",
-                color: "#637381",
-              },
-            }}
+            sx={
+              subscriptionType === "freemium"
+                ? selectedSubsciptionTypeFreemium
+                : subscriptionTypeFreemium
+            }
             fullWidth
             variant={"outlined"}
             size={"large"}
@@ -47,53 +64,61 @@ export const SelectSubscription = (props) => {
           </Button>
           <Button
             onClick={() => {
-              console.log("premium");
-              props.handleClick("premium");
-              navigate("/select-payment-method");
+              handleSubscriptionSelect("premium");
             }}
-            sx={{
-              mb: "22px",
-              borderColor: "#A400FF",
-              backgroundColor: "#F6E8FF",
-              color: "#000",
-              "&:hover": {
-                borderColor: "#000",
-                backgroundColor: "#FFF",
-                color: "#637381",
-              },
-            }}
+            sx={
+              subscriptionType === "premium"
+                ? selectedSubsciptionTypePremium
+                : subscriptionTypePremium
+            }
             fullWidth
             variant={"outlined"}
             size={"large"}
-            endIcon={"$ 7.99 / per month"}
           >
-            Get Meliora Partner
-          </Button>
-          <Button
-            onClick={() => {
-              setIsShowingInfo(!isShowingInfo);
-            }}
-            sx={{
-              mb: "22px",
-              color: "#000",
-              "&:hover": {
-                color: "#637381",
-              },
-            }}
-            fullWidth
-            variant={"text"}
-            size={"large"}
-            endIcon={
-              isShowingInfo ? (
-                <KeyboardArrowUpIcon />
-              ) : (
-                <KeyboardArrowDownIcon />
-              )
-            }
-          >
-            What do you get?
+            <div>Get Meliora Partner</div>
+            <div>$ 7.99 / per month</div>
           </Button>
         </div>
+        <Button
+          disabled={!subscriptionType}
+          onClick={handleSubcriptionSubmit}
+          sx={{
+            width: "190px",
+            height: "60px",
+            borderRadius: "8px",
+            backgroundColor: "#551477",
+            marginTop: "80px",
+            "&:hover": {
+              backgroundColor: "#aa55d9",
+              color: "#FFF",
+            },
+          }}
+          variant="contained"
+        >
+          Next
+        </Button>
+        <Button
+          onClick={() => {
+            setIsShowingInfo(!isShowingInfo);
+          }}
+          sx={{
+            textDecoration: "underline",
+            padding: "0",
+            mb: "22px",
+            color: "#000",
+            "&:hover": {
+              color: "#637381",
+            },
+          }}
+          fullWidth
+          variant={"text"}
+          size={"large"}
+          endIcon={
+            isShowingInfo ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />
+          }
+        >
+          What do you get?
+        </Button>
       </div>
       <div className={"subscription-type-information-container"}>
         {isShowingInfo && <SubscriptionInfoGrid />}

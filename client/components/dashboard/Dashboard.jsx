@@ -47,7 +47,7 @@ const Dashboard = () => {
   const highlighted = data.npo_partners;
   console.log("parn", highlighted);
   const history = data.donation_history;
-  const name = data.npo_partners;
+  const npos = data.npo_partners;
 
   return (
     <div className={"dashboard-wrapper"}>
@@ -171,7 +171,7 @@ const Dashboard = () => {
                   className={"donation-history-timeline-container"}
                 >
                   <Grid item>
-                    {history.map((m) => (
+                    {history.map((donation) => (
                       <Timeline>
                         <TimelineItem>
                           <TimelineSeparator>
@@ -184,14 +184,14 @@ const Dashboard = () => {
                           <TimelineContent>
                             <div className={"donation-history-content"}>
                               <div className={"monthly-donation"}>
-                                {m.type}
+                                {donation.type}
                                 <span className="donation-npo-name">
-                                  {name[0].name}
+                                  {npos.map((npo) => {if (npo._id === donation.npo_id) return npo.name;})}
                                 </span>
-                                <div>{m.date}</div>
+                                <div>{donation.date}</div>
                               </div>
                               <div className={"donation-amount"}>
-                                {m.amount} kr
+                                {donation.payment_amount} kr
                               </div>
                             </div>
                           </TimelineContent>
