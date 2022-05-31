@@ -66,7 +66,7 @@ export const LoginPage = () => {
       payment_option: paymentOption,
       subscription_type: subscriptionType,
     });
-    navigate("/");
+    navigate("/post-login");
   };
 
   useEffect(() => {
@@ -185,7 +185,10 @@ export const LoginPage = () => {
             exact
             path={"/post-login"}
             element={
-              <PostLoginIntroSelection subscriptionType={subscriptionType} />
+              <PostLoginIntroSelection
+                subscriptionType={subscriptionType}
+                google={google}
+              />
             }
           />
           <Route exact path={"/register-form"} element={<RegisterForm />} />

@@ -1,4 +1,14 @@
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import { Button } from "@mui/material";
+import {
+  postLoginButtonBook,
+  postLoginButtonExplore,
+  postLoginButtons,
+  selectedSubsciptionTypePremium,
+  selectedSubscriptionTypeFreemium,
+  subscriptionTypeFreemium,
+  subscriptionTypePremium,
+} from "./login-styles";
 
 export const PostLoginIntroSelection = (props) => {
   return (
@@ -18,7 +28,31 @@ export const PostLoginIntroSelection = (props) => {
           <CheckCircleIcon />
         </div>
       </div>
-      <div className="login-content-main">heii</div>
+      <div className="login-content-main">
+        <Button
+          disabled
+          sx={postLoginButtonBook}
+          fullWidth
+          variant={"outlined"}
+          size={"large"}
+        >
+          Book an appointment with Meliora Impact
+          <div className={"subsctiption-type-info-badge"}>
+            <p>coming soon</p>
+          </div>
+        </Button>
+        <Button
+          onClick={() => {
+            props.google();
+          }}
+          sx={postLoginButtonExplore}
+          fullWidth
+          variant={"outlined"}
+          size={"large"}
+        >
+          Start Exploring the Platform
+        </Button>
+      </div>
     </div>
   );
 };

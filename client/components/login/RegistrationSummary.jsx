@@ -1,24 +1,19 @@
 import { Button } from "@mui/material";
-import { UserApiContext } from "../../api-client/userApiContext";
-import { useContext } from "react";
 import { reviewContainer, submitButtonStyle } from "./login-styles";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import { BackButton } from "./BackButton";
 
 export const RegistrationSummary = (props) => {
-  const { getCurrentUser } = useContext(UserApiContext);
-  const user = getCurrentUser();
-  console.log(user);
-  /*Todo ask harry if this works*/
-
   const handleSubmit = () => {
     props.handleSubmit();
   };
 
   return (
     <div className="login-content">
+      <BackButton />
       <div className="login-content-header">
         <div>
-          Welcome to <br></br> Meliora Impact!
+          Welcome to <br /> Meliora Impact!
         </div>
         <p>We're glad to have you onboard!</p>
         <p>Please check that the following information is correct</p>
@@ -51,7 +46,7 @@ export const RegistrationSummary = (props) => {
           ) : (
             <p>
               {props.paymentOption.toUpperCase()}
-              <br></br>$ 7.99 / PER MONTH
+              <br />$ 7.99 / PER MONTH
             </p>
           )}
         </div>
