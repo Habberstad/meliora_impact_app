@@ -54,6 +54,8 @@
     top: 220px;
     align-self: flex-start;
     justify-self: center;
+    cursor: pointer;
+    padding-left: 46px;
 }
 
 .students-forward-button{
@@ -62,6 +64,8 @@
     top: 220px;
     align-self: flex-end;
     gap: 10px;
+    cursor: pointer;
+    padding-right: 46px;
 
 }
 
@@ -262,4 +266,23 @@
     font-size: 16px;
     font-weight: 600;
     justify-self: flex-end;
+}
+
+.donation-see-all-wrapper{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.donation-see-all{
+    display: flex;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    justify-self: center;
+    align-self: center;
+    border-bottom: 1px solid #7209B7;
+    padding-bottom: 7px;
+    margin-bottom: 24px;
+    cursor: pointer;
 }

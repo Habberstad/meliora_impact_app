@@ -25,10 +25,8 @@ import WaterIcon from "@mui/icons-material/Water";
 import { useNavigate } from "react-router";
 
 const Dashboard = () => {
-  //TODO: Mer beskrivende navn på state.
-  const [age, setAge] = React.useState("");
   //TODO: Mer beskrivende navn på state. F.eks. expandPartnerAccordion
-  const [expanded, setExpanded] = React.useState(false);
+  const [expanded, setExpanded] = React.useState("panel1");
 
   // DATA FETCHING
   const navigate = useNavigate();
@@ -37,10 +35,6 @@ const Dashboard = () => {
     async () => await getCurrentUser(),
     []
   );
-
-  const handleChange1 = (event) => {
-    setAge(event.target.value);
-  };
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
@@ -109,7 +103,7 @@ const Dashboard = () => {
                   <Accordion
                     sx={{
                       backgroundColor: "#FCEFE7",
-                      width: "90%",
+                      width: "97%",
                       borderRadius: "16px",
                       dropShadow: "0",
                     }}
@@ -250,8 +244,17 @@ const Dashboard = () => {
                     ))}
                   </Grid>
                 </Grid>
+                <div className={"donation-see-all-wrapper"}>
+                  <div
+                    onClick={() => navigate("/templates")}
+                    className={"donation-see-all"}
+                  >
+                    See all donations
+                  </div>
+                </div>
               </div>
             </Grid>
+
             <Grid
               item
               xl={6}
