@@ -7,7 +7,7 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 export function ImpactSection(props) {
   const [counter, setCounter] = useState(1);
-  const impact = props.data.active_subscriptions[0].impacts;
+  const impact = props.data?.active_subscriptions[0]?.impacts;
 
   console.log("impact" + impact);
   const increase = () => {
@@ -57,7 +57,6 @@ export function ImpactSection(props) {
           </div>
         </div>
         <div className={"students-description-wrapper"}>
-          {" "}
           <div className="students-impact-content">
             {impact === undefined ? (
               <Link href={"/discover"} color={"inherit"}>
