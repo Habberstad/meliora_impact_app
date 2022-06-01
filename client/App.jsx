@@ -19,6 +19,7 @@ import { isLoading } from "./components/shared-components/Loading";
 import { Error } from "./components/shared-components/Error";
 import { UserApiContext } from "./api-client/userApiContext";
 import { AccountingPage } from "./components/financials/AccountingPage";
+import { SubscriptionPage } from "./components/financials/SubscriptionsPage";
 
 export const UserContext = React.createContext({
   Account: (user) => {},
@@ -62,6 +63,11 @@ function App() {
             exact
             path="/accounting"
             element={<AccountingPage user={data} />}
+          />
+          <Route
+            exact
+            path="/subscription"
+            element={<SubscriptionPage />}
           />
           <Route
             exact
