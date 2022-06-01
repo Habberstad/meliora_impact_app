@@ -23,11 +23,22 @@ body {
     align-items: center;
     width: 100%;
     flex-direction: column;
-    font-size: 20px;
 }
 
 .error-state h1 {
     font-size: 100px;
+    color: grey;
+    margin: 20px 0 20px 0;
+}
+
+.error-state h2 {
+    font-size: 30px;
+    color: grey;
+}
+
+.error-state p {
+    font-size: 20px;
+    font-weight: 500;
     color: grey;
 }
 

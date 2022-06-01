@@ -2,10 +2,31 @@ import mongoose from "mongoose";
 import { ObjectId } from "mongodb";
 
 const subscriptionSchema = new mongoose.Schema({
-  npo_id: ObjectId,
-  user_id: String,
-  payment_amount: Number,
-  payment_frequency: String,
+  npo_id: {
+    type: ObjectId,
+    required: true
+  },
+
+  user_id: {
+    type: String,
+    required: true
+  },
+
+  payment_amount: {
+    type: Number,
+    required: true
+  },
+
+  payment_frequency: {
+    type: String,
+    required: true
+  },
+
+  date: {
+    type: Date,
+    default: Date.now()
+  },
+
 });
 
 export default mongoose.model("Subscription", subscriptionSchema, "subscriptions");

@@ -4,6 +4,7 @@ import SchoolIcon from "@mui/icons-material/School";
 import OpacityIcon from "@mui/icons-material/Opacity";
 
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router";
 
 function filterBySearchWord(list, searchWord) {
   if (searchWord !== "") {
@@ -25,6 +26,8 @@ export function ProjectCard({
     alert("Should navigate to project: " + name + " (id: " + _id + ")");
   }
 
+  const navigate = useNavigate();
+
   return (
     <Card
       className={"npoCardStyle"}
@@ -38,7 +41,10 @@ export function ProjectCard({
         },
       }}
     >
-      <div className={"card-image-wrapper"}>
+      <div
+        onClick={() => navigate("/npo-profile/" + _id)}
+        className={"card-image-wrapper"}
+      >
         <CardMedia
           component="img"
           image={card_image}
@@ -103,7 +109,6 @@ export function ListProjects(props) {
         <Grid
           container
           columns={3}
-
           spacing={2}
           className={"card-container"}
           justifyContent="center"

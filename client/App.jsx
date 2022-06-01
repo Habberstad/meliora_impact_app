@@ -19,6 +19,8 @@ import { isLoading } from "./components/shared-components/Loading";
 import { Error } from "./components/shared-components/Error";
 import { UserApiContext } from "./api-client/userApiContext";
 import { AccountingPage } from "./components/financials/AccountingPage";
+import { TopNavBar } from "./components/navigation/TopNavBar";
+import { SubscriptionPage } from "./components/financials/SubscriptionsPage";
 
 export const UserContext = React.createContext({
   Account: (user) => {},
@@ -47,6 +49,7 @@ function App() {
     <div className="app-container">
       <UserContext.Provider value={data}>
         <div>{<Sidebar user={data} />}</div>
+        <TopNavBar />
         <Outlet />
 
         <Routes>
@@ -62,6 +65,11 @@ function App() {
             exact
             path="/accounting"
             element={<AccountingPage user={data} />}
+          />
+          <Route
+            exact
+            path="/subscription"
+            element={<SubscriptionPage />}
           />
           <Route
             exact

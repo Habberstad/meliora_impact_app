@@ -6,7 +6,7 @@ export const PostLoginIntroSelection = (props) => {
   return (
     <div className={"login-content"}>
       <div className="login-content-header">
-        <h1>Let’s get Started!</h1>
+        <div>Let’s get Started!</div>
         <div
           className={`login-content-header-subscription-tag ${
             props.subscriptionType === "premium" ? "premium" : "freemium"
