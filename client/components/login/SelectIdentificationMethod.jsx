@@ -35,6 +35,7 @@ export const SelectIdentificationMethod = (props) => {
           <img style={{ height: "40px" }} src={GoogleIcon} alt="GoogleIcon" />
         </Button>
         <Button
+          disabled
           onClick={() => {
             navigate("/register-form");
           }}
@@ -52,6 +53,7 @@ export const SelectIdentificationMethod = (props) => {
         </Button>
 
         <Button
+          disabled
           onClick={() => {
             navigate("/register-form");
           }}
