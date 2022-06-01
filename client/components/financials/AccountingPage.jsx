@@ -5,23 +5,20 @@ import { Button } from "@mui/material";
 import { useRef, useState } from "react";
 import Report from "./Report";
 import "../../styles/financesPage.css";
-import { PieChart } from "react-minimal-pie-chart";
-
 
 export const AccountingPage = (props) => {
   const componentRef = useRef();
   const handlePrint = useReactToPrint({
-    content: () => componentRef.current
+    content: () => componentRef.current,
   });
-
 
   return (
     <div className={"discover-page-container"}>
-
       {/* **************** START: INSIDE ONLY VISIBLE ON BROWSER PAGE **********************************************************************************/}
       <h1>Donation history</h1>
       <Button
-        type="button" onClick={handlePrint}
+        type="button"
+        onClick={handlePrint}
         variant="contained"
         sx={{
           mx: "10px",
@@ -31,14 +28,13 @@ export const AccountingPage = (props) => {
           borderRadius: "10px",
           backgroundColor: "#7209B7",
           "&:hover": {
-            backgroundColor: "#8d28ce"
-          }
+            backgroundColor: "#8d28ce",
+          },
         }}
       >
         Print to PDF
       </Button>
       {/* ***************** END: INSIDE ONLY VISIBLE ON BROWSER PAGE ********************************************************************************** */}
-
 
       <Report ref={componentRef} user={props.user} />
     </div>
