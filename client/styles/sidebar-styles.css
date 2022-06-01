@@ -62,7 +62,7 @@
     align-items: center;
     font-weight: 500;
     color: #637381;
-    font-size: 14px;
+    font-size: 13px;
     padding-left: 21px;
 }
 
@@ -74,7 +74,7 @@
     align-items: center;
     font-weight: 500;
     color: #551477;
-    font-size: 14px;
+    font-size: 13px;
     padding-left: 21px;
     border-right: solid 3px #551477;
 }
@@ -88,4 +88,17 @@
 
 .sidebar-image-container {
 margin-bottom: -33px;
+}
+
+.partner-only-badge{
+    background-color: #949db029;
+    color: #687285;
+    font-size: 10px;
+    padding: 2px 5px;
+    border-radius: 5px;
+    margin-left: 3px;
+}
+
+.disabled {
+    cursor: not-allowed;
 }
