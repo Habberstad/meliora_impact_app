@@ -4,90 +4,39 @@ import ReactToPrint, { useReactToPrint } from "react-to-print";
 import { Button } from "@mui/material";
 import { useRef, useState } from "react";
 import Report from "./Report";
-
-
-
+import "../../styles/financesPage.css";
 
 export const AccountingPage = (props) => {
   const componentRef = useRef();
   const handlePrint = useReactToPrint({
-    content: () => componentRef.current
+    content: () => componentRef.current,
   });
 
-
-  const[year, setYear] = useState(  new Date().getFullYear());
-  const[selectedTransactions, setSelectedTransactions] = useState("")
-
-
-  function backYear() {
-    setYear(year - 1)
-  }
-
-  function forwardYear() {
-    setYear(year + 1)
-  }
-
   return (
-    <div >
-      <button
+    <div className={"discover-page-container"}>
+      {/* **************** START: INSIDE ONLY VISIBLE ON BROWSER PAGE **********************************************************************************/}
+      <h1>Donation history</h1>
+      <Button
         type="button"
         onClick={handlePrint}
+        variant="contained"
+        sx={{
+          mx: "10px",
+          width: "150px",
+          height: "35px",
+          textTransform: "none",
+          borderRadius: "10px",
+          backgroundColor: "#7209B7",
+          "&:hover": {
+            backgroundColor: "#8d28ce",
+          },
+        }}
       >
-        {" "}
-        Print to PDF{" "}
-      </button>
-      <br/>
-      <br/>
-      <br/>
-      <h1>Donation history</h1>
-      <Button onClick={backYear} >back</Button>
-      {year}
-      <Button onClick={forwardYear}>forward</Button>
-      <Report ref={componentRef} user={props.user} year={year} />
+        Print to PDF
+      </Button>
+      {/* ***************** END: INSIDE ONLY VISIBLE ON BROWSER PAGE ********************************************************************************** */}
+
+      <Report ref={componentRef} user={props.user} />
     </div>
   );
 };
-/*
-return (
-    <div>
-      <div>
-        <h1>Accounting</h1>
-      </div>
-      <div id="print_component">
-
-        <ReactToPrint
-          trigger={() => <Button>Print this out!</Button>}
-          content={() => componentRef}
-        />
-
-
-        <div style={{ display: "none" }}>
-          <ComponentToPrint ref={(el) => (componentRef = el)} />
-        </div>
-      </div>
-
-
-      <div style={{ height: 400, width: "1500px" }}>
-        <DataGrid
-          rows={transactions}
-          columns={columns}
-          pageSize={5}
-          rowsPerPageOptions={[5]}
-          checkboxSelection
-          getRowId={(row)=> row._id}
-          initialState={{
-            filter: {
-              filterModel: {
-                items: [{ columnField: "Date", operatorValue: '>', value: '2.5' }],
-              },
-            },
-          }}
-         autoHeight
-          components={{ Toolbar: GridToolbar }}
-        />
-      </div>
-    </div>
-  );
-};
-
-*/

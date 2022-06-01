@@ -51,9 +51,7 @@
 .login-container {
     display: flex;
     justify-content: center;
-    align-items: center;
-    width: 100%
-
+    width: 100%;
 }
 .login-content {
     position: relative;
@@ -61,6 +59,7 @@
     max-width: 600px;
     display: flex;
     flex-direction: column;
+    margin-top: 100px;
 }
 
 .login-form {
@@ -92,6 +91,7 @@
     text-decoration: underline;
     margin-bottom: 30px;
 }
+
 .back-container:hover {
     cursor: pointer;
 }
