@@ -157,7 +157,8 @@ export const reviewContainer = {
   backgroundColor: "#FFF",
   borderRadius: "10px",
   boxShadow: "0 0 50px rgba(145, 158, 171, 0.2)",
-  padding: "0px 10px 0px 10px",
+  padding: "0px 20px 0px 20px",
+  width: "500px",
 };
 
 export const postLoginButtonBook = {
