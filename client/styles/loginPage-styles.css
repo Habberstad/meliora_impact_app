@@ -59,7 +59,7 @@
     max-width: 600px;
     display: flex;
     flex-direction: column;
-    margin-top: 100px;
+    margin-top: 150px;
 }
 
 .login-form {
@@ -84,12 +84,13 @@
 
 .back-container {
     position: absolute;
-    left: -50px; /*Maybe adjust this*/
+    left: -100px; /*Maybe adjust this*/
     display: flex;
     align-items: center;
     font-size: 16px;
     text-decoration: underline;
     margin-bottom: 30px;
+
 }
 
 .back-container:hover {
@@ -131,37 +132,11 @@
 
 .payment-options-container {
     display: flex;
+    flex-direction: column;
     width: 100%;
-    justify-content: space-evenly;
+    justify-content: center;
+    align-items: center;
 }
-
-.payment-option-container  {
-    width: 110px;
-    height: 110px;
-    border: 1px solid transparent;
-    border-radius: 5px;
-
-}
-.payment-option-container:hover {
-    border: 1px solid black;
-    border-radius: 5px;
-    width: 110px;
-    height: 110px;
-}
-
-.payment-option-container img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    border-radius: 3px;
-}
-
-.selected-payment-option {
-    border-color: #551477;
-    border-radius: 5px;
-
-}
-
 
 
 .company-list-item {
@@ -204,7 +179,19 @@
 
 .login-content-main Button {
     border-radius: 10px;
-    height: 50px;
+    height: 80px;
+    text-transform: none;
+    font-family: montserrat, serif;
+}
+
+.login-content-main .freemium-button h3{
+    font-weight: bold;
+    margin: 0;
+}
+
+.login-content-main .partner-button h3{
+    font-weight: bold;
+    margin: 0;
 }
 
 .login-content-header-subscription-tag {
@@ -214,23 +201,13 @@
 }
 
 
-
-.subscription-type-information {
-    border: 1px solid #000;
-    border-radius: 10px;
-}
-
-.subscription-type-information-container {
-    width: calc(100% - 200px)
-}
-
 .subscription-type-information-content {
     display: flex;
     position: relative;
     flex-direction: column; /* <- Also inlin to be able to reach MUI root*/
     align-items: center;
     text-align: center;
-    margin: 6px 10px;
+    margin: 20px 10px;
 }
 
 .subscription-type-information-content p {
@@ -262,6 +239,14 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
+}
+
+.select-subscription-modal {
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
 }
 
 .premium {

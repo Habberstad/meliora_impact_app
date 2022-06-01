@@ -70,7 +70,7 @@ export const subscriptionTypePremium = {
   },
 };
 
-export const selectedSubsciptionTypePremium = {
+export const selectedSubscriptionTypePremium = {
   justifyContent: "space-between",
   mb: "22px",
   borderColor: "#F6E8FF",
@@ -81,6 +81,35 @@ export const selectedSubsciptionTypePremium = {
     backgroundColor: "#7209B7",
     color: "#FFF",
   },
+};
+
+export const paymentMethod = {
+  width: "80%",
+  height: "70px",
+  border: "1px solid lightgrey",
+  backgroundColor: "#FFF",
+  borderRadius: "5px",
+  objectFit: "cover",
+  margin: "10px",
+  "&:hover": {
+    border: "1px solid black",
+    backgroundColor: "#FFF",
+  },
+};
+
+export const paymentImage = {
+  width: "130px",
+  height: "100%",
+  borderRadius: "5px",
+};
+
+export const selectedPaymentMethod = {
+  width: "80%",
+  height: "70px",
+  backgroundColor: "#FFF",
+  border: "1px solid black",
+  borderRadius: "5px",
+  margin: "10px",
 };
 
 export const submitButtonStyle = {
