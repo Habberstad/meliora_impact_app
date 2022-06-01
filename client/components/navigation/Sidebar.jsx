@@ -18,7 +18,7 @@ import ReceiptIcon from "@mui/icons-material/Receipt";
 import { UserContext } from "../../App";
 import { useLocation } from "react-router-dom";
 
-const Sidebar = (props) => {
+const Sidebar = () => {
   const user = React.useContext(UserContext);
 
   const { pathname: location } = useLocation();
@@ -36,6 +36,7 @@ const Sidebar = (props) => {
   const handleNavigationState = (tabValue) => {
     setSelectedTab(tabValue);
   };
+  console.log(user);
 
   return (
     <div className="sidebar-container">
@@ -120,7 +121,16 @@ const Sidebar = (props) => {
               }`}
             >
               <SlowMotionVideoIcon sx={{ marginRight: "20px" }} />
-              <div>Meliora Wrapped</div>
+              <div>
+                {user.subscription_type !== "premium" ? (
+                  <>
+                    Meliora Wrapped
+                    <span className="partner-only-badge"> Partner only</span>
+                  </>
+                ) : (
+                  "Meliora Wrapped"
+                )}
+              </div>
             </div>
           </Link>
           <Link to={"/templates"} style={{ textDecoration: "none" }}>
@@ -130,7 +140,16 @@ const Sidebar = (props) => {
               }`}
             >
               <CreateIcon sx={{ marginRight: "20px" }} />
-              <div>Social Media Templates</div>
+              <div>
+                {user.subscription_type !== "premium" ? (
+                  <>
+                    Media Templates
+                    <span className="partner-only-badge"> Partner only</span>
+                  </>
+                ) : (
+                  "Media Templates"
+                )}
+              </div>
             </div>
           </Link>
         </div>
