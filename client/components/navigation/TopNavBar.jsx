@@ -3,10 +3,11 @@ import LanguageIconNorway from "../../media/norwayFlagIcon.png";
 import DarkModeIconMoon from "../../media/moonDarkmodeIcon.png";
 import NotificationIconBell from "../../media/bellIcon.png";
 import ProfilePicturePlaceholder from "../../media/profilePicturePlaceholder.png";
-import { IconButton } from "@mui/material";
+import { Avatar, IconButton } from "@mui/material";
 import { useState } from "react";
 import * as PropTypes from "prop-types";
 import { NavbarDropDown } from "./NavbarDropDown";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 NavbarDropDown.propTypes = {
   anchorEl: PropTypes.any,
@@ -48,6 +49,12 @@ export const TopNavBar = () => {
             />
           </IconButton>
         </div>
+        <p>
+          <FontAwesomeIcon
+            icon="fa-solid fa-circle-half-stroke"
+            style={{ color: "black" }}
+          />
+        </p>
 
         <div className={"top-navbar-icon-button-container"}>
           <IconButton aria-label="notifications">
@@ -67,11 +74,10 @@ export const TopNavBar = () => {
             aria-haspopup="true"
             onClick={handleProfileClick}
           >
-            <img
+            <Avatar
+              alt="profile name"
               src={ProfilePicturePlaceholder}
-              alt="Notification icon"
-              className={"top-navbar-icon-button"}
-              style={{ width: "35px" }}
+              sx={{ width: "35px", height: "35px" }}
             />
           </IconButton>
           <NavbarDropDown
