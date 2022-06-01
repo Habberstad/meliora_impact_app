@@ -18,6 +18,7 @@ import { useNavigate } from "react-router";
 import { DonationListItem } from "./DonationListItem";
 import WaterIcon from "@mui/icons-material/Water";
 import SchoolIcon from "@mui/icons-material/School";
+import MapChart from "../../MapChart";
 
 const Dashboard = () => {
   //TODO: Mer beskrivende navn på state. F.eks. expandPartnerAccordion
@@ -61,6 +62,20 @@ const Dashboard = () => {
       return <SchoolIcon />;
     }
   }
+
+  const markers = [
+    {
+      markerOffset: -15,
+      name: "Buenos Aires",
+      coordinates: [-58.3816, -34.6037],
+    },
+    { markerOffset: -15, name: "La Paz", coordinates: [-68.1193, -16.4897] },
+    {
+      markerOffset: -15,
+      name: "Oslo",
+      coordinates: [10.85862177395285, 59.90822071774486],
+    },
+  ];
 
   return (
     <div className={"dashboard-wrapper"}>
@@ -230,7 +245,15 @@ const Dashboard = () => {
               </Grid>
             </div>
           </Grid>
-          <Grid item xl={7} lg={7} className={"map"}></Grid>
+          <Grid item xl={7} lg={7} className={"map"}>
+            <div className="dashboard-map-container">
+              <div className="map-text-container">
+                <div className="map-title">Global reach</div>
+                <div className="map-subtitle">Locations</div>
+              </div>
+              <MapChart markers={markers} />
+            </div>
+          </Grid>
           <Grid item xl={12} sx={{ marginTop: "40px" }}>
             <ArticleSelection />
           </Grid>
