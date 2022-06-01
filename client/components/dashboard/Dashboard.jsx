@@ -17,9 +17,8 @@ import { useNavigate } from "react-router";
 import { DonationListItem } from "./DonationListItem";
 import WaterIcon from "@mui/icons-material/Water";
 import SchoolIcon from "@mui/icons-material/School";
-import * as PropTypes from "prop-types";
+import MapChart from "../../MapChart";
 import { HighlightedPartners } from "./HighlightedPartners";
-
 
 const Dashboard = () => {
   //TODO: Mer beskrivende navn på state. F.eks. expandPartnerAccordion
@@ -49,8 +48,6 @@ const Dashboard = () => {
   const history = data.donation_history;
   const npoList = data.npo_partners;
 
-  console.log(npoList);
-
   const filteredHistory = history.filter((donation) => donation.npo_id === npo);
 
   let donationHistory = filteredHistory.length > 0 ? filteredHistory : history;
@@ -63,6 +60,17 @@ const Dashboard = () => {
       return <SchoolIcon />;
     }
   }
+
+  console.log(data);
+
+  const partners = data.npo_partners;
+
+  const locations = [];
+
+  partners.map((x) => locations.push(x.locations[0]));
+
+  console.log("partners", partners);
+  console.log("locations", locations);
 
   return (
     <div className={"dashboard-wrapper"}>
@@ -211,7 +219,15 @@ const Dashboard = () => {
               </Grid>
             </div>
           </Grid>
-          <Grid item xl={7} lg={7} className={"map"}></Grid>
+          <Grid item xl={7} lg={7} className={"map"}>
+            <div className="dashboard-map-container">
+              <div className="map-text-container">
+                <div className="map-title">Global reach</div>
+                <div className="map-subtitle">Locations</div>
+              </div>
+              <MapChart markers={locations} />
+            </div>
+          </Grid>
           <Grid item xl={12} sx={{ marginTop: "40px" }}>
             <ArticleSelection />
           </Grid>
