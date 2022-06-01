@@ -1,12 +1,11 @@
 
 .donation-history-page-container{
     width: 1500px;
-    margin: 100px;
+    padding: 100px;
 }
 
 .styled-table {
     border-collapse: collapse;
-    margin: 25px 0;
     font-size: 0.9em;
     font-family: sans-serif;
     min-width: 400px;
@@ -41,10 +40,6 @@
     color: mediumpurple;
 }
 
-.page-size {
-    background: white;
 
-    box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
-    width: 21cm;
-    height: 29.7cm;
-}
+
+
