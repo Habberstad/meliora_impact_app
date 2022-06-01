@@ -76,6 +76,7 @@ export const FindCompany = ({ handleCompanyInfo }) => {
   };
 
   const onChangeHandler = (e) => {
+    setTxtFieldValue(e.target.value);
     let url = `https://data.brreg.no/enhetsregisteret/api/enheter?navn=${e.target.value}&konkurs=false&organisasjonsform=AS,ENK,ANS,DA,STI`;
     setShowError(false);
     console.log(e.target.value);
@@ -111,7 +112,7 @@ export const FindCompany = ({ handleCompanyInfo }) => {
       </div>
       <TextField
         onChange={onChangeHandler}
-        value={selectedCompany && txtFieldValue}
+        value={txtFieldValue}
         sx={{
           width: "100%",
           mt: "22px",
