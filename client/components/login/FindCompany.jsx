@@ -124,7 +124,7 @@ export const FindCompany = ({ handleCompanyInfo }) => {
             color: "#7209B7",
           },
         }}
-        label="Organizational Number / Company Name"
+        label="Company Name / Organization Number"
         variant="outlined"
         InputProps={{
           startAdornment: (
