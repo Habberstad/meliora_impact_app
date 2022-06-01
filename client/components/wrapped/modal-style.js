@@ -24,3 +24,15 @@ export const donateModalStyle = {
   width: "600px",
   height: "740px",
 };
+
+export const selectSubscriptionModalStyle = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: "800px",
+  bgcolor: "#FFF",
+  borderRadius: "20px",
+  boxShadow: 24,
+  p: 4,
+};
