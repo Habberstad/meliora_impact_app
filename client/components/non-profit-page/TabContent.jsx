@@ -29,7 +29,7 @@ export function TabContent({ selectedTab, data }) {
       {selectedTab === "impact" && (
         <>
           <div className="content-container">
-            <ImpactTabContent data={data.impact_tab} />
+            <ImpactTabContent category={data.category} data={data.impact_tab} />
           </div>
         </>
       )}
