@@ -1,3 +1,11 @@
+export const LoginCard = {
+  display: "flex",
+  flexDirection: "column",
+  position: "absolute",
+  left: "200px",
+  top: "0",
+};
+
 export const companyListItem = {
   fontWeight: "500",
   color: "#000",
