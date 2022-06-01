@@ -18,9 +18,12 @@ export const FindCompany = ({ handleCompanyInfo }) => {
   const [companies, setCompanies] = useState([]);
   const [selectedCompany, setSelectedCompany] = useState();
   const [showError, setShowError] = useState(false);
-  const [companyId, setCompanyId] = useState();
-  const [companyName, setCompanyName] = useState();
-  const [companyAdress, setCompanyAdress] = useState();
+  const [companyId, setCompanyId] = useState("");
+  const [companyName, setCompanyName] = useState("");
+  const [adress, setAdress] = useState("");
+  const [postalCode, setPostalCode] = useState("");
+  const [city, setCity] = useState("");
+  const [fullCompanyAdress, setFullCompanyAdress] = useState();
   const { checkIsOrgRegistered } = React.useContext(UserApiContext);
   const [showList, setShowList] = useState(false);
 
@@ -40,7 +43,11 @@ export const FindCompany = ({ handleCompanyInfo }) => {
   const handleSelectCompany = (id, name, adress, postalCode, city) => {
     setCompanyId(id);
     setCompanyName(name);
-    setCompanyAdress(`${adress}, ${postalCode} ${city}`);
+    setAdress(...adress);
+    setPostalCode(postalCode);
+    setCity(city);
+    setFullCompanyAdress(`${adress}, ${postalCode} ${city}`);
+
     setShowList(false);
 
     if (selectedCompany === id) setSelectedCompany();
@@ -53,7 +60,14 @@ export const FindCompany = ({ handleCompanyInfo }) => {
     if (data.isRegistered) {
       setShowError(true);
     } else {
-      handleCompanyInfo(companyName, companyId, companyAdress);
+      handleCompanyInfo(
+        companyName,
+        companyId,
+        fullCompanyAdress,
+        adress,
+        postalCode,
+        city
+      );
       setShowError(false);
       navigate("/select-subscription");
     }
@@ -84,10 +98,11 @@ export const FindCompany = ({ handleCompanyInfo }) => {
       <BackButton />
       <div className={"login-content-header"}>
         <div>
-          Find Your <br></br>Company
+          Find Your <br />
+          Company
         </div>
         <p>
-          Let's <strong>connect</strong> to your company! <br></br>
+          Let's <strong>connect</strong> to your company! <br />
           Search on name or <strong>organizational</strong> number
         </p>
       </div>
