@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button, Tooltip } from "@mui/material";
 import { reviewContainer, submitButtonStyle } from "./login-styles";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { BackButton } from "./BackButton";
@@ -7,6 +7,14 @@ export const RegistrationSummary = (props) => {
   const handleSubmit = () => {
     props.handleSubmit();
   };
+
+  let isNotCompleted =
+    !props.userName ||
+    !props.userEmail ||
+    !props.paymentOption ||
+    !props.orgName ||
+    !props.orgAdress ||
+    !props.subscriptionType;
 
   return (
     <div className="login-content">
@@ -51,9 +59,26 @@ export const RegistrationSummary = (props) => {
           )}
         </div>
       </div>
-      <Button onClick={handleSubmit} sx={submitButtonStyle} variant="contained">
-        Confirm
-      </Button>
+      <Tooltip
+        style={{ display: "flex", justifyContent: "center" }}
+        title={
+          isNotCompleted
+            ? "You have not provided all required information, please go back and provide the missing information"
+            : ""
+        }
+        leaveDelay={1000}
+      >
+        <span>
+          <Button
+            disabled={isNotCompleted}
+            onClick={handleSubmit}
+            sx={submitButtonStyle}
+            variant="contained"
+          >
+            Confirm
+          </Button>
+        </span>
+      </Tooltip>
     </div>
   );
 };
