@@ -1,0 +1,23 @@
+.top-navbar-container {
+    display: flex;
+    justify-content: flex-end;
+    position: fixed;
+    border: 1px solid #f00;
+    height: 50px;
+    width: 100%;
+    z-index: 9;
+}
+
+.top-navbar-icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border: 1px solid #0f0;
+    width: 260px;
+
+}
+
+.top-navbar-icon-button {
+    width: 25px;
+}
+
