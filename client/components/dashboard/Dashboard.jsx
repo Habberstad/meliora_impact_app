@@ -16,7 +16,8 @@ import { Error } from "../shared-components/Error";
 import { ImpactSection } from "./ImpactSection";
 import { useNavigate } from "react-router";
 import { DonationListItem } from "./DonationListItem";
-import MapChart from "../../MapChart";
+import WaterIcon from "@mui/icons-material/Water";
+import SchoolIcon from "@mui/icons-material/School";
 
 const Dashboard = () => {
   //TODO: Mer beskrivende navn på state. F.eks. expandPartnerAccordion
@@ -51,6 +52,15 @@ const Dashboard = () => {
   const filteredHistory = history.filter((donation) => donation.npo_id === npo);
 
   let donationHistory = filteredHistory.length > 0 ? filteredHistory : history;
+
+  function iconCat(npo) {
+    if (npo.category === "water") {
+      return <WaterIcon />;
+    }
+    if (npo.category === "knowledge") {
+      return <SchoolIcon />;
+    }
+  }
 
   return (
     <div className={"dashboard-wrapper"}>
@@ -123,7 +133,7 @@ const Dashboard = () => {
                       >
                         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                           <div className={"accordion-title-container"}>
-                            <LocalHospitalIcon />
+                            {iconCat(npo)}
                             <div className={"accordion-title"}>{npo.name}</div>
                           </div>
                         </AccordionSummary>
@@ -220,20 +230,11 @@ const Dashboard = () => {
               </Grid>
             </div>
           </Grid>
-
           <Grid item xl={7} lg={7} className={"map"}></Grid>
+          <Grid item xl={12} sx={{ marginTop: "40px" }}>
+            <ArticleSelection />
+          </Grid>
         </Grid>
-
-        <Grid
-          container
-          direction={"row"}
-          className={"bottom-container-dashboard"}
-          columnSpacing={{ lg: 4, xl: 4 }}
-        >
-          <MapChart style={{ color: "blue" }} />
-        </Grid>
-
-        <ArticleSelection />
       </div>
     </div>
   );
