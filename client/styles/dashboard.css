@@ -203,13 +203,31 @@
 
 .highlighted-partners-content-container{
     display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
 }
 
 .highlighted-partners-project{
-    flex: 50%;
+    display: flex;
+    align-self: center;
+    color: #353535;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 17px;
+    padding-left: 35px;
+    width: 100%;
 }
 
 .highlighted-partners-progress{
+    display: flex;
+    align-self: center;
+    justify-self: flex-end;
+    width: 100%;
+
+}
+
+.MuiLinearProgress-bar.MuiLinearProgress-barColorPrimary{
+   background-color: #FFD878;
 }
 
 .MuiPaper-root.MuiAccordion-root:first-of-type{
