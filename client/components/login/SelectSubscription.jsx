@@ -1,4 +1,4 @@
-import { Button, Tooltip } from "@mui/material";
+import { Box, Button, Modal, Tooltip } from "@mui/material";
 import { BackButton } from "./BackButton";
 import { useNavigate } from "react-router";
 import { SubscriptionInfoGrid } from "./SubscriptionInfoGrid";
@@ -8,16 +8,25 @@ import { useState } from "react";
 import {
   selectedSubscriptionTypeFreemium,
   subscriptionTypeFreemium,
-  selectedSubsciptionTypePremium,
+  selectedSubscriptionTypePremium,
   subscriptionTypePremium,
   submitButtonStyle,
 } from "./login-styles";
+import * as React from "react";
+import {
+  modalStyle,
+  selectSubscriptionModalStyle,
+} from "../wrapped/modal-style";
 
 export const SelectSubscription = (props) => {
   const [isShowingInfo, setIsShowingInfo] = useState(false);
   const [subscriptionType, setSubscriptionType] = useState(
     props.subscriptionType
   );
+
+  const [infoModal, setInfoModal] = React.useState(false);
+  const infoModalHandleOpen = () => setInfoModal(true);
+  const infoModalHandleClose = () => setInfoModal(false);
 
   const navigate = useNavigate();
 
@@ -59,9 +68,18 @@ export const SelectSubscription = (props) => {
             fullWidth
             variant={"outlined"}
             size={"large"}
-            endIcon={"$ 0.00 / per month"}
           >
-            Get Freemium
+            <div className={"freemium-button"}>
+              <h3>Get Freemium</h3>
+              <div>
+                <div style={{ textAlign: "left" }}>Basic features</div>
+              </div>
+            </div>
+
+            <div>
+              <strong>$ 0.00</strong> / per month
+              <div style={{ textAlign: "left" }}>Only 1 user</div>
+            </div>
           </Button>
           <Button
             onClick={() => {
@@ -69,21 +87,30 @@ export const SelectSubscription = (props) => {
             }}
             sx={
               subscriptionType === "premium"
-                ? selectedSubsciptionTypePremium
+                ? selectedSubscriptionTypePremium
                 : subscriptionTypePremium
             }
             fullWidth
             variant={"outlined"}
             size={"large"}
           >
-            <div>Get Meliora Partner</div>
-            <div>$ 7.99 / per month</div>
+            <div className={"partner-button"}>
+              <h3>Get Meliora Partner</h3>
+              <div>
+                <div style={{ textAlign: "left" }}>Exclusive features</div>
+              </div>
+            </div>
+
+            <div>
+              <strong>$ 7.99</strong> / per month
+              <div style={{ textAlign: "left" }}>Up to 10 users</div>
+            </div>
           </Button>
         </div>
 
         <Button
           onClick={() => {
-            setIsShowingInfo(!isShowingInfo);
+            infoModalHandleOpen();
           }}
           sx={{
             textDecoration: "underline",
@@ -97,16 +124,17 @@ export const SelectSubscription = (props) => {
           fullWidth
           variant={"text"}
           size={"large"}
-          endIcon={
-            isShowingInfo ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />
-          }
         >
           What do you get?
         </Button>
+        <Modal open={infoModal} onClose={infoModalHandleClose}>
+          <Box sx={selectSubscriptionModalStyle} style={{ width: 800 }}>
+            <div className="select-subscription-modal">What do you get?</div>
+            <SubscriptionInfoGrid />
+          </Box>
+        </Modal>
       </div>
-      <div className={"subscription-type-information-container"}>
-        {isShowingInfo && <SubscriptionInfoGrid />}
-      </div>
+
       <Tooltip
         title={!subscriptionType ? "Select a subscription plan" : ""}
         leaveDelay={1500}

@@ -83,6 +83,7 @@ export const LoginPage = () => {
       address: orgAdress,
       postal_code: orgPostalCode,
       city: orgCity,
+      email: userEmail,
     });
     navigate("/post-login");
   };
