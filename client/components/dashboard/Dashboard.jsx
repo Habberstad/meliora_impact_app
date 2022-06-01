@@ -20,7 +20,6 @@ import SchoolIcon from "@mui/icons-material/School";
 import * as PropTypes from "prop-types";
 import { HighlightedPartners } from "./HighlightedPartners";
 
-
 const Dashboard = () => {
   //TODO: Mer beskrivende navn på state. F.eks. expandPartnerAccordion
   const [expanded, setExpanded] = React.useState(0);

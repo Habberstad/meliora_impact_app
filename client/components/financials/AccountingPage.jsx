@@ -34,6 +34,7 @@ export const AccountingPage = (props) => {
       >
         Print to PDF
       </Button>
+
       {/* ***************** END: INSIDE ONLY VISIBLE ON BROWSER PAGE ********************************************************************************** */}
 
       <Report ref={componentRef} user={props.user} />
