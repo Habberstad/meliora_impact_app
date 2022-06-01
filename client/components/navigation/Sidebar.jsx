@@ -181,7 +181,7 @@ const Sidebar = () => {
               }`}
             >
               <GroupIcon sx={{ marginRight: "20px" }} />
-              <div>Users</div>
+              <div>Users TEST</div>
             </div>
           </Link>
           <Link to={"/templates"} style={{ textDecoration: "none" }}>
