@@ -64,7 +64,7 @@ function App() {
           <Route exact path="/login" element={<LoginPage />} />
           <Route exact path="/accounting" element={<AccountingPage user={data} />} />
           <Route exact path="/subscription" element={<SubscriptionPage />} />
-          <Route exact path="/billing" element={<BillingPage/>} />
+          <Route exact path="/billing" element={<BillingPage user={data}/>} />
           <Route
             exact
             path="/npo-profile/*"
