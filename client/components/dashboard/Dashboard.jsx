@@ -1,9 +1,8 @@
 import * as React from "react";
 import { useContext } from "react";
 import { useLoading } from "../../useLoading";
-import { Grid, InputLabel, Link, MenuItem, Select } from "@mui/material";
+import { Grid, Link, MenuItem, Select } from "@mui/material";
 import "../../styles/dashboard.css";
-import LocalHospitalIcon from "@mui/icons-material/LocalHospital";
 import LinearProgress from "@mui/material/LinearProgress";
 import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
@@ -18,6 +17,8 @@ import { useNavigate } from "react-router";
 import { DonationListItem } from "./DonationListItem";
 import WaterIcon from "@mui/icons-material/Water";
 import SchoolIcon from "@mui/icons-material/School";
+import * as PropTypes from "prop-types";
+import { HighlightedPartners } from "./HighlightedPartners";
 
 const Dashboard = () => {
   //TODO: Mer beskrivende navn på state. F.eks. expandPartnerAccordion
@@ -96,82 +97,61 @@ const Dashboard = () => {
           </Grid>
 
           <Grid item lg={6} xl={6}>
-            <div className={"highlighted-partners-container"}>
-              <div className={"highlighted-title-view-container"}>
-                <div
-                  className={"highlighted-partners-title"}
-                  style={{
-                    fontSize: "20px",
-                    margin: "10px",
-                    fontWeight: "600",
-                    marginLeft: "10px",
-                  }}
-                >
-                  Highlighted partners
-                </div>
-                <div
-                  onClick={() => navigate("/our-partners")}
-                  className="highlighted-view-all"
-                >
-                  View all
-                </div>
-              </div>
-              <div className={"accordion-wrapper"}>
-                {highlighted.map((npo, index) => {
-                  if (index <= 1)
-                    return (
-                      <Accordion
-                        className={"highlighted-accordion"}
-                        sx={{
-                          backgroundColor: "#FCEFE7",
-                          width: "97%",
-                          borderRadius: "16px",
-                          dropShadow: "0",
-                        }}
-                        expanded={expanded === index}
-                        onChange={handleChange(index)}
-                      >
-                        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                          <div className={"accordion-title-container"}>
-                            {iconCat(npo)}
-                            <div className={"accordion-title"}>{npo.name}</div>
-                          </div>
-                        </AccordionSummary>
+            <HighlightedPartners
+              onClick={() => navigate("/our-partners")}
+              highlighted={highlighted}
+              prop2={(npo, index) => {
+                if (index <= 1)
+                  return (
+                    <Accordion
+                      className={"highlighted-accordion"}
+                      sx={{
+                        backgroundColor: "#FCEFE7",
+                        width: "97%",
+                        borderRadius: "16px",
+                        dropShadow: "0",
+                      }}
+                      expanded={expanded === index}
+                      onChange={handleChange(index)}
+                    >
+                      <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                        <div className={"accordion-title-container"}>
+                          {iconCat(npo)}
+                          <div className={"accordion-title"}>{npo.name}</div>
+                        </div>
+                      </AccordionSummary>
 
-                        <AccordionDetails sx={{ borderRadius: "16px" }}>
-                          <div>
-                            {npo.impact_measurement.map((impactItem) => (
-                              <div
-                                className={
-                                  "highlighted-partners-content-container"
-                                }
-                              >
-                                <div className={"highlighted-partners-project"}>
-                                  {impactItem.impact_name}
-                                </div>
-                                <div
-                                  className={"highlighted-partners-progress"}
-                                >
-                                  <LinearProgress
-                                    sx={{
-                                      width: "162px",
-                                      height: "9px",
-                                      backgroundColor: "#A5A5A5",
-                                      position: "absolut",
-                                    }}
-                                    variant="determinate"
-                                    value={impactItem.impact_value}
-                                  />
-                                </div>
+                      <AccordionDetails sx={{ borderRadius: "16px" }}>
+                        <div>
+                          {npo.impact_measurement.map((impactItem) => (
+                            <div
+                              className={
+                                "highlighted-partners-content-container"
+                              }
+                            >
+                              <div className={"highlighted-partners-project"}>
+                                {impactItem.impact_name}
                               </div>
-                            ))}
-                          </div>
-                        </AccordionDetails>
-                      </Accordion>
-                    );
-                })}
-              </div>
-            </div>
+                              <div className={"highlighted-partners-progress"}>
+                                <LinearProgress
+                                  sx={{
+                                    width: "162px",
+                                    height: "9px",
+                                    backgroundColor: "#A5A5A5",
+                                    position: "absolut",
+                                  }}
+                                  variant="determinate"
+                                  value={impactItem.impact_value}
+                                />
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </AccordionDetails>
+                    </Accordion>
+                  );
+              }}
+            />
           </Grid>
           <Grid item xl={5} lg={5} className={"donation-history-container"}>
             <div className={"donation-history-filter"}>
