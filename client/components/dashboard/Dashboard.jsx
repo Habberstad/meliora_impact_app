@@ -18,9 +18,7 @@ import { DonationListItem } from "./DonationListItem";
 import WaterIcon from "@mui/icons-material/Water";
 import SchoolIcon from "@mui/icons-material/School";
 import MapChart from "../../MapChart";
-import * as PropTypes from "prop-types";
 import { HighlightedPartners } from "./HighlightedPartners";
-
 
 const Dashboard = () => {
   //TODO: Mer beskrivende navn på state. F.eks. expandPartnerAccordion
@@ -50,8 +48,6 @@ const Dashboard = () => {
   const history = data.donation_history;
   const npoList = data.npo_partners;
 
-  console.log(npoList);
-
   const filteredHistory = history.filter((donation) => donation.npo_id === npo);
 
   let donationHistory = filteredHistory.length > 0 ? filteredHistory : history;
@@ -65,19 +61,16 @@ const Dashboard = () => {
     }
   }
 
-  const markers = [
-    {
-      markerOffset: -15,
-      name: "Buenos Aires",
-      coordinates: [-58.3816, -34.6037],
-    },
-    { markerOffset: -15, name: "La Paz", coordinates: [-68.1193, -16.4897] },
-    {
-      markerOffset: -15,
-      name: "Oslo",
-      coordinates: [10.85862177395285, 59.90822071774486],
-    },
-  ];
+  console.log(data);
+
+  const partners = data.npo_partners;
+
+  const locations = [];
+
+  partners.map((x) => locations.push(x.locations[0]));
+
+  console.log("partners", partners);
+  console.log("locations", locations);
 
   return (
     <div className={"dashboard-wrapper"}>
@@ -232,7 +225,7 @@ const Dashboard = () => {
                 <div className="map-title">Global reach</div>
                 <div className="map-subtitle">Locations</div>
               </div>
-              <MapChart markers={markers} />
+              <MapChart markers={locations} />
             </div>
           </Grid>
           <Grid item xl={12} sx={{ marginTop: "40px" }}>
