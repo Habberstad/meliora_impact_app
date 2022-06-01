@@ -20,10 +20,11 @@ export const FindCompany = ({ handleCompanyInfo }) => {
   const [showError, setShowError] = useState(false);
   const [companyId, setCompanyId] = useState("");
   const [companyName, setCompanyName] = useState("");
+  const [txtFieldValue, setTxtFieldValue] = useState("");
   const [adress, setAdress] = useState("");
   const [postalCode, setPostalCode] = useState("");
   const [city, setCity] = useState("");
-  const [fullCompanyAdress, setFullCompanyAdress] = useState();
+  const [fullCompanyAdress, setFullCompanyAdress] = useState("");
   const { checkIsOrgRegistered } = React.useContext(UserApiContext);
   const [showList, setShowList] = useState(false);
 
@@ -43,6 +44,7 @@ export const FindCompany = ({ handleCompanyInfo }) => {
   const handleSelectCompany = (id, name, adress, postalCode, city) => {
     setCompanyId(id);
     setCompanyName(name);
+    setTxtFieldValue(`${name}, ${id}`);
     setAdress(...adress);
     setPostalCode(postalCode);
     setCity(city);
@@ -76,6 +78,7 @@ export const FindCompany = ({ handleCompanyInfo }) => {
   const onChangeHandler = (e) => {
     let url = `https://data.brreg.no/enhetsregisteret/api/enheter?navn=${e.target.value}&konkurs=false&organisasjonsform=AS,ENK,ANS,DA,STI`;
     setShowError(false);
+    console.log(e.target.value);
     if (
       e.target.value.trim().length === 9 &&
       /^\d+$/.test(e.target.value.trim())
@@ -108,7 +111,7 @@ export const FindCompany = ({ handleCompanyInfo }) => {
       </div>
       <TextField
         onChange={onChangeHandler}
-        value={!showList ? companyName : undefined}
+        value={selectedCompany && txtFieldValue}
         sx={{
           width: "100%",
           mt: "22px",
