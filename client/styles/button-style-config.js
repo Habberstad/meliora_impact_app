@@ -405,3 +405,29 @@ export const greenWidePlatformButton = {
       "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.1)",
   },
 };
+
+export const selectedTabStyleNew = {
+  color: "#000",
+  borderBottom: "3px solid #7209B7",
+  padding: "20px 50px 5px 20px",
+  width: "260px",
+  height: "25px",
+  fontWeight: "bold",
+  fontFamily: "Montserrat",
+  fontSize: "18px",
+};
+
+export const hoverTabStyleNew = {
+  color: "#000",
+  borderBottom: "3px solid #7209B7",
+  padding: "20px 50px 5px 20px",
+  width: "260px",
+  height: "25px",
+  fontWeight: "bold",
+  fontFamily: "Montserrat",
+  fontSize: "18px",
+  "&:hover": {
+    borderBottom: "3px solid #7209B7",
+    backgroundColor: "#FAFAFA",
+  },
+};

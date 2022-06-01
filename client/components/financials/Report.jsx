@@ -3,10 +3,6 @@ import { useState } from "react";
 import { Box, Button, Grid } from "@mui/material";
 import MelioraIcon from "../../media/meliora_logo.png";
 import { DonationTable } from "./DonationTable";
-import {
-  hoverTabStyle,
-  selectedTabStyle,
-} from "../../styles/button-style-config";
 
 const Report = React.forwardRef((props, ref) => {
   const [year, setYear] = useState(new Date().getFullYear());
@@ -67,30 +63,7 @@ const Report = React.forwardRef((props, ref) => {
           </Box>
         </Grid>
         {/* **************** OUTSIDE IS VISIBLE IN ON PRINT OUT  **********************************************************************************/}
-        <Grid container direction={"row"} item>
-          <Box
-            sx={{
-              display: "block",
-              displayPrint: "none",
-              width: "100%",
-            }}
-          >
-            <div className={"report-history-filter-wrapper"}>
-              <Button
-                sx={selectedTab === "" ? selectedTabStyle : hoverTabStyle}
-                className={"report-donation-history-filter"}
-              >
-                Donation History
-              </Button>
 
-              <Button className={"report-subscription-history-filter"}>
-                Subscription History
-              </Button>
-
-              <Button className={"report-statistics-filter"}>Statistics</Button>
-            </div>
-          </Box>
-        </Grid>
         <Grid item xs={12}>
           <Box
             sx={{
