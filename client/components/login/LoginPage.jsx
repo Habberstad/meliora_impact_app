@@ -19,7 +19,10 @@ export const LoginPage = () => {
   const { registerUser } = useContext(UserApiContext);
   const [orgName, setOrgName] = useState("");
   const [orgNumber, setOrgNumber] = useState("");
+  const [fullOrgAdress, setFullOrgAdress] = useState("");
   const [orgAdress, setOrgAdress] = useState("");
+  const [orgPostalCode, setOrgPostalCode] = useState("");
+  const [orgCity, setOrgCity] = useState("");
   const [subscriptionType, setSubscriptionType] = useState("");
   const [paymentOption, setPaymentOption] = useState("");
   const [isOverBreakpoint, setIsOverBreakpoint] = useState(true);
@@ -44,20 +47,43 @@ export const LoginPage = () => {
     setSubscriptionType(option);
   };
 
-  const handleCompanyInfo = (name, orgNumber, adress) => {
+  const handleCompanyInfo = (
+    name,
+    orgNumber,
+    fullAdress,
+    adress,
+    postalCode,
+    city
+  ) => {
     setOrgName(name);
     setOrgNumber(orgNumber);
     setOrgAdress(adress);
+    setOrgPostalCode(postalCode);
+    setOrgCity(city);
+    setFullOrgAdress(fullAdress);
     console.log("company handler", name, orgNumber);
   };
 
   const handleSubmit = () => {
     //maybe async?
+    console.log({
+      org_name: orgName,
+      org_number: orgNumber,
+      payment_option: paymentOption,
+      subscription_type: subscriptionType,
+      address: orgAdress,
+      postal_code: orgPostalCode,
+      city: orgCity,
+    });
     registerUser({
       org_name: orgName,
       org_number: orgNumber,
       payment_option: paymentOption,
       subscription_type: subscriptionType,
+      address: orgAdress,
+      postal_code: orgPostalCode,
+      city: orgCity,
+      email: userEmail,
     });
     navigate("/post-login");
   };
@@ -160,7 +186,7 @@ export const LoginPage = () => {
                 userEmail={userEmail}
                 orgName={orgName}
                 orgNumber={orgNumber}
-                orgAdress={orgAdress}
+                orgAdress={fullOrgAdress}
                 paymentOption={paymentOption}
                 subscriptionType={subscriptionType}
                 handleSubmit={handleSubmit}

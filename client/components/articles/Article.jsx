@@ -17,7 +17,7 @@ const Article = () => {
   const navigate = useNavigate();
 
   const { loading, error, data } = useLoading(
-    async () => await getArticles({ _id }),
+    async () => await getAarticles({ _id }),
     []
   );
 

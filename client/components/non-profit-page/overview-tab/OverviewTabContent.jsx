@@ -14,9 +14,9 @@ const OverviewTabContent = ({ data }) => {
             <div className="paragraph-title">Our Mission</div>
             <div className="paragraph-text">{data.paragraph_1.text}</div>
           </div>
-          <div className="mission-map-img">
+          {/*          <div className="mission-map-img">
             <MapChart style={{ color: "blue" }} />
-          </div>
+          </div>*/}
         </div>
       </div>
       <div className="vision-section">

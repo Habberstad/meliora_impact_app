@@ -18,9 +18,13 @@ export const FindCompany = ({ handleCompanyInfo }) => {
   const [companies, setCompanies] = useState([]);
   const [selectedCompany, setSelectedCompany] = useState();
   const [showError, setShowError] = useState(false);
-  const [companyId, setCompanyId] = useState();
-  const [companyName, setCompanyName] = useState();
-  const [companyAdress, setCompanyAdress] = useState();
+  const [companyId, setCompanyId] = useState("");
+  const [companyName, setCompanyName] = useState("");
+  const [txtFieldValue, setTxtFieldValue] = useState("");
+  const [adress, setAdress] = useState("");
+  const [postalCode, setPostalCode] = useState("");
+  const [city, setCity] = useState("");
+  const [fullCompanyAdress, setFullCompanyAdress] = useState("");
   const { checkIsOrgRegistered } = React.useContext(UserApiContext);
   const [showList, setShowList] = useState(false);
 
@@ -40,7 +44,12 @@ export const FindCompany = ({ handleCompanyInfo }) => {
   const handleSelectCompany = (id, name, adress, postalCode, city) => {
     setCompanyId(id);
     setCompanyName(name);
-    setCompanyAdress(`${adress}, ${postalCode} ${city}`);
+    setTxtFieldValue(`${name}, ${id}`);
+    setAdress(...adress);
+    setPostalCode(postalCode);
+    setCity(city);
+    setFullCompanyAdress(`${adress}, ${postalCode} ${city}`);
+
     setShowList(false);
 
     if (selectedCompany === id) setSelectedCompany();
@@ -53,15 +62,24 @@ export const FindCompany = ({ handleCompanyInfo }) => {
     if (data.isRegistered) {
       setShowError(true);
     } else {
-      handleCompanyInfo(companyName, companyId, companyAdress);
+      handleCompanyInfo(
+        companyName,
+        companyId,
+        fullCompanyAdress,
+        adress,
+        postalCode,
+        city
+      );
       setShowError(false);
       navigate("/select-subscription");
     }
   };
 
   const onChangeHandler = (e) => {
+    setTxtFieldValue(e.target.value);
     let url = `https://data.brreg.no/enhetsregisteret/api/enheter?navn=${e.target.value}&konkurs=false&organisasjonsform=AS,ENK,ANS,DA,STI`;
     setShowError(false);
+    console.log(e.target.value);
     if (
       e.target.value.trim().length === 9 &&
       /^\d+$/.test(e.target.value.trim())
@@ -84,16 +102,17 @@ export const FindCompany = ({ handleCompanyInfo }) => {
       <BackButton />
       <div className={"login-content-header"}>
         <div>
-          Find Your <br></br>Company
+          Find Your <br />
+          Company
         </div>
         <p>
-          Let's <strong>connect</strong> to your company! <br></br>
+          Let's <strong>connect</strong> to your company! <br />
           Search on name or <strong>organizational</strong> number
         </p>
       </div>
       <TextField
         onChange={onChangeHandler}
-        value={!showList ? companyName : undefined}
+        value={txtFieldValue}
         sx={{
           width: "100%",
           mt: "22px",
@@ -106,7 +125,7 @@ export const FindCompany = ({ handleCompanyInfo }) => {
             color: "#7209B7",
           },
         }}
-        label="Organizational Number / Company Name"
+        label="Company Name / Organization Number"
         variant="outlined"
         InputProps={{
           startAdornment: (
