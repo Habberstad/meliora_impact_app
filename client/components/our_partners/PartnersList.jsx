@@ -17,9 +17,9 @@ export function PartnersList({ data, category }) {
   return (
     <div className={"list-container"}>
       <Grid container>
-          {filteredList.map((partner) => {
-            return <PartnerCard key={partner._id} partner={partner} />;
-          })}
+        {filteredList.map((partner) => {
+          return <PartnerCard key={partner._id} partner={partner} />;
+        })}
       </Grid>
     </div>
   );
