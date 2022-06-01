@@ -1,10 +1,14 @@
 import { Button } from "@mui/material";
 import waterIcon from "../../media/water_drop_icon.png";
-import { useHref } from "react-router";
 
 export function PartnerCard(props) {
   return (
-    <div className={"partner-card"}>
+    <div
+      onClick={() => {
+        location.href = "/npo-profile/" + props.partner._id;
+      }}
+      className={"partner-card"}
+    >
       <img src={props.partner.card_image} alt="ball" />
       <div className="partner-card-content-container">
         <div className={"card-headline-container"}>
