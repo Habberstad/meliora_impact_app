@@ -88,7 +88,7 @@ export const FindCompany = ({ handleCompanyInfo }) => {
         </div>
         <p>
           Let's <strong>connect</strong> to your company! <br></br>
-          Search on name or <strong>organizational</strong> number
+          Search with name or <strong>organizational</strong> number
         </p>
       </div>
       <TextField
