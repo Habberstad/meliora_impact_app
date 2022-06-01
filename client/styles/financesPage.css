@@ -9,7 +9,7 @@
     margin: 25px 0;
     font-size: 0.9em;
     font-family: sans-serif;
-    min-width: 400px;
+    min-width: 900px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -47,4 +47,41 @@
     box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
     width: 21cm;
     height: 29.7cm;
+}
+
+/* Dennis styling report*/
+.report-history-filter-wrapper{
+    display: flex;
+}
+
+.report-donation-history-filter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid 1px #637381;
+    width: 286px;
+    height: 38px;
+    border-radius: 8px 8px 0 0;
+}
+
+.report-subscription-history-filter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid 1px #637381;
+    width: 286px;
+    height: 38px;
+    border-radius: 8px 8px 0 0;
+
+}
+
+.report-statistics-filter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid 1px #637381;
+    width: 286px;
+    height: 38px;
+    border-radius: 8px 8px 0 0;
+
 }
