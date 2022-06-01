@@ -1,10 +1,14 @@
 import { BackButton } from "./BackButton";
-import { Button, InputAdornment, TextField } from "@mui/material";
+import { Button, InputAdornment, TextField, Tooltip } from "@mui/material";
 import { useNavigate } from "react-router";
 import * as React from "react";
 import { useEffect, useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
-import { companyListItem, selectedCompanyListItem } from "./login-styles";
+import {
+  companyListItem,
+  selectedCompanyListItem,
+  submitButtonStyle,
+} from "./login-styles";
 import { UserApiContext } from "../../api-client/userApiContext";
 import fetchJSON from "../../helpers/fetchJSON";
 import ErrorMessage from "../shared-components/ErrorMessage";
@@ -14,10 +18,11 @@ export const FindCompany = ({ handleCompanyInfo }) => {
   const [companies, setCompanies] = useState([]);
   const [selectedCompany, setSelectedCompany] = useState();
   const [showError, setShowError] = useState(false);
-  const [companyId, setCompanyId] = useState(null);
-  const [companyName, setCompanyName] = useState(null);
-  const [companyAdress, setCompanyAdress] = useState(null);
+  const [companyId, setCompanyId] = useState();
+  const [companyName, setCompanyName] = useState();
+  const [companyAdress, setCompanyAdress] = useState();
   const { checkIsOrgRegistered } = React.useContext(UserApiContext);
+  const [showList, setShowList] = useState(false);
 
   const getCompanies = async (url) => {
     try {
@@ -25,6 +30,7 @@ export const FindCompany = ({ handleCompanyInfo }) => {
       const json = await response.json();
       const array = [...json._embedded.enheter];
       setCompanies(array);
+      if (array.length > 0) setShowList(true);
       setSelectedCompany();
     } catch (error) {
       console.log("error", error);
@@ -35,6 +41,7 @@ export const FindCompany = ({ handleCompanyInfo }) => {
     setCompanyId(id);
     setCompanyName(name);
     setCompanyAdress(`${adress}, ${postalCode} ${city}`);
+    setShowList(false);
 
     if (selectedCompany === id) setSelectedCompany();
     if (selectedCompany !== id) setSelectedCompany(id);
@@ -54,7 +61,7 @@ export const FindCompany = ({ handleCompanyInfo }) => {
 
   const onChangeHandler = (e) => {
     let url = `https://data.brreg.no/enhetsregisteret/api/enheter?navn=${e.target.value}&konkurs=false&organisasjonsform=AS,ENK,ANS,DA,STI`;
-
+    setShowError(false);
     if (
       e.target.value.trim().length === 9 &&
       /^\d+$/.test(e.target.value.trim())
@@ -64,11 +71,12 @@ export const FindCompany = ({ handleCompanyInfo }) => {
     }
     if (e.target.value.trim().length === 0) {
       setCompanies([]);
+      setShowList(false);
+      setCompanyName(null);
+      setSelectedCompany(setSelectedCompany);
     } else {
       getCompanies(url);
     }
-    if (e.target.value.trim().length === 0)
-      setSelectedCompany(setSelectedCompany);
   };
 
   return (
@@ -85,8 +93,9 @@ export const FindCompany = ({ handleCompanyInfo }) => {
       </div>
       <TextField
         onChange={onChangeHandler}
+        value={!showList ? companyName : undefined}
         sx={{
-          width: "590px",
+          width: "100%",
           mt: "22px",
           "& .MuiOutlinedInput-root.Mui-focused": {
             "& > fieldset": {
@@ -107,11 +116,9 @@ export const FindCompany = ({ handleCompanyInfo }) => {
           ),
         }}
       />
-      {companies.length > 0 ? (
+      {showError && <ErrorMessage message="This organization already exist" />}
+      {showList ? (
         <div>
-          {showError && (
-            <ErrorMessage message="This organization already exist" />
-          )}
           <div className="company-search-list">
             {companies.map((company) => {
               return (
@@ -145,24 +152,24 @@ export const FindCompany = ({ handleCompanyInfo }) => {
         </div>
       ) : null}
 
-      <Button
-        disabled={!selectedCompany}
-        onClick={handleSendCompanyInfo}
-        sx={{
-          width: "190px",
-          height: "60px",
-          borderRadius: "8px",
-          backgroundColor: "#551477",
-          marginTop: "80px",
-          "&:hover": {
-            backgroundColor: "#aa55d9",
-            color: "#FFF",
-          },
-        }}
-        variant="contained"
-      >
-        Next
-      </Button>
+      {!showList && (
+        <Tooltip
+          style={{ display: "flex", justifyContent: "center" }}
+          title={!selectedCompany ? "Select your organization" : ""}
+          leaveDelay={1000}
+        >
+          <span>
+            <Button
+              disabled={!selectedCompany}
+              onClick={handleSendCompanyInfo}
+              sx={{ ...submitButtonStyle, marginTop: "30px" }}
+              variant="contained"
+            >
+              Next
+            </Button>
+          </span>
+        </Tooltip>
+      )}
     </div>
   );
 };

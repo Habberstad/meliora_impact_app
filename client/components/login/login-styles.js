@@ -43,7 +43,7 @@ export const subscriptionTypeFreemium = {
   },
 };
 
-export const selectedSubsciptionTypeFreemium = {
+export const selectedSubscriptionTypeFreemium = {
   justifyContent: "space-between",
   mb: "22px",
   borderColor: "#b8f0da",
@@ -93,7 +93,7 @@ export const submitButtonStyle = {
   borderRadius: "8px",
   alignSelf: "center",
   backgroundColor: "#551477",
-  marginTop: "80px",
+  marginTop: "50px",
   "&:hover": {
     backgroundColor: "#aa55d9",
     color: "#FFF",
@@ -108,8 +108,54 @@ export const identificationButtonStyle = {
   backgroundColor: "#FFF",
   border: "solid 0.5px lightgrey",
   "&:hover": {
-    borderColor: "#000",
     backgroundColor: "#B8F0DA",
     color: "#637381",
+    borderColor: "#FFF",
+  },
+};
+
+export const identificationButtonStyleDisabled = {
+  justifyContent: "center",
+  mb: "22px",
+  borderColor: "#637381",
+  color: "#000",
+  backgroundColor: "#FFF",
+  opacity: "0.5",
+  border: "solid 0.5px lightgrey",
+};
+
+export const reviewContainer = {
+  backgroundColor: "#FFF",
+  borderRadius: "10px",
+  boxShadow: "0 0 50px rgba(145, 158, 171, 0.2)",
+  padding: "0px 10px 0px 10px",
+};
+
+export const postLoginButtonBook = {
+  maxHeight: "100px",
+  minHeight: "100px",
+  borderRadius: "10px",
+  backgroundColor: "#FFFFFF",
+  borderColor: "#551477",
+  color: "#000",
+  "&:hover": {
+    backgroundColor: "#B8F0DA",
+    borderColor: "#464D51",
+    color: "#000",
+  },
+};
+
+export const postLoginButtonExplore = {
+  maxHeight: "100px",
+  minHeight: "100px",
+  borderRadius: "10px",
+  backgroundColor: "#7209B7",
+  borderColor: "#C4C4C4",
+  color: "#fff",
+  marginTop: "44px",
+  "&:hover": {
+    backgroundColor: "#F6E8FF",
+    borderColor: "#A400FF",
+    color: "#000",
   },
 };

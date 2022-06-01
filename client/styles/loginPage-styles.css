@@ -56,7 +56,7 @@
 
 }
 .login-content {
-    height: 500px;
+    position: relative;
     width: 50%;
     max-width: 600px;
     display: flex;
@@ -84,9 +84,11 @@
   *************************/
 
 .back-container {
+    position: absolute;
+    left: -50px; /*Maybe adjust this*/
     display: flex;
     align-items: center;
-    font-size: 14px;
+    font-size: 16px;
     text-decoration: underline;
     margin-bottom: 30px;
 }
@@ -99,9 +101,10 @@
     margin-bottom: 10px;
     border: 1px solid #000;
     border-radius: 4px;
-    width: 590px;
-    height: 260px;
+    width: 100%;
+    height: 200px;
     overflow-y: scroll;
+    background-color: white;
 }
 
 .company-error-message {
@@ -129,23 +132,21 @@
 .payment-options-container {
     display: flex;
     width: 100%;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 .payment-option-container  {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 120px;
-    height: 120px;
-    border: 2px solid transparent;
+    width: 110px;
+    height: 110px;
+    border: 1px solid transparent;
     border-radius: 5px;
+
 }
 .payment-option-container:hover {
-    border: 2px solid black;
+    border: 1px solid black;
     border-radius: 5px;
-    width: 120px;
-    height: 120px;
+    width: 110px;
+    height: 110px;
 }
 
 .payment-option-container img {

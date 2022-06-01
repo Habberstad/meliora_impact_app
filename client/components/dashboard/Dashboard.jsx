@@ -5,24 +5,17 @@ import { Grid, InputLabel, Link, MenuItem, Select } from "@mui/material";
 import "../../styles/dashboard.css";
 import LocalHospitalIcon from "@mui/icons-material/LocalHospital";
 import LinearProgress from "@mui/material/LinearProgress";
-import Timeline from "@mui/lab/Timeline";
-import TimelineItem from "@mui/lab/TimelineItem";
-import TimelineSeparator from "@mui/lab/TimelineSeparator";
-import TimelineConnector from "@mui/lab/TimelineConnector";
-import TimelineDot from "@mui/lab/TimelineDot";
 import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { TimelineContent } from "@mui/lab";
 import { UserApiContext } from "../../api-client/userApiContext";
-import * as PropTypes from "prop-types";
 import { ArticleSelection } from "./ArticleSelection";
 import { isLoading } from "../shared-components/Loading";
 import { Error } from "../shared-components/Error";
 import { ImpactSection } from "./ImpactSection";
-import WaterIcon from "@mui/icons-material/Water";
 import { useNavigate } from "react-router";
+import { DonationListItem } from "./DonationListItem";
 
 const Dashboard = () => {
   //TODO: Mer beskrivende navn på state. F.eks. expandPartnerAccordion
@@ -30,7 +23,6 @@ const Dashboard = () => {
 
   const [npo, setNpo] = React.useState("");
 
-  // DATA FETCHING
   const navigate = useNavigate();
   const { getCurrentUser } = useContext(UserApiContext);
   const { loading, error, data } = useLoading(
@@ -47,22 +39,24 @@ const Dashboard = () => {
   };
 
   if (loading) return isLoading();
-
   if (error) return <Error error={error} />;
 
   const highlighted = data.npo_partners;
-  console.log("high", highlighted);
   const history = data.donation_history;
-  console.log("his" + history);
-  const npos = data.npo_partners;
-  console.log("npo" + npos);
+  const npoList = data.npo_partners;
+
+  console.log(npoList);
+
+
+  const filteredHistory = history.filter((donation) => donation.npo_id === npo);
+
+  let donationHistory = filteredHistory.length > 0 ? filteredHistory : history;
 
   return (
     <div className={"dashboard-wrapper"}>
       <div className={"dashboard-container"}>
         <h1>Hi, Welcome back </h1>
-        <Grid container direction={"column"}>
-          <Grid container columnSpacing={{ lg: 4, xl: 4 }}>
+          <Grid container columnSpacing={{ lg: 4, xl: 4}} rowSpacing={{lg: 4, xl: 4}}>
             <ImpactSection data={data} />
             <Grid item lg={3} xl={3} className={"socialmedia-template"}>
               <div
@@ -76,7 +70,7 @@ const Dashboard = () => {
                   alt={"das"}
                 />
                 <div className={"socialmedia-template-content-top"}>
-                  <div>Share on </div>
+                  <div>Share on</div>
                   <div>Social Media</div>
                 </div>
                 <div className={"socialmedia-template-content-bot"}>
@@ -87,7 +81,7 @@ const Dashboard = () => {
               </div>
             </Grid>
 
-            <Grid item lg={6} xl={6}>
+            <Grid item lg={6} xl={6} >
               <div className={"highlighted-partners-container"}>
                 <div className={"highlighted-title-view-container"}>
                   <div
@@ -109,55 +103,120 @@ const Dashboard = () => {
                   </div>
                 </div>
                 <div className={"accordion-wrapper"}>
-                  {highlighted.map((npo, index) => (
-                    <Accordion
-                      sx={{
-                        backgroundColor: "#FCEFE7",
-                        width: "97%",
-                        borderRadius: "16px",
-                        dropShadow: "0",
-                      }}
-                      expanded={expanded === index}
-                      onChange={handleChange(index)}
-                    >
-                      <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                        <div className={"accordion-title-container"}>
-                          <LocalHospitalIcon />
-                          <div className={"accordion-title"}>{npo.name}</div>
-                        </div>
-                      </AccordionSummary>
-
-                      <AccordionDetails sx={{ borderRadius: "16px" }}>
-                        <div>
-                          {npo.impact_measurement.map((impactItem) => (
-                            <div
-                              className={
-                                "highlighted-partners-content-container"
-                              }
-                            >
-                              <div className={"highlighted-partners-project"}>
-                                {impactItem.impact_name}
-                              </div>
-                              <div className={"highlighted-partners-progress"}>
-                                <LinearProgress
-                                  sx={{
-                                    width: "162px",
-                                    height: "9px",
-                                    backgroundColor: "#A5A5A5",
-                                    position: "absolut",
-                                  }}
-                                  variant="determinate"
-                                  value={impactItem.impact_value}
-                                />
+                  {highlighted.map((npo, index) => {
+                    if (index <= 1)
+                      return (
+                        <Accordion
+                          className={"highlighted-accordion"}
+                          sx={{
+                            backgroundColor: "#FCEFE7",
+                            width: "97%",
+                            borderRadius: "16px",
+                            dropShadow: "0",
+                          }}
+                          expanded={expanded === index}
+                          onChange={handleChange(index)}
+                        >
+                          <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                            <div className={"accordion-title-container"}>
+                              <LocalHospitalIcon />
+                              <div className={"accordion-title"}>
+                                {npo.name}
                               </div>
                             </div>
-                          ))}
-                        </div>
-                      </AccordionDetails>
-                    </Accordion>
-                  ))}
+                          </AccordionSummary>
+
+                          <AccordionDetails sx={{ borderRadius: "16px" }}>
+                            <div>
+                              {npo.impact_measurement.map((impactItem) => (
+                                <div
+                                  className={
+                                    "highlighted-partners-content-container"
+                                  }
+                                >
+                                  <div
+                                    className={"highlighted-partners-project"}
+                                  >
+                                    {impactItem.impact_name}
+                                  </div>
+                                  <div
+                                    className={"highlighted-partners-progress"}
+                                  >
+                                    <LinearProgress
+                                      sx={{
+                                        width: "162px",
+                                        height: "9px",
+                                        backgroundColor: "#A5A5A5",
+                                        position: "absolut",
+                                      }}
+                                      variant="determinate"
+                                      value={impactItem.impact_value}
+                                    />
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          </AccordionDetails>
+                        </Accordion>
+                      );
+                  })}
                 </div>
               </div>
+            </Grid>
+            <Grid item xl={5} lg={5} className={"donation-history-container"}>
+              <div className={"donation-history-filter"}>
+                <div className={"donation-history-title"}>Donation History</div>
+                <div className={"donation-history-filter-wrapper"}>
+                  <div className={"donation-filter-select-wrapper"}>
+                    <Select
+                      className={"donation-filter-select"}
+                      defaultValue={"Recent"}
+                      onChange={handleChange1}
+                      displayEmpty
+                      inputProps={{ 'aria-label': 'Without label' }}
+                      sx={{color: "#ffff", "& .MuiSelect-iconOpen": { color: "#ffff" }, "& .MuiSelect-icon": { color: "#ffff" }, borderRadius: "10px", textAlign: "center",}}
+                    >
+                      <MenuItem value={"Recent"} label="All">
+                        Recent
+                      </MenuItem>
+                      {npoList.map((x) => (
+                        <MenuItem key={x._id} value={x._id}>
+                          {x.name}
+                        </MenuItem>
+                      ))}
+                    </Select>
+                  </div>
+                </div>
+                <Grid container>
+                  <div
+                    className={"donation-history-timeline-container"}
+                  >
+                    <Grid item>
+                      <div className="donation-list-container">
+                        {donationHistory.map((donation, index) => { if(index <= 3)
+                        return(
+                          <DonationListItem
+                            npoList={npoList}
+                            donation={donation}
+                          />)
+                        })}
+                      </div>
+                    </Grid>
+                  </div>
+                  <div className={"donation-see-all-wrapper"}>
+                    <div
+                      onClick={() => navigate("/accounting")}
+                      className={"donation-see-all"}
+                    >
+                      See all donations
+                    </div>
+                  </div>
+                </Grid>
+              </div>
+            </Grid>
+
+            <Grid item xl={7} lg={7} className={"map"}>
+
             </Grid>
           </Grid>
 
@@ -165,86 +224,12 @@ const Dashboard = () => {
             container
             direction={"row"}
             className={"bottom-container-dashboard"}
+            columnSpacing={{lg: 4, xl:4}}
+
           >
-            <Grid item xl={5} lg={5} className={"donation-history-container"}>
-              <div className={"donation-history-filter"}>
-                <div className={"donation-history-title"}>Donation History</div>
-                <div className={"donation-history-filter-wrapper"}>
-                  <div className={"donation-input-label-wrapper"}>
-                    <InputLabel>Npos</InputLabel>
-                  </div>
-                  <div className={"donation-filter-select-wrapper"}>
-                    <Select
-                      className={"donation-filter-select"}
-                      variant={"outlined"}
-                      value={handleChange1}
-                      label="Npos"
-                      onChange={handleChange1}
-                    >
-                      <MenuItem value={"redde havet"}>npo</MenuItem>
-                      <MenuItem value={"npo navn"}>npo1</MenuItem>
-                      <MenuItem value={"npo navn"}>npo2</MenuItem>
-                    </Select>
-                  </div>
-                </div>
-
-                <Grid
-                  container
-                  className={"donation-history-timeline-container"}
-                >
-                  <Grid item>
-                    {history.map((donation) => (
-                      <Timeline>
-                        <TimelineItem>
-                          <TimelineSeparator>
-                            <TimelineDot
-                              color={"secondary"}
-                              className={"donation-history-timeline"}
-                            />
-                            <TimelineConnector />
-                          </TimelineSeparator>
-                          <TimelineContent>
-                            <div className={"donation-history-content"}>
-                              <div className={"monthly-donation"}>
-                                {donation.type}
-                                <span className="donation-npo-name">
-                                  {npos.map((npo) => {
-                                    if (npo._id === donation.npo_id)
-                                      return npo.name;
-                                  })}
-                                </span>
-                                <div>{donation.date}</div>
-                              </div>
-                              <div className={"donation-amount"}>
-                                {donation.payment_amount} kr
-                              </div>
-                            </div>
-                          </TimelineContent>
-                        </TimelineItem>
-                      </Timeline>
-                    ))}
-                  </Grid>
-                </Grid>
-                <div className={"donation-see-all-wrapper"}>
-                  <div
-                    onClick={() => navigate("/accounting")}
-                    className={"donation-see-all"}
-                  >
-                    See all donations
-                  </div>
-                </div>
-              </div>
-            </Grid>
-
-            <Grid
-              item
-              xl={6}
-              lg={6}
-              className={"highlighted-data-container"}
-            ></Grid>
           </Grid>
-          <ArticleSelection />
-        </Grid>
+
+        <ArticleSelection />
       </div>
     </div>
   );

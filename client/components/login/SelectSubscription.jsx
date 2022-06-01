@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button, Tooltip } from "@mui/material";
 import { BackButton } from "./BackButton";
 import { useNavigate } from "react-router";
 import { SubscriptionInfoGrid } from "./SubscriptionInfoGrid";
@@ -6,7 +6,7 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { useState } from "react";
 import {
-  selectedSubsciptionTypeFreemium,
+  selectedSubscriptionTypeFreemium,
   subscriptionTypeFreemium,
   selectedSubsciptionTypePremium,
   subscriptionTypePremium,
@@ -53,7 +53,7 @@ export const SelectSubscription = (props) => {
             }}
             sx={
               subscriptionType === "freemium"
-                ? selectedSubsciptionTypeFreemium
+                ? selectedSubscriptionTypeFreemium
                 : subscriptionTypeFreemium
             }
             fullWidth
@@ -107,14 +107,21 @@ export const SelectSubscription = (props) => {
       <div className={"subscription-type-information-container"}>
         {isShowingInfo && <SubscriptionInfoGrid />}
       </div>
-      <Button
-        disabled={!subscriptionType}
-        onClick={handleSubscriptionSubmit}
-        sx={{ ...submitButtonStyle, marginTop: "30px" }}
-        variant="contained"
+      <Tooltip
+        title={!subscriptionType ? "Select a subscription plan" : ""}
+        leaveDelay={1500}
       >
-        Next
-      </Button>
+        <span>
+          <Button
+            disabled={!subscriptionType}
+            onClick={handleSubscriptionSubmit}
+            sx={{ ...submitButtonStyle, marginTop: "30px" }}
+            variant="contained"
+          >
+            Next
+          </Button>
+        </span>
+      </Tooltip>
     </div>
   );
 };
