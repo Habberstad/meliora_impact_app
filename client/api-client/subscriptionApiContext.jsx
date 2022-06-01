@@ -8,6 +8,6 @@ export const SubscriptionApiContext = React.createContext({
   },
 
   async deleteSubscription(urlPathParam) {
-    return await deleteJSON("/api/subscriptions?" + urlPathParam);
+    return await deleteJSON("/api/subscriptions/" + urlPathParam);
   },
 });
