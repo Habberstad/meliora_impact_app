@@ -2,6 +2,10 @@ import { Avatar, Divider, ListItemIcon, Menu, MenuItem } from "@mui/material";
 import { Logout, PersonAdd, Settings } from "@mui/icons-material";
 
 export const NavbarDropDown = (props) => {
+  const handleLogoutClick = () => {
+    window.location.href = window.location.origin + "/auth/logout";
+  };
+
   return (
     <Menu
       anchorEl={props.anchorEl}
@@ -60,7 +64,7 @@ export const NavbarDropDown = (props) => {
         Settings
       </MenuItem>
       <Divider />
-      <MenuItem onClick={props.onClick}>
+      <MenuItem onClick={handleLogoutClick}>
         <ListItemIcon>
           <Logout fontSize="small" />
         </ListItemIcon>

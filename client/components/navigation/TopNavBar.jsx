@@ -27,10 +27,6 @@ export const TopNavBar = () => {
     setAnchorEl(null);
   };
 
-  const handleLogoutClick = () => {
-    window.location.href = window.location.origin + "/auth/logout";
-  };
-
   return (
     <div className={"top-navbar-container"}>
       <div className={"top-navbar-icon-container"}>
@@ -82,7 +78,6 @@ export const TopNavBar = () => {
             anchorEl={anchorEl}
             open={open}
             onClose={handleClose}
-            onClick={handleLogoutClick}
           />
         </div>
       </div>
