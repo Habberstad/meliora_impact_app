@@ -1,19 +1,16 @@
-import ImpactTile from "./GreenImpactTile";
+import GreenImpactTile from "./GreenImpactTile";
 import "../../../styles/npo-profile-page-styles/impact-styles.css";
 import contributorsImg from "../npo-media/contributors.png";
 import { LeftMediaCard } from "./LeftMediaCard";
 import { RightMediaCard } from "./RightMediaCard";
 import { DataSectionMediaCard } from "./DataSectionMediaCard";
-import HandshakeIcon from "@mui/icons-material/Handshake";
-import OpacityIcon from "@mui/icons-material/Opacity";
-import BeachAccessIcon from "@mui/icons-material/BeachAccess";
-import GreenImpactTile from "./GreenImpactTile";
 import BlueImpactTile from "./BlueImpactTile";
 import PinkImpactTile from "./PinkImpactTile";
 import YellowMiddleTile from "./YellowMiddleTile";
 import PinkMiddleTile from "./PinkMiddleTile";
 import BlueMiddleTile from "./BlueMiddleTile";
 import GreenMiddleTile from "./GreenMiddleTile";
+import YellowImpactTile from "./YellowImpactTile";
 
 const ImpactTabContent = ({ data, category }) => {
   console.log(data);
@@ -24,7 +21,7 @@ const ImpactTabContent = ({ data, category }) => {
         <GreenImpactTile category={category} data={data.top_tile_1} />
         <BlueImpactTile category={category} data={data.top_tile_2} />
         <PinkImpactTile category={category} data={data.top_tile_3} />
-        <GreenImpactTile category={category} data={data.top_tile_4} />
+        <YellowImpactTile category={category} data={data.top_tile_4} />
       </div>
       <div className="impact-media-section">
         <LeftMediaCard />
