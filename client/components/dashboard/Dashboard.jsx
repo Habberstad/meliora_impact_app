@@ -62,15 +62,13 @@ const Dashboard = () => {
   }
 
   console.log(data);
+  console.log(donationHistory);
 
   const partners = data.npo_partners;
 
   const locations = [];
 
   partners.map((x) => locations.push(x.locations[0]));
-
-  console.log("partners", partners);
-  console.log("locations", locations);
 
   return (
     <div className={"dashboard-wrapper"}>
@@ -223,7 +221,9 @@ const Dashboard = () => {
             <div className="dashboard-map-container">
               <div className="map-text-container">
                 <div className="map-title">Global reach</div>
-                <div className="map-subtitle">Locations</div>
+                <div className="map-subtitle">
+                  Locations your contributions impact
+                </div>
               </div>
               <MapChart markers={locations} />
             </div>
