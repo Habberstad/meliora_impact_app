@@ -9,25 +9,18 @@ import { isLoading } from "../shared-components/Loading";
 import { Error } from "../shared-components/Error";
 import "../../styles/discoverPage.css";
 
-function DataTableRows() {
+function DataTableRows(props) {
   const { deleteSubscription }= useContext(SubscriptionApiContext)
-  const { getCurrentUser } = useContext(UserApiContext);
-  const { loading, error, data } = useLoading(
-    async () => await getCurrentUser(),
-    []
-  );
+
 
   async function handleCancelOnclick(id) {
     await deleteSubscription(id)
     window.location.reload(false);
   }
 
-  if (loading) return isLoading();
-  if (error) return <Error error={error} />;
-
   return (
     <>
-      {data.active_subscriptions.map((item) => (
+      {props.data.active_subscriptions.map((item) => (
         <tr>
           <td>{item._id}</td>
           <td>{item.npo_name}</td>
@@ -45,6 +38,14 @@ function DataTableRows() {
 
 
 export const SubscriptionPage = (props) => {
+  const { getCurrentUser } = useContext(UserApiContext);
+  const { loading, error, data } = useLoading(
+    async () => await getCurrentUser(),
+    []
+  );
+
+  if (loading) return isLoading();
+  if (error) return <Error error={error} />;
 
   return (
     <div className={"discover-page-container"} >
@@ -64,7 +65,7 @@ export const SubscriptionPage = (props) => {
             </tr>
           </thead>
           <tbody>
-            <DataTableRows data={props.user.active_subscriptions} />
+            <DataTableRows data={data} />
           </tbody>
         </table>
       </div>
