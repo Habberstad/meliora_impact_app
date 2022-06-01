@@ -16,6 +16,8 @@ import { Error } from "../shared-components/Error";
 import { ImpactSection } from "./ImpactSection";
 import { useNavigate } from "react-router";
 import { DonationListItem } from "./DonationListItem";
+import WaterIcon from "@mui/icons-material/Water";
+import SchoolIcon from "@mui/icons-material/School";
 
 const Dashboard = () => {
   //TODO: Mer beskrivende navn på state. F.eks. expandPartnerAccordion
@@ -47,189 +49,192 @@ const Dashboard = () => {
 
   console.log(npoList);
 
-
   const filteredHistory = history.filter((donation) => donation.npo_id === npo);
 
   let donationHistory = filteredHistory.length > 0 ? filteredHistory : history;
+
+  function iconCat(npo) {
+    if (npo.category === "water") {
+      return <WaterIcon />;
+    }
+    if (npo.category === "knowledge") {
+      return <SchoolIcon />;
+    }
+  }
 
   return (
     <div className={"dashboard-wrapper"}>
       <div className={"dashboard-container"}>
         <h1>Hi, Welcome back </h1>
-          <Grid container columnSpacing={{ lg: 4, xl: 4}} rowSpacing={{lg: 4, xl: 4}}>
-            <ImpactSection data={data} />
-            <Grid item lg={3} xl={3} className={"socialmedia-template"}>
-              <div
-                onClick={() => navigate("/templates")}
-                className={"socialmedia-template-container"}
-              >
-                <img
-                  src={
-                    "https://images.unsplash.com/photo-1600096194534-95cf5ece04cf?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1600"
-                  }
-                  alt={"das"}
-                />
-                <div className={"socialmedia-template-content-top"}>
-                  <div>Share on</div>
-                  <div>Social Media</div>
+        <Grid
+          container
+          columnSpacing={{ lg: 4, xl: 4 }}
+          rowSpacing={{ lg: 4, xl: 4 }}
+        >
+          <ImpactSection data={data} />
+          <Grid item lg={3} xl={3} className={"socialmedia-template"}>
+            <div
+              onClick={() => navigate("/templates")}
+              className={"socialmedia-template-container"}
+            >
+              <img
+                src={
+                  "https://images.unsplash.com/photo-1600096194534-95cf5ece04cf?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1600"
+                }
+                alt={"das"}
+              />
+              <div className={"socialmedia-template-content-top"}>
+                <div>Share on</div>
+                <div>Social Media</div>
+              </div>
+              <div className={"socialmedia-template-content-bot"}>
+                <Link href={"/templates"} color="inherit">
+                  <div>View templates</div>
+                </Link>
+              </div>
+            </div>
+          </Grid>
+
+          <Grid item lg={6} xl={6}>
+            <div className={"highlighted-partners-container"}>
+              <div className={"highlighted-title-view-container"}>
+                <div
+                  className={"highlighted-partners-title"}
+                  style={{
+                    fontSize: "20px",
+                    margin: "10px",
+                    fontWeight: "600",
+                    marginLeft: "10px",
+                  }}
+                >
+                  Highlighted partners
                 </div>
-                <div className={"socialmedia-template-content-bot"}>
-                  <Link href={"/templates"} color="inherit">
-                    <div>View templates</div>
-                  </Link>
+                <div
+                  onClick={() => navigate("/our-partners")}
+                  className="highlighted-view-all"
+                >
+                  View all
                 </div>
               </div>
-            </Grid>
+              <div className={"accordion-wrapper"}>
+                {highlighted.map((npo, index) => {
+                  if (index <= 1)
+                    return (
+                      <Accordion
+                        className={"highlighted-accordion"}
+                        sx={{
+                          backgroundColor: "#FCEFE7",
+                          width: "97%",
+                          borderRadius: "16px",
+                          dropShadow: "0",
+                        }}
+                        expanded={expanded === index}
+                        onChange={handleChange(index)}
+                      >
+                        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                          <div className={"accordion-title-container"}>
+                            {iconCat(npo)}
+                            <div className={"accordion-title"}>{npo.name}</div>
+                          </div>
+                        </AccordionSummary>
 
-            <Grid item lg={6} xl={6} >
-              <div className={"highlighted-partners-container"}>
-                <div className={"highlighted-title-view-container"}>
-                  <div
-                    className={"highlighted-partners-title"}
-                    style={{
-                      fontSize: "20px",
-                      margin: "10px",
-                      fontWeight: "600",
-                      marginLeft: "10px",
+                        <AccordionDetails sx={{ borderRadius: "16px" }}>
+                          <div>
+                            {npo.impact_measurement.map((impactItem) => (
+                              <div
+                                className={
+                                  "highlighted-partners-content-container"
+                                }
+                              >
+                                <div className={"highlighted-partners-project"}>
+                                  {impactItem.impact_name}
+                                </div>
+                                <div
+                                  className={"highlighted-partners-progress"}
+                                >
+                                  <LinearProgress
+                                    sx={{
+                                      width: "162px",
+                                      height: "9px",
+                                      backgroundColor: "#A5A5A5",
+                                      position: "absolut",
+                                    }}
+                                    variant="determinate"
+                                    value={impactItem.impact_value}
+                                  />
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </AccordionDetails>
+                      </Accordion>
+                    );
+                })}
+              </div>
+            </div>
+          </Grid>
+          <Grid item xl={5} lg={5} className={"donation-history-container"}>
+            <div className={"donation-history-filter"}>
+              <div className={"donation-history-title"}>Donation History</div>
+              <div className={"donation-history-filter-wrapper"}>
+                <div className={"donation-filter-select-wrapper"}>
+                  <Select
+                    className={"donation-filter-select"}
+                    defaultValue={"Recent"}
+                    onChange={handleChange1}
+                    displayEmpty
+                    inputProps={{ "aria-label": "Without label" }}
+                    sx={{
+                      color: "#ffff",
+                      "& .MuiSelect-iconOpen": { color: "#ffff" },
+                      "& .MuiSelect-icon": { color: "#ffff" },
+                      borderRadius: "10px",
+                      textAlign: "center",
                     }}
                   >
-                    Highlighted partners
-                  </div>
-                  <div
-                    onClick={() => navigate("/our-partners")}
-                    className="highlighted-view-all"
-                  >
-                    View all
-                  </div>
-                </div>
-                <div className={"accordion-wrapper"}>
-                  {highlighted.map((npo, index) => {
-                    if (index <= 1)
-                      return (
-                        <Accordion
-                          className={"highlighted-accordion"}
-                          sx={{
-                            backgroundColor: "#FCEFE7",
-                            width: "97%",
-                            borderRadius: "16px",
-                            dropShadow: "0",
-                          }}
-                          expanded={expanded === index}
-                          onChange={handleChange(index)}
-                        >
-                          <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                            <div className={"accordion-title-container"}>
-                              <LocalHospitalIcon />
-                              <div className={"accordion-title"}>
-                                {npo.name}
-                              </div>
-                            </div>
-                          </AccordionSummary>
-
-                          <AccordionDetails sx={{ borderRadius: "16px" }}>
-                            <div>
-                              {npo.impact_measurement.map((impactItem) => (
-                                <div
-                                  className={
-                                    "highlighted-partners-content-container"
-                                  }
-                                >
-                                  <div
-                                    className={"highlighted-partners-project"}
-                                  >
-                                    {impactItem.impact_name}
-                                  </div>
-                                  <div
-                                    className={"highlighted-partners-progress"}
-                                  >
-                                    <LinearProgress
-                                      sx={{
-                                        width: "162px",
-                                        height: "9px",
-                                        backgroundColor: "#A5A5A5",
-                                        position: "absolut",
-                                      }}
-                                      variant="determinate"
-                                      value={impactItem.impact_value}
-                                    />
-                                  </div>
-                                </div>
-                              ))}
-                            </div>
-                          </AccordionDetails>
-                        </Accordion>
-                      );
-                  })}
-                </div>
-              </div>
-            </Grid>
-            <Grid item xl={5} lg={5} className={"donation-history-container"}>
-              <div className={"donation-history-filter"}>
-                <div className={"donation-history-title"}>Donation History</div>
-                <div className={"donation-history-filter-wrapper"}>
-                  <div className={"donation-filter-select-wrapper"}>
-                    <Select
-                      className={"donation-filter-select"}
-                      defaultValue={"Recent"}
-                      onChange={handleChange1}
-                      displayEmpty
-                      inputProps={{ 'aria-label': 'Without label' }}
-                      sx={{color: "#ffff", "& .MuiSelect-iconOpen": { color: "#ffff" }, "& .MuiSelect-icon": { color: "#ffff" }, borderRadius: "10px", textAlign: "center",}}
-                    >
-                      <MenuItem value={"Recent"} label="All">
-                        Recent
+                    <MenuItem value={"Recent"} label="All">
+                      Recent
+                    </MenuItem>
+                    {npoList.map((x) => (
+                      <MenuItem key={x._id} value={x._id}>
+                        {x.name}
                       </MenuItem>
-                      {npoList.map((x) => (
-                        <MenuItem key={x._id} value={x._id}>
-                          {x.name}
-                        </MenuItem>
-                      ))}
-                    </Select>
+                    ))}
+                  </Select>
+                </div>
+              </div>
+              <Grid container>
+                <div className={"donation-history-timeline-container"}>
+                  <Grid item>
+                    <div className="donation-list-container">
+                      {donationHistory.map((donation, index) => {
+                        if (index <= 3)
+                          return (
+                            <DonationListItem
+                              npoList={npoList}
+                              donation={donation}
+                            />
+                          );
+                      })}
+                    </div>
+                  </Grid>
+                </div>
+                <div className={"donation-see-all-wrapper"}>
+                  <div
+                    onClick={() => navigate("/accounting")}
+                    className={"donation-see-all"}
+                  >
+                    See all donations
                   </div>
                 </div>
-                <Grid container>
-                  <div
-                    className={"donation-history-timeline-container"}
-                  >
-                    <Grid item>
-                      <div className="donation-list-container">
-                        {donationHistory.map((donation, index) => { if(index <= 3)
-                        return(
-                          <DonationListItem
-                            npoList={npoList}
-                            donation={donation}
-                          />)
-                        })}
-                      </div>
-                    </Grid>
-                  </div>
-                  <div className={"donation-see-all-wrapper"}>
-                    <div
-                      onClick={() => navigate("/accounting")}
-                      className={"donation-see-all"}
-                    >
-                      See all donations
-                    </div>
-                  </div>
-                </Grid>
-              </div>
-            </Grid>
-
-            <Grid item xl={7} lg={7} className={"map"}>
-
-            </Grid>
+              </Grid>
+            </div>
           </Grid>
-
-          <Grid
-            container
-            direction={"row"}
-            className={"bottom-container-dashboard"}
-            columnSpacing={{lg: 4, xl:4}}
-
-          >
+          <Grid item xl={7} lg={7} className={"map"}></Grid>
+          <Grid item xl={12} sx={{ marginTop: "40px" }}>
+            <ArticleSelection />
           </Grid>
-
-        <ArticleSelection />
+        </Grid>
       </div>
     </div>
   );
