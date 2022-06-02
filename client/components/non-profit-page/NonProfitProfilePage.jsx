@@ -83,6 +83,9 @@ const NonProfitProfilePage = ({ user }) => {
         setRegisterError(true);
       }
     }
+    setTimeout(() => {
+      window.location.reload(false);
+    }, "700");
   };
 
   if (loading) return <h1>loading..</h1>;
@@ -99,6 +102,8 @@ const NonProfitProfilePage = ({ user }) => {
         handleShowModal={handleShowModal}
         name={data.name}
         data={data.header_data}
+        allData={data}
+        user={user}
       />
       <NavigationBar
         onClick={() => handleNavigationState("overview")}

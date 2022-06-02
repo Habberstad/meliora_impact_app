@@ -1,8 +1,24 @@
 import { Button } from "@mui/material";
 import WavesIcon from "@mui/icons-material/Waves";
+import { useEffect, useState } from "react";
 
-export function ProfileHeader({ data, name, handleShowModal }) {
-  console.log("profile header", data);
+export function ProfileHeader({ user, allData, data, name, handleShowModal }) {
+  const [isPartner, setIsPartner] = useState(false);
+  console.log("profile header", allData);
+  console.log("userinfo", user);
+
+  useEffect(() => {
+    user.active_subscriptions.map((x) => {
+      if (x.npo_id === allData._id) {
+        setIsPartner(true);
+      } else {
+        setIsPartner(false);
+      }
+    });
+  }, []);
+
+  console.log("isPartner", isPartner);
+
   return (
     <div className="main-header-container">
       <div
