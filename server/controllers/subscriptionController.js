@@ -2,6 +2,7 @@ import { ObjectId } from "mongodb";
 import SubscriptionService from "../services/subscriptionService.js";
 import Subscription from "../models/subscriptionModel.js";
 import TransactionService from "../services/TransactionService.js";
+import SubscriptionHistoryService from "../services/subscriptionHistoryService.js";
 
 async function list(req, res) {
   const query = {};
@@ -68,7 +69,8 @@ async function create(req, res) {
 
 async function deleteRecord(req, res) {
   try {
-
+    // const toBeDeleted = await SubscriptionService.getById(req.param.id)
+    // await SubscriptionHistoryService.create(toBeDeleted)
     await SubscriptionService.deleteRecord(req.params.id);
     return res.status(201).json({ status: 201 });
   } catch (e) {
