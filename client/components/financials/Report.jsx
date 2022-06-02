@@ -99,7 +99,6 @@ const Report = React.forwardRef((props, ref) => {
                 className={"accounting-icon-calender"}
                 fontSize={"large"}
               />
-
             </div>
           </Box>
 
@@ -108,16 +107,15 @@ const Report = React.forwardRef((props, ref) => {
             user={user}
             numb={sumAmount}
           />
-
         </Grid>
-        <Grid item xs={12}>
-          <Grid item>
+
+        <div className={"account-tax-print-wrapper"}>
+          <div className={"account-tax-wrapper"}>
           <Link color={"inherit"} href={"https://www.skatteetaten.no/person/"}>
             Tax information here
           </Link>
-          </Grid>
-          <Grid item xs={6}>
-          <div className={"accounting-print-button"}>
+          </div>
+          <div className={"accounting-donation-print-button"}>
             <Button
               type="button"
               onClick={handlePrint}
@@ -137,8 +135,7 @@ const Report = React.forwardRef((props, ref) => {
               Print to PDF
             </Button>
           </div>
-          </Grid>
-        </Grid>
+        </div>
 
         {/* **************** OUTSIDE IS ONLY VISIBLE ON PRINT OUT **********************************************************************************/}
         <Grid

@@ -94,9 +94,22 @@
     align-items: center;
 }
 
+.account-tax-print-wrapper{
+    display: flex;
+    flex-direction: row;
+    width: 900px;
+    margin-top: 40px;
+}
+
 .accounting-print-button{
     display: flex;
-    max-width: 900px;
+    width: 100%;
     margin-top: 40px;
+    justify-content: flex-end;
+}
+
+.accounting-donation-print-button{
+    display: flex;
+    width: 100%;
     justify-content: flex-end;
 }
