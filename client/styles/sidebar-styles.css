@@ -52,6 +52,18 @@
     justify-content: space-between;
 }
 
+.nav-item-disabled {
+    display: flex;
+    background-color: #fff;
+    width: 268px;
+    height:045px;
+    align-items: center;
+    font-weight: 500;
+    color: #464D51;
+    font-size: 13px;
+    padding-left: 21px;
+    cursor: not-allowed;
+}
 
 
 .nav-item {
