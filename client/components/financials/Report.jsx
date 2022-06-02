@@ -1,8 +1,9 @@
 import * as React from "react";
 import { useState } from "react";
-import { Box, Button, Grid } from "@mui/material";
+import { Box, Button, Grid, MenuItem, Select } from "@mui/material";
 import MelioraIcon from "../../media/meliora_logo.png";
 import { DonationTable } from "./DonationTable";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 
 const Report = React.forwardRef((props, ref) => {
   const [year, setYear] = useState(new Date().getFullYear());
@@ -17,12 +18,8 @@ const Report = React.forwardRef((props, ref) => {
     return accumulator + currentValue.payment_amount;
   }, 0);
 
-  function backYear() {
-    setYear(year - 1);
-  }
-
-  function forwardYear() {
-    setYear(year + 1);
+  function yearChange(event) {
+    setYear(event.target.value);
   }
 
   return (
@@ -72,9 +69,30 @@ const Report = React.forwardRef((props, ref) => {
               displayPrint: "none",
             }}
           >
-            <Button onClick={backYear}>back</Button>
-            {year}
-            <Button onClick={forwardYear}>forward</Button>
+            <Select
+              id={"year"}
+              defaultValue={"2022"}
+              onChange={yearChange}
+              inputProps={{ "aria-label": "Without label" }}
+            >
+              <MenuItem value={2022}>2022</MenuItem>
+              <MenuItem value={2021}>2021</MenuItem>
+              <MenuItem value={2020}>2020</MenuItem>
+            </Select>
+            <Select
+              id={"month"}
+              defaultValue={"Juni"}
+              inputProps={{ "aria-label": "Without label" }}
+            >
+              <MenuItem value={"Jan"}>Jan</MenuItem>
+              <MenuItem value={"Feb"}>Feb</MenuItem>
+              <MenuItem value={"Mar"}>Mar</MenuItem>
+              <MenuItem value={"Juni"}>Juni</MenuItem>
+            </Select>
+            <CalendarMonthIcon
+              className={"accounting-icon-calender"}
+              fontSize={"large"}
+            />
           </Box>
 
           <DonationTable

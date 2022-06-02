@@ -4,6 +4,7 @@ import ReactToPrint, { useReactToPrint } from "react-to-print";
 import { Box, Button, Grid, MenuItem, Select } from "@mui/material";
 import { useRef, useState } from "react";
 import Report from "./Report";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import SubscriptionTable from "./SubscriptionsPage";
 import "../../styles/financesPage.css";
 import {
@@ -25,14 +26,16 @@ import { Error } from "../shared-components/Error";
 export const AccountingPage = (props) => {
   const [selectedFilterTab, setSelectedFilterTab] = useState("donation");
   const [filterTab, setFilterTab] = useState("donation");
-  const [year, setYear] = useState(new Date().getFullYear());
+
+  const [year, setYear] = useState(2022);
+
   function handleFilter(event) {
     setSelectedFilterTab(event);
     setFilterTab(event);
   }
 
   function yearChange(event) {
-    setYear(event);
+    setYear(event.target.value);
   }
 
   console.log(selectedFilterTab);
@@ -127,15 +130,30 @@ export const AccountingPage = (props) => {
                 }}
               >
                 <Select
-                  value={year}
+                  id={"year"}
+                  defaultValue={"2022"}
                   onChange={yearChange}
-                  displayEmpty
                   inputProps={{ "aria-label": "Without label" }}
                 >
                   <MenuItem value={2022}>2022</MenuItem>
                   <MenuItem value={2021}>2021</MenuItem>
                   <MenuItem value={2020}>2020</MenuItem>
                 </Select>
+
+                <Select
+                  id={"month"}
+                  defaultValue={"Juni"}
+                  inputProps={{ "aria-label": "Without label" }}
+                >
+                  <MenuItem value={"Jan"}>Jan</MenuItem>
+                  <MenuItem value={"Feb"}>Feb</MenuItem>
+                  <MenuItem value={"Mar"}>Mar</MenuItem>
+                  <MenuItem value={"Juni"}>Juni</MenuItem>
+                </Select>
+                <CalendarMonthIcon
+                  className={"accounting-icon-calender"}
+                  fontSize={"large"}
+                />
               </Box>
               <div>
                 <table className={"styled-table"}>
