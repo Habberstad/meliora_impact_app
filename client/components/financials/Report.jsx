@@ -69,30 +69,33 @@ const Report = React.forwardRef((props, ref) => {
               displayPrint: "none",
             }}
           >
-            <Select
-              id={"year"}
-              defaultValue={"2022"}
-              onChange={yearChange}
-              inputProps={{ "aria-label": "Without label" }}
-            >
-              <MenuItem value={2022}>2022</MenuItem>
-              <MenuItem value={2021}>2021</MenuItem>
-              <MenuItem value={2020}>2020</MenuItem>
-            </Select>
-            <Select
-              id={"month"}
-              defaultValue={"Juni"}
-              inputProps={{ "aria-label": "Without label" }}
-            >
-              <MenuItem value={"Jan"}>Jan</MenuItem>
-              <MenuItem value={"Feb"}>Feb</MenuItem>
-              <MenuItem value={"Mar"}>Mar</MenuItem>
-              <MenuItem value={"Juni"}>Juni</MenuItem>
-            </Select>
-            <CalendarMonthIcon
-              className={"accounting-icon-calender"}
-              fontSize={"large"}
-            />
+            <div className={"accounting-calender"}>
+              <Select
+                id={"year"}
+                defaultValue={"2022"}
+                onChange={yearChange}
+                inputProps={{ "aria-label": "Without label" }}
+              >
+                <MenuItem value={2022}>2022</MenuItem>
+                <MenuItem value={2021}>2021</MenuItem>
+                <MenuItem value={2020}>2020</MenuItem>
+              </Select>
+              <Select
+                id={"month"}
+                defaultValue={"Juni"}
+                inputProps={{ "aria-label": "Without label" }}
+              >
+                <MenuItem value={"Jan"}>Jan</MenuItem>
+                <MenuItem value={"Feb"}>Feb</MenuItem>
+                <MenuItem value={"Mar"}>Mar</MenuItem>
+                <MenuItem value={"Juni"}>Juni</MenuItem>
+              </Select>
+              <CalendarMonthIcon
+                className={"accounting-icon-calender"}
+                fontSize={"large"}
+              />
+
+            </div>
           </Box>
 
           <DonationTable

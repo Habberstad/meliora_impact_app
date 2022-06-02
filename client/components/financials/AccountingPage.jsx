@@ -130,6 +130,7 @@ export const AccountingPage = (props) => {
                   displayPrint: "none",
                 }}
               >
+                <div className={"accounting-calender"}>
                 <Select
                   id={"year"}
                   defaultValue={"2022"}
@@ -155,6 +156,7 @@ export const AccountingPage = (props) => {
                   className={"accounting-icon-calender"}
                   fontSize={"large"}
                 />
+                </div>
               </Box>
               <div>
                 <table className={"styled-table"}>
