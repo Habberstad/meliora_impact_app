@@ -50,12 +50,14 @@ export const AccountingPage = (props) => {
     []
   );
 
-  const filteredTransactions = data.active_subscriptions.filter((item) =>
-    new Date(item.date).getFullYear() === year
-  );
+
 
   if (loading) return isLoading();
   if (error) return <Error error={error} />;
+
+  const filteredTransactions = data.active_subscriptions.filter((item) =>
+    new Date(item.date).getFullYear() === year
+  );
 
   return (
     <div className={"discover-page-container"}>
