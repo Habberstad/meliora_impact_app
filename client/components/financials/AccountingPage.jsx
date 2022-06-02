@@ -98,7 +98,7 @@ export const AccountingPage = (props) => {
               Subscription History
             </Button>
 
-            <Button onClick={() => handleFilter("statistics")} sx={selectedFilterTab === "statistics" ? selectedFilterTabStyleNew : unselectedFilterTabStyle
+            <Button disabled onClick={() => handleFilter("statistics")} sx={selectedFilterTab === "statistics" ? selectedFilterTabStyleNew : unselectedFilterTabStyle
               }
             >
               Statistics
@@ -145,7 +145,7 @@ export const AccountingPage = (props) => {
                 </div>
               </Box>
               <div>
-                <table className={"styled-table"}>
+                <table className={"styled-table-finances"}>
                   <thead>
                     <tr>
                       <th>Subscription ID</th>
