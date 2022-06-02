@@ -1,4 +1,7 @@
-import { CurrencyFormater, DateFormater } from "../shared-components/dateFormater";
+import {
+  CurrencyFormater,
+  DateFormater,
+} from "../shared-components/dateFormater";
 import * as React from "react";
 import { Button } from "@mui/material";
 import { useContext, useState } from "react";
@@ -10,11 +13,10 @@ import { Error } from "../shared-components/Error";
 import "../../styles/discoverPage.css";
 
 function DataTableRows(props) {
-  const { deleteSubscription }= useContext(SubscriptionApiContext)
-
+  const { deleteSubscription } = useContext(SubscriptionApiContext);
 
   async function handleCancelOnclick(id) {
-    await deleteSubscription(id)
+    await deleteSubscription(id);
     window.location.reload(false);
   }
 
@@ -26,16 +28,20 @@ function DataTableRows(props) {
           <td>{item.npo_name}</td>
           <td>{item.payment_frequency}</td>
           <td>{item.payment_amount}</td>
-          <td><DateFormater date={item.date}/></td>
+          <td>
+            <DateFormater date={item.date} />
+          </td>
           <td></td>
-          <td><Button onClick={()=> handleCancelOnclick(item._id)}>Cancel</Button></td>
+          <td>
+            <Button onClick={() => handleCancelOnclick(item._id)}>
+              Cancel
+            </Button>
+          </td>
         </tr>
       ))}
     </>
   );
-
 }
-
 
 export const SubscriptionPage = (props) => {
   const { getCurrentUser } = useContext(UserApiContext);
@@ -48,7 +54,7 @@ export const SubscriptionPage = (props) => {
   if (error) return <Error error={error} />;
 
   return (
-    <div className={"discover-page-container"} >
+    <div className={"discover-page-container"}>
       <h1>Active Subscriptions</h1>
       <div>
         <table className={"styled-table"}>
@@ -70,6 +76,5 @@ export const SubscriptionPage = (props) => {
         </table>
       </div>
     </div>
-
   );
 };

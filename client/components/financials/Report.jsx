@@ -12,6 +12,7 @@ const Report = React.forwardRef((props, ref) => {
   const filteredTransactions = transactions.filter(
     (item) => new Date(item.date).getFullYear() === year
   );
+
   const sumAmount = filteredTransactions.reduce((accumulator, currentValue) => {
     return accumulator + currentValue.payment_amount;
   }, 0);

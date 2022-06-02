@@ -406,28 +406,24 @@ export const greenWidePlatformButton = {
   },
 };
 
-export const selectedTabStyleNew = {
-  color: "#000",
-  borderBottom: "3px solid #7209B7",
-  padding: "20px 50px 5px 20px",
-  width: "260px",
-  height: "25px",
-  fontWeight: "bold",
-  fontFamily: "Montserrat",
+export const selectedFilterTabStyleNew = {
+  color: "#fff",
+  backgroundColor: "#551477",
   fontSize: "18px",
+  border: "solid 1px #637381",
+  width: "260px",
+  height: "45px",
+  borderRadius: "8px 8px 0 0",
+  fontWeight: "600px",
+  lineHeight: "22px",
 };
 
-export const hoverTabStyleNew = {
-  color: "#000",
-  borderBottom: "3px solid #7209B7",
-  padding: "20px 50px 5px 20px",
-  width: "260px",
-  height: "25px",
-  fontWeight: "bold",
-  fontFamily: "Montserrat",
-  fontSize: "18px",
-  "&:hover": {
-    borderBottom: "3px solid #7209B7",
-    backgroundColor: "#FAFAFA",
-  },
+export const unselectedFilterTabStyle = {
+  color: "#000000",
+  border: "solid 1px #637381",
+  width: "240px",
+  height: "38px",
+  borderRadius: "8px 8px 0 0",
+  fontSize: "14px",
+  fontWeight: "600px",
 };
