@@ -1,7 +1,7 @@
 import * as React from "react";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import ReactToPrint, { useReactToPrint } from "react-to-print";
-import { Box, Button, Grid } from "@mui/material";
+import { Box, Button, Grid, MenuItem, Select } from "@mui/material";
 import { useRef, useState } from "react";
 import Report from "./Report";
 import SubscriptionTable from "./SubscriptionsPage";
@@ -25,13 +25,15 @@ import { Error } from "../shared-components/Error";
 export const AccountingPage = (props) => {
   const [selectedFilterTab, setSelectedFilterTab] = useState("donation");
   const [filterTab, setFilterTab] = useState("donation");
-
+  const [year, setYear] = useState(new Date().getFullYear());
   function handleFilter(event) {
     setSelectedFilterTab(event);
     setFilterTab(event);
   }
 
-  console.log(filterTab);
+  function yearChange(event) {
+    setYear(event);
+  }
 
   console.log(selectedFilterTab);
   const componentRef = useRef();
@@ -51,7 +53,10 @@ export const AccountingPage = (props) => {
   return (
     <div className={"discover-page-container"}>
       {/* **************** START: INSIDE ONLY VISIBLE ON BROWSER PAGE **********************************************************************************/}
-      <h1>Donation history</h1>
+      {filterTab === "donation" && <h1>Donation history</h1>}
+      {filterTab === "subscription" && <h1>Subscription history</h1>}
+      {filterTab === "statistics" && <h1>Statistics</h1>}
+
       <Button
         type="button"
         onClick={handlePrint}
@@ -70,14 +75,8 @@ export const AccountingPage = (props) => {
       >
         Print to PDF
       </Button>
-      <Grid container direction={"row"} item>
-        <Box
-          sx={{
-            display: "block",
-            displayPrint: "none",
-            width: "100%",
-          }}
-        >
+      <div className={"donation-history-page-container"}>
+        <div>
           <div className={"report-history-filter-wrapper"}>
             <Button
               onClick={() => handleFilter("donation")}
@@ -115,17 +114,29 @@ export const AccountingPage = (props) => {
               Statistics
             </Button>
           </div>
-        </Box>
-      </Grid>
-      {/* ***************** END: INSIDE ONLY VISIBLE ON BROWSER PAGE ********************************************************************************** */}
-      {filterTab === "donation" && (
-        <Report ref={componentRef} user={props.user} />
-      )}
-      {filterTab === "subscription" && (
-        <div>
-          <h1>Subscriptions History</h1>
-          <div>
-            <div className={"donation-history-page-container"}>
+          {/* ***************** END: INSIDE ONLY VISIBLE ON BROWSER PAGE ********************************************************************************** */}
+          {filterTab === "donation" && (
+            <Report ref={componentRef} user={props.user} />
+          )}
+          {filterTab === "subscription" && (
+            <div>
+              <Box
+                sx={{
+                  display: "block",
+                  displayPrint: "none",
+                }}
+              >
+                <Select
+                  value={year}
+                  onChange={yearChange}
+                  displayEmpty
+                  inputProps={{ "aria-label": "Without label" }}
+                >
+                  <MenuItem value={2022}>2022</MenuItem>
+                  <MenuItem value={2021}>2021</MenuItem>
+                  <MenuItem value={2020}>2020</MenuItem>
+                </Select>
+              </Box>
               <div>
                 <table className={"styled-table"}>
                   <thead>
@@ -155,17 +166,17 @@ export const AccountingPage = (props) => {
                 </table>
               </div>
             </div>
-          </div>
-        </div>
-      )}
+          )}
 
-      {filterTab === "statistics" && (
-        <img
-          className="accounting-image"
-          src="http://localhost:3000/header-image-partners.9fd59cdb.png?1654168554381"
-          alt="dsada"
-        />
-      )}
+          {filterTab === "statistics" && (
+            <img
+              className="accounting-image"
+              src="http://localhost:3000/header-image-partners.9fd59cdb.png?1654168554381"
+              alt="dsada"
+            />
+          )}
+        </div>
+      </div>
     </div>
   );
 };
