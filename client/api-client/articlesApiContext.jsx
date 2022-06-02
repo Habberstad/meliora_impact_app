@@ -9,5 +9,10 @@ export const ArticleApiContext = React.createContext({
     return await fetchJSON("/api/articles?"+ new URLSearchParams(query));
   },
 
+  async getArticleById(urlPathParam) {
+    return await fetchJSON("/api/articles/"+ urlPathParam);
+  },
+
+
 
 });

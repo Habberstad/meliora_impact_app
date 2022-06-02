@@ -15,17 +15,17 @@ const DiscoverPage = () => {
   const [searchString, setSearchString] = useState("");
   const [category, setCategory] = useState("");
   const { listNpos } = useContext(NpoApiContext);
-  const { loading, error, data } = useLoading(
-    async () => await listNpos({ category }),
-    [category]
-  );
+  const { loading, error, data } = useLoading(async () => await listNpos());
+  const [emptySearchInput, setEmptySearchInput] = useState(false);
 
   function categorySelectHandler(selectedCategory) {
     setCategory(selectedCategory);
-
+    setSearchString(selectedCategory);
+    setEmptySearchInput(true);
   }
 
   function handleSearchInput(event) {
+    setEmptySearchInput(false);
     setSearchString(event.target.value);
   }
 
@@ -37,13 +37,19 @@ const DiscoverPage = () => {
       <GlobalHeader
         title={"Discover"}
         subtitle={"Explore other NPOs"}
-        desc={"Dive in and learn about which projects our passionate NPOs are engaged with. Quickly sort and collaborate on different propositions we can offer."}
+        desc={
+          "Dive in and learn about which projects our passionate NPOs are engaged with. Quickly sort and collaborate on different propositions we can offer."
+        }
         image={headerImg}
       />
       <CategoryFilter onClick={categorySelectHandler} category={category} />
       <br />
       <br />
-      <Searchbar searchString={searchString} onChange={handleSearchInput} />
+      <Searchbar
+        emptySearchInput={emptySearchInput}
+        searchString={searchString}
+        onChange={handleSearchInput}
+      />
       <br />
       <br />
       <ListProjects data={data} category={category} searchWord={searchString} />

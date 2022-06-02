@@ -9,10 +9,12 @@ import { SubscriptionApiContext } from "../../api-client/subscriptionApiContext"
 import SubscriptionModal from "./SubscriptionModal";
 import { TabContent } from "./TabContent";
 import { NavigationBar } from "./NavigationBar";
+import DonateModal from "./DonateModal";
 
 const NonProfitProfilePage = ({ user }) => {
   const [selectedTab, setSelectedTab] = useState("overview");
   const [showModal, setShowModal] = useState(false);
+  const [showDonationModal, setShowDonationModal] = useState(false);
   const [paymentFrequency, setPaymentFrequency] = useState("monthly");
   const [paymentAmount, setPaymentAmount] = useState(null);
   const [formError, setFormError] = useState(false);
@@ -44,6 +46,14 @@ const NonProfitProfilePage = ({ user }) => {
     setRegisterSuccess(false);
     setInvalidCustomAmount(false);
     setShowModal((prevState) => !prevState);
+  };
+
+  const handleShowDonationModal = () => {
+    setPaymentAmount(null);
+    setRegisterError(false);
+    setRegisterSuccess(false);
+    setInvalidCustomAmount(false);
+    setShowDonationModal((prevState) => !prevState);
   };
 
   const handleUpdatePaymentFrequency = (frequency) => {
@@ -83,6 +93,13 @@ const NonProfitProfilePage = ({ user }) => {
         setRegisterError(true);
       }
     }
+    setTimeout(() => {
+      window.location.reload(false);
+    }, "700");
+  };
+
+  const handleSubmitDonation = () => {
+    setRegisterSuccess(true);
   };
 
   if (loading) return <h1>loading..</h1>;
@@ -97,8 +114,11 @@ const NonProfitProfilePage = ({ user }) => {
     <div className="main-profile-container">
       <ProfileHeader
         handleShowModal={handleShowModal}
+        handleShowDonationModal={handleShowDonationModal}
         name={data.name}
         data={data.header_data}
+        allData={data}
+        user={user}
       />
       <NavigationBar
         onClick={() => handleNavigationState("overview")}
@@ -122,6 +142,25 @@ const NonProfitProfilePage = ({ user }) => {
         add5000PaymentAmount={() => handleUpdatePaymentAmount(5000)}
         addCustomPaymentAmount={handleUpdatePaymentCustomAmount}
         handleSubmitSubscription={handleSubmitSubscription}
+        formError={formError}
+        invalidCustomAmount={invalidCustomAmount}
+        registerError={registerError}
+        registerSuccess={registerSuccess}
+      />
+      <DonateModal
+        open={showDonationModal}
+        onClose={handleShowDonationModal}
+        paymentFrequency={paymentFrequency}
+        addQuarterlyPaymentMethod={() =>
+          handleUpdatePaymentFrequency("quarterly")
+        }
+        addMonthlyPaymentMethod={() => handleUpdatePaymentFrequency("monthly")}
+        paymentAmount={paymentAmount}
+        add1000PaymentAmount={() => handleUpdatePaymentAmount(1000)}
+        add2500PaymentMound={() => handleUpdatePaymentAmount(2500)}
+        add5000PaymentAmount={() => handleUpdatePaymentAmount(5000)}
+        addCustomPaymentAmount={handleUpdatePaymentCustomAmount}
+        handleSubmitDonation={handleSubmitDonation}
         formError={formError}
         invalidCustomAmount={invalidCustomAmount}
         registerError={registerError}

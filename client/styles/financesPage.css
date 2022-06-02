@@ -4,11 +4,35 @@
     padding: 100px;
 }
 
+.report-page{
+    position: relative;
+
+}
+
+.report-top-right{
+    position: absolute;
+    top: 50px;
+    right: 50px;
+}
+
+.report-top-left{
+    position: absolute;
+    top: 50px;
+    left:50px;
+}
+
+.report-table{
+    position: absolute;
+    top: 500px;
+    left:50px;
+}
+
+
 .styled-table {
     border-collapse: collapse;
     font-size: 0.9em;
     font-family: sans-serif;
-    min-width: 900px;
+    max-width: 700px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -16,11 +40,13 @@
     background-color: #7209B7;
     color: #ffffff;
     text-align: left;
+
 }
 
 .styled-table th,
 .styled-table td {
-    padding: 12px 15px;
+    padding: 15px 5px;
+
 }
 
 .styled-table tbody tr {
@@ -47,40 +73,44 @@
 /* Dennis styling report*/
 .report-history-filter-wrapper{
     display: flex;
-}
-
-.report-donation-history-filter{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: solid 1px #637381;
-    width: 286px;
-    height: 38px;
-    border-radius: 8px 8px 0 0;
-}
-
-.report-subscription-history-filter{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: solid 1px #637381;
-    width: 286px;
-    height: 38px;
-    border-radius: 8px 8px 0 0;
-
-}
-
-.report-statistics-filter{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: solid 1px #637381;
-    width: 286px;
-    height: 38px;
-    border-radius: 8px 8px 0 0;
-
+    align-items: flex-end;
+    margin-bottom: 30px;
 }
 
 .accounting-image{
     width: 400px;
+}
+
+.accounting-calender{
+    display: flex;
+    margin-bottom: 25px;
+    align-items: center;
+}
+
+.account-tax-print-wrapper{
+    display: flex;
+    flex-direction: row;
+    width: 900px;
+    margin-top: 40px;
+}
+
+.accounting-print-button{
+    display: flex;
+    width: 100%;
+    margin-top: 40px;
+    justify-content: flex-end;
+}
+
+.accounting-donation-print-button{
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.account-tax-wrapper{
+    width: 100%;
+}
+
+.donation-history-page-wrapper{
+    width: 900px;
 }
