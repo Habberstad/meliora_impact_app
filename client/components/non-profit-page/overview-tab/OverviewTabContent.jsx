@@ -58,12 +58,12 @@ const OverviewTabContent = ({ data }) => {
         </div>
       </div>
       <div className="article-section">
-        <div className="sub-heading">Latest Updates</div>
+        {/*        <div className="sub-heading">Latest Updates</div>
         <div className="article-card-container">
           <div className="big-article"></div>
           <div className="small-article"></div>
           <div className="small-article"></div>
-        </div>
+        </div>*/}
       </div>
     </div>
   );
