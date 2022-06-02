@@ -4,6 +4,7 @@ import { Box, Button, Grid, Link, MenuItem, Select } from "@mui/material";
 import MelioraIcon from "../../media/meliora_logo.png";
 import { DonationTable } from "./DonationTable";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import { useReactToPrint } from "react-to-print";
 
 const Report = React.forwardRef((props, ref) => {
   const [year, setYear] = useState(new Date().getFullYear());
@@ -21,6 +22,10 @@ const Report = React.forwardRef((props, ref) => {
   function yearChange(event) {
     setYear(event.target.value);
   }
+
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+  });
 
   return (
     <div ref={ref}>
@@ -94,7 +99,6 @@ const Report = React.forwardRef((props, ref) => {
                 className={"accounting-icon-calender"}
                 fontSize={"large"}
               />
-
             </div>
           </Box>
 
@@ -106,11 +110,33 @@ const Report = React.forwardRef((props, ref) => {
           />
         </Grid>
 
-        <Grid sx={{marginTop: "50px"}} item xs={6}>
+        <div className={"account-tax-print-wrapper"}>
+          <div className={"account-tax-wrapper"}>
           <Link color={"inherit"} href={"https://www.skatteetaten.no/person/"}>
             Tax information here
           </Link>
-        </Grid>
+          </div>
+          <div className={"accounting-donation-print-button"}>
+            <Button
+              type="button"
+              onClick={handlePrint}
+              variant="contained"
+              sx={{
+                mx: "10px",
+                width: "150px",
+                height: "35px",
+                textTransform: "none",
+                borderRadius: "10px",
+                backgroundColor: "#7209B7",
+                "&:hover": {
+                  backgroundColor: "#8d28ce",
+                },
+              }}
+            >
+              Print to PDF
+            </Button>
+          </div>
+        </div>
 
         {/* **************** OUTSIDE IS ONLY VISIBLE ON PRINT OUT **********************************************************************************/}
         <Grid
