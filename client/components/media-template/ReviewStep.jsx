@@ -14,8 +14,9 @@ const ReviewStep = React.forwardRef((props, ref) => {
         You can download the newsletter as PDF or share on social media
       </div>
       <div>
-        <div ref={ref} className="customize-container">
+        <div className="customize-container">
           <img
+            ref={ref}
             style={{ width: "530px", height: "690px" }}
             src={dnbNewsletter}
             alt="newsletter"

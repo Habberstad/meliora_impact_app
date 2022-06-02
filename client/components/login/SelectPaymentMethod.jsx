@@ -52,8 +52,12 @@ export const SelectPaymentMethod = (props) => {
         <p>
           Welcome, <strong>{props.orgName}</strong>!
         </p>
-        <p>
-          Please select your <strong>preferred</strong> payment method
+        <p>Please select your preferred payment method</p>
+        <p style={{ fontSize: "14px", fontStyle: "italic", marginTop: "20px" }}>
+          {props.subscriptionType === "premium"
+            ? ""
+            : "You will not be charged monthly with the Freemium subscription.\n " +
+              "Credentials are still required for single donations."}
         </p>
       </div>
       <div className={"payment-options-container"}>
