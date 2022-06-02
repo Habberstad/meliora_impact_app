@@ -10,8 +10,8 @@ const Report = React.forwardRef((props, ref) => {
   const [year, setYear] = useState(new Date().getFullYear());
   const user = props.user;
   const transactions = props.user.donation_history;
-  const filteredTransactions = transactions.filter((item) =>
-    new Date(item.date).getFullYear() === year
+  const filteredTransactions = transactions.filter(
+    (item) => new Date(item.date).getFullYear() === year
   );
 
   const sumAmount = filteredTransactions.reduce((accumulator, currentValue) => {
@@ -21,7 +21,6 @@ const Report = React.forwardRef((props, ref) => {
   function yearChange(event) {
     setYear(event.target.value);
   }
-
 
   return (
     <div ref={ref}>
@@ -47,18 +46,23 @@ const Report = React.forwardRef((props, ref) => {
           <br />
         </Grid>
 
-        <Grid item xs={6} >
-          <Box className={"report-top-right"}
+        <Grid item xs={6}>
+          <Box
+            className={"report-top-right"}
             sx={{
               display: "none",
               displayPrint: "block",
             }}
           >
-            <div className="account-page-title" >Your Company</div>
-            <div className={"account-page-text"} >org. number {user.org_number}</div>
-            <div className={"account-page-text"} >{user.org_name}</div>
-            <div className={"account-page-text"} >{user.address}</div>
-            <div className={"account-page-text"} >{user.postal_code + " " + user.city}</div>
+            <div className="account-page-title">Your Company</div>
+            <div className={"account-page-text"}>
+              org. number {user.org_number}
+            </div>
+            <div className={"account-page-text"}>{user.org_name}</div>
+            <div className={"account-page-text"}>{user.address}</div>
+            <div className={"account-page-text"}>
+              {user.postal_code + " " + user.city}
+            </div>
           </Box>
         </Grid>
         {/* **************** OUTSIDE IS VISIBLE IN ON PRINT OUT  **********************************************************************************/}
@@ -102,23 +106,22 @@ const Report = React.forwardRef((props, ref) => {
             data={filteredTransactions}
             user={user}
             numb={sumAmount}
-
           />
         </Grid>
 
         <div className={"account-tax-print-wrapper"}>
           <div className={"account-tax-wrapper"}>
-          <Link color={"inherit"} href={"https://www.skatteetaten.no/person/"}>
-            Tax information here
-          </Link>
+            <Link
+              color={"inherit"}
+              href={"https://www.skatteetaten.no/person/"}
+            >
+              Tax information here
+            </Link>
           </div>
-          <div className={"accounting-donation-print-button"}>
 
-          </div>
         </div>
 
         {/* **************** OUTSIDE IS ONLY VISIBLE ON PRINT OUT **********************************************************************************/}
-
       </Grid>
     </div>
   );

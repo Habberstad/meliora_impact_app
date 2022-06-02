@@ -98,7 +98,7 @@ export const AccountingPage = (props) => {
               Subscription History
             </Button>
 
-            <Button onClick={() => handleFilter("statistics")} sx={selectedFilterTab === "statistics" ? selectedFilterTabStyleNew : unselectedFilterTabStyle
+            <Button disabled onClick={() => handleFilter("statistics")} sx={selectedFilterTab === "statistics" ? selectedFilterTabStyleNew : unselectedFilterTabStyle
               }
             >
               Statistics
