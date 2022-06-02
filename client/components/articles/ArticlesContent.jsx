@@ -10,7 +10,7 @@ export function ArticlesContent(props) {
                             <div className={"npo-text-big"}>
                                 <span className={"npo-name"}>{props.data[0].npoName}</span>
                             </div>
-                            <Link href={"/articles/article/" + props.data[0]._id}>
+                            <Link href={"/articles/" + props.data[0]._id}>
                                 <img src={props.data[0].image} alt={props.data[0].alt}/>
                             </Link>
                             <div className={"card-content-container-big"}>
@@ -41,7 +41,7 @@ export function ArticlesContent(props) {
                                 <div className={"npo-text-medium"}>
                                     <span className={"npo-name"}>{props.data[1].npoName}</span>
                                 </div>
-                                <Link href={"/articles/article/" + props.data[1]._id}>
+                                <Link href={"/articles/" + props.data[1]._id}>
                                     <img src={props.data[1].image} alt={"das"}/>
                                 </Link>
                                 <div className={"card-content-container-medium"}>
@@ -72,7 +72,7 @@ export function ArticlesContent(props) {
                                     <div className={"npo-text-small"}>
                                         <span className={"npo-name"}>{props.data[2].npoName}</span>
                                     </div>
-                                    <Link href={"/articles/article/" + props.data[2]._id}>
+                                    <Link href={"/articles/" + props.data[2]._id}>
                                         <img src={props.data[2].image} alt={"das"}/>
                                     </Link>
                                     <div className={"card-content-container-small"}>
@@ -97,7 +97,7 @@ export function ArticlesContent(props) {
                                     <div className={"npo-text-small"}>
                                         <span className={"npo-name"}>{props.data[3].npoName}</span>
                                     </div>
-                                    <Link href={"/articles/article/" + props.data[3]._id}>
+                                    <Link href={"/articles/" + props.data[3]._id}>
                                         <img src={props.data[3].image} id={"bilde"} alt={"das"}/>
                                     </Link>
                                     <div className={"card-content-container-small"}>
@@ -133,7 +133,7 @@ export function ArticlesContent(props) {
                             <div className={"npo-text-medium"}>
                                 <span className={"npo-name"}>{props.data[1].npoName}</span>
                             </div>
-                            <Link href={"/articles/article/" + props.data[1]._id}>
+                            <Link href={"/articles/" + props.data[1]._id}>
                                 <img src={props.data[1].image} alt={"das"}/>
                             </Link>
                             <div className={"card-content-container-medium"}>
@@ -156,7 +156,7 @@ export function ArticlesContent(props) {
                             <div className={"npo-text-small"}>
                                 <span className={"npo-name"}>{props.data[3].npoName}</span>
                             </div>
-                            <Link href={"/articles/article/" + props.data[3]._id}>
+                            <Link href={"/articles/" + props.data[3]._id}>
                                 <img src={props.data[3].image} id={"bilde"} alt={"das"}/>
                             </Link>
                             <div className={"card-content-container-small"}>
@@ -179,7 +179,7 @@ export function ArticlesContent(props) {
                             <div className={"npo-text-small"}>
                                 <span className={"npo-name"}>{props.data[3].npoName}</span>
                             </div>
-                            <Link href={"/articles/article/" + props.data[3]._id}>
+                            <Link href={"/articles/" + props.data[3]._id}>
                                 <img src={props.data[3].image} id={"bilde"} alt={"das"}/>
                             </Link>
                             <div className={"card-content-container-small"}>
