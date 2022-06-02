@@ -51,39 +51,6 @@
     margin-bottom: 30px;
 }
 
-.report-donation-history-filter{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: solid 1px #637381;
-    width: 286px;
-    height: 38px;
-    border-radius: 8px 8px 0 0;
-
-}
-
-.report-subscription-history-filter{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: solid 1px #637381;
-    width: 286px;
-    height: 38px;
-    border-radius: 8px 8px 0 0;
-
-}
-
-.report-statistics-filter{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: solid 1px #637381;
-    width: 286px;
-    height: 38px;
-    border-radius: 8px 8px 0 0;
-
-}
-
 .accounting-image{
     width: 400px;
 }

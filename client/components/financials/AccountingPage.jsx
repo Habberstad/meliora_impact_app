@@ -74,7 +74,6 @@ export const AccountingPage = (props) => {
                   ? selectedFilterTabStyleNew
                   : unselectedFilterTabStyle
               }
-              className={"report-donation-history-filter"}
             >
               Donation History
             </Button>
@@ -86,19 +85,18 @@ export const AccountingPage = (props) => {
                   ? selectedFilterTabStyleNew
                   : unselectedFilterTabStyle
               }
-              className={"report-subscription-history-filter"}
             >
               Subscription History
             </Button>
 
             <Button
+
               onClick={() => handleFilter("statistics")}
               sx={
                 selectedFilterTab === "statistics"
                   ? selectedFilterTabStyleNew
                   : unselectedFilterTabStyle
               }
-              className={"report-statistics-filter"}
             >
               Statistics
             </Button>
