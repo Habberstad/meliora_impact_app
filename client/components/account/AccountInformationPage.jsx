@@ -1,3 +1,5 @@
+import "../../styles/account-page-styles.css";
+
 import {
   CurrencyFormater,
   DateFormater,
@@ -74,46 +76,34 @@ export const AccountInformationPage = ({ user }) => {
   if (error) return <Error error={error} />;
 
   return (
-    <div className={"discover-page-container"}>
-      <h1>Account Information</h1>
-      <p>
-        Dive in and learn about which projects our passionate NPOs are engaged
-        with. Quickly sort and collaborate on different propositions we can
-        offer.{" "}
-      </p>
+    <div className="account-page-container">
+      <div className="account-page-main-title">Account Information</div>
 
-      <br />
+      <div className="account-page-top-section">
+        <div style={{ marginRight: "200px" }}>
+          <div className="account-page-title">Company Information</div>
+          <div className="account-page-stronger">Organization name:</div>
+          <div className="account-page-text" style={{ marginBottom: "10px" }}>
+            {data.org_name}
+          </div>
+          <div className="account-page-stronger">Organization number:</div>
+          <div className="account-page-text">{data.org_number}</div>
+        </div>
 
-      <div>
         <div>
-          <div>Company Information</div>
-          <div>Organization name:</div>
-          <div>{data.org_name}</div>
-          <div>Organization number:</div>
-          <div>{data.org_number}</div>
+          <div className="account-page-title">Payment method</div>
+
+          <div>Current:</div>
+          <div>{data.payment_option}</div>
+          <Button>Change</Button>
         </div>
       </div>
-
-      <br />
-
-      <div></div>
-      <div>
-        <h3>Payment method</h3>
-
-        <label>Current:</label>
-        <p>{data.payment_option}</p>
-        <Button>Change</Button>
-      </div>
-
-      <br />
 
       <div>
         <h3>Active NPO Subscriptions</h3>
 
         <SubscriptionTable data={data} />
       </div>
-
-      <br />
 
       <div>
         <h3>Platform Subscription</h3>
