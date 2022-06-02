@@ -27,7 +27,6 @@ export const AccountingPage = (props) => {
   const [selectedFilterTab, setSelectedFilterTab] = useState("donation");
   const [filterTab, setFilterTab] = useState("donation");
 
-  //skal brukes til å sett år i filter. !!
   const [year, setYear] = useState(2022);
 
   function handleFilter(event) {
@@ -66,7 +65,7 @@ export const AccountingPage = (props) => {
       {filterTab === "statistics" && <h1>Statistics</h1>}
 
       <div className={"donation-history-page-container"}>
-        <div>
+        <div className={"donation-history-page-wrapper"}>
           <div className={"report-history-filter-wrapper"}>
             <Button
               onClick={() => handleFilter("donation")}

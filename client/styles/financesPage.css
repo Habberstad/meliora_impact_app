@@ -113,3 +113,11 @@
     width: 100%;
     justify-content: flex-end;
 }
+
+.account-tax-wrapper{
+    width: 100%;
+}
+
+.donation-history-page-wrapper{
+    width: 900px;
+}
