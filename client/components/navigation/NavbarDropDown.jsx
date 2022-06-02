@@ -24,7 +24,7 @@ export const NavbarDropDown = (props) => {
       PaperProps={{
         elevation: 0,
         sx: {
-          width: "200px",
+          minWidth: "200px",
           overflow: "visible",
           filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
           borderRadius: "10px",
