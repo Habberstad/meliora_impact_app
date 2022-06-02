@@ -67,12 +67,12 @@ export const ProjectContent = ({ data }) => {
         <img src={contributorsImg} />
       </div>
       <div className="article-section">
-        <div className="project-sub-heading">Latest Updates</div>
+        {/*        <div className="project-sub-heading">Latest Updates</div>
         <div className="article-card-container">
           <div className="big-article"></div>
           <div className="small-article"></div>
           <div className="small-article"></div>
-        </div>
+        </div>*/}
       </div>
     </>
   );
