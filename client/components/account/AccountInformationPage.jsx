@@ -75,6 +75,7 @@ export const AccountInformationPage = ({ user }) => {
   if (loading) return isLoading();
   if (error) return <Error error={error} />;
 
+  console.log(data);
   return (
     <div className="account-page-wrapper">
       <GlobalHeader
@@ -85,6 +86,7 @@ export const AccountInformationPage = ({ user }) => {
         }
         image={accountHeader}
       />
+
       <div className="account-page-container">
         <div>
           <div className="account-page-title">Account Information</div>
@@ -112,10 +114,10 @@ export const AccountInformationPage = ({ user }) => {
                   className="account-page-text"
                   style={{ marginBottom: "10px" }}
                 >
-                  {data.org_name}
+                  {data.name}
                 </div>
                 <div className="account-page-stronger">Email:</div>
-                <div className="account-page-text">{data.org_number}</div>
+                <div className="account-page-text">{data.email}</div>
               </div>
             </div>
             <div className="account-page-middle-section">

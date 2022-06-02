@@ -22,6 +22,8 @@ import { UserApiContext } from "../../api-client/userApiContext";
 import { useLoading } from "../../useLoading";
 import { isLoading } from "../shared-components/Loading";
 import { Error } from "../shared-components/Error";
+import financialsHeader from "../../media/financials_header.png";
+import { GlobalHeader } from "../headers/GlobalHeader";
 
 export const AccountingPage = (props) => {
   const [selectedFilterTab, setSelectedFilterTab] = useState("donation");
@@ -53,156 +55,165 @@ export const AccountingPage = (props) => {
   if (loading) return isLoading();
   if (error) return <Error error={error} />;
 
-  const filteredTransactions = data.active_subscriptions.filter((item) =>
-    new Date(item.date).getFullYear() === year
+  const filteredTransactions = data.active_subscriptions.filter(
+    (item) => new Date(item.date).getFullYear() === year
   );
 
   return (
-    <div className={"discover-page-container"}>
-      {/* **************** START: INSIDE ONLY VISIBLE ON BROWSER PAGE **********************************************************************************/}
-      {filterTab === "donation" && <h1>Donation history</h1>}
-      {filterTab === "subscription" && <h1>Subscription history</h1>}
-      {filterTab === "statistics" && <h1>Statistics</h1>}
+    <div className="financials-page-wrapper">
+      <GlobalHeader
+        title={"Financials"}
+        subtitle={"Control your contribution flow"}
+        desc={
+          "Access live statistics of your history on our platform. All the data your organization will need to conveniently log regular reports."
+        }
+        image={financialsHeader}
+      />
+      <div className={"financials-page-container"}>
+        {/* **************** START: INSIDE ONLY VISIBLE ON BROWSER PAGE **********************************************************************************/}
+        {filterTab === "donation" && <h1>Donation history</h1>}
+        {filterTab === "subscription" && <h1>Subscription history</h1>}
+        {filterTab === "statistics" && <h1>Statistics</h1>}
 
-      <div className={"donation-history-page-container"}>
-        <div className={"donation-history-page-wrapper"}>
-          <div className={"report-history-filter-wrapper"}>
-            <Button
-              onClick={() => handleFilter("donation")}
-              sx={
-                selectedFilterTab === "donation"
-                  ? selectedFilterTabStyleNew
-                  : unselectedFilterTabStyle
-              }
-            >
-              Donation History
-            </Button>
-
-            <Button
-              onClick={() => handleFilter("subscription")}
-              sx={
-                selectedFilterTab === "subscription"
-                  ? selectedFilterTabStyleNew
-                  : unselectedFilterTabStyle
-              }
-            >
-              Subscription History
-            </Button>
-
-            <Button
-
-              onClick={() => handleFilter("statistics")}
-              sx={
-                selectedFilterTab === "statistics"
-                  ? selectedFilterTabStyleNew
-                  : unselectedFilterTabStyle
-              }
-            >
-              Statistics
-            </Button>
-          </div>
-          {/* ***************** END: INSIDE ONLY VISIBLE ON BROWSER PAGE ********************************************************************************** */}
-          {filterTab === "donation" && (
-            <Report ref={componentRef} user={props.user} />
-          )}
-          {filterTab === "subscription" && (
-            <div>
-              <Box
-                sx={{
-                  display: "block",
-                  displayPrint: "none",
-                }}
+        <div className={"donation-history-page-container"}>
+          <div className={"donation-history-page-wrapper"}>
+            <div className={"report-history-filter-wrapper"}>
+              <Button
+                onClick={() => handleFilter("donation")}
+                sx={
+                  selectedFilterTab === "donation"
+                    ? selectedFilterTabStyleNew
+                    : unselectedFilterTabStyle
+                }
               >
-                <div className={"accounting-calender"}>
-                  <Select
-                    id={"year"}
-                    defaultValue={"2022"}
-                    onChange={yearChange}
-                    inputProps={{ "aria-label": "Without label" }}
-                  >
-                    <MenuItem value={2022}>2022</MenuItem>
-                    <MenuItem value={2021}>2021</MenuItem>
-                    <MenuItem value={2020}>2020</MenuItem>
-                  </Select>
+                Donation History
+              </Button>
 
-                  <Select
-                    id={"month"}
-                    defaultValue={"Juni"}
-                    inputProps={{ "aria-label": "Without label" }}
-                  >
-                    <MenuItem value={"Jan"}>Jan</MenuItem>
-                    <MenuItem value={"Feb"}>Feb</MenuItem>
-                    <MenuItem value={"Mar"}>Mar</MenuItem>
-                    <MenuItem value={"Juni"}>Juni</MenuItem>
-                  </Select>
-                  <CalendarMonthIcon
-                    className={"accounting-icon-calender"}
-                    fontSize={"large"}
-                  />
-                </div>
-              </Box>
+              <Button
+                onClick={() => handleFilter("subscription")}
+                sx={
+                  selectedFilterTab === "subscription"
+                    ? selectedFilterTabStyleNew
+                    : unselectedFilterTabStyle
+                }
+              >
+                Subscription History
+              </Button>
+
+              <Button
+                onClick={() => handleFilter("statistics")}
+                sx={
+                  selectedFilterTab === "statistics"
+                    ? selectedFilterTabStyleNew
+                    : unselectedFilterTabStyle
+                }
+              >
+                Statistics
+              </Button>
+            </div>
+            {/* ***************** END: INSIDE ONLY VISIBLE ON BROWSER PAGE ********************************************************************************** */}
+            {filterTab === "donation" && (
+              <Report ref={componentRef} user={props.user} />
+            )}
+            {filterTab === "subscription" && (
               <div>
-                <table className={"styled-table"}>
-                  <thead>
-                    <tr>
-                      <th>Subscription ID</th>
-                      <th>Organization</th>
-                      <th>Frequency</th>
-                      <th>Amount</th>
-                      <th>Signing date</th>
-                      <th>Cancelled date</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {filteredTransactions.map((item) => (
-                      <tr>
-                        <td>{item._id}</td>
-                        <td>
-                          {data.npo_partners.map((npo) => {
-                            if (npo._id === item.npo_id) return npo.name;
-                          })}
-                        </td>
-                        <td>{item.payment_frequency}</td>
-                        <td>{item.payment_amount}</td>
-                        <td>
-                          <DateFormater date={item.date} />
-                        </td>
-                        <td>Active</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-              <div className={"accounting-print-button"}>
-                <Button
-                  type="button"
-                  onClick={handlePrint}
-                  variant="contained"
+                <Box
                   sx={{
-                    mx: "10px",
-                    width: "150px",
-                    height: "35px",
-                    textTransform: "none",
-                    borderRadius: "10px",
-                    backgroundColor: "#7209B7",
-                    "&:hover": {
-                      backgroundColor: "#8d28ce",
-                    },
+                    display: "block",
+                    displayPrint: "none",
                   }}
                 >
-                  Print to PDF
-                </Button>
-              </div>
-            </div>
-          )}
+                  <div className={"accounting-calender"}>
+                    <Select
+                      id={"year"}
+                      defaultValue={"2022"}
+                      onChange={yearChange}
+                      inputProps={{ "aria-label": "Without label" }}
+                    >
+                      <MenuItem value={2022}>2022</MenuItem>
+                      <MenuItem value={2021}>2021</MenuItem>
+                      <MenuItem value={2020}>2020</MenuItem>
+                    </Select>
 
-          {filterTab === "statistics" && (
-            <img
-              className="accounting-image"
-              src="http://localhost:3000/header-image-partners.9fd59cdb.png?1654168554381"
-              alt="dsada"
-            />
-          )}
+                    <Select
+                      id={"month"}
+                      defaultValue={"Juni"}
+                      inputProps={{ "aria-label": "Without label" }}
+                    >
+                      <MenuItem value={"Jan"}>Jan</MenuItem>
+                      <MenuItem value={"Feb"}>Feb</MenuItem>
+                      <MenuItem value={"Mar"}>Mar</MenuItem>
+                      <MenuItem value={"Juni"}>Juni</MenuItem>
+                    </Select>
+                    <CalendarMonthIcon
+                      className={"accounting-icon-calender"}
+                      fontSize={"large"}
+                    />
+                  </div>
+                </Box>
+                <div>
+                  <table className={"styled-table"}>
+                    <thead>
+                      <tr>
+                        <th>Subscription ID</th>
+                        <th>Organization</th>
+                        <th>Frequency</th>
+                        <th>Amount</th>
+                        <th>Signing date</th>
+                        <th>Cancelled date</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {filteredTransactions.map((item) => (
+                        <tr>
+                          <td>{item._id}</td>
+                          <td>
+                            {data.npo_partners.map((npo) => {
+                              if (npo._id === item.npo_id) return npo.name;
+                            })}
+                          </td>
+                          <td>{item.payment_frequency}</td>
+                          <td>{item.payment_amount}</td>
+                          <td>
+                            <DateFormater date={item.date} />
+                          </td>
+                          <td>Active</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+                <div className={"accounting-print-button"}>
+                  <Button
+                    type="button"
+                    onClick={handlePrint}
+                    variant="contained"
+                    sx={{
+                      mx: "10px",
+                      width: "150px",
+                      height: "35px",
+                      textTransform: "none",
+                      borderRadius: "10px",
+                      backgroundColor: "#7209B7",
+                      "&:hover": {
+                        backgroundColor: "#8d28ce",
+                      },
+                    }}
+                  >
+                    Print to PDF
+                  </Button>
+                </div>
+              </div>
+            )}
+
+            {filterTab === "statistics" && (
+              <img
+                className="accounting-image"
+                src="http://localhost:3000/header-image-partners.9fd59cdb.png?1654168554381"
+                alt="dsada"
+              />
+            )}
+          </div>
         </div>
       </div>
     </div>
