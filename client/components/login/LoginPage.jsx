@@ -140,6 +140,11 @@ export const LoginPage = () => {
           />
           <Route
             exact
+            path={"/*"}
+            element={<SelectIdentificationMethod google={google} />}
+          />
+          <Route
+            exact
             path={"/login-form"}
             element={<LoginForm google={google} />}
           />
