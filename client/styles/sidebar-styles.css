@@ -61,14 +61,14 @@
     height:045px;
     align-items: center;
     font-weight: 500;
-    color: #637381;
+    color: #464D51;
     font-size: 13px;
     padding-left: 21px;
 }
 
 .nav-item-selected {
     display: flex;
-    background-color: #EFD3FF;
+    background-color: #F6E8FF;
     width: 268px;
     height:045px;
     align-items: center;
