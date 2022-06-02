@@ -59,6 +59,7 @@ const SubscriptionTable = ({ data }) => {
                   Cancel
                 </Button>
               </td>
+              <td></td>
             </tr>
           ))}
         </tbody>

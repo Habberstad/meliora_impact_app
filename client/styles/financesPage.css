@@ -4,6 +4,30 @@
     padding: 100px;
 }
 
+.report-page{
+    position: relative;
+
+}
+
+.report-top-right{
+    position: absolute;
+    top: 50px;
+    right: 50px;
+}
+
+.report-top-left{
+    position: absolute;
+    top: 50px;
+    left:50px;
+}
+
+.report-table{
+    position: absolute;
+    top: 500px;
+    left:50px;
+}
+
+
 .styled-table {
     border-collapse: collapse;
     font-size: 0.9em;
