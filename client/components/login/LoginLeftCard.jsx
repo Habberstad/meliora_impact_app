@@ -10,7 +10,9 @@ export function LoginLeftCard() {
         alt="company-icon"
       />
       <div className="login-left-card-content">
-        <h1>Meliora Connect</h1>
+        <h1>
+          Meliora <span style={{ color: "#7209B7" }}>Connect</span>
+        </h1>
         <h1>Together We Can Change The World</h1>
         <img src={LoginCardImage} alt="company-icon" />
       </div>
