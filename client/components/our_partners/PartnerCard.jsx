@@ -1,6 +1,6 @@
 import { Button } from "@mui/material";
 import waterIcon from "../../media/water_drop_icon.png";
-
+import SchoolIcon from "@mui/icons-material/School";
 export function PartnerCard(props) {
   return (
     <div
@@ -61,7 +61,11 @@ export function PartnerCard(props) {
             <p>{props.partner.category}</p>
           </div>
           <div className={"card-icon-container"}>
-            <img src={waterIcon} alt={waterIcon} />
+            {props.partner.category.toLowerCase() === "water" ? (
+              <img src={waterIcon} alt={waterIcon} />
+            ) : (
+              <SchoolIcon sx={{ height: "18px" }} />
+            )}
           </div>
         </div>
       </div>
