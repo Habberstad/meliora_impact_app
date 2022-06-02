@@ -2,7 +2,14 @@ import { Button } from "@mui/material";
 import WavesIcon from "@mui/icons-material/Waves";
 import { useEffect, useState } from "react";
 
-export function ProfileHeader({ user, allData, data, name, handleShowModal }) {
+export function ProfileHeader({
+  user,
+  allData,
+  data,
+  name,
+  handleShowModal,
+  handleShowDonationModal,
+}) {
   const [isPartner, setIsPartner] = useState(false);
   console.log("profile header", allData);
   console.log("userinfo", user);
@@ -41,21 +48,39 @@ export function ProfileHeader({ user, allData, data, name, handleShowModal }) {
           <div className="npo-header-title">{name}</div>
           <div className="header-donate-btn-container">
             <div>
-              <Button
-                onClick={handleShowModal}
-                variant="contained"
-                sx={{
-                  width: "190px",
-                  height: "60px",
-                  borderRadius: "8px",
-                  backgroundColor: "#7209B7",
-                  "&:hover": {
-                    backgroundColor: "#8d28ce",
-                  },
-                }}
-              >
-                Become partner
-              </Button>
+              {isPartner ? (
+                <Button
+                  onClick={handleShowDonationModal}
+                  variant="contained"
+                  sx={{
+                    width: "190px",
+                    height: "60px",
+                    borderRadius: "8px",
+                    backgroundColor: "#7209B7",
+                    "&:hover": {
+                      backgroundColor: "#8d28ce",
+                    },
+                  }}
+                >
+                  Donate
+                </Button>
+              ) : (
+                <Button
+                  onClick={handleShowModal}
+                  variant="contained"
+                  sx={{
+                    width: "190px",
+                    height: "60px",
+                    borderRadius: "8px",
+                    backgroundColor: "#7209B7",
+                    "&:hover": {
+                      backgroundColor: "#8d28ce",
+                    },
+                  }}
+                >
+                  Become partner
+                </Button>
+              )}
             </div>
             <div className="video-text-btn">About us video</div>
           </div>
