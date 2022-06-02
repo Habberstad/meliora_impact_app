@@ -1,5 +1,5 @@
 import { Box, Button, Modal, TextField } from "@mui/material";
-import { donateModalStyle } from "../wrapped/modal-style";
+import { subscribeModalStyle } from "../wrapped/modal-style";
 import {
   allocationDonateButton,
   donateAmountButton,
@@ -33,7 +33,7 @@ function SubscriptionModal({
 }) {
   return (
     <Modal open={open} onClose={onClose}>
-      <Box sx={donateModalStyle}>
+      <Box sx={subscribeModalStyle}>
         <div
           style={{
             fontSize: "28px",

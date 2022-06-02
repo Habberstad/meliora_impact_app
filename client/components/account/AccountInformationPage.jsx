@@ -22,7 +22,7 @@ const SubscriptionTable = ({ data }) => {
     window.location.reload(false);
   }
 
-  console.log("data table", data);
+
 
   return (
     <div>
@@ -74,7 +74,7 @@ export const AccountInformationPage = ({ user }) => {
     []
   );
 
-  console.log("accountpage", user);
+
 
   if (loading) return isLoading();
   if (error) return <Error error={error} />;

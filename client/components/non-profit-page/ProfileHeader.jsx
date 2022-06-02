@@ -1,8 +1,31 @@
 import { Button } from "@mui/material";
 import WavesIcon from "@mui/icons-material/Waves";
+import { useEffect, useState } from "react";
 
-export function ProfileHeader({ data, name, handleShowModal }) {
-  console.log("profile header", data);
+export function ProfileHeader({
+  user,
+  allData,
+  data,
+  name,
+  handleShowModal,
+  handleShowDonationModal,
+}) {
+  const [isPartner, setIsPartner] = useState(false);
+  console.log("profile header", allData);
+  console.log("userinfo", user);
+
+  useEffect(() => {
+    user.active_subscriptions.map((x) => {
+      if (x.npo_id === allData._id) {
+        setIsPartner(true);
+      } else {
+        setIsPartner(false);
+      }
+    });
+  }, []);
+
+  console.log("isPartner", isPartner);
+
   return (
     <div className="main-header-container">
       <div
@@ -25,21 +48,39 @@ export function ProfileHeader({ data, name, handleShowModal }) {
           <div className="npo-header-title">{name}</div>
           <div className="header-donate-btn-container">
             <div>
-              <Button
-                onClick={handleShowModal}
-                variant="contained"
-                sx={{
-                  width: "190px",
-                  height: "60px",
-                  borderRadius: "8px",
-                  backgroundColor: "#7209B7",
-                  "&:hover": {
-                    backgroundColor: "#8d28ce",
-                  },
-                }}
-              >
-                Become partner
-              </Button>
+              {isPartner ? (
+                <Button
+                  onClick={handleShowDonationModal}
+                  variant="contained"
+                  sx={{
+                    width: "190px",
+                    height: "60px",
+                    borderRadius: "8px",
+                    backgroundColor: "#7209B7",
+                    "&:hover": {
+                      backgroundColor: "#8d28ce",
+                    },
+                  }}
+                >
+                  Donate
+                </Button>
+              ) : (
+                <Button
+                  onClick={handleShowModal}
+                  variant="contained"
+                  sx={{
+                    width: "190px",
+                    height: "60px",
+                    borderRadius: "8px",
+                    backgroundColor: "#7209B7",
+                    "&:hover": {
+                      backgroundColor: "#8d28ce",
+                    },
+                  }}
+                >
+                  Become partner
+                </Button>
+              )}
             </div>
             <div className="video-text-btn">About us video</div>
           </div>

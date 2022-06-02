@@ -1,6 +1,6 @@
 import { CategoryFilter } from "../discover/CategoryFilter";
 import "../../styles/partners-styles.css";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useLoader } from "../../helpers/UseLoader";
 import { PartnersList } from "./PartnersList";
 import { NpoApiContext } from "../../api-client/npoApiContext";
@@ -15,7 +15,7 @@ const OurPartnersPage = (props) => {
   const { listNpos } = useContext(NpoApiContext);
   const { loading, error, data } = useLoader(
     async () => await listNpos({ category }),
-    [category]
+    []
   );
 
   function categorySelectHandler(selectedCategory) {
@@ -36,7 +36,11 @@ const OurPartnersPage = (props) => {
           image={headerImg}
         />
         <CategoryFilter onClick={categorySelectHandler} category={category} />
-        <PartnersList data={data} category={category} activeSubs={props.user.npo_partners} />
+        <PartnersList
+          data={data}
+          category={category}
+          activeSubs={props.user.npo_partners}
+        />
       </div>
     </div>
   );
