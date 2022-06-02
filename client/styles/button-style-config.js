@@ -244,12 +244,30 @@ export const templateCardIconStyle = {
 };
 
 export const purplePlatformButton = {
+  color: "#FFF",
   height: "45px",
   width: "140px",
+  margin: "0 10px 0 10px",
   borderRadius: "8px",
   backgroundColor: "#7209B7",
   "&:hover": {
     backgroundColor: "#A400FF",
+  },
+};
+
+export const backPlatformButton = {
+  color: "#000",
+  height: "45px",
+  width: "140px",
+  margin: "0 10px 0 10px",
+  borderRadius: "8px",
+  borderColor: "#637381",
+  backgroundColor: "#FFF",
+  border: "solid 0.5px lightgrey",
+  "&:hover": {
+    backgroundColor: "#B8F0DA",
+    color: "#637381",
+    borderColor: "#FFF",
   },
 };
 

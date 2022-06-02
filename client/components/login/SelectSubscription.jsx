@@ -11,6 +11,7 @@ import {
   selectedSubscriptionTypePremium,
   subscriptionTypePremium,
   submitButtonStyle,
+  subscriptionFeaturesButton,
 } from "./login-styles";
 import * as React from "react";
 import {
@@ -112,15 +113,7 @@ export const SelectSubscription = (props) => {
           onClick={() => {
             infoModalHandleOpen();
           }}
-          sx={{
-            textDecoration: "underline",
-            padding: "0",
-            mb: "22px",
-            color: "#000",
-            "&:hover": {
-              color: "#637381",
-            },
-          }}
+          sx={subscriptionFeaturesButton}
           fullWidth
           variant={"text"}
           size={"large"}
@@ -129,7 +122,9 @@ export const SelectSubscription = (props) => {
         </Button>
         <Modal open={infoModal} onClose={infoModalHandleClose}>
           <Box sx={selectSubscriptionModalStyle} style={{ width: 800 }}>
-            <div className="select-subscription-modal">What do you get?</div>
+            <div className="select-subscription-modal">
+              Which features can we offer?
+            </div>
             <SubscriptionInfoGrid />
           </Box>
         </Modal>
