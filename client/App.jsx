@@ -20,8 +20,7 @@ import { Error } from "./components/shared-components/Error";
 import { UserApiContext } from "./api-client/userApiContext";
 import { AccountingPage } from "./components/financials/AccountingPage";
 import { TopNavBar } from "./components/navigation/TopNavBar";
-import { SubscriptionPage } from "./components/financials/SubscriptionsPage";
-import { BillingPage } from "./components/financials/BillingPage";
+import { AccountInformationPage } from "./components/financials/AccountInformationPage";
 
 export const UserContext = React.createContext({
   Account: (user) => {},
@@ -60,11 +59,10 @@ function App() {
           <Route exact path="/articles" element={<ArticlesPage />} />
           <Route exact path="/articles/article" element={<Article />} />
           <Route exact path="/discover" element={<DiscoverPage />} />
-          <Route exact path="/our-partners" element={<OurPartnersPage />} />
+          <Route exact path="/our-partners" element={<OurPartnersPage user={data} />} />
           <Route exact path="/login" element={<LoginPage />} />
           <Route exact path="/accounting" element={<AccountingPage user={data} />} />
-          <Route exact path="/subscription" element={<SubscriptionPage />} />
-          <Route exact path="/billing" element={<BillingPage user={data}/>} />
+          <Route exact path="/account-information" element={<AccountInformationPage />} />
           <Route
             exact
             path="/npo-profile/*"

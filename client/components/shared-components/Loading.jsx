@@ -8,7 +8,7 @@ export function isLoading() {
   const quotes = [
     "Realizing dreams...",
     "Saving the turtles...",
-    "Feeding mouths...",
+    "Educating children",
     "Creating opportunities...",
     "Cleaning the ocean...",
   ];

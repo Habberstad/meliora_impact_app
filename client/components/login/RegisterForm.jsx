@@ -8,15 +8,15 @@ import {
 } from "@mui/material";
 import { FormTermsOfServiceText } from "./FormTermsOfServiceText";
 import { BackButton } from "./BackButton";
+import { checkboxStyle, registerButtonStyle } from "./login-styles";
 
 export function RegisterForm() {
   return (
     <div className={"login-content"}>
       <BackButton />
       <div className={"login-content-header"}>
-        <h3>We’re so happy to have you as a</h3>
-        <h1>Meliora Partner</h1>
-        <p>Registrer Manually</p>
+        <div>Register Manually</div>
+        <p>Please provide the following information</p>
       </div>
       <FormControl className="login-form">
         <FormGroup row>
@@ -68,7 +68,7 @@ export function RegisterForm() {
               color: "rgba(0, 0, 0, 0.7)",
             },
           }}
-          label="Email-address"
+          label="E-mail address"
           variant="outlined"
         />
         <TextField
@@ -94,18 +94,23 @@ export function RegisterForm() {
             justifyContent: "space-between",
           }}
         >
-          <FormControlLabel control={<Checkbox />} label="Remember me" />
+          <FormControlLabel
+            control={
+              <Checkbox
+                style={{
+                  color: "#551477",
+                  "&:hover": {
+                    color: "#AA55D9",
+                  },
+                }}
+              />
+            }
+            label="Remember me"
+          />
         </FormGroup>
         <Button
           className={"form-button"}
-          sx={{
-            mt: 1,
-            backgroundColor: "#A400FF",
-            "&:hover": {
-              backgroundColor: "#aa55d9",
-              color: "#FFF",
-            },
-          }}
+          sx={registerButtonStyle}
           variant="contained"
           size="large"
         >

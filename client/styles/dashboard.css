@@ -404,3 +404,22 @@
     margin-top: 2px;
     font-weight: 400;
 }
+
+.dashboard-header-sub-title{
+    font-size: 16px;
+    font-weight: 500;
+    color: #637381;
+    margin-top: 25px;
+}
+
+.dashboard-placeholder-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.placeholder-image{
+
+}
