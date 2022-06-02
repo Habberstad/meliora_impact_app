@@ -28,7 +28,7 @@ const userSchema = new mongoose.Schema(
     city: String,
     payment_option: {
       type: String,
-      enum: ["vipps", "klarna", "applepay", "paypal"],
+      enum: ["vipps", "klarna", "applepay", "paypal", "free"],
       required: true,
     },
     subscription_type: {
