@@ -91,7 +91,7 @@ const Sidebar = () => {
             >
               <VolunteerActivismIcon sx={{ marginRight: "20px" }} />
 
-              <div>My Non-Profits</div>
+              <div>My Partners</div>
             </div>
           </Link>
           <Link to={"/articles"} style={{ textDecoration: "none" }}>
@@ -194,7 +194,7 @@ const Sidebar = () => {
               <div>Users TEST</div>
             </div>
           </Link>
-          <Link to={"/templates"} style={{ textDecoration: "none" }}>
+          <Link to={"/billing"} style={{ textDecoration: "none" }}>
             <div
               className={`${
                 location === "/billing" ? "nav-item-selected" : "nav-item"
