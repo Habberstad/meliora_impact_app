@@ -30,6 +30,7 @@ export function ProjectCard({
 
   return (
     <Card
+      onClick={() => navigate("/npo-profile/" + _id)}
       className={"npoCardStyle"}
       sx={{
         borderRadius: "25px",
@@ -42,7 +43,7 @@ export function ProjectCard({
       }}
     >
       <div
-        onClick={() => navigate("/npo-profile/" + _id)}
+
         className={"card-image-wrapper"}
       >
         <CardMedia

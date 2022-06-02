@@ -95,7 +95,7 @@ const Dashboard = () => {
   return (
     <div className={"dashboard-wrapper"}>
       <div className={"dashboard-container"}>
-        <h1>Hi, Welcome back </h1>
+        <h1>Hi {data.name}, Welcome back </h1>
         <Grid
           container
           columnSpacing={{ lg: 4, xl: 4 }}
