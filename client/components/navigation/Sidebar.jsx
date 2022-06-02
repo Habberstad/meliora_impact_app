@@ -169,36 +169,6 @@ const Sidebar = () => {
               <div>Account Information</div>
             </div>
           </Link>
-          <Link to={"/templates"} style={{ textDecoration: "none" }}>
-            <div
-              className={`${
-                location === "/settings" ? "nav-item-selected" : "nav-item"
-              }`}
-            >
-              <SettingsIcon sx={{ marginRight: "20px" }} />
-              <div>Settings</div>
-            </div>
-          </Link>
-          <Link to={"/templates"} style={{ textDecoration: "none" }}>
-            <div
-              className={`${
-                location === "/users" ? "nav-item-selected" : "nav-item"
-              }`}
-            >
-              <GroupIcon sx={{ marginRight: "20px" }} />
-              <div>Users TEST</div>
-            </div>
-          </Link>
-          <Link to={"/templates"} style={{ textDecoration: "none" }}>
-            <div
-              className={`${
-                location === "/templates" ? "nav-item-selected" : "nav-item"
-              }`}
-            >
-              <ReceiptIcon sx={{ marginRight: "20px" }} />
-              <div>Billing</div>
-            </div>
-          </Link>
         </div>
       </div>
     </div>
