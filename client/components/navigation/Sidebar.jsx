@@ -91,7 +91,7 @@ const Sidebar = () => {
             >
               <VolunteerActivismIcon sx={{ marginRight: "20px" }} />
 
-              <div>My Non-Profits</div>
+              <div>My Partners</div>
             </div>
           </Link>
           <Link to={"/articles"} style={{ textDecoration: "none" }}>
