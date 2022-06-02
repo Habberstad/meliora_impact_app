@@ -8,7 +8,7 @@ export function SubscriptionInfoCard({ header, text, icon, isPartnerOnly }) {
         <p>{header}</p>
         <p>{text}</p>
         {isPartnerOnly && (
-          <div className={"subsctiption-type-info-badge"}>
+          <div className={"subscription-type-info-badge"}>
             <p>Partner only</p>
           </div>
         )}

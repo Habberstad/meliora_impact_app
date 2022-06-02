@@ -21,10 +21,10 @@ import {
 
 export function SubscriptionInfoGrid() {
   return (
-    <Grid container className={"subscription-type-information"}>
+    <Grid container columnSpacing={3} rowSpacing={4}>
       <SubscriptionInfoCard
         header={"Pure donations"}
-        text={"100% of donations go straight to the cause(s) you select."}
+        text={"100% of donations go straight to the cause(s) you select"}
         icon={
           <FontAwesomeIcon
             icon={faSeedling}
@@ -34,10 +34,8 @@ export function SubscriptionInfoGrid() {
         isPartnerOnly={false}
       />
       <SubscriptionInfoCard
-        header={"Regular Reports"}
-        text={
-          "Get engaging reports that tell a story of your company’s giving."
-        }
+        header={"Template Reports"}
+        text={"Get engaging reports that tell a story of your company’s giving"}
         icon={
           <FontAwesomeIcon
             icon={faFileLines}
@@ -49,7 +47,7 @@ export function SubscriptionInfoGrid() {
       <SubscriptionInfoCard
         header={"Filter and Serach"}
         text={
-          "Easily filter and find non profits that work on what you care about."
+          "Easily filter and find non profits that work on what you care about"
         }
         icon={
           <FontAwesomeIcon
@@ -61,15 +59,17 @@ export function SubscriptionInfoGrid() {
       />
       <SubscriptionInfoCard
         header={"Inclusive Giving"}
-        text={"Engage employees on choosing which causes to support.."}
+        text={"Engage employees on choosing which causes to support"}
         icon={
           <FontAwesomeIcon icon={faUser} className={"subscription-info-icon"} />
         }
         isPartnerOnly={true}
       />
       <SubscriptionInfoCard
-        header={"Inside Stories"}
-        text={"Gain access to inside stories from your chosen non-profit."}
+        header={"Inside Stories & Wrapped"}
+        text={
+          "Access to inside stories from your chosen non-profit and your yearly contributions"
+        }
         icon={
           <FontAwesomeIcon
             icon={faCirclePlay}
@@ -80,7 +80,7 @@ export function SubscriptionInfoGrid() {
       />
       <SubscriptionInfoCard
         header={"Scheduled Giving"}
-        text={"Set up a giving strategy that suits your organization."}
+        text={"Set up a giving strategy that suits your organization"}
         icon={
           <FontAwesomeIcon
             icon={faCalendar}
@@ -91,7 +91,9 @@ export function SubscriptionInfoGrid() {
       />
       <SubscriptionInfoCard
         header={"Social Responsibility"}
-        text={"Noe om hvor viktig det er å bidra til verden gjennom donasjoner"}
+        text={
+          "Make a difference by donating to projects that are changing the world"
+        }
         icon={
           <FontAwesomeIcon
             icon={faEarthAfrica}
@@ -104,7 +106,7 @@ export function SubscriptionInfoGrid() {
       <SubscriptionInfoCard
         header={"Useful Insight"}
         text={
-          "Track and get insights on your company’s philantropic activity and impact."
+          "Track and get insights on your company’s philantropic activity and impact"
         }
         icon={
           <FontAwesomeIcon
@@ -117,7 +119,7 @@ export function SubscriptionInfoGrid() {
       <SubscriptionInfoCard
         header={"Currated Donations"}
         text={
-          "Make company donations to any nonprofit in our carefully selected portfolio."
+          "Make company donations to any nonprofit in our carefully selected portfolio"
         }
         icon={
           <FontAwesomeIcon

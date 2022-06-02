@@ -59,7 +59,7 @@
     max-width: 600px;
     display: flex;
     flex-direction: column;
-    margin-top: 150px;
+    margin-top: 5%;
     align-items: center;
 }
 
@@ -207,7 +207,6 @@
     flex-direction: column; /* <- Also inlin to be able to reach MUI root*/
     align-items: center;
     text-align: center;
-    margin: 20px 10px;
 }
 
 .subscription-type-information-content p {
@@ -217,7 +216,7 @@
     margin-block-end: 0;
 }
 
-.subsctiption-type-info-badge {
+.subscription-type-info-badge {
     position: absolute;
     height: 21px;
     top: 0;
@@ -226,7 +225,7 @@
     background-color: #FFD878;
 
 }
-.subsctiption-type-info-badge p{
+.subscription-type-info-badge p{
     font-weight: 500;
     font-size: 12px;
     line-height: 0;
