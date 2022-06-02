@@ -72,7 +72,10 @@ export const TopNavBar = () => {
             <Avatar
               alt="profile name"
               src={user.img_url || ProfilePicturePlaceholder}
-              sx={{ width: "35px", height: "35px" }}
+              sx={{
+                width: "40px",
+                height: "40px",
+              }}
             />
           </IconButton>
           <NavbarDropDown
