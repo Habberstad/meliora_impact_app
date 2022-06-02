@@ -142,7 +142,7 @@ export const AccountingPage = (props) => {
                 </div>
               </Box>
               <div>
-                <table className={"styled-table"}>
+                <table className={"styled-table-finances"}>
                   <thead>
                     <tr>
                       <th>Subscription ID</th>
