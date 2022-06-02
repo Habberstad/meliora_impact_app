@@ -234,6 +234,10 @@
     margin-right: 5px;
 }
 
+.subscription-info-icon {
+    height: 25px;
+}
+
 .select-subscription-container {
     display: flex;
     flex-direction: column;
