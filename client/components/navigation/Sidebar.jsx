@@ -194,7 +194,7 @@ const Sidebar = () => {
               <div>Users TEST</div>
             </div>
           </Link>
-          <Link to={"/templates"} style={{ textDecoration: "none" }}>
+          <Link to={"/billing"} style={{ textDecoration: "none" }}>
             <div
               className={`${
                 location === "/billing" ? "nav-item-selected" : "nav-item"
