@@ -1,7 +1,13 @@
+.financials-page-wrapper {
+    width: 100vw;
+    margin: 75px 5% 0 5%;
+}
+
+.financials-page-container {
+
+}
 
 .donation-history-page-container{
-    width: 1500px;
-    padding: 100px;
 }
 
 .report-page{
