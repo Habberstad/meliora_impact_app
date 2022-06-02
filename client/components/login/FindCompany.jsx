@@ -37,7 +37,7 @@ export const FindCompany = ({ handleCompanyInfo }) => {
       if (array.length > 0) setShowList(true);
       setSelectedCompany();
     } catch (error) {
-      console.log("error", error);
+
     }
   };
 
@@ -79,7 +79,7 @@ export const FindCompany = ({ handleCompanyInfo }) => {
     setTxtFieldValue(e.target.value);
     let url = `https://data.brreg.no/enhetsregisteret/api/enheter?navn=${e.target.value}&konkurs=false&organisasjonsform=AS,ENK,ANS,DA,STI`;
     setShowError(false);
-    console.log(e.target.value);
+
     if (
       e.target.value.trim().length === 9 &&
       /^\d+$/.test(e.target.value.trim())
