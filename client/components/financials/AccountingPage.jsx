@@ -64,38 +64,41 @@ export const AccountingPage = (props) => {
       {filterTab === "subscription" && <h1>Subscription history</h1>}
       {filterTab === "statistics" && <h1>Statistics</h1>}
 
+      <Button
+        type="button"
+        onClick={handlePrint}
+        variant="contained"
+        sx={{
+          mx: "10px",
+          width: "150px",
+          height: "35px",
+          textTransform: "none",
+          borderRadius: "10px",
+          backgroundColor: "#7209B7",
+          "&:hover": {
+            backgroundColor: "#8d28ce",
+          },
+        }}
+      >
+        Print to PDF
+      </Button>
+
       <div className={"donation-history-page-container"}>
         <div className={"donation-history-page-wrapper"}>
           <div className={"report-history-filter-wrapper"}>
-            <Button
-              onClick={() => handleFilter("donation")}
-              sx={
-                selectedFilterTab === "donation"
-                  ? selectedFilterTabStyleNew
-                  : unselectedFilterTabStyle
-              }
-            >
+            <Button onClick={() => handleFilter("donation")}
+              sx={selectedFilterTab === "donation" ? selectedFilterTabStyleNew : unselectedFilterTabStyle}>
               Donation History
             </Button>
 
             <Button
               onClick={() => handleFilter("subscription")}
-              sx={
-                selectedFilterTab === "subscription"
-                  ? selectedFilterTabStyleNew
-                  : unselectedFilterTabStyle
-              }
+              sx={selectedFilterTab === "subscription" ? selectedFilterTabStyleNew : unselectedFilterTabStyle}
             >
               Subscription History
             </Button>
 
-            <Button
-
-              onClick={() => handleFilter("statistics")}
-              sx={
-                selectedFilterTab === "statistics"
-                  ? selectedFilterTabStyleNew
-                  : unselectedFilterTabStyle
+            <Button onClick={() => handleFilter("statistics")} sx={selectedFilterTab === "statistics" ? selectedFilterTabStyleNew : unselectedFilterTabStyle
               }
             >
               Statistics
@@ -172,26 +175,6 @@ export const AccountingPage = (props) => {
                     ))}
                   </tbody>
                 </table>
-              </div>
-              <div className={"accounting-print-button"}>
-                <Button
-                  type="button"
-                  onClick={handlePrint}
-                  variant="contained"
-                  sx={{
-                    mx: "10px",
-                    width: "150px",
-                    height: "35px",
-                    textTransform: "none",
-                    borderRadius: "10px",
-                    backgroundColor: "#7209B7",
-                    "&:hover": {
-                      backgroundColor: "#8d28ce",
-                    },
-                  }}
-                >
-                  Print to PDF
-                </Button>
               </div>
             </div>
           )}
