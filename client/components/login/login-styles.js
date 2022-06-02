@@ -1,3 +1,20 @@
+export const LoginCard = {
+  display: "flex",
+  flexDirection: "column",
+  position: "absolute",
+  left: "200px",
+  top: "0",
+};
+
+export const registerButtonStyle = {
+  mt: 1,
+  backgroundColor: "#551477",
+  "&:hover": {
+    backgroundColor: "#aa55d9",
+    color: "#FFF",
+  },
+};
+
 export const companyListItem = {
   fontWeight: "500",
   color: "#000",
@@ -92,8 +109,9 @@ export const paymentMethod = {
   objectFit: "cover",
   margin: "10px",
   "&:hover": {
-    border: "1px solid black",
-    backgroundColor: "#FFF",
+    borderColor: "#B8F0DA",
+    backgroundColor: "#B8F0DA",
+    color: "#000",
   },
 };
 
@@ -106,10 +124,17 @@ export const paymentImage = {
 export const selectedPaymentMethod = {
   width: "80%",
   height: "70px",
-  backgroundColor: "#FFF",
   border: "1px solid black",
   borderRadius: "5px",
   margin: "10px",
+  borderColor: "#b8f0da",
+  backgroundColor: "#B8F0DA",
+  color: "#000",
+  "&:hover": {
+    borderColor: "#B8F0DA",
+    backgroundColor: "#B8F0DA",
+    color: "#000",
+  },
 };
 
 export const submitButtonStyle = {
@@ -132,6 +157,7 @@ export const submitButtonStyle = {
 export const identificationButtonStyle = {
   justifyContent: "center",
   mb: "22px",
+  height: "56px",
   borderColor: "#637381",
   color: "#000",
   backgroundColor: "#FFF",
@@ -157,7 +183,8 @@ export const reviewContainer = {
   backgroundColor: "#FFF",
   borderRadius: "10px",
   boxShadow: "0 0 50px rgba(145, 158, 171, 0.2)",
-  padding: "0px 10px 0px 10px",
+  padding: "0px 20px 0px 20px",
+  width: "500px",
 };
 
 export const postLoginButtonBook = {
@@ -186,5 +213,15 @@ export const postLoginButtonExplore = {
     backgroundColor: "#F6E8FF",
     borderColor: "#A400FF",
     color: "#000",
+  },
+};
+
+export const subscriptionFeaturesButton = {
+  textDecoration: "underline",
+  padding: "0",
+  mb: "22px",
+  color: "#000",
+  "&:hover": {
+    color: "#637381",
   },
 };

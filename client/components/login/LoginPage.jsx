@@ -13,6 +13,7 @@ import { SelectIdentificationMethod } from "./SelectIdentificationMethod";
 import { UserApiContext } from "../../api-client/userApiContext";
 import { RegistrationSummary } from "./RegistrationSummary";
 import { PostLoginIntroSelection } from "./PostLoginIntroSelection";
+import { LoginCard } from "./login-styles";
 
 export const LoginPage = () => {
   const navigate = useNavigate();
@@ -24,7 +25,7 @@ export const LoginPage = () => {
   const [orgPostalCode, setOrgPostalCode] = useState("");
   const [orgCity, setOrgCity] = useState("");
   const [subscriptionType, setSubscriptionType] = useState("");
-  const [paymentOption, setPaymentOption] = useState("");
+  const [paymentOption, setPaymentOption] = useState("none");
   const [isOverBreakpoint, setIsOverBreakpoint] = useState(true);
   const [user, setUser] = useState(null);
   const [userName, setUsername] = useState(null);
@@ -120,15 +121,7 @@ export const LoginPage = () => {
   return (
     <div className="login-page-container">
       {isOverBreakpoint && <LoginLeftCard />}
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          position: "absolute",
-          left: "200px",
-          top: "0",
-        }}
-      >
+      <div sx={LoginCard}>
         <Link to={"/find-company"}>company</Link>
       </div>
       <div className="login-container">
@@ -136,6 +129,11 @@ export const LoginPage = () => {
           <Route
             exact
             path={"/"}
+            element={<SelectIdentificationMethod google={google} />}
+          />
+          <Route
+            exact
+            path={"/*"}
             element={<SelectIdentificationMethod google={google} />}
           />
           <Route

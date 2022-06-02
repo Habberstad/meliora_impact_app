@@ -28,13 +28,13 @@ const MelioraWrapped = () => {
   {
     /* MODAL METHODS */
   }
-  const [viewIsOpen, viewSetOpen] = React.useState(false);
-  const viewHandleOpen = () => viewSetOpen(true);
-  const viewHandleClose = () => viewSetOpen(false);
+  const [view, setView] = React.useState(false);
+  const viewHandleOpen = () => setView(true);
+  const viewHandleClose = () => setView(false);
 
-  const [shareIsOpen, shareSetOpen] = React.useState(false);
-  const shareHandleOpen = () => shareSetOpen(true);
-  const shareHandleClose = () => shareSetOpen(false);
+  const [share, setShare] = React.useState(false);
+  const shareHandleOpen = () => setShare(true);
+  const shareHandleClose = () => setShare(false);
 
   {
     /* SHARE METHODS */
@@ -109,7 +109,7 @@ const MelioraWrapped = () => {
             <div>Share</div>
           </Button>
 
-          <Modal open={viewIsOpen} onClose={viewHandleClose}>
+          <Modal open={view} onClose={viewHandleClose}>
             <Box sx={modalStyle} style={{ width: 800 }}>
               <div className="meliora-wrapped-view-modal">
                 Let's go Meliora!
@@ -126,7 +126,7 @@ const MelioraWrapped = () => {
             </Box>
           </Modal>
 
-          <Modal open={shareIsOpen} onClose={shareHandleClose}>
+          <Modal open={share} onClose={shareHandleClose}>
             <Box sx={modalStyle}>
               <div className="meliora-wrapped-share-modal">
                 <h1>Share</h1>

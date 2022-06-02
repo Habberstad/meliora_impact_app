@@ -79,9 +79,7 @@ export const SelectPaymentMethod = (props) => {
           }
           onClick={() => handleChange("paypal")}
         >
-          <div>
-            <img style={paymentImage} src={paypalLogo} alt="paypal" />
-          </div>
+          <img style={paymentImage} src={paypalLogo} alt="paypal" />
         </Button>
         <Button
           sx={selectedOption === "visa" ? selectedPaymentMethod : paymentMethod}

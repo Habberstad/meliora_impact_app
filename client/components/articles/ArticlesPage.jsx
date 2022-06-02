@@ -11,7 +11,7 @@ import { HEADER } from "../headers/HEADER";
 import headerImg from "../../media/articles_header_image.png";
 
 const ArticlesPage = () => {
-  const [category, setCategory] = useState("water");
+  const [category, setCategory] = useState("");
   const [npoName, setNpoName] = useState("");
   const [_id, set_Id] = useState("");
   const [selectedTab, setSelectedTab] = useState("");

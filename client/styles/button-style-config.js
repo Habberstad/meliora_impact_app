@@ -244,12 +244,30 @@ export const templateCardIconStyle = {
 };
 
 export const purplePlatformButton = {
+  color: "#FFF",
   height: "45px",
   width: "140px",
+  margin: "0 10px 0 10px",
   borderRadius: "8px",
   backgroundColor: "#7209B7",
   "&:hover": {
     backgroundColor: "#A400FF",
+  },
+};
+
+export const backPlatformButton = {
+  color: "#000",
+  height: "45px",
+  width: "140px",
+  margin: "0 10px 0 10px",
+  borderRadius: "8px",
+  borderColor: "#637381",
+  backgroundColor: "#FFF",
+  border: "solid 0.5px lightgrey",
+  "&:hover": {
+    backgroundColor: "#B8F0DA",
+    color: "#637381",
+    borderColor: "#FFF",
   },
 };
 
@@ -404,4 +422,26 @@ export const greenWidePlatformButton = {
     boxShadow:
       "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.1)",
   },
+};
+
+export const selectedFilterTabStyleNew = {
+  color: "#fff",
+  backgroundColor: "#551477",
+  fontSize: "18px",
+  border: "solid 1px #637381",
+  width: "260px",
+  height: "45px",
+  borderRadius: "8px 8px 0 0",
+  fontWeight: "600px",
+  lineHeight: "22px",
+};
+
+export const unselectedFilterTabStyle = {
+  color: "#000000",
+  border: "solid 1px #637381",
+  width: "240px",
+  height: "38px",
+  borderRadius: "8px 8px 0 0",
+  fontSize: "14px",
+  fontWeight: "600px",
 };

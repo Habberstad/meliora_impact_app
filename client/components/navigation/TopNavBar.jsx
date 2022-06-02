@@ -5,24 +5,16 @@ import NotificationIconBell from "../../media/bellIcon.png";
 import ProfilePicturePlaceholder from "../../media/profilePicturePlaceholder.png";
 import LanguageIconGb from "../../media/1f1ec-1f1e7.svg";
 import { Avatar, IconButton } from "@mui/material";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import * as PropTypes from "prop-types";
 import { NavbarDropDown } from "./NavbarDropDown";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faGlobe,
-  faCircleHalfStroke,
-  faBell,
-} from "@fortawesome/free-solid-svg-icons";
-
-NavbarDropDown.propTypes = {
-  anchorEl: PropTypes.any,
-  open: PropTypes.bool,
-  onClose: PropTypes.func,
-  onClick: PropTypes.func,
-};
+import { faCircleHalfStroke, faBell } from "@fortawesome/free-solid-svg-icons";
+import { UserContext } from "../../App";
 
 export const TopNavBar = () => {
+  const user = useContext(UserContext);
+
   const [isEnglish, setIsEnglish] = useState(true);
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -79,11 +71,15 @@ export const TopNavBar = () => {
           >
             <Avatar
               alt="profile name"
-              src={ProfilePicturePlaceholder}
-              sx={{ width: "35px", height: "35px" }}
+              src={user.img_url || ProfilePicturePlaceholder}
+              sx={{
+                width: "40px",
+                height: "40px",
+              }}
             />
           </IconButton>
           <NavbarDropDown
+            user={user}
             anchorEl={anchorEl}
             open={open}
             onClose={handleClose}

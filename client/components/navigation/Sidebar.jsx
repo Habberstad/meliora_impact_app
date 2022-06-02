@@ -17,6 +17,7 @@ import GroupIcon from "@mui/icons-material/Group";
 import ReceiptIcon from "@mui/icons-material/Receipt";
 import { UserContext } from "../../App";
 import { useLocation } from "react-router-dom";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 const Sidebar = () => {
   const user = React.useContext(UserContext);
@@ -47,29 +48,21 @@ const Sidebar = () => {
       </div>
 
       <div className="profile-name-badge">
-        <div style={{ marginTop: "10px" }}> {user.org_name} </div>
+        <div style={{ margin: "10px 0" }}> {user.org_name} </div>
         {/* TODO: Replace with username */}
-        <Button
-          sx={{
-            with: "70px",
-            height: "22px",
-            fontSize: "10px",
-            fontWeight: "500",
-            marginTop: "5px",
-            color: "black",
-            border: "none",
-            backgroundColor: "#dadada",
-            "&:hover": {
-              backgroundColor: "#e5e5e5",
-              color: "black",
-              border: "none",
-            },
-          }}
-          variant="outlined"
-          onClick={handleLogoutClick}
+        <div
+          style={{ marginBottom: "10px" }}
+          className={`login-content-header-subscription-tag partner-only-badge ${
+            user.subscription_type === "premium" ? "premium" : "freemium"
+          }`}
         >
-          Log out
-        </Button>
+          <div>
+            {user.subscription_type === "premium"
+              ? "Meliora Partner"
+              : "Freemium"}
+          </div>
+          <CheckCircleIcon sx={{ fontSize: "medium" }} />
+        </div>
       </div>
       <div className="nav-item-container">
         <div>
@@ -164,44 +157,16 @@ const Sidebar = () => {
               <div>Accounting</div>
             </div>
           </Link>
-          <Link to={"/subscription"} style={{ textDecoration: "none" }}>
+          <Link to={"/account-information"} style={{ textDecoration: "none" }}>
             <div
               className={`${
-                location === "/subscription" ? "nav-item-selected" : "nav-item"
+                location === "/account-information"
+                  ? "nav-item-selected"
+                  : "nav-item"
               }`}
             >
               <BarChartIcon sx={{ marginRight: "20px" }} />
-              <div>Subscription</div>
-            </div>
-          </Link>
-          <Link to={"/templates"} style={{ textDecoration: "none" }}>
-            <div
-              className={`${
-                location === "/settings" ? "nav-item-selected" : "nav-item"
-              }`}
-            >
-              <SettingsIcon sx={{ marginRight: "20px" }} />
-              <div>Settings</div>
-            </div>
-          </Link>
-          <Link to={"/templates"} style={{ textDecoration: "none" }}>
-            <div
-              className={`${
-                location === "/users" ? "nav-item-selected" : "nav-item"
-              }`}
-            >
-              <GroupIcon sx={{ marginRight: "20px" }} />
-              <div>Users TEST</div>
-            </div>
-          </Link>
-          <Link to={"/billing"} style={{ textDecoration: "none" }}>
-            <div
-              className={`${
-                location === "/billing" ? "nav-item-selected" : "nav-item"
-              }`}
-            >
-              <ReceiptIcon sx={{ marginRight: "20px" }} />
-              <div>Billing</div>
+              <div>Account Information</div>
             </div>
           </Link>
         </div>

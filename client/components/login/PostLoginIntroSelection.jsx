@@ -7,6 +7,7 @@ export const PostLoginIntroSelection = (props) => {
     <div className={"login-content"}>
       <div className="login-content-header">
         <div>Let’s get Started!</div>
+
         <div
           className={`login-content-header-subscription-tag ${
             props.subscriptionType === "premium" ? "premium" : "freemium"
@@ -14,11 +15,15 @@ export const PostLoginIntroSelection = (props) => {
         >
           <p>
             {props.subscriptionType === "premium"
-              ? "Meliora Parnter"
+              ? "Meliora Partner"
               : "Freemium"}
           </p>
           <CheckCircleIcon />
         </div>
+        <p>
+          It's time to get <strong> involved!</strong>
+        </p>
+        <p>What would you like to do next?</p>
       </div>
       <div className="login-content-main">
         <Button
@@ -29,7 +34,7 @@ export const PostLoginIntroSelection = (props) => {
           size={"large"}
         >
           Book an appointment with Meliora Impact
-          <div className={"subsctiption-type-info-badge"}>
+          <div className={"subscription-type-info-badge"}>
             <p>coming soon</p>
           </div>
         </Button>
