@@ -94,7 +94,9 @@
     align-items: center;
 }
 
-.accounting-icon-calender{
+.accounting-print-button{
     display: flex;
-
+    max-width: 900px;
+    margin-top: 40px;
+    justify-content: flex-end;
 }

@@ -4,6 +4,7 @@ import { Box, Button, Grid, Link, MenuItem, Select } from "@mui/material";
 import MelioraIcon from "../../media/meliora_logo.png";
 import { DonationTable } from "./DonationTable";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import { useReactToPrint } from "react-to-print";
 
 const Report = React.forwardRef((props, ref) => {
   const [year, setYear] = useState(new Date().getFullYear());
@@ -21,6 +22,10 @@ const Report = React.forwardRef((props, ref) => {
   function yearChange(event) {
     setYear(event.target.value);
   }
+
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+  });
 
   return (
     <div ref={ref}>
@@ -103,12 +108,36 @@ const Report = React.forwardRef((props, ref) => {
             user={user}
             numb={sumAmount}
           />
-        </Grid>
 
-        <Grid sx={{marginTop: "50px"}} item xs={6}>
+        </Grid>
+        <Grid item xs={12}>
+          <Grid item>
           <Link color={"inherit"} href={"https://www.skatteetaten.no/person/"}>
             Tax information here
           </Link>
+          </Grid>
+          <Grid item xs={6}>
+          <div className={"accounting-print-button"}>
+            <Button
+              type="button"
+              onClick={handlePrint}
+              variant="contained"
+              sx={{
+                mx: "10px",
+                width: "150px",
+                height: "35px",
+                textTransform: "none",
+                borderRadius: "10px",
+                backgroundColor: "#7209B7",
+                "&:hover": {
+                  backgroundColor: "#8d28ce",
+                },
+              }}
+            >
+              Print to PDF
+            </Button>
+          </div>
+          </Grid>
         </Grid>
 
         {/* **************** OUTSIDE IS ONLY VISIBLE ON PRINT OUT **********************************************************************************/}
