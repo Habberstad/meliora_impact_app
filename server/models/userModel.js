@@ -9,6 +9,11 @@ const userSchema = new mongoose.Schema(
       type: String,
       unique: true,
     },
+    img_url: {
+      type: String,
+      unique: true,
+    },
+
     org_number: {
       type: String,
       required: true,
@@ -28,7 +33,7 @@ const userSchema = new mongoose.Schema(
     city: String,
     payment_option: {
       type: String,
-      enum: ["vipps", "klarna", "applepay", "paypal"],
+      enum: ["vipps", "klarna", "applepay", "paypal", "free"],
       required: true,
     },
     subscription_type: {
@@ -41,6 +46,7 @@ const userSchema = new mongoose.Schema(
       enum: ["USER", "ADMIN"],
       default: "USER",
     },
+
   },
   {
     collection: "users",
