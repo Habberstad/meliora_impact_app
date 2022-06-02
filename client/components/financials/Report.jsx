@@ -7,11 +7,11 @@ import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 
 const Report = React.forwardRef((props, ref) => {
   const [year, setYear] = useState(new Date().getFullYear());
-
+  console.log(year)
   const user = props.user;
   const transactions = props.user.donation_history;
-  const filteredTransactions = transactions.filter(
-    (item) => new Date(item.date).getFullYear() === year
+  const filteredTransactions = transactions.filter((item) =>
+    new Date(item.date).getFullYear() === year
   );
 
   const sumAmount = filteredTransactions.reduce((accumulator, currentValue) => {
@@ -56,8 +56,8 @@ const Report = React.forwardRef((props, ref) => {
             <h3>Your Company</h3>
             <p>org. number {user.org_number}</p>
             <p>{user.org_name}</p>
-            <p>Storgaten 0334</p>
-            <p>0304 Oslo</p>
+            <p>{user.address}</p>
+            <p>{user.postal_code + " " + user.city}</p>
           </Box>
         </Grid>
         {/* **************** OUTSIDE IS VISIBLE IN ON PRINT OUT  **********************************************************************************/}
@@ -102,6 +102,7 @@ const Report = React.forwardRef((props, ref) => {
             data={filteredTransactions}
             user={user}
             numb={sumAmount}
+
           />
         </Grid>
 
