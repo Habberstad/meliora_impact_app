@@ -1,7 +1,7 @@
 import * as React from "react";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import ReactToPrint, { useReactToPrint } from "react-to-print";
-import { Box, Button, Grid } from "@mui/material";
+import { Box, Button, Grid, MenuItem, Select } from "@mui/material";
 import { useRef, useState } from "react";
 import Report from "./Report";
 import SubscriptionTable from "./SubscriptionsPage";
@@ -31,15 +31,9 @@ export const AccountingPage = (props) => {
     setFilterTab(event);
   }
 
-  function backYear() {
-    setYear(year - 1);
+  function yearChange(event) {
+    setYear(event);
   }
-
-  function forwardYear() {
-    setYear(year + 1);
-  }
-
-  console.log(filterTab);
 
   console.log(selectedFilterTab);
   const componentRef = useRef();
@@ -132,9 +126,16 @@ export const AccountingPage = (props) => {
                   displayPrint: "none",
                 }}
               >
-                <Button onClick={backYear}>back</Button>
-                {year}
-                <Button onClick={forwardYear}>forward</Button>
+                <Select
+                  value={year}
+                  onChange={yearChange}
+                  displayEmpty
+                  inputProps={{ "aria-label": "Without label" }}
+                >
+                  <MenuItem value={2022}>2022</MenuItem>
+                  <MenuItem value={2021}>2021</MenuItem>
+                  <MenuItem value={2020}>2020</MenuItem>
+                </Select>
               </Box>
               <div>
                 <table className={"styled-table"}>
