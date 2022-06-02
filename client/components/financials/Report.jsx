@@ -26,7 +26,7 @@ const Report = React.forwardRef((props, ref) => {
   }
 
   return (
-    <div ref={ref} className={"donation-history-page-container"}>
+    <div ref={ref}>
       <Grid container>
         <Grid
           item
