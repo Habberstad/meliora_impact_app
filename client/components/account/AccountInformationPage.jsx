@@ -113,21 +113,27 @@ export const AccountInformationPage = ({ user }) => {
             <div className="account-page-edit">Change payment method</div>
           </div>
         </div>
-        <div>
+        <div style={{ marginLeft: "160px" }}>
           <div>
-            <h3>Platform Subscription</h3>
-
-            <label>Current:</label>
-            <p>{data.subscription_type}</p>
-            <Button>Change</Button>
-            <Button>Cancel</Button>
+            <div className="account-page-title">Platform Subscription</div>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <div className="account-page-payment">
+                {data.subscription_type}
+              </div>
+              <div className="account-page-edit">Change payment method</div>
+            </div>
           </div>
         </div>
       </div>
 
-      <div>
-        <h3>Active NPO Subscriptions</h3>
-
+      <div style={{ margin: "50px 0 0 35px" }}>
+        <div className="account-page-title">Active NPO Subscriptions</div>
         <SubscriptionTable data={data} />
       </div>
     </div>
