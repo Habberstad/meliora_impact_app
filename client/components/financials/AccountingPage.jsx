@@ -146,20 +146,24 @@ export const AccountingPage = (props) => {
                       <th>Frequency</th>
                       <th>Amount</th>
                       <th>Signing date</th>
-                      <th></th>
-                      <th></th>
-                      <th></th>
+                      <th>Cancelled date</th>
                     </tr>
                   </thead>
                   <tbody>
                     {data.active_subscriptions.map((item) => (
                       <tr>
                         <td>{item._id}</td>
-                        <td>{item.npo_name}</td>
+                        <td>
+                          {data.npo_partners.map((npo) => {
+                            if (npo._id === item.npo_id) return npo.name;
+                          })}
+                        </td>
                         <td>{item.payment_frequency}</td>
                         <td>{item.payment_amount}</td>
-                        <DateFormater date={item.date} />
-                        <td></td>
+                        <td>
+                          <DateFormater date={item.date} />
+                        </td>
+                        <td>Active</td>
                       </tr>
                     ))}
                   </tbody>
