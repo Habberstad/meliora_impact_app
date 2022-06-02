@@ -10,7 +10,7 @@ import { GlobalHeader } from "../headers/GlobalHeader";
 import { isLoading } from "../shared-components/Loading";
 import { Error } from "../shared-components/Error";
 
-const OurPartnersPage = () => {
+const OurPartnersPage = (props) => {
   const [category, setCategory] = useState("");
   const { listNpos } = useContext(NpoApiContext);
   const { loading, error, data } = useLoader(
@@ -36,7 +36,7 @@ const OurPartnersPage = () => {
           image={headerImg}
         />
         <CategoryFilter onClick={categorySelectHandler} category={category} />
-        <PartnersList data={data} category={category} />
+        <PartnersList data={data} category={category} activeSubs={props.user.npo_partners} />
       </div>
     </div>
   );
