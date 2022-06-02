@@ -85,15 +85,18 @@ export const AccountInformationPage = ({ user }) => {
       <br />
 
       <div>
-        <div>Company Information</div>
-        <div>Organization name:</div>
-        <div>{data.org_name}</div>
-        <div>Organization number:</div>
-        <div>{data.org_number}</div>
+        <div>
+          <div>Company Information</div>
+          <div>Organization name:</div>
+          <div>{data.org_name}</div>
+          <div>Organization number:</div>
+          <div>{data.org_number}</div>
+        </div>
       </div>
 
       <br />
 
+      <div></div>
       <div>
         <h3>Payment method</h3>
 
