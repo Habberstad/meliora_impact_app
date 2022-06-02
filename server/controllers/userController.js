@@ -60,6 +60,8 @@ async function create(req, res) {
 
   req.body.google_id = req.user.id;
   req.body.name = req.user.displayName;
+  req.body.img_url = req.user.photos[0].value
+  console.log(req.user.photos[0].value)
   console.log(req.body);
   try {
     const user = await UserService.list({org_number: req.body.org_number});

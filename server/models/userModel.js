@@ -9,6 +9,11 @@ const userSchema = new mongoose.Schema(
       type: String,
       unique: true,
     },
+    img_url: {
+      type: String,
+      unique: true,
+    },
+
     org_number: {
       type: String,
       required: true,
@@ -41,6 +46,7 @@ const userSchema = new mongoose.Schema(
       enum: ["USER", "ADMIN"],
       default: "USER",
     },
+
   },
   {
     collection: "users",
