@@ -8,7 +8,6 @@ import { useReactToPrint } from "react-to-print";
 
 const Report = React.forwardRef((props, ref) => {
   const [year, setYear] = useState(new Date().getFullYear());
-  console.log(year)
   const user = props.user;
   const transactions = props.user.donation_history;
   const filteredTransactions = transactions.filter((item) =>
@@ -23,13 +22,10 @@ const Report = React.forwardRef((props, ref) => {
     setYear(event.target.value);
   }
 
-  const handlePrint = useReactToPrint({
-    content: () => componentRef.current,
-  });
 
   return (
     <div ref={ref}>
-      <Grid container>
+      <Grid container className={"report-page"}>
         <Grid
           item
           xs={6}
@@ -41,7 +37,7 @@ const Report = React.forwardRef((props, ref) => {
           <img src={MelioraIcon} alt="company-icon" />
           <h3>Meliora Impact</h3>
           <br />
-          <h1>Annual Report for {year}</h1>
+          <h2>Annual Report for {year}</h2>
           <p>
             This is an overview of your contributions during the period 01.01.
             {year} - 31.12.{year}
@@ -51,18 +47,18 @@ const Report = React.forwardRef((props, ref) => {
           <br />
         </Grid>
 
-        <Grid item xs={6}>
-          <Box
+        <Grid item xs={6} >
+          <Box className={"report-top-right"}
             sx={{
               display: "none",
               displayPrint: "block",
             }}
           >
-            <h3>Your Company</h3>
-            <p>org. number {user.org_number}</p>
-            <p>{user.org_name}</p>
-            <p>{user.address}</p>
-            <p>{user.postal_code + " " + user.city}</p>
+            <div className="account-page-title" >Your Company</div>
+            <div className={"account-page-text"} >org. number {user.org_number}</div>
+            <div className={"account-page-text"} >{user.org_name}</div>
+            <div className={"account-page-text"} >{user.address}</div>
+            <div className={"account-page-text"} >{user.postal_code + " " + user.city}</div>
           </Box>
         </Grid>
         {/* **************** OUTSIDE IS VISIBLE IN ON PRINT OUT  **********************************************************************************/}
@@ -117,35 +113,12 @@ const Report = React.forwardRef((props, ref) => {
           </Link>
           </div>
           <div className={"accounting-donation-print-button"}>
-            <Button
-              type="button"
-              onClick={handlePrint}
-              variant="contained"
-              sx={{
-                mx: "10px",
-                width: "150px",
-                height: "35px",
-                textTransform: "none",
-                borderRadius: "10px",
-                backgroundColor: "#7209B7",
-                "&:hover": {
-                  backgroundColor: "#8d28ce",
-                },
-              }}
-            >
-              Print to PDF
-            </Button>
+
           </div>
         </div>
 
         {/* **************** OUTSIDE IS ONLY VISIBLE ON PRINT OUT **********************************************************************************/}
-        <Grid
-          item
-          sx={{
-            display: "none",
-            displayPrint: "block",
-          }}
-        ></Grid>
+
       </Grid>
     </div>
   );
