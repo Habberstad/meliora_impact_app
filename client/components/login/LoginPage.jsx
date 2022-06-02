@@ -13,6 +13,7 @@ import { SelectIdentificationMethod } from "./SelectIdentificationMethod";
 import { UserApiContext } from "../../api-client/userApiContext";
 import { RegistrationSummary } from "./RegistrationSummary";
 import { PostLoginIntroSelection } from "./PostLoginIntroSelection";
+import { LoginCard } from "./login-styles";
 
 export const LoginPage = () => {
   const navigate = useNavigate();
@@ -120,15 +121,7 @@ export const LoginPage = () => {
   return (
     <div className="login-page-container">
       {isOverBreakpoint && <LoginLeftCard />}
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          position: "absolute",
-          left: "200px",
-          top: "0",
-        }}
-      >
+      <div sx={LoginCard}>
         <Link to={"/find-company"}>company</Link>
       </div>
       <div className="login-container">
