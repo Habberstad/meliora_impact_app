@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useState } from "react";
-import { Box, Button, Grid, MenuItem, Select } from "@mui/material";
+import { Box, Button, Grid, Link, MenuItem, Select } from "@mui/material";
 import MelioraIcon from "../../media/meliora_logo.png";
 import { DonationTable } from "./DonationTable";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
@@ -105,12 +105,10 @@ const Report = React.forwardRef((props, ref) => {
           />
         </Grid>
 
-        <Grid item xs={6}>
-          <div>
-            *You are entitled to a tax deduction for your contribution. We will
-            ensure that the contribution is reported to the tax authorities.
-            More informasjon can be found at www.skatteetaten.no.
-          </div>
+        <Grid sx={{marginTop: "50px"}} item xs={6}>
+          <Link color={"inherit"} href={"https://www.skatteetaten.no/person/"}>
+            Tax information here
+          </Link>
         </Grid>
 
         {/* **************** OUTSIDE IS ONLY VISIBLE ON PRINT OUT **********************************************************************************/}
