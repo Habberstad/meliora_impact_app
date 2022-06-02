@@ -164,6 +164,16 @@ const Sidebar = () => {
               <div>Accounting</div>
             </div>
           </Link>
+          <Link to={"/subscription"} style={{ textDecoration: "none" }}>
+            <div
+              className={`${
+                location === "/subscription" ? "nav-item-selected" : "nav-item"
+              }`}
+            >
+              <BarChartIcon sx={{ marginRight: "20px" }} />
+              <div>Subscription</div>
+            </div>
+          </Link>
           <Link to={"/templates"} style={{ textDecoration: "none" }}>
             <div
               className={`${
@@ -184,7 +194,7 @@ const Sidebar = () => {
               <div>Users TEST</div>
             </div>
           </Link>
-          <Link to={"/templates"} style={{ textDecoration: "none" }}>
+          <Link to={"/billing"} style={{ textDecoration: "none" }}>
             <div
               className={`${
                 location === "/billing" ? "nav-item-selected" : "nav-item"

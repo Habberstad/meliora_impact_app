@@ -9,8 +9,11 @@ router.get("/:id", SubscriptionControllers.getById)
 
 router.post("/", SubscriptionControllers.create)
 
-router.delete("/", SubscriptionControllers.deleteRecord)
+router.delete("/:id", SubscriptionControllers.deleteRecord)
 
+
+//Test
+router.get("/test/test", SubscriptionControllers.listByUserId)
 
 
 export default router;
