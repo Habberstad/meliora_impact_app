@@ -78,7 +78,6 @@ export const AccountInformationPage = ({ user }) => {
   return (
     <div className="account-page-container">
       <div className="account-page-main-title">Account Information</div>
-
       <div className="account-page-top-section">
         <div style={{ marginRight: "200px" }}>
           <div className="account-page-title">Company Information</div>
@@ -91,11 +90,38 @@ export const AccountInformationPage = ({ user }) => {
         </div>
 
         <div>
+          <div className="account-page-title">Personal Information</div>
+          <div className="account-page-stronger"> Name:</div>
+          <div className="account-page-text" style={{ marginBottom: "10px" }}>
+            {data.org_name}
+          </div>
+          <div className="account-page-stronger">Email:</div>
+          <div className="account-page-text">{data.org_number}</div>
+        </div>
+      </div>
+      <div className="account-page-middle-section">
+        <div>
           <div className="account-page-title">Payment method</div>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <div className="account-page-payment">{data.payment_option}</div>
+            <div className="account-page-edit">Change payment method</div>
+          </div>
+        </div>
+        <div>
+          <div>
+            <h3>Platform Subscription</h3>
 
-          <div>Current:</div>
-          <div>{data.payment_option}</div>
-          <Button>Change</Button>
+            <label>Current:</label>
+            <p>{data.subscription_type}</p>
+            <Button>Change</Button>
+            <Button>Cancel</Button>
+          </div>
         </div>
       </div>
 
@@ -103,15 +129,6 @@ export const AccountInformationPage = ({ user }) => {
         <h3>Active NPO Subscriptions</h3>
 
         <SubscriptionTable data={data} />
-      </div>
-
-      <div>
-        <h3>Platform Subscription</h3>
-
-        <label>Current:</label>
-        <p>{data.subscription_type}</p>
-        <Button>Change</Button>
-        <Button>Cancel</Button>
       </div>
     </div>
   );
