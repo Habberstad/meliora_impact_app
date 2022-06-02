@@ -32,7 +32,31 @@
     font-weight: 600;
 }
 
+.account-page-payment{
+    font-size: 16px;
+    font-weight: 500;
+}
+
 .account-page-text{
     font-size: 12px;
     font-weight: 500;
+    margin: 10px 5px;
+}
+
+.account-page-middle-section{
+    display: flex;
+    flex-direction: row;
+    align-self: flex-start;
+    margin-left: 120px  ;
+    margin-top: 40px;
+}
+
+.account-page-edit{
+    font-size: 12px;
+    font-weight: 500;
+    margin-left: 20px;
+    margin-top: 5px;
+    padding-bottom: 2px;
+    cursor: pointer;
+    border-bottom: #5D5FEF solid 1px;
 }
