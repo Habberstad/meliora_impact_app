@@ -47,7 +47,7 @@ function DataTableRows(props) {
 
 export function DonationTable(props) {
   return (
-    <table className={"styled-table"}>
+    <table className={"styled-table-finances"}>
       <thead>
       <tr>
         <th>Transactions ID</th>

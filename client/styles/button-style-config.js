@@ -434,7 +434,12 @@ export const selectedFilterTabStyleNew = {
   borderRadius: "8px 8px 0 0",
   fontWeight: "600px",
   lineHeight: "22px",
-};
+"&:hover": {
+    backgroundColor:"#551477",
+  },
+  }
+
+;
 
 export const unselectedFilterTabStyle = {
   color: "#000000",
@@ -444,4 +449,5 @@ export const unselectedFilterTabStyle = {
   borderRadius: "8px 8px 0 0",
   fontSize: "14px",
   fontWeight: "600px",
+
 };
