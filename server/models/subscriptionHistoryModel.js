@@ -24,6 +24,11 @@ const subscriptionHistorySchema = new mongoose.Schema({
 
   date: {
     type: Date,
+
+  },
+
+  cancelDate: {
+    type: Date,
     default: Date.now()
   },
 
