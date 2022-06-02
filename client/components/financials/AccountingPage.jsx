@@ -50,8 +50,6 @@ export const AccountingPage = (props) => {
     []
   );
 
-
-
   if (loading) return isLoading();
   if (error) return <Error error={error} />;
 
