@@ -1,5 +1,4 @@
 import {
-  Avatar,
   Divider,
   ListItemIcon,
   Menu,
@@ -7,8 +6,12 @@ import {
   Typography,
 } from "@mui/material";
 import { Logout, PersonAdd, Settings } from "@mui/icons-material";
+import PersonIcon from "@mui/icons-material/Person";
+import BarChartIcon from "@mui/icons-material/BarChart";
+import { useNavigate } from "react-router";
 
 export const NavbarDropDown = (props) => {
+  const navigate = useNavigate();
   const handleLogoutClick = () => {
     window.location.href = window.location.origin + "/auth/logout";
   };
@@ -70,13 +73,27 @@ export const NavbarDropDown = (props) => {
         {props.user.email}
       </Typography>
       <Divider />
-      <MenuItem>
+      <MenuItem
+        onClick={() => {
+          navigate("/account-information");
+        }}
+      >
         <ListItemIcon>
-          <PersonAdd fontSize="small" />
+          <PersonIcon fontSize="small" />
         </ListItemIcon>
-        Add user
+        My account
       </MenuItem>
-      <MenuItem>
+      <MenuItem
+        onClick={() => {
+          navigate("/accounting");
+        }}
+      >
+        <ListItemIcon>
+          <BarChartIcon fontSize="small" />
+        </ListItemIcon>
+        Accounting
+      </MenuItem>
+      <MenuItem disabled>
         <ListItemIcon>
           <Settings fontSize="small" />
         </ListItemIcon>

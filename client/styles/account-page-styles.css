@@ -1,0 +1,38 @@
+
+
+.account-page-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 800px;
+
+}
+
+.account-page-top-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.account-page-main-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 50px;
+}
+
+.account-page-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.account-page-stronger {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.account-page-text{
+    font-size: 12px;
+    font-weight: 500;
+}

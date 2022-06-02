@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useContext } from "react";
 import { useLoading } from "../../useLoading";
-import { Grid, Link, MenuItem, Select } from "@mui/material";
+import { Button, Grid, Link, MenuItem, Select } from "@mui/material";
 import "../../styles/dashboard.css";
 import LinearProgress from "@mui/material/LinearProgress";
 import Accordion from "@mui/material/Accordion";
@@ -20,6 +20,8 @@ import SchoolIcon from "@mui/icons-material/School";
 import MapChart from "../../MapChart";
 import { HighlightedPartners } from "./HighlightedPartners";
 
+import placeholder_img from "../../media/dashboard_placeholder.svg";
+import { submitButtonStyle } from "../login/login-styles";
 const Dashboard = () => {
   //TODO: Mer beskrivende navn på state. F.eks. expandPartnerAccordion
   const [expanded, setExpanded] = React.useState(0);
@@ -61,14 +63,34 @@ const Dashboard = () => {
     }
   }
 
-  console.log(data);
-  console.log(donationHistory);
-
   const partners = data.npo_partners;
 
   const locations = [];
 
   partners.map((x) => locations.push(x.locations[0]));
+  console.log("subs", data.active_subscriptions.length);
+
+  if (data.active_subscriptions.length === 0)
+    return (
+      <div className="dashboard-placeholder-wrapper">
+        <div className="placeholder-image">
+          <img src={placeholder_img} alt="placeholder_img" />
+        </div>
+        <div className="global-header-title" style={{ marginTop: "50px" }}>
+          Find a partner and get started
+        </div>
+        <div className="dashboard-header-sub-title">
+          Dashboard will be generated once you have subscribed to a partner
+        </div>
+        <Button
+          variant="contained"
+          sx={{ ...submitButtonStyle, marginTop: "30px" }}
+          onClick={() => navigate("/discover")}
+        >
+          Discover
+        </Button>
+      </div>
+    );
 
   return (
     <div className={"dashboard-wrapper"}>
