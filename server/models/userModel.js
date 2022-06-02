@@ -33,8 +33,8 @@ const userSchema = new mongoose.Schema(
     city: String,
     payment_option: {
       type: String,
-      enum: ["vipps", "klarna", "applepay", "paypal", "free"],
-      required: true,
+      enum: ["vipps", "klarna", "applepay", "paypal", "none"],
+      default: "none",
     },
     subscription_type: {
       type: String,
@@ -46,7 +46,6 @@ const userSchema = new mongoose.Schema(
       enum: ["USER", "ADMIN"],
       default: "USER",
     },
-
   },
   {
     collection: "users",

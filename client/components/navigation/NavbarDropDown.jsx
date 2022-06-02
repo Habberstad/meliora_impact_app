@@ -1,10 +1,18 @@
-import { Avatar, Divider, ListItemIcon, Menu, MenuItem } from "@mui/material";
+import {
+  Avatar,
+  Divider,
+  ListItemIcon,
+  Menu,
+  MenuItem,
+  Typography,
+} from "@mui/material";
 import { Logout, PersonAdd, Settings } from "@mui/icons-material";
 
 export const NavbarDropDown = (props) => {
   const handleLogoutClick = () => {
     window.location.href = window.location.origin + "/auth/logout";
   };
+  console.log(props.user);
 
   return (
     <Menu
@@ -16,7 +24,7 @@ export const NavbarDropDown = (props) => {
       PaperProps={{
         elevation: 0,
         sx: {
-          width: "200px",
+          minWidth: "200px",
           overflow: "visible",
           filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
           borderRadius: "10px",
@@ -44,12 +52,23 @@ export const NavbarDropDown = (props) => {
       transformOrigin={{ horizontal: "right", vertical: "top" }}
       anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
     >
-      <MenuItem>
-        <Avatar /> Profile
-      </MenuItem>
-      <MenuItem>
-        <Avatar /> My account
-      </MenuItem>
+      <Typography
+        variant={"h6"}
+        type={"p"}
+        mx={"1rem"}
+        sx={{ fontSize: "0.9rem", fontWeight: "600" }}
+      >
+        {props.user.name}
+      </Typography>
+      <Typography
+        variant={"h6"}
+        type={"p"}
+        mx={"1rem"}
+        mb={"0.7rem"}
+        sx={{ fontSize: "0.875rem" }}
+      >
+        {props.user.email}
+      </Typography>
       <Divider />
       <MenuItem>
         <ListItemIcon>
