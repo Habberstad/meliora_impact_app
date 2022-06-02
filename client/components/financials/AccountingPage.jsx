@@ -6,10 +6,19 @@ import { useRef, useState } from "react";
 import Report from "./Report";
 import "../../styles/financesPage.css";
 
+const test = () => {
+
+  return (
+    <div>
+      test
+    </div>
+  );
+};
+
 export const AccountingPage = (props) => {
   const componentRef = useRef();
   const handlePrint = useReactToPrint({
-    content: () => componentRef.current,
+    content: () => componentRef.current
   });
 
   return (
@@ -28,14 +37,14 @@ export const AccountingPage = (props) => {
           borderRadius: "10px",
           backgroundColor: "#7209B7",
           "&:hover": {
-            backgroundColor: "#8d28ce",
-          },
+            backgroundColor: "#8d28ce"
+          }
         }}
       >
         Print to PDF
       </Button>
-      {/* ***************** END: INSIDE ONLY VISIBLE ON BROWSER PAGE ********************************************************************************** */}
 
+      {/* ***************** END: INSIDE ONLY VISIBLE ON BROWSER PAGE ********************************************************************************** */}
       <Report ref={componentRef} user={props.user} />
     </div>
   );

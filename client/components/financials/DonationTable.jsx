@@ -9,7 +9,7 @@ function DataTableRows(props) {
         <tr>
           <td>{item._id}</td>
           <td><DateFormater date={item.date} /></td>
-          <td><CurrencyFormater numb={item.payment_amount} /></td>
+
           <td>{item.payment_frequency}</td>
           <td>
             {props.user.npo_partners.map((npo) => {
@@ -21,6 +21,7 @@ function DataTableRows(props) {
               if (npo._id === item.npo_id) return npo.category;
             })}
           </td>
+          <td><CurrencyFormater numb={item.payment_amount} /></td>
 
         </tr>
       ))}
@@ -35,10 +36,10 @@ export function DonationTable(props) {
     <tr>
       <th>Transactions ID</th>
       <th>Date</th>
-      <th>Amount</th>
       <th>Type</th>
-      <th>Organization</th>
+      <th>Name</th>
       <th>Category</th>
+      <th>Amount</th>
     </tr>
     </thead>
     <tbody>
@@ -46,6 +47,9 @@ export function DonationTable(props) {
     </tbody>
     <tfoot>
     <tr>
+      <td></td>
+      <td></td>
+      <td></td>
       <td></td>
       <td>TOTAL</td>
       <td>

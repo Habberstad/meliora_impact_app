@@ -14,8 +14,6 @@ import { Error } from "../shared-components/Error";
 const DiscoverPage = () => {
   const [searchString, setSearchString] = useState("");
   const [category, setCategory] = useState("");
-  const [npoName, setNpoName] = useState("");
-  const [_id, set_id] = useState("");
   const { listNpos } = useContext(NpoApiContext);
   const { loading, error, data } = useLoading(
     async () => await listNpos({ category }),
@@ -24,6 +22,7 @@ const DiscoverPage = () => {
 
   function categorySelectHandler(selectedCategory) {
     setCategory(selectedCategory);
+
   }
 
   function handleSearchInput(event) {
@@ -31,15 +30,14 @@ const DiscoverPage = () => {
   }
 
   if (loading) return isLoading();
-
   if (error) return <Error error={error} />;
 
   return (
     <div className={"discover-page-container"}>
       <GlobalHeader
-        title={HEADER[2].title}
-        subtitle={HEADER[2].subtitle}
-        desc={HEADER[2].desc}
+        title={"Discover"}
+        subtitle={"Explore other NPOs"}
+        desc={"Dive in and learn about which projects our passionate NPOs are engaged with. Quickly sort and collaborate on different propositions we can offer."}
         image={headerImg}
       />
       <CategoryFilter onClick={categorySelectHandler} category={category} />

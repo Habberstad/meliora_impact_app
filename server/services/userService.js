@@ -32,7 +32,6 @@ async function getLoggedInUser(google_id) {
           as: "active_subscriptions",
         },
       },
-      { $match: { _id: ObjectId(userId) } },
       {
         $lookup: {
           from: "npos",
@@ -41,13 +40,40 @@ async function getLoggedInUser(google_id) {
           as: "npo_partners",
         },
       },
-      { $match: { _id: ObjectId(userId) } },
       {
         $lookup: {
           from: "transactions",
           localField: "google_id",
           foreignField: "user_id",
           as: "donation_history",
+        },
+      },
+      {
+        $lookup: {
+          from: "users",
+          localField: "google_id",
+          foreignField: "google_id",
+          as: "users",
+        },
+      },
+      {
+        $set: {
+          donation_history: {"user_name": { $arrayElemAt: ["$users.name", 0] }}
+        },
+      },
+      {
+        $set: {
+          donation_history: {"npo_name": { $arrayElemAt: ["$npo_partners.name", 0] }}
+        },
+      },
+      {
+        $set: {
+          active_subscriptions: {"user_name": { $arrayElemAt: ["$users.name", 0] }}
+        },
+      },
+      {
+        $set: {
+          active_subscriptions: {"npo_name": { $arrayElemAt: ["$npo_partners.name", 0] }}
         },
       },
 

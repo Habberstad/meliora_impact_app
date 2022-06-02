@@ -8,6 +8,7 @@ export function Searchbar(props) {
       <div className={"npo-search-container"}>
           <div className={"npo-search-field"}>
               <TextField
+                value={props.searchString}
                   variant={"outlined"}
                   onChange={props.onChange}
                   size={"small"}
