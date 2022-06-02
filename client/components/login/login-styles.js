@@ -6,6 +6,15 @@ export const LoginCard = {
   top: "0",
 };
 
+export const registerButtonStyle = {
+  mt: 1,
+  backgroundColor: "#551477",
+  "&:hover": {
+    backgroundColor: "#aa55d9",
+    color: "#FFF",
+  },
+};
+
 export const companyListItem = {
   fontWeight: "500",
   color: "#000",
@@ -100,8 +109,9 @@ export const paymentMethod = {
   objectFit: "cover",
   margin: "10px",
   "&:hover": {
-    border: "1px solid black",
-    backgroundColor: "#FFF",
+    borderColor: "#B8F0DA",
+    backgroundColor: "#B8F0DA",
+    color: "#000",
   },
 };
 
@@ -114,10 +124,17 @@ export const paymentImage = {
 export const selectedPaymentMethod = {
   width: "80%",
   height: "70px",
-  backgroundColor: "#FFF",
   border: "1px solid black",
   borderRadius: "5px",
   margin: "10px",
+  borderColor: "#b8f0da",
+  backgroundColor: "#B8F0DA",
+  color: "#000",
+  "&:hover": {
+    borderColor: "#B8F0DA",
+    backgroundColor: "#B8F0DA",
+    color: "#000",
+  },
 };
 
 export const submitButtonStyle = {
@@ -140,6 +157,7 @@ export const submitButtonStyle = {
 export const identificationButtonStyle = {
   justifyContent: "center",
   mb: "22px",
+  height: "56px",
   borderColor: "#637381",
   color: "#000",
   backgroundColor: "#FFF",
