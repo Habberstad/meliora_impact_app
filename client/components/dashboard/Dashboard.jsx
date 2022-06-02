@@ -68,7 +68,7 @@ const Dashboard = () => {
   const locations = [];
 
   partners.map((x) => locations.push(x.locations[0]));
-  console.log("subs", data.active_subscriptions.length);
+
 
   if (data.active_subscriptions.length === 0)
     return (

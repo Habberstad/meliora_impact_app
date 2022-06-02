@@ -47,6 +47,8 @@
 /* Dennis styling report*/
 .report-history-filter-wrapper{
     display: flex;
+    align-items: flex-end;
+    margin-bottom: 30px;
 }
 
 .report-donation-history-filter{
@@ -57,6 +59,7 @@
     width: 286px;
     height: 38px;
     border-radius: 8px 8px 0 0;
+
 }
 
 .report-subscription-history-filter{
@@ -83,4 +86,15 @@
 
 .accounting-image{
     width: 400px;
+}
+
+.accounting-calender{
+    display: flex;
+    margin-bottom: 25px;
+    align-items: center;
+}
+
+.accounting-icon-calender{
+    display: flex;
+
 }

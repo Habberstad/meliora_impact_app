@@ -27,6 +27,7 @@ export const AccountingPage = (props) => {
   const [selectedFilterTab, setSelectedFilterTab] = useState("donation");
   const [filterTab, setFilterTab] = useState("donation");
 
+  //skal brukes til å sett år i filter. !!
   const [year, setYear] = useState(2022);
 
   function handleFilter(event) {
@@ -52,6 +53,10 @@ export const AccountingPage = (props) => {
 
   if (loading) return isLoading();
   if (error) return <Error error={error} />;
+
+  const filteredTransactions = data.active_subscriptions.filter((item) =>
+    new Date(item.date).getFullYear() === year
+  );
 
   return (
     <div className={"discover-page-container"}>
@@ -129,6 +134,7 @@ export const AccountingPage = (props) => {
                   displayPrint: "none",
                 }}
               >
+                <div className={"accounting-calender"}>
                 <Select
                   id={"year"}
                   defaultValue={"2022"}
@@ -154,6 +160,7 @@ export const AccountingPage = (props) => {
                   className={"accounting-icon-calender"}
                   fontSize={"large"}
                 />
+                </div>
               </Box>
               <div>
                 <table className={"styled-table"}>
@@ -168,7 +175,7 @@ export const AccountingPage = (props) => {
                     </tr>
                   </thead>
                   <tbody>
-                    {data.active_subscriptions.map((item) => (
+                    {filteredTransactions.map((item) => (
                       <tr>
                         <td>{item._id}</td>
                         <td>

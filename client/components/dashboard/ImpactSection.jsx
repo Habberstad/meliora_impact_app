@@ -9,7 +9,7 @@ export function ImpactSection(props) {
   const [counter, setCounter] = useState(1);
   const impact = props.data?.active_subscriptions[0]?.impacts;
 
-  console.log("impact" + impact);
+
   const increase = () => {
     if (counter === impact.length - 1) {
       setCounter(0);
