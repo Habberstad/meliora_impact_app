@@ -40,7 +40,7 @@ export const SelectSubscription = (props) => {
 
     subscriptionType === "premium"
       ? navigate("/select-payment-method")
-      : navigate("/register-summary");
+      : navigate("/select-payment-method");
   };
 
   return (

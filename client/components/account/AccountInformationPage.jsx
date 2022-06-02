@@ -13,6 +13,9 @@ import { useLoading } from "../../useLoading";
 import { isLoading } from "../shared-components/Loading";
 import { Error } from "../shared-components/Error";
 import "../../styles/discoverPage.css";
+import { GlobalHeader } from "../headers/GlobalHeader";
+import { HEADER } from "../headers/HEADER";
+import headerImg from "../../media/articles_header_image.png";
 
 const SubscriptionTable = ({ data }) => {
   const { deleteSubscription } = useContext(SubscriptionApiContext);
@@ -21,8 +24,6 @@ const SubscriptionTable = ({ data }) => {
     await deleteSubscription(id);
     window.location.reload(false);
   }
-
-
 
   return (
     <div>
@@ -74,52 +75,37 @@ export const AccountInformationPage = ({ user }) => {
     []
   );
 
-
-
   if (loading) return isLoading();
   if (error) return <Error error={error} />;
 
   return (
-    <div className="account-page-container">
-      <div className="account-page-main-title">Account Information</div>
-      <div className="account-page-top-section">
-        <div style={{ marginRight: "200px" }}>
-          <div className="account-page-title">Company Information</div>
-          <div className="account-page-stronger">Organization name:</div>
-          <div className="account-page-text" style={{ marginBottom: "10px" }}>
-            {data.org_name}
+    <div className="account-page-wrapper">
+      <div className="account-page-container">
+        <div className="account-page-main-title">Account Information</div>
+        <div className="account-page-top-section">
+          <div style={{ marginRight: "200px" }}>
+            <div className="account-page-title">Company Information</div>
+            <div className="account-page-stronger">Organization name:</div>
+            <div className="account-page-text" style={{ marginBottom: "10px" }}>
+              {data.org_name}
+            </div>
+            <div className="account-page-stronger">Organization number:</div>
+            <div className="account-page-text">{data.org_number}</div>
           </div>
-          <div className="account-page-stronger">Organization number:</div>
-          <div className="account-page-text">{data.org_number}</div>
-        </div>
 
-        <div>
-          <div className="account-page-title">Personal Information</div>
-          <div className="account-page-stronger"> Name:</div>
-          <div className="account-page-text" style={{ marginBottom: "10px" }}>
-            {data.org_name}
-          </div>
-          <div className="account-page-stronger">Email:</div>
-          <div className="account-page-text">{data.org_number}</div>
-        </div>
-      </div>
-      <div className="account-page-middle-section">
-        <div>
-          <div className="account-page-title">Payment method</div>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <div className="account-page-payment">{data.payment_option}</div>
-            <div className="account-page-edit">Change payment method</div>
-          </div>
-        </div>
-        <div style={{ marginLeft: "160px" }}>
           <div>
-            <div className="account-page-title">Platform Subscription</div>
+            <div className="account-page-title">Personal Information</div>
+            <div className="account-page-stronger"> Name:</div>
+            <div className="account-page-text" style={{ marginBottom: "10px" }}>
+              {data.org_name}
+            </div>
+            <div className="account-page-stronger">Email:</div>
+            <div className="account-page-text">{data.org_number}</div>
+          </div>
+        </div>
+        <div className="account-page-middle-section">
+          <div>
+            <div className="account-page-title">Payment method</div>
             <div
               style={{
                 display: "flex",
@@ -127,22 +113,37 @@ export const AccountInformationPage = ({ user }) => {
                 justifyContent: "center",
               }}
             >
-              <div className="account-page-payment">
-                {data.subscription_type}
-              </div>
+              <div className="account-page-payment">{data.payment_option}</div>
               <div className="account-page-edit">Change payment method</div>
             </div>
           </div>
+          <div style={{ marginLeft: "160px" }}>
+            <div>
+              <div className="account-page-title">Platform Subscription</div>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <div className="account-page-payment">
+                  {data.subscription_type}
+                </div>
+                <div className="account-page-edit">Change payment method</div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div style={{ margin: "50px 0 0 0" }}>
-        <div className="account-page-title">Active NPO Subscriptions</div>
-        {user.active_subscriptions.length > 0 ? (
-          <SubscriptionTable data={data} />
-        ) : (
-          "No active subscriptions"
-        )}
+        <div style={{ margin: "50px 0 0 0" }}>
+          <div className="account-page-title">Active NPO Subscriptions</div>
+          {user.active_subscriptions.length > 0 ? (
+            <SubscriptionTable data={data} />
+          ) : (
+            "No active subscriptions"
+          )}
+        </div>
       </div>
     </div>
   );

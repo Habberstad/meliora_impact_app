@@ -22,7 +22,6 @@ const DiscoverPage = () => {
 
   function categorySelectHandler(selectedCategory) {
     setCategory(selectedCategory);
-
   }
 
   function handleSearchInput(event) {
@@ -36,8 +35,10 @@ const DiscoverPage = () => {
     <div className={"discover-page-container"}>
       <GlobalHeader
         title={"Discover"}
-        subtitle={"Explore other NPOs"}
-        desc={"Dive in and learn about which projects our passionate NPOs are engaged with. Quickly sort and collaborate on different propositions we can offer."}
+        subtitle={"Explore all NPOs"}
+        desc={
+          "Dive in and learn about which projects our passionate NPOs are engaged with. Quickly sort and collaborate on different propositions we can offer."
+        }
         image={headerImg}
       />
       <CategoryFilter onClick={categorySelectHandler} category={category} />
