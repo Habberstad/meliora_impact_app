@@ -25,7 +25,7 @@ export const LoginPage = () => {
   const [orgPostalCode, setOrgPostalCode] = useState("");
   const [orgCity, setOrgCity] = useState("");
   const [subscriptionType, setSubscriptionType] = useState("");
-  const [paymentOption, setPaymentOption] = useState("");
+  const [paymentOption, setPaymentOption] = useState("none");
   const [isOverBreakpoint, setIsOverBreakpoint] = useState(true);
   const [user, setUser] = useState(null);
   const [userName, setUsername] = useState(null);
@@ -129,6 +129,11 @@ export const LoginPage = () => {
           <Route
             exact
             path={"/"}
+            element={<SelectIdentificationMethod google={google} />}
+          />
+          <Route
+            exact
+            path={"/*"}
             element={<SelectIdentificationMethod google={google} />}
           />
           <Route

@@ -11,13 +11,27 @@ const filterByCategory = (array, category) => {
   }
 };
 
-export function PartnersList({ data, category }) {
-  const filteredList = filterByCategory(data, category);
+const filterByActiveSubs = (unfilteredList, mySubs) => {
+  const filtered = [];
+
+  for (let i = 0; i < unfilteredList.length; i++) {
+    for (let j = 0; j < mySubs.length; j++) {
+      if(unfilteredList[i]._id === mySubs[j]._id)
+        filtered.push(unfilteredList[i])
+    }
+  }
+
+  return filtered
+};
+
+ export function PartnersList({ data, category, activeSubs }) {
+  const filteredList1 = filterByCategory(data, category);
+  const filteredList2 = filterByActiveSubs(filteredList1, activeSubs);
 
   return (
     <div className={"list-container"}>
       <Grid container>
-        {filteredList.map((partner) => {
+        {filteredList2.map((partner) => {
           return <PartnerCard key={partner._id} partner={partner} />;
         })}
       </Grid>

@@ -11,7 +11,6 @@ export const RegistrationSummary = (props) => {
   let isNotCompleted =
     !props.userName ||
     !props.userEmail ||
-    !props.paymentOption ||
     !props.orgName ||
     !props.orgAdress ||
     !props.subscriptionType;
