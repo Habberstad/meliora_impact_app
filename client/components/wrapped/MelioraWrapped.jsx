@@ -83,6 +83,7 @@ const MelioraWrapped = () => {
           <img src={melioraLogo} alt="logo" />
           <div>Meliora Wrapped</div>
         </div>
+        <div>Powered by SEEN.io</div>
         <div className="meliora-wrapped-buttons">
           <Button
             className="button"
