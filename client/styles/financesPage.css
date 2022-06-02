@@ -53,39 +53,6 @@
     margin-bottom: 30px;
 }
 
-.report-donation-history-filter{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: solid 1px #637381;
-    width: 286px;
-    height: 38px;
-    border-radius: 8px 8px 0 0;
-
-}
-
-.report-subscription-history-filter{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: solid 1px #637381;
-    width: 286px;
-    height: 38px;
-    border-radius: 8px 8px 0 0;
-
-}
-
-.report-statistics-filter{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: solid 1px #637381;
-    width: 286px;
-    height: 38px;
-    border-radius: 8px 8px 0 0;
-
-}
-
 .accounting-image{
     width: 400px;
 }
@@ -96,7 +63,30 @@
     align-items: center;
 }
 
-.accounting-icon-calender{
+.account-tax-print-wrapper{
     display: flex;
+    flex-direction: row;
+    width: 900px;
+    margin-top: 40px;
+}
 
+.accounting-print-button{
+    display: flex;
+    width: 100%;
+    margin-top: 40px;
+    justify-content: flex-end;
+}
+
+.accounting-donation-print-button{
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.account-tax-wrapper{
+    width: 100%;
+}
+
+.donation-history-page-wrapper{
+    width: 900px;
 }
