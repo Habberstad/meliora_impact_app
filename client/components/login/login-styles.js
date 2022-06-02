@@ -215,3 +215,13 @@ export const postLoginButtonExplore = {
     color: "#000",
   },
 };
+
+export const subscriptionFeaturesButton = {
+  textDecoration: "underline",
+  padding: "0",
+  mb: "22px",
+  color: "#000",
+  "&:hover": {
+    color: "#637381",
+  },
+};
