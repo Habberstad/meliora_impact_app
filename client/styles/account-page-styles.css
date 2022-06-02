@@ -55,7 +55,8 @@
     font-size: 12px;
     font-weight: 500;
     margin-left: 20px;
-    margin-top: 3px;
+    margin-top: 5px;
+    padding-bottom: 2px;
     cursor: pointer;
     border-bottom: #5D5FEF solid 1px;
 }

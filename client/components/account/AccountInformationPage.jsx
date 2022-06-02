@@ -132,9 +132,13 @@ export const AccountInformationPage = ({ user }) => {
         </div>
       </div>
 
-      <div style={{ margin: "50px 0 0 35px" }}>
+      <div style={{ margin: "50px 0 0 0" }}>
         <div className="account-page-title">Active NPO Subscriptions</div>
-        <SubscriptionTable data={data} />
+        {user.active_subscriptions.length > 0 ? (
+          <SubscriptionTable data={data} />
+        ) : (
+          "No active subscriptions"
+        )}
       </div>
     </div>
   );
