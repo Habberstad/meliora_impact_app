@@ -23,7 +23,7 @@ export const RegistrationSummary = (props) => {
           Welcome to <br /> Meliora Impact!
         </div>
         <p>We're glad to have you onboard!</p>
-        <p>Please check that the following information is correct</p>
+        <p>Please ensure that the following information is correct</p>
       </div>
       <div className={"login-content-main"} style={reviewContainer}>
         <div>
@@ -33,7 +33,7 @@ export const RegistrationSummary = (props) => {
           <h4>Company</h4>
           <p>{props.orgName}</p>
           <p>{props.orgAdress}</p>
-          <h4>Account</h4>
+          <h4>Subscription</h4>
           <div
             style={{ justifyContent: "start" }}
             className={`login-content-header-subscription-tag ${
@@ -62,7 +62,7 @@ export const RegistrationSummary = (props) => {
         style={{ display: "flex", justifyContent: "center" }}
         title={
           isNotCompleted
-            ? "You have not provided all required information, please go back and provide the missing information"
+            ? "You have not provided all required information. Please go back and provide the missing information!"
             : ""
         }
         leaveDelay={1000}

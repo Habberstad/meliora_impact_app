@@ -405,3 +405,25 @@ export const greenWidePlatformButton = {
       "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.1)",
   },
 };
+
+export const selectedFilterTabStyleNew = {
+  color: "#fff",
+  backgroundColor: "#551477",
+  fontSize: "18px",
+  border: "solid 1px #637381",
+  width: "260px",
+  height: "45px",
+  borderRadius: "8px 8px 0 0",
+  fontWeight: "600px",
+  lineHeight: "22px",
+};
+
+export const unselectedFilterTabStyle = {
+  color: "#000000",
+  border: "solid 1px #637381",
+  width: "240px",
+  height: "38px",
+  borderRadius: "8px 8px 0 0",
+  fontSize: "14px",
+  fontWeight: "600px",
+};

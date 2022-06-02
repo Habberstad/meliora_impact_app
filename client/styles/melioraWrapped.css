@@ -1,5 +1,5 @@
 .meliora-wrapped-container {
-    max-height: 1080px;
+    max-height: 1440px;
     width: 100%;
     background-color: #FCDDEC !important;
 }
@@ -12,7 +12,7 @@
 
 .meliora-wrapped-left {
     position: absolute;
-    bottom: 0;
+    bottom: 0px;
 }
 
 .meliora-wrapped-top {
@@ -35,6 +35,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     margin-top: 200px;
     color: #503658;
 }
