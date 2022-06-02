@@ -54,18 +54,18 @@ export function ArticleSelection(props) {
           <div className="container-small">
             <div className={"container-content-small"}>
               <div className={"npo-text-small"}>
-                <span className={"npo-name"}>{data[3].npoName}</span>
+                <span className={"npo-name"}>{data[2].npoName}</span>
               </div>
-              <Link href={"/articles/article?id=" + data[3]._id}>
-                <img src={data[3].image} id={"bilde"} alt={"das"} />
+              <Link href={"/articles/article?id=" + data[2]._id}>
+                <img src={data[2].image} id={"bilde"} alt={"das"} />
               </Link>
               <div className={"card-content-container-small"}>
                 <div className={"date-text-small"}>
-                  <span className={"card-content-date"}>{data[3].date}</span>
+                  <span className={"card-content-date"}>{data[2].date}</span>
                 </div>
                 <div className={"content-text-small"}>
                   <span className={"card-content-text-small"}>
-                    {data[3].description}
+                    {data[2].description}
                   </span>
                 </div>
               </div>
