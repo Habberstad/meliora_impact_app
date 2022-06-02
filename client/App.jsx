@@ -57,7 +57,7 @@ function App() {
           <Route exact path="/" element={<Dashboard user={data} />} />
           <Route exact path="/auth/google/production" element={<h1>Home</h1>} />
           <Route exact path="/articles" element={<ArticlesPage />} />
-          <Route exact path="/articles/article" element={<Article />} />
+          <Route exact path="/articles/article/*" element={<Article />} />
           <Route exact path="/discover" element={<DiscoverPage />} />
           <Route
             exact
