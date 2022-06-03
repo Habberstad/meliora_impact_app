@@ -33,7 +33,7 @@ export const TopNavBar = () => {
         <div className={"top-navbar-icon-button-container"}>
           <IconButton
             aria-label="Select language"
-            sx={{ color: "#637381" }}
+            sx={{ color: "#464d51" }}
             onClick={() => setIsEnglish(!isEnglish)}
           >
             <img
@@ -44,7 +44,7 @@ export const TopNavBar = () => {
           </IconButton>
         </div>
         <div className={"top-navbar-icon-button-container"}>
-          <IconButton aria-label="Darkmode" sx={{ color: "#637381" }}>
+          <IconButton aria-label="Darkmode" sx={{ color: "#464d51" }}>
             <FontAwesomeIcon
               icon={faCircleHalfStroke}
               className={"top-navbar-icon-button"}
@@ -53,7 +53,7 @@ export const TopNavBar = () => {
         </div>
 
         <div className={"top-navbar-icon-button-container"}>
-          <IconButton aria-label="notifications" sx={{ color: "#637381" }}>
+          <IconButton aria-label="notifications" sx={{ color: "#464d51" }}>
             <FontAwesomeIcon
               icon={faBell}
               className={"top-navbar-icon-button"}

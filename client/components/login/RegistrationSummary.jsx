@@ -49,7 +49,7 @@ export const RegistrationSummary = (props) => {
           </div>
           <h4>Payment method</h4>
           {props.subscriptionType === "freemium" ? (
-            <p>Free</p>
+            <p>FREE</p>
           ) : (
             <p>
               {props.paymentOption.toUpperCase()}

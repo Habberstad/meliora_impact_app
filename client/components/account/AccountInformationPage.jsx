@@ -13,6 +13,8 @@ import { useLoading } from "../../useLoading";
 import { isLoading } from "../shared-components/Loading";
 import { Error } from "../shared-components/Error";
 import "../../styles/discoverPage.css";
+import { GlobalHeader } from "../headers/GlobalHeader";
+import accountHeader from "../../media/account_header.png";
 
 const SubscriptionTable = ({ data }) => {
   const { deleteSubscription } = useContext(SubscriptionApiContext);
@@ -24,7 +26,7 @@ const SubscriptionTable = ({ data }) => {
 
   return (
     <div>
-      <table className={"styled-table"}>
+      <table className={"styled-table"} style={{ width: "100%" }}>
         <thead>
           <tr>
             <th>Subscription ID</th>
@@ -73,14 +75,21 @@ export const AccountInformationPage = ({ user }) => {
   if (loading) return isLoading();
   if (error) return <Error error={error} />;
 
+  console.log(data);
   return (
-    <div style={{ marginLeft: "25px" }}>
-      <div className="account-page-main-title">My Account</div>
+    <div className="account-page-wrapper">
+      <GlobalHeader
+        title={"My Account"}
+        subtitle={"Essential data - easily accessible "}
+        desc={
+          "All the critical information about user, your organization and the current active subscriptions"
+        }
+        image={accountHeader}
+      />
+
       <div className="account-page-container">
         <div>
-          <div className="account-page-title" style={{ marginLeft: "30px" }}>
-            Account Information
-          </div>
+          <div className="account-page-title">Account Information</div>
           <div className="settings-content-container">
             <div className="account-page-top-section">
               <div className="settings-card">
@@ -105,17 +114,17 @@ export const AccountInformationPage = ({ user }) => {
                   className="account-page-text"
                   style={{ marginBottom: "10px" }}
                 >
-                  {data.org_name}
+                  {data.name}
                 </div>
                 <div className="account-page-stronger">Email:</div>
-                <div className="account-page-text">{data.org_number}</div>
+                <div className="account-page-text">{data.email}</div>
               </div>
             </div>
             <div className="account-page-middle-section">
               <div className="settings-card">
                 <div className="account-page-title">Payment method</div>
                 <div className="account-page-payment">
-                  {data.payment_option}
+                  {data.payment_option.toUpperCase()}
                 </div>
                 <div className="account-page-edit">Change payment method</div>
               </div>
@@ -125,7 +134,7 @@ export const AccountInformationPage = ({ user }) => {
                     Platform Subscription
                   </div>
                   <div className="account-page-payment">
-                    {data.subscription_type}
+                    {data.subscription_type.toUpperCase()}
                   </div>
                   <div className="account-page-edit">Change payment method</div>
                 </div>

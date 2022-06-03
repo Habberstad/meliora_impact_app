@@ -10,6 +10,8 @@ import SubscriptionModal from "./SubscriptionModal";
 import { TabContent } from "./TabContent";
 import { NavigationBar } from "./NavigationBar";
 import DonateModal from "./DonateModal";
+import { isLoading } from "../shared-components/Loading";
+import { Error } from "../shared-components/Error";
 
 const NonProfitProfilePage = ({ user }) => {
   const [selectedTab, setSelectedTab] = useState("overview");
@@ -102,7 +104,8 @@ const NonProfitProfilePage = ({ user }) => {
     setRegisterSuccess(true);
   };
 
-  if (loading) return <h1>loading..</h1>;
+  if (loading) return isLoading();
+  if (error) return <Error error={error} />;
 
   const handleNavigationState = (tabValue) => {
     setSelectedTab(tabValue);
