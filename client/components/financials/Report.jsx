@@ -113,12 +113,13 @@ const Report = React.forwardRef((props, ref) => {
           <div className={"account-tax-wrapper"}>
             <Link
               color={"inherit"}
-              href={"https://www.skatteetaten.no/person/"}
+              href={
+                "https://www.skatteetaten.no/satser/gaver-til-frivillige-organisasjoner/"
+              }
             >
-              Tax information here
+              Read more about local tax regulations regarding donations
             </Link>
           </div>
-
         </div>
 
         {/* **************** OUTSIDE IS ONLY VISIBLE ON PRINT OUT **********************************************************************************/}
