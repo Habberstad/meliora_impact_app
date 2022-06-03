@@ -14,6 +14,7 @@ import { useLocation } from "react-router-dom";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import SettingsIcon from "@mui/icons-material/Settings";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import PeopleIcon from "@mui/icons-material/People";
 
 const Sidebar = () => {
   const user = React.useContext(UserContext);
@@ -178,7 +179,13 @@ const Sidebar = () => {
               <div>My account</div>
             </div>
           </Link>
-          <Link to={"/account-information"} style={{ textDecoration: "none" }}>
+          <Link to={"/"} style={{ textDecoration: "none" }}>
+            <div className={"nav-item-disabled"}>
+              <PeopleIcon sx={{ marginRight: "20px" }} />
+              <div>Users</div>
+            </div>
+          </Link>
+          <Link to={"/"} style={{ textDecoration: "none" }}>
             <div className={"nav-item-disabled"}>
               <SettingsIcon sx={{ marginRight: "20px" }} />
               <div>Settings</div>
