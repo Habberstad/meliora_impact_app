@@ -277,6 +277,8 @@ export const AccountingPage = (props) => {
                 height: "35px",
                 textTransform: "none",
                 borderRadius: "10px",
+                marginBottom: "30px",
+                marginLeft: "50px",
                 backgroundColor: "#7209B7",
                 "&:hover": {
                   backgroundColor: "#8d28ce",
@@ -290,7 +292,7 @@ export const AccountingPage = (props) => {
               <img
                 className="accounting-image"
                 src="http://localhost:3000/header-image-partners.9fd59cdb.png?1654168554381"
-                alt="dsada"
+                alt="image"
               />
             )}
           </div>
