@@ -23,8 +23,9 @@ dotenv.config();
 app.use(bodyParser.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(express.static("../client/dist"));
+
 app.use(
-  cookieSession({ name: "session", keys: ["lama"], maxAge: 24 * 60 * 60 * 100 })
+  cookieSession({ name: "session", keys: [process.env.COOKIE_SECRET], maxAge: 24 * 60 * 60 * 1000}, {secure: true})
 );
 
 await mongoose.connect(
@@ -47,7 +48,6 @@ app.use(
 );
 
 app.use("/auth", authRoutes);
-
 app.use("/api/projects", hasAccount, projectsRoute);
 app.use("/api/articles", hasAccount, articlesRoute);
 app.use("/api/npo", hasAccount, npoRoute);
