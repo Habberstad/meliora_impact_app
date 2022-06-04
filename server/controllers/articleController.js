@@ -25,6 +25,7 @@ async function listArticles(req, res) {
 
 async function getArticleById(req, res){
   try {
+    console.log("r", req.params.id)
     const project = await ArticleService.getArticleById(req.params.id);
     return res.status(200).json(project);
   } catch (e) {

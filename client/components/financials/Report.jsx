@@ -1,13 +1,13 @@
 import * as React from "react";
 import { useState } from "react";
-import { Box, Button, Grid, MenuItem, Select } from "@mui/material";
+import { Box, Button, Grid, Link, MenuItem, Select } from "@mui/material";
 import MelioraIcon from "../../media/meliora_logo.png";
 import { DonationTable } from "./DonationTable";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import { useReactToPrint } from "react-to-print";
 
 const Report = React.forwardRef((props, ref) => {
   const [year, setYear] = useState(new Date().getFullYear());
-
   const user = props.user;
   const transactions = props.user.donation_history;
   const filteredTransactions = transactions.filter(
@@ -24,7 +24,7 @@ const Report = React.forwardRef((props, ref) => {
 
   return (
     <div ref={ref}>
-      <Grid container>
+      <Grid container className={"report-page"}>
         <Grid
           item
           xs={6}
@@ -36,7 +36,7 @@ const Report = React.forwardRef((props, ref) => {
           <img src={MelioraIcon} alt="company-icon" />
           <h3>Meliora Impact</h3>
           <br />
-          <h1>Annual Report for {year}</h1>
+          <h2>Annual Report for {year}</h2>
           <p>
             This is an overview of your contributions during the period 01.01.
             {year} - 31.12.{year}
@@ -48,16 +48,21 @@ const Report = React.forwardRef((props, ref) => {
 
         <Grid item xs={6}>
           <Box
+            className={"report-top-right"}
             sx={{
               display: "none",
               displayPrint: "block",
             }}
           >
-            <h3>Your Company</h3>
-            <p>org. number {user.org_number}</p>
-            <p>{user.org_name}</p>
-            <p>Storgaten 0334</p>
-            <p>0304 Oslo</p>
+            <div className="account-page-title">Your Company</div>
+            <div className={"account-page-text"}>
+              org. number {user.org_number}
+            </div>
+            <div className={"account-page-text"}>{user.org_name}</div>
+            <div className={"account-page-text"}>{user.address}</div>
+            <div className={"account-page-text"}>
+              {user.postal_code + " " + user.city}
+            </div>
           </Box>
         </Grid>
         {/* **************** OUTSIDE IS VISIBLE IN ON PRINT OUT  **********************************************************************************/}
@@ -69,30 +74,32 @@ const Report = React.forwardRef((props, ref) => {
               displayPrint: "none",
             }}
           >
-            <Select
-              id={"year"}
-              defaultValue={"2022"}
-              onChange={yearChange}
-              inputProps={{ "aria-label": "Without label" }}
-            >
-              <MenuItem value={2022}>2022</MenuItem>
-              <MenuItem value={2021}>2021</MenuItem>
-              <MenuItem value={2020}>2020</MenuItem>
-            </Select>
-            <Select
-              id={"month"}
-              defaultValue={"Juni"}
-              inputProps={{ "aria-label": "Without label" }}
-            >
-              <MenuItem value={"Jan"}>Jan</MenuItem>
-              <MenuItem value={"Feb"}>Feb</MenuItem>
-              <MenuItem value={"Mar"}>Mar</MenuItem>
-              <MenuItem value={"Juni"}>Juni</MenuItem>
-            </Select>
-            <CalendarMonthIcon
-              className={"accounting-icon-calender"}
-              fontSize={"large"}
-            />
+            <div className={"accounting-calender"}>
+              <Select
+                id={"year"}
+                defaultValue={"2022"}
+                onChange={yearChange}
+                inputProps={{ "aria-label": "Without label" }}
+              >
+                <MenuItem value={2022}>2022</MenuItem>
+                <MenuItem value={2021}>2021</MenuItem>
+                <MenuItem value={2020}>2020</MenuItem>
+              </Select>
+              <Select
+                id={"month"}
+                defaultValue={"Juni"}
+                inputProps={{ "aria-label": "Without label" }}
+              >
+                <MenuItem value={"Jan"}>Jan</MenuItem>
+                <MenuItem value={"Feb"}>Feb</MenuItem>
+                <MenuItem value={"Mar"}>Mar</MenuItem>
+                <MenuItem value={"Juni"}>Juni</MenuItem>
+              </Select>
+              <CalendarMonthIcon
+                className={"accounting-icon-calender"}
+                fontSize={"large"}
+              />
+            </div>
           </Box>
 
           <DonationTable
@@ -102,22 +109,20 @@ const Report = React.forwardRef((props, ref) => {
           />
         </Grid>
 
-        <Grid item xs={6}>
-          <div>
-            *You are entitled to a tax deduction for your contribution. We will
-            ensure that the contribution is reported to the tax authorities.
-            More informasjon can be found at www.skatteetaten.no.
+        <div className={"account-tax-print-wrapper"}>
+          <div className={"account-tax-wrapper"}>
+            <Link
+              color={"inherit"}
+              href={
+                "https://www.skatteetaten.no/satser/gaver-til-frivillige-organisasjoner/"
+              }
+            >
+              Read more about local tax regulations regarding donations
+            </Link>
           </div>
-        </Grid>
+        </div>
 
         {/* **************** OUTSIDE IS ONLY VISIBLE ON PRINT OUT **********************************************************************************/}
-        <Grid
-          item
-          sx={{
-            display: "none",
-            displayPrint: "block",
-          }}
-        ></Grid>
       </Grid>
     </div>
   );

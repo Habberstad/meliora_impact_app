@@ -3,7 +3,7 @@ import WavesIcon from "@mui/icons-material/Waves";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import WorkspacePremiumIcon from "@mui/icons-material/WorkspacePremium";
 import SouthAmericaIcon from "@mui/icons-material/SouthAmerica";
-import MapChart from "../../../MapChart";
+import HarryMapChart from "../../../HarryMapChart";
 
 const OverviewTabContent = ({ data }) => {
   return (
@@ -14,9 +14,10 @@ const OverviewTabContent = ({ data }) => {
             <div className="paragraph-title">Our Mission</div>
             <div className="paragraph-text">{data.paragraph_1.text}</div>
           </div>
-          {/*          <div className="mission-map-img">
-            <MapChart style={{ color: "blue" }} />
-          </div>*/}
+          {/*TODO: HER ER KART */}
+          <div className="mission-map-img">
+            <HarryMapChart />
+          </div>
         </div>
       </div>
       <div className="vision-section">
@@ -57,12 +58,12 @@ const OverviewTabContent = ({ data }) => {
         </div>
       </div>
       <div className="article-section">
-        <div className="sub-heading">Latest Updates</div>
+        {/*        <div className="sub-heading">Latest Updates</div>
         <div className="article-card-container">
           <div className="big-article"></div>
           <div className="small-article"></div>
           <div className="small-article"></div>
-        </div>
+        </div>*/}
       </div>
     </div>
   );

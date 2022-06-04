@@ -11,13 +11,15 @@ import { isLoading } from "../shared-components/Loading";
 import { Error } from "../shared-components/Error";
 
 const Article = () => {
-  const queryParams = new URLSearchParams(window.location.search);
-  const _id = queryParams.get("id");
-  const { getArticles } = useContext(ArticleApiContext);
+  const urlPathParam = window.location.pathname.substring(
+    window.location.pathname.lastIndexOf("/") + 1
+  );
+
+  const { getArticleById } = useContext(ArticleApiContext);
   const navigate = useNavigate();
 
   const { loading, error, data } = useLoading(
-    async () => await getAarticles({ _id }),
+    async () => await getArticleById(urlPathParam),
     []
   );
 
@@ -28,9 +30,9 @@ const Article = () => {
   return (
     <div className="article-container">
       <div>
-        <div className="article-header-title">{data[0].main_title}</div>
+        <div className="article-header-title">{data.main_title}</div>
         <img
-          src={data[0].header_image}
+          src={data.header_image}
           alt="header-img"
           className="article-header-img"
         />
@@ -48,19 +50,19 @@ const Article = () => {
         >
           <Grid item lg={4} xl={4}>
             <div className="article-top-section-sub-title">
-              {data[0].sub_title}
+              {data.sub_title}
             </div>
-            <div className="article-date-box">{data[0].date}</div>
+            <div className="article-date-box">{data.date}</div>
           </Grid>
           <Grid item lg={4} xl={4}>
             <div className="article-top-section-paragraph">
-              <p>{data[0].paragraph_1_1}</p>
-              <p>{data[0].paragraph_1_2}</p>
+              <p>{data.paragraph_1_1}</p>
+              <p>{data.paragraph_1_2}</p>
             </div>
           </Grid>
           <Grid item lg={4} xl={4}>
             <div className="article-top-section-paragraph">
-              <p>{data[0].paragraph_2}</p>
+              <p>{data.paragraph_2}</p>
             </div>
           </Grid>
         </Grid>
@@ -72,11 +74,11 @@ const Article = () => {
         >
           <Grid item lg={4} xl={4}>
             <div className="article-middle-section-header">
-              {data[0].paragraph_3_header}
+              {data.paragraph_3_header}
             </div>
             <div className="article-middle-section-paragraph">
-              <p>{data[0].paragraph_3_1}</p>
-              <p>{data[0].paragraph_3_2}</p>
+              <p>{data.paragraph_3_1}</p>
+              <p>{data.paragraph_3_2}</p>
             </div>
           </Grid>
 
@@ -84,7 +86,7 @@ const Article = () => {
             <Grid item>
               <div>
                 <img
-                  src={data[0].middle_image}
+                  src={data.middle_image}
                   alt="article-middle-section-img"
                   className="article-middle-section-img"
                 />
@@ -106,12 +108,12 @@ const Article = () => {
                     paddingLeft: "20px",
                   }}
                 >
-                  <p>{data[0].paragraph_4}</p>
+                  <p>{data.paragraph_4}</p>
                 </div>
               </Grid>
               <Grid item lg={6} xl={6}>
                 <div className="article-middle-section-paragraph-2">
-                  <p>{data[0].paragraph_5}</p>
+                  <p>{data.paragraph_5}</p>
                 </div>
               </Grid>
             </Grid>
@@ -128,7 +130,7 @@ const Article = () => {
           <Grid item lg={3.5} xl={3.5}>
             <div>
               <img
-                src={data[0].carousel_image1}
+                src={data.carousel_image1}
                 alt="article-bottom_section_img1"
                 className="article-bottom-section-img1"
               />
@@ -137,7 +139,7 @@ const Article = () => {
           <Grid item lg={5} xl={5}>
             <div>
               <img
-                src={data[0].carousel_image2}
+                src={data.carousel_image2}
                 alt="bottom_section_img2"
                 className="article-bottom-section-img2"
               />
@@ -146,7 +148,7 @@ const Article = () => {
           <Grid item lg={3.5} xl={3.5}>
             <div>
               <img
-                src={data[0].carousel_image3}
+                src={data.carousel_image3}
                 alt="bottom_section_img3"
                 className="article-bottom-section-img3"
               />

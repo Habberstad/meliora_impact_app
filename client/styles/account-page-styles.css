@@ -1,24 +1,28 @@
-
+.account-page-wrapper {
+    width: 100vw;
+    margin: 75px 5% 0 5%;
+}
 
 .account-page-container{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     min-width: 800px;
-
+    margin-top: -20px;
 }
 
 .account-page-top-section{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    align-self: flex-start;
+    margin: 20px 20px;
 }
 
 .account-page-main-title {
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 50px;
+    font-size: 45px;
+    font-weight: 700;
+    margin: 60px 0 0 0;
 }
 
 .account-page-title {
@@ -33,30 +37,53 @@
 }
 
 .account-page-payment{
-    font-size: 16px;
+    font-size: 12px;
     font-weight: 500;
 }
 
 .account-page-text{
     font-size: 12px;
     font-weight: 500;
-    margin: 10px 5px;
+    margin-top: 10px;
 }
 
 .account-page-middle-section{
     display: flex;
     flex-direction: row;
     align-self: flex-start;
-    margin-left: 120px  ;
-    margin-top: 40px;
+    margin: 20px 20px;
 }
 
 .account-page-edit{
     font-size: 12px;
     font-weight: 500;
-    margin-left: 20px;
-    margin-top: 5px;
+    margin-top: 10px;
     padding-bottom: 2px;
     cursor: pointer;
     border-bottom: #5D5FEF solid 1px;
+}
+
+.settings-card{
+    display: flex;
+    flex-direction: column;
+    margin-right: 30px;
+}
+
+
+
+.settings-content-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    box-shadow: 0 0 50px rgba(145, 158, 171, 0.2);
+    background-color: #FFF;
+    width: 500px;
+}
+
+.table-container{
+    align-self: flex-start;
+    margin-top: 60px;
+    width: 1000px;
 }

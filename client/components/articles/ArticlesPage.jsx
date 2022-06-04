@@ -17,11 +17,17 @@ const ArticlesPage = () => {
   const [selectedTab, setSelectedTab] = useState("");
   const [test, setTesting] = useState(true);
   const { getArticles } = useContext(ArticleApiContext);
-  const { loading, error, data } = useLoading(
-    async () => await getArticles({ category, _id }),
-    [category]
-  );
+  const { loading, error, data } = useLoading(async () => await getArticles());
 
+  const filterList = () => {
+    if (category.length === 0) {
+      return data;
+    } else {
+      return data.filter((article) => {
+        return article.category === category;
+      });
+    }
+  };
   if (loading) return isLoading();
 
   if (error) return <Error error={error} />;
@@ -46,7 +52,7 @@ const ArticlesPage = () => {
         onClick1={() => handleNavigationAndFiltering("water")}
         onClick2={() => handleNavigationAndFiltering("knowledge")}
       />
-      <ArticlesContent data={data} />
+      <ArticlesContent filterList={filterList} />
     </div>
   );
 };

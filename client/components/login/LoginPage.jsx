@@ -121,9 +121,7 @@ export const LoginPage = () => {
   return (
     <div className="login-page-container">
       {isOverBreakpoint && <LoginLeftCard />}
-      <div sx={LoginCard}>
-        <Link to={"/find-company"}>company</Link>
-      </div>
+
       <div className="login-container">
         <Routes>
           <Route
