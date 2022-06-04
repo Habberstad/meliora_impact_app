@@ -38,9 +38,11 @@ export const accessToOwnAccountOnly = async (req, res, next) => {
   const user = await User.find({ google_id: req.user.id });
 
   try {
-    const id = ObjectId(req.params.id);
-    const id2 = user[0]._id.toString();
-    if (user.length !== 0 && id.equals(id2)) {
+
+    const idFromGoogle = req.user.id;
+    const idInDatabase = user[0].google_id;
+
+    if (user.length !== 0 && idFromGoogle === idInDatabase) {
       next();
     } else {
       res.sendStatus(401);
