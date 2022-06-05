@@ -11,10 +11,6 @@ export const UserApiContext = React.createContext({
     return await fetchJSON("/api/users/" + urlPathParam);
   },
 
-  async getUserByGoogleId(urlPathParam) {
-    return await fetchJSON("/api/users/google-id/" + urlPathParam);
-  },
-
   async getCurrentUser() {
     return await fetchJSON("/api/users/login/user");
   },

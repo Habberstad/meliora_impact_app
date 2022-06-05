@@ -1,84 +1,31 @@
-import User from "../models/userModel.js";
-import Npo from "../models/npoModel.js";
-import { ObjectId } from "mongodb";
+import UserRepository from "../repositories/userRepository.js";
 
 async function list(query) {
   try {
-    return await User.find(query);
+    return await UserRepository.list(query);
   } catch (e) {
     throw Error(e);
   }
 }
 
-async function getLoggedInUser(google_id) {
-
-
+async function getLoggedInUser(googleUser) {
   try {
 
-    const user1 = await User.find(google_id);
+    if (googleUser === undefined)
+      return null;
 
-    if(user1.length === 0)
-        return null
+    if (googleUser.id === undefined)
+      return null;
 
-    const userId = user1[0]._id;
+    const userFromDb = await UserRepository.list({ google_id: googleUser.id });
 
-    const user = await User.aggregate([
-      { $match: { _id: ObjectId(userId) } },
-      {
-        $lookup: {
-          from: "subscriptions",
-          localField: "google_id",
-          foreignField: "user_id",
-          as: "active_subscriptions",
-        },
-      },
-      {
-        $lookup: {
-          from: "npos",
-          localField: "active_subscriptions.npo_id",
-          foreignField: "_id",
-          as: "npo_partners",
-        },
-      },
-      {
-        $lookup: {
-          from: "transactions",
-          localField: "google_id",
-          foreignField: "user_id",
-          as: "donation_history",
-        },
-      },
-      {
-        $lookup: {
-          from: "users",
-          localField: "google_id",
-          foreignField: "google_id",
-          as: "users",
-        },
-      },
-      {
-        $set: {
-          donation_history: {"user_name": { $arrayElemAt: ["$users.name", 0] }}
-        },
-      },
-      {
-        $set: {
-          donation_history: {"npo_name": { $arrayElemAt: ["$npo_partners.name", 0] }}
-        },
-      },
-      {
-        $set: {
-          active_subscriptions: {"user_name": { $arrayElemAt: ["$users.name", 0] }}
-        },
-      },
-      {
-        $set: {
-          active_subscriptions: {"npo_name": { $arrayElemAt: ["$npo_partners.name", 0] }}
-        },
-      },
+    if (userFromDb.length === 0)
+      return null;
 
+    const userId = userFromDb[0]._id;
 
-    ], );
+    const user = await UserRepository.getAllUserInfoById(userId);
+
     return user[0];
   } catch (e) {
     throw Error();
@@ -87,75 +34,7 @@ async function getLoggedInUser(google_id) {
 
 async function getById(id) {
   try {
-    const user = await User.aggregate([
-      { $match: { _id: ObjectId(id) } },
-      {
-        $lookup: {
-          from: "transactions",
-          localField: "_id",
-          foreignField: "giver_id",
-          as: "donation_history",
-        },
-      },
-      { $match: { _id: ObjectId(id) } },
-      {
-        $lookup: {
-          from: "npos",
-          localField: "active_npos_id.id",
-          foreignField: "_id",
-          as: "npo_partners",
-        },
-      },
-    ]);
-
-    return user;
-  } catch (e) {
-    throw Error();
-  }
-}
-
-async function getByGoogleId(google_id) {
-
-  try {
-
-    const user1 = await User.find(google_id);
-
-    if(user1.length === 0)
-      return null
-
-    const userId = user1[0]._id;
-
-    const user = await User.aggregate([
-      { $match: { _id: ObjectId(userId) } },
-      {
-        $lookup: {
-          from: "subscriptions",
-          localField: "google_id",
-          foreignField: "user_id",
-          as: "active_subscriptions",
-        },
-      },
-      { $match: { _id: ObjectId(userId) } },
-      {
-        $lookup: {
-          from: "npos",
-          localField: "active_subscriptions.npo_id",
-          foreignField: "_id",
-          as: "npo_partners",
-        },
-      },
-      { $match: { _id: ObjectId(userId) } },
-      {
-        $lookup: {
-          from: "transactions",
-          localField: "google_id",
-          foreignField: "user_id",
-          as: "donation_history",
-        },
-      },
-
-    ], );
-    return user[0];
+    return await UserRepository.getById(id);
   } catch (e) {
     throw Error();
   }
@@ -163,12 +42,39 @@ async function getByGoogleId(google_id) {
 
 async function create(query) {
   try {
-    const data = await new User(query);
+    const data = await UserRepository.create(query);
 
-    return data.save();
+    return data;
   } catch (e) {
     throw Error();
   }
 }
 
-export default { list, getById, create, getByGoogleId , getLoggedInUser};
+async function isRegisteredUserId(query) {
+  try {
+    const user = await UserRepository.list(query);
+    if (user.length !== 0)
+      return true;
+    else
+      return false;
+
+  } catch (e) {
+    throw Error();
+  }
+}
+
+async function isRegisteredOrgId(query) {
+  try {
+    const user = await UserRepository.list(query);
+    if (user.length !== 0)
+      return true;
+    else
+      return false;
+
+  } catch (e) {
+    throw Error();
+  }
+}
+
+
+export default { list, getById, create, getLoggedInUser, isRegisteredUserId, isRegisteredOrgId };
