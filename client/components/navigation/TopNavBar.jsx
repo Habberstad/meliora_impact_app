@@ -14,6 +14,7 @@ import { UserContext } from "../../App";
 
 export const TopNavBar = () => {
   const user = useContext(UserContext);
+  const [navbarBackground, setNavbarBackground] = useState(false);
 
   const [isEnglish, setIsEnglish] = useState(true);
   const [anchorEl, setAnchorEl] = useState(null);
@@ -27,8 +28,28 @@ export const TopNavBar = () => {
     setAnchorEl(null);
   };
 
+  const changeNavbarBackground = () => {
+    console.log(window.scrollY);
+    if (window.scrollY >= 2) {
+      setNavbarBackground(true);
+      console.log("bacground true");
+    } else {
+      setNavbarBackground(false);
+    }
+  };
+
+  useEffect(() => {
+    changeNavbarBackground();
+    // adding the event when scroll change Logo
+    window.addEventListener("scroll", changeNavbarBackground);
+  });
+
   return (
-    <div className={"top-navbar-container navbar-background-color"}>
+    <div
+      className={`top-navbar-container ${
+        navbarBackground && "navbar-background-color"
+      }`}
+    >
       <div className={"top-navbar-icon-container"}>
         <div className={"top-navbar-icon-button-container"}>
           <IconButton
