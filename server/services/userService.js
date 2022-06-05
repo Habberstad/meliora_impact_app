@@ -42,6 +42,9 @@ async function getById(id) {
 
 async function create(query) {
   try {
+    if(query.privacy_consent !== true)
+      throw Error()
+
     const data = await UserRepository.create(query);
 
     return data;
