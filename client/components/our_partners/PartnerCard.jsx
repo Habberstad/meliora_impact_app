@@ -1,11 +1,14 @@
 import { Button } from "@mui/material";
-import waterIcon from "../../media/water_drop_icon.png";
-import SchoolIcon from "@mui/icons-material/School";
+import { useNavigate } from "react-router";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDroplet, faGraduationCap } from "@fortawesome/free-solid-svg-icons";
+
 export function PartnerCard(props) {
+  const navigate = useNavigate();
   return (
     <div
       onClick={() => {
-        location.href = "/npo-profile/" + props.partner._id;
+        navigate("/npo-profile/" + props.partner._id);
       }}
       className={"partner-card"}
     >
@@ -17,43 +20,45 @@ export function PartnerCard(props) {
         <p>{props.partner.description}</p>
         <div className={"partner-card-button-container"}>
           {/*TODO: make button component, big and ugly code *2*/}
-          <Button
-            onClick={() => {
-              location.href = "/npo-profile/" + props.partner._id;
-            }}
-            variant="contained"
-            sx={{
-              mx: "10px",
-              width: "150px",
-              height: "35px",
-              textTransform: "none",
-              borderRadius: "10px",
-              backgroundColor: "#7209B7",
-              "&:hover": {
-                backgroundColor: "#8d28ce",
-              },
-            }}
-          >
-            Les mer
-          </Button>
+
           <Button
             variant="outlined"
+            onClick={() => navigate("/templates")}
             sx={{
               mx: "10px",
-              width: "150px",
-              height: "35px",
+              width: "140px",
+              height: "45px",
               textTransform: "none",
               borderRadius: "10px",
               color: "#464D51",
               borderColor: "#637381",
               "&:hover": {
-                borderColor: "#000",
-                backgroundColor: "#FFF",
-                color: "#637381",
+                borderColor: "#B8F0DA",
+                backgroundColor: "#B8F0DA",
+                color: "#000",
               },
             }}
           >
             Create template
+          </Button>
+          <Button
+            onClick={() => {
+              navigate("/npo-profile/" + props.partner._id);
+            }}
+            variant="contained"
+            sx={{
+              mx: "10px",
+              width: "140px",
+              height: "45px",
+              textTransform: "none",
+              borderRadius: "10px",
+              backgroundColor: "#551477",
+              "&:hover": {
+                backgroundColor: "#7209B7",
+              },
+            }}
+          >
+            Read more
           </Button>
         </div>
         <div className={"category-tag"}>
@@ -62,9 +67,9 @@ export function PartnerCard(props) {
           </div>
           <div className={"card-icon-container"}>
             {props.partner.category.toLowerCase() === "water" ? (
-              <img src={waterIcon} alt={waterIcon} />
+              <FontAwesomeIcon icon={faDroplet} />
             ) : (
-              <SchoolIcon sx={{ height: "18px" }} />
+              <FontAwesomeIcon icon={faGraduationCap} />
             )}
           </div>
         </div>
