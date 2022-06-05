@@ -1,12 +1,9 @@
 import "../../styles/topNavbar-styles.css";
 import LanguageIconNorway from "../../media/norwayFlagIcon.png";
-import DarkModeIconMoon from "../../media/moonDarkmodeIcon.png";
-import NotificationIconBell from "../../media/bellIcon.png";
 import ProfilePicturePlaceholder from "../../media/profilePicturePlaceholder.png";
 import LanguageIconGb from "../../media/1f1ec-1f1e7.svg";
 import { Avatar, IconButton } from "@mui/material";
 import { useContext, useEffect, useState } from "react";
-import * as PropTypes from "prop-types";
 import { NavbarDropDown } from "./NavbarDropDown";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleHalfStroke, faBell } from "@fortawesome/free-solid-svg-icons";
@@ -29,10 +26,8 @@ export const TopNavBar = () => {
   };
 
   const changeNavbarBackground = () => {
-    console.log(window.scrollY);
     if (window.scrollY >= 2) {
       setNavbarBackground(true);
-      console.log("bacground true");
     } else {
       setNavbarBackground(false);
     }
@@ -40,7 +35,6 @@ export const TopNavBar = () => {
 
   useEffect(() => {
     changeNavbarBackground();
-    // adding the event when scroll change Logo
     window.addEventListener("scroll", changeNavbarBackground);
   });
 
