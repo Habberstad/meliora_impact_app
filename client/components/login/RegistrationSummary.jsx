@@ -3,8 +3,6 @@ import { reviewContainer, submitButtonStyle } from "./login-styles";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { BackButton } from "./BackButton";
 
-const label = { inputProps: { "aria-label": "Checkbox demo" } };
-
 export const RegistrationSummary = (props) => {
   const handleSubmit = () => {
     props.handleSubmit();
