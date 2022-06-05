@@ -2,6 +2,7 @@ import { Button } from "@mui/material";
 import { useNavigate } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDroplet, faGraduationCap } from "@fortawesome/free-solid-svg-icons";
+import zIndex from "@mui/material/styles/zIndex";
 
 export function PartnerCard(props) {
   const navigate = useNavigate();
@@ -23,8 +24,12 @@ export function PartnerCard(props) {
 
           <Button
             variant="outlined"
-            onClick={() => navigate("/templates")}
+            onClick={(e) => {
+              e.stopPropagation();
+              navigate("/templates");
+            }}
             sx={{
+              zIndex: 2,
               mx: "10px",
               width: "140px",
               height: "45px",
@@ -42,7 +47,8 @@ export function PartnerCard(props) {
             Create template
           </Button>
           <Button
-            onClick={() => {
+            onClick={(e) => {
+              e.stopPropagation();
               navigate("/npo-profile/" + props.partner._id);
             }}
             variant="contained"
