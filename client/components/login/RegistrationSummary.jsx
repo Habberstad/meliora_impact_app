@@ -1,7 +1,9 @@
-import { Button, Tooltip } from "@mui/material";
+import { Button, Checkbox, Tooltip } from "@mui/material";
 import { reviewContainer, submitButtonStyle } from "./login-styles";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { BackButton } from "./BackButton";
+
+const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 export const RegistrationSummary = (props) => {
   const handleSubmit = () => {
@@ -13,7 +15,8 @@ export const RegistrationSummary = (props) => {
     !props.userEmail ||
     !props.orgName ||
     !props.orgAdress ||
-    !props.subscriptionType;
+    !props.subscriptionType ||
+    props.isPrivacyConsent === false;
 
   return (
     <div className="login-content">
@@ -58,6 +61,18 @@ export const RegistrationSummary = (props) => {
           )}
         </div>
       </div>
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <Checkbox
+          checked={props.isPrivacyConsent}
+          onChange={props.privacyConsentHandler}
+        />
+        <div>
+          By signing up, I consent to my user information provided by Google
+          (name and email), to be handled and stored by student group 38 for the
+          duration of Høyskolen Kristiania - PRO201-1 21H, including evaluation.
+        </div>
+      </div>
+
       <Tooltip
         style={{ display: "flex", justifyContent: "center" }}
         title={

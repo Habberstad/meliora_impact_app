@@ -31,6 +31,7 @@ export const LoginPage = () => {
   const [userName, setUsername] = useState(null);
   const [userEmail, setUserEmail] = useState(null);
   const [cookies, setCookies] = useState(null);
+  const [isPrivacyConsent, setIsPrivacyConsent] = useState(false);
 
   window.addEventListener("resize", () => {
     setIsOverBreakpoint(window.innerWidth >= 1000);
@@ -46,6 +47,10 @@ export const LoginPage = () => {
 
   const handleSubscriptionType = (option) => {
     setSubscriptionType(option);
+  };
+
+  const privacyConsentHandler = () => {
+    setIsPrivacyConsent((prevState) => !prevState);
   };
 
   const handleCompanyInfo = (
@@ -75,6 +80,7 @@ export const LoginPage = () => {
       address: orgAdress,
       postal_code: orgPostalCode,
       city: orgCity,
+      privacy_consent: isPrivacyConsent,
     });
     registerUser({
       org_name: orgName,
@@ -85,6 +91,7 @@ export const LoginPage = () => {
       postal_code: orgPostalCode,
       city: orgCity,
       email: userEmail,
+      privacy_consent: isPrivacyConsent,
     });
     navigate("/post-login");
   };
@@ -117,6 +124,7 @@ export const LoginPage = () => {
     getUser();
   }, []);
   console.log(user);
+  console.log("isPrivacyConsent: ", isPrivacyConsent);
 
   return (
     <div className="login-page-container">
@@ -185,6 +193,8 @@ export const LoginPage = () => {
                 orgAdress={fullOrgAdress}
                 paymentOption={paymentOption}
                 subscriptionType={subscriptionType}
+                isPrivacyConsent={isPrivacyConsent}
+                privacyConsentHandler={privacyConsentHandler}
                 handleSubmit={handleSubmit}
               />
             }
