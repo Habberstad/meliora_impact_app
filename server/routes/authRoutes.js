@@ -22,6 +22,4 @@ router.get("/login/failed", AuthControllers.loginFailed);
 router.get("/logout", AuthControllers.logout);
 
 
-router.get("/login/success", AuthControllers.loginSuccess);
-
 export default router;
