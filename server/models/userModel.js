@@ -46,6 +46,10 @@ const userSchema = new mongoose.Schema(
       enum: ["USER", "ADMIN"],
       default: "USER",
     },
+    privacy_consent:{
+      type: Boolean,
+      required: true,
+    }
   },
   {
     collection: "users",
