@@ -25,7 +25,7 @@ app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(express.static("../client/dist"));
 
 app.use(
-  cookieSession({ name: "session", keys: [process.env.COOKIE_SECRET], maxAge: 24 * 60 * 60 * 1000}, {secure: true})
+  cookieSession({ name: "session", keys: [process.env.COOKIE_SECRET], maxAge: 24 * 60 * 60 * 1000})
 );
 
 await mongoose.connect(
