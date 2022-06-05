@@ -7,14 +7,14 @@ import { query } from "express";
 const CLIENT_URL = config.url.API_URL;
 
 async function googleCallback(req, res) {
-  const {google_id} = req.user.id
-
   try {
-    const hasAccount = await UserService.isRegisteredUserId({google_id});
+    const hasAccount = await UserService.isRegisteredUserId({google_id: req.user.id});
 
-    if (hasAccount)
+    if (!hasAccount){
       res.redirect(CLIENT_URL + "/find-company?exists=false");
-    else res.redirect(CLIENT_URL);
+    } else {
+      res.redirect(CLIENT_URL);
+    }
 
   } catch (e) {
     return res.status(400).json({ status: 400, message: e.message });
@@ -30,8 +30,6 @@ function loginFailed(req, res) {
 
 async function logout(req, res) {
     await req.logout();
-    req.session = null;
-    req.sessionOptions.maxAge = 0;
     res.redirect(CLIENT_URL);
 }
 
