@@ -33,7 +33,7 @@ export function ArticleSelection(props) {
               <div className={"npo-text-medium"}>
                 <span className={"npo-name"}>{data[1].npoName}</span>
               </div>
-              <Link href={"/articles/article?id=" + data[1]._id}>
+              <Link href={"/articles/" + data[1]._id}>
                 <img src={data[1].image} alt={"das"} />
               </Link>
               <div className={"card-content-container-medium"}>
@@ -56,7 +56,7 @@ export function ArticleSelection(props) {
               <div className={"npo-text-small"}>
                 <span className={"npo-name"}>{data[2].npoName}</span>
               </div>
-              <Link href={"/articles/article?id=" + data[2]._id}>
+              <Link href={"/articles/" + data[2]._id}>
                 <img src={data[2].image} id={"bilde"} alt={"das"} />
               </Link>
               <div className={"card-content-container-small"}>
@@ -79,7 +79,7 @@ export function ArticleSelection(props) {
               <div className={"npo-text-small"}>
                 <span className={"npo-name"}>{data[3].npoName}</span>
               </div>
-              <Link href={"/articles/article?id=" + data[3]._id}>
+              <Link href={"/articles/" + data[3]._id}>
                 <img src={data[3].image} id={"bilde"} alt={"das"} />
               </Link>
               <div className={"card-content-container-small"}>

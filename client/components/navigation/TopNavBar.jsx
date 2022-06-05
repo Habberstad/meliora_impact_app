@@ -5,7 +5,7 @@ import NotificationIconBell from "../../media/bellIcon.png";
 import ProfilePicturePlaceholder from "../../media/profilePicturePlaceholder.png";
 import LanguageIconGb from "../../media/1f1ec-1f1e7.svg";
 import { Avatar, IconButton } from "@mui/material";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import * as PropTypes from "prop-types";
 import { NavbarDropDown } from "./NavbarDropDown";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -28,7 +28,7 @@ export const TopNavBar = () => {
   };
 
   return (
-    <div className={"top-navbar-container"}>
+    <div className={"top-navbar-container navbar-background-color"}>
       <div className={"top-navbar-icon-container"}>
         <div className={"top-navbar-icon-button-container"}>
           <IconButton

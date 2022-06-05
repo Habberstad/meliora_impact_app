@@ -1,8 +1,9 @@
-import NpoRepository from "../repositories/npoRepository.js";
+import Npo from "../models/npoModel.js";
+
 
 async function list(query) {
   try {
-    return await NpoRepository.list(query);
+    return await Npo.find(query);
   } catch (e) {
 
     throw Error(e);
@@ -11,7 +12,7 @@ async function list(query) {
 
 async function getById(id) {
   try {
-    return await NpoRepository.getById(id);
+    return await Npo.findById(id);
   } catch (e) {
     throw Error();
   }
@@ -19,8 +20,8 @@ async function getById(id) {
 
 async function create(query) {
   try {
-    const data = new NpoRepository.create(query)
-    return await data;
+    const data = new Npo(query)
+    return await data.save();
   } catch (e) {
 
     throw Error();
