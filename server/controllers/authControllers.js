@@ -33,15 +33,5 @@ async function logout(req, res) {
     res.redirect(CLIENT_URL);
 }
 
-function loginSuccess(req, res) {
-    if (req.user) {
-      res.status(200).json({
-        success: true,
-        message: "successfull",
-        user: req.user,
-        cookies: req.cookies
-      });
-    }
-}
 
-export default { googleCallback, loginFailed, logout, loginSuccess };
+export default { googleCallback, loginFailed, logout };
