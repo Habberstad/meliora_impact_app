@@ -6,8 +6,7 @@ const router = Router();
 
 router.get("/:id", hasAuthority("ADMIN")  , UserController.getById);
 router.get("/login/:id", UserController.getLoggedInUser);
-router.get("/org/check-register" , UserController.checkIfRegistered);
-router.get("/google-id/:id", hasAccount, UserController.getByGoogleId);
+router.get("/org/check-register", UserController.checkIfRegistered);
 
 router.post("/register", isAuthenticated, UserController.create);
 
