@@ -2,7 +2,6 @@ import { Button } from "@mui/material";
 import { useNavigate } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDroplet, faGraduationCap } from "@fortawesome/free-solid-svg-icons";
-import zIndex from "@mui/material/styles/zIndex";
 
 export function PartnerCard(props) {
   const navigate = useNavigate();
@@ -29,7 +28,6 @@ export function PartnerCard(props) {
               navigate("/templates");
             }}
             sx={{
-              zIndex: 2,
               mx: "10px",
               width: "140px",
               height: "45px",
