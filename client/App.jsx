@@ -10,7 +10,7 @@ import { CookiesProvider, useCookies } from "react-cookie";
 import React from "react";
 import OurPartnersPage from "./components/our_partners/OurPartnersPage";
 import NonProfitProfilePage from "./components/non-profit-page/NonProfitProfilePage";
-import Dashboard from "./components/dashboard/Dashboard";
+import DashboardPage from "./components/dashboard/DashboardPage";
 import MediaTemplatePage from "./components/media-template/MediaTemplatePage";
 import MelioraWrapped from "./components/wrapped/MelioraWrapped";
 import { NpoApiContext } from "./api-client/npoApiContext";
@@ -54,7 +54,7 @@ function App() {
 
         <Routes>
           <Route exact path="/login-page" element={<LoginPage />} />
-          <Route exact path="/" element={<Dashboard user={data} />} />
+          <Route exact path="/" element={<DashboardPage user={data} />} />
           <Route exact path="/auth/google/production" element={<h1>Home</h1>} />
           <Route exact path="/articles" element={<ArticlesPage />} />
           <Route exact path="/articles/*" element={<Article />} />
@@ -86,7 +86,7 @@ function App() {
             path="/templates"
             element={<MediaTemplatePage data={data} />}
           />
-          <Route exact path="/dashboard" element={<Dashboard />} />
+          <Route exact path="/dashboard" element={<DashboardPage />} />
         </Routes>
       </UserContext.Provider>
     </div>

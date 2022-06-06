@@ -15,8 +15,10 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import SettingsIcon from "@mui/icons-material/Settings";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import PeopleIcon from "@mui/icons-material/People";
+import { useNavigate } from "react-router";
 
 const Sidebar = () => {
+  const navigate = useNavigate();
   const user = React.useContext(UserContext);
 
   const { pathname: location } = useLocation();
@@ -44,7 +46,10 @@ const Sidebar = () => {
         </Link>
       </div>
 
-      <div className="profile-name-badge">
+      <div
+        className="profile-name-badge"
+        onClick={() => navigate("/account-information")}
+      >
         <div style={{ margin: "10px 0" }}> {user.org_name} </div>
         {/* TODO: Replace with username */}
         <div

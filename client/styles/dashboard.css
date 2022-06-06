@@ -266,7 +266,11 @@
 
 .donation-history-title{
     margin-top: 25px;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 29px;
 }
+
 .donation-history-filter{
     display: flex;
     flex-direction: column;

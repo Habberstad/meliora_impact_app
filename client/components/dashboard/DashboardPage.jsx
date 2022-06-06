@@ -22,7 +22,7 @@ import { HighlightedPartners } from "./HighlightedPartners";
 
 import placeholder_img from "../../media/dashboard_placeholder.svg";
 import { submitButtonStyle } from "../login/login-styles";
-const Dashboard = () => {
+const DashboardPage = () => {
   //TODO: Mer beskrivende navn på state. F.eks. expandPartnerAccordion
   const [expanded, setExpanded] = React.useState(0);
 
@@ -68,7 +68,6 @@ const Dashboard = () => {
   const locations = [];
 
   partners.map((x) => locations.push(x.locations[0]));
-
 
   if (data.active_subscriptions.length === 0)
     return (
@@ -216,15 +215,18 @@ const Dashboard = () => {
                 <div className={"donation-history-timeline-container"}>
                   <Grid item>
                     <div className="donation-list-container">
-                      {donationHistory.map((donation, index) => {
-                        if (index <= 3)
-                          return (
-                            <DonationListItem
-                              npoList={npoList}
-                              donation={donation}
-                            />
-                          );
-                      })}
+                      {donationHistory
+                        .slice(0)
+                        .reverse()
+                        .map((donation, index) => {
+                          if (index <= 3)
+                            return (
+                              <DonationListItem
+                                npoList={npoList}
+                                donation={donation}
+                              />
+                            );
+                        })}
                     </div>
                   </Grid>
                 </div>
@@ -258,4 +260,4 @@ const Dashboard = () => {
     </div>
   );
 };
-export default Dashboard;
+export default DashboardPage;

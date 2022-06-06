@@ -12,10 +12,10 @@ import { useNavigate } from "react-router";
 
 export const NavbarDropDown = (props) => {
   const navigate = useNavigate();
+
   const handleLogoutClick = () => {
     window.location.href = window.location.origin + "/auth/logout";
   };
-  console.log(props.user);
 
   return (
     <Menu
