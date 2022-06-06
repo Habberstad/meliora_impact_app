@@ -1,12 +1,9 @@
 import "../../styles/topNavbar-styles.css";
 import LanguageIconNorway from "../../media/norwayFlagIcon.png";
-import DarkModeIconMoon from "../../media/moonDarkmodeIcon.png";
-import NotificationIconBell from "../../media/bellIcon.png";
 import ProfilePicturePlaceholder from "../../media/profilePicturePlaceholder.png";
 import LanguageIconGb from "../../media/1f1ec-1f1e7.svg";
 import { Avatar, IconButton } from "@mui/material";
 import { useContext, useEffect, useState } from "react";
-import * as PropTypes from "prop-types";
 import { NavbarDropDown } from "./NavbarDropDown";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleHalfStroke, faBell } from "@fortawesome/free-solid-svg-icons";
@@ -14,6 +11,7 @@ import { UserContext } from "../../App";
 
 export const TopNavBar = () => {
   const user = useContext(UserContext);
+  const [navbarBackground, setNavbarBackground] = useState(false);
 
   const [isEnglish, setIsEnglish] = useState(true);
   const [anchorEl, setAnchorEl] = useState(null);
@@ -27,8 +25,25 @@ export const TopNavBar = () => {
     setAnchorEl(null);
   };
 
+  const changeNavbarBackground = () => {
+    if (window.scrollY >= 2) {
+      setNavbarBackground(true);
+    } else {
+      setNavbarBackground(false);
+    }
+  };
+
+  useEffect(() => {
+    changeNavbarBackground();
+    window.addEventListener("scroll", changeNavbarBackground);
+  });
+
   return (
-    <div className={"top-navbar-container navbar-background-color"}>
+    <div
+      className={`top-navbar-container ${
+        navbarBackground && "navbar-background-color"
+      }`}
+    >
       <div className={"top-navbar-icon-container"}>
         <div className={"top-navbar-icon-button-container"}>
           <IconButton

@@ -30,7 +30,9 @@ export function ProjectCard({
 
   return (
     <Card
-      onClick={() => navigate("/npo-profile/" + _id)}
+      onClick={() => {
+        navigate("/npo-profile/" + _id);
+      }}
       className={"npoCardStyle"}
       sx={{
         borderRadius: "25px",
@@ -42,10 +44,7 @@ export function ProjectCard({
         },
       }}
     >
-      <div
-
-        className={"card-image-wrapper"}
-      >
+      <div className={"card-image-wrapper"}>
         <CardMedia
           component="img"
           image={card_image}
@@ -71,28 +70,30 @@ export function ProjectCard({
         <div className={"npoCard-text-description"}>{description}</div>
       </div>
       <div className={"card-button-container"}>
-        <Link to={"/npo-profile/" + _id} style={{ textDecoration: "none" }}>
-          <Button
-            variant="contained"
-            sx={{
-              width: "107px",
-              height: "36px",
-              borderRadius: "10px",
-              backgroundColor: "#7209B7",
-              fontSize: "12px",
+        <Button
+          onClick={(e) => {
+            e.stopPropagation();
+            navigate("/npo-profile/" + _id);
+          }}
+          variant="contained"
+          sx={{
+            width: "107px",
+            height: "36px",
+            borderRadius: "10px",
+            backgroundColor: "#7209B7",
+            fontSize: "12px",
+            boxShadow:
+              "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.24)",
+            fontWeight: "400",
+            "&:hover": {
+              backgroundColor: "#8830c4",
               boxShadow:
                 "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.24)",
-              fontWeight: "400",
-              "&:hover": {
-                backgroundColor: "#8830c4",
-                boxShadow:
-                  "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.24)",
-              },
-            }}
-          >
-            Explore
-          </Button>
-        </Link>
+            },
+          }}
+        >
+          Explore
+        </Button>
       </div>
     </Card>
   );
