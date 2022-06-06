@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useState } from "react";
-import { Grid, Link } from "@mui/material";
+import { Button, Grid, Link } from "@mui/material";
 import SchoolIcon from "@mui/icons-material/School";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
@@ -8,7 +8,6 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 export function ImpactSection(props) {
   const [counter, setCounter] = useState(1);
   const impact = props.data?.active_subscriptions[0]?.impacts;
-
 
   const increase = () => {
     if (counter === impact.length - 1) {
@@ -35,35 +34,68 @@ export function ImpactSection(props) {
         </div>
         <div className={"students-count-arrow-wrapper"}>
           <div className={"students-arrow-back-wrapper"}>
-            <ArrowBackIosIcon
-              onClick={decrease}
-              className={"student-back-button"}
-            />
+            {impact && (
+              <ArrowBackIosIcon
+                onClick={decrease}
+                className={"student-back-button"}
+              />
+            )}
           </div>
           <div className={"students-count-wrapper"}>
             <div className="students-impact-count">
               {impact === undefined ? (
-                <div>No Donations</div>
+                <div
+                  style={{
+                    fontSize: "12px",
+                    fontWeight: "500",
+                    width: "160px",
+                  }}
+                >
+                  Donate to one of our non-profits to see your impact
+                </div>
               ) : (
                 <div>{impact[counter].amount}</div>
               )}
             </div>
           </div>
           <div className={"students-arrow-forward-wrapper"}>
-            <ArrowForwardIosIcon
-              onClick={increase}
-              className={"students-forward-button"}
-            />
+            {impact && (
+              <ArrowForwardIosIcon
+                onClick={increase}
+                className={"students-forward-button"}
+              />
+            )}
           </div>
         </div>
         <div className={"students-description-wrapper"}>
           <div className="students-impact-content">
             {impact === undefined ? (
-              <Link href={"/discover"} color={"inherit"}>
-                Discover Non-Profits
-              </Link>
+              <Button
+                href={"/discover"}
+                sx={{
+                  width: "100px",
+                  height: "35px",
+                  borderRadius: "10px",
+                  backgroundColor: "#551477",
+                  textTransform: "none",
+                  color: "white",
+                  fontSize: "12px",
+                  boxShadow:
+                    "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.24)",
+                  fontWeight: "400",
+                  "&:hover": {
+                    backgroundColor: "#7209B7",
+                    boxShadow:
+                      "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.24)",
+                  },
+                }}
+              >
+                Explore
+              </Button>
             ) : (
-              <div>{impact[counter].impact_type}</div>
+              <div style={{ fontSize: "12px" }}>
+                {impact[counter].impact_type}
+              </div>
             )}
           </div>
         </div>
