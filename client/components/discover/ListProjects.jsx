@@ -1,10 +1,8 @@
 import { Button, Card, CardMedia, Divider, Grid } from "@mui/material";
-import waterImg from "../../media/water.png";
-import SchoolIcon from "@mui/icons-material/School";
-import OpacityIcon from "@mui/icons-material/Opacity";
 
-import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDroplet, faGraduationCap } from "@fortawesome/free-solid-svg-icons";
 
 function filterBySearchWord(list, searchWord) {
   if (searchWord !== "") {
@@ -35,7 +33,7 @@ export function ProjectCard({
       }}
       className={"npoCardStyle"}
       sx={{
-        borderRadius: "25px",
+        borderRadius: "10px",
         boxShadow:
           "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.24)",
         "&:hover": {
@@ -56,9 +54,12 @@ export function ProjectCard({
           <div className={"card-image-npoName-wrapper"}>{category}</div>
           <div className={"card-image-icon-wrapper"}>
             {category.toLowerCase() === "water" ? (
-              <OpacityIcon sx={{ fontSize: "20px", marginTop: "2px" }} />
+              <FontAwesomeIcon icon={faDroplet} style={{ height: "15px" }} />
             ) : (
-              <SchoolIcon sx={{ fontSize: "20px", marginTop: "2px" }} />
+              <FontAwesomeIcon
+                icon={faGraduationCap}
+                style={{ height: "15px" }}
+              />
             )}
           </div>
         </div>
@@ -108,13 +109,7 @@ export function ListProjects(props) {
   } else {
     return (
       <div>
-        <Grid
-          container
-          columns={3}
-          spacing={2}
-          className={"card-container"}
-          justifyContent="center"
-        >
+        <Grid container columns={3} spacing={2} className={"card-container"}>
           {filteredList.map((project) => (
             <Grid key={project._id} item className={"card-item"}>
               <ProjectCard project={project} />
