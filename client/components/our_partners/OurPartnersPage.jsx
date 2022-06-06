@@ -1,6 +1,6 @@
-import { CategoryFilter } from "../discover/CategoryFilter";
+import { CategoryFilter } from "../shared-components/CategoryFilter";
 import "../../styles/partners-styles.css";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { useLoader } from "../../helpers/UseLoader";
 import { PartnersList } from "./PartnersList";
 import { NpoApiContext } from "../../api-client/npoApiContext";
