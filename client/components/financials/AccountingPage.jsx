@@ -126,6 +126,11 @@ export const AccountingPage = (props) => {
                           defaultValue={"2022"}
                           onChange={yearChange}
                           inputProps={{ "aria-label": "Without label" }}
+                          sx={{
+                            borderRadius: "8px",
+                            width: "100px",
+                            height: "35px",
+                          }}
                         >
                           <MenuItem value={2022}>2022</MenuItem>
                           <MenuItem value={2021}>2021</MenuItem>
@@ -135,11 +140,24 @@ export const AccountingPage = (props) => {
                           id={"month"}
                           defaultValue={"Juni"}
                           inputProps={{ "aria-label": "Without label" }}
+                          sx={{
+                            borderRadius: "8px",
+                            width: "100px",
+                            height: "35px",
+                          }}
                         >
                           <MenuItem value={"Jan"}>Jan</MenuItem>
                           <MenuItem value={"Feb"}>Feb</MenuItem>
-                          <MenuItem value={"Mar"}>Mar</MenuItem>
+                          <MenuItem value={"Mars"}>Mars</MenuItem>
+                          <MenuItem value={"April"}>April</MenuItem>
+                          <MenuItem value={"Mai"}>Mai</MenuItem>
                           <MenuItem value={"Juni"}>Juni</MenuItem>
+                          <MenuItem value={"Juli"}>Juli</MenuItem>
+                          <MenuItem value={"August"}>Aug</MenuItem>
+                          <MenuItem value={"September"}>Sep</MenuItem>
+                          <MenuItem value={"Oktober"}>Okt</MenuItem>
+                          <MenuItem value={"November"}>Nov</MenuItem>
+                          <MenuItem value={"Desember"}>Des</MenuItem>
                         </Select>
                         <div className={"accounting-icon-calender-wrapper"}>
                           <CalendarMonthIcon fontSize={"large"} />
@@ -183,6 +201,11 @@ export const AccountingPage = (props) => {
                           defaultValue={"2022"}
                           onChange={yearChange}
                           inputProps={{ "aria-label": "Without label" }}
+                          sx={{
+                            borderRadius: "8px",
+                            width: "100px",
+                            height: "35px",
+                          }}
                         >
                           <MenuItem value={2022}>2022</MenuItem>
                           <MenuItem value={2021}>2021</MenuItem>
@@ -193,11 +216,24 @@ export const AccountingPage = (props) => {
                           id={"month"}
                           defaultValue={"Juni"}
                           inputProps={{ "aria-label": "Without label" }}
+                          sx={{
+                            borderRadius: "8px",
+                            width: "100px",
+                            height: "35px",
+                          }}
                         >
                           <MenuItem value={"Jan"}>Jan</MenuItem>
                           <MenuItem value={"Feb"}>Feb</MenuItem>
-                          <MenuItem value={"Mar"}>Mar</MenuItem>
+                          <MenuItem value={"Mars"}>Mars</MenuItem>
+                          <MenuItem value={"April"}>April</MenuItem>
+                          <MenuItem value={"Mai"}>Mai</MenuItem>
                           <MenuItem value={"Juni"}>Juni</MenuItem>
+                          <MenuItem value={"Juli"}>Juli</MenuItem>
+                          <MenuItem value={"August"}>Aug</MenuItem>
+                          <MenuItem value={"September"}>Sep</MenuItem>
+                          <MenuItem value={"Oktober"}>Okt</MenuItem>
+                          <MenuItem value={"November"}>Nov</MenuItem>
+                          <MenuItem value={"Desember"}>Des</MenuItem>
                         </Select>
                         <CalendarMonthIcon
                           className={"accounting-icon-calender-wrapper"}
