@@ -2,7 +2,6 @@ import { ObjectId } from "mongodb";
 import SubscriptionService from "../services/subscriptionService.js";
 import Subscription from "../models/subscriptionModel.js";
 import TransactionService from "../services/TransactionService.js";
-import SubscriptionHistoryService from "../services/subscriptionHistoryService.js";
 
 async function list(req, res) {
   const query = {};

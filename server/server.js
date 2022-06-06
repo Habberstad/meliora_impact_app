@@ -44,7 +44,7 @@ export const initServer = () => {
   app.use("/api/projects", hasAccount, projectsRoute);
   app.use("/api/articles", hasAccount, articlesRoute);
   app.use("/api/npo", npoRoute);
-  app.use("/api/subscriptions", hasAccount, subscriptionRoutes);
+  app.use("/api/subscriptions", subscriptionRoutes);
   app.use("/api/users", userRoute);
 
   app.use((req, res, next) => {
