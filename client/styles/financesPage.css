@@ -11,9 +11,7 @@
 }
 
 .report-page{
-    padding: 50px;
     position: relative;
-
 }
 
 .report-top-right{
@@ -134,10 +132,27 @@
     width: 400px;
 }
 
-.accounting-calender{
+.accounting-calender-button-container{
     display: flex;
-    margin-bottom: 25px;
     align-items: center;
+}
+
+.accounting-calender-wrapper{
+    display: flex;
+    width: 100%;
+}
+
+.accounting-calender-wrapper.MuiSvgIcon-root{
+    display: flex;
+    align-content: center;
+}
+
+
+.accounting-button-wrapper{
+    display: flex;
+    align-content: center;
+    justify-content: flex-end;
+    width: 100%;
 }
 
 .account-tax-print-wrapper{
@@ -152,6 +167,12 @@
     width: 100%;
     margin-top: 40px;
     justify-content: flex-end;
+}
+
+.accounting-icon-calender-wrapper{
+    display: flex;
+    align-self: center;
+    height: 100%;
 }
 
 
