@@ -4,7 +4,8 @@
 }
 
 .financials-page-container {
-
+    margin-bottom: 100px;
+    margin-left: 30px;
 }
 
 .donation-history-page-container{
@@ -118,14 +119,11 @@
 }
 
 
-
-
-
 /* Dennis styling report*/
 .report-history-filter-wrapper{
     display: flex;
     align-items: flex-end;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
 .accounting-image{
@@ -135,11 +133,24 @@
 .accounting-calender-button-container{
     display: flex;
     align-items: center;
+    margin-bottom: 50px;
+}
+
+.accounting-calender-wrapper.MuiSelect-root{
+    border-radius: 8px;
+    width: 100px;
+    height: 35px;
 }
 
 .accounting-calender-wrapper{
     display: flex;
     width: 100%;
+
+    align-self: center;
+}
+
+.accounting-calender-button-container div{
+    margin-right: 10px;
 }
 
 .accounting-calender-wrapper.MuiSvgIcon-root{
@@ -190,6 +201,5 @@
 }
 
 .financials-subscription-wrapper{
-    padding: 50px;
     position: relative;
 }
