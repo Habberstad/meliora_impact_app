@@ -125,7 +125,7 @@ export const AccountingPage = (props) => {
                     <Report ref={componentRef} user={props.user} />
                   )}
                   {filterTab === "subscription" && (
-                    <div>
+                    <div className={"financials-subscription-wrapper"}>
                       <Box
                         sx={{
                           display: "block",

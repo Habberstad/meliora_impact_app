@@ -167,3 +167,8 @@
 .MuiButtonBase-root.MuiButton-root:hover{
 
 }
+
+.financials-subscription-wrapper{
+    padding: 50px;
+    position: relative;
+}
