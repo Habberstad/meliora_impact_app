@@ -11,9 +11,7 @@
 }
 
 .report-page{
-    padding: 50px;
     position: relative;
-
 }
 
 .report-top-right{
@@ -85,11 +83,18 @@
 
 
 .styled-table-finances thead tr {
-    background-color: #7209B7;
+    background-color: #464D51;
     color: #ffffff;
     text-align: left;
-
+    height: 35px;
 }
+
+.styled-table-finances th {
+    border-right: 1px solid black;
+    padding-left: 10px;
+}
+
+
 .styled-table-finances td {
     padding: 15px 5px;
 
@@ -127,10 +132,27 @@
     width: 400px;
 }
 
-.accounting-calender{
+.accounting-calender-button-container{
     display: flex;
-    margin-bottom: 25px;
     align-items: center;
+}
+
+.accounting-calender-wrapper{
+    display: flex;
+    width: 100%;
+}
+
+.accounting-calender-wrapper.MuiSvgIcon-root{
+    display: flex;
+    align-content: center;
+}
+
+
+.accounting-button-wrapper{
+    display: flex;
+    align-content: center;
+    justify-content: flex-end;
+    width: 100%;
 }
 
 .account-tax-print-wrapper{
@@ -147,6 +169,12 @@
     justify-content: flex-end;
 }
 
+.accounting-icon-calender-wrapper{
+    display: flex;
+    align-self: center;
+    height: 100%;
+}
+
 
 
 .account-tax-wrapper{
@@ -159,4 +187,9 @@
 
 .MuiButtonBase-root.MuiButton-root:hover{
 
+}
+
+.financials-subscription-wrapper{
+    padding: 50px;
+    position: relative;
 }
