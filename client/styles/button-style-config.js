@@ -7,7 +7,7 @@ export const navButtonStyle = {
   height: "60px",
   borderRadius: "8px",
   backgroundColor: "#fff",
-  textTransform: "lowercase",
+  textTransform: "none",
   fontSize: "16px",
   fontWeight: 500,
   color: "#353535",
@@ -26,7 +26,7 @@ export const highlightedNavButtonStyle = {
   height: "60px",
   borderRadius: "8px",
   backgroundColor: "#B8F0DA",
-  textTransform: "lowercase",
+  textTransform: "none",
   fontSize: "16px",
   fontWeight: 500,
   color: "#353535",
@@ -434,12 +434,10 @@ export const selectedFilterTabStyleNew = {
   borderRadius: "8px 8px 0 0",
   fontWeight: "600px",
   lineHeight: "22px",
-"&:hover": {
-    backgroundColor:"#551477",
+  "&:hover": {
+    backgroundColor: "#551477",
   },
-  }
-
-;
+};
 
 export const unselectedFilterTabStyle = {
   color: "#000000",
@@ -449,5 +447,4 @@ export const unselectedFilterTabStyle = {
   borderRadius: "8px 8px 0 0",
   fontSize: "14px",
   fontWeight: "600px",
-
 };

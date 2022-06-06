@@ -3,114 +3,113 @@
 *************************/
 
 .sidebar-container {
-    height: 100vh;
-    width: 290px;
-    background-color: #FFF;
-    border-right: solid 1.5px #DEDEDE;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
+  z-index: 4;
+
+  height: 100vh;
+  width: 290px;
+  background-color: #fff;
+  border-right: solid 1.5px #dedede;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }
 
-
 .profile-name-badge {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    width: 240px;
-    height: 75px;
-    background-color: #EDF2F6;
-    margin-left: 16px;
-    margin-top: 25px;
-    font-weight: 500;
-    font-size: 14px;
-    color: #353535;
-    border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 240px;
+  height: 75px;
+  background-color: #edf2f6;
+  margin-left: 16px;
+  margin-top: 25px;
+  font-weight: 500;
+  font-size: 14px;
+  color: #353535;
+  border-radius: 12px;
 }
 
 .profile-name-badge img {
-    margin: 0 10px 0 20px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
+  margin: 0 10px 0 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
 }
 
 .sidebar-company-logo {
-    margin: 5px 0 0 5px;
+  margin: 5px 0 0 5px;
 }
 
-
 .nav-item-container {
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-    height: 100%;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  height: 100%;
+  justify-content: space-between;
 }
 
 .nav-item-disabled {
-    display: flex;
-    background-color: #fff;
-    width: 268px;
-    height:045px;
-    align-items: center;
-    font-weight: 500;
-    color: #464D51;
-    font-size: 13px;
-    padding-left: 21px;
-    cursor: not-allowed;
+  display: flex;
+  background-color: #fff;
+  width: 268px;
+  height: 045px;
+  align-items: center;
+  font-weight: 500;
+  color: #464d51;
+  font-size: 13px;
+  padding-left: 21px;
+  cursor: not-allowed;
 }
 
-
 .nav-item {
-    display: flex;
-    background-color: #fff;
-    width: 268px;
-    height:045px;
-    align-items: center;
-    font-weight: 500;
-    color: #464D51;
-    font-size: 13px;
-    padding-left: 21px;
+  display: flex;
+  background-color: #fff;
+  width: 268px;
+  height: 045px;
+  align-items: center;
+  font-weight: 500;
+  color: #464d51;
+  font-size: 13px;
+  padding-left: 21px;
 }
 
 .nav-item-selected {
-    display: flex;
-    background-color: #F6E8FF;
-    width: 268px;
-    height:045px;
-    align-items: center;
-    font-weight: 500;
-    color: #551477;
-    font-size: 13px;
-    padding-left: 21px;
-    border-right: solid 3px #551477;
+  display: flex;
+  background-color: #f6e8ff;
+  width: 268px;
+  height: 045px;
+  align-items: center;
+  font-weight: 500;
+  color: #551477;
+  font-size: 13px;
+  padding-left: 21px;
+  border-right: solid 3px #551477;
 }
 
-
 .nav-item:hover {
-    background-color: #f6f6f6;
-    border-right: solid 3px #cecece;
-    cursor: pointer;
+  background-color: #f6f6f6;
+  border-right: solid 3px #cecece;
+  cursor: pointer;
 }
 
 .sidebar-image-container {
-margin-bottom: -33px;
+  margin-bottom: -33px;
 }
 
-.partner-only-badge{
-    background-color: #949db029;
-    color: #687285;
-    font-size: 10px;
-    padding: 2px 5px;
-    border-radius: 5px;
-    margin-left: 3px;
+.partner-only-badge {
+  background-color: #949db029;
+  color: #687285;
+  font-size: 10px;
+  padding: 2px 5px;
+  border-radius: 5px;
+  margin-left: 3px;
 }
 
 .disabled {
-    cursor: not-allowed;
+  cursor: not-allowed;
 }
