@@ -215,15 +215,18 @@ const DashboardPage = () => {
                 <div className={"donation-history-timeline-container"}>
                   <Grid item>
                     <div className="donation-list-container">
-                      {donationHistory.map((donation, index) => {
-                        if (index <= 3)
-                          return (
-                            <DonationListItem
-                              npoList={npoList}
-                              donation={donation}
-                            />
-                          );
-                      })}
+                      {donationHistory
+                        .slice(0)
+                        .reverse()
+                        .map((donation, index) => {
+                          if (index <= 3)
+                            return (
+                              <DonationListItem
+                                npoList={npoList}
+                                donation={donation}
+                              />
+                            );
+                        })}
                     </div>
                   </Grid>
                 </div>
