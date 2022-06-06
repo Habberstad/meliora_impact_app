@@ -198,6 +198,27 @@ export const AccountingPage = (props) => {
                 </Box>
               </div>
             )}
+            <Button
+              type="button"
+              onClick={handlePrint}
+              variant="contained"
+              sx={{
+                mx: "10px",
+                width: "150px",
+                height: "35px",
+                textTransform: "none",
+                borderRadius: "10px",
+                marginBottom: "30px",
+                marginLeft: "50px",
+                backgroundColor: "#7209B7",
+                "&:hover": {
+                  backgroundColor: "#8d28ce",
+                },
+              }}
+            >
+              Print to PDF
+            </Button>
+
             {filterTab === "statistics" && (
               <img
                 className="accounting-image"
