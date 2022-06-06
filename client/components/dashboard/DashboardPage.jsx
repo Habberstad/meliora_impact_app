@@ -215,7 +215,7 @@ const DashboardPage = () => {
                       </Select>
                     </div>
                   </div>
-                  <Grid container>
+                  <Grid container justifyContent={"center"}>
                     <div className={"donation-history-timeline-container"}>
                       <Grid item>
                         <div className="donation-list-container">
