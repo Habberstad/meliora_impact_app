@@ -6,7 +6,6 @@ import cookieParser from "cookie-parser";
 import passport from "passport";
 import cookieSession from "cookie-session";
 import cors from "cors";
-import mongoose from "mongoose";
 import { config } from "./config/Constants.js";
 import { isAuthenticated, hasAccount, accessToOwnAccountOnly } from "./middleware/middleware.js";
 import passportSetup from "./middleware/passport.js";
@@ -27,7 +26,7 @@ export const initServer = () => {
   app.use(cookieParser(process.env.COOKIE_SECRET));
   app.use(express.static("../client/dist"));
   app.use(
-    cookieSession({ name: "session", keys: [process.env.COOKIE_SECRET], maxAge: 24 * 60 * 60 * 1000 })
+    cookieSession({ name: "session", secret: process.env.COOKIE_SECRET, maxAge: 24 * 60 * 60 * 1000 })
   );
 
   app.use(passport.initialize());
