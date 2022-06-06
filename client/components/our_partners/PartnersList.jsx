@@ -16,15 +16,15 @@ const filterByActiveSubs = (unfilteredList, mySubs) => {
 
   for (let i = 0; i < unfilteredList.length; i++) {
     for (let j = 0; j < mySubs.length; j++) {
-      if(unfilteredList[i]._id === mySubs[j]._id)
-        filtered.push(unfilteredList[i])
+      if (unfilteredList[i]._id === mySubs[j]._id)
+        filtered.push(unfilteredList[i]);
     }
   }
 
-  return filtered
+  return filtered;
 };
 
- export function PartnersList({ data, category, activeSubs }) {
+export function PartnersList({ data, category, activeSubs }) {
   const filteredList1 = filterByCategory(data, category);
   const filteredList2 = filterByActiveSubs(filteredList1, activeSubs);
 

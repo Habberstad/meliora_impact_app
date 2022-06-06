@@ -15,16 +15,12 @@ const DiscoverPage = () => {
   const [category, setCategory] = useState("");
   const { listNpos } = useContext(NpoApiContext);
   const { loading, error, data } = useLoading(async () => await listNpos());
-  const [emptySearchInput, setEmptySearchInput] = useState(false);
 
   function categorySelectHandler(selectedCategory) {
     setCategory(selectedCategory);
-    setSearchString(selectedCategory);
-    setEmptySearchInput(true);
   }
 
   function handleSearchInput(event) {
-    setEmptySearchInput(false);
     setSearchString(event.target.value);
   }
 
@@ -44,11 +40,7 @@ const DiscoverPage = () => {
       <CategoryFilter onClick={categorySelectHandler} category={category} />
       <br />
       <br />
-      <Searchbar
-        emptySearchInput={emptySearchInput}
-        searchString={searchString}
-        onChange={handleSearchInput}
-      />
+      <Searchbar searchString={searchString} onChange={handleSearchInput} />
       <br />
       <br />
       <ListProjects data={data} category={category} searchWord={searchString} />
