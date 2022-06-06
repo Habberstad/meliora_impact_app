@@ -78,16 +78,16 @@ export function ProjectCard({
           }}
           variant="contained"
           sx={{
-            width: "107px",
-            height: "36px",
+            width: "100px",
+            height: "35px",
             borderRadius: "10px",
-            backgroundColor: "#7209B7",
+            backgroundColor: "#551477",
             fontSize: "12px",
             boxShadow:
               "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.24)",
             fontWeight: "400",
             "&:hover": {
-              backgroundColor: "#8830c4",
+              backgroundColor: "#7209B7",
               boxShadow:
                 "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.24)",
             },
