@@ -1,11 +1,11 @@
 import { Button, Grid } from "@mui/material";
-import SchoolIcon from "@mui/icons-material/School";
-import OpacityIcon from "@mui/icons-material/Opacity";
-import FilterAltOffIcon from "@mui/icons-material/FilterAltOff";
 import {
   highlightedNavButtonStyle,
   navButtonStyle,
 } from "../../styles/button-style-config";
+import { TableRows } from "@mui/icons-material";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDroplet, faGraduationCap } from "@fortawesome/free-solid-svg-icons";
 
 export function CategoryFilter(props) {
   const selectedButton = props.category;
@@ -25,7 +25,7 @@ export function CategoryFilter(props) {
             onClick={() => categoryOnClickHandler("")}
             value={""}
             variant="contained"
-            startIcon={<FilterAltOffIcon />}
+            startIcon={<TableRows />}
           >
             All
           </Button>
@@ -40,7 +40,7 @@ export function CategoryFilter(props) {
             onClick={() => categoryOnClickHandler("water")}
             value={"water"}
             variant="contained"
-            startIcon={<OpacityIcon />}
+            startIcon={<FontAwesomeIcon icon={faDroplet} />}
           >
             Water
           </Button>
@@ -55,7 +55,7 @@ export function CategoryFilter(props) {
             onClick={() => categoryOnClickHandler("knowledge")}
             value={"knowledge"}
             variant="contained"
-            startIcon={<SchoolIcon />}
+            startIcon={<FontAwesomeIcon icon={faGraduationCap} />}
           >
             Knowledge
           </Button>
