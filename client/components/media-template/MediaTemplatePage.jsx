@@ -1,18 +1,7 @@
 import "../../styles/template-styles/template-styles.css";
-import {
-  Box,
-  Button,
-  IconButton,
-  InputAdornment,
-  Modal,
-  Step,
-  StepLabel,
-  Stepper,
-  TextField,
-  Tooltip,
-} from "@mui/material";
+import { Box, Button, Step, StepLabel, Stepper } from "@mui/material";
+import * as React from "react";
 import { useContext, useRef, useState } from "react";
-import { GlobalHeader } from "../headers/GlobalHeader";
 import { useLoader } from "../../helpers/UseLoader";
 import { UserApiContext } from "../../api-client/userApiContext";
 import { isLoading } from "../shared-components/Loading";
@@ -25,13 +14,7 @@ import {
   purplePlatformButton,
 } from "../../styles/button-style-config";
 import { useReactToPrint } from "react-to-print";
-import * as React from "react";
-import { modalStyle } from "../wrapped/modal-style";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import { ShareModal } from "./ShareModal";
 
 const steps = ["Content", "Format", "Customize", "Review"];
 
@@ -177,120 +160,40 @@ const MediaTemplatePage = () => {
           )}
         </div>
 
-        <Modal open={share} onClose={shareHandleClose}>
-          <Box sx={modalStyle}>
-            <div className="meliora-wrapped-share-modal">
-              <h1>Share</h1>
-              <div className="meliora-wrapped-share-modal-buttons">
-                <Button
-                  variant={"outlined"}
-                  onClick={() => {
-                    setSharePlaceholder(linkedInPlaceholder);
-                    setShareLink(
-                      `https://www.linkedin.com/sharing/share-offsite/?url=${encodedAhref}`
-                    );
-                    console.log(shareLink);
-                  }}
-                >
-                  <div>
-                    <LinkedInIcon sx={{ fontSize: 50 }} />
-                  </div>
-                </Button>
-                <Button
-                  variant={"outlined"}
-                  onClick={() => {
-                    setSharePlaceholder(twitterPlaceholder);
-                    setShareLink(
-                      `https://twitter.com/intent/tweet?url=${encodedAhref}`
-                    );
-                    console.log(shareLink);
-                  }}
-                >
-                  <div>
-                    <TwitterIcon sx={{ fontSize: 50 }} />
-                  </div>
-                </Button>
-                <Button
-                  variant={"outlined"}
-                  onClick={() => {
-                    setSharePlaceholder(facebookPlaceholder);
-                    setShareLink(
-                      `https://www.facebook.com/sharer/sharer.php?u=${ahref}`
-                    );
-                    console.log(shareLink);
-                  }}
-                >
-                  <div>
-                    <FacebookIcon sx={{ fontSize: 50 }} />
-                  </div>
-                </Button>
-                <Tooltip
-                  title={"Not available at this moment!"}
-                  placement="top"
-                >
-                  <Button
-                    variant={"outlined"}
-                    onClick={() => {
-                      setSharePlaceholder(instagramPlaceholder);
-                      setShareLink(``);
-                      console.log(shareLink);
-                    }}
-                  >
-                    <div>
-                      <InstagramIcon sx={{ fontSize: 50 }} />
-                    </div>
-                  </Button>
-                </Tooltip>
-              </div>
-              <TextField
-                className="meliora-wrapped-share-modal-textfield"
-                disabled={true}
-                placeholder={sharePlaceholder}
-                InputProps={{
-                  endAdornment: (
-                    <InputAdornment position="end">
-                      <Tooltip
-                        title={
-                          copiedText === sharePlaceholder
-                            ? "Copied!"
-                            : "Copy To Clipboard"
-                        }
-                        placement="top"
-                      >
-                        <IconButton
-                          onClick={() => {
-                            navigator.clipboard.writeText(sharePlaceholder);
-                            setCopiedText(sharePlaceholder);
-                          }}
-                        >
-                          <ContentCopyIcon />
-                        </IconButton>
-                      </Tooltip>
-                    </InputAdornment>
-                  ),
-                }}
-              />
-              <div className="meliora-wrapped-share-modal-buttons-bot">
-                <Button
-                  variant={"contained"}
-                  sx={purplePlatformButton}
-                  style={{ margin: "20px 5px 0px 0px" }}
-                  onClick={handlePrint}
-                >
-                  Download
-                </Button>
-                <Button
-                  variant={"contained"}
-                  sx={purplePlatformButton}
-                  style={{ margin: "20px 0px 0px 5px" }}
-                  onClick={handleShare}
-                >
-                  Share
-                </Button>
-              </div>
-            </div>
-          </Box>
-        </Modal>
+        <ShareModal
+          open={share}
+          onClose={shareHandleClose}
+          onClick={() => {
+            setSharePlaceholder(linkedInPlaceholder);
+            setShareLink(
+              `https://www.linkedin.com/sharing/share-offsite/?url=${encodedAhref}`
+            );
+          }}
+          onClick1={() => {
+            setSharePlaceholder(twitterPlaceholder);
+            setShareLink(
+              `https://twitter.com/intent/tweet?url=${encodedAhref}`
+            );
+          }}
+          onClick2={() => {
+            setSharePlaceholder(facebookPlaceholder);
+            setShareLink(
+              `https://www.facebook.com/sharer/sharer.php?u=${ahref}`
+            );
+          }}
+          onClick3={() => {
+            setSharePlaceholder(instagramPlaceholder);
+            setShareLink(``);
+          }}
+          placeholder={sharePlaceholder}
+          copiedText={copiedText}
+          onClick4={() => {
+            navigator.clipboard.writeText(sharePlaceholder);
+            setCopiedText(sharePlaceholder);
+          }}
+          onClick5={handlePrint}
+          onClick6={handleShare}
+        />
       </div>
     </div>
   );
