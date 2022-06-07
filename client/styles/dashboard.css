@@ -444,5 +444,14 @@ align-items: center;
 .un-impact-header{
     font-size: 24px;
     font-weight: 600;
-    margin-top: 30px;
+    margin: 35px 0;
+}
+
+.un-impact-icons-row{
+    display: flex;
+
+}
+
+.un-icon {
+    margin: 10px 32px;
 }

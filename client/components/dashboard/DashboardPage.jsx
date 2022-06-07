@@ -268,8 +268,33 @@ const DashboardPage = () => {
               <div className="un-impact-header">
                 You contribute to these UN Sustainable Development Goals
               </div>
-              <div>
-                <img src={goal_1} alt="" />
+              <div className="un-impact-icons-row">
+                <div className="un-icon">
+                  <img src={goal_1} alt="" />
+                </div>
+                <div className="un-icon">
+                  <img src={goal_2} alt="" />
+                </div>
+                <div className="un-icon">
+                  <img src={goal_3} alt="" />
+                </div>
+                <div className="un-icon">
+                  <img src={goal_4} alt="" />
+                </div>
+              </div>
+              <div className="un-impact-icons-row">
+                <div className="un-icon">
+                  <img src={goal_5} alt="" />
+                </div>
+                <div className="un-icon">
+                  <img src={goal_6} alt="" />
+                </div>
+                <div className="un-icon">
+                  <img src={goal_7} alt="" />
+                </div>
+                <div className="un-icon">
+                  <img src={goal_8} alt="" />
+                </div>
               </div>
             </div>
           </Grid>
