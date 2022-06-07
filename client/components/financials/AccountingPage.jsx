@@ -10,6 +10,7 @@ import "../../styles/financesPage.css";
 import {
   unselectedFilterTabStyle,
   selectedFilterTabStyleNew,
+  exploreButtonB21,
 } from "../../styles/button-style-config";
 import {
   CurrencyFormater,
@@ -168,19 +169,9 @@ export const AccountingPage = (props) => {
                           type="button"
                           onClick={handlePrint}
                           variant="contained"
-                          sx={{
-                            mx: "10px",
-                            width: "150px",
-                            height: "35px",
-                            textTransform: "none",
-                            borderRadius: "10px",
-                            backgroundColor: "#551477",
-                            "&:hover": {
-                              backgroundColor: "#8d28ce",
-                            },
-                          }}
+                          sx={exploreButtonB21}
                         >
-                          Print to PDF
+                          Print PDF
                         </Button>
                       </div>
                     </div>
