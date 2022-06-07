@@ -175,7 +175,7 @@ export const FindCompany = ({ handleCompanyInfo }) => {
             <Button
               disabled={!selectedCompany}
               onClick={handleSendCompanyInfo}
-              sx={{ ...LoginNextButtonB41, marginTop: "30px" }}
+              sx={{ ...LoginNextButtonB41, marginTop: "80px" }}
               variant="contained"
             >
               Next

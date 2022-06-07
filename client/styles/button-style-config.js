@@ -47,14 +47,10 @@ export const ReadMoreButtonB31 = {
 
 //B-4.1
 export const LoginNextButtonB41 = {
-  maxWidth: "190px",
-  maxHeight: "60px",
-  minWidth: "190px",
-  minHeight: "60px",
+  width: "190px",
+  height: "60px",
   borderRadius: "8px",
-  alignSelf: "center",
   backgroundColor: "#551477",
-  marginTop: "50px",
   "&:hover": {
     backgroundColor: "#aa55d9",
     color: "#FFF",

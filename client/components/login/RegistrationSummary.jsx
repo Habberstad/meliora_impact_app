@@ -85,7 +85,7 @@ export const RegistrationSummary = (props) => {
           <Button
             disabled={isNotCompleted}
             onClick={handleSubmit}
-            sx={LoginNextButtonB41}
+            sx={{ ...LoginNextButtonB41, marginTop: "50px" }}
             variant="contained"
           >
             Confirm
