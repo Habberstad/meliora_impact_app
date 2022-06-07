@@ -1,11 +1,13 @@
-import MissionMap from "../npo-media/mission_map_img.png";
 import WavesIcon from "@mui/icons-material/Waves";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import WorkspacePremiumIcon from "@mui/icons-material/WorkspacePremium";
 import SouthAmericaIcon from "@mui/icons-material/SouthAmerica";
 import HarryMapChart from "../../../HarryMapChart";
+import { DevelopmentGoalsWater } from "../../dashboard/DevelopmentGoalsWater";
+import { DevelopmentGoalsKnowledge } from "../../dashboard/DevelopmentGoalsKnowledge";
 
-const OverviewTabContent = ({ data }) => {
+const OverviewTabContent = ({ data, category }) => {
+  console.log(category);
   return (
     <div>
       <div className="information-section">
@@ -20,6 +22,17 @@ const OverviewTabContent = ({ data }) => {
           </div>
         </div>
       </div>
+      <div className="overview-development-container">
+        <div className="overview-development-header">
+          Our UN Sustainable Development Goals
+        </div>
+        {category === "water" ? (
+          <DevelopmentGoalsWater />
+        ) : (
+          <DevelopmentGoalsKnowledge />
+        )}
+      </div>
+
       <div className="vision-section">
         <div className="vision-title">Our Vision</div>
         <div className="vision-box-section">
@@ -56,14 +69,6 @@ const OverviewTabContent = ({ data }) => {
             </div>
           </div>
         </div>
-      </div>
-      <div className="article-section">
-        {/*        <div className="sub-heading">Latest Updates</div>
-        <div className="article-card-container">
-          <div className="big-article"></div>
-          <div className="small-article"></div>
-          <div className="small-article"></div>
-        </div>*/}
       </div>
     </div>
   );

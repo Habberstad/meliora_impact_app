@@ -1,7 +1,7 @@
 import * as React from "react";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useLoading } from "../../useLoading";
-import { Button, Grid, Link, MenuItem, Select } from "@mui/material";
+import { Grid, Link, MenuItem, Select } from "@mui/material";
 import "../../styles/dashboard.css";
 import LinearProgress from "@mui/material/LinearProgress";
 import Accordion from "@mui/material/Accordion";
@@ -9,7 +9,7 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { UserApiContext } from "../../api-client/userApiContext";
-import { ArticleSelection } from "./ArticleSelection";
+import { ArticleSection } from "../articles/ArticleSection";
 import { isLoading } from "../shared-components/Loading";
 import { Error } from "../shared-components/Error";
 import { ImpactSection } from "./ImpactSection";
@@ -19,14 +19,12 @@ import WaterIcon from "@mui/icons-material/Water";
 import SchoolIcon from "@mui/icons-material/School";
 import MapChart from "../../MapChart";
 import { HighlightedPartners } from "./HighlightedPartners";
+import { DevelopmentGoalsKnowledge } from "./DevelopmentGoalsKnowledge";
+import { DevelopmentGoalsWater } from "./DevelopmentGoalsWater";
 
-import placeholder_img from "../../media/dashboard_placeholder.svg";
-import { LoginNextButtonB41 } from "../login/login-styles";
 const DashboardPage = () => {
-  //TODO: Mer beskrivende navn på state. F.eks. expandPartnerAccordion
-  const [expanded, setExpanded] = React.useState(0);
-
-  const [npo, setNpo] = React.useState("");
+  const [expanded, setExpanded] = useState(0);
+  const [npo, setNpo] = useState("");
 
   const navigate = useNavigate();
   const { getCurrentUser } = useContext(UserApiContext);
@@ -49,12 +47,11 @@ const DashboardPage = () => {
   const highlighted = data.npo_partners;
   const history = data.donation_history;
   const npoList = data.npo_partners;
-
-  console.log("history?", history);
-
   const filteredHistory = history.filter((donation) => donation.npo_id === npo);
-
   let donationHistory = filteredHistory.length > 0 ? filteredHistory : history;
+  const partners = data.npo_partners;
+  const locations = [];
+  partners.map((x) => locations.push(x.locations[0]));
 
   function iconCat(npo) {
     if (npo.category === "water") {
@@ -65,34 +62,7 @@ const DashboardPage = () => {
     }
   }
 
-  const partners = data.npo_partners;
-
-  const locations = [];
-
-  partners.map((x) => locations.push(x.locations[0]));
-
-  /* if (data.active_subscriptions.length === 0)
-    return (
-      <div className="dashboard-placeholder-wrapper">
-        <div className="placeholder-image">
-          <img src={placeholder_img} alt="placeholder_img" />
-        </div>
-        <div className="global-header-title" style={{ marginTop: "50px" }}>
-          Find a partner and get started
-        </div>
-        <div className="dashboard-header-sub-title">
-          Dashboard will be generated once you have subscribed to a partner
-        </div>
-        <Button
-          variant="contained"
-          sx={{ ...submitButtonStyle, marginTop: "30px" }}
-          onClick={() => navigate("/discover")}
-        >
-          Discover
-        </Button>
-      </div>
-    );*/
-
+  console.log(npoList);
   return (
     <div className={"dashboard-wrapper"}>
       <div className={"dashboard-container"}>
@@ -242,24 +212,12 @@ const DashboardPage = () => {
                         See all donations
                       </div>
                     </div>
-                  </Grid>{" "}
+                  </Grid>
                 </>
               ) : (
                 <div>
-                  {" "}
                   <div>
-                    <div
-                      style={{
-                        width: "350px",
-                        fontSize: "14px",
-                        color: "#464D51",
-                        fontWeight: "500",
-                        marginTop: "75px",
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "center",
-                      }}
-                    >
+                    <div className="donation-placeholder-text">
                       <div style={{ marginTop: "100px " }}>
                         You currently have no donation history
                       </div>
@@ -280,8 +238,26 @@ const DashboardPage = () => {
               <MapChart markers={locations} />
             </div>
           </Grid>
+          <Grid item xl={12} lg={12} sx={{ marginTop: "10px" }}>
+            <div className="dashboard-impact-container">
+              <div className="un-impact-header">
+                You contribute to these UN Sustainable Development Goals
+              </div>
+              {npoList.length > 0 ? (
+                <>
+                  <DevelopmentGoalsKnowledge />
+                  <DevelopmentGoalsWater />
+                </>
+              ) : (
+                <div className="development-placeholder">
+                  Donate to one of our non-profits to see your contribution
+                </div>
+              )}
+            </div>
+          </Grid>
           <Grid item xl={12} sx={{ marginTop: "40px" }}>
-            <ArticleSelection />
+            <div className="bottom-header">Latest Articles</div>
+            <ArticleSection />
           </Grid>
         </Grid>
       </div>

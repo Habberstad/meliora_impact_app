@@ -111,8 +111,6 @@ const NonProfitProfilePage = ({ user }) => {
     setSelectedTab(tabValue);
   };
 
-  console.log(subscriptionInfo);
-
   return (
     <div className="main-profile-container">
       <ProfileHeader

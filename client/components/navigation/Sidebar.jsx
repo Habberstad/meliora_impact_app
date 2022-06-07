@@ -22,7 +22,6 @@ const Sidebar = () => {
   const user = React.useContext(UserContext);
 
   const { pathname: location } = useLocation();
-  console.log("location", location);
 
   function handleLogoutClick() {
     window.location.href = window.location.origin + "/auth/logout";
@@ -36,7 +35,6 @@ const Sidebar = () => {
   const handleNavigationState = (tabValue) => {
     setSelectedTab(tabValue);
   };
-  console.log(user);
 
   return (
     <div className="sidebar-container">

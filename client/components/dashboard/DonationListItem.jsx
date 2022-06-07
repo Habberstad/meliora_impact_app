@@ -8,17 +8,13 @@ import { Error } from "../shared-components/Error";
 
 export function DonationListItem({ donation, npoList }) {
   const { listNpos } = useContext(NpoApiContext);
-  const { loading, error, data } = useLoading(
-    async () => await listNpos(),
-    []
-  );
+  const { loading, error, data } = useLoading(async () => await listNpos(), []);
 
   if (loading) return isLoading();
   if (error) return <Error error={error} />;
 
   const findNpo = data.filter((x) => x._id === donation.npo_id);
   const npo = { ...findNpo[0] };
-  console.log("3", npo)
 
   return (
     <div className="donation-list-item">
@@ -35,7 +31,7 @@ export function DonationListItem({ donation, npoList }) {
             style={{
               fontSize: "14px",
               fontWeight: "400",
-              marginTop: "3px"
+              marginTop: "3px",
             }}
           >
             <DateFormater date={donation.date} />

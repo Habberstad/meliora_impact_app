@@ -8,6 +8,7 @@ export const exploreButtonB21 = {
   borderRadius: "8px",
   backgroundColor: "#551477",
   textTransform: "none",
+  color: "#FFF",
   fontSize: "12px",
   fontWeight: "400",
   "&:hover": {
@@ -146,7 +147,7 @@ export const templateCardButtonStyle = {
   width: "120px",
   borderRadius: "8px",
   color: "#000",
-  border: "solid 2px #464D51",
+  border: "solid 1px lightgrey",
   justifyContent: "center",
   alignItems: "center",
   textAlign: "center",

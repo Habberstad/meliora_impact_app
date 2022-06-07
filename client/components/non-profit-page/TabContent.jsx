@@ -15,7 +15,10 @@ export function TabContent({ selectedTab, data }) {
             <img src={Timeline} alt="test" />
           </div>
           <div className="content-container">
-            <OverviewTabContent data={data.overview_tab} />
+            <OverviewTabContent
+              data={data.overview_tab}
+              category={data.category}
+            />
           </div>
         </>
       )}
