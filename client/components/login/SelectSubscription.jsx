@@ -8,9 +8,9 @@ import {
   subscriptionTypeFreemium,
   selectedSubscriptionTypePremium,
   subscriptionTypePremium,
-  submitButtonStyle,
   subscriptionFeaturesButton,
 } from "./login-styles";
+import { LoginNextButtonB41 } from "../../styles/button-style-config";
 import * as React from "react";
 import {
   modalStyle,
@@ -136,7 +136,7 @@ export const SelectSubscription = (props) => {
           <Button
             disabled={!subscriptionType}
             onClick={handleSubscriptionSubmit}
-            sx={{ ...submitButtonStyle, marginTop: "30px" }}
+            sx={{ ...LoginNextButtonB41, marginTop: "30px" }}
             variant="contained"
           >
             Next

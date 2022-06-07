@@ -1,9 +1,5 @@
 import { Grid } from "@mui/material";
 import { SubscriptionInfoCard } from "./SubscriptionInfoCard";
-import LightModeOutlinedIcon from "@mui/icons-material/LightMode";
-import AssignmentOutlinedIcon from "@mui/icons-material/AssignmentOutlined";
-import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
-import PersonAddAlt1OutlinedIcon from "@mui/icons-material/PersonAddAlt1Outlined";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faMagnifyingGlass,
