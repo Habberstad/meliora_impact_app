@@ -1,41 +1,62 @@
 import * as React from "react";
+import { useContext, useRef, useState } from "react";
 import { useReactToPrint } from "react-to-print";
-import { Box, Button, MenuItem, Select } from "@mui/material";
-import { useRef, useState } from "react";
+import { Box, Button, MenuItem } from "@mui/material";
 import Report from "./Report";
-import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import "../../styles/financesPage.css";
 import {
-  unselectedFilterTabStyle,
-  selectedFilterTabStyleNew,
   exploreButtonB21,
+  selectedFilterTabStyleNew,
+  unselectedFilterTabStyle,
 } from "../../styles/button-style-config";
 import { DateFormater } from "../shared-components/dateFormater";
-import { useContext } from "react";
 import { UserApiContext } from "../../api-client/userApiContext";
 import { useLoading } from "../../useLoading";
 import { isLoading } from "../shared-components/Loading";
 import { Error } from "../shared-components/Error";
 import financialsHeader from "../../media/financials_header.png";
 import { GlobalHeader } from "../headers/GlobalHeader";
+import * as PropTypes from "prop-types";
+import { YearAndMonth } from "./YearAndMonth";
+import { SubscriptionTable } from "./SubscriptionTable";
 
+YearAndMonth.propTypes = {
+  onChange: PropTypes.func,
+  strings: PropTypes.arrayOf(PropTypes.string),
+  callbackfn: PropTypes.func,
+};
+
+SubscriptionTable.propTypes = {
+  filteredTransactions: PropTypes.any,
+  prop1: PropTypes.func,
+};
 export const AccountingPage = (props) => {
-  const months = [];
-  const [selectedFilterTab, setSelectedFilterTab] = useState("donation");
-  const [filterTab, setFilterTab] = useState("donation");
+  const months = [
+    "Januar",
+    "Februar",
+    "Mars",
+    "April",
+    "Mai",
+    "Juni",
+    "Juli",
+    "August",
+    "September",
+    "Oktober",
+    "November",
+    "Desember",
+  ];
 
+  const [selectedFilterTab, setSelectedFilterTab] = useState("donation");
   const [year, setYear] = useState(2022);
 
   function handleFilter(event) {
     setSelectedFilterTab(event);
-    setFilterTab(event);
   }
 
   function yearChange(event) {
     setYear(event.target.value);
   }
 
-  console.log(selectedFilterTab);
   const componentRef = useRef();
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,
@@ -54,6 +75,8 @@ export const AccountingPage = (props) => {
     (item) => new Date(item.date).getFullYear() === year
   );
 
+  console.log(year);
+
   return (
     <div className="financials-page-wrapper">
       <GlobalHeader
@@ -65,8 +88,6 @@ export const AccountingPage = (props) => {
         image={financialsHeader}
       />
       <div className={"financials-page-container"}>
-        {/* **************** START: INSIDE ONLY VISIBLE ON BROWSER PAGE **********************************************************************************/}
-
         <div className={"donation-history-page-container"}>
           <div className={"donation-history-page-wrapper"}>
             <div className={"report-history-filter-wrapper"}>
@@ -103,7 +124,6 @@ export const AccountingPage = (props) => {
                 Statistics
               </Button>
             </div>
-            {/* ***************** END: INSIDE ONLY VISIBLE ON BROWSER PAGE ********************************************************************************** */}
             <div>
               <Box
                 sx={{
@@ -111,52 +131,15 @@ export const AccountingPage = (props) => {
                   displayPrint: "none",
                 }}
               >
-                {/* ***************** END: INSIDE ONLY VISIBLE ON BROWSER PAGE ********************************************************************************** */}
-                {filterTab === "donation" && (
+                {selectedFilterTab === "donation" && (
                   <div>
                     <div className={"accounting-calender-button-container"}>
                       <div className={"accounting-calender-wrapper"}>
-                        <Select
-                          id={"year"}
-                          defaultValue={"2022"}
+                        <YearAndMonth
                           onChange={yearChange}
-                          inputProps={{ "aria-label": "Without label" }}
-                          sx={{
-                            borderRadius: "8px",
-                            width: "100px",
-                            height: "35px",
-                          }}
-                        >
-                          <MenuItem value={2022}>2022</MenuItem>
-                          <MenuItem value={2021}>2021</MenuItem>
-                          <MenuItem value={2020}>2020</MenuItem>
-                        </Select>
-                        <Select
-                          id={"month"}
-                          defaultValue={"Juni"}
-                          inputProps={{ "aria-label": "Without label" }}
-                          sx={{
-                            borderRadius: "8px",
-                            width: "100px",
-                            height: "35px",
-                          }}
-                        >
-                          <MenuItem value={"Jan"}>Jan</MenuItem>
-                          <MenuItem value={"Feb"}>Feb</MenuItem>
-                          <MenuItem value={"Mars"}>Mars</MenuItem>
-                          <MenuItem value={"April"}>April</MenuItem>
-                          <MenuItem value={"Mai"}>Mai</MenuItem>
-                          <MenuItem value={"Juni"}>Juni</MenuItem>
-                          <MenuItem value={"Juli"}>Juli</MenuItem>
-                          <MenuItem value={"August"}>Aug</MenuItem>
-                          <MenuItem value={"September"}>Sep</MenuItem>
-                          <MenuItem value={"Oktober"}>Okt</MenuItem>
-                          <MenuItem value={"November"}>Nov</MenuItem>
-                          <MenuItem value={"Desember"}>Des</MenuItem>
-                        </Select>
-                        <div className={"accounting-icon-calender-wrapper"}>
-                          <CalendarMonthIcon fontSize={"large"} />
-                        </div>
+                          strings={months}
+                          callbackfn={(m) => <MenuItem value={m}>{m}</MenuItem>}
+                        />
                       </div>
                       <div className={"accounting-button-wrapper"}>
                         <Button
@@ -172,7 +155,7 @@ export const AccountingPage = (props) => {
                     <Report ref={componentRef} user={props.user} />
                   </div>
                 )}
-                {filterTab === "subscription" && (
+                {selectedFilterTab === "subscription" && (
                   <div className={"financials-subscription-wrapper"}>
                     <Box
                       sx={{
@@ -181,89 +164,38 @@ export const AccountingPage = (props) => {
                       }}
                     >
                       <div className={"accounting-calender-button-container"}>
-                        <Select
-                          id={"year"}
-                          defaultValue={"2022"}
+                        <YearAndMonth
                           onChange={yearChange}
-                          inputProps={{ "aria-label": "Without label" }}
-                          sx={{
-                            borderRadius: "8px",
-                            width: "100px",
-                            height: "35px",
-                          }}
-                        >
-                          <MenuItem value={2022}>2022</MenuItem>
-                          <MenuItem value={2021}>2021</MenuItem>
-                          <MenuItem value={2020}>2020</MenuItem>
-                        </Select>
-
-                        <Select
-                          id={"month"}
-                          defaultValue={"Juni"}
-                          inputProps={{ "aria-label": "Without label" }}
-                          sx={{
-                            borderRadius: "8px",
-                            width: "100px",
-                            height: "35px",
-                          }}
-                        >
-                          <MenuItem value={"Jan"}>Jan</MenuItem>
-                          <MenuItem value={"Feb"}>Feb</MenuItem>
-                          <MenuItem value={"Mars"}>Mars</MenuItem>
-                          <MenuItem value={"April"}>April</MenuItem>
-                          <MenuItem value={"Mai"}>Mai</MenuItem>
-                          <MenuItem value={"Juni"}>Juni</MenuItem>
-                          <MenuItem value={"Juli"}>Juli</MenuItem>
-                          <MenuItem value={"August"}>Aug</MenuItem>
-                          <MenuItem value={"September"}>Sep</MenuItem>
-                          <MenuItem value={"Oktober"}>Okt</MenuItem>
-                          <MenuItem value={"November"}>Nov</MenuItem>
-                          <MenuItem value={"Desember"}>Des</MenuItem>
-                        </Select>
-                        <CalendarMonthIcon
-                          className={"accounting-icon-calender-wrapper"}
-                          fontSize={"large"}
+                          strings={months}
+                          callbackfn={(m) => <MenuItem value={m}>{m}</MenuItem>}
                         />
                       </div>
                     </Box>
-                    <div>
-                      <table className={"styled-table-finances"}>
-                        <thead>
-                          <tr>
-                            <th>Subscription ID</th>
-                            <th>Organization</th>
-                            <th>Frequency</th>
-                            <th>Amount</th>
-                            <th>Signing date</th>
-                            <th>Cancelled date</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {filteredTransactions.map((item) => (
-                            <tr>
-                              <td>{item._id}</td>
-                              <td>
-                                {data.npo_partners.map((npo) => {
-                                  if (npo._id === item.npo_id) return npo.name;
-                                })}
-                              </td>
-                              <td>{item.payment_frequency}</td>
-                              <td>{item.payment_amount}</td>
-                              <td>
-                                <DateFormater date={item.date} />
-                              </td>
-                              <td>Active</td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
+                    <SubscriptionTable
+                      filteredTransactions={filteredTransactions}
+                      prop1={(item) => (
+                        <tr>
+                          <td>{item._id}</td>
+                          <td>
+                            {data.npo_partners.map((npo) => {
+                              if (npo._id === item.npo_id) return npo.name;
+                            })}
+                          </td>
+                          <td>{item.payment_frequency}</td>
+                          <td>{item.payment_amount}</td>
+                          <td>
+                            <DateFormater date={item.date} />
+                          </td>
+                          <td>Active</td>
+                        </tr>
+                      )}
+                    />
                   </div>
                 )}
               </Box>
             </div>
 
-            {filterTab === "statistics" && (
+            {selectedFilterTab === "statistics" && (
               <img
                 className="accounting-image"
                 src="http://localhost:3000/header-image-partners.9fd59cdb.png?1654168554381"
