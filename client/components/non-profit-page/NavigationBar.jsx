@@ -23,7 +23,7 @@ export function NavigationBar({
         variant="contained"
         sx={
           selectedTab === "overview"
-            ? highlightedFilterButtonB43
+            ? { ...filterButtonB43, ...highlightedFilterButtonB43 }
             : filterButtonB43
         }
       >
@@ -35,7 +35,7 @@ export function NavigationBar({
         variant="contained"
         sx={
           selectedTab === "projects"
-            ? highlightedFilterButtonB43
+            ? { ...filterButtonB43, ...highlightedFilterButtonB43 }
             : filterButtonB43
         }
       >
@@ -47,7 +47,7 @@ export function NavigationBar({
         variant="contained"
         sx={
           selectedTab === "impact"
-            ? highlightedFilterButtonB43
+            ? { ...filterButtonB43, ...highlightedFilterButtonB43 }
             : filterButtonB43
         }
       >
@@ -59,7 +59,7 @@ export function NavigationBar({
         variant="contained"
         sx={
           selectedTab === "keyinformation"
-            ? highlightedFilterButtonB43
+            ? { ...filterButtonB43, ...highlightedFilterButtonB43 }
             : filterButtonB43
         }
       >

@@ -8,6 +8,7 @@ export const exploreButtonB21 = {
   borderRadius: "8px",
   backgroundColor: "#551477",
   textTransform: "none",
+  color: "#FFF",
   fontSize: "12px",
   fontWeight: "400",
   "&:hover": {
@@ -146,7 +147,7 @@ export const templateCardButtonStyle = {
   width: "120px",
   borderRadius: "8px",
   color: "#000",
-  border: "solid 2px #464D51",
+  border: "solid 1px lightgrey",
   justifyContent: "center",
   alignItems: "center",
   textAlign: "center",
@@ -166,7 +167,6 @@ export const templateSelectedCardButtonStyle = {
   height: "130px",
   width: "120px",
   borderRadius: "8px",
-  border: "solid 2px #464D51",
   justifyContent: "center",
   alignItems: "center",
   textAlign: "center",
@@ -183,19 +183,21 @@ export const templateSelectedCardButtonStyle = {
 };
 
 // Social Media Template
-//    - Style for social media boxes
+//    - Style for social media boxes (top section)
 
 export const socialMediaButton = {
   width: "53px",
   height: "53px",
   borderRadius: "8px",
   backgroundColor: "#FFF",
-  boxShadow: "0 0 50px rgba(145, 158, 171, 0.05)",
+  boxShadow:
+    "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.05)",
   margin: "0 12px 0 12px",
-  border: "solid 1px #637381",
+  border: "solid 0.5px lightgrey",
+
   "&:hover": {
-    backgroundColor: "#FFF",
-    border: "solid 2px #7209B7",
+    border: "transparent",
+    backgroundColor: "#B8F0DA",
     boxShadow:
       "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.24)",
   },
@@ -208,10 +210,8 @@ export const selectedSocialMediaButton = {
   backgroundColor: "#B8F0DA",
   boxShadow: "0 0 50px rgba(145, 158, 171, 0.05)",
   margin: "0 12px 0 12px",
-
   "&:hover": {
-    backgroundColor: "#FFF",
-    border: "solid 2px #7209B7",
+    backgroundColor: "#B8F0DA",
     boxShadow:
       "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.24)",
   },
@@ -225,7 +225,7 @@ export const templateFormatButton = {
   height: "50px",
   fontSize: "13px",
   backgroundColor: "#FFF",
-  border: "solid 1px #637381",
+  border: "solid 1px lightgrey",
   borderRadius: "8px",
   color: "black",
   margin: "0 0 15px 0",
@@ -256,7 +256,7 @@ export const selectedTemplateFormatButton = {
 };
 
 // Social Media Template
-//    - template format button (left side)
+//    - template format card (bottom section)
 
 export const templateCard = {
   border: "solid 1px lightgrey",
@@ -267,24 +267,22 @@ export const templateCard = {
   backgroundColor: "#FFF",
 
   "&:hover": {
-    border: "solid 3px #7209B7",
-    backgroundColor: "#FFF",
+    backgroundColor: "#B8F0DA",
     boxShadow:
       "0px 0px 2px rgba(148, 157, 176, 0.15), 0px 16px 32px -4px rgba(148, 157, 176, 0.15)",
   },
 };
 
 export const selectedTemplateCard = {
-  border: "solid 3px #7209B7",
   height: "210px",
   width: "140px",
   margin: "5px 15px 0px 0px",
   borderRadius: "16px",
+  backgroundColor: "#B8F0DA",
   "&:hover": {
-    border: "solid 3px #7209B7",
-    backgroundColor: "#FFF",
+    backgroundColor: "#B8F0DA",
     boxShadow:
-      "0px 0px 2px rgba(148, 157, 176, 0.15), 0px 16px 32px -4px rgba(148, 157, 176, 0.15)",
+      "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.24)",
   },
 };
 
