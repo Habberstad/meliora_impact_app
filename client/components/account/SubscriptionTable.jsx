@@ -1,5 +1,5 @@
-import * as React from "@types/react";
-import { useContext } from "@types/react";
+import * as React from "react";
+import { useContext } from "react";
 import { SubscriptionApiContext } from "../../api-client/subscriptionApiContext";
 import { DateFormater } from "../shared-components/dateFormater";
 import { Button } from "@mui/material";
