@@ -1,9 +1,8 @@
-import * as React from "react";
-import { useContext } from "react";
 import { SubscriptionApiContext } from "../../api-client/subscriptionApiContext";
 import { DateFormater } from "../shared-components/dateFormater";
 import { Button } from "@mui/material";
 import { exploreButtonB21 } from "../../styles/button-style-config";
+import { useContext } from "react";
 
 export const SubscriptionTable = ({ data }) => {
   const { deleteSubscription } = useContext(SubscriptionApiContext);
