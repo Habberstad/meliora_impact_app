@@ -2,15 +2,11 @@ import { BackButton } from "./BackButton";
 import { Button, InputAdornment, TextField, Tooltip } from "@mui/material";
 import { useNavigate } from "react-router";
 import * as React from "react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
-import {
-  companyListItem,
-  selectedCompanyListItem,
-  submitButtonStyle,
-} from "./login-styles";
+import { companyListItem, selectedCompanyListItem } from "./login-styles";
+import { LoginNextButtonB41 } from "../../styles/button-style-config";
 import { UserApiContext } from "../../api-client/userApiContext";
-import fetchJSON from "../../helpers/fetchJSON";
 import ErrorMessage from "../shared-components/ErrorMessage";
 
 export const FindCompany = ({ handleCompanyInfo }) => {
@@ -36,9 +32,7 @@ export const FindCompany = ({ handleCompanyInfo }) => {
       setCompanies(array);
       if (array.length > 0) setShowList(true);
       setSelectedCompany();
-    } catch (error) {
-
-    }
+    } catch (error) {}
   };
 
   const handleSelectCompany = (id, name, adress, postalCode, city) => {
@@ -181,7 +175,7 @@ export const FindCompany = ({ handleCompanyInfo }) => {
             <Button
               disabled={!selectedCompany}
               onClick={handleSendCompanyInfo}
-              sx={{ ...submitButtonStyle, marginTop: "30px" }}
+              sx={{ ...LoginNextButtonB41, marginTop: "30px" }}
               variant="contained"
             >
               Next

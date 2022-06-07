@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import { FormTermsOfServiceText } from "./FormTermsOfServiceText";
 import { BackButton } from "./BackButton";
-import { checkboxStyle, registerButtonStyle } from "./login-styles";
+import { registerButtonStyle } from "./login-styles";
 
 export function RegisterForm() {
   return (
