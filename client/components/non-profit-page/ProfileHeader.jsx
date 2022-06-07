@@ -1,6 +1,7 @@
 import { Button } from "@mui/material";
 import WavesIcon from "@mui/icons-material/Waves";
 import { useEffect, useState } from "react";
+import { LoginNextButtonB41 } from "../../styles/button-style-config";
 
 export function ProfileHeader({
   user,
@@ -52,15 +53,7 @@ export function ProfileHeader({
                 <Button
                   onClick={handleShowDonationModal}
                   variant="contained"
-                  sx={{
-                    width: "190px",
-                    height: "60px",
-                    borderRadius: "8px",
-                    backgroundColor: "#7209B7",
-                    "&:hover": {
-                      backgroundColor: "#8d28ce",
-                    },
-                  }}
+                  sx={LoginNextButtonB41}
                 >
                   Donate
                 </Button>
@@ -68,15 +61,7 @@ export function ProfileHeader({
                 <Button
                   onClick={handleShowModal}
                   variant="contained"
-                  sx={{
-                    width: "190px",
-                    height: "60px",
-                    borderRadius: "8px",
-                    backgroundColor: "#7209B7",
-                    "&:hover": {
-                      backgroundColor: "#8d28ce",
-                    },
-                  }}
+                  sx={LoginNextButtonB41}
                 >
                   Become partner
                 </Button>
