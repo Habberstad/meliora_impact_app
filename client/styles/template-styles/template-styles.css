@@ -84,10 +84,10 @@
 }
 
 .template-format-buttons{
-    width: 400px;
+    width: 100%;
     height: 120px;
     display: flex;
-    align-self: center;
+    justify-content: center;
     margin: 20px 0 25px 0;
 }
 
