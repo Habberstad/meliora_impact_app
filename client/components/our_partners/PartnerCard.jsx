@@ -23,8 +23,6 @@ export function PartnerCard(props) {
         </div>
         <p>{props.partner.description}</p>
         <div className={"partner-card-button-container"}>
-          {/*TODO: make button component, big and ugly code *2*/}
-
           <Button
             variant="outlined"
             onClick={(e) => {
