@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useContext } from "react";
 import { useLoading } from "../../useLoading";
-import { Button, Grid, Link, MenuItem, Select } from "@mui/material";
+import { Grid, Link, MenuItem, Select } from "@mui/material";
 import "../../styles/dashboard.css";
 import LinearProgress from "@mui/material/LinearProgress";
 import Accordion from "@mui/material/Accordion";
@@ -19,14 +19,8 @@ import WaterIcon from "@mui/icons-material/Water";
 import SchoolIcon from "@mui/icons-material/School";
 import MapChart from "../../MapChart";
 import { HighlightedPartners } from "./HighlightedPartners";
-import goal_1 from "../../media/un_goals/goal_1.svg";
-import goal_2 from "../../media/un_goals/goal_2.svg";
-import goal_3 from "../../media/un_goals/goal_3.svg";
-import goal_4 from "../../media/un_goals/goal_4.svg";
-import goal_5 from "../../media/un_goals/goal_5.svg";
-import goal_6 from "../../media/un_goals/goal_6.svg";
-import goal_7 from "../../media/un_goals/goal_7.svg";
-import goal_8 from "../../media/un_goals/goal_8.svg";
+import { DevelopmentGoalsKnowledge } from "./DevelopmentGoalsKnowledge";
+import { DevelopmentGoalsWater } from "./DevelopmentGoalsWater";
 
 const DashboardPage = () => {
   //TODO: Mer beskrivende navn på state. F.eks. expandPartnerAccordion
@@ -268,34 +262,8 @@ const DashboardPage = () => {
               <div className="un-impact-header">
                 You contribute to these UN Sustainable Development Goals
               </div>
-              <div className="un-impact-icons-row">
-                <div className="un-icon">
-                  <img src={goal_1} alt="" />
-                </div>
-                <div className="un-icon">
-                  <img src={goal_2} alt="" />
-                </div>
-                <div className="un-icon">
-                  <img src={goal_3} alt="" />
-                </div>
-                <div className="un-icon">
-                  <img src={goal_4} alt="" />
-                </div>
-              </div>
-              <div className="un-impact-icons-row">
-                <div className="un-icon">
-                  <img src={goal_5} alt="" />
-                </div>
-                <div className="un-icon">
-                  <img src={goal_6} alt="" />
-                </div>
-                <div className="un-icon">
-                  <img src={goal_7} alt="" />
-                </div>
-                <div className="un-icon">
-                  <img src={goal_8} alt="" />
-                </div>
-              </div>
+              <DevelopmentGoalsKnowledge />
+              <DevelopmentGoalsWater />
             </div>
           </Grid>
           <Grid item xl={12} sx={{ marginTop: "40px" }}>
