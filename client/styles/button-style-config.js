@@ -178,7 +178,7 @@ export const socialMediaButton = {
   backgroundColor: "#FFF",
   boxShadow: "0 0 50px rgba(145, 158, 171, 0.05)",
   margin: "0 12px 0 12px",
-  border: "solid 1px #637381",
+  border: "solid 0.5px lightgrey",
   "&:hover": {
     backgroundColor: "#FFF",
     border: "solid 2px #7209B7",
@@ -194,10 +194,8 @@ export const selectedSocialMediaButton = {
   backgroundColor: "#B8F0DA",
   boxShadow: "0 0 50px rgba(145, 158, 171, 0.05)",
   margin: "0 12px 0 12px",
-
   "&:hover": {
     backgroundColor: "#FFF",
-    border: "solid 2px #7209B7",
     boxShadow:
       "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.24)",
   },
@@ -211,7 +209,7 @@ export const templateFormatButton = {
   height: "50px",
   fontSize: "13px",
   backgroundColor: "#FFF",
-  border: "solid 1px #637381",
+  border: "solid 1px lightgrey",
   borderRadius: "8px",
   color: "black",
   margin: "0 0 15px 0",
