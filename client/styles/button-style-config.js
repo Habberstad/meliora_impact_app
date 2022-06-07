@@ -146,7 +146,7 @@ export const templateCardButtonStyle = {
   width: "120px",
   borderRadius: "8px",
   color: "#000",
-  border: "solid 2px #464D51",
+  border: "solid 1px lightgrey",
   justifyContent: "center",
   alignItems: "center",
   textAlign: "center",
