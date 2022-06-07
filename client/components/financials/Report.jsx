@@ -3,8 +3,6 @@ import { useState } from "react";
 import { Box, Button, Grid, Link, MenuItem, Select } from "@mui/material";
 import MelioraIcon from "../../media/meliora_logo.png";
 import { DonationTable } from "./DonationTable";
-import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
-import { useReactToPrint } from "react-to-print";
 
 const Report = React.forwardRef((props, ref) => {
   const [year, setYear] = useState(new Date().getFullYear());

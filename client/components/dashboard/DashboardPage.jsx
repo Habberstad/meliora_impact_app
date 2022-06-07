@@ -21,7 +21,7 @@ import MapChart from "../../MapChart";
 import { HighlightedPartners } from "./HighlightedPartners";
 
 import placeholder_img from "../../media/dashboard_placeholder.svg";
-import { submitButtonStyle } from "../login/login-styles";
+import { LoginNextButtonB41 } from "../login/login-styles";
 const DashboardPage = () => {
   //TODO: Mer beskrivende navn på state. F.eks. expandPartnerAccordion
   const [expanded, setExpanded] = React.useState(0);

@@ -39,7 +39,7 @@ const FormatStep = () => {
         <div>Select Format</div>
       </div>
       <div className="template-content-subtitle">
-        Select media platform and draft template.
+        Select your preferred media platform and draft template.
       </div>
       <div className="template-step-main-container">
         <div className="template-format-buttons">
@@ -53,7 +53,6 @@ const FormatStep = () => {
           >
             <Button
               onClick={handleShowFormatButtons}
-              variant="outlined"
               sx={
                 isPlatformSelected
                   ? selectedSocialMediaButton
@@ -66,7 +65,6 @@ const FormatStep = () => {
               style={{
                 fontSize: "12px",
                 fontWeight: "500",
-                color: "#464D51",
                 margin: "5px",
               }}
             >

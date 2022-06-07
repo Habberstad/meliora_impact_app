@@ -7,8 +7,8 @@ import {
   paymentImage,
   paymentMethod,
   selectedPaymentMethod,
-  submitButtonStyle,
 } from "./login-styles";
+import { LoginNextButtonB41 } from "../../styles/button-style-config";
 import vippsLogo from "../../media/vipps.svg";
 import paypalLogo from "../../media/paypal.svg";
 import klarnaLogo from "../../media/klarna.svg";
@@ -103,7 +103,7 @@ export const SelectPaymentMethod = (props) => {
           <Button
             disabled={!selectedOption}
             onClick={handlePaymentTypeSubmit}
-            sx={submitButtonStyle}
+            sx={LoginNextButtonB41}
             variant="contained"
           >
             Next

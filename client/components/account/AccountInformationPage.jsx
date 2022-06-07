@@ -1,13 +1,6 @@
 import "../../styles/account-page-styles.css";
-
-import {
-  CurrencyFormater,
-  DateFormater,
-} from "../shared-components/dateFormater";
 import * as React from "react";
-import { Button } from "@mui/material";
-import { useContext, useState } from "react";
-import { SubscriptionApiContext } from "../../api-client/subscriptionApiContext";
+import { useContext } from "react";
 import { UserApiContext } from "../../api-client/userApiContext";
 import { useLoading } from "../../useLoading";
 import { isLoading } from "../shared-components/Loading";
@@ -15,55 +8,7 @@ import { Error } from "../shared-components/Error";
 import "../../styles/discoverPage.css";
 import { GlobalHeader } from "../headers/GlobalHeader";
 import accountHeader from "../../media/account_header.png";
-
-const SubscriptionTable = ({ data }) => {
-  const { deleteSubscription } = useContext(SubscriptionApiContext);
-
-  async function handleCancelOnclick(id) {
-    await deleteSubscription(id);
-    window.location.reload(false);
-  }
-
-  return (
-    <div>
-      <table className={"styled-table"} style={{ width: "100%" }}>
-        <thead>
-          <tr>
-            <th>Subscription ID</th>
-            <th>Organization</th>
-            <th>Type</th>
-            <th>Amount</th>
-            <th>Signing date</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.active_subscriptions.map((item) => (
-            <tr>
-              <td>{item._id}</td>
-              <td>
-                {data.npo_partners.map((npo) => {
-                  if (npo._id === item.npo_id) return npo.name;
-                })}
-              </td>
-              <td>{item.payment_frequency}</td>
-              <td>{item.payment_amount}</td>
-              <td>
-                <DateFormater date={item.date} />
-              </td>
-              <td style={{ width: "30px" }}>
-                <Button onClick={() => handleCancelOnclick(item._id)}>
-                  Cancel
-                </Button>
-              </td>
-              <td></td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-};
+import { SubscriptionTable } from "./SubscriptionTable";
 
 export const AccountInformationPage = ({ user }) => {
   const { getCurrentUser } = useContext(UserApiContext);
@@ -89,9 +34,8 @@ export const AccountInformationPage = ({ user }) => {
 
       <div className="account-page-container">
         <div>
-          <div className="account-page-title">Account Information</div>
           <div className="settings-content-container">
-            <div className="account-page-top-section">
+            <div className="settings-content-top">
               <div className="settings-card">
                 <div className="account-page-title">Company Information</div>
                 <div className="account-page-stronger">Organization name:</div>
@@ -105,22 +49,24 @@ export const AccountInformationPage = ({ user }) => {
                   Organization number:
                 </div>
                 <div className="account-page-text">{data.org_number}</div>
+                <br />
               </div>
 
               <div className="settings-card">
-                <div className="account-page-title">Personal Information</div>
-                <div className="account-page-stronger"> Name:</div>
-                <div
-                  className="account-page-text"
-                  style={{ marginBottom: "10px" }}
-                >
-                  {data.name}
+                <div className="account-page-title">User Information</div>
+                <div className="account-page-stronger">Name:</div>
+                <div className="account-page-text">{data.name}</div>
+                <div className="account-page-stronger">Address:</div>
+                <div className="account-page-text">
+                  {data.address}, {data.city}
                 </div>
                 <div className="account-page-stronger">Email:</div>
                 <div className="account-page-text">{data.email}</div>
+                <br />
               </div>
             </div>
-            <div className="account-page-middle-section">
+
+            <div className="settings-content-top">
               <div className="settings-card">
                 <div className="account-page-title">Payment method</div>
                 <div className="account-page-payment">
@@ -128,16 +74,12 @@ export const AccountInformationPage = ({ user }) => {
                 </div>
                 <div className="account-page-edit">Change payment method</div>
               </div>
-              <div>
-                <div className="settings-card" style={{ marginLeft: "50px" }}>
-                  <div className="account-page-title">
-                    Platform Subscription
-                  </div>
-                  <div className="account-page-payment">
-                    {data.subscription_type.toUpperCase()}
-                  </div>
-                  <div className="account-page-edit">Change payment method</div>
+              <div className="settings-card">
+                <div className="account-page-title">Platform Subscription</div>
+                <div className="account-page-payment">
+                  {data.subscription_type.toUpperCase()}
                 </div>
+                <div className="account-page-edit">Change subscription</div>
               </div>
             </div>
           </div>
