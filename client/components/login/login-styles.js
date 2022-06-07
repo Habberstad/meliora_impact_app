@@ -137,9 +137,26 @@ export const selectedPaymentMethod = {
   },
 };
 
+export const submitButtonStyle = {
+  width: "190px",
+  height: "50px",
+  maxWidth: "190px",
+  maxHeight: "50px",
+  minWidth: "190px",
+  minHeight: "50px",
+  borderRadius: "8px",
+  alignSelf: "center",
+  backgroundColor: "#551477",
+  marginTop: "50px",
+  "&:hover": {
+    backgroundColor: "#aa55d9",
+    color: "#FFF",
+  },
+};
+
 export const identificationButtonStyle = {
   justifyContent: "center",
-  my: "11px",
+  mb: "22px",
   height: "56px",
   borderColor: "#637381",
   color: "#000",
@@ -150,6 +167,16 @@ export const identificationButtonStyle = {
     color: "#637381",
     borderColor: "#FFF",
   },
+};
+
+export const identificationButtonStyleDisabled = {
+  justifyContent: "center",
+  mb: "22px",
+  borderColor: "#637381",
+  color: "#000",
+  backgroundColor: "#FFF",
+  opacity: "0.5",
+  border: "solid 0.5px lightgrey",
 };
 
 export const reviewContainer = {
