@@ -47,14 +47,10 @@ export const ReadMoreButtonB31 = {
 
 //B-4.1
 export const LoginNextButtonB41 = {
-  maxWidth: "190px",
-  maxHeight: "60px",
-  minWidth: "190px",
-  minHeight: "60px",
+  width: "190px",
+  height: "60px",
   borderRadius: "8px",
-  alignSelf: "center",
   backgroundColor: "#551477",
-  marginTop: "50px",
   "&:hover": {
     backgroundColor: "#aa55d9",
     color: "#FFF",
@@ -289,34 +285,6 @@ export const selectedTemplateCard = {
 export const templateCardIconStyle = {
   fontSize: "40px",
   color: "#000",
-};
-
-export const purplePlatformButton = {
-  color: "#FFF",
-  height: "45px",
-  width: "140px",
-  margin: "0 10px 0 10px",
-  borderRadius: "8px",
-  backgroundColor: "#7209B7",
-  "&:hover": {
-    backgroundColor: "#A400FF",
-  },
-};
-
-export const backPlatformButton = {
-  color: "#000",
-  height: "45px",
-  width: "140px",
-  margin: "0 10px 0 10px",
-  borderRadius: "8px",
-  borderColor: "#637381",
-  backgroundColor: "#FFF",
-  border: "solid 0.5px lightgrey",
-  "&:hover": {
-    backgroundColor: "#B8F0DA",
-    color: "#637381",
-    borderColor: "#FFF",
-  },
 };
 
 // DONATE MODAL

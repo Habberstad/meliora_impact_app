@@ -103,7 +103,7 @@ export const SelectPaymentMethod = (props) => {
           <Button
             disabled={!selectedOption}
             onClick={handlePaymentTypeSubmit}
-            sx={LoginNextButtonB41}
+            sx={{ ...LoginNextButtonB41, marginTop: "50px" }}
             variant="contained"
           >
             Next
