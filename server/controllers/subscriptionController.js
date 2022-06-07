@@ -12,7 +12,7 @@ async function list(req, res) {
   }
 
   try {
-    const npo = await SubscriptionService.list(query);
+    const npo = await SubscriptionService.list(req.query);
     return res.status(200).json(npo);
   } catch (e) {
     return res.status(400).json({ status: 400, message: e.message });
@@ -55,11 +55,13 @@ async function create(req, res) {
 
   try {
     const test = await Subscription.find(query)
+    console.log("length", test.length)
     if(test.length !== 0)
       return res.status(409).json({ alreadyExist: true, status: 409, message: "already exist" });
-    console.log(req.body)
+
     await SubscriptionService.create(req.body);
     await TransactionService.create(req.body);
+
     return res.status(201).json({ status: 201 });
   } catch (e) {
     return res.status(400).json({ status: 400, message: e.message });

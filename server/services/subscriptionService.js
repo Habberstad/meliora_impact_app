@@ -23,8 +23,7 @@ async function getById(id) {
 
 async function create(query) {
   try {
-    const data = new SubscriptionRepository.create(query);
-    return await data.save();
+    return await SubscriptionRepository.create(query);
   } catch (e) {
 
     throw Error();
