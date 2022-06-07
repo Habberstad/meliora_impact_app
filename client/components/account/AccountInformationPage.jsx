@@ -15,6 +15,7 @@ import { Error } from "../shared-components/Error";
 import "../../styles/discoverPage.css";
 import { GlobalHeader } from "../headers/GlobalHeader";
 import accountHeader from "../../media/account_header.png";
+import { exploreButtonB21 } from "../../styles/button-style-config";
 
 const SubscriptionTable = ({ data }) => {
   const { deleteSubscription } = useContext(SubscriptionApiContext);
@@ -52,7 +53,10 @@ const SubscriptionTable = ({ data }) => {
                 <DateFormater date={item.date} />
               </td>
               <td style={{ width: "30px" }}>
-                <Button onClick={() => handleCancelOnclick(item._id)}>
+                <Button
+                  sx={exploreButtonB21}
+                  onClick={() => handleCancelOnclick(item._id)}
+                >
                   Cancel
                 </Button>
               </td>
