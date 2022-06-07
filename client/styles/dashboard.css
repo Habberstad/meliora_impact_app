@@ -466,3 +466,13 @@ align-items: center;
 .un-icon {
     margin: 10px 32px;
 }
+
+.development-placeholder{
+    font-size: 14px;
+    color: #464D51;
+    font-weight: 500;
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

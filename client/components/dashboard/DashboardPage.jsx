@@ -238,7 +238,6 @@ const DashboardPage = () => {
               <MapChart markers={locations} />
             </div>
           </Grid>
-
           <Grid item xl={12} lg={12} sx={{ marginTop: "40px" }}>
             <div className="dashboard-impact-container">
               <div className="un-impact-header">
@@ -250,7 +249,7 @@ const DashboardPage = () => {
                   <DevelopmentGoalsWater />
                 </>
               ) : (
-                <div style={{ marginTop: "50px" }}>
+                <div className="development-placeholder">
                   Donate to one of our non-profits to see your contribution
                 </div>
               )}
