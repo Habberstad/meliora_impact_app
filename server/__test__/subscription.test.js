@@ -45,7 +45,6 @@ describe("get all subscription route", () => {
       const npo_id1 = new ObjectId().toString();
       const sub1 = new Subscription({
         _id: id1,
-        name: "name1",
         user_id: "1111",
         npo_id: npo_id1,
         payment_amount: 1000,
@@ -57,7 +56,6 @@ describe("get all subscription route", () => {
       const npo_id2 = new ObjectId().toString();
       const sub2 = new Subscription({
         _id: id2,
-        name: "name2",
         user_id: "3333",
         npo_id: npo_id2,
         payment_amount: 2500,
@@ -69,7 +67,6 @@ describe("get all subscription route", () => {
       const npo_id3 = new ObjectId().toString();
       const sub3 = new Subscription({
         _id: id3,
-        name: "name3",
         user_id: "5555",
         npo_id: npo_id3,
         payment_amount: 1000,
@@ -77,30 +74,27 @@ describe("get all subscription route", () => {
       });
       await sub3.save();
 
-      const res = await supertest(app).get("/api/subscription");
+      const res = await supertest(app).get("/api/subscriptions");
       expect(res.statusCode).toBe(200);
       expect(res.body.length).toBe(3);
 
       expect(res.body[0]._id).toBe(id1);
-      expect(res.body[0].name).toBe("name1");
       expect(res.body[0].user_id).toBe("1111");
       expect(res.body[0].npo_id).toBe(npo_id1);
       expect(res.body[0].payment_amount).toBe(1000);
-      expect(res.body[0].payment_frequency).toBe(1);
+      expect(res.body[0].payment_frequency).toBe("1");
 
       expect(res.body[1]._id).toBe(id2);
-      expect(res.body[1].name).toBe("name2");
       expect(res.body[1].user_id).toBe("3333");
       expect(res.body[1].npo_id).toBe(npo_id2);
       expect(res.body[1].payment_amount).toBe(2500);
-      expect(res.body[1].payment_frequency).toBe(2);
+      expect(res.body[1].payment_frequency).toBe("2");
 
       expect(res.body[2]._id).toBe(id3);
-      expect(res.body[2].name).toBe("name3");
       expect(res.body[2].user_id).toBe("5555");
       expect(res.body[2].npo_id).toBe(npo_id3);
       expect(res.body[2].payment_amount).toBe(1000);
-      expect(res.body[2].payment_frequency).toBe(2);
+      expect(res.body[2].payment_frequency).toBe("2");
     });
   });
 });
@@ -112,7 +106,6 @@ describe("get all subscription route with query param", () => {
       const npo_id1 = new ObjectId().toString();
       const sub1 = new Subscription({
         _id: id1,
-        name: "name1",
         user_id: "1111",
         npo_id: npo_id1,
         payment_amount: 1000,
@@ -124,7 +117,6 @@ describe("get all subscription route with query param", () => {
       const npo_id2 = new ObjectId().toString();
       const sub2 = new Subscription({
         _id: id2,
-        name: "name2",
         user_id: "3333",
         npo_id: npo_id2,
         payment_amount: 2500,
@@ -136,7 +128,6 @@ describe("get all subscription route with query param", () => {
       const npo_id3 = new ObjectId().toString();
       const sub3 = new Subscription({
         _id: id3,
-        name: "name3",
         user_id: "5555",
         npo_id: npo_id3,
         payment_amount: 1000,
@@ -144,11 +135,11 @@ describe("get all subscription route with query param", () => {
       });
       await sub3.save();
 
-      const res = await supertest(app).get("/api/subscription?payment_frequency=2");
+      const res = await supertest(app).get("/api/subscriptions?payment_frequency=2");
+
       expect(res.statusCode).toBe(200);
       expect(res.body.length).toBe(2);
       expect(res.body[0]._id).toBe(id2);
-      expect(res.body[0].name).toBe("name2");
       expect(res.body[0].npo_id).toBe(npo_id);
     });
   });
@@ -162,7 +153,6 @@ describe("get by id subscription route", () => {
       const npo_id1 = new ObjectId().toString();
       const sub1 = new Subscription({
         _id: id1,
-        name: "name1",
         user_id: "1111",
         npo_id: npo_id1,
         payment_amount: 1000,
@@ -174,7 +164,6 @@ describe("get by id subscription route", () => {
       const npo_id2 = new ObjectId().toString();
       const sub2 = new Subscription({
         _id: id2,
-        name: "name2",
         user_id: "3333",
         npo_id: npo_id2,
         payment_amount: 2500,
@@ -186,7 +175,6 @@ describe("get by id subscription route", () => {
       const npo_id3 = new ObjectId().toString();
       const sub3 = new Subscription({
         _id: id3,
-        name: "name3",
         user_id: "5555",
         npo_id: npo_id3,
         payment_amount: 1000,
@@ -194,10 +182,9 @@ describe("get by id subscription route", () => {
       });
       await sub3.save();
 
-      const res = await supertest(app).get("/api/subscription/" + id2);
+      const res = await supertest(app).get("/api/subscriptions/" + id2);
       expect(res.statusCode).toBe(200);
       expect(res.body._id).toBe(id2);
-      expect(res.body.name).toBe("name2");
       expect(res.body.npo_id).toBe("4444");
     });
   });
@@ -212,7 +199,6 @@ describe("get by id subscription route", () => {
       const npo_id1 = new ObjectId().toString();
       const sub1 = new Subscription({
         _id: id1,
-        name: "name1",
         user_id: "1111",
         npo_id: npo_id1,
         payment_amount: 1000,
@@ -220,7 +206,29 @@ describe("get by id subscription route", () => {
       });
       await sub1.save();
 
-      const res = await supertest(app).get("/api/subscription/nonMatchingId");
+      const id2 = new ObjectId().toString();
+      const npo_id2 = new ObjectId().toString();
+      const sub2 = new Subscription({
+        _id: id2,
+        user_id: "3333",
+        npo_id: npo_id2,
+        payment_amount: 2500,
+        payment_frequency: "2"
+      });
+      await sub2.save();
+
+      const id3 = new ObjectId().toString();
+      const npo_id3 = new ObjectId().toString();
+      const sub3 = new Subscription({
+        _id: id3,
+        user_id: "5555",
+        npo_id: npo_id3,
+        payment_amount: 1000,
+        payment_frequency: "2"
+      });
+      await sub3.save();
+
+      const res = await supertest(app).get("/api/subscriptions/nonMatchingId");
       expect(res.statusCode).toBe(400);
     });
   });
@@ -230,15 +238,15 @@ describe("post subscription route", () => {
   describe("When creating a new entry to db", () => {
     it("should return status 201, and can be retrieved with get", async () => {
       const id1 = new ObjectId().toString();
-      const query = { name: "subscription1", category: "water", _id: id1 };
-      const res = await supertest(app).post("/api/subscription").send(query);
+      const npo_id1 = new ObjectId().toString();
+      const query = { _id: id1, npo_id: npo_id1, user_id: "3333", payment_frequency: "123", payment_amount: 100 };
+      const res = await supertest(app).post("/api/subscriptions").send(query);
       expect(res.statusCode).toBe(201);
 
-      const res2 = await supertest(app).get("/api/subscription/" + id1);
+      const res2 = await supertest(app).get("/api/subscriptions/" + id1);
       expect(res2.statusCode).toBe(200);
       expect(res2.body._id).toBe(id1);
-      expect(res2.body.name).toBe("subscription1");
-      expect(res2.body.category).toBe("water");
+      expect(res2.body.payment_amount).toBe(100);
     });
   });
 });
