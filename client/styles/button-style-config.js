@@ -1,4 +1,7 @@
 //Styleguide buttons
+//-----------------
+
+//B-4.1
 export const LoginNextButtonB41 = {
   maxWidth: "190px",
   maxHeight: "60px",
@@ -14,6 +17,36 @@ export const LoginNextButtonB41 = {
   },
 };
 
+//B-3.1
+export const CreateTemplateButtonB32 = {
+  mx: "10px",
+  width: "140px",
+  height: "45px",
+  textTransform: "none",
+  borderRadius: "8px",
+  color: "#464D51",
+  borderColor: "#637381",
+  "&:hover": {
+    borderColor: "#B8F0DA",
+    backgroundColor: "#B8F0DA",
+    color: "#000",
+  },
+};
+
+//B-3.1
+export const ReadMoreButtonB31 = {
+  mx: "10px",
+  width: "140px",
+  height: "45px",
+  textTransform: "none",
+  borderRadius: "8px",
+  backgroundColor: "#551477",
+  "&:hover": {
+    backgroundColor: "#7209B7",
+  },
+};
+
+//---------------------
 //styleguide byttons end
 
 export const navButtonStyle = {
