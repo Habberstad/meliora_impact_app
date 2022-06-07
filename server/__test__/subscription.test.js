@@ -140,15 +140,17 @@ describe("get all subscription route with query param", () => {
       expect(res.statusCode).toBe(200);
       expect(res.body.length).toBe(2);
       expect(res.body[0]._id).toBe(id2);
-      expect(res.body[0].npo_id).toBe(npo_id);
+      expect(res.body[0].npo_id).toBe(npo_id2);
+      expect(res.body[1]._id).toBe(id3);
+      expect(res.body[1].npo_id).toBe(npo_id3);
     });
   });
 });
 
 // get by id
 describe("get by id subscription route", () => {
-  describe("Given the subscriptions exist", () => {
-    it("should return a 200 and return only matching subscription", async () => {
+  describe("Given the subscription exist", () => {
+    it("should return a 200 and return the matching subscription", async () => {
       const id1 = new ObjectId().toString();
       const npo_id1 = new ObjectId().toString();
       const sub1 = new Subscription({
@@ -185,7 +187,7 @@ describe("get by id subscription route", () => {
       const res = await supertest(app).get("/api/subscriptions/" + id2);
       expect(res.statusCode).toBe(200);
       expect(res.body._id).toBe(id2);
-      expect(res.body.npo_id).toBe("4444");
+      expect(res.body.npo_id).toBe(npo_id2);
     });
   });
 });
