@@ -20,9 +20,14 @@ import SchoolIcon from "@mui/icons-material/School";
 import MapChart from "../../MapChart";
 import { HighlightedPartners } from "./HighlightedPartners";
 import goal_1 from "../../media/un_goals/goal_1.svg";
+import goal_2 from "../../media/un_goals/goal_2.svg";
+import goal_3 from "../../media/un_goals/goal_3.svg";
+import goal_4 from "../../media/un_goals/goal_4.svg";
+import goal_5 from "../../media/un_goals/goal_5.svg";
+import goal_6 from "../../media/un_goals/goal_6.svg";
+import goal_7 from "../../media/un_goals/goal_7.svg";
+import goal_8 from "../../media/un_goals/goal_8.svg";
 
-import placeholder_img from "../../media/dashboard_placeholder.svg";
-import { LoginNextButtonB41 } from "../login/login-styles";
 const DashboardPage = () => {
   //TODO: Mer beskrivende navn på state. F.eks. expandPartnerAccordion
   const [expanded, setExpanded] = React.useState(0);
@@ -71,28 +76,6 @@ const DashboardPage = () => {
   const locations = [];
 
   partners.map((x) => locations.push(x.locations[0]));
-
-  /* if (data.active_subscriptions.length === 0)
-    return (
-      <div className="dashboard-placeholder-wrapper">
-        <div className="placeholder-image">
-          <img src={placeholder_img} alt="placeholder_img" />
-        </div>
-        <div className="global-header-title" style={{ marginTop: "50px" }}>
-          Find a partner and get started
-        </div>
-        <div className="dashboard-header-sub-title">
-          Dashboard will be generated once you have subscribed to a partner
-        </div>
-        <Button
-          variant="contained"
-          sx={{ ...submitButtonStyle, marginTop: "30px" }}
-          onClick={() => navigate("/discover")}
-        >
-          Discover
-        </Button>
-      </div>
-    );*/
 
   return (
     <div className={"dashboard-wrapper"}>
