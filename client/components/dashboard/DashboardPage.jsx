@@ -50,6 +50,8 @@ const DashboardPage = () => {
   const history = data.donation_history;
   const npoList = data.npo_partners;
 
+  console.log("history?", history);
+
   const filteredHistory = history.filter((donation) => donation.npo_id === npo);
 
   let donationHistory = filteredHistory.length > 0 ? filteredHistory : history;
@@ -69,7 +71,7 @@ const DashboardPage = () => {
 
   partners.map((x) => locations.push(x.locations[0]));
 
-  if (data.active_subscriptions.length === 0)
+  /* if (data.active_subscriptions.length === 0)
     return (
       <div className="dashboard-placeholder-wrapper">
         <div className="placeholder-image">
@@ -89,7 +91,7 @@ const DashboardPage = () => {
           Discover
         </Button>
       </div>
-    );
+    );*/
 
   return (
     <div className={"dashboard-wrapper"}>
@@ -184,67 +186,93 @@ const DashboardPage = () => {
           <Grid item xl={5} lg={5} className={"donation-history-container"}>
             <div className={"donation-history-filter"}>
               <div className={"donation-history-title"}>Donation History</div>
-              <div className={"donation-history-filter-wrapper"}>
-                <div className={"donation-filter-select-wrapper"}>
-                  <Select
-                    className={"donation-filter-select"}
-                    defaultValue={"Recent"}
-                    onChange={handleChange1}
-                    displayEmpty
-                    inputProps={{ "aria-label": "Without label" }}
-                    sx={{
-                      color: "#ffff",
-                      "& .MuiSelect-iconOpen": { color: "#ffff" },
-                      "& .MuiSelect-icon": { color: "#ffff" },
-                      borderRadius: "10px",
-                      textAlign: "center",
-                    }}
-                  >
-                    <MenuItem value={"Recent"} label="All">
-                      Recent
-                    </MenuItem>
-                    {npoList.map((x) => (
-                      <MenuItem key={x._id} value={x._id}>
-                        {x.name}
-                      </MenuItem>
-                    ))}
-                  </Select>
-                </div>
-              </div>
-              <Grid container>
-                <div className={"donation-history-timeline-container"}>
-                  <Grid item>
-                    <div className="donation-list-container">
-                      {donationHistory
-                        .slice(0)
-                        .reverse()
-                        .map((donation, index) => {
-                          if (index <= 3)
-                            return (
-                              <DonationListItem
-                                npoList={npoList}
-                                donation={donation}
-                              />
-                            );
-                        })}
+              {history.length > 0 ? (
+                <>
+                  <div className={"donation-history-filter-wrapper"}>
+                    <div className={"donation-filter-select-wrapper"}>
+                      <Select
+                        className={"donation-filter-select"}
+                        defaultValue={"Recent"}
+                        onChange={handleChange1}
+                        displayEmpty
+                        inputProps={{ "aria-label": "Without label" }}
+                        sx={{
+                          color: "#ffff",
+                          "& .MuiSelect-iconOpen": { color: "#ffff" },
+                          "& .MuiSelect-icon": { color: "#ffff" },
+                          borderRadius: "10px",
+                          textAlign: "center",
+                        }}
+                      >
+                        <MenuItem value={"Recent"} label="All">
+                          Recent
+                        </MenuItem>
+                        {npoList.map((x) => (
+                          <MenuItem key={x._id} value={x._id}>
+                            {x.name}
+                          </MenuItem>
+                        ))}
+                      </Select>
                     </div>
-                  </Grid>
-                </div>
-                <div className={"donation-see-all-wrapper"}>
-                  <div
-                    onClick={() => navigate("/accounting")}
-                    className={"donation-see-all"}
-                  >
-                    See all donations
+                  </div>
+                  <Grid container justifyContent={"center"}>
+                    <div className={"donation-history-timeline-container"}>
+                      <Grid item>
+                        <div className="donation-list-container">
+                          {donationHistory
+                            .slice(0)
+                            .reverse()
+                            .map((donation, index) => {
+                              if (index <= 3)
+                                return (
+                                  <DonationListItem
+                                    npoList={npoList}
+                                    donation={donation}
+                                  />
+                                );
+                            })}
+                        </div>
+                      </Grid>
+                    </div>
+                    <div className={"donation-see-all-wrapper"}>
+                      <div
+                        onClick={() => navigate("/accounting")}
+                        className={"donation-see-all"}
+                      >
+                        See all donations
+                      </div>
+                    </div>
+                  </Grid>{" "}
+                </>
+              ) : (
+                <div>
+                  {" "}
+                  <div>
+                    <div
+                      style={{
+                        width: "350px",
+                        fontSize: "14px",
+                        color: "#464D51",
+                        fontWeight: "500",
+                        marginTop: "75px",
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                      }}
+                    >
+                      <div style={{ marginTop: "100px " }}>
+                        You currently have no donation history
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </Grid>
+              )}
             </div>
           </Grid>
           <Grid item xl={7} lg={7} className={"map"}>
             <div className="dashboard-map-container">
               <div className="map-text-container">
-                <div className="map-title">Global reach</div>
+                <div className="map-title">Global Reach</div>
                 <div className="map-subtitle">
                   Locations your contributions impact
                 </div>
