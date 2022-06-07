@@ -81,7 +81,7 @@ const MediaTemplatePage = () => {
           </div>
           <div className="template-header-sub-title">
             <strong>Create</strong> modern and stunning content with our unique
-            templates, designed by proffesionals.
+            templates, designed by our professionals.
           </div>
         </div>
       </div>
