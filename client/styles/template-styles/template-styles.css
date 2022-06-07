@@ -157,15 +157,11 @@
     display: flex;
     margin-bottom: 16px;
     cursor: pointer;
+    border: solid 1px lightgrey;
 }
 .template-project-card:hover{
-    width: 730px;
-    height: 135px;
     border-radius: 12px;
-    box-shadow: 0 1.53px 7.66px rgba(0, 0, 0, 0.25);
-    display: flex;
-    margin-bottom: 14px;
-    border: solid 2px #7209B7;
+    border: solid 1px #7209B7;
 }
 
 .template-project-container img {
