@@ -382,6 +382,17 @@ align-items: center;
     margin-top: 5px;
 }
 
+.donation-placeholder-text{
+    width: 350px;
+    font-size: 14px;
+    color: #464D51;
+    font-weight: 500;
+    margin-top: 75px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 /**map**/
 
 

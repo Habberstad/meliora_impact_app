@@ -217,18 +217,7 @@ const DashboardPage = () => {
               ) : (
                 <div>
                   <div>
-                    <div
-                      style={{
-                        width: "350px",
-                        fontSize: "14px",
-                        color: "#464D51",
-                        fontWeight: "500",
-                        marginTop: "75px",
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "center",
-                      }}
-                    >
+                    <div className="donation-placeholder-text">
                       <div style={{ marginTop: "100px " }}>
                         You currently have no donation history
                       </div>
