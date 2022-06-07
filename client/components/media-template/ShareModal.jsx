@@ -13,7 +13,7 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import { purplePlatformButton } from "../../styles/button-style-config";
+import { ReadMoreButtonB31 } from "../../styles/button-style-config";
 import * as React from "react";
 
 export function ShareModal({
@@ -84,7 +84,7 @@ export function ShareModal({
           <div className="meliora-wrapped-share-modal-buttons-bot">
             <Button
               variant={"contained"}
-              sx={purplePlatformButton}
+              sx={ReadMoreButtonB31}
               style={{ margin: "20px 5px 0px 0px" }}
               onClick={onClick5}
             >
@@ -92,7 +92,7 @@ export function ShareModal({
             </Button>
             <Button
               variant={"contained"}
-              sx={purplePlatformButton}
+              sx={ReadMoreButtonB31}
               style={{ margin: "20px 0px 0px 5px" }}
               onClick={onClick6}
             >

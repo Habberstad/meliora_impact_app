@@ -22,7 +22,11 @@ import {
 } from "@mui/material";
 import { modalStyle } from "./modal-style";
 import { useState } from "react";
-import { purplePlatformButton } from "../../styles/button-style-config";
+import {
+  CreateTemplateButtonB32,
+  purplePlatformButton,
+  ReadMoreButtonB31,
+} from "../../styles/button-style-config";
 
 const MelioraWrapped = () => {
   {
@@ -223,7 +227,7 @@ const MelioraWrapped = () => {
                 <div className="meliora-wrapped-share-modal-buttons-bot">
                   <Button
                     variant={"contained"}
-                    sx={purplePlatformButton}
+                    sx={ReadMoreButtonB31}
                     style={{ margin: "20px 5px 0px 0px" }}
                     onClick={handleDownload}
                   >
@@ -231,7 +235,7 @@ const MelioraWrapped = () => {
                   </Button>
                   <Button
                     variant={"contained"}
-                    sx={purplePlatformButton}
+                    sx={ReadMoreButtonB31}
                     style={{ margin: "20px 0px 0px 5px" }}
                     onClick={handleShare}
                   >

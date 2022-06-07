@@ -10,8 +10,8 @@ import CustomizeStep from "./CustomizeStep";
 import ReviewStep from "./ReviewStep";
 import ContentStep from "./ContentStep";
 import {
-  backPlatformButton,
-  purplePlatformButton,
+  CreateTemplateButtonB32,
+  ReadMoreButtonB31,
 } from "../../styles/button-style-config";
 import { useReactToPrint } from "react-to-print";
 import { ShareModal } from "./ShareModal";
@@ -21,8 +21,6 @@ const steps = ["Content", "Format", "Customize", "Review"];
 const MediaTemplatePage = () => {
   const [activeStep, setActiveStep] = useState(0);
   const [completed, setCompleted] = useState({});
-  const [npoList, setNpoList] = useState();
-  const [projectList, setProjectList] = useState();
   const { getCurrentUser } = useContext(UserApiContext);
   const componentRef = useRef();
   const handlePrint = useReactToPrint({
@@ -45,7 +43,7 @@ const MediaTemplatePage = () => {
   const [shareLink, setShareLink] = useState("");
 
   const handleShare = () => {
-    if (shareLink == "") alert("Unavailable");
+    if (shareLink === "") alert("Unavailable");
     else open(shareLink);
   };
 
@@ -134,7 +132,7 @@ const MediaTemplatePage = () => {
           {activeStep === 0 ? null : (
             <>
               <Button
-                sx={backPlatformButton}
+                sx={CreateTemplateButtonB32}
                 onClick={handleBack}
                 disabled={activeStep === 0}
                 variant="outlined"
@@ -143,14 +141,18 @@ const MediaTemplatePage = () => {
               </Button>
               {activeStep === 3 ? (
                 <>
-                  <Button onClick={shareHandleOpen} sx={purplePlatformButton}>
+                  <Button
+                    variant={"contained"}
+                    onClick={shareHandleOpen}
+                    sx={ReadMoreButtonB31}
+                  >
                     Share
                   </Button>
                 </>
               ) : (
                 <Button
                   variant="contained"
-                  sx={purplePlatformButton}
+                  sx={ReadMoreButtonB31}
                   onClick={handleNext}
                 >
                   Next
