@@ -1,7 +1,7 @@
 import { Button, Grid } from "@mui/material";
 import {
-  highlightedNavButtonStyle,
-  navButtonStyle,
+  highlightedFilterButtonB43,
+  filterButtonB43,
 } from "../../styles/button-style-config";
 import { TableRows } from "@mui/icons-material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -20,7 +20,9 @@ export function CategoryFilter(props) {
         <Grid item>
           <Button
             sx={
-              selectedButton === "" ? highlightedNavButtonStyle : navButtonStyle
+              selectedButton === ""
+                ? { ...filterButtonB43, ...highlightedFilterButtonB43 }
+                : filterButtonB43
             }
             onClick={() => categoryOnClickHandler("")}
             value={""}
@@ -34,8 +36,8 @@ export function CategoryFilter(props) {
           <Button
             sx={
               selectedButton === "water"
-                ? highlightedNavButtonStyle
-                : navButtonStyle
+                ? { ...filterButtonB43, ...highlightedFilterButtonB43 }
+                : filterButtonB43
             }
             onClick={() => categoryOnClickHandler("water")}
             value={"water"}
@@ -49,8 +51,8 @@ export function CategoryFilter(props) {
           <Button
             sx={
               selectedButton === "knowledge"
-                ? highlightedNavButtonStyle
-                : navButtonStyle
+                ? { ...filterButtonB43, ...highlightedFilterButtonB43 }
+                : filterButtonB43
             }
             onClick={() => categoryOnClickHandler("knowledge")}
             value={"knowledge"}

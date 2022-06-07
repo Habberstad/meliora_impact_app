@@ -4,10 +4,7 @@ import BankIdIcon from "../../media/bankid_icon.png";
 import MicrosoftIcon from "../../media/microsoft_icon.png";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
-import {
-  identificationButtonStyle,
-  identificationButtonStyleDisabled,
-} from "./login-styles";
+import { identificationButtonStyle } from "./login-styles";
 
 export const SelectIdentificationMethod = (props) => {
   const navigate = useNavigate();
@@ -27,7 +24,6 @@ export const SelectIdentificationMethod = (props) => {
           sx={identificationButtonStyle}
           fullWidth
           variant={"outlined"}
-          size={"large"}
           onClick={() => {
             props.google();
           }}
@@ -39,11 +35,9 @@ export const SelectIdentificationMethod = (props) => {
           onClick={() => {
             navigate("/register-form");
           }}
-          disabled={true}
-          sx={identificationButtonStyleDisabled}
+          sx={{ ...identificationButtonStyle, opacity: "0.5" }}
           fullWidth
           variant={"outlined"}
-          size={"large"}
         >
           <img
             style={{ height: "40px", width: "30%", objectFit: "cover" }}
@@ -57,10 +51,9 @@ export const SelectIdentificationMethod = (props) => {
           onClick={() => {
             navigate("/register-form");
           }}
-          sx={identificationButtonStyleDisabled}
+          sx={{ ...identificationButtonStyle, opacity: "0.5" }}
           fullWidth
           variant={"outlined"}
-          size={"large"}
         >
           <img
             style={{ height: "40px" }}
@@ -75,7 +68,6 @@ export const SelectIdentificationMethod = (props) => {
           sx={identificationButtonStyle}
           fullWidth
           variant={"outlined"}
-          size={"large"}
         >
           Register Manually
         </Button>

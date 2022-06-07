@@ -1,5 +1,6 @@
 import { Button, Checkbox, Tooltip } from "@mui/material";
-import { reviewContainer, submitButtonStyle } from "./login-styles";
+import { reviewContainer } from "./login-styles";
+import { LoginNextButtonB41 } from "../../styles/button-style-config";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { BackButton } from "./BackButton";
 
@@ -84,7 +85,7 @@ export const RegistrationSummary = (props) => {
           <Button
             disabled={isNotCompleted}
             onClick={handleSubmit}
-            sx={submitButtonStyle}
+            sx={LoginNextButtonB41}
             variant="contained"
           >
             Confirm

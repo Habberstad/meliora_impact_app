@@ -1,4 +1,53 @@
-export const navButtonStyle = {
+//Styleguide buttons
+//-----------------
+
+//B-4.1
+export const LoginNextButtonB41 = {
+  maxWidth: "190px",
+  maxHeight: "60px",
+  minWidth: "190px",
+  minHeight: "60px",
+  borderRadius: "8px",
+  alignSelf: "center",
+  backgroundColor: "#551477",
+  marginTop: "50px",
+  "&:hover": {
+    backgroundColor: "#aa55d9",
+    color: "#FFF",
+  },
+};
+
+//B-3.1
+export const CreateTemplateButtonB32 = {
+  mx: "10px",
+  width: "140px",
+  height: "45px",
+  textTransform: "none",
+  borderRadius: "8px",
+  color: "#464D51",
+  borderColor: "#637381",
+  "&:hover": {
+    borderColor: "#B8F0DA",
+    backgroundColor: "#B8F0DA",
+    color: "#000",
+  },
+};
+
+//B-3.1
+export const ReadMoreButtonB31 = {
+  mx: "10px",
+  width: "140px",
+  height: "45px",
+  textTransform: "none",
+  borderRadius: "8px",
+  backgroundColor: "#551477",
+  "&:hover": {
+    backgroundColor: "#7209B7",
+  },
+};
+
+//B-4.3
+export const filterButtonB43 = {
   fontFamily: "Montserrat",
   boxShadow:
     "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.24)",
@@ -17,25 +66,12 @@ export const navButtonStyle = {
       "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.24)",
   },
 };
-export const highlightedNavButtonStyle = {
-  fontFamily: "Montserrat",
-  boxShadow:
-    "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.24)",
-
-  width: "190px",
-  height: "60px",
-  borderRadius: "8px",
+export const highlightedFilterButtonB43 = {
   backgroundColor: "#B8F0DA",
-  textTransform: "none",
-  fontSize: "16px",
-  fontWeight: 500,
-  color: "#353535",
-  "&:hover": {
-    backgroundColor: "#B8F0DA",
-    boxShadow:
-      "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.24)",
-  },
 };
+
+//---------------------
+//styleguide byttons end
 
 export const outlinedTabButtonStyle = {
   color: "#000",
