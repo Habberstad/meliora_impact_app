@@ -2,6 +2,7 @@ import { useNavigate } from "react-router";
 import { Button, Card, CardMedia, Divider } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDroplet, faGraduationCap } from "@fortawesome/free-solid-svg-icons";
+import { exploreButtonB21 } from "../../styles/button-style-config";
 
 export function ProjectCard({
   project: { name, description, category, _id, card_image },
@@ -59,22 +60,7 @@ export function ProjectCard({
             navigate("/npo-profile/" + _id);
           }}
           variant="contained"
-          sx={{
-            width: "100px",
-            height: "35px",
-            borderRadius: "10px",
-            backgroundColor: "#551477",
-            textTransform: "none",
-            fontSize: "12px",
-            boxShadow:
-              "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.24)",
-            fontWeight: "400",
-            "&:hover": {
-              backgroundColor: "#7209B7",
-              boxShadow:
-                "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.24)",
-            },
-          }}
+          sx={exploreButtonB21}
         >
           Explore
         </Button>
