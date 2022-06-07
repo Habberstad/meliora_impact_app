@@ -34,7 +34,7 @@ const SubscriptionTable = ({ data }) => {
             <th>Type</th>
             <th>Amount</th>
             <th>Signing date</th>
-            <th></th>
+            <th />
           </tr>
         </thead>
         <tbody>
@@ -56,7 +56,7 @@ const SubscriptionTable = ({ data }) => {
                   Cancel
                 </Button>
               </td>
-              <td></td>
+              <td />
             </tr>
           ))}
         </tbody>
