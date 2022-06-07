@@ -1,24 +1,17 @@
 import * as React from "react";
-import { DataGrid, GridToolbar } from "@mui/x-data-grid";
-import ReactToPrint, { useReactToPrint } from "react-to-print";
-import { Box, Button, Grid, MenuItem, Select } from "@mui/material";
+import { useReactToPrint } from "react-to-print";
+import { Box, Button, MenuItem, Select } from "@mui/material";
 import { useRef, useState } from "react";
 import Report from "./Report";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
-import SubscriptionTable from "./SubscriptionsPage";
 import "../../styles/financesPage.css";
 import {
   unselectedFilterTabStyle,
   selectedFilterTabStyleNew,
   exploreButtonB21,
 } from "../../styles/button-style-config";
-import {
-  CurrencyFormater,
-  DateFormater,
-} from "../shared-components/dateFormater";
-import { Subscript } from "@mui/icons-material";
+import { DateFormater } from "../shared-components/dateFormater";
 import { useContext } from "react";
-import { SubscriptionApiContext } from "../../api-client/subscriptionApiContext";
 import { UserApiContext } from "../../api-client/userApiContext";
 import { useLoading } from "../../useLoading";
 import { isLoading } from "../shared-components/Loading";
