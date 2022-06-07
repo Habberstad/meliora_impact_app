@@ -1,18 +1,16 @@
 import { Box, Button, Modal, Tooltip } from "@mui/material";
 import { BackButton } from "./BackButton";
 import { useNavigate } from "react-router";
-import { SubscriptionInfoGrid } from "./SubscriptionInfoGrid";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import { SubscriptionInfoModal } from "./SubscriptionInfoModal";
 import { useState } from "react";
 import {
   selectedSubscriptionTypeFreemium,
   subscriptionTypeFreemium,
   selectedSubscriptionTypePremium,
   subscriptionTypePremium,
-  submitButtonStyle,
   subscriptionFeaturesButton,
 } from "./login-styles";
+import { LoginNextButtonB41 } from "../../styles/button-style-config";
 import * as React from "react";
 import {
   modalStyle,
@@ -125,7 +123,7 @@ export const SelectSubscription = (props) => {
             <div className="select-subscription-modal">
               Which features can we offer?
             </div>
-            <SubscriptionInfoGrid />
+            <SubscriptionInfoModal />
           </Box>
         </Modal>
       </div>
@@ -138,7 +136,7 @@ export const SelectSubscription = (props) => {
           <Button
             disabled={!subscriptionType}
             onClick={handleSubscriptionSubmit}
-            sx={{ ...submitButtonStyle, marginTop: "30px" }}
+            sx={{ ...LoginNextButtonB41, marginTop: "30px" }}
             variant="contained"
           >
             Next

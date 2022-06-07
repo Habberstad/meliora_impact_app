@@ -1,7 +1,7 @@
 import { Button } from "@mui/material";
 import {
-  highlightedNavButtonStyle,
-  navButtonStyle,
+  highlightedFilterButtonB43,
+  filterButtonB43,
 } from "../../styles/button-style-config";
 import AppsIcon from "@mui/icons-material/Apps";
 import FlareIcon from "@mui/icons-material/Flare";
@@ -23,8 +23,8 @@ export function NavigationBar({
         variant="contained"
         sx={
           selectedTab === "overview"
-            ? highlightedNavButtonStyle
-            : navButtonStyle
+            ? highlightedFilterButtonB43
+            : filterButtonB43
         }
       >
         <AppsIcon sx={{ marginRight: "10px" }} />
@@ -35,8 +35,8 @@ export function NavigationBar({
         variant="contained"
         sx={
           selectedTab === "projects"
-            ? highlightedNavButtonStyle
-            : navButtonStyle
+            ? highlightedFilterButtonB43
+            : filterButtonB43
         }
       >
         <FlareIcon sx={{ marginRight: "10px" }} />
@@ -46,7 +46,9 @@ export function NavigationBar({
         onClick={onClick2}
         variant="contained"
         sx={
-          selectedTab === "impact" ? highlightedNavButtonStyle : navButtonStyle
+          selectedTab === "impact"
+            ? highlightedFilterButtonB43
+            : filterButtonB43
         }
       >
         <VolunteerActivismIcon sx={{ marginRight: "10px" }} />
@@ -57,8 +59,8 @@ export function NavigationBar({
         variant="contained"
         sx={
           selectedTab === "keyinformation"
-            ? highlightedNavButtonStyle
-            : navButtonStyle
+            ? highlightedFilterButtonB43
+            : filterButtonB43
         }
       >
         <RemoveRedEyeIcon sx={{ marginRight: "10px" }} />

@@ -13,7 +13,6 @@ import { SelectIdentificationMethod } from "./SelectIdentificationMethod";
 import { UserApiContext } from "../../api-client/userApiContext";
 import { RegistrationSummary } from "./RegistrationSummary";
 import { PostLoginIntroSelection } from "./PostLoginIntroSelection";
-import { LoginCard } from "./login-styles";
 
 export const LoginPage = () => {
   const navigate = useNavigate();

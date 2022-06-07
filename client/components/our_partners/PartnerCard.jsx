@@ -2,6 +2,10 @@ import { Button } from "@mui/material";
 import { useNavigate } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDroplet, faGraduationCap } from "@fortawesome/free-solid-svg-icons";
+import {
+  CreateTemplateButtonB32,
+  ReadMoreButtonB31,
+} from "../../styles/button-style-config";
 
 export function PartnerCard(props) {
   const navigate = useNavigate();
@@ -19,28 +23,13 @@ export function PartnerCard(props) {
         </div>
         <p>{props.partner.description}</p>
         <div className={"partner-card-button-container"}>
-          {/*TODO: make button component, big and ugly code *2*/}
-
           <Button
             variant="outlined"
             onClick={(e) => {
               e.stopPropagation();
               navigate("/templates");
             }}
-            sx={{
-              mx: "10px",
-              width: "140px",
-              height: "45px",
-              textTransform: "none",
-              borderRadius: "10px",
-              color: "#464D51",
-              borderColor: "#637381",
-              "&:hover": {
-                borderColor: "#B8F0DA",
-                backgroundColor: "#B8F0DA",
-                color: "#000",
-              },
-            }}
+            sx={CreateTemplateButtonB32}
           >
             Create template
           </Button>
@@ -50,17 +39,7 @@ export function PartnerCard(props) {
               navigate("/npo-profile/" + props.partner._id);
             }}
             variant="contained"
-            sx={{
-              mx: "10px",
-              width: "140px",
-              height: "45px",
-              textTransform: "none",
-              borderRadius: "10px",
-              backgroundColor: "#551477",
-              "&:hover": {
-                backgroundColor: "#7209B7",
-              },
-            }}
+            sx={ReadMoreButtonB31}
           >
             Read more
           </Button>
