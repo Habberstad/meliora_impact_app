@@ -19,6 +19,7 @@ import WaterIcon from "@mui/icons-material/Water";
 import SchoolIcon from "@mui/icons-material/School";
 import MapChart from "../../MapChart";
 import { HighlightedPartners } from "./HighlightedPartners";
+import goal_1 from "../../media/un_goals/goal_1.svg";
 
 import placeholder_img from "../../media/dashboard_placeholder.svg";
 import { LoginNextButtonB41 } from "../login/login-styles";
@@ -242,11 +243,10 @@ const DashboardPage = () => {
                         See all donations
                       </div>
                     </div>
-                  </Grid>{" "}
+                  </Grid>
                 </>
               ) : (
                 <div>
-                  {" "}
                   <div>
                     <div
                       style={{
@@ -278,6 +278,16 @@ const DashboardPage = () => {
                 </div>
               </div>
               <MapChart markers={locations} />
+            </div>
+          </Grid>
+          <Grid item xl={12} lg={12} sx={{ marginTop: "40px" }}>
+            <div className="dashboard-impact-container">
+              <div className="un-impact-header">
+                You contribute to these UN Sustainable Development Goals
+              </div>
+              <div>
+                <img src={goal_1} alt="" />
+              </div>
             </div>
           </Grid>
           <Grid item xl={12} sx={{ marginTop: "40px" }}>
