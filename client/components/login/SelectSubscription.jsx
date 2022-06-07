@@ -1,7 +1,7 @@
 import { Box, Button, Modal, Tooltip } from "@mui/material";
 import { BackButton } from "./BackButton";
 import { useNavigate } from "react-router";
-import { SubscriptionInfoGrid } from "./SubscriptionInfoGrid";
+import { SubscriptionInfoModal } from "./SubscriptionInfoModal";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { useState } from "react";
@@ -125,7 +125,7 @@ export const SelectSubscription = (props) => {
             <div className="select-subscription-modal">
               Which features can we offer?
             </div>
-            <SubscriptionInfoGrid />
+            <SubscriptionInfoModal />
           </Box>
         </Modal>
       </div>

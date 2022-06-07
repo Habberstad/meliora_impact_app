@@ -19,7 +19,7 @@ import {
   faCalendar,
 } from "@fortawesome/free-regular-svg-icons";
 
-export function SubscriptionInfoGrid() {
+export function SubscriptionInfoModal() {
   return (
     <Grid container columnSpacing={3} rowSpacing={4}>
       <SubscriptionInfoCard
