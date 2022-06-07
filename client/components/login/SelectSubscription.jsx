@@ -2,8 +2,6 @@ import { Box, Button, Modal, Tooltip } from "@mui/material";
 import { BackButton } from "./BackButton";
 import { useNavigate } from "react-router";
 import { SubscriptionInfoModal } from "./SubscriptionInfoModal";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { useState } from "react";
 import {
   selectedSubscriptionTypeFreemium,
