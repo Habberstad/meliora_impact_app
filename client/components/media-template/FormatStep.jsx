@@ -18,9 +18,9 @@ const cards = ["Twitter", "Facebook", "Instagram", "Newsletter", "Newsletter"];
 const templateFormats = ["Text", "Visual Data", "Updates"];
 
 const FormatStep = () => {
-  const [isPlatformSelected, setIsPlatformSelected] = useState(false);
-  const [isFormatSelected, setIsFormatSelected] = useState(false);
-  const [isTemplateCardSelected, setIsTemplateCardSelected] = useState(false);
+  const [isPlatformSelected, setIsPlatformSelected] = useState(true);
+  const [isFormatSelected, setIsFormatSelected] = useState(true);
+  const [isTemplateCardSelected, setIsTemplateCardSelected] = useState(true);
 
   const handleShowFormatButtons = () => {
     setIsPlatformSelected((prevState) => !prevState);
@@ -39,7 +39,7 @@ const FormatStep = () => {
         <div>Select Format</div>
       </div>
       <div className="template-content-subtitle">
-        Select media platform and draft template.
+        Select your preferred media platform and draft template.
       </div>
       <div className="template-step-main-container">
         <div className="template-format-buttons">
