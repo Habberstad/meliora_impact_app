@@ -14,7 +14,7 @@ async function getById(id) {
 
     return await Subscription.findById(id);
   } catch (e) {
-    throw Error();
+    throw Error(e);
   }
 }
 
@@ -25,8 +25,7 @@ async function create(query) {
     const data = new Subscription(query);
     return await data.save();
   } catch (e) {
-
-    throw Error();
+    throw Error(e);
   }
 }
 
@@ -35,8 +34,7 @@ async function deleteRecord(_id) {
 
     return await Subscription.findByIdAndDelete(_id);
   } catch (e) {
-
-    throw Error();
+    throw Error(e);
   }
 }
 
@@ -78,7 +76,7 @@ async function listByUserId(_id) {
 
     ]);
   } catch (e) {
-    throw Error();
+    throw Error(e);
   }
 
 }
