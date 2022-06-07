@@ -26,6 +26,7 @@ import financialsHeader from "../../media/financials_header.png";
 import { GlobalHeader } from "../headers/GlobalHeader";
 
 export const AccountingPage = (props) => {
+  const months = [];
   const [selectedFilterTab, setSelectedFilterTab] = useState("donation");
   const [filterTab, setFilterTab] = useState("donation");
 
