@@ -1,19 +1,17 @@
 //Styleguide buttons
 //-----------------
 
-//B-4.1
-export const LoginNextButtonB41 = {
-  maxWidth: "190px",
-  maxHeight: "60px",
-  minWidth: "190px",
-  minHeight: "60px",
+//B-2.1
+export const exploreButtonB21 = {
+  width: "100px",
+  height: "35px",
   borderRadius: "8px",
-  alignSelf: "center",
   backgroundColor: "#551477",
-  marginTop: "50px",
+  textTransform: "none",
+  fontSize: "12px",
+  fontWeight: "400",
   "&:hover": {
-    backgroundColor: "#aa55d9",
-    color: "#FFF",
+    backgroundColor: "#7209B7",
   },
 };
 
@@ -43,6 +41,22 @@ export const ReadMoreButtonB31 = {
   backgroundColor: "#551477",
   "&:hover": {
     backgroundColor: "#7209B7",
+  },
+};
+
+//B-4.1
+export const LoginNextButtonB41 = {
+  maxWidth: "190px",
+  maxHeight: "60px",
+  minWidth: "190px",
+  minHeight: "60px",
+  borderRadius: "8px",
+  alignSelf: "center",
+  backgroundColor: "#551477",
+  marginTop: "50px",
+  "&:hover": {
+    backgroundColor: "#aa55d9",
+    color: "#FFF",
   },
 };
 
