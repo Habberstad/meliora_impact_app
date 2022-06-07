@@ -238,7 +238,7 @@ const DashboardPage = () => {
               <MapChart markers={locations} />
             </div>
           </Grid>
-          <Grid item xl={12} lg={12} sx={{ marginTop: "40px" }}>
+          <Grid item xl={12} lg={12} sx={{ marginTop: "10px" }}>
             <div className="dashboard-impact-container">
               <div className="un-impact-header">
                 You contribute to these UN Sustainable Development Goals
