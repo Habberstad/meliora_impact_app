@@ -9,7 +9,6 @@ HighlightedPartners.propTypes = {
 };
 
 export function HighlightedPartners(props) {
-  console.log("partner", props.highlighted.length === 0);
   return (
     <div className={"highlighted-partners-container"}>
       <div className={"highlighted-title-view-container"}>

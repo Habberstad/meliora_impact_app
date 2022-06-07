@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useLoading } from "../../useLoading";
 import { Grid, Link, MenuItem, Select } from "@mui/material";
 import "../../styles/dashboard.css";
@@ -23,10 +23,8 @@ import { DevelopmentGoalsKnowledge } from "./DevelopmentGoalsKnowledge";
 import { DevelopmentGoalsWater } from "./DevelopmentGoalsWater";
 
 const DashboardPage = () => {
-  //TODO: Mer beskrivende navn på state. F.eks. expandPartnerAccordion
-  const [expanded, setExpanded] = React.useState(0);
-
-  const [npo, setNpo] = React.useState("");
+  const [expanded, setExpanded] = useState(0);
+  const [npo, setNpo] = useState("");
 
   const navigate = useNavigate();
   const { getCurrentUser } = useContext(UserApiContext);
@@ -49,12 +47,11 @@ const DashboardPage = () => {
   const highlighted = data.npo_partners;
   const history = data.donation_history;
   const npoList = data.npo_partners;
-
-  console.log("history?", history);
-
   const filteredHistory = history.filter((donation) => donation.npo_id === npo);
-
   let donationHistory = filteredHistory.length > 0 ? filteredHistory : history;
+  const partners = data.npo_partners;
+  const locations = [];
+  partners.map((x) => locations.push(x.locations[0]));
 
   function iconCat(npo) {
     if (npo.category === "water") {
@@ -65,12 +62,7 @@ const DashboardPage = () => {
     }
   }
 
-  const partners = data.npo_partners;
-
-  const locations = [];
-
-  partners.map((x) => locations.push(x.locations[0]));
-
+  console.log(npoList);
   return (
     <div className={"dashboard-wrapper"}>
       <div className={"dashboard-container"}>
@@ -257,13 +249,22 @@ const DashboardPage = () => {
               <MapChart markers={locations} />
             </div>
           </Grid>
+
           <Grid item xl={12} lg={12} sx={{ marginTop: "40px" }}>
             <div className="dashboard-impact-container">
               <div className="un-impact-header">
                 You contribute to these UN Sustainable Development Goals
               </div>
-              <DevelopmentGoalsKnowledge />
-              <DevelopmentGoalsWater />
+              {npoList.length > 0 ? (
+                <>
+                  <DevelopmentGoalsKnowledge />
+                  <DevelopmentGoalsWater />
+                </>
+              ) : (
+                <div style={{ marginTop: "50px" }}>
+                  Donate to one of our non-profits to see your contribution
+                </div>
+              )}
             </div>
           </Grid>
           <Grid item xl={12} sx={{ marginTop: "40px" }}>
