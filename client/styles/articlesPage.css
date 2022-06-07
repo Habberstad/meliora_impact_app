@@ -56,18 +56,18 @@
 }
 
 
-.container-0 {
+.container-big {
     width: 100%;
 }
 
-.container-content-0{
+.container-content-big{
     display: flex;
     flex-direction: column;
     position: relative;
     width: 100%;
 }
 
-.container-content-0 img{
+.container-content-big img{
     object-fit: cover;
     width: 100%;
     height: 700px;
@@ -76,14 +76,14 @@
 
 }
 
-.card-content-container-0 {
+.card-content-container-big {
     bottom: 5%;
     right: 15px;
     left: 15px;
     position: absolute;
 }
 
-.content-text-0{
+.content-text-big{
     max-width: 580px;
     overflow-wrap: break-word;
 }
@@ -100,14 +100,15 @@
 .card-content-date{
     background: white;
     color: black;
+    background: white;
     overflow-wrap: break-word;
     font-size: 20px;
 }
-.date-text-0 {
+.date-text-big {
     overflow-wrap: break-word;
 }
 
-.npo-text-0 {
+.npo-text-big {
     background: black;
     color: white;
     position: absolute;
@@ -127,41 +128,41 @@
     width: 100%;
 }
 
-.articles-container-content-1{
+.container-content-medium{
     display: flex;
     flex-direction: column;
     position: relative;
     width: 100%;
 }
 
-.articles-container-content-1 img{
+.container-content-medium img{
     object-fit: cover;
     width: 100%;
     height: 334px;
     border-radius: 20px;
     box-shadow: 0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 1.24);
 }
-.content-text-1{
+.content-text-medium{
     top: 220px;
     left: 5px;
     max-width: 500px;
     overflow-wrap: break-word;
 }
 
-.date-text-1 {
+.date-text-medium {
     max-width: 200px;
     font-size: 15px;
     overflow-wrap: break-word;
 }
 
-.card-content-container-1{
+.card-content-container-medium{
     bottom: 5%;
     right: 15px;
     left: 15px;
     position: absolute;
 }
 
-.npo-text-1 {
+.npo-text-medium {
     background: black;
     color: white;
     position: absolute;
@@ -179,15 +180,14 @@
 }
 
 
-.container-content-2{
+.container-content-small{
     display: flex;
     flex-direction: column;
     position: relative;
     width: 100%;
 }
 
-
-.container-content-2 img{
+.container-content-small img{
     object-fit: cover;
     width: 100%;
     height: 334px;
@@ -195,12 +195,12 @@
     box-shadow: 0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 1.24);
 }
 
-.content-text-2{
+.content-text-small{
     max-width: 310px;
     overflow-wrap: break-word;
 }
 
-.card-content-text-2{
+.card-content-text-small{
     background: hsla(0, 0%, 0%, 0.6);
     line-height: 1.3;
     color: white;
@@ -208,7 +208,7 @@
     margin-top: 10px;
 }
 
-.card-content-container-2{
+.card-content-container-small{
     bottom: 5%;
     right: 15px;
     left: 15px;
@@ -217,13 +217,13 @@
 }
 
 
-.date-text-2{
+.date-text-small {
     max-width: 200px;
     overflow-wrap: break-word;
     font-size: 14px;
 }
 
-.npo-text-2 {
+.npo-text-small {
     background: black;
     color: white;
     position: absolute;
