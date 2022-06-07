@@ -5,7 +5,7 @@ export function SubscriptionInfoCard({ header, text, icon, isPartnerOnly }) {
     <Grid item sm={6} md={4}>
       <div className={"subscription-type-information-content"}>
         {icon}
-        <p>{header}</p>
+        <p style={{ fontWeight: "bold" }}>{header}</p>
         <p>{text}</p>
         {isPartnerOnly && (
           <div className={"subscription-type-info-badge"}>
