@@ -9,6 +9,7 @@ import { Error } from "../shared-components/Error";
 import { GlobalHeader } from "../headers/GlobalHeader";
 import { HEADER } from "../headers/HEADER";
 import headerImg from "../../media/articles_header_image.png";
+import { ArticleSection } from "./ArticleSection";
 
 const ArticlesPage = () => {
   const [category, setCategory] = useState("");
@@ -53,6 +54,8 @@ const ArticlesPage = () => {
         onClick2={() => handleNavigationAndFiltering("knowledge")}
       />
       <ArticlesContent filterList={filterList} />
+      <div className="bottom-header">Articles You Should Check Out</div>
+      <ArticleSection />
     </div>
   );
 };

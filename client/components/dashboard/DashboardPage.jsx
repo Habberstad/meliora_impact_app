@@ -9,7 +9,7 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { UserApiContext } from "../../api-client/userApiContext";
-import { ArticleSelection } from "./ArticleSelection";
+import { ArticleSection } from "../articles/ArticleSection";
 import { isLoading } from "../shared-components/Loading";
 import { Error } from "../shared-components/Error";
 import { ImpactSection } from "./ImpactSection";
@@ -242,11 +242,10 @@ const DashboardPage = () => {
                         See all donations
                       </div>
                     </div>
-                  </Grid>{" "}
+                  </Grid>
                 </>
               ) : (
                 <div>
-                  {" "}
                   <div>
                     <div
                       style={{
@@ -281,7 +280,8 @@ const DashboardPage = () => {
             </div>
           </Grid>
           <Grid item xl={12} sx={{ marginTop: "40px" }}>
-            <ArticleSelection />
+            <div className="bottom-header">Latest Articles</div>
+            <ArticleSection />
           </Grid>
         </Grid>
       </div>
