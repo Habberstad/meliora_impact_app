@@ -1,13 +1,6 @@
 import "../../styles/account-page-styles.css";
-
-import {
-  CurrencyFormater,
-  DateFormater,
-} from "../shared-components/dateFormater";
 import * as React from "react";
-import { Button } from "@mui/material";
-import { useContext, useState } from "react";
-import { SubscriptionApiContext } from "../../api-client/subscriptionApiContext";
+import { useContext } from "react";
 import { UserApiContext } from "../../api-client/userApiContext";
 import { useLoading } from "../../useLoading";
 import { isLoading } from "../shared-components/Loading";
@@ -15,59 +8,7 @@ import { Error } from "../shared-components/Error";
 import "../../styles/discoverPage.css";
 import { GlobalHeader } from "../headers/GlobalHeader";
 import accountHeader from "../../media/account_header.png";
-import { exploreButtonB21 } from "../../styles/button-style-config";
-
-const SubscriptionTable = ({ data }) => {
-  const { deleteSubscription } = useContext(SubscriptionApiContext);
-
-  async function handleCancelOnclick(id) {
-    await deleteSubscription(id);
-    window.location.reload(false);
-  }
-
-  return (
-    <div>
-      <table className={"styled-table"} style={{ width: "100%" }}>
-        <thead>
-          <tr>
-            <th>Subscription ID</th>
-            <th>Organization</th>
-            <th>Type</th>
-            <th>Amount</th>
-            <th>Signing date</th>
-            <th />
-          </tr>
-        </thead>
-        <tbody>
-          {data.active_subscriptions.map((item) => (
-            <tr>
-              <td>{item._id}</td>
-              <td>
-                {data.npo_partners.map((npo) => {
-                  if (npo._id === item.npo_id) return npo.name;
-                })}
-              </td>
-              <td>{item.payment_frequency}</td>
-              <td>{item.payment_amount}</td>
-              <td>
-                <DateFormater date={item.date} />
-              </td>
-              <td style={{ width: "30px" }}>
-                <Button
-                  sx={exploreButtonB21}
-                  onClick={() => handleCancelOnclick(item._id)}
-                >
-                  Cancel
-                </Button>
-              </td>
-              <td />
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-};
+import { SubscriptionTable } from "./SubscriptionTable";
 
 export const AccountInformationPage = ({ user }) => {
   const { getCurrentUser } = useContext(UserApiContext);
@@ -108,7 +49,7 @@ export const AccountInformationPage = ({ user }) => {
                   Organization number:
                 </div>
                 <div className="account-page-text">{data.org_number}</div>
-                <br></br>
+                <br />
               </div>
 
               <div className="settings-card">
@@ -121,7 +62,7 @@ export const AccountInformationPage = ({ user }) => {
                 </div>
                 <div className="account-page-stronger">Email:</div>
                 <div className="account-page-text">{data.email}</div>
-                <br></br>
+                <br />
               </div>
             </div>
 
