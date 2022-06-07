@@ -1,4 +1,68 @@
-export const navButtonStyle = {
+//Styleguide buttons
+//-----------------
+
+//B-2.1
+export const exploreButtonB21 = {
+  width: "100px",
+  height: "35px",
+  borderRadius: "8px",
+  backgroundColor: "#551477",
+  textTransform: "none",
+  color: "#FFF",
+  fontSize: "12px",
+  fontWeight: "400",
+  "&:hover": {
+    backgroundColor: "#7209B7",
+  },
+};
+
+//B-3.1
+export const CreateTemplateButtonB32 = {
+  mx: "10px",
+  width: "140px",
+  height: "45px",
+  textTransform: "none",
+  borderRadius: "8px",
+  color: "#464D51",
+  borderColor: "#637381",
+  "&:hover": {
+    borderColor: "#B8F0DA",
+    backgroundColor: "#B8F0DA",
+    color: "#000",
+  },
+};
+
+//B-3.1
+export const ReadMoreButtonB31 = {
+  mx: "10px",
+  width: "140px",
+  height: "45px",
+  textTransform: "none",
+  borderRadius: "8px",
+  backgroundColor: "#551477",
+  "&:hover": {
+    backgroundColor: "#7209B7",
+  },
+};
+
+//B-4.1
+export const LoginNextButtonB41 = {
+  maxWidth: "190px",
+  maxHeight: "60px",
+  minWidth: "190px",
+  minHeight: "60px",
+  borderRadius: "8px",
+  alignSelf: "center",
+  backgroundColor: "#551477",
+  marginTop: "50px",
+  "&:hover": {
+    backgroundColor: "#aa55d9",
+    color: "#FFF",
+  },
+};
+
+//B-4.3
+export const filterButtonB43 = {
   fontFamily: "Montserrat",
   boxShadow:
     "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.24)",
@@ -7,7 +71,7 @@ export const navButtonStyle = {
   height: "60px",
   borderRadius: "8px",
   backgroundColor: "#fff",
-  textTransform: "lowercase",
+  textTransform: "none",
   fontSize: "16px",
   fontWeight: 500,
   color: "#353535",
@@ -17,25 +81,12 @@ export const navButtonStyle = {
       "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.24)",
   },
 };
-export const highlightedNavButtonStyle = {
-  fontFamily: "Montserrat",
-  boxShadow:
-    "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.24)",
-
-  width: "190px",
-  height: "60px",
-  borderRadius: "8px",
+export const highlightedFilterButtonB43 = {
   backgroundColor: "#B8F0DA",
-  textTransform: "lowercase",
-  fontSize: "16px",
-  fontWeight: 500,
-  color: "#353535",
-  "&:hover": {
-    backgroundColor: "#B8F0DA",
-    boxShadow:
-      "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.24)",
-  },
 };
+
+//---------------------
+//styleguide byttons end
 
 export const outlinedTabButtonStyle = {
   color: "#000",
@@ -96,7 +147,7 @@ export const templateCardButtonStyle = {
   width: "120px",
   borderRadius: "8px",
   color: "#000",
-  border: "solid 2px #464D51",
+  border: "solid 1px lightgrey",
   justifyContent: "center",
   alignItems: "center",
   textAlign: "center",
@@ -116,7 +167,6 @@ export const templateSelectedCardButtonStyle = {
   height: "130px",
   width: "120px",
   borderRadius: "8px",
-  border: "solid 2px #464D51",
   justifyContent: "center",
   alignItems: "center",
   textAlign: "center",
@@ -133,19 +183,21 @@ export const templateSelectedCardButtonStyle = {
 };
 
 // Social Media Template
-//    - Style for social media boxes
+//    - Style for social media boxes (top section)
 
 export const socialMediaButton = {
   width: "53px",
   height: "53px",
   borderRadius: "8px",
   backgroundColor: "#FFF",
-  boxShadow: "0 0 50px rgba(145, 158, 171, 0.05)",
+  boxShadow:
+    "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.05)",
   margin: "0 12px 0 12px",
-  border: "solid 2px #637381",
+  border: "solid 0.5px lightgrey",
+
   "&:hover": {
-    backgroundColor: "#FFF",
-    border: "solid 2px #7209B7",
+    border: "transparent",
+    backgroundColor: "#B8F0DA",
     boxShadow:
       "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.24)",
   },
@@ -155,13 +207,11 @@ export const selectedSocialMediaButton = {
   width: "53px",
   height: "53px",
   borderRadius: "8px",
-  backgroundColor: "#FFF",
+  backgroundColor: "#B8F0DA",
   boxShadow: "0 0 50px rgba(145, 158, 171, 0.05)",
   margin: "0 12px 0 12px",
-  border: "solid 2px #7209B7",
   "&:hover": {
-    backgroundColor: "#FFF",
-    border: "solid 2px #7209B7",
+    backgroundColor: "#B8F0DA",
     boxShadow:
       "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.24)",
   },
@@ -175,7 +225,7 @@ export const templateFormatButton = {
   height: "50px",
   fontSize: "13px",
   backgroundColor: "#FFF",
-  border: "solid 1px #637381",
+  border: "solid 1px lightgrey",
   borderRadius: "8px",
   color: "black",
   margin: "0 0 15px 0",
@@ -206,10 +256,10 @@ export const selectedTemplateFormatButton = {
 };
 
 // Social Media Template
-//    - template format button (left side)
+//    - template format card (bottom section)
 
 export const templateCard = {
-  border: "solid 2px #637381",
+  border: "solid 1px lightgrey",
   height: "210px",
   width: "140px",
   margin: "5px 15px 0px 0px",
@@ -217,24 +267,22 @@ export const templateCard = {
   backgroundColor: "#FFF",
 
   "&:hover": {
-    border: "solid 3px #7209B7",
-    backgroundColor: "#FFF",
+    backgroundColor: "#B8F0DA",
     boxShadow:
       "0px 0px 2px rgba(148, 157, 176, 0.15), 0px 16px 32px -4px rgba(148, 157, 176, 0.15)",
   },
 };
 
 export const selectedTemplateCard = {
-  border: "solid 3px #7209B7",
   height: "210px",
   width: "140px",
   margin: "5px 15px 0px 0px",
   borderRadius: "16px",
+  backgroundColor: "#B8F0DA",
   "&:hover": {
-    border: "solid 3px #7209B7",
-    backgroundColor: "#FFF",
+    backgroundColor: "#B8F0DA",
     boxShadow:
-      "0px 0px 2px rgba(148, 157, 176, 0.15), 0px 16px 32px -4px rgba(148, 157, 176, 0.15)",
+      "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.24)",
   },
 };
 
@@ -434,12 +482,10 @@ export const selectedFilterTabStyleNew = {
   borderRadius: "8px 8px 0 0",
   fontWeight: "600px",
   lineHeight: "22px",
-"&:hover": {
-    backgroundColor:"#551477",
+  "&:hover": {
+    backgroundColor: "#551477",
   },
-  }
-
-;
+};
 
 export const unselectedFilterTabStyle = {
   color: "#000000",
@@ -449,5 +495,4 @@ export const unselectedFilterTabStyle = {
   borderRadius: "8px 8px 0 0",
   fontSize: "14px",
   fontWeight: "600px",
-
 };

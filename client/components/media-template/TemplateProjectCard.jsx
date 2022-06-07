@@ -1,6 +1,6 @@
 const TemplateProjectCard = ({ data }) => (
   <div className="template-project-card">
-    <div style={{ width: "252px" }}>
+    <div>
       <img src={data.header_image} alt="header image" />
     </div>
     <div>

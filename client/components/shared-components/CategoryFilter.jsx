@@ -1,11 +1,11 @@
 import { Button, Grid } from "@mui/material";
-import SchoolIcon from "@mui/icons-material/School";
-import OpacityIcon from "@mui/icons-material/Opacity";
-import FilterAltOffIcon from "@mui/icons-material/FilterAltOff";
 import {
-  highlightedNavButtonStyle,
-  navButtonStyle,
+  highlightedFilterButtonB43,
+  filterButtonB43,
 } from "../../styles/button-style-config";
+import { TableRows } from "@mui/icons-material";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDroplet, faGraduationCap } from "@fortawesome/free-solid-svg-icons";
 
 export function CategoryFilter(props) {
   const selectedButton = props.category;
@@ -20,12 +20,14 @@ export function CategoryFilter(props) {
         <Grid item>
           <Button
             sx={
-              selectedButton === "" ? highlightedNavButtonStyle : navButtonStyle
+              selectedButton === ""
+                ? { ...filterButtonB43, ...highlightedFilterButtonB43 }
+                : filterButtonB43
             }
             onClick={() => categoryOnClickHandler("")}
             value={""}
             variant="contained"
-            startIcon={<FilterAltOffIcon />}
+            startIcon={<TableRows />}
           >
             All
           </Button>
@@ -34,13 +36,13 @@ export function CategoryFilter(props) {
           <Button
             sx={
               selectedButton === "water"
-                ? highlightedNavButtonStyle
-                : navButtonStyle
+                ? { ...filterButtonB43, ...highlightedFilterButtonB43 }
+                : filterButtonB43
             }
             onClick={() => categoryOnClickHandler("water")}
             value={"water"}
             variant="contained"
-            startIcon={<OpacityIcon />}
+            startIcon={<FontAwesomeIcon icon={faDroplet} />}
           >
             Water
           </Button>
@@ -49,13 +51,13 @@ export function CategoryFilter(props) {
           <Button
             sx={
               selectedButton === "knowledge"
-                ? highlightedNavButtonStyle
-                : navButtonStyle
+                ? { ...filterButtonB43, ...highlightedFilterButtonB43 }
+                : filterButtonB43
             }
             onClick={() => categoryOnClickHandler("knowledge")}
             value={"knowledge"}
             variant="contained"
-            startIcon={<SchoolIcon />}
+            startIcon={<FontAwesomeIcon icon={faGraduationCap} />}
           >
             Knowledge
           </Button>

@@ -1,6 +1,6 @@
 .account-page-wrapper {
     width: 100vw;
-    margin: 75px 5% 0 5%;
+    margin: 75px 5% 75px 5%;
 }
 
 .account-page-container{
@@ -26,25 +26,26 @@
 }
 
 .account-page-title {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 600;
     margin-bottom: 15px;
 }
 
 .account-page-stronger {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
 }
 
 .account-page-payment{
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 500;
 }
 
 .account-page-text{
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 500;
     margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .account-page-middle-section{
@@ -63,27 +64,31 @@
     border-bottom: #5D5FEF solid 1px;
 }
 
-.settings-card{
-    display: flex;
-    flex-direction: column;
-    margin-right: 30px;
-}
-
-
-
 .settings-content-container{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     border-radius: 12px;
     box-shadow: 0 0 50px rgba(145, 158, 171, 0.2);
     background-color: #FFF;
     width: 500px;
 }
 
+.settings-content-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.settings-card{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    width: 220px;
+}
+
 .table-container{
     align-self: flex-start;
     margin-top: 60px;
+    margin-bottom: 5%;
     width: 1000px;
 }

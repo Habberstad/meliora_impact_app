@@ -3,8 +3,6 @@ import { useState } from "react";
 import { Box, Button, Grid, Link, MenuItem, Select } from "@mui/material";
 import MelioraIcon from "../../media/meliora_logo.png";
 import { DonationTable } from "./DonationTable";
-import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
-import { useReactToPrint } from "react-to-print";
 
 const Report = React.forwardRef((props, ref) => {
   const [year, setYear] = useState(new Date().getFullYear());
@@ -68,40 +66,6 @@ const Report = React.forwardRef((props, ref) => {
         {/* **************** OUTSIDE IS VISIBLE IN ON PRINT OUT  **********************************************************************************/}
 
         <Grid item xs={12}>
-          <Box
-            sx={{
-              display: "block",
-              displayPrint: "none",
-            }}
-          >
-            <div className={"accounting-calender"}>
-              <Select
-                id={"year"}
-                defaultValue={"2022"}
-                onChange={yearChange}
-                inputProps={{ "aria-label": "Without label" }}
-              >
-                <MenuItem value={2022}>2022</MenuItem>
-                <MenuItem value={2021}>2021</MenuItem>
-                <MenuItem value={2020}>2020</MenuItem>
-              </Select>
-              <Select
-                id={"month"}
-                defaultValue={"Juni"}
-                inputProps={{ "aria-label": "Without label" }}
-              >
-                <MenuItem value={"Jan"}>Jan</MenuItem>
-                <MenuItem value={"Feb"}>Feb</MenuItem>
-                <MenuItem value={"Mar"}>Mar</MenuItem>
-                <MenuItem value={"Juni"}>Juni</MenuItem>
-              </Select>
-              <CalendarMonthIcon
-                className={"accounting-icon-calender"}
-                fontSize={"large"}
-              />
-            </div>
-          </Box>
-
           <DonationTable
             data={filteredTransactions}
             user={user}

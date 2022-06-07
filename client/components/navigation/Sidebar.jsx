@@ -15,12 +15,13 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import SettingsIcon from "@mui/icons-material/Settings";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import PeopleIcon from "@mui/icons-material/People";
+import { useNavigate } from "react-router";
 
 const Sidebar = () => {
+  const navigate = useNavigate();
   const user = React.useContext(UserContext);
 
   const { pathname: location } = useLocation();
-  console.log("location", location);
 
   function handleLogoutClick() {
     window.location.href = window.location.origin + "/auth/logout";
@@ -34,7 +35,6 @@ const Sidebar = () => {
   const handleNavigationState = (tabValue) => {
     setSelectedTab(tabValue);
   };
-  console.log(user);
 
   return (
     <div className="sidebar-container">
@@ -44,7 +44,10 @@ const Sidebar = () => {
         </Link>
       </div>
 
-      <div className="profile-name-badge">
+      <div
+        className="profile-name-badge"
+        onClick={() => navigate("/account-information")}
+      >
         <div style={{ margin: "10px 0" }}> {user.org_name} </div>
         {/* TODO: Replace with username */}
         <div
