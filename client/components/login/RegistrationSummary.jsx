@@ -1,7 +1,7 @@
 import { Button, Checkbox, Tooltip } from "@mui/material";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { reviewContainer } from "./login-styles";
 import { LoginNextButtonB41 } from "../../styles/button-style-config";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { BackButton } from "./loginCommonComponents/BackButton";
 
 export const RegistrationSummary = (props) => {

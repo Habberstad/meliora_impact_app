@@ -1,8 +1,8 @@
-import { BackButton } from "./loginCommonComponents/BackButton";
-import { Button, Tooltip } from "@mui/material";
-import { useNavigate } from "react-router";
 import { useState } from "react";
+import { useNavigate } from "react-router";
+import { Button, Tooltip } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import { BackButton } from "./loginCommonComponents/BackButton";
 import {
   paymentImage,
   paymentMethod,

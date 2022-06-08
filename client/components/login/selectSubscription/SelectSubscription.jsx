@@ -12,13 +12,9 @@ import {
 } from "../login-styles";
 import { LoginNextButtonB41 } from "../../../styles/button-style-config";
 import * as React from "react";
-import {
-  modalStyle,
-  selectSubscriptionModalStyle,
-} from "../../wrapped/modal-style";
+import { selectSubscriptionModalStyle } from "../../wrapped/modal-style";
 
 export const SelectSubscription = (props) => {
-  const [isShowingInfo, setIsShowingInfo] = useState(false);
   const [subscriptionType, setSubscriptionType] = useState(
     props.subscriptionType
   );
