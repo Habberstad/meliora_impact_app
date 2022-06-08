@@ -1,13 +1,14 @@
-import { BackButton } from "../loginCommonComponents/BackButton";
-import { Button, InputAdornment, TextField, Tooltip } from "@mui/material";
-import { useNavigate } from "react-router";
-import * as React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router";
+
+import { Button, InputAdornment, TextField, Tooltip } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import { LoginNextButtonB41 } from "../../../styles/button-style-config";
-import { UserApiContext } from "../../../api-client/userApiContext";
+import { BackButton } from "../loginCommonComponents/BackButton";
 import ErrorMessage from "../../shared-components/ErrorMessage";
 import { CompanySearchListItem } from "./CompanySearchListItem";
+import { LoginNextButtonB41 } from "../../../styles/button-style-config";
+import { findCompanyInputField } from "../login-styles";
+import { UserApiContext } from "../../../api-client/userApiContext";
 
 export const FindCompany = ({ handleCompanyInfo }) => {
   const navigate = useNavigate();
@@ -108,18 +109,7 @@ export const FindCompany = ({ handleCompanyInfo }) => {
       <TextField
         onChange={onChangeHandler}
         value={txtFieldValue}
-        sx={{
-          width: "100%",
-          mt: "22px",
-          "& .MuiOutlinedInput-root.Mui-focused": {
-            "& > fieldset": {
-              borderColor: "#7209B7",
-            },
-          },
-          "& .MuiInputLabel-root.Mui-focused": {
-            color: "#7209B7",
-          },
-        }}
+        sx={findCompanyInputField}
         label="Company Name / Organization Number"
         variant="outlined"
         InputProps={{

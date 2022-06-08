@@ -38,6 +38,19 @@ export const selectedCompanyListItem = {
   },
 };
 
+export const findCompanyInputField = {
+  width: "100%",
+  mt: "22px",
+  "& .MuiOutlinedInput-root.Mui-focused": {
+    "& > fieldset": {
+      borderColor: "#7209B7",
+    },
+  },
+  "& .MuiInputLabel-root.Mui-focused": {
+    color: "#7209B7",
+  },
+};
+
 export const subscriptionTypeFreemium = {
   justifyContent: "space-between",
   mb: "22px",
