@@ -1,93 +1,49 @@
-import Subscription from "../models/subscriptionModel.js";
 import { ObjectId } from "mongodb";
-import User from "../models/userModel.js";
+import SubscriptionRepository from "../repositories/subscriptionRepository.js";
 
 async function list(query) {
   try {
-    return await Subscription.find(query);
+    return await SubscriptionRepository.list(query);
   } catch (e) {
-
     throw Error(e);
   }
 }
 
 async function getById(id) {
   try {
-
-    return await Subscription.findById(id);
+    return await SubscriptionRepository.getById(id);
   } catch (e) {
-    throw Error();
+    throw Error(e);
   }
 }
 
-
-
 async function create(query) {
   try {
-    const data = new Subscription(query);
-    return await data.save();
+    return await SubscriptionRepository.create(query);
   } catch (e) {
-
-    throw Error();
+    throw Error(e);
   }
 }
 
 async function deleteRecord(_id) {
   try {
-
-
     if(!ObjectId.isValid(_id))
       throw ("Parameter is not an ObjectId")
 
-    return await Subscription.findByIdAndDelete(_id);
+    return await SubscriptionRepository.deleteRecord(_id);
   } catch (e) {
-
-    throw Error();
+    throw Error(e);
   }
 }
 
 
 async function listByUserId(_id) {
-  const user_id = _id
-  console.log(user_id);
+
+
   try {
-    const subList = await Subscription.aggregate([
-      { $match: { user_id: "104270716923862108147" } },
-      {
-        $lookup: {
-          from: "users",
-          localField: "user_id",
-          foreignField: "google_id",
-          as: "users1"
-        }
-      },
-
-      {
-        $lookup: {
-          from: "npos",
-          localField: "npo_id",
-          foreignField: "_id",
-          as: "nyListe"
-        }
-      },
-      {
-        $set: {
-          npoName: { $arrayElemAt: ["$nyListe.name", 0] }
-        },
-      },
-      { $unset: "nyListe" },
-
-      {
-        $set: {
-          test: { $arrayElemAt: ["$users1.name", 0] }
-        },
-      },
-      { $unset: "users1" },
-
-    ]);
-    return subList;
+    return await SubscriptionRepository.listByUserId(_id);
   } catch (e) {
-    throw Error();
+    throw Error(e);
   }
 
 }
