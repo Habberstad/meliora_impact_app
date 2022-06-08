@@ -7,7 +7,7 @@ import { isLoading } from "../shared-components/Loading";
 import { Error } from "../shared-components/Error";
 import "../../styles/discoverPage.css";
 import { GlobalHeader } from "../headers/GlobalHeader";
-import accountHeader from "../../media/account_header.png";
+import accountHeader from "../../media/headers/myaccount_header.svg";
 import { SubscriptionTable } from "./SubscriptionTable";
 
 export const AccountInformationPage = ({ user }) => {
