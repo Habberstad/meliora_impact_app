@@ -1,4 +1,7 @@
-import { CurrencyFormater, DateFormater } from "../shared-components/dateFormater";
+import {
+  CurrencyFormater,
+  DateFormater,
+} from "../shared-components/dateFormater";
 import * as React from "react";
 import { useContext } from "react";
 import { NpoApiContext } from "../../api-client/npoApiContext";
@@ -6,7 +9,7 @@ import { useLoading } from "../../useLoading";
 import { isLoading } from "../shared-components/Loading";
 import { Error } from "../shared-components/Error";
 
-export function DonationListItem({ donation, npoList }) {
+export function DonationListItem({ donation }) {
   const { listNpos } = useContext(NpoApiContext);
   const { loading, error, data } = useLoading(async () => await listNpos(), []);
 
@@ -18,7 +21,7 @@ export function DonationListItem({ donation, npoList }) {
 
   return (
     <div className="donation-list-item">
-      <div className="donation-timeline-dot"></div>
+      <div className="donation-timeline-dot" />
       <div className="donation-data-container">
         <div className="left-donation-text">
           <div style={{ fontSize: "13px", fontWeight: "500" }}>
@@ -37,7 +40,9 @@ export function DonationListItem({ donation, npoList }) {
             <DateFormater date={donation.date} />
           </div>
         </div>
-        <div className="right-donation-text"><CurrencyFormater numb={donation.payment_amount}/></div>
+        <div className="right-donation-text">
+          <CurrencyFormater numb={donation.payment_amount} />
+        </div>
       </div>
     </div>
   );

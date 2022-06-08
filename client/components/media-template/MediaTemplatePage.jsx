@@ -55,11 +55,6 @@ const MediaTemplatePage = () => {
 
   if (loading) return isLoading();
 
-  console.log("getCurrentUser", data);
-
-  const totalSteps = steps.length;
-  const completedSteps = Object.keys(completed).length;
-
   const handleNext = () => {
     const newCompleted = completed;
     newCompleted[activeStep] = true;

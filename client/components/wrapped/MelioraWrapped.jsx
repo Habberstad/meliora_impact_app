@@ -59,7 +59,7 @@ const MelioraWrapped = () => {
   const instagramPlaceholder = "Share on Instagram...";
 
   const handleShare = () => {
-    if (shareLink == "") alert("Unavailable");
+    if (shareLink === "") alert("Unavailable");
     else open(shareLink);
   };
 
@@ -160,8 +160,8 @@ const MelioraWrapped = () => {
           <div>
             We have created a video with highlights of the people & projects
             your donations have touched.
-            <br></br>
-            <br></br>
+            <br />
+            <br />
             Thank you for your contribution!
           </div>
         </div>
