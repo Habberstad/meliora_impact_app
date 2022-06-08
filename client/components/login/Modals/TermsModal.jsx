@@ -1,5 +1,5 @@
 import { Box, Modal } from "@mui/material";
-import { termsAndPolicyModalStyle } from "../../wrapped/modal-style";
+import { termsAndPolicyModalStyle } from "../../wrapped/share-modal-style";
 
 export function TermsModal(props) {
   return (
