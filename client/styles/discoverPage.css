@@ -14,14 +14,9 @@
     width: 472px;
     height: 41px;
     border-radius: 25px;
-    color: #000000;
-    border-color: #000000;
-}
-.npo-search-field .MuiOutlinedInput-root:hover {
+    border: 1px solid #000000;
 
 }
-
-
 
 .npoCardStyle {
     display: block;
