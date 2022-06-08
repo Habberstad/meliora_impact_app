@@ -1,25 +1,50 @@
-import { Link } from "react-router-dom";
+import { Button } from "@mui/material";
+import { useState } from "react";
+import * as PropTypes from "prop-types";
+import { TermsModal } from "../Modals/TermsModal";
+import { PolicyModal } from "../Modals/PolicyModal";
+
+PolicyModal.propTypes = {
+  open: PropTypes.bool,
+  onClose: PropTypes.func,
+};
+
+TermsModal.propTypes = {
+  open: PropTypes.bool,
+  onClose: PropTypes.func,
+};
 
 export function FormTermsOfServiceText() {
+  const [policy, setPolicy] = useState(false);
+  const policyHandleOpen = () => setPolicy(true);
+  const policyHandleClose = () => setPolicy(false);
+
+  const [terms, setTerms] = useState(false);
+  const termsHandleOpen = () => setTerms(true);
+  const termsHandleClose = () => setTerms(false);
+
   return (
     <div className={"bottom-text-container"}>
-      {/*Links does not work because of logic to force user into login*/}
       <p className={"bottom-text"}>
         By registering, I agree to Minimal
-        <Link
-          to="/terms-of-service"
-          style={{ textDecoration: "none", color: "#000" }}
+        <Button
+          onClick={termsHandleOpen}
+          sx={{ textDecoration: "none", color: "#000" }}
         >
           <strong> Terms of Service</strong>{" "}
-        </Link>
+        </Button>
         and
-        <Link
-          to="/privacy-policy"
+        <Button
+          onClick={policyHandleOpen}
           style={{ textDecoration: "none", color: "#000" }}
         >
           <strong> Privacy Policy.</strong>{" "}
-        </Link>
+        </Button>
       </p>
+
+      <PolicyModal open={policy} onClose={policyHandleClose} />
+
+      <TermsModal open={terms} onClose={termsHandleClose} />
     </div>
   );
 }
