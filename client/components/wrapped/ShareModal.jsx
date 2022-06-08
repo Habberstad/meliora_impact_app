@@ -15,6 +15,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import { ReadMoreButtonB31 } from "../../styles/button-style-config";
 import * as React from "react";
+import { paymentMethod, selectedPaymentMethod } from "../login/login-styles";
 
 export function ShareModal(props) {
   return (
@@ -23,23 +24,55 @@ export function ShareModal(props) {
         <div className="meliora-wrapped-share-modal">
           <h1>Share</h1>
           <div className="meliora-wrapped-share-modal-buttons">
-            <Button variant={"outlined"} onClick={props.onClick}>
+            <Button
+              variant={"outlined"}
+              onClick={props.onClick}
+              sx={
+                props.placeholder === "linkedin"
+                  ? selectedPaymentMethod
+                  : paymentMethod
+              }
+            >
               <div>
                 <LinkedInIcon sx={{ fontSize: 50 }} />
               </div>
             </Button>
-            <Button variant={"outlined"} onClick={props.onClick1}>
+            <Button
+              variant={"outlined"}
+              onClick={props.onClick1}
+              sx={
+                props.placeholder === "twitter"
+                  ? selectedPaymentMethod
+                  : paymentMethod
+              }
+            >
               <div>
                 <TwitterIcon sx={{ fontSize: 50 }} />
               </div>
             </Button>
-            <Button variant={"outlined"} onClick={props.onClick2}>
+            <Button
+              variant={"outlined"}
+              onClick={props.onClick2}
+              sx={
+                props.placeholder === "facebook"
+                  ? selectedPaymentMethod
+                  : paymentMethod
+              }
+            >
               <div>
                 <FacebookIcon sx={{ fontSize: 50 }} />
               </div>
             </Button>
             <Tooltip title={"Not available at this moment!"} placement="top">
-              <Button variant={"outlined"} onClick={props.onClick3}>
+              <Button
+                variant={"outlined"}
+                onClick={props.onClick3}
+                sx={
+                  props.placeholder === "instagram"
+                    ? selectedPaymentMethod
+                    : paymentMethod
+                }
+              >
                 <div>
                   <InstagramIcon sx={{ fontSize: 50 }} />
                 </div>
