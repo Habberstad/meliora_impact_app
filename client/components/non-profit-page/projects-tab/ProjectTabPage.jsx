@@ -9,7 +9,6 @@ import { ProjectContent } from "./ProjectContent";
 
 const ProjectTabPage = ({ data }) => {
   const [selectedTab, setSelectedTab] = useState("project1");
-  console.log(data);
 
   const handleNavigationState = (tabValue) => {
     setSelectedTab(tabValue);

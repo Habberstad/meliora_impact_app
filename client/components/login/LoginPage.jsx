@@ -66,21 +66,9 @@ export const LoginPage = () => {
     setOrgPostalCode(postalCode);
     setOrgCity(city);
     setFullOrgAdress(fullAdress);
-    console.log("company handler", name, orgNumber);
   };
 
   const handleSubmit = () => {
-    //maybe async?
-    console.log({
-      org_name: orgName,
-      org_number: orgNumber,
-      payment_option: paymentOption,
-      subscription_type: subscriptionType,
-      address: orgAdress,
-      postal_code: orgPostalCode,
-      city: orgCity,
-      privacy_consent: isPrivacyConsent,
-    });
     registerUser({
       org_name: orgName,
       org_number: orgNumber,
@@ -122,8 +110,6 @@ export const LoginPage = () => {
     };
     getUser();
   }, []);
-  console.log(user);
-  console.log("isPrivacyConsent: ", isPrivacyConsent);
 
   return (
     <div className="login-page-container">
