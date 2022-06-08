@@ -14,7 +14,6 @@ import authRoutes from "./routes/authRoutes.js";
 import subscriptionRoutes from "./routes/subscriptionRoutes.js";
 import npoRoute from "./routes/npoRoute.js";
 import userRoute from "./routes/userRoute.js";
-import projectsRoute from "./routes/projectsRoute.js";
 import articlesRoute from "./routes/articlesRoute.js";
 
 dotenv.config();
@@ -41,7 +40,6 @@ export const initServer = () => {
   );
 
   app.use("/auth", authRoutes);
-  app.use("/api/projects", hasAccount, projectsRoute);
   app.use("/api/articles", hasAccount, articlesRoute);
   app.use("/api/npo", npoRoute);
   app.use("/api/subscriptions", subscriptionRoutes);
