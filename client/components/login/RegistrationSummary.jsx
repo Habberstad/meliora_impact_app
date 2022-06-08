@@ -1,13 +1,19 @@
-import { Button, Checkbox, Tooltip } from "@mui/material";
+import { Box, Button, Checkbox, Modal, Tooltip } from "@mui/material";
 import { reviewContainer } from "./login-styles";
 import { LoginNextButtonB41 } from "../../styles/button-style-config";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { BackButton } from "./BackButton";
+import { useState } from "react";
+import { consentAndAuthorityModalStyle } from "../wrapped/modal-style";
 
 export const RegistrationSummary = (props) => {
   const handleSubmit = () => {
     props.handleSubmit();
   };
+
+  const [consent, setConsent] = useState(false);
+  const consentHandleOpen = () => setConsent(true);
+  const consentHandleClose = () => setConsent(false);
 
   let isNotCompleted =
     !props.userName ||
@@ -65,11 +71,7 @@ export const RegistrationSummary = (props) => {
           checked={props.isPrivacyConsent}
           onChange={props.privacyConsentHandler}
         />
-        <div>
-          By signing up, I consent to my user information provided by Google
-          (name and email), to be handled and stored by student group 38 for the
-          duration of Høyskolen Kristiania - PRO201-1 21H, including evaluation.
-        </div>
+        <Button onClick={consentHandleOpen}>I hereby consent </Button>
       </div>
 
       <Tooltip
@@ -92,6 +94,24 @@ export const RegistrationSummary = (props) => {
           </Button>
         </span>
       </Tooltip>
+      <Modal open={consent} onClose={consentHandleClose}>
+        <Box sx={consentAndAuthorityModalStyle}>
+          <div className="consent-and-authority-modal-container">
+            <h1>Authority and consent</h1>
+            <p style={{ fontSize: "18px" }}>
+              By signing up, I, <strong> {props.userName}</strong> from{" "}
+              <strong> {props.orgName}</strong>, hereby consent that all
+              provided information is correct and legitimate.
+            </p>
+            <p style={{ fontSize: "18px" }}>
+              I consent that the account information provided by Google (name,
+              email, address and postal code), to be handled and stored by{" "}
+              <strong>Student Group 38</strong> for the duration of Høyskolen
+              Kristiania - PRO201-1 21H, including evaluation.
+            </p>
+          </div>
+        </Box>
+      </Modal>
     </div>
   );
 };
