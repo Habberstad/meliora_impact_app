@@ -3,13 +3,26 @@ import { useState } from "react";
 import { Box, Button, Grid, Link, MenuItem, Select } from "@mui/material";
 import MelioraIcon from "../../media/meliora_logo.png";
 import { DonationTable } from "./DonationTable";
+import { useContext } from "react";
+import { TransactionApiContext } from "../../api-client/transactionApiContext";
+import { useLoading } from "../../useLoading";
+import { isLoading } from "../shared-components/Loading";
+import { Error } from "../shared-components/Error";
 
 const Report = React.forwardRef((props, ref) => {
-  const [year, setYear] = useState(new Date().getFullYear());
   const user = props.user;
-  const transactions = props.user.donation_history;
+  const year = props.year
 
-  const filteredTransactions = transactions.filter(
+  const { getCurrentUsersTransactions } = useContext(TransactionApiContext);
+  const { loading, error, data } = useLoading(
+    async () => await getCurrentUsersTransactions(),
+    []
+  );
+  if (loading) return isLoading();
+  if (error) return <Error error={error} />;
+
+
+  const filteredTransactions = data.filter(
     (item) => new Date(item.date).getFullYear() === year
   );
 
@@ -17,14 +30,17 @@ const Report = React.forwardRef((props, ref) => {
     return accumulator + currentValue.payment_amount;
   }, 0);
 
+  function yearChange(event) {
+    setYear(event.target.value);
+  }
+
   return (
-    <div className={"report-page-print-margin"} ref={ref}>
+    <div ref={ref}>
       <Grid container className={"report-page"}>
         <Grid
           item
           xs={6}
           sx={{
-            margin: "100px",
             display: "none",
             displayPrint: "block",
           }}
@@ -66,8 +82,8 @@ const Report = React.forwardRef((props, ref) => {
         <Grid item xs={12}>
           <DonationTable
             data={filteredTransactions}
-            user={user}
             numb={sumAmount}
+            year={year}
           />
         </Grid>
 

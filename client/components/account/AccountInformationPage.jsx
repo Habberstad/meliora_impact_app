@@ -49,17 +49,17 @@ export const AccountInformationPage = ({ user }) => {
                   Organization number:
                 </div>
                 <div className="account-page-text">{data.org_number}</div>
-                <br />
+                <div className="account-page-stronger">Address:</div>
+                <div className="account-page-text">
+                  {data.address}, {data.city}
+                </div>
               </div>
 
               <div className="settings-card">
                 <div className="account-page-title">User Information</div>
                 <div className="account-page-stronger">Name:</div>
                 <div className="account-page-text">{data.name}</div>
-                <div className="account-page-stronger">Address:</div>
-                <div className="account-page-text">
-                  {data.address}, {data.city}
-                </div>
+
                 <div className="account-page-stronger">Email:</div>
                 <div className="account-page-text">{data.email}</div>
                 <br />

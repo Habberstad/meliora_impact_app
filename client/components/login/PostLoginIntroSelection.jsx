@@ -1,5 +1,5 @@
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { Button } from "@mui/material";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { postLoginButtonBook, postLoginButtonExplore } from "./login-styles";
 
 export const PostLoginIntroSelection = (props) => {

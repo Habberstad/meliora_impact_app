@@ -2,12 +2,6 @@ import * as React from "react";
 import * as PropTypes from "prop-types";
 import { Button } from "@mui/material";
 
-HighlightedPartners.propTypes = {
-  onClick: PropTypes.func,
-  highlighted: PropTypes.any,
-  prop2: PropTypes.func,
-};
-
 export function HighlightedPartners(props) {
   return (
     <div className={"highlighted-partners-container"}>

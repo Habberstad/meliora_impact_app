@@ -49,8 +49,6 @@ export const AccountingPage = (props) => {
   const [selectedFilterTab, setSelectedFilterTab] = useState("donation");
   const [year, setYear] = useState(2022);
 
-  console.log(year);
-
   function handleFilter(event) {
     setSelectedFilterTab(event);
   }
@@ -77,7 +75,6 @@ export const AccountingPage = (props) => {
     (item) => new Date(item.date).getFullYear() === year
   );
 
-  console.log(year);
 
   return (
     <div className="financials-page-wrapper">
@@ -154,11 +151,7 @@ export const AccountingPage = (props) => {
                         </Button>
                       </div>
                     </div>
-                    <Report
-                      filteredTransactions={filteredTransactions}
-                      ref={componentRef}
-                      user={props.user}
-                    />
+                    <Report ref={componentRef} user={props.user} year={year} />
                   </div>
                 )}
                 {selectedFilterTab === "subscription" && (

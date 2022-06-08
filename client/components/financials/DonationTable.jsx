@@ -33,14 +33,7 @@ function DataTableRows(props) {
 }
 
 export function DonationTable(props) {
-  const { getCurrentUsersTransactions } = useContext(TransactionApiContext);
-  const { loading, error, data } = useLoading(
-    async () => await getCurrentUsersTransactions(),
-    []
-  );
 
-  if (loading) return isLoading();
-  if (error) return <Error error={error} />;
 
   return (
     <table className={"styled-table-finances"}>
@@ -55,7 +48,7 @@ export function DonationTable(props) {
       </tr>
       </thead>
       <tbody>
-      <DataTableRows data={data} user={props.user} />
+      <DataTableRows data={props.data} />
       </tbody>
       <tfoot>
       <tr>
