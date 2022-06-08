@@ -77,6 +77,34 @@
     display: flex;
     justify-content: center;
 }
+
+.terms-and-policy-modal-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.terms-and-policy-modal-container h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.terms-and-policy-modal-container h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.consent-and-authority-modal-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.consent-and-authority-modal-container h1 {
+    display: flex;
+    justify-content: center;
+}
+
 /**************************
 
   *************************/
