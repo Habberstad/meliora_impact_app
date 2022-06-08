@@ -1,4 +1,4 @@
-import { DateFormater } from "../shared-components/dateFormater";
+import { CurrencyFormater, DateFormater } from "../shared-components/dateFormater";
 import * as React from "react";
 import { useContext } from "react";
 import { NpoApiContext } from "../../api-client/npoApiContext";
@@ -13,7 +13,7 @@ export function DonationListItem({ donation, npoList }) {
   if (loading) return isLoading();
   if (error) return <Error error={error} />;
 
-  const findNpo = data.filter((x) => x._id === donation.npo_id);
+  const findNpo = data.filter((npo) => npo._id === donation.npo_id);
   const npo = { ...findNpo[0] };
 
   return (
@@ -37,7 +37,7 @@ export function DonationListItem({ donation, npoList }) {
             <DateFormater date={donation.date} />
           </div>
         </div>
-        <div className="right-donation-text">{donation.payment_amount}kr</div>
+        <div className="right-donation-text"><CurrencyFormater numb={donation.payment_amount}/></div>
       </div>
     </div>
   );
