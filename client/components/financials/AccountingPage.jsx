@@ -154,7 +154,11 @@ export const AccountingPage = (props) => {
                         </Button>
                       </div>
                     </div>
-                    <Report ref={componentRef} user={props.user} />
+                    <Report
+                      filteredTransactions={filteredTransactions}
+                      ref={componentRef}
+                      user={props.user}
+                    />
                   </div>
                 )}
                 {selectedFilterTab === "subscription" && (
