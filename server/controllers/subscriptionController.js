@@ -4,12 +4,6 @@ import Subscription from "../models/subscriptionModel.js";
 import TransactionService from "../services/TransactionService.js";
 
 async function list(req, res) {
-  const query = {};
-
-  const { _id } = req.query;
-  if (_id !== "" && _id !== undefined && ObjectId.isValid(_id)) {
-    query._id = { $eq: ObjectId(_id) };
-  }
 
   try {
     const npo = await SubscriptionService.list(req.query);
@@ -19,18 +13,11 @@ async function list(req, res) {
   }
 }
 
-async function listByUserId(req, res) {
-  const query = {};
-
-  const { user_id } = req.query;
-  if (user_id)
-    query.user_id = user_id;
-  else
-    return res.status(200).json([]);
-
+async function listLoggedUsers(req, res) {
   try {
-    const npo = await SubscriptionService.listByUserId(query);
-    return res.status(200).json(npo);
+
+    const subs = await SubscriptionService.listLoggedUsers(req.user.id);
+    return res.status(200).json(subs);
   } catch (e) {
     return res.status(400).json({ status: 400, message: e.message });
   }
@@ -38,6 +25,7 @@ async function listByUserId(req, res) {
 
 
 async function getById(req, res) {
+
   try {
     const data = await SubscriptionService.getById(req.params.id);
     return res.status(200).json(data);
@@ -81,4 +69,4 @@ async function deleteRecord(req, res) {
 
 
 
-export default { list, getById, create, listByUserId, deleteRecord };
+export default { list, getById, create, listLoggedUsers, deleteRecord };
