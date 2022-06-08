@@ -1,9 +1,8 @@
 import * as React from "react";
 import Grid from "@mui/material/Grid";
-import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import "../../styles/article-styles.css";
 import { useLoading } from "../../useLoading";
 import { ArticleApiContext } from "../../api-client/articlesApiContext";

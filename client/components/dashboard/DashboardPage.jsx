@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { useLoading } from "../../useLoading";
 import { Grid, Link, MenuItem, Select } from "@mui/material";
 import "../../styles/dashboard.css";
@@ -61,8 +61,6 @@ const DashboardPage = () => {
       return <SchoolIcon />;
     }
   }
-
-  console.log(npoList);
   return (
     <div className={"dashboard-wrapper"}>
       <div className={"dashboard-container"}>
@@ -104,6 +102,7 @@ const DashboardPage = () => {
                 if (index <= 1)
                   return (
                     <Accordion
+                      key={index}
                       className={"highlighted-accordion"}
                       sx={{
                         backgroundColor: "#FCEFE7",
@@ -123,29 +122,34 @@ const DashboardPage = () => {
 
                       <AccordionDetails sx={{ borderRadius: "16px" }}>
                         <div>
-                          {npo.impact_measurement.map((impactItem) => (
-                            <div
-                              className={
-                                "highlighted-partners-content-container"
-                              }
-                            >
-                              <div className={"highlighted-partners-project"}>
-                                {impactItem.impact_name}
+                          {npo.impact_measurement.map((impactItem, index) => {
+                            return (
+                              <div
+                                key={index}
+                                className={
+                                  "highlighted-partners-content-container"
+                                }
+                              >
+                                <div className={"highlighted-partners-project"}>
+                                  {impactItem.impact_name}
+                                </div>
+                                <div
+                                  className={"highlighted-partners-progress"}
+                                >
+                                  <LinearProgress
+                                    sx={{
+                                      width: "162px",
+                                      height: "9px",
+                                      backgroundColor: "#A5A5A5",
+                                      position: "absolut",
+                                    }}
+                                    variant="determinate"
+                                    value={impactItem.impact_value}
+                                  />
+                                </div>
                               </div>
-                              <div className={"highlighted-partners-progress"}>
-                                <LinearProgress
-                                  sx={{
-                                    width: "162px",
-                                    height: "9px",
-                                    backgroundColor: "#A5A5A5",
-                                    position: "absolut",
-                                  }}
-                                  variant="determinate"
-                                  value={impactItem.impact_value}
-                                />
-                              </div>
-                            </div>
-                          ))}
+                            );
+                          })}
                         </div>
                       </AccordionDetails>
                     </Accordion>
@@ -196,7 +200,7 @@ const DashboardPage = () => {
                               if (index <= 3)
                                 return (
                                   <DonationListItem
-                                    npoList={npoList}
+                                    key={donation._id}
                                     donation={donation}
                                   />
                                 );

@@ -11,11 +11,12 @@
 }
 
 .npo-search-field .MuiOutlinedInput-root {
-    width: 340px;
-    border-radius: 10px;
+    width: 472px;
+    height: 41px;
+    border-radius: 25px;
+    border: 1px solid #000000;
+
 }
-
-
 
 .npoCardStyle {
     display: block;
@@ -129,4 +130,9 @@
 .card-button.MuiButton-root {
     background-color: #a400ff;
     border-radius: 15px;
+}
+
+.MuiOutlinedInput-root{
+    width: 472px;
+    height: 41px;
 }
