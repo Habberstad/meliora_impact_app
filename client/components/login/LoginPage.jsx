@@ -1,18 +1,18 @@
 import "../../styles/loginPage-styles.css";
 
-import { Routes, useNavigate } from "react-router";
-import { LoginLeftCard } from "./LoginLeftCard";
 import { useContext, useEffect, useState } from "react";
-import { RegisterForm } from "./RegisterForm";
+import { Routes, useNavigate } from "react-router";
+import { Route } from "react-router-dom";
 import { LoginForm } from "./LoginForm";
-import { Link, Route } from "react-router-dom";
-import { SelectSubscription } from "./SelectSubscription";
-import { FindCompany } from "./FindCompany";
-import { SelectPaymentMethod } from "./SelectPaymentMethod";
-import { SelectIdentificationMethod } from "./SelectIdentificationMethod";
-import { UserApiContext } from "../../api-client/userApiContext";
+import { RegisterForm } from "./RegisterForm";
+import { LoginLeftCard } from "./LoginLeftCard";
+import { FindCompany } from "./FindCompany/FindCompany";
 import { RegistrationSummary } from "./RegistrationSummary";
+import { SelectPaymentMethod } from "./SelectPaymentMethod";
 import { PostLoginIntroSelection } from "./PostLoginIntroSelection";
+import { SelectIdentificationMethod } from "./SelectIdentificationMethod";
+import { SelectSubscription } from "./selectSubscription/SelectSubscription";
+import { UserApiContext } from "../../api-client/userApiContext";
 
 export const LoginPage = () => {
   const navigate = useNavigate();
@@ -26,10 +26,8 @@ export const LoginPage = () => {
   const [subscriptionType, setSubscriptionType] = useState("");
   const [paymentOption, setPaymentOption] = useState("none");
   const [isOverBreakpoint, setIsOverBreakpoint] = useState(true);
-  const [user, setUser] = useState(null);
   const [userName, setUsername] = useState(null);
   const [userEmail, setUserEmail] = useState(null);
-  const [cookies, setCookies] = useState(null);
   const [isPrivacyConsent, setIsPrivacyConsent] = useState(false);
 
   window.addEventListener("resize", () => {
@@ -66,21 +64,9 @@ export const LoginPage = () => {
     setOrgPostalCode(postalCode);
     setOrgCity(city);
     setFullOrgAdress(fullAdress);
-    console.log("company handler", name, orgNumber);
   };
 
   const handleSubmit = () => {
-    //maybe async?
-    console.log({
-      org_name: orgName,
-      org_number: orgNumber,
-      payment_option: paymentOption,
-      subscription_type: subscriptionType,
-      address: orgAdress,
-      postal_code: orgPostalCode,
-      city: orgCity,
-      privacy_consent: isPrivacyConsent,
-    });
     registerUser({
       org_name: orgName,
       org_number: orgNumber,
@@ -111,10 +97,8 @@ export const LoginPage = () => {
           throw new Error("authentication has been failed!");
         })
         .then((resObject) => {
-          setUser(resObject.user);
           setUsername(resObject.user.displayName);
           setUserEmail(resObject.user._json.email);
-          setCookies(resObject.cookies);
         })
         .catch((err) => {
           console.log(err);
@@ -122,8 +106,6 @@ export const LoginPage = () => {
     };
     getUser();
   }, []);
-  console.log(user);
-  console.log("isPrivacyConsent: ", isPrivacyConsent);
 
   return (
     <div className="login-page-container">

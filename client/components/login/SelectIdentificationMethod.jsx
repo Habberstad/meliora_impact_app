@@ -1,9 +1,9 @@
+import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
 import GoogleIcon from "../../media/google_icon.png";
 import BankIdIcon from "../../media/bankid_icon.png";
 import MicrosoftIcon from "../../media/microsoft_icon.png";
-import { useNavigate } from "react-router";
-import { Link } from "react-router-dom";
 import { identificationButtonStyle } from "./login-styles";
 
 export const SelectIdentificationMethod = (props) => {
