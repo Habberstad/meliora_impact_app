@@ -1,18 +1,18 @@
 import "../../styles/loginPage-styles.css";
 
-import { Routes, useNavigate } from "react-router";
-import { LoginLeftCard } from "./LoginLeftCard";
 import { useContext, useEffect, useState } from "react";
-import { RegisterForm } from "./RegisterForm";
-import { LoginForm } from "./LoginForm";
+import { Routes, useNavigate } from "react-router";
 import { Route } from "react-router-dom";
-import { SelectSubscription } from "./selectSubscription/SelectSubscription";
+import { LoginForm } from "./LoginForm";
+import { RegisterForm } from "./RegisterForm";
+import { LoginLeftCard } from "./LoginLeftCard";
 import { FindCompany } from "./FindCompany/FindCompany";
-import { SelectPaymentMethod } from "./SelectPaymentMethod";
-import { SelectIdentificationMethod } from "./SelectIdentificationMethod";
-import { UserApiContext } from "../../api-client/userApiContext";
 import { RegistrationSummary } from "./RegistrationSummary";
+import { SelectPaymentMethod } from "./SelectPaymentMethod";
 import { PostLoginIntroSelection } from "./PostLoginIntroSelection";
+import { SelectIdentificationMethod } from "./SelectIdentificationMethod";
+import { SelectSubscription } from "./selectSubscription/SelectSubscription";
+import { UserApiContext } from "../../api-client/userApiContext";
 
 export const LoginPage = () => {
   const navigate = useNavigate();
