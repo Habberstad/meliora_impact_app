@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router";
 
 import { Button, InputAdornment, TextField, Tooltip } from "@mui/material";
@@ -13,7 +13,7 @@ import { UserApiContext } from "../../../api-client/userApiContext";
 export const FindCompany = ({ handleCompanyInfo }) => {
   const navigate = useNavigate();
   const [companies, setCompanies] = useState([]);
-  const [selectedCompany, setSelectedCompany] = useState();
+  const [selectedCompany, setSelectedCompany] = useState("");
   const [showError, setShowError] = useState(false);
   const [companyId, setCompanyId] = useState("");
   const [companyName, setCompanyName] = useState("");
@@ -22,7 +22,7 @@ export const FindCompany = ({ handleCompanyInfo }) => {
   const [postalCode, setPostalCode] = useState("");
   const [city, setCity] = useState("");
   const [fullCompanyAdress, setFullCompanyAdress] = useState("");
-  const { checkIsOrgRegistered } = React.useContext(UserApiContext);
+  const { checkIsOrgRegistered } = useContext(UserApiContext);
   const [showList, setShowList] = useState(false);
 
   const getCompanies = async (url) => {
@@ -32,7 +32,7 @@ export const FindCompany = ({ handleCompanyInfo }) => {
       const array = [...json._embedded.enheter];
       setCompanies(array);
       if (array.length > 0) setShowList(true);
-      setSelectedCompany();
+      setSelectedCompany("");
     } catch (error) {}
   };
 
