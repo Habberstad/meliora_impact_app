@@ -10,5 +10,4 @@ router.post("/", SubscriptionControllers.create)
 router.delete("/:id", SubscriptionControllers.deleteRecord)
 
 
-
 export default router;
