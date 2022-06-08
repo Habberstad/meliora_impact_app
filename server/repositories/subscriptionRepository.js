@@ -1,6 +1,7 @@
 import Subscription from "../models/subscriptionModel.js";
 
 async function list(query) {
+
   try {
     return await Subscription.find(query);
   } catch (e) {
@@ -39,11 +40,11 @@ async function deleteRecord(_id) {
 }
 
 
-async function listByUserId(_id) {
-
+async function listByUserId(idQuery) {
+  const user_id = idQuery.user_id
   try {
     return await Subscription.aggregate([
-      { $match: { user_id: _id } },
+      { $match: { user_id: user_id  } },
       {
         $lookup: {
           from: "users",
@@ -62,14 +63,14 @@ async function listByUserId(_id) {
       },
       {
         $set: {
-          npoName: { $arrayElemAt: ["$nyListe.name", 0] }
+          npo_name: { $arrayElemAt: ["$nyListe.name", 0] }
         },
       },
       { $unset: "nyListe" },
 
       {
         $set: {
-          test: { $arrayElemAt: ["$users1.name", 0] }
+          user_name: { $arrayElemAt: ["$users1.name", 0] }
         },
       },
       { $unset: "users1" },
@@ -78,7 +79,6 @@ async function listByUserId(_id) {
   } catch (e) {
     throw Error(e);
   }
-
 }
 
 export default { list, getById, create, deleteRecord, listByUserId };

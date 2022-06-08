@@ -15,6 +15,8 @@ import subscriptionRoutes from "./routes/subscriptionRoutes.js";
 import npoRoute from "./routes/npoRoute.js";
 import userRoute from "./routes/userRoute.js";
 import articlesRoute from "./routes/articlesRoute.js";
+import transactionRoute from "./routes/transactionRoutes.js"
+
 
 dotenv.config();
 
@@ -44,6 +46,7 @@ export const initServer = () => {
   app.use("/api/npo", npoRoute);
   app.use("/api/subscriptions", subscriptionRoutes);
   app.use("/api/users", userRoute);
+  app.use("/api/transactions", transactionRoute)
 
   app.use((req, res, next) => {
     if (req.method === "GET" && !req.path.startsWith("/api")) {
