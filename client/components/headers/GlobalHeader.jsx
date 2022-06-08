@@ -24,7 +24,7 @@ export function GlobalHeader({ title, subtitle, desc, image }) {
             </div>
           </Grid>
 
-          <Grid item lg={1} xl={1}></Grid>
+          <Grid item lg={1} xl={1} />
         </Grid>
       </Box>
     </div>

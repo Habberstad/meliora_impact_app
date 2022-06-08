@@ -1,5 +1,4 @@
 import * as React from "react";
-import * as PropTypes from "prop-types";
 import { Button } from "@mui/material";
 
 export function HighlightedPartners(props) {

@@ -20,7 +20,6 @@ export const AccountInformationPage = ({ user }) => {
   if (loading) return isLoading();
   if (error) return <Error error={error} />;
 
-  console.log(data);
   return (
     <div className="account-page-wrapper">
       <GlobalHeader

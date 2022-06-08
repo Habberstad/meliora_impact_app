@@ -201,7 +201,6 @@ const DashboardPage = () => {
                                 return (
                                   <DonationListItem
                                     key={donation._id}
-                                    npoList={npoList}
                                     donation={donation}
                                   />
                                 );
