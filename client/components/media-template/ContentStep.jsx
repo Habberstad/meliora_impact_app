@@ -11,7 +11,6 @@ const ContentStep = ({ npoList, handleNext }) => {
   const [selectedCard, setSelectedCard] = useState();
   const [filteredProjects, setFilteredProjects] = useState([]);
   const [isCardSelected, setIsCardSelected] = useState(false);
-  const [isProjectSelected, setIsProjectSelected] = useState();
 
   const handleFilterProjects = (id) => {
     const res = npoList.filter((x) => x._id === id);
@@ -19,10 +18,6 @@ const ContentStep = ({ npoList, handleNext }) => {
     setFilteredProjects(selectedNpo.projects);
     setSelectedCard(id);
     setIsCardSelected(true);
-  };
-
-  const handleSelectedProject = (id) => {
-    setIsProjectSelected(id);
   };
 
   const handleNextOnProjectClick = () => {
