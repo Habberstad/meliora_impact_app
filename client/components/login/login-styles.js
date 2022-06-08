@@ -1,11 +1,3 @@
-export const LoginCard = {
-  display: "flex",
-  flexDirection: "column",
-  position: "absolute",
-  left: "200px",
-  top: "0",
-};
-
 export const registerButtonStyle = {
   mt: 1,
   backgroundColor: "#551477",
@@ -134,23 +126,6 @@ export const selectedPaymentMethod = {
     borderColor: "#B8F0DA",
     backgroundColor: "#B8F0DA",
     color: "#000",
-  },
-};
-
-export const submitButtonStyle = {
-  width: "190px",
-  height: "50px",
-  maxWidth: "190px",
-  maxHeight: "50px",
-  minWidth: "190px",
-  minHeight: "50px",
-  borderRadius: "8px",
-  alignSelf: "center",
-  backgroundColor: "#551477",
-  marginTop: "50px",
-  "&:hover": {
-    backgroundColor: "#aa55d9",
-    color: "#FFF",
   },
 };
 

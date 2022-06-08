@@ -1,5 +1,5 @@
-import { BackButton } from "./BackButton";
-import { Button, ButtonGroup, Checkbox, Radio, Tooltip } from "@mui/material";
+import { BackButton } from "./loginCommonComponents/BackButton";
+import { Button, Tooltip } from "@mui/material";
 import { useNavigate } from "react-router";
 import { useState } from "react";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
@@ -19,12 +19,6 @@ export const SelectPaymentMethod = (props) => {
   const navigate = useNavigate();
   const handleChange = (option) => {
     setSelectedOption(option);
-  };
-
-  const [checked, setChecked] = useState(true);
-
-  const handleCheckbox = (event) => {
-    setChecked(event.target.checked);
   };
 
   const handlePaymentTypeSubmit = () => {

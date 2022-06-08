@@ -5,8 +5,8 @@ import { LoginLeftCard } from "./LoginLeftCard";
 import { useContext, useEffect, useState } from "react";
 import { RegisterForm } from "./RegisterForm";
 import { LoginForm } from "./LoginForm";
-import { Link, Route } from "react-router-dom";
-import { SelectSubscription } from "./SelectSubscription";
+import { Route } from "react-router-dom";
+import { SelectSubscription } from "./selectSubscription/SelectSubscription";
 import { FindCompany } from "./FindCompany";
 import { SelectPaymentMethod } from "./SelectPaymentMethod";
 import { SelectIdentificationMethod } from "./SelectIdentificationMethod";
@@ -26,10 +26,8 @@ export const LoginPage = () => {
   const [subscriptionType, setSubscriptionType] = useState("");
   const [paymentOption, setPaymentOption] = useState("none");
   const [isOverBreakpoint, setIsOverBreakpoint] = useState(true);
-  const [user, setUser] = useState(null);
   const [userName, setUsername] = useState(null);
   const [userEmail, setUserEmail] = useState(null);
-  const [cookies, setCookies] = useState(null);
   const [isPrivacyConsent, setIsPrivacyConsent] = useState(false);
 
   window.addEventListener("resize", () => {
@@ -99,10 +97,8 @@ export const LoginPage = () => {
           throw new Error("authentication has been failed!");
         })
         .then((resObject) => {
-          setUser(resObject.user);
           setUsername(resObject.user.displayName);
           setUserEmail(resObject.user._json.email);
-          setCookies(resObject.cookies);
         })
         .catch((err) => {
           console.log(err);

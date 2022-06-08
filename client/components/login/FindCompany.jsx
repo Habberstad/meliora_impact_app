@@ -1,4 +1,4 @@
-import { BackButton } from "./BackButton";
+import { BackButton } from "./loginCommonComponents/BackButton";
 import { Button, InputAdornment, TextField, Tooltip } from "@mui/material";
 import { useNavigate } from "react-router";
 import * as React from "react";
@@ -75,6 +75,7 @@ export const FindCompany = ({ handleCompanyInfo }) => {
     setShowError(false);
 
     if (
+      //Checks if input length is 9 and only numbers, orgnumber
       e.target.value.trim().length === 9 &&
       /^\d+$/.test(e.target.value.trim())
     ) {
