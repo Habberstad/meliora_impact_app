@@ -19,11 +19,11 @@ ShareModal.propTypes = {
   onClick1: PropTypes.func,
   onClick2: PropTypes.func,
   onClick3: PropTypes.func,
-  placeholder: PropTypes.string,
-  copiedText: PropTypes.func,
   onClick4: PropTypes.func,
   onClick5: PropTypes.func,
   onClick6: PropTypes.func,
+  placeholder: PropTypes.string,
+  copiedText: PropTypes.func,
 };
 
 ViewModal.propTypes = {
@@ -69,6 +69,8 @@ const MelioraWrapped = () => {
     downloadLink.href = "./download.txt";
     downloadLink.click();
   };
+
+  console.log(sharePlaceholder);
 
   return (
     <div className="meliora-wrapped-container">
