@@ -6,7 +6,7 @@ import "../../styles/discoverPage.css";
 import { useLoading } from "../../useLoading";
 import { NpoApiContext } from "../../api-client/npoApiContext";
 import { isLoading } from "../shared-components/Loading";
-import headerImg from "../../media/discover_header.png";
+import headerImg from "../../media/headers/discover_header.svg";
 import { GlobalHeader } from "../headers/GlobalHeader";
 import { Error } from "../shared-components/Error";
 
@@ -38,8 +38,6 @@ const DiscoverPage = () => {
         image={headerImg}
       />
       <CategoryFilter onClick={categorySelectHandler} category={category} />
-      <br />
-      <br />
       <Searchbar searchString={searchString} onChange={handleSearchInput} />
       <br />
       <br />

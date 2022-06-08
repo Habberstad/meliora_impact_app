@@ -14,7 +14,7 @@ import { UserApiContext } from "../../api-client/userApiContext";
 import { useLoading } from "../../useLoading";
 import { isLoading } from "../shared-components/Loading";
 import { Error } from "../shared-components/Error";
-import financialsHeader from "../../media/financials_header.png";
+import financialsHeader from "../../media/headers/financials_header.svg";
 import { GlobalHeader } from "../headers/GlobalHeader";
 import * as PropTypes from "prop-types";
 import { YearAndMonth } from "./YearAndMonth";

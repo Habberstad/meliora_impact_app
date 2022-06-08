@@ -1,4 +1,4 @@
-import logo from "../media/article_header.png";
+import logo from "../media/articles/article_header.png";
 
 export const articles = [
   {
