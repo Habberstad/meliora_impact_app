@@ -3,31 +3,33 @@ import melioraWrappedTop from "../../media/wrapped/group3.png";
 import melioraWrappedLeft from "../../media/wrapped/group1.png";
 import melioraWrappedRight from "../../media/wrapped/group2.png";
 import melioraLogo from "../../media/meliora_logo_transparent.png";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import InstagramIcon from "@mui/icons-material/Instagram";
 import PlayArrowOutlinedIcon from "@mui/icons-material/PlayArrowOutlined";
 import IosShareOutlinedIcon from "@mui/icons-material/IosShareOutlined";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import * as React from "react";
-import {
-  Box,
-  Button,
-  IconButton,
-  InputAdornment,
-  Modal,
-  TextField,
-  Tooltip,
-} from "@mui/material";
-import { modalStyle } from "./modal-style";
 import { useState } from "react";
-import {
-  CreateTemplateButtonB32,
-  purplePlatformButton,
-  ReadMoreButtonB31,
-} from "../../styles/button-style-config";
+import { Button } from "@mui/material";
+import * as PropTypes from "prop-types";
+import { ShareModal } from "./ShareModal";
+import { ViewModal } from "./ViewModal";
 
+ShareModal.propTypes = {
+  open: PropTypes.bool,
+  onClose: PropTypes.func,
+  onClick: PropTypes.func,
+  onClick1: PropTypes.func,
+  onClick2: PropTypes.func,
+  onClick3: PropTypes.func,
+  placeholder: PropTypes.string,
+  copiedText: PropTypes.func,
+  onClick4: PropTypes.func,
+  onClick5: PropTypes.func,
+  onClick6: PropTypes.func,
+};
+
+ViewModal.propTypes = {
+  open: PropTypes.bool,
+  onClose: PropTypes.func,
+};
 const MelioraWrapped = () => {
   {
     /* MODAL METHODS */
@@ -114,137 +116,42 @@ const MelioraWrapped = () => {
             <div>Share</div>
           </Button>
 
-          <Modal open={view} onClose={viewHandleClose}>
-            <Box sx={modalStyle} style={{ width: 800 }}>
-              <div className="meliora-wrapped-view-modal">
-                Let's go Meliora!
-              </div>
+          <ViewModal open={view} onClose={viewHandleClose} />
 
-              <iframe
-                className="video-player"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            </Box>
-          </Modal>
-
-          <Modal open={share} onClose={shareHandleClose}>
-            <Box sx={modalStyle}>
-              <div className="meliora-wrapped-share-modal">
-                <h1>Share</h1>
-                <div className="meliora-wrapped-share-modal-buttons">
-                  <Button
-                    variant={"outlined"}
-                    onClick={() => {
-                      setSharePlaceholder(linkedInPlaceholder);
-                      setShareLink(
-                        `https://www.linkedin.com/sharing/share-offsite/?url=${encodedAhref}`
-                      );
-                      console.log(shareLink);
-                    }}
-                  >
-                    <div>
-                      <LinkedInIcon sx={{ fontSize: 50 }} />
-                    </div>
-                  </Button>
-                  <Button
-                    variant={"outlined"}
-                    onClick={() => {
-                      setSharePlaceholder(twitterPlaceholder);
-                      setShareLink(
-                        `https://twitter.com/intent/tweet?url=${encodedAhref}`
-                      );
-                      console.log(shareLink);
-                    }}
-                  >
-                    <div>
-                      <TwitterIcon sx={{ fontSize: 50 }} />
-                    </div>
-                  </Button>
-                  <Button
-                    variant={"outlined"}
-                    onClick={() => {
-                      setSharePlaceholder(facebookPlaceholder);
-                      setShareLink(
-                        `https://www.facebook.com/sharer/sharer.php?u=${ahref}`
-                      );
-                      console.log(shareLink);
-                    }}
-                  >
-                    <div>
-                      <FacebookIcon sx={{ fontSize: 50 }} />
-                    </div>
-                  </Button>
-                  <Tooltip
-                    title={"Not available at this moment!"}
-                    placement="top"
-                  >
-                    <Button
-                      variant={"outlined"}
-                      onClick={() => {
-                        setSharePlaceholder(instagramPlaceholder);
-                        setShareLink(``);
-                        console.log(shareLink);
-                      }}
-                    >
-                      <div>
-                        <InstagramIcon sx={{ fontSize: 50 }} />
-                      </div>
-                    </Button>
-                  </Tooltip>
-                </div>
-                <TextField
-                  className="meliora-wrapped-share-modal-textfield"
-                  disabled={true}
-                  placeholder={sharePlaceholder}
-                  InputProps={{
-                    endAdornment: (
-                      <InputAdornment position="end">
-                        <Tooltip
-                          title={
-                            copiedText === sharePlaceholder
-                              ? "Copied!"
-                              : "Copy To Clipboard"
-                          }
-                          placement="top"
-                        >
-                          <IconButton
-                            onClick={() => {
-                              navigator.clipboard.writeText(sharePlaceholder);
-                              setCopiedText(sharePlaceholder);
-                            }}
-                          >
-                            <ContentCopyIcon />
-                          </IconButton>
-                        </Tooltip>
-                      </InputAdornment>
-                    ),
-                  }}
-                />
-                <div className="meliora-wrapped-share-modal-buttons-bot">
-                  <Button
-                    variant={"contained"}
-                    sx={ReadMoreButtonB31}
-                    style={{ margin: "20px 5px 0px 0px" }}
-                    onClick={handleDownload}
-                  >
-                    Download
-                  </Button>
-                  <Button
-                    variant={"contained"}
-                    sx={ReadMoreButtonB31}
-                    style={{ margin: "20px 0px 0px 5px" }}
-                    onClick={handleShare}
-                  >
-                    Share
-                  </Button>
-                </div>
-              </div>
-            </Box>
-          </Modal>
+          <ShareModal
+            open={share}
+            onClose={shareHandleClose}
+            onClick={() => {
+              setSharePlaceholder(linkedInPlaceholder);
+              setShareLink(
+                `https://www.linkedin.com/sharing/share-offsite/?url=${encodedAhref}`
+              );
+            }}
+            onClick1={() => {
+              setSharePlaceholder(twitterPlaceholder);
+              setShareLink(
+                `https://twitter.com/intent/tweet?url=${encodedAhref}`
+              );
+            }}
+            onClick2={() => {
+              setSharePlaceholder(facebookPlaceholder);
+              setShareLink(
+                `https://www.facebook.com/sharer/sharer.php?u=${ahref}`
+              );
+            }}
+            onClick3={() => {
+              setSharePlaceholder(instagramPlaceholder);
+              setShareLink(``);
+            }}
+            placeholder={sharePlaceholder}
+            copiedText={copiedText}
+            onClick4={() => {
+              navigator.clipboard.writeText(sharePlaceholder);
+              setCopiedText(sharePlaceholder);
+            }}
+            onClick5={handleDownload}
+            onClick6={handleShare}
+          />
         </div>
         <div className="meliora-wrapped-punchline">
           <div>2021 Wrapped</div>

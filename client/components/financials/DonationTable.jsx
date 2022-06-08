@@ -4,21 +4,12 @@ import {
 } from "../shared-components/dateFormater";
 import * as React from "react";
 import { useContext } from "react";
-import { NpoApiContext } from "../../api-client/npoApiContext";
+import { TransactionApiContext } from "../../api-client/transactionApiContext";
 import { useLoading } from "../../useLoading";
 import { isLoading } from "../shared-components/Loading";
 import { Error } from "../shared-components/Error";
 
 function DataTableRows(props) {
-  const { listNpos } = useContext(NpoApiContext);
-  const { loading, error, data } = useLoading(
-    async () => await listNpos(),
-    []
-  );
-
-  if (loading) return isLoading();
-  if (error) return <Error error={error} />;
-
 
   return (
     <>
@@ -28,14 +19,10 @@ function DataTableRows(props) {
           <td><DateFormater date={item.date} /></td>
           <td>{item.payment_frequency}</td>
           <td>
-            {data.map((npo) => {
-              if (npo._id === item.npo_id) return npo.name;
-            })}
+            {item.npo_name}
           </td>
           <td>
-            {data.map((npo) => {
-              if (npo._id === item.npo_id) return npo.category;
-            })}
+            {item.category}
           </td>
           <td>
             <CurrencyFormater numb={item.payment_amount} /></td>
@@ -46,6 +33,8 @@ function DataTableRows(props) {
 }
 
 export function DonationTable(props) {
+
+
   return (
     <table className={"styled-table-finances"}>
       <thead>
@@ -59,7 +48,7 @@ export function DonationTable(props) {
       </tr>
       </thead>
       <tbody>
-      <DataTableRows data={props.data} user={props.user} />
+      <DataTableRows data={props.data} />
       </tbody>
       <tfoot>
       <tr>
