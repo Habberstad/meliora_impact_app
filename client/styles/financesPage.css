@@ -11,9 +11,14 @@
 .donation-history-page-container{
 }
 
+
+
 .report-page{
     position: relative;
+    max-width: 900px;
 }
+
+
 
 .report-top-right{
     position: absolute;
@@ -80,7 +85,7 @@
     font-family: sans-serif;
     width: 900px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-}
+ }
 
 
 .styled-table-finances thead tr {

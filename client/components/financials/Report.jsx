@@ -30,6 +30,10 @@ const Report = React.forwardRef((props, ref) => {
     return accumulator + currentValue.payment_amount;
   }, 0);
 
+  function yearChange(event) {
+    setYear(event.target.value);
+  }
+
   return (
     <div ref={ref}>
       <Grid container className={"report-page"}>
