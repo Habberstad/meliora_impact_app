@@ -1,7 +1,11 @@
+.template-wrapper {
+    width: 100vw;
+    margin: 75px 5% 0 5%;
+}
+
 .template-main-container {
     display: flex;
     flex-direction: column;
-    width: 100vw;
     align-items: center;
 }
 

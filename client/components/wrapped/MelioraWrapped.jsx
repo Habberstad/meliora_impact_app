@@ -1,7 +1,7 @@
 import "../../styles/melioraWrapped.css";
-import melioraWrappedTop from "../../media/group3.png";
-import melioraWrappedLeft from "../../media/group1.png";
-import melioraWrappedRight from "../../media/group2.png";
+import melioraWrappedTop from "../../media/wrapped/group3.png";
+import melioraWrappedLeft from "../../media/wrapped/group1.png";
+import melioraWrappedRight from "../../media/wrapped/group2.png";
 import melioraLogo from "../../media/meliora_logo_transparent.png";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";

@@ -24,6 +24,7 @@
 }
 
 .global-header-img {
-    width: 400px;
+    height: 100%;
+    width: 350px;
     object-fit: cover;
 }
