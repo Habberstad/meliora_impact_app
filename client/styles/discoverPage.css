@@ -15,7 +15,6 @@
     height: 41px;
     border-radius: 25px;
     border: 1px solid #000000;
-
 }
 
 .npoCardStyle {
@@ -132,7 +131,3 @@
     border-radius: 15px;
 }
 
-.MuiOutlinedInput-root{
-    width: 472px;
-    height: 41px;
-}
