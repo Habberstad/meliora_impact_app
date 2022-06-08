@@ -11,8 +11,14 @@
 }
 
 .npo-search-field .MuiOutlinedInput-root {
-    width: 340px;
-    border-radius: 10px;
+    width: 472px;
+    height: 41px;
+    border-radius: 25px;
+    color: #000000;
+    border-color: #000000;
+}
+.npo-search-field .MuiOutlinedInput-root:hover {
+
 }
 
 
@@ -129,4 +135,9 @@
 .card-button.MuiButton-root {
     background-color: #a400ff;
     border-radius: 15px;
+}
+
+.MuiOutlinedInput-root{
+    width: 472px;
+    height: 41px;
 }
