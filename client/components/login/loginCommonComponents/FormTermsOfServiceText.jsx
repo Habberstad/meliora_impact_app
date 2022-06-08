@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Box, Button, Modal } from "@mui/material";
-import { termsAndPolicyModalStyle } from "../wrapped/modal-style";
 import { useState } from "react";
+import { termsAndPolicyModalStyle } from "../../wrapped/modal-style";
 
 export function FormTermsOfServiceText() {
   const [policy, setPolicy] = useState(false);

@@ -1,11 +1,8 @@
-import { Button, Checkbox, Tooltip } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { Box, Button, Checkbox, Modal, Tooltip } from "@mui/material";
 import { reviewContainer } from "./login-styles";
 import { LoginNextButtonB41 } from "../../styles/button-style-config";
 import { BackButton } from "./loginCommonComponents/BackButton";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import { BackButton } from "./BackButton";
 import { useState } from "react";
 import { consentAndAuthorityModalStyle } from "../wrapped/modal-style";
 
