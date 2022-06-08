@@ -14,10 +14,7 @@ export function Searchbar(props) {
                 border: "1px solid #000000"
 
               },
-              width: "472px",
-              height: "41px",
-              borderRadius:" 25px",
-            border:" 1px solid #000000",
+            border:" 1px solid #000000"
           }}}
           value={props.emptySearchInput ? "" : props.searchString}
           variant={"outlined"}
