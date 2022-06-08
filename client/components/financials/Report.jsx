@@ -8,6 +8,7 @@ const Report = React.forwardRef((props, ref) => {
   const [year, setYear] = useState(new Date().getFullYear());
   const user = props.user;
   const transactions = props.user.donation_history;
+
   const filteredTransactions = transactions.filter(
     (item) => new Date(item.date).getFullYear() === year
   );
@@ -16,17 +17,14 @@ const Report = React.forwardRef((props, ref) => {
     return accumulator + currentValue.payment_amount;
   }, 0);
 
-  function yearChange(event) {
-    setYear(event.target.value);
-  }
-
   return (
-    <div ref={ref}>
+    <div className={"report-page-print-margin"} ref={ref}>
       <Grid container className={"report-page"}>
         <Grid
           item
           xs={6}
           sx={{
+            margin: "100px",
             display: "none",
             displayPrint: "block",
           }}

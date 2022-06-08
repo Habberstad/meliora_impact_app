@@ -49,6 +49,8 @@ export const AccountingPage = (props) => {
   const [selectedFilterTab, setSelectedFilterTab] = useState("donation");
   const [year, setYear] = useState(2022);
 
+  console.log(year);
+
   function handleFilter(event) {
     setSelectedFilterTab(event);
   }

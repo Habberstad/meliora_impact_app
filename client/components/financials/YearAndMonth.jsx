@@ -6,7 +6,6 @@ export function YearAndMonth(props) {
   return (
     <>
       <Select
-        id={"year"}
         defaultValue={"2022"}
         onChange={props.onChange}
         inputProps={{ "aria-label": "Without label" }}
