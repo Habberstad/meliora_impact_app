@@ -3,30 +3,34 @@ import { ObjectId } from "mongodb";
 
 const userSchema = new mongoose.Schema(
   {
-    name: String,
-    last_name: String,
+
+    name: {
+      type: String,
+      required: true
+    },
+
     email: {
       type: String,
-      unique: true,
+      unique: true
     },
     img_url: {
       type: String,
-      unique: true,
+      unique: true
     },
 
     org_number: {
       type: String,
       required: true,
-      unique: true,
+      unique: true
     },
     org_name: {
       type: String,
-      required: true,
+      required: true
     },
     google_id: {
       type: String,
       required: true,
-      unique: true,
+      unique: true
     },
     address: String,
     postal_code: String,
@@ -34,26 +38,26 @@ const userSchema = new mongoose.Schema(
     payment_option: {
       type: String,
       enum: ["vipps", "klarna", "visa", "paypal", "none"],
-      default: "none",
+      default: "none"
     },
     subscription_type: {
       type: String,
       enum: ["freemium", "premium"],
-      required: true,
+      required: true
     },
     role: {
       type: String,
       enum: ["USER", "ADMIN"],
-      default: "USER",
+      default: "USER"
     },
-    privacy_consent:{
+    privacy_consent: {
       type: Boolean,
-      required: true,
+      required: true
     }
   },
   {
     collection: "users",
-    autoCreate: false,
+    autoCreate: false
   }
 );
 

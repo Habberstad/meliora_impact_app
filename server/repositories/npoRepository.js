@@ -20,6 +20,7 @@ async function getById(id) {
 
 async function create(query) {
   try {
+    console.log("req.body", query)
     const data = new Npo(query)
     return await data.save();
   } catch (e) {

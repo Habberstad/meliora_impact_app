@@ -73,7 +73,7 @@ export const hasAuthority = (role) => async (req, res, next) => {
 
 };
 
-export const subscriptionTypeRequired = (subscriptionType) => {
+export const hasSubscriptionType = (subscriptionType) => {
   return async (req, res, next) => {
     if (!req.user) {
       return res.sendStatus(401);
@@ -100,5 +100,5 @@ export default {
   hasAccount,
   accessToOwnAccountOnly,
   roleRequired: hasAuthority,
-  subscriptionTypeRequired
+  hasSubscriptionType
 };

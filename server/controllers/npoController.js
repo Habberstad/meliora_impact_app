@@ -33,7 +33,9 @@ async function getById(req, res) {
 
 async function create(req, res) {
   try {
-    await NpoService.create(req.query);
+
+    await NpoService.create(req.body);
+
     return res.status(201).json({ status: 201 });
   } catch (e) {
     return res.status(400).json({ status: 400, message: e.message });
