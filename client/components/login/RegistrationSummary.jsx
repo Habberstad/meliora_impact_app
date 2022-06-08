@@ -1,10 +1,18 @@
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import { Box, Button, Checkbox, Modal, Tooltip } from "@mui/material";
+import { Button, Checkbox, Tooltip } from "@mui/material";
 import { reviewContainer } from "./login-styles";
 import { LoginNextButtonB41 } from "../../styles/button-style-config";
 import { BackButton } from "./loginCommonComponents/BackButton";
 import { useState } from "react";
-import { consentAndAuthorityModalStyle } from "../wrapped/modal-style";
+import * as PropTypes from "prop-types";
+import { ConsentModal } from "./Modals/ConsentModal";
+
+ConsentModal.propTypes = {
+  open: PropTypes.bool,
+  onClose: PropTypes.func,
+  userName: PropTypes.any,
+  orgName: PropTypes.any,
+};
 
 export const RegistrationSummary = (props) => {
   const handleSubmit = () => {
@@ -94,24 +102,12 @@ export const RegistrationSummary = (props) => {
           </Button>
         </span>
       </Tooltip>
-      <Modal open={consent} onClose={consentHandleClose}>
-        <Box sx={consentAndAuthorityModalStyle}>
-          <div className="consent-and-authority-modal-container">
-            <h1>Authority and consent</h1>
-            <p style={{ fontSize: "18px" }}>
-              By signing up, I, <strong> {props.userName}</strong> from{" "}
-              <strong> {props.orgName}</strong>, hereby consent that all
-              provided information is correct and legitimate.
-            </p>
-            <p style={{ fontSize: "18px" }}>
-              I consent that the account information provided by Google (name,
-              email, address and postal code), to be handled and stored by{" "}
-              <strong>Student Group 38</strong> for the duration of Høyskolen
-              Kristiania - PRO201-1 21H, including evaluation.
-            </p>
-          </div>
-        </Box>
-      </Modal>
+      <ConsentModal
+        open={consent}
+        onClose={consentHandleClose}
+        userName={props.userName}
+        orgName={props.orgName}
+      />
     </div>
   );
 };
