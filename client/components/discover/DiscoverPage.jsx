@@ -38,8 +38,6 @@ const DiscoverPage = () => {
         image={headerImg}
       />
       <CategoryFilter onClick={categorySelectHandler} category={category} />
-      <br />
-      <br />
       <Searchbar searchString={searchString} onChange={handleSearchInput} />
       <br />
       <br />
