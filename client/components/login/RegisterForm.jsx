@@ -6,8 +6,8 @@ import {
   FormGroup,
   TextField,
 } from "@mui/material";
-import { FormTermsOfServiceText } from "./FormTermsOfServiceText";
-import { BackButton } from "./BackButton";
+import { BackButton } from "./loginCommonComponents/BackButton";
+import { FormTermsOfServiceText } from "./loginCommonComponents/FormTermsOfServiceText";
 import { registerButtonStyle } from "./login-styles";
 
 export function RegisterForm() {
