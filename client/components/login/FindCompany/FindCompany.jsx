@@ -1,13 +1,13 @@
-import { BackButton } from "./loginCommonComponents/BackButton";
+import { BackButton } from "../loginCommonComponents/BackButton";
 import { Button, InputAdornment, TextField, Tooltip } from "@mui/material";
 import { useNavigate } from "react-router";
 import * as React from "react";
 import { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
-import { companyListItem, selectedCompanyListItem } from "./login-styles";
-import { LoginNextButtonB41 } from "../../styles/button-style-config";
-import { UserApiContext } from "../../api-client/userApiContext";
-import ErrorMessage from "../shared-components/ErrorMessage";
+import { LoginNextButtonB41 } from "../../../styles/button-style-config";
+import { UserApiContext } from "../../../api-client/userApiContext";
+import ErrorMessage from "../../shared-components/ErrorMessage";
+import { CompanySearchListItem } from "./CompanySearchListItem";
 
 export const FindCompany = ({ handleCompanyInfo }) => {
   const navigate = useNavigate();
@@ -136,30 +136,12 @@ export const FindCompany = ({ handleCompanyInfo }) => {
           <div className="company-search-list">
             {companies.map((company) => {
               return (
-                <Button
+                <CompanySearchListItem
                   key={company.organisasjonsnummer}
-                  sx={
-                    selectedCompany === company.organisasjonsnummer
-                      ? selectedCompanyListItem
-                      : companyListItem
-                  }
-                  onClick={() =>
-                    handleSelectCompany(
-                      company.organisasjonsnummer,
-                      company.navn,
-                      company.forretningsadresse.adresse,
-                      company.forretningsadresse.postnummer,
-                      company.forretningsadresse.poststed
-                    )
-                  }
-                >
-                  <div className="company-list-item">
-                    <div>{company.navn}</div>
-                    <div style={{ fontSize: "12px" }}>
-                      {company.organisasjonsnummer}
-                    </div>
-                  </div>
-                </Button>
+                  selectedCompany={selectedCompany}
+                  company={company}
+                  onClick={handleSelectCompany}
+                />
               );
             })}
           </div>

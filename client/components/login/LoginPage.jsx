@@ -7,7 +7,7 @@ import { RegisterForm } from "./RegisterForm";
 import { LoginForm } from "./LoginForm";
 import { Route } from "react-router-dom";
 import { SelectSubscription } from "./selectSubscription/SelectSubscription";
-import { FindCompany } from "./FindCompany";
+import { FindCompany } from "./FindCompany/FindCompany";
 import { SelectPaymentMethod } from "./SelectPaymentMethod";
 import { SelectIdentificationMethod } from "./SelectIdentificationMethod";
 import { UserApiContext } from "../../api-client/userApiContext";
