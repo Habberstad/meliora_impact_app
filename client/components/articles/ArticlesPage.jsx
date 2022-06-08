@@ -7,7 +7,7 @@ import { isLoading } from "../shared-components/Loading";
 import { Error } from "../shared-components/Error";
 import { GlobalHeader } from "../headers/GlobalHeader";
 import { HEADER } from "../headers/HEADER";
-import headerImg from "../../media/articles_header_image.png";
+import headerImg from "../../media/headers/articles_header.svg";
 import { ArticleSection } from "./ArticleSection";
 import { CategoryFilter } from "../shared-components/CategoryFilter";
 
