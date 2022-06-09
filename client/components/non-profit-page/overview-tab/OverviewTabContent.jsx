@@ -7,7 +7,6 @@ import { DevelopmentGoalsWater } from "../../dashboard/DevelopmentGoalsWater";
 import { DevelopmentGoalsKnowledge } from "../../dashboard/DevelopmentGoalsKnowledge";
 
 const OverviewTabContent = ({ data, category }) => {
-  console.log(category);
   return (
     <div>
       <div className="information-section">

@@ -14,7 +14,6 @@ import { TransactionApiContext } from "../../api-client/transactionApiContext";
 import { Grid, MenuItem, Select } from "@mui/material";
 
 function DonationItem({ donation }) {
-
   return (
     <div className="donation-list-item">
       <div className="donation-timeline-dot" />
@@ -60,14 +59,13 @@ export function DonationHistory() {
     setNpo(event.target.value);
   };
 
-  const history = data
-  const filteredHistory = data.filter( (donation) => donation.npo_name === npo);
+  const history = data;
+  const filteredHistory = data.filter((donation) => donation.npo_name === npo);
   let donationHistory = filteredHistory.length > 0 ? filteredHistory : history;
 
-
-  const uniqueNpoNames = [...new Set(data.map( (donation) => donation.npo_name))]
-  console.log(uniqueNpoNames)
-
+  const uniqueNpoNames = [
+    ...new Set(data.map((donation) => donation.npo_name)),
+  ];
 
   return (
     <div className={"donation-history-filter"}>
