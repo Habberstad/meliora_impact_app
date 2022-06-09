@@ -75,7 +75,6 @@ export const AccountingPage = (props) => {
     (item) => new Date(item.date).getFullYear() === year
   );
 
-
   return (
     <div className="financials-page-wrapper">
       <GlobalHeader
@@ -195,11 +194,9 @@ export const AccountingPage = (props) => {
             </div>
 
             {selectedFilterTab === "statistics" && (
-              <img
-                className="accounting-image"
-                src="http://localhost:3000/header-image-partners.9fd59cdb.png?1654168554381"
-                alt="image"
-              />
+              <div className={"accounting-statistics-image"}>
+                Financial statistics coming soon
+              </div>
             )}
           </div>
         </div>
