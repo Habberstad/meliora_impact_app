@@ -16,7 +16,6 @@ const OverviewTabContent = ({ data, category }) => {
             <div className="paragraph-title">Our Mission</div>
             <div className="paragraph-text">{data.paragraph_1.text}</div>
           </div>
-          {/*TODO: HER ER KART */}
           <div className="mission-map-img">
             <HarryMapChart />
           </div>

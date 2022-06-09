@@ -15,6 +15,7 @@ export function ProfileHeader({
   console.log("profile header", allData);
   console.log("userinfo", user);
 
+  //TODO bugcheck this logic, shows wrong button in header
   useEffect(() => {
     user.active_subscriptions.map((x) => {
       if (x.npo_id === allData._id) {

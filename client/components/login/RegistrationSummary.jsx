@@ -2,7 +2,7 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { Button, Checkbox, Tooltip } from "@mui/material";
 import { reviewContainer } from "./login-styles";
 import { LoginNextButtonB41 } from "../../styles/button-style-config";
-import { BackButton } from "./loginCommonComponents/BackButton";
+import { BackButton } from "./login-common/BackButton";
 import { useState } from "react";
 import * as PropTypes from "prop-types";
 import { ConsentModal } from "./Modals/ConsentModal";
