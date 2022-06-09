@@ -47,14 +47,10 @@ export const ReadMoreButtonB31 = {
 
 //B-4.1
 export const LoginNextButtonB41 = {
-  maxWidth: "190px",
-  maxHeight: "60px",
-  minWidth: "190px",
-  minHeight: "60px",
+  width: "190px",
+  height: "60px",
   borderRadius: "8px",
-  alignSelf: "center",
   backgroundColor: "#551477",
-  marginTop: "50px",
   "&:hover": {
     backgroundColor: "#aa55d9",
     color: "#FFF",
@@ -108,34 +104,6 @@ export const highlightedOutlinedTabButtonStyle = {
   borderRadius: "0",
   fontWeight: "500",
   fontSize: "13px",
-};
-
-export const hoverTabStyle = {
-  color: "#000",
-  borderBottom: "3px solid #CFD8DC",
-  padding: "20px 50px 5px 20px",
-  borderRadius: "0px",
-  fontWeight: "bold",
-  fontFamily: "Montserrat",
-  fontSize: "20px",
-  "&:hover": {
-    borderBottom: "3px solid #7209B7",
-    backgroundColor: "#FAFAFA",
-  },
-};
-
-export const selectedTabStyle = {
-  color: "#000",
-  borderBottom: "3px solid #7209B7",
-  padding: "20px 50px 5px 20px",
-  borderRadius: "0px",
-  fontWeight: "bold",
-  fontFamily: "Montserrat",
-  fontSize: "20px",
-  "&:hover": {
-    borderBottom: "3px solid #7209B7",
-    backgroundColor: "#FAFAFA",
-  },
 };
 
 // Social Media Template
@@ -289,34 +257,6 @@ export const selectedTemplateCard = {
 export const templateCardIconStyle = {
   fontSize: "40px",
   color: "#000",
-};
-
-export const purplePlatformButton = {
-  color: "#FFF",
-  height: "45px",
-  width: "140px",
-  margin: "0 10px 0 10px",
-  borderRadius: "8px",
-  backgroundColor: "#7209B7",
-  "&:hover": {
-    backgroundColor: "#A400FF",
-  },
-};
-
-export const backPlatformButton = {
-  color: "#000",
-  height: "45px",
-  width: "140px",
-  margin: "0 10px 0 10px",
-  borderRadius: "8px",
-  borderColor: "#637381",
-  backgroundColor: "#FFF",
-  border: "solid 0.5px lightgrey",
-  "&:hover": {
-    backgroundColor: "#B8F0DA",
-    color: "#637381",
-    borderColor: "#FFF",
-  },
 };
 
 // DONATE MODAL
@@ -495,4 +435,38 @@ export const unselectedFilterTabStyle = {
   borderRadius: "8px 8px 0 0",
   fontSize: "14px",
   fontWeight: "600px",
+};
+
+{
+  /* SHARE MODAL SOCIAL MEDIA BUTTONS */
+}
+
+export const shareSocialMediaStyle = {
+  width: "80%",
+  height: "70px",
+  border: "1px solid lightgrey",
+  backgroundColor: "#FFF",
+  borderRadius: "5px",
+  objectFit: "cover",
+  margin: "10px",
+  "&:hover": {
+    borderColor: "#B8F0DA",
+    backgroundColor: "#B8F0DA",
+    color: "#000",
+  },
+};
+
+export const selectedShareSocialMediaStyle = {
+  width: "80%",
+  height: "70px",
+  border: "1px solid lightgrey",
+  backgroundColor: "#FFF",
+  borderRadius: "5px",
+  objectFit: "cover",
+  margin: "10px",
+  "&:hover": {
+    borderColor: "#B8F0DA",
+    backgroundColor: "#B8F0DA",
+    color: "#red",
+  },
 };

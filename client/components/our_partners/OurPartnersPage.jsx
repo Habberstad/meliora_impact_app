@@ -1,12 +1,12 @@
-import { CategoryFilter } from "../shared-components/CategoryFilter";
-import "../../styles/partners-styles.css";
 import { useContext, useState } from "react";
-import { useLoader } from "../../helpers/UseLoader";
-import { PartnersList } from "./PartnersList";
+import "../../styles/partners-styles.css";
 import { NpoApiContext } from "../../api-client/npoApiContext";
 import { HEADER } from "../headers/HEADER";
-import headerImg from "../../media/header-image-partners.png";
+import headerImg from "../../media/headers/mynpos_header.svg";
+import { CategoryFilter } from "../shared-components/CategoryFilter";
+import { PartnersList } from "./PartnersList";
 import { GlobalHeader } from "../headers/GlobalHeader";
+import { useLoader } from "../../helpers/UseLoader";
 import { isLoading } from "../shared-components/Loading";
 import { Error } from "../shared-components/Error";
 

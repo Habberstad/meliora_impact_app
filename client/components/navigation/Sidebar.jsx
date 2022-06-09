@@ -1,7 +1,9 @@
-import MelioraIcon from "../../media/meliora_logo.png";
+import { useContext } from "react";
+import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router";
+import MelioraIcon from "../../media/meliora_logo.png";
 import "../../styles/sidebar-styles.css";
-import React, { useEffect, useState } from "react";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import VolunteerActivismIcon from "@mui/icons-material/VolunteerActivism";
 import SlowMotionVideoIcon from "@mui/icons-material/SlowMotionVideo";
@@ -9,32 +11,17 @@ import CreateIcon from "@mui/icons-material/Create";
 import SearchIcon from "@mui/icons-material/Search";
 import ArticleIcon from "@mui/icons-material/Article";
 import BarChartIcon from "@mui/icons-material/BarChart";
-import { UserContext } from "../../App";
-import { useLocation } from "react-router-dom";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import SettingsIcon from "@mui/icons-material/Settings";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import PeopleIcon from "@mui/icons-material/People";
-import { useNavigate } from "react-router";
+import { UserContext } from "../../App";
 
 const Sidebar = () => {
   const navigate = useNavigate();
-  const user = React.useContext(UserContext);
+  const user = useContext(UserContext);
 
   const { pathname: location } = useLocation();
-
-  function handleLogoutClick() {
-    window.location.href = window.location.origin + "/auth/logout";
-  }
-
-  /*TODO: Investigate for sidebar highlight logic*/
-  const urlPathParam = window.location.pathname.substring(
-    window.location.pathname.lastIndexOf("/") + 1
-  );
-
-  const handleNavigationState = (tabValue) => {
-    setSelectedTab(tabValue);
-  };
 
   return (
     <div className="sidebar-container">
@@ -48,8 +35,10 @@ const Sidebar = () => {
         className="profile-name-badge"
         onClick={() => navigate("/account-information")}
       >
-        <div style={{ margin: "10px 0" }}> {user.org_name} </div>
-        {/* TODO: Replace with username */}
+        <div style={{ margin: "10px 0", textAlign: "center" }}>
+          {" "}
+          {user.org_name}{" "}
+        </div>
         <div
           style={{ marginBottom: "10px" }}
           className={`login-content-header-subscription-tag partner-only-badge ${

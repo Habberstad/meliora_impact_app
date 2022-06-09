@@ -14,7 +14,7 @@ import { UserApiContext } from "../../api-client/userApiContext";
 import { useLoading } from "../../useLoading";
 import { isLoading } from "../shared-components/Loading";
 import { Error } from "../shared-components/Error";
-import financialsHeader from "../../media/financials_header.png";
+import financialsHeader from "../../media/headers/financials_header.svg";
 import { GlobalHeader } from "../headers/GlobalHeader";
 import * as PropTypes from "prop-types";
 import { YearAndMonth } from "./YearAndMonth";
@@ -74,8 +74,6 @@ export const AccountingPage = (props) => {
   const filteredTransactions = data.active_subscriptions.filter(
     (item) => new Date(item.date).getFullYear() === year
   );
-
-  console.log(year);
 
   return (
     <div className="financials-page-wrapper">
@@ -152,7 +150,7 @@ export const AccountingPage = (props) => {
                         </Button>
                       </div>
                     </div>
-                    <Report ref={componentRef} user={props.user} />
+                    <Report ref={componentRef} user={props.user} year={year} />
                   </div>
                 )}
                 {selectedFilterTab === "subscription" && (
@@ -196,11 +194,9 @@ export const AccountingPage = (props) => {
             </div>
 
             {selectedFilterTab === "statistics" && (
-              <img
-                className="accounting-image"
-                src="http://localhost:3000/header-image-partners.9fd59cdb.png?1654168554381"
-                alt="image"
-              />
+              <div className={"accounting-statistics-image"}>
+                Financial statistics coming soon
+              </div>
             )}
           </div>
         </div>

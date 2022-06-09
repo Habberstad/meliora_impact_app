@@ -8,7 +8,7 @@ import {
   TextField,
 } from "@mui/material";
 import GoogleIcon from "../../media/google_icon.png";
-import { BackButton } from "./BackButton";
+import { BackButton } from "./login-common/BackButton";
 import { identificationButtonStyle } from "./login-styles";
 
 export function LoginForm(props) {

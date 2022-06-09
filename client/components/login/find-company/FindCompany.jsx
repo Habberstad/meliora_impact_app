@@ -1,18 +1,19 @@
-import { BackButton } from "./BackButton";
-import { Button, InputAdornment, TextField, Tooltip } from "@mui/material";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router";
-import * as React from "react";
-import { useState } from "react";
+
+import { Button, InputAdornment, TextField, Tooltip } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import { companyListItem, selectedCompanyListItem } from "./login-styles";
-import { LoginNextButtonB41 } from "../../styles/button-style-config";
-import { UserApiContext } from "../../api-client/userApiContext";
-import ErrorMessage from "../shared-components/ErrorMessage";
+import { BackButton } from "../login-common/BackButton";
+import ErrorMessage from "../../shared-components/ErrorMessage";
+import { CompanySearchListItem } from "./CompanySearchListItem";
+import { LoginNextButtonB41 } from "../../../styles/button-style-config";
+import { findCompanyInputField } from "../login-styles";
+import { UserApiContext } from "../../../api-client/userApiContext";
 
 export const FindCompany = ({ handleCompanyInfo }) => {
   const navigate = useNavigate();
   const [companies, setCompanies] = useState([]);
-  const [selectedCompany, setSelectedCompany] = useState();
+  const [selectedCompany, setSelectedCompany] = useState("");
   const [showError, setShowError] = useState(false);
   const [companyId, setCompanyId] = useState("");
   const [companyName, setCompanyName] = useState("");
@@ -21,7 +22,7 @@ export const FindCompany = ({ handleCompanyInfo }) => {
   const [postalCode, setPostalCode] = useState("");
   const [city, setCity] = useState("");
   const [fullCompanyAdress, setFullCompanyAdress] = useState("");
-  const { checkIsOrgRegistered } = React.useContext(UserApiContext);
+  const { checkIsOrgRegistered } = useContext(UserApiContext);
   const [showList, setShowList] = useState(false);
 
   const getCompanies = async (url) => {
@@ -31,7 +32,7 @@ export const FindCompany = ({ handleCompanyInfo }) => {
       const array = [...json._embedded.enheter];
       setCompanies(array);
       if (array.length > 0) setShowList(true);
-      setSelectedCompany();
+      setSelectedCompany("");
     } catch (error) {}
   };
 
@@ -75,6 +76,7 @@ export const FindCompany = ({ handleCompanyInfo }) => {
     setShowError(false);
 
     if (
+      //Checks if input length is 9 and only numbers, orgnumber
       e.target.value.trim().length === 9 &&
       /^\d+$/.test(e.target.value.trim())
     ) {
@@ -107,18 +109,7 @@ export const FindCompany = ({ handleCompanyInfo }) => {
       <TextField
         onChange={onChangeHandler}
         value={txtFieldValue}
-        sx={{
-          width: "100%",
-          mt: "22px",
-          "& .MuiOutlinedInput-root.Mui-focused": {
-            "& > fieldset": {
-              borderColor: "#7209B7",
-            },
-          },
-          "& .MuiInputLabel-root.Mui-focused": {
-            color: "#7209B7",
-          },
-        }}
+        sx={findCompanyInputField}
         label="Company Name / Organization Number"
         variant="outlined"
         InputProps={{
@@ -135,30 +126,12 @@ export const FindCompany = ({ handleCompanyInfo }) => {
           <div className="company-search-list">
             {companies.map((company) => {
               return (
-                <Button
+                <CompanySearchListItem
                   key={company.organisasjonsnummer}
-                  sx={
-                    selectedCompany === company.organisasjonsnummer
-                      ? selectedCompanyListItem
-                      : companyListItem
-                  }
-                  onClick={() =>
-                    handleSelectCompany(
-                      company.organisasjonsnummer,
-                      company.navn,
-                      company.forretningsadresse.adresse,
-                      company.forretningsadresse.postnummer,
-                      company.forretningsadresse.poststed
-                    )
-                  }
-                >
-                  <div className="company-list-item">
-                    <div>{company.navn}</div>
-                    <div style={{ fontSize: "12px" }}>
-                      {company.organisasjonsnummer}
-                    </div>
-                  </div>
-                </Button>
+                  selectedCompany={selectedCompany}
+                  company={company}
+                  onClick={handleSelectCompany}
+                />
               );
             })}
           </div>
@@ -175,7 +148,7 @@ export const FindCompany = ({ handleCompanyInfo }) => {
             <Button
               disabled={!selectedCompany}
               onClick={handleSendCompanyInfo}
-              sx={{ ...LoginNextButtonB41, marginTop: "30px" }}
+              sx={{ ...LoginNextButtonB41, marginTop: "80px" }}
               variant="contained"
             >
               Next

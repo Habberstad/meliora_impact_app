@@ -1,9 +1,9 @@
-import Article from "../models/articleModel.js";
+import ArticleRepository from "../repositories/articleRepository.js";
 
 
 async function listArticles(query) {
   try {
-    return await Article.find(query);
+    return await ArticleRepository.listArticles(query);
   } catch (e) {
 
     throw Error(e);
@@ -12,7 +12,7 @@ async function listArticles(query) {
 
 async function getArticleById(id) {
   try {
-    return await Article.findById(id);
+    return await ArticleRepository.getArticleById(id);
   } catch (e) {
 
     throw Error();
@@ -21,8 +21,8 @@ async function getArticleById(id) {
 
 async function createArticle(query) {
   try {
-    const data = new Article(query)
-    return await data.save();
+    const data = new ArticleRepository.createArticle(query)
+    return await data;
   } catch (e) {
 
     throw Error();

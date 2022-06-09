@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { useLoading } from "../../useLoading";
 import { Grid, Link, MenuItem, Select } from "@mui/material";
 import "../../styles/dashboard.css";
@@ -14,17 +14,20 @@ import { isLoading } from "../shared-components/Loading";
 import { Error } from "../shared-components/Error";
 import { ImpactSection } from "./ImpactSection";
 import { useNavigate } from "react-router";
-import { DonationListItem } from "./DonationListItem";
+import { DonationHistory } from "./DonationHistory";
 import WaterIcon from "@mui/icons-material/Water";
 import SchoolIcon from "@mui/icons-material/School";
 import MapChart from "../../MapChart";
 import { HighlightedPartners } from "./HighlightedPartners";
 import { DevelopmentGoalsKnowledge } from "./DevelopmentGoalsKnowledge";
 import { DevelopmentGoalsWater } from "./DevelopmentGoalsWater";
+import { TransactionApiContext } from "../../api-client/transactionApiContext";
+
+
 
 const DashboardPage = () => {
   const [expanded, setExpanded] = useState(0);
-  const [npo, setNpo] = useState("");
+
 
   const navigate = useNavigate();
   const { getCurrentUser } = useContext(UserApiContext);
@@ -37,18 +40,15 @@ const DashboardPage = () => {
     setExpanded(isExpanded ? panel : true);
   };
 
-  const handleChange1 = (event) => {
-    setNpo(event.target.value);
-  };
+
 
   if (loading) return isLoading();
   if (error) return <Error error={error} />;
 
   const highlighted = data.npo_partners;
-  const history = data.donation_history;
+
   const npoList = data.npo_partners;
-  const filteredHistory = history.filter((donation) => donation.npo_id === npo);
-  let donationHistory = filteredHistory.length > 0 ? filteredHistory : history;
+
   const partners = data.npo_partners;
   const locations = [];
   partners.map((x) => locations.push(x.locations[0]));
@@ -61,8 +61,6 @@ const DashboardPage = () => {
       return <SchoolIcon />;
     }
   }
-
-  console.log(npoList);
   return (
     <div className={"dashboard-wrapper"}>
       <div className={"dashboard-container"}>
@@ -104,6 +102,7 @@ const DashboardPage = () => {
                 if (index <= 1)
                   return (
                     <Accordion
+                      key={index}
                       className={"highlighted-accordion"}
                       sx={{
                         backgroundColor: "#FCEFE7",
@@ -123,29 +122,34 @@ const DashboardPage = () => {
 
                       <AccordionDetails sx={{ borderRadius: "16px" }}>
                         <div>
-                          {npo.impact_measurement.map((impactItem) => (
-                            <div
-                              className={
-                                "highlighted-partners-content-container"
-                              }
-                            >
-                              <div className={"highlighted-partners-project"}>
-                                {impactItem.impact_name}
+                          {npo.impact_measurement.map((impactItem, index) => {
+                            return (
+                              <div
+                                key={index}
+                                className={
+                                  "highlighted-partners-content-container"
+                                }
+                              >
+                                <div className={"highlighted-partners-project"}>
+                                  {impactItem.impact_name}
+                                </div>
+                                <div
+                                  className={"highlighted-partners-progress"}
+                                >
+                                  <LinearProgress
+                                    sx={{
+                                      width: "162px",
+                                      height: "9px",
+                                      backgroundColor: "#A5A5A5",
+                                      position: "absolut",
+                                    }}
+                                    variant="determinate"
+                                    value={impactItem.impact_value}
+                                  />
+                                </div>
                               </div>
-                              <div className={"highlighted-partners-progress"}>
-                                <LinearProgress
-                                  sx={{
-                                    width: "162px",
-                                    height: "9px",
-                                    backgroundColor: "#A5A5A5",
-                                    position: "absolut",
-                                  }}
-                                  variant="determinate"
-                                  value={impactItem.impact_value}
-                                />
-                              </div>
-                            </div>
-                          ))}
+                            );
+                          })}
                         </div>
                       </AccordionDetails>
                     </Accordion>
@@ -154,78 +158,7 @@ const DashboardPage = () => {
             />
           </Grid>
           <Grid item xl={5} lg={5} className={"donation-history-container"}>
-            <div className={"donation-history-filter"}>
-              <div className={"donation-history-title"}>Donation History</div>
-              {history.length > 0 ? (
-                <>
-                  <div className={"donation-history-filter-wrapper"}>
-                    <div className={"donation-filter-select-wrapper"}>
-                      <Select
-                        className={"donation-filter-select"}
-                        defaultValue={"Recent"}
-                        onChange={handleChange1}
-                        displayEmpty
-                        inputProps={{ "aria-label": "Without label" }}
-                        sx={{
-                          color: "#ffff",
-                          "& .MuiSelect-iconOpen": { color: "#ffff" },
-                          "& .MuiSelect-icon": { color: "#ffff" },
-                          borderRadius: "10px",
-                          textAlign: "center",
-                        }}
-                      >
-                        <MenuItem value={"Recent"} label="All">
-                          Recent
-                        </MenuItem>
-                        {npoList.map((x) => (
-                          <MenuItem key={x._id} value={x._id}>
-                            {x.name}
-                          </MenuItem>
-                        ))}
-                      </Select>
-                    </div>
-                  </div>
-                  <Grid container justifyContent={"center"}>
-                    <div className={"donation-history-timeline-container"}>
-                      <Grid item>
-                        <div className="donation-list-container">
-                          {donationHistory
-                            .slice(0)
-                            .reverse()
-                            .map((donation, index) => {
-                              if (index <= 3)
-                                return (
-                                  <DonationListItem
-                                    npoList={npoList}
-                                    donation={donation}
-                                  />
-                                );
-                            })}
-                        </div>
-                      </Grid>
-                    </div>
-                    <div className={"donation-see-all-wrapper"}>
-                      <div
-                        onClick={() => navigate("/accounting")}
-                        className={"donation-see-all"}
-                      >
-                        See all donations
-                      </div>
-                    </div>
-                  </Grid>
-                </>
-              ) : (
-                <div>
-                  <div>
-                    <div className="donation-placeholder-text">
-                      <div style={{ marginTop: "100px " }}>
-                        You currently have no donation history
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
+            <DonationHistory/>
           </Grid>
           <Grid item xl={7} lg={7} className={"map"}>
             <div className="dashboard-map-container">

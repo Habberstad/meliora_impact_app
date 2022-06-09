@@ -89,7 +89,7 @@
 .tile-data-sub-text {
     font-size: 12px;
     font-weight: 500;
-    margin-left: 30px;
+    text-align: center;
     margin-top: 5px;
     max-height: 30px;
     overflow: hidden;

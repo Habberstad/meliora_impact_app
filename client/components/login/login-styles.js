@@ -1,11 +1,3 @@
-export const LoginCard = {
-  display: "flex",
-  flexDirection: "column",
-  position: "absolute",
-  left: "200px",
-  top: "0",
-};
-
 export const registerButtonStyle = {
   mt: 1,
   backgroundColor: "#551477",
@@ -43,6 +35,19 @@ export const selectedCompanyListItem = {
     backgroundColor: "#7209B7",
     boxShadow:
       "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.1)",
+  },
+};
+
+export const findCompanyInputField = {
+  width: "100%",
+  mt: "22px",
+  "& .MuiOutlinedInput-root.Mui-focused": {
+    "& > fieldset": {
+      borderColor: "#7209B7",
+    },
+  },
+  "& .MuiInputLabel-root.Mui-focused": {
+    color: "#7209B7",
   },
 };
 
@@ -134,23 +139,6 @@ export const selectedPaymentMethod = {
     borderColor: "#B8F0DA",
     backgroundColor: "#B8F0DA",
     color: "#000",
-  },
-};
-
-export const submitButtonStyle = {
-  width: "190px",
-  height: "50px",
-  maxWidth: "190px",
-  maxHeight: "50px",
-  minWidth: "190px",
-  minHeight: "50px",
-  borderRadius: "8px",
-  alignSelf: "center",
-  backgroundColor: "#551477",
-  marginTop: "50px",
-  "&:hover": {
-    backgroundColor: "#aa55d9",
-    color: "#FFF",
   },
 };
 

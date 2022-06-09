@@ -1,37 +1,23 @@
 import { ObjectId } from "mongodb";
 import SubscriptionService from "../services/subscriptionService.js";
 import Subscription from "../models/subscriptionModel.js";
-import TransactionService from "../services/TransactionService.js";
-import SubscriptionHistoryService from "../services/subscriptionHistoryService.js";
+import TransactionService from "../services/transactionService.js";
 
 async function list(req, res) {
-  const query = {};
-
-  const { _id } = req.query;
-  if (_id !== "" && _id !== undefined && ObjectId.isValid(_id)) {
-    query._id = { $eq: ObjectId(_id) };
-  }
 
   try {
-    const npo = await SubscriptionService.list(query);
+    const npo = await SubscriptionService.list(req.query);
     return res.status(200).json(npo);
   } catch (e) {
     return res.status(400).json({ status: 400, message: e.message });
   }
 }
 
-async function listByUserId(req, res) {
-  const query = {};
-
-  const { user_id } = req.query;
-  if (user_id)
-    query.user_id = user_id;
-  else
-    return res.status(200).json([]);
-
+async function listLoggedUsers(req, res) {
   try {
-    const npo = await SubscriptionService.listByUserId(query);
-    return res.status(200).json(npo);
+
+    const subs = await SubscriptionService.listLoggedUsers(req.user.id);
+    return res.status(200).json(subs);
   } catch (e) {
     return res.status(400).json({ status: 400, message: e.message });
   }
@@ -39,6 +25,7 @@ async function listByUserId(req, res) {
 
 
 async function getById(req, res) {
+
   try {
     const data = await SubscriptionService.getById(req.params.id);
     return res.status(200).json(data);
@@ -56,11 +43,13 @@ async function create(req, res) {
 
   try {
     const test = await Subscription.find(query)
+
     if(test.length !== 0)
       return res.status(409).json({ alreadyExist: true, status: 409, message: "already exist" });
-    console.log(req.body)
+
     await SubscriptionService.create(req.body);
     await TransactionService.create(req.body);
+
     return res.status(201).json({ status: 201 });
   } catch (e) {
     return res.status(400).json({ status: 400, message: e.message });
@@ -80,4 +69,4 @@ async function deleteRecord(req, res) {
 
 
 
-export default { list, getById, create, listByUserId, deleteRecord };
+export default { list, getById, create, listLoggedUsers, deleteRecord };

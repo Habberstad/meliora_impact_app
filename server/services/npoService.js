@@ -19,10 +19,9 @@ async function getById(id) {
 
 async function create(query) {
   try {
-    const data = new NpoRepository.create(query)
-    return await data;
+    const data = await NpoRepository.create(query)
+    return data;
   } catch (e) {
-
     throw Error();
   }
 }

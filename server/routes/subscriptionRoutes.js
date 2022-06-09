@@ -1,19 +1,14 @@
 import { Router } from "express";
 import SubscriptionControllers from "../controllers/subscriptionController.js";
+import { hasAuthority } from "../middleware/middleware.js";
 
 const router = Router();
 
-router.get("/", SubscriptionControllers.list )
-router.get("/list-by-user-id", SubscriptionControllers.listByUserId)
-router.get("/:id", SubscriptionControllers.getById)
-
+router.get("/", hasAuthority("ADMIN"), SubscriptionControllers.list )
+router.get("/user/logged-in", SubscriptionControllers.listLoggedUsers)
+router.get("/:id", hasAuthority("ADMIN"), SubscriptionControllers.getById)
 router.post("/", SubscriptionControllers.create)
-
 router.delete("/:id", SubscriptionControllers.deleteRecord)
-
-
-//Test
-router.get("/test/test", SubscriptionControllers.listByUserId)
 
 
 export default router;

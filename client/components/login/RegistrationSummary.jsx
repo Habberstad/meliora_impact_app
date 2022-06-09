@@ -1,13 +1,27 @@
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { Button, Checkbox, Tooltip } from "@mui/material";
 import { reviewContainer } from "./login-styles";
 import { LoginNextButtonB41 } from "../../styles/button-style-config";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import { BackButton } from "./BackButton";
+import { BackButton } from "./login-common/BackButton";
+import { useState } from "react";
+import * as PropTypes from "prop-types";
+import { ConsentModal } from "./Modals/ConsentModal";
+
+ConsentModal.propTypes = {
+  open: PropTypes.bool,
+  onClose: PropTypes.func,
+  userName: PropTypes.any,
+  orgName: PropTypes.any,
+};
 
 export const RegistrationSummary = (props) => {
   const handleSubmit = () => {
     props.handleSubmit();
   };
+
+  const [consent, setConsent] = useState(false);
+  const consentHandleOpen = () => setConsent(true);
+  const consentHandleClose = () => setConsent(false);
 
   let isNotCompleted =
     !props.userName ||
@@ -65,11 +79,7 @@ export const RegistrationSummary = (props) => {
           checked={props.isPrivacyConsent}
           onChange={props.privacyConsentHandler}
         />
-        <div>
-          By signing up, I consent to my user information provided by Google
-          (name and email), to be handled and stored by student group 38 for the
-          duration of Høyskolen Kristiania - PRO201-1 21H, including evaluation.
-        </div>
+        <Button onClick={consentHandleOpen}>I hereby consent </Button>
       </div>
 
       <Tooltip
@@ -85,13 +95,19 @@ export const RegistrationSummary = (props) => {
           <Button
             disabled={isNotCompleted}
             onClick={handleSubmit}
-            sx={LoginNextButtonB41}
+            sx={{ ...LoginNextButtonB41, marginTop: "50px" }}
             variant="contained"
           >
             Confirm
           </Button>
         </span>
       </Tooltip>
+      <ConsentModal
+        open={consent}
+        onClose={consentHandleClose}
+        userName={props.userName}
+        orgName={props.orgName}
+      />
     </div>
   );
 };
