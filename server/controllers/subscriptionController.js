@@ -43,7 +43,7 @@ async function create(req, res) {
 
   try {
     const test = await Subscription.find(query)
-    console.log("length", test.length)
+
     if(test.length !== 0)
       return res.status(409).json({ alreadyExist: true, status: 409, message: "already exist" });
 

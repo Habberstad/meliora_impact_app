@@ -12,21 +12,14 @@ export function ProfileHeader({
   handleShowDonationModal,
 }) {
   const [isPartner, setIsPartner] = useState(false);
-  console.log("profile header", allData);
-  console.log("userinfo", user);
 
-  //TODO bugcheck this logic, shows wrong button in header
   useEffect(() => {
-    user.active_subscriptions.map((x) => {
-      if (x.npo_id === allData._id) {
+    user.active_subscriptions.map((subscription) => {
+      if (subscription.npo_id === allData._id) {
         setIsPartner(true);
-      } else {
-        setIsPartner(false);
       }
     });
   }, []);
-
-  console.log("isPartner", isPartner);
 
   return (
     <div className="main-header-container">
