@@ -32,6 +32,7 @@ const ContentStep = ({ npoList, handleNext }) => {
       <div className="npo-card-container">
         {npoList.map((x) => (
           <Button
+            key={x._id}
             sx={
               selectedCard === x._id
                 ? templateSelectedCardButtonStyle
