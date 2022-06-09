@@ -1,5 +1,5 @@
 import { Box, Button, Modal, Tooltip } from "@mui/material";
-import { BackButton } from "../loginCommonComponents/BackButton";
+import { BackButton } from "../login-common/BackButton";
 import { useNavigate } from "react-router";
 import { SubscriptionInfoModal } from "./SubscriptionInfoModal";
 import { useState } from "react";

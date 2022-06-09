@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 
 import { Button, InputAdornment, TextField, Tooltip } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import { BackButton } from "../loginCommonComponents/BackButton";
+import { BackButton } from "../login-common/BackButton";
 import ErrorMessage from "../../shared-components/ErrorMessage";
 import { CompanySearchListItem } from "./CompanySearchListItem";
 import { LoginNextButtonB41 } from "../../../styles/button-style-config";
