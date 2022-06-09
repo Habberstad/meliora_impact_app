@@ -40,7 +40,10 @@ const Sidebar = () => {
         className="profile-name-badge"
         onClick={() => navigate("/account-information")}
       >
-        <div style={{ margin: "10px 0" }}> {user.org_name} </div>
+        <div style={{ margin: "10px 0", textAlign: "center" }}>
+          {" "}
+          {user.org_name}{" "}
+        </div>
         <div
           style={{ marginBottom: "10px" }}
           className={`login-content-header-subscription-tag partner-only-badge ${
