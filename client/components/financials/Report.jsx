@@ -1,6 +1,5 @@
 import * as React from "react";
-import { useState } from "react";
-import { Box, Button, Grid, Link, MenuItem, Select } from "@mui/material";
+import { Box, Grid, Link } from "@mui/material";
 import MelioraIcon from "../../media/meliora_logo.png";
 import { DonationTable } from "./DonationTable";
 import { useContext } from "react";
@@ -11,7 +10,7 @@ import { Error } from "../shared-components/Error";
 
 const Report = React.forwardRef((props, ref) => {
   const user = props.user;
-  const year = props.year
+  const year = props.year;
 
   const { getCurrentUsersTransactions } = useContext(TransactionApiContext);
   const { loading, error, data } = useLoading(
@@ -20,7 +19,6 @@ const Report = React.forwardRef((props, ref) => {
   );
   if (loading) return isLoading();
   if (error) return <Error error={error} />;
-
 
   const filteredTransactions = data.filter(
     (item) => new Date(item.date).getFullYear() === year
