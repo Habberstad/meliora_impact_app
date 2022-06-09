@@ -23,11 +23,6 @@ const Sidebar = () => {
 
   const { pathname: location } = useLocation();
 
-  /*TODO: Investigate for sidebar highlight logic*/
-  const urlPathParam = window.location.pathname.substring(
-    window.location.pathname.lastIndexOf("/") + 1
-  );
-
   return (
     <div className="sidebar-container">
       <div className="sidebar-company-logo">
