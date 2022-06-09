@@ -9,8 +9,8 @@ export const TransactionApiContext = React.createContext({
     return await fetchJSON("/api/transactions/user/logged-in?" + new URLSearchParams(query));
   },
 
-  async registerSubscription(subscription) {
-    return await postJSON("/api/transactions", subscription);
+  async registerTransaction(transaction) {
+    return await postJSON("/api/transactions", transaction);
   },
 
 });
