@@ -136,7 +136,11 @@ export const AccountingPage = (props) => {
                         <YearAndMonth
                           onChange={yearChange}
                           strings={months}
-                          callbackfn={(m) => <MenuItem value={m}>{m}</MenuItem>}
+                          callbackfn={(m) => (
+                            <MenuItem key={m} value={m}>
+                              {m}
+                            </MenuItem>
+                          )}
                         />
                       </div>
                       <div className={"accounting-button-wrapper"}>
@@ -165,7 +169,11 @@ export const AccountingPage = (props) => {
                         <YearAndMonth
                           onChange={yearChange}
                           strings={months}
-                          callbackfn={(m) => <MenuItem value={m}>{m}</MenuItem>}
+                          callbackfn={(m) => (
+                            <MenuItem key={m} value={m}>
+                              {m}
+                            </MenuItem>
+                          )}
                         />
                       </div>
                     </Box>
