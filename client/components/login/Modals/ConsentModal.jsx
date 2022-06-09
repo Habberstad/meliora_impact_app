@@ -1,5 +1,5 @@
 import { Box, Modal } from "@mui/material";
-import { consentAndAuthorityModalStyle } from "../../wrapped/modal-style";
+import { consentAndAuthorityModalStyle } from "../../wrapped/share-modal-style";
 
 export function ConsentModal(props) {
   return (
