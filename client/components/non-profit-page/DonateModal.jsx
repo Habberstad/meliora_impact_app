@@ -1,5 +1,5 @@
 import { Box, Button, Modal, TextField } from "@mui/material";
-import { donateModalStyle } from "../wrapped/modal-style";
+import { donateModalStyle } from "../wrapped/share-modal-style";
 import {
   donateAmountButton,
   greenWidePlatformButton,

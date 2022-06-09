@@ -41,7 +41,6 @@ const Sidebar = () => {
         onClick={() => navigate("/account-information")}
       >
         <div style={{ margin: "10px 0" }}> {user.org_name} </div>
-        {/* TODO: Replace with username */}
         <div
           style={{ marginBottom: "10px" }}
           className={`login-content-header-subscription-tag partner-only-badge ${

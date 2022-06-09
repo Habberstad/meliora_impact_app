@@ -1,5 +1,5 @@
 import { Box, Button, Modal, Tooltip } from "@mui/material";
-import { BackButton } from "../loginCommonComponents/BackButton";
+import { BackButton } from "../login-common/BackButton";
 import { useNavigate } from "react-router";
 import { SubscriptionInfoModal } from "./SubscriptionInfoModal";
 import { useState } from "react";
@@ -12,7 +12,7 @@ import {
 } from "../login-styles";
 import { LoginNextButtonB41 } from "../../../styles/button-style-config";
 import * as React from "react";
-import { selectSubscriptionModalStyle } from "../../wrapped/modal-style";
+import { selectSubscriptionModalStyle } from "../../wrapped/share-modal-style";
 
 export const SelectSubscription = (props) => {
   const [subscriptionType, setSubscriptionType] = useState(

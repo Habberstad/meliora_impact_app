@@ -41,7 +41,7 @@ export function SubscriptionInfoModal() {
         isPartnerOnly={true}
       />
       <SubscriptionInfoCard
-        header={"Filter and Serach"}
+        header={"Filter and Search"}
         text={
           "Easily filter and find non profits that work on what you care about"
         }
@@ -102,7 +102,7 @@ export function SubscriptionInfoModal() {
       <SubscriptionInfoCard
         header={"Useful Insight"}
         text={
-          "Track and get insights on your company’s philantropic activity and impact"
+          "Track and get insights on your company’s philanthropic activity and impact"
         }
         icon={
           <FontAwesomeIcon
@@ -113,7 +113,7 @@ export function SubscriptionInfoModal() {
         isPartnerOnly={true}
       />
       <SubscriptionInfoCard
-        header={"Currated Donations"}
+        header={"Curated Donations"}
         text={
           "Make company donations to any nonprofit in our carefully selected portfolio"
         }

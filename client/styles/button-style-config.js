@@ -436,3 +436,37 @@ export const unselectedFilterTabStyle = {
   fontSize: "14px",
   fontWeight: "600px",
 };
+
+{
+  /* SHARE MODAL SOCIAL MEDIA BUTTONS */
+}
+
+export const shareSocialMediaStyle = {
+  width: "80%",
+  height: "70px",
+  border: "1px solid lightgrey",
+  backgroundColor: "#FFF",
+  borderRadius: "5px",
+  objectFit: "cover",
+  margin: "10px",
+  "&:hover": {
+    borderColor: "#B8F0DA",
+    backgroundColor: "#B8F0DA",
+    color: "#000",
+  },
+};
+
+export const selectedShareSocialMediaStyle = {
+  width: "80%",
+  height: "70px",
+  border: "1px solid lightgrey",
+  backgroundColor: "#FFF",
+  borderRadius: "5px",
+  objectFit: "cover",
+  margin: "10px",
+  "&:hover": {
+    borderColor: "#B8F0DA",
+    backgroundColor: "#B8F0DA",
+    color: "#red",
+  },
+};

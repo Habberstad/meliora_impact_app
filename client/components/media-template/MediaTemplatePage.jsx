@@ -14,7 +14,7 @@ import {
   ReadMoreButtonB31,
 } from "../../styles/button-style-config";
 import { useReactToPrint } from "react-to-print";
-import { ShareModal } from "./ShareModal";
+import { ShareModal } from "../wrapped/ShareModal";
 import { GlobalHeader } from "../headers/GlobalHeader";
 import headerImg from "../../media/headers/template_header.svg";
 const steps = ["Content", "Format", "Customize", "Review"];

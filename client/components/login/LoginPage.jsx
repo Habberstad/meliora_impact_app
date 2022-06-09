@@ -6,12 +6,12 @@ import { Route } from "react-router-dom";
 import { LoginForm } from "./LoginForm";
 import { RegisterForm } from "./RegisterForm";
 import { LoginLeftCard } from "./LoginLeftCard";
-import { FindCompany } from "./FindCompany/FindCompany";
+import { FindCompany } from "./find-company/FindCompany";
 import { RegistrationSummary } from "./RegistrationSummary";
 import { SelectPaymentMethod } from "./SelectPaymentMethod";
 import { PostLoginIntroSelection } from "./PostLoginIntroSelection";
 import { SelectIdentificationMethod } from "./SelectIdentificationMethod";
-import { SelectSubscription } from "./selectSubscription/SelectSubscription";
+import { SelectSubscription } from "./select-subscription/SelectSubscription";
 import { UserApiContext } from "../../api-client/userApiContext";
 
 export const LoginPage = () => {
