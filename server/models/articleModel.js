@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import { ObjectId } from "mongodb";
 
 const articleSchema = new mongoose.Schema({
   name: String,
