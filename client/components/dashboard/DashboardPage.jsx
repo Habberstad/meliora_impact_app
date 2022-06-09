@@ -21,13 +21,9 @@ import MapChart from "../../MapChart";
 import { HighlightedPartners } from "./HighlightedPartners";
 import { DevelopmentGoalsKnowledge } from "./DevelopmentGoalsKnowledge";
 import { DevelopmentGoalsWater } from "./DevelopmentGoalsWater";
-import { TransactionApiContext } from "../../api-client/transactionApiContext";
-
-
 
 const DashboardPage = () => {
   const [expanded, setExpanded] = useState(0);
-
 
   const navigate = useNavigate();
   const { getCurrentUser } = useContext(UserApiContext);
@@ -39,8 +35,6 @@ const DashboardPage = () => {
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : true);
   };
-
-
 
   if (loading) return isLoading();
   if (error) return <Error error={error} />;
@@ -158,7 +152,7 @@ const DashboardPage = () => {
             />
           </Grid>
           <Grid item xl={5} lg={5} className={"donation-history-container"}>
-            <DonationHistory/>
+            <DonationHistory />
           </Grid>
           <Grid item xl={7} lg={7} className={"map"}>
             <div className="dashboard-map-container">
