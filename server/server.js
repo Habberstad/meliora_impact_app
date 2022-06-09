@@ -43,10 +43,10 @@ export const initServer = () => {
 
   app.use("/auth", authRoutes);
   app.use("/api/articles", hasAccount, articlesRoute);
-  app.use("/api/npo", npoRoute);
-  app.use("/api/subscriptions", subscriptionRoutes);
+  app.use("/api/npo", hasAccount, npoRoute);
+  app.use("/api/subscriptions", hasAccount, subscriptionRoutes);
   app.use("/api/users", userRoute);
-  app.use("/api/transactions", transactionRoute)
+  app.use("/api/transactions", hasAccount, transactionRoute)
 
   app.use((req, res, next) => {
     if (req.method === "GET" && !req.path.startsWith("/api")) {

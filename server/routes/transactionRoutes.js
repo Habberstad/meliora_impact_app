@@ -5,5 +5,4 @@ const router = Router();
 
 router.get("/user/logged-in", TransactionController.listLoggedUsers)
 
-
 export default router;
