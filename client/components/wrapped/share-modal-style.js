@@ -1,10 +1,10 @@
-export const modalStyle = {
+export const shareModalStyle = {
   position: "absolute",
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: 400,
-  bgcolor: "#FCDDEC",
+  bgcolor: "#FAFAFA",
   color: "#503658",
   borderRadius: "20px",
   boxShadow: 24,

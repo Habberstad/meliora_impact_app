@@ -1,11 +1,11 @@
 import { Box, Modal } from "@mui/material";
-import { modalStyle } from "./modal-style";
+import { shareModalStyle } from "./share-modal-style";
 import * as React from "react";
 
 export function ViewModal(props) {
   return (
     <Modal open={props.open} onClose={props.onClose}>
-      <Box sx={modalStyle} style={{ width: 800 }}>
+      <Box sx={shareModalStyle} style={{ width: 800 }}>
         <div className="meliora-wrapped-view-modal">Let's go Meliora!</div>
 
         <iframe

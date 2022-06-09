@@ -7,20 +7,23 @@ import {
   TextField,
   Tooltip,
 } from "@mui/material";
-import { modalStyle } from "./modal-style";
+import { shareModalStyle } from "./share-modal-style";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import { ReadMoreButtonB31 } from "../../styles/button-style-config";
+import {
+  ReadMoreButtonB31,
+  selectedShareSocialMediaStyle,
+  shareSocialMediaStyle,
+} from "../../styles/button-style-config";
 import * as React from "react";
-import { paymentMethod, selectedPaymentMethod } from "../login/login-styles";
 
 export function ShareModal(props) {
   return (
     <Modal open={props.open} onClose={props.onClose}>
-      <Box sx={modalStyle}>
+      <Box sx={shareModalStyle}>
         <div className="meliora-wrapped-share-modal">
           <h1>Share</h1>
           <div className="meliora-wrapped-share-modal-buttons">
@@ -29,12 +32,14 @@ export function ShareModal(props) {
               onClick={props.onClick}
               sx={
                 props.placeholder === "linkedin"
-                  ? selectedPaymentMethod
-                  : paymentMethod
+                  ? shareSocialMediaStyle
+                  : selectedShareSocialMediaStyle
               }
             >
               <div>
-                <LinkedInIcon sx={{ fontSize: 50 }} />
+                <LinkedInIcon
+                  sx={{ display: "flex", alignItems: "center", fontSize: 50 }}
+                />
               </div>
             </Button>
             <Button
@@ -42,12 +47,14 @@ export function ShareModal(props) {
               onClick={props.onClick1}
               sx={
                 props.placeholder === "twitter"
-                  ? selectedPaymentMethod
-                  : paymentMethod
+                  ? shareSocialMediaStyle
+                  : selectedShareSocialMediaStyle
               }
             >
               <div>
-                <TwitterIcon sx={{ fontSize: 50 }} />
+                <TwitterIcon
+                  sx={{ display: "flex", alignItems: "center", fontSize: 50 }}
+                />
               </div>
             </Button>
             <Button
@@ -55,12 +62,14 @@ export function ShareModal(props) {
               onClick={props.onClick2}
               sx={
                 props.placeholder === "facebook"
-                  ? selectedPaymentMethod
-                  : paymentMethod
+                  ? shareSocialMediaStyle
+                  : selectedShareSocialMediaStyle
               }
             >
               <div>
-                <FacebookIcon sx={{ fontSize: 50 }} />
+                <FacebookIcon
+                  sx={{ display: "flex", alignItems: "center", fontSize: 50 }}
+                />
               </div>
             </Button>
             <Tooltip title={"Not available at this moment!"} placement="top">
@@ -69,12 +78,14 @@ export function ShareModal(props) {
                 onClick={props.onClick3}
                 sx={
                   props.placeholder === "instagram"
-                    ? selectedPaymentMethod
-                    : paymentMethod
+                    ? shareSocialMediaStyle
+                    : selectedShareSocialMediaStyle
                 }
               >
                 <div>
-                  <InstagramIcon sx={{ fontSize: 50 }} />
+                  <InstagramIcon
+                    sx={{ display: "flex", alignItems: "center", fontSize: 50 }}
+                  />
                 </div>
               </Button>
             </Tooltip>
