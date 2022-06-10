@@ -8,16 +8,7 @@ export function Searchbar(props) {
     <div className={"npo-search-container"}>
       <div className={"npo-search-field"}>
         <TextField
-          sx={{
-            "& .MuiOutlinedInput-root.Mui-focused": {
-              "& > fieldset": {
-                border: "1px solid #000000"
-
-              },
-            border:" 1px solid #000000"
-          }}}
           value={props.emptySearchInput ? "" : props.searchString}
-          variant={"outlined"}
           onChange={props.onChange}
           size={"small"}
           InputProps={{

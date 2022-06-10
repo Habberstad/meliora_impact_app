@@ -79,7 +79,9 @@ export const RegistrationSummary = (props) => {
           checked={props.isPrivacyConsent}
           onChange={props.privacyConsentHandler}
         />
-        <Button onClick={consentHandleOpen}>I hereby consent </Button>
+        <Button onClick={consentHandleOpen}>
+          I hereby consent to the following{" "}
+        </Button>
       </div>
 
       <Tooltip

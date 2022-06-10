@@ -1,7 +1,13 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router";
 
-import { Button, InputAdornment, TextField, Tooltip } from "@mui/material";
+import {
+  Button,
+  Checkbox,
+  InputAdornment,
+  TextField,
+  Tooltip,
+} from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { BackButton } from "../login-common/BackButton";
 import ErrorMessage from "../../shared-components/ErrorMessage";
@@ -24,7 +30,11 @@ export const FindCompany = ({ handleCompanyInfo }) => {
   const [fullCompanyAdress, setFullCompanyAdress] = useState("");
   const { checkIsOrgRegistered } = useContext(UserApiContext);
   const [showList, setShowList] = useState(false);
+  const [hasAuthority, setHasAuthority] = useState(false);
 
+  const authorityHandler = () => {
+    setHasAuthority((prevState) => !prevState);
+  };
   const getCompanies = async (url) => {
     try {
       const response = await fetch(url);
@@ -93,6 +103,9 @@ export const FindCompany = ({ handleCompanyInfo }) => {
     }
   };
 
+  let requirements = false;
+  if (selectedCompany && hasAuthority === true) requirements = true;
+
   return (
     <div className={"login-content"}>
       <BackButton />
@@ -138,6 +151,20 @@ export const FindCompany = ({ handleCompanyInfo }) => {
         </div>
       ) : null}
 
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "flexStart",
+          width: "100%",
+        }}
+      >
+        <Checkbox checked={hasAuthority} onChange={authorityHandler} />
+        <div style={{ fontSize: "12px" }}>
+          I confirm that I have the mandatory authority to register the company
+        </div>
+      </div>
+
       {!showList && (
         <Tooltip
           style={{ display: "flex", justifyContent: "center" }}
@@ -146,7 +173,7 @@ export const FindCompany = ({ handleCompanyInfo }) => {
         >
           <span>
             <Button
-              disabled={!selectedCompany}
+              disabled={!requirements}
               onClick={handleSendCompanyInfo}
               sx={{ ...LoginNextButtonB41, marginTop: "80px" }}
               variant="contained"
