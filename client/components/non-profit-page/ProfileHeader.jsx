@@ -1,5 +1,10 @@
 import { Button } from "@mui/material";
 import WavesIcon from "@mui/icons-material/Waves";
+import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
+import StraightenIcon from "@mui/icons-material/Straighten";
+import SchoolIcon from "@mui/icons-material/School";
+import HouseIcon from "@mui/icons-material/House";
+import MenuBookIcon from "@mui/icons-material/MenuBook";
 import { useEffect, useState } from "react";
 import { LoginNextButtonB41 } from "../../styles/button-style-config";
 
@@ -14,6 +19,7 @@ export function ProfileHeader({
   const [isPartner, setIsPartner] = useState(false);
 
   useEffect(() => {
+    console.log(allData);
     user.active_subscriptions.map((subscription) => {
       if (subscription.npo_id === allData._id) {
         setIsPartner(true);
@@ -65,27 +71,45 @@ export function ProfileHeader({
           </div>
           <div className="header-tile-container">
             <div className="header-tile">
-              <WavesIcon
-                sx={{ color: "#7209B7", width: "50px", height: "35px" }}
-              />
+              {allData.category === "water" ? (
+                <StraightenIcon
+                  sx={{ color: "#7209B7", width: "50px", height: "35px" }}
+                />
+              ) : (
+                <HouseIcon
+                  sx={{ color: "#7209B7", width: "50px", height: "35px" }}
+                />
+              )}
               <div className="tile-data-text">{data.tile_1.value}</div>
               <div className="tile-data-sub-text">
                 {data.tile_1.description}
               </div>
             </div>
             <div className="header-tile">
-              <WavesIcon
-                sx={{ color: "#7209B7", width: "50px", height: "35px" }}
-              />
+              {allData.category === "water" ? (
+                <FitnessCenterIcon
+                  sx={{ color: "#7209B7", width: "50px", height: "35px" }}
+                />
+              ) : (
+                <SchoolIcon
+                  sx={{ color: "#7209B7", width: "50px", height: "35px" }}
+                />
+              )}
               <div className="tile-data-text">{data.tile_2.value}</div>
               <div className="tile-data-sub-text">
                 {data.tile_2.description}
               </div>
             </div>
             <div className="header-tile">
-              <WavesIcon
-                sx={{ color: "#7209B7", width: "50px", height: "35px" }}
-              />
+              {allData.category === "water" ? (
+                <WavesIcon
+                  sx={{ color: "#7209B7", width: "50px", height: "35px" }}
+                />
+              ) : (
+                <MenuBookIcon
+                  sx={{ color: "#7209B7", width: "50px", height: "35px" }}
+                />
+              )}
               <div className="tile-data-text">{data.tile_3.value}</div>
               <div className="tile-data-sub-text">
                 {data.tile_3.description}

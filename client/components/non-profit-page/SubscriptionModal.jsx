@@ -1,11 +1,11 @@
-import { Box, Button, Modal, TextField } from "@mui/material";
+import { Box, Button, InputAdornment, Modal, TextField } from "@mui/material";
 import { subscribeModalStyle } from "../wrapped/share-modal-style";
 import {
   allocationDonateButton,
   donateAmountButton,
-  greenWidePlatformButton,
   leftPaymentModalFreqBtn,
   leftSelectedPaymentModalFreqBtn,
+  ReadMoreButtonB31,
   rightPaymentModalFreqBtn,
   rightSelectedPaymentModalFreqBtn,
   selectedDonateAmountButton,
@@ -133,6 +133,12 @@ function SubscriptionModal({
               boxShadow:
                 "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.05)",
             }}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">kr </InputAdornment>
+              ),
+              endAdornment: <InputAdornment position="end">NOK</InputAdornment>,
+            }}
             onChange={addCustomPaymentAmount}
           />
         </div>
@@ -248,7 +254,7 @@ function SubscriptionModal({
           onClick={handleSubmitSubscription}
           variant="contained"
           style={{ marginTop: "30px" }}
-          sx={greenWidePlatformButton}
+          sx={ReadMoreButtonB31}
         >
           Complete
         </Button>

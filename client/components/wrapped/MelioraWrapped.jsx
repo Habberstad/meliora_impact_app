@@ -70,8 +70,6 @@ const MelioraWrapped = () => {
     downloadLink.click();
   };
 
-  console.log(sharePlaceholder);
-
   return (
     <div className="meliora-wrapped-container">
       <div className="meliora-wrapped-images">
