@@ -35,13 +35,13 @@ const OverviewTabContent = ({ data, category }) => {
         <div className="vision-title">Our Vision</div>
         <div className="vision-box-section">
           <div className="vision-box">
-            <WavesIcon sx={{ color: "#A400FF", fontSize: "60px" }} />
+            <WavesIcon sx={{ color: "#7209B7", fontSize: "60px" }} />
             <div className="vision-box-text">
               {data.vision_section.vision_1}
             </div>
           </div>
           <div className="vision-box">
-            <FavoriteBorderIcon sx={{ color: "#A400FF", fontSize: "60px" }} />
+            <FavoriteBorderIcon sx={{ color: "#7209B7", fontSize: "60px" }} />
             <div className="vision-box-text">
               {data.vision_section.vision_2}
             </div>
@@ -49,7 +49,7 @@ const OverviewTabContent = ({ data, category }) => {
         </div>
         <div className="vision-box-section">
           <div className="vision-box">
-            <WorkspacePremiumIcon sx={{ color: "#A400FF", fontSize: "60px" }} />
+            <WorkspacePremiumIcon sx={{ color: "#7209B7", fontSize: "60px" }} />
             <div className="vision-box-text">
               {data.vision_section.vision_3}
             </div>
@@ -57,7 +57,7 @@ const OverviewTabContent = ({ data, category }) => {
           <div className="vision-box">
             <SouthAmericaIcon
               sx={{
-                color: "#A400FF",
+                color: "#7209B7",
 
                 fontSize: "60px",
               }}
