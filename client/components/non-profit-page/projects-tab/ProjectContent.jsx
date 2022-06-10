@@ -10,7 +10,6 @@ import { NatureTile } from "./NatureTiles";
 const test_image =
   "https://images.unsplash.com/photo-1652894449003-11e4228e9ae7?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070";
 export const ProjectContent = ({ data }) => {
-  console.log("project", data);
   return (
     <>
       <div className="top-section">

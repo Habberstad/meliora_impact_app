@@ -7,7 +7,7 @@ export function DataTableRows(props) {
   return (
     <>
       {props.data.map((item) => (
-        <tr>
+        <tr key={item._id}>
           <td>{item._id}</td>
           <td>
             <DateFormater date={item.date} />

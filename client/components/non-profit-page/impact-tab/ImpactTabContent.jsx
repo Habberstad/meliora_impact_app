@@ -13,8 +13,6 @@ import GreenMiddleTile from "./GreenMiddleTile";
 import YellowImpactTile from "./YellowImpactTile";
 
 const ImpactTabContent = ({ data, category }) => {
-  console.log(data);
-  console.log(category);
   return (
     <div className="impact-main-container">
       <div className="impact-top-tile-section">

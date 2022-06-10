@@ -2,7 +2,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFish, faSchool } from "@fortawesome/free-solid-svg-icons";
 
 const GreenImpactTile = ({ data: { value, description }, category }) => {
-  console.log("cat", category);
   return (
     <div
       style={{ backgroundColor: "#E3FCE4" }}

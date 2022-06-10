@@ -27,7 +27,7 @@ export const SubscriptionTable = ({ data }) => {
         </thead>
         <tbody>
           {data.active_subscriptions.map((item) => (
-            <tr>
+            <tr key={item._id}>
               <td>{item._id}</td>
               <td>
                 {data.npo_partners.map((npo) => {

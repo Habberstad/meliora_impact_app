@@ -6,7 +6,6 @@ import KeyInformationTab from "./key-information-tab/KeyInformationTab";
 import * as React from "react";
 
 export function TabContent({ selectedTab, data }) {
-  console.log(data);
   return (
     <>
       {selectedTab === "overview" && (
