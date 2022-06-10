@@ -1,8 +1,8 @@
-import { Box, Button, Modal, TextField } from "@mui/material";
+import { Box, Button, InputAdornment, Modal, TextField } from "@mui/material";
 import { donateModalStyle } from "../wrapped/share-modal-style";
 import {
   donateAmountButton,
-  greenWidePlatformButton,
+  ReadMoreButtonB31,
   selectedDonateAmountButton,
 } from "../../styles/button-style-config";
 import * as React from "react";
@@ -101,6 +101,12 @@ function DonateModal({
               boxShadow:
                 "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.05)",
             }}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">kr </InputAdornment>
+              ),
+              endAdornment: <InputAdornment position="end">NOK</InputAdornment>,
+            }}
             onChange={addCustomPaymentAmount}
           />
         </div>
@@ -115,7 +121,7 @@ function DonateModal({
           onClick={handleSubmitDonation}
           variant="contained"
           style={{ marginTop: "30px" }}
-          sx={greenWidePlatformButton}
+          sx={ReadMoreButtonB31}
         >
           Complete
         </Button>
