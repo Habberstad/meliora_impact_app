@@ -396,22 +396,6 @@ export const allocationDonateButton = {
     "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.2)",
 };
 
-export const greenWidePlatformButton = {
-  height: "45px",
-  width: "410px",
-  borderRadius: "8px",
-  backgroundColor: "#B8F0DA",
-  color: "#000",
-  fontSize: "12px",
-  boxShadow:
-    "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.1)",
-  "&:hover": {
-    backgroundColor: "#a8e8d0",
-    boxShadow:
-      "0px 0px 2px rgba(148, 157, 176, 0.24), 0px 16px 32px -4px rgba(148, 157, 176, 0.1)",
-  },
-};
-
 export const selectedFilterTabStyleNew = {
   color: "#fff",
   backgroundColor: "#551477",
