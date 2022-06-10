@@ -10,7 +10,8 @@ export function ConsentModal(props) {
           <p style={{ fontSize: "18px" }}>
             By signing up, I, <strong> {props.userName}</strong> from{" "}
             <strong> {props.orgName}</strong>, hereby consent that all provided
-            information is correct and legitimate.
+            information is correct and legitimate. I also confirm that I have
+            the mandatory authority to register the company.
           </p>
           <p style={{ fontSize: "18px" }}>
             I consent that the account information provided by Google (name,
